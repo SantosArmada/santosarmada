@@ -62,7 +62,6 @@ body {
     object-fit: contain;
     filter: invert(1) sepia(1) saturate(1.5) hue-rotate(5deg) brightness(0.85);
 }
-}
 
 .nav-title {
     font-family: var(--font-title);
@@ -320,4 +319,70 @@ body {
     letter-spacing: 0.18em;
     color: var(--gold-dim);
     text-transform: uppercase;
+}
+/* --- Hamburger Menu --- */
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--gold);
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 8, 5, 0.98);
+        padding: 20px;
+        gap: 20px;
+        border-bottom: 0.5px solid var(--border);
+        z-index: 99;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .hero-title {
+        font-size: 36px;
+    }
+
+    .hero-tagline {
+        font-size: 12px;
+    }
+
+    .sections-grid {
+        padding: 40px 20px;
+    }
+
+    .quotes {
+        padding: 40px 20px;
+    }
+
+    .quotes-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        padding: 40px 20px;
+    }
+
+    .navbar {
+        padding: 14px 20px;
+        position: relative;
+    }
 }

@@ -8,13 +8,14 @@
 </head>
 <body>
 
-   <!-- NAVIGATION -->
+<!-- NAVIGATION -->
 <nav class="navbar">
     <div class="nav-logo">
         <img src="images/logo.png" alt="Santos Armada" class="nav-crest">
         <span class="nav-title">SANTOS ARMADA</span>
     </div>
-    <ul class="nav-links">
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="nav-links">
         <li><a href="/essays">Essays</a></li>
         <li><a href="/authors">Authors</a></li>
         <li><a href="/hispanic-timeline">Timeline</a></li>
@@ -184,16 +185,12 @@
         <p class="footer-bottom">Una conciencia · Infinitos reinos · Sin fronteras</p>
     </div>
 </footer>
-
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('nav-links');
+        nav.classList.toggle('open');
+    }
+</script>
 </body>
 </html>
-git remote add origin https://github.com/SantosArmada/santosarmada.git
-git branch -M main
-git push -u origin main
-git branch -M main
-git push -u origin main
-git push -u origin main
-git push origin main
-git remote -v
-git push origin main --force
-git status
+
