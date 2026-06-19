@@ -87,8 +87,9 @@
     width: 100%;
     height: auto;
     display: block;
-    max-height: 600px;
-    object-fit: cover;
+    max-height: 900px;
+    object-fit: contain;
+    background-color: #2a1f14;
 }
 
 .about-img-caption {
