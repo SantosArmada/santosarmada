@@ -48,6 +48,20 @@
     border: 3px solid #2a1f14;
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
     flex-shrink: 0;
+    opacity: 0;
+    transform: scale(0.7);
+    animation: portraitGrow 1.2s ease-out forwards;
+}
+
+@keyframes portraitGrow {
+    0% {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .about-hero-text {
