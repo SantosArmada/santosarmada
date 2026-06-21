@@ -6,7 +6,6 @@
     <title>Santos Armada — Una armada de conocimientos</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-
 </head>
 <body>
 
@@ -258,7 +257,17 @@
     }
   }
 
+  var animationRunning = false;
+
+  function startAnimation() {
+    if (!animationRunning) {
+      animationRunning = true;
+      requestAnimationFrame(draw);
+    }
+  }
+
   function draw() {
+    if (!animationRunning) return;
     var rect = canvas.parentElement.getBoundingClientRect();
     var w = rect.width, h = rect.height;
 
@@ -313,9 +322,18 @@
 
   window.addEventListener('resize', setup);
   setup();
-  requestAnimationFrame(draw);
+
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) {
+        startAnimation();
+      } else {
+        animationRunning = false;
+      }
+    });
+  });
+  observer.observe(canvas);
 })();
 </script>
 </body>
 </html>
-
