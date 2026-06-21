@@ -6,6 +6,7 @@
     <title>Santos Armada — Una armada de conocimientos</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+
 </head>
 <body>
 
@@ -28,7 +29,8 @@
 </nav>
 
     <!-- HERO -->
-<section class="hero">
+<section class="hero" id="gold-beams-backdrop">
+    <canvas id="gold-beams-canvas"></canvas>
     <div class="hero-content">
         <p class="hero-tagline">Guardián de historias · Tejedor de mundos · Hijo de muchos sueños</p>
         <h1 class="hero-title">SANTOS <span>ARMADA</span></h1>
@@ -193,6 +195,126 @@
         const nav = document.getElementById('nav-links');
         nav.classList.toggle('open');
     }
+</script>
+<script>
+(function () {
+  var canvas = document.getElementById('gold-beams-canvas');
+  var ctx = canvas.getContext('2d');
+
+  var SPEED_MULT   = 0.86;
+  var GOLD_PURITY  = 0.80;
+  var BEAM_COUNT   = 60;
+
+  var beams = [];
+
+  var goldColors = [
+    [255, 215, 120],
+    [255, 195, 90],
+    [255, 225, 160],
+    [230, 170, 60],
+    [255, 240, 200]
+  ];
+  var accentColors = [
+    [255, 140, 60],
+    [200, 130, 255]
+  ];
+
+  function pickColor() {
+    if (Math.random() < GOLD_PURITY) {
+      return goldColors[Math.floor(Math.random() * goldColors.length)];
+    }
+    return accentColors[Math.floor(Math.random() * accentColors.length)];
+  }
+
+  function resize() {
+    var rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width * window.devicePixelRatio;
+    canvas.height = rect.height * window.devicePixelRatio;
+    canvas.style.width = rect.width + 'px';
+    canvas.style.height = rect.height + 'px';
+    ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
+  }
+
+  function makeBeam(w, h) {
+    return {
+      x: Math.random() * w,
+      y: h + Math.random() * 100,
+      len: 90 + Math.random() * 180,
+      width: 4.5 + Math.random() * 5,
+      speed: 0.6 + Math.random() * 1.8,
+      sway: Math.random() * 0.6 - 0.3,
+      swayPhase: Math.random() * Math.PI * 2,
+      color: pickColor(),
+      alpha: 0.18 + Math.random() * 0.42
+    };
+  }
+
+  function initBeams(w, h) {
+    beams = [];
+    for (var i = 0; i < BEAM_COUNT; i++) {
+      var b = makeBeam(w, h);
+      b.y = Math.random() * (h + 200) - 100;
+      beams.push(b);
+    }
+  }
+
+  function draw() {
+    var rect = canvas.parentElement.getBoundingClientRect();
+    var w = rect.width, h = rect.height;
+
+    ctx.clearRect(0, 0, w, h);
+    var grad = ctx.createLinearGradient(0, 0, 0, h);
+    grad.addColorStop(0, '#0a0c12');
+    grad.addColorStop(1, '#1a1408');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, w, h);
+
+    ctx.globalCompositeOperation = 'lighter';
+
+    for (var i = 0; i < beams.length; i++) {
+      var b = beams[i];
+      b.y -= b.speed * SPEED_MULT;
+      b.swayPhase += 0.02;
+      var sx = b.x + Math.sin(b.swayPhase) * b.sway * 20;
+
+      var topY = Math.max(0, b.y - b.len);
+      var fadeBottom = Math.max(0, Math.min(1, b.y / h));
+      var edgeFade = Math.min(1, fadeBottom);
+
+      var lg = ctx.createLinearGradient(sx, b.y, sx, topY);
+      var c = b.color;
+      var a = b.alpha * edgeFade;
+      lg.addColorStop(0, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0)');
+      lg.addColorStop(0.5, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')');
+      lg.addColorStop(1, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0)');
+
+      ctx.strokeStyle = lg;
+      ctx.lineWidth = b.width;
+      ctx.lineCap = 'round';
+      ctx.beginPath();
+      ctx.moveTo(sx, b.y);
+      ctx.lineTo(sx, topY);
+      ctx.stroke();
+
+      if (b.y < -150) {
+        beams[i] = makeBeam(w, h);
+      }
+    }
+
+    ctx.globalCompositeOperation = 'source-over';
+    requestAnimationFrame(draw);
+  }
+
+  function setup() {
+    resize();
+    var rect = canvas.parentElement.getBoundingClientRect();
+    initBeams(rect.width, rect.height);
+  }
+
+  window.addEventListener('resize', setup);
+  setup();
+  requestAnimationFrame(draw);
+})();
 </script>
 </body>
 </html>
