@@ -175,3 +175,14 @@
         font-size: 17px;
     }
 }
+.about-link {
+    color: #2a1f14;
+    text-decoration: underline;
+    text-decoration-color: rgba(42, 31, 20, 0.4);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 0.2s ease;
+}
+
+.about-link:hover {
+    text-decoration-color: #2a1f14;
+}
