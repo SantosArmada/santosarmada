@@ -111,3 +111,147 @@
         font-size: 18px;
     }
 }
+.iz-hub-grid {
+    padding: 80px 24px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.iz-hub-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.iz-hub-title {
+    font-family: 'Oswald', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.iz-hub-sub {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    color: #999999;
+    letter-spacing: 0.02em;
+}
+
+.iz-hub-scroll {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding-bottom: 16px;
+    scroll-snap-type: x mandatory;
+}
+
+.iz-hub-scroll::-webkit-scrollbar {
+    height: 6px;
+}
+
+.iz-hub-scroll::-webkit-scrollbar-thumb {
+    background-color: #c41e1e;
+    border-radius: 3px;
+}
+
+.iz-hub-card {
+    position: relative;
+    flex: 0 0 240px;
+    height: 320px;
+    border-radius: 10px;
+    background-color: #151515;
+    border: 1px solid #2a2a2a;
+    text-decoration: none;
+    overflow: hidden;
+    scroll-snap-align: start;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.iz-hub-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 24px rgba(196, 30, 30, 0.25);
+}
+
+.iz-card-front {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 24px;
+    text-align: center;
+    transition: opacity 0.3s ease;
+}
+
+.iz-hub-card:hover .iz-card-front {
+    opacity: 0;
+}
+
+.iz-card-icon {
+    font-size: 40px;
+}
+
+.iz-card-front h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.iz-card-back {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 14px;
+    padding: 28px;
+    background-color: #c41e1e;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.iz-hub-card:hover .iz-card-back {
+    opacity: 1;
+}
+
+.iz-card-back h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.iz-card-back p {
+    font-family: 'Oswald', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    line-height: 1.5;
+}
+
+.iz-card-link {
+    font-family: 'Oswald', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 0.03em;
+}
+
+@media (max-width: 768px) {
+    .iz-hub-title {
+        font-size: 24px;
+    }
+
+    .iz-hub-card {
+        flex: 0 0 200px;
+        height: 280px;
+    }
+}
