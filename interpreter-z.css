@@ -342,10 +342,16 @@
 
 .izs-cat-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 2px;
     background-color: #2a2a2a;
     border: 1px solid #2a2a2a;
+}
+
+@media (max-width: 768px) {
+    .izs-cat-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
 .izs-cat-card {
