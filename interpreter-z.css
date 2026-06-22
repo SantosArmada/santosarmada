@@ -57,6 +57,39 @@
     display: block;
 }
 
+.iz-listeners {
+    padding: 70px 24px;
+    background-color: #0a0a0a;
+    border-top: 1px solid #2a2a2a;
+    border-bottom: 1px solid #2a2a2a;
+}
+
+.iz-listeners-inner {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.iz-listeners-image {
+    width: 100%;
+    max-width: 420px;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.iz-listeners-text {
+    flex: 1;
+}
+
+.iz-listeners-body {
+    font-family: 'Oswald', sans-serif;
+    font-size: 18px;
+    line-height: 1.8;
+    color: #cccccc;
+}
+
 .iz-footer {
     background-color: #0a0a0a;
     padding: 40px 24px;
@@ -110,6 +143,15 @@
     .iz-value-word {
         font-size: 18px;
     }
+    .iz-listeners-inner {
+    flex-direction: column;
+    gap: 24px;
+    text-align: center;
+}
+
+.iz-listeners-body {
+    font-size: 16px;
+}
 }
 .iz-hub-grid {
     padding: 80px 24px;
