@@ -474,3 +474,10 @@
         min-height: 320px;
     }
 }
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .izs-area {
+        background-attachment: scroll;
+        min-height: 380px;
+    }
+}
