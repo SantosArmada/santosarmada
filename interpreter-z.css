@@ -468,4 +468,9 @@
     .izs-title {
         font-size: 32px;
     }
+
+    .izs-area {
+        background-attachment: scroll;
+        min-height: 320px;
+    }
 }
