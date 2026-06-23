@@ -24,12 +24,14 @@ const highlightedCountries = {
 };
 
 const world = Globe()
-    (document.getElementById('globeViz'))
-    .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
-    .backgroundColor('rgba(0,0,0,0)')
-    .showAtmosphere(true)
-    .atmosphereColor('#4da6ff')
-    .atmosphereAltitude(0.18);
+       (document.getElementById('globeViz'))
+       .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
+       .backgroundColor('rgba(0,0,0,0)')
+       .showAtmosphere(true)
+       .atmosphereColor('#4da6ff')
+       .atmosphereAltitude(0.18)
+       .width(window.innerWidth)
+       .height(window.innerHeight);
 
 fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
     .then(res => res.json())
@@ -38,6 +40,20 @@ fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
 
         world
             .polygonsData(countries.features)
+            .then(topology => {
+    const countries = topojson.feature(topology, topology.objects.countries);
+
+    const matched = countries.features.filter(f => highlightedCountries[f.properties.name]);
+    console.log('Matched:', matched.length, 'of', Object.keys(highlightedCountries).length);
+
+    world
+        .polygonsData(countries.features)
+        .polygonCapColor(feat => {
+            const name = feat.properties.name;
+            return highlightedCountries[name] || 'rgba(255,255,255,0.04)';
+        })
+        // ...rest unchanged
+});
             .polygonCapColor(feat => {
                 const name = feat.properties.name;
                 return highlightedCountries[name] || 'rgba(255,255,255,0.04)';
