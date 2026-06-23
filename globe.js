@@ -38,22 +38,11 @@ fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
     .then(topology => {
         const countries = topojson.feature(topology, topology.objects.countries);
 
+        const matched = countries.features.filter(f => highlightedCountries[f.properties.name]);
+        console.log('Matched:', matched.length, 'of', Object.keys(highlightedCountries).length);
+
         world
             .polygonsData(countries.features)
-            .then(topology => {
-    const countries = topojson.feature(topology, topology.objects.countries);
-
-    const matched = countries.features.filter(f => highlightedCountries[f.properties.name]);
-    console.log('Matched:', matched.length, 'of', Object.keys(highlightedCountries).length);
-
-    world
-        .polygonsData(countries.features)
-        .polygonCapColor(feat => {
-            const name = feat.properties.name;
-            return highlightedCountries[name] || 'rgba(255,255,255,0.04)';
-        })
-        // ...rest unchanged
-});
             .polygonCapColor(feat => {
                 const name = feat.properties.name;
                 return highlightedCountries[name] || 'rgba(255,255,255,0.04)';
