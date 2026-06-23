@@ -1,0 +1,134 @@
+:root {
+    --gold: #c8a96e;
+    --neon-green: #39ff6a;
+    --neon-blue: #4da6ff;
+    --neon-pink: #ff2fb0;
+    --panel-bg: rgba(10, 14, 20, 0.6);
+    --text-main: #f0ead8;
+    --text-muted: #9aa6b5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.globe-page {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    color: var(--text-main);
+    background: #04060a;
+    overflow: hidden;
+    height: 100vh;
+}
+
+#globeViz {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.globe-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+    width: 70vw;
+    max-width: 700px;
+    opacity: 0.08;
+    pointer-events: none;
+}
+
+.globe-watermark-img {
+    width: 100%;
+    filter: invert(1) brightness(1.5) sepia(1) saturate(8) hue-rotate(280deg);
+}
+
+.navbar {
+    position: fixed;
+    top: 20px;
+    left: 30px;
+    z-index: 20;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.nav-crest {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 8px rgba(200, 169, 110, 0.5));
+}
+
+.nav-title {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+
+.globe-info-panel {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 20;
+    max-width: 320px;
+    padding: 22px 24px;
+    background: var(--panel-bg);
+    border-radius: 16px;
+    backdrop-filter: blur(14px) saturate(140%);
+    border: 1px solid rgba(200, 169, 110, 0.3);
+    box-shadow: 0 0 40px rgba(200, 169, 110, 0.1);
+}
+
+.globe-info-label {
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 8px;
+}
+
+.globe-info-title {
+    font-size: 18px;
+    color: var(--text-main);
+    margin: 0 0 10px;
+}
+
+.globe-info-body {
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        top: 14px;
+        left: 16px;
+    }
+
+    .globe-info-panel {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        max-width: none;
+        padding: 18px 20px;
+    }
+
+    .globe-info-title {
+        font-size: 16px;
+    }
+
+    .globe-info-body {
+        font-size: 12px;
+    }
+}
