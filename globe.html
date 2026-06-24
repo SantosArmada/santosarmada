@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Globo — Santos Armada</title>
     <link rel="stylesheet" href="globe.css">
+    <link rel="stylesheet" href="timeline.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+
 </head>
 <body class="globe-page">
 
@@ -21,17 +23,21 @@
 </div>
 
 <div id="globeViz"></div>
-
+<section class="timeline-section">
+    <div id="timelineMount"></div>
+</section>
 <div class="globe-info-panel" id="infoPanel">
     <p class="globe-info-label">Click a country</p>
     <h3 class="globe-info-title">Explore the Armada's Map</h3>
     <p class="globe-info-body">Each glowing country connects to authors, works, and history tied to that place.</p>
+<section class="timeline-section"><div id="timelineMount"></div></section>
 </div>
 
 
 <script src="https://unpkg.com/globe.gl@2.31.0/dist/globe.gl.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3"></script>
 <script src="globe.js"></script>
-
+<script src="timeline-data.js"></script>
+<script src="timeline.js"></script>
 </body>
 </html>

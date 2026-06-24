@@ -1,0 +1,339 @@
+/* =========================================================
+   TIME-AND-SPACE — Timeline Styles
+   Extends globe.css tokens. Load AFTER globe.css.
+   ========================================================= */
+
+.timeline-section {
+  position: relative;
+  width: 100%;
+  background: #04060a;
+  padding: 80px 0 120px;
+  overflow: hidden;
+}
+
+/* ---- Sticky dynamic header ---- */
+.timeline-header {
+  position: sticky;
+  top: 0;
+  z-index: 15;
+  padding: 22px 30px;
+  background: var(--panel-bg);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid rgba(200, 169, 110, 0.25);
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.timeline-header-era {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: color 0.3s ease;
+}
+
+.timeline-header-year {
+  font-size: 22px;
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.timeline-header-hint {
+  margin-left: auto;
+  font-size: 11px;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+}
+
+/* ---- Scroll track ---- */
+.timeline-track-wrapper {
+  position: relative;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 60px 0 40px;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.timeline-track-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+.timeline-track-wrapper::-webkit-scrollbar-thumb {
+  background: rgba(200, 169, 110, 0.35);
+  border-radius: 8px;
+}
+.timeline-track-wrapper::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.timeline-track {
+  position: relative;
+  height: 220px;
+  min-width: 100%;
+}
+
+/* Era bands sit behind the track as colored strata */
+.timeline-era-band {
+  position: absolute;
+  top: 96px;
+  height: 6px;
+  border-radius: 3px;
+  opacity: 0.55;
+}
+
+/* Era label printed directly on its band */
+.timeline-era-label {
+  position: absolute;
+  top: 106px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Main horizontal line */
+.timeline-spine {
+  position: absolute;
+  top: 99px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(240, 234, 216, 0.18);
+}
+
+/* ---- Entry markers ---- */
+.timeline-entry {
+  position: absolute;
+  top: 84px;
+  transform: translateX(-50%);
+  cursor: pointer;
+}
+
+.timeline-entry-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid #04060a;
+  box-shadow: 0 0 0 0 rgba(200, 169, 110, 0);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-entry[data-type="conflict"] .timeline-entry-dot { background: var(--neon-pink); }
+.timeline-entry[data-type="history"] .timeline-entry-dot { background: var(--neon-blue); }
+.timeline-entry[data-type="literature"] .timeline-entry-dot { background: var(--gold); }
+
+.timeline-entry:hover .timeline-entry-dot,
+.timeline-entry.is-active .timeline-entry-dot {
+  transform: scale(1.4);
+  box-shadow: 0 0 16px 4px currentColor;
+}
+
+.timeline-entry-year {
+  position: absolute;
+  top: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* Glyph lane — sits above the main entries, own offset row */
+.timeline-glyph {
+  position: absolute;
+  top: 40px;
+  transform: translateX(-50%);
+  font-size: 18px;
+  color: var(--gold);
+  cursor: pointer;
+}
+
+.timeline-glyph-stem {
+  position: absolute;
+  top: 58px;
+  left: 50%;
+  width: 1px;
+  height: 26px;
+  background: rgba(200, 169, 110, 0.4);
+  transform: translateX(-50%);
+}
+
+/* ---- Detail panel (click-to-open) ---- */
+.timeline-detail-panel {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 25;
+  max-width: 360px;
+  padding: 24px 26px;
+  background: var(--panel-bg);
+  border-radius: 16px;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  box-shadow: 0 0 40px rgba(200, 169, 110, 0.12);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.timeline-detail-panel.is-open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.timeline-detail-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 8px;
+}
+
+.timeline-detail-title {
+  font-size: 18px;
+  color: var(--text-main);
+  margin: 0 0 4px;
+  font-family: 'Georgia', serif;
+}
+
+.timeline-detail-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0 0 12px;
+}
+
+.timeline-detail-body {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.timeline-detail-flag {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--neon-pink);
+  border: 1px solid rgba(255, 47, 176, 0.4);
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+
+/* Personal note — distinct register from the curatorial description */
+.timeline-detail-personal {
+  margin-top: 14px;
+  padding: 12px 14px;
+  border-left: 2px solid var(--gold);
+  border-radius: 0;
+  background: rgba(200, 169, 110, 0.06);
+}
+
+.timeline-detail-personal-label {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 6px;
+}
+
+.timeline-detail-personal-text {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-main);
+  margin: 0;
+  font-style: italic;
+}
+
+.timeline-detail-personal-link {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 11px;
+  color: var(--neon-blue);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.timeline-detail-personal-link:hover {
+  text-decoration: underline;
+}
+
+/* ---- Butterfly Effect panel ---- */
+.timeline-butterfly {
+  margin: 50px auto 0;
+  max-width: 640px;
+  padding: 28px 30px;
+  background: var(--panel-bg);
+  border: 1px solid rgba(200, 169, 110, 0.3);
+  border-radius: 16px;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+}
+
+.timeline-butterfly-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--neon-green);
+  margin: 0 0 10px;
+}
+
+.timeline-butterfly-prompt {
+  font-size: 16px;
+  color: var(--text-main);
+  margin: 0 0 14px;
+  font-style: italic;
+}
+
+.timeline-butterfly-answer {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* ---- Keyboard focus visibility (accessibility floor) ---- */
+.timeline-entry:focus-visible .timeline-entry-dot,
+.timeline-glyph:focus-visible {
+  outline: 2px solid var(--neon-blue);
+  outline-offset: 4px;
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .timeline-track-wrapper { scroll-behavior: auto; }
+  .timeline-entry-dot,
+  .timeline-detail-panel {
+    transition: none;
+  }
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+  .timeline-header {
+    padding: 16px 18px;
+  }
+  .timeline-header-year {
+    font-size: 18px;
+  }
+  .timeline-detail-panel {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    max-width: none;
+  }
+  .timeline-butterfly {
+    margin: 30px 16px 0;
+    padding: 22px 20px;
+  }
+}
