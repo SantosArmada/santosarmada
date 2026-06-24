@@ -500,3 +500,128 @@
         min-height: 380px;
     }
 }
+/* ============================================
+   Z CORE VISUALIZATION — HERO BACKGROUND
+   Add this block to the end of interpreter-z.css
+   ============================================ */
+
+.izs-hero--viz {
+    position: relative;
+    overflow: hidden;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    --izs-viz-accent: #FF0055;
+}
+
+.izs-viz-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: #0a0a0a;
+}
+
+.izs-viz-layer::before {
+    content: '';
+    position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    background:
+        radial-gradient(ellipse 55% 55% at 50% 50%, rgba(18,3,28,0.85) 0%, transparent 70%),
+        radial-gradient(ellipse 100% 100% at 50% 50%, #06020c 0%, #0a0a0a 100%);
+}
+
+#izs-viz-canvas {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+#izs-viz-canvas canvas {
+    display: block;
+}
+
+#izs-viz-loading {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    color: rgba(255,255,255,0.45);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 4px;
+    pointer-events: none; transition: opacity 0.9s ease; z-index: 2;
+}
+#izs-viz-loading::after {
+    content: ''; display: inline-block; width: 5px; height: 5px;
+    border-radius: 50%; background: var(--izs-viz-accent); margin-left: 7px;
+    vertical-align: middle; animation: izs-viz-blink 1s steps(1) infinite;
+}
+@keyframes izs-viz-blink { 50% { opacity: 0; } }
+
+/* Theme picker + stats — kept as a fun easter egg, scoped to hero bounds */
+#izs-viz-ui-panel {
+    position: absolute; top: 18px; left: 18px; z-index: 3;
+    display: flex; flex-direction: column; gap: 10px;
+}
+
+#izs-viz-theme-selector {
+    display: flex; gap: 10px; align-items: center;
+    padding: 8px 12px;
+    background: rgba(6,6,10,0.65);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.06);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.5), 0 8px 28px rgba(0,0,0,0.7);
+    transition: box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.izs-viz-swatch {
+    width: 15px; height: 15px; border-radius: 50%; cursor: pointer;
+    border: 1.5px solid rgba(255,255,255,0.15); position: relative;
+    transition: transform 0.25s cubic-bezier(0.175,0.885,0.32,1.275), border-color 0.25s;
+}
+.izs-viz-swatch::after {
+    content: ''; position: absolute; inset: -4px; border-radius: 50%;
+    border: 1px solid transparent; transition: border-color 0.25s, box-shadow 0.25s;
+}
+.izs-viz-swatch:hover { transform: scale(1.2); }
+.izs-viz-swatch.active { border-color: rgba(255,255,255,0.75); transform: scale(1.15); }
+.izs-viz-swatch.active::after { border-color: rgba(255,255,255,0.2); box-shadow: 0 0 8px 2px currentColor; }
+
+#izs-viz-theme-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 0.54rem; letter-spacing: 3px;
+    color: rgba(255,255,255,0.28); padding-left: 4px;
+    user-select: none;
+}
+
+#izs-viz-stats {
+    position: absolute; bottom: 18px; right: 18px; z-index: 3;
+    text-align: right; font-family: 'Share Tech Mono', monospace;
+    font-size: 0.55rem; letter-spacing: 2px; line-height: 1.8;
+    color: rgba(255,255,255,0.16); pointer-events: none; user-select: none;
+}
+#izs-viz-stats span { display: block; }
+
+/* Hero text sits above the visualization */
+.izs-hero--viz .izs-hero-inner {
+    position: relative;
+    z-index: 2;
+    pointer-events: none; /* let drag-to-rotate pass through to the canvas behind the text */
+}
+
+.izs-hero--viz .izs-back,
+.izs-hero--viz .izs-contact-email {
+    pointer-events: auto; /* links stay clickable */
+}
+
+@media (max-width: 768px) {
+    .izs-hero--viz {
+        min-height: 460px;
+    }
+    #izs-viz-ui-panel {
+        top: 14px; left: 14px;
+    }
+    #izs-viz-stats {
+        bottom: 14px; right: 14px;
+        font-size: 0.5rem;
+    }
+}
