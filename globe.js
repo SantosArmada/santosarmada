@@ -68,3 +68,23 @@ window.addEventListener('resize', () => {
     world.width(window.innerWidth);
     world.height(window.innerHeight);
 });
+
+const ZOOM_ZONE_WIDTH_FRACTION = 0.5;
+
+function isInZoomZone(clientX) {
+    const zoneHalfWidth = (window.innerWidth * ZOOM_ZONE_WIDTH_FRACTION) / 2;
+    const center = window.innerWidth / 2;
+    return clientX >= center - zoneHalfWidth && clientX <= center + zoneHalfWidth;
+}
+
+const globeEl = document.getElementById('globeViz');
+
+globeEl.addEventListener(
+    'wheel',
+    (e) => {
+        if (!isInZoomZone(e.clientX)) {
+            e.stopImmediatePropagation();
+        }
+    },
+    { capture: true, passive: true }
+);
