@@ -9,10 +9,17 @@
 </head>
 <body>
 
+<!-- GOLD BEAMS BACKDROP (fixed, full page) -->
+<div id="gold-beams-backdrop">
+    <canvas id="gold-beams-canvas"></canvas>
+</div>
+
+<div class="page-content">
+
 <!-- NAVIGATION -->
 <nav class="navbar">
     <a href="/" class="nav-logo">
-        <img src="images/logo.png" alt="Santos Armada" class="nav-crest">
+        <img src="images/logo.PNG" alt="Santos Armada" class="nav-crest">
         <span class="nav-title">SANTOS ARMADA</span>
     </a>
     <button class="hamburger" onclick="toggleMenu()">☰</button>
@@ -28,8 +35,7 @@
 </nav>
 
     <!-- HERO -->
-<section class="hero" id="gold-beams-backdrop">
-    <canvas id="gold-beams-canvas"></canvas>
+<section class="hero">
     <div class="hero-content">
         <p class="hero-tagline">Guardián de historias · Tejedor de mundos · Hijo de muchos sueños</p>
         <h1 class="hero-title">SANTOS <span>ARMADA</span></h1>
@@ -63,102 +69,100 @@
    <!-- SECTIONS GRID -->
 <section class="sections-grid">
     <div class="grid-header">
-        <h2 class="grid-title">Explore the Armada</h2>
+        <h2 class="grid-title" id="explore-heading">Explore the Armada</h2>
         <p class="grid-sub">Una armada de conocimientos — para todos que anden buscando</p>
     </div>
     <div class="grid-inner">
         <a href="/essays" class="grid-card">
-            <span class="card-icon">✒️</span>
-            <h3>Essays</h3>
-            <p>Original literary writing</p>
+            <img src="images/grid/essays.jpg" alt="">
+            <span class="card-mark">✒️</span>
+            <div class="card-text"><h3>Essays</h3><p>Original literary writing</p></div>
         </a>
         <a href="/audiolibros" class="grid-card">
-            <span class="card-icon">🎙️</span>
-            <h3>Audiolibros</h3>
-            <p>Books read aloud</p>
+            <img src="images/grid/audiolibros.jpg" alt="">
+            <span class="card-mark">🎙️</span>
+            <div class="card-text"><h3>Audiolibros</h3><p>Books read aloud</p></div>
         </a>
         <a href="/authors" class="grid-card">
-            <span class="card-icon">⭐</span>
-            <h3>Author Spotlights</h3>
-            <p>Cortázar, Rulfo, Herrera</p>
+            <img src="images/grid/authors.jpg" alt="">
+            <span class="card-mark">⭐</span>
+            <div class="card-text"><h3>Author Spotlights</h3><p>Cortázar, Rulfo, Herrera</p></div>
         </a>
         <a href="/book-reviews" class="grid-card">
-            <span class="card-icon">🪶</span>
-            <h3>Book Reviews</h3>
-            <p>Rated in quetzal feathers</p>
+            <img src="images/grid/book-reviews.jpg" alt="">
+            <span class="card-mark">🪶</span>
+            <div class="card-text"><h3>Book Reviews</h3><p>Rated in quetzal feathers</p></div>
         </a>
-        <<a href="/space-and-time" class="grid-card">
-    <span class="card-icon">📜</span>
-    <h3>Space and Time</h3>
-    <p>100 AD to now</p>
-</a>
+        <a href="/space-and-time" class="grid-card">
+            <img src="images/grid/space-and-time.jpg" alt="">
+            <span class="card-mark">📜</span>
+            <div class="card-text"><h3>Space and Time</h3><p>700 AD to now</p></div>
+        </a>
         <a href="/interpreter-z" class="grid-card">
-            <span class="card-icon">⚔️</span>
-            <h3>Interpreter Z</h3>
-            <p>The craft of language</p>
+            <img src="images/grid/interpreter-z.jpg" alt="">
+            <span class="card-mark">⚔️</span>
+            <div class="card-text"><h3>Interpreter Z</h3><p>The craft of language</p></div>
         </a>
-      <a href="/the-pump-room" class="grid-card">
-    <span class="card-icon">🎬</span>
-    <h3>The Pump Room</h3>
-            <p>Visualized storytelling</p>
+        <a href="/the-pump-room" class="grid-card">
+            <img src="images/grid/pump-room.jpg" alt="">
+            <span class="card-mark">🎬</span>
+            <div class="card-text"><h3>The Pump Room</h3><p>Visualized storytelling</p></div>
         </a>
         <a href="/libritos" class="grid-card">
-            <span class="card-icon">📖</span>
-            <h3>Libritos</h3>
-            <p>Read by the next generation</p>
+            <img src="images/grid/libritos.jpg" alt="">
+            <span class="card-mark">📖</span>
+            <div class="card-text"><h3>Libritos</h3><p>Read by the next generation</p></div>
         </a>
         <a href="/academia" class="grid-card">
-            <span class="card-icon">🔬</span>
-           <h3>Academia</h3>
-            <p>Research + Journals</p>
+            <img src="images/grid/academia.jpg" alt="">
+            <span class="card-mark">🔬</span>
+            <div class="card-text"><h3>Academia</h3><p>Research + Journals</p></div>
         </a>
         <a href="/interviews" class="grid-card">
-            <span class="card-icon">🎥</span>
-            <h3>Interviews</h3>
-            <p>Authors & scholars</p>
+            <img src="images/grid/interviews.jpg" alt="">
+            <span class="card-mark">🎥</span>
+            <div class="card-text"><h3>Interviews</h3><p>Authors & scholars</p></div>
         </a>
         <a href="/museos" class="grid-card">
-            <span class="card-icon">🏛️</span>
-            <h3>Museos</h3>
-            <p>Reflexiones culturales</p>
+            <img src="images/grid/museos.jpg" alt="">
+            <span class="card-mark">🏛️</span>
+            <div class="card-text"><h3>Museos</h3><p>Reflexiones culturales</p></div>
         </a>
         <a href="/conferences" class="grid-card">
-            <span class="card-icon">🎤</span>
-            <h3>Conferences</h3>
-            <p>Talks & events</p>
+            <img src="images/grid/conferences.jpg" alt="">
+            <span class="card-mark">🎤</span>
+            <div class="card-text"><h3>Conferences</h3><p>Talks & events</p></div>
         </a>
         <a href="/galería" class="grid-card">
-            <span class="card-icon">📷</span>
-            <h3>Galería</h3>
-            <p>Eventos · Memorias · Vida</p>
+            <img src="images/grid/galeria.jpg" alt="">
+            <span class="card-mark">📷</span>
+            <div class="card-text"><h3>Galería</h3><p>Eventos · Memorias · Vida</p></div>
         </a>
         <a href="/recomendaciones" class="grid-card">
-            <span class="card-icon">📚</span>
-            <h3>Recomendaciones</h3>
-            <p>Literatura que enriquece</p>
+            <img src="images/grid/recomendaciones.jpg" alt="">
+            <span class="card-mark">📚</span>
+            <div class="card-text"><h3>Recomendaciones</h3><p>Literatura que enriquece</p></div>
         </a>
         <a href="/presentaciones" class="grid-card">
-            <span class="card-icon">📊</span>
-            <h3>Presentaciones</h3>
-            <p>Slide decks & talks</p>
+            <img src="images/grid/presentaciones.jpg" alt="">
+            <span class="card-mark">📊</span>
+            <div class="card-text"><h3>Presentaciones</h3><p>Slide decks & talks</p></div>
         </a>
         <a href="/cv" class="grid-card">
-            <span class="card-icon">📋</span>
-            <h3>Curriculum Vitae</h3>
-            <p>Scholar · Interpreter · Writer</p>
+            <img src="images/grid/cv.jpg" alt="">
+            <span class="card-mark">📋</span>
+            <div class="card-text"><h3>Curriculum Vitae</h3><p>Scholar · Interpreter · Writer</p></div>
         </a>
-        
-     <a href="/mercadeo" class="grid-card">
-    <span class="card-icon">🏪</span>
-    <h3>Mercadeo</h3>
-    <p>Merch · Rentals · Marketplace</p>
-</a>
+        <a href="/mercadeo" class="grid-card">
+            <img src="images/grid/mercadeo.jpg" alt="">
+            <span class="card-mark">🏪</span>
+            <div class="card-text"><h3>Mercadeo</h3><p>Merch · Rentals · Marketplace</p></div>
+        </a>
         <a href="/archives" class="grid-card">
-    <span class="card-icon">📜</span>
-    <h3>Archives</h3>
-    <p>Archival research & primary sources</p>
-</a>
-       
+            <img src="images/grid/archives.jpg" alt="">
+            <span class="card-mark">📜</span>
+            <div class="card-text"><h3>Archives</h3><p>Archival research & primary sources</p></div>
+        </a>
     </div>
 </section>
 
@@ -181,6 +185,8 @@
         <p class="footer-bottom">Una conciencia · Infinitos reinos · Sin fronteras</p>
     </div>
 </footer>
+
+</div><!-- /.page-content -->
 <script>
     function toggleMenu() {
         const nav = document.getElementById('nav-links');
@@ -188,64 +194,83 @@
     }
 </script>
 <script>
+// ---- Word-by-word scroll reveal for "Explore the Armada" ----
+(function () {
+    var heading = document.getElementById('explore-heading');
+    if (!heading) return;
+    var words = heading.textContent.trim().split(/\s+/);
+    heading.innerHTML = words.map(function (w, i) {
+        return '<span class="ts-word" style="animation-delay:' + (i * 90) + 'ms;">' + w + '&nbsp;</span>';
+    }).join('');
+
+    var triggered = false;
+    var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (entry.isIntersecting && !triggered) {
+                triggered = true;
+                heading.classList.add('is-revealed');
+                observer.disconnect();
+            }
+        });
+    }, { threshold: 0.4 });
+    observer.observe(heading);
+})();
+</script>
+<script>
+// ---- Full-page gold beams backdrop: beams are born amber, age to gold as they rise ----
 (function () {
   var canvas = document.getElementById('gold-beams-canvas');
   var ctx = canvas.getContext('2d');
 
-  var SPEED_MULT   = 0.86;
-  var GOLD_PURITY  = 0.80;
-  var BEAM_COUNT   = 60;
+  var SPEED_MULT  = 0.86;
+  var BEAM_COUNT  = 60;
+
+  var AMBER = [255, 145, 40];
+  var GOLD  = [255, 215, 140];
 
   var beams = [];
 
-  var goldColors = [
-    [255, 215, 120],
-    [255, 195, 90],
-    [255, 225, 160],
-    [230, 170, 60],
-    [255, 240, 200]
-  ];
-  var accentColors = [
-    [255, 140, 60],
-    [200, 130, 255]
-  ];
+  function lerp(a, b, t) { return a + (b - a) * t; }
 
-  function pickColor() {
-    if (Math.random() < GOLD_PURITY) {
-      return goldColors[Math.floor(Math.random() * goldColors.length)];
-    }
-    return accentColors[Math.floor(Math.random() * accentColors.length)];
+  function colorForAge(t) {
+    t = Math.max(0, Math.min(1, t));
+    return [
+      lerp(AMBER[0], GOLD[0], t),
+      lerp(AMBER[1], GOLD[1], t),
+      lerp(AMBER[2], GOLD[2], t)
+    ];
   }
 
   function resize() {
-    var rect = canvas.parentElement.getBoundingClientRect();
-    canvas.width = rect.width * window.devicePixelRatio;
-    canvas.height = rect.height * window.devicePixelRatio;
-    canvas.style.width = rect.width + 'px';
-    canvas.style.height = rect.height + 'px';
+    var w = window.innerWidth, h = window.innerHeight;
+    canvas.width = w * window.devicePixelRatio;
+    canvas.height = h * window.devicePixelRatio;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
     ctx.setTransform(window.devicePixelRatio, 0, 0, window.devicePixelRatio, 0, 0);
   }
 
-  function makeBeam(w, h) {
+  function spawnBeam(w, h, randomY) {
+    var len = 90 + Math.random() * 180;
+    var y = randomY ? (Math.random() * (h + 200) - 100) : (h + Math.random() * 100);
     return {
       x: Math.random() * w,
-      y: h + Math.random() * 100,
-      len: 90 + Math.random() * 180,
+      y: y,
+      startY: y,
+      len: len,
       width: 4.5 + Math.random() * 5,
       speed: 0.6 + Math.random() * 1.8,
       sway: Math.random() * 0.6 - 0.3,
       swayPhase: Math.random() * Math.PI * 2,
-      color: pickColor(),
-      alpha: 0.18 + Math.random() * 0.42
+      alpha: 0.18 + Math.random() * 0.42,
+      lifespan: (h + 250) * 0.45
     };
   }
 
   function initBeams(w, h) {
     beams = [];
     for (var i = 0; i < BEAM_COUNT; i++) {
-      var b = makeBeam(w, h);
-      b.y = Math.random() * (h + 200) - 100;
-      beams.push(b);
+      beams.push(spawnBeam(w, h, true));
     }
   }
 
@@ -260,14 +285,10 @@
 
   function draw() {
     if (!animationRunning) return;
-    var rect = canvas.parentElement.getBoundingClientRect();
-    var w = rect.width, h = rect.height;
+    var w = window.innerWidth, h = window.innerHeight;
 
     ctx.clearRect(0, 0, w, h);
-    var grad = ctx.createLinearGradient(0, 0, 0, h);
-    grad.addColorStop(0, '#0a0c12');
-    grad.addColorStop(1, '#1a1408');
-    ctx.fillStyle = grad;
+    ctx.fillStyle = '#0a0805';
     ctx.fillRect(0, 0, w, h);
 
     ctx.globalCompositeOperation = 'lighter';
@@ -278,12 +299,15 @@
       b.swayPhase += 0.02;
       var sx = b.x + Math.sin(b.swayPhase) * b.sway * 20;
 
-      var topY = Math.max(0, b.y - b.len);
+      var topY = Math.max(-50, b.y - b.len);
       var fadeBottom = Math.max(0, Math.min(1, b.y / h));
       var edgeFade = Math.min(1, fadeBottom);
 
+      var traveled = b.startY - b.y;
+      var ageT = Math.max(0, Math.min(1, traveled / b.lifespan));
+      var c = colorForAge(ageT);
+
       var lg = ctx.createLinearGradient(sx, b.y, sx, topY);
-      var c = b.color;
       var a = b.alpha * edgeFade;
       lg.addColorStop(0, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',0)');
       lg.addColorStop(0.5, 'rgba(' + c[0] + ',' + c[1] + ',' + c[2] + ',' + a + ')');
@@ -298,7 +322,7 @@
       ctx.stroke();
 
       if (b.y < -150) {
-        beams[i] = makeBeam(w, h);
+        beams[i] = spawnBeam(w, h, false);
       }
     }
 
@@ -308,23 +332,12 @@
 
   function setup() {
     resize();
-    var rect = canvas.parentElement.getBoundingClientRect();
-    initBeams(rect.width, rect.height);
+    initBeams(window.innerWidth, window.innerHeight);
   }
 
   window.addEventListener('resize', setup);
   setup();
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        startAnimation();
-      } else {
-        animationRunning = false;
-      }
-    });
-  });
-  observer.observe(canvas);
+  startAnimation();
 })();
 </script>
 </body>
