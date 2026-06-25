@@ -144,6 +144,25 @@ body {
     color: var(--gold);
     text-transform: uppercase;
 }
+/* --- Singularity Panel --- */
+#singularity-panel {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    overflow: hidden;
+    background: transparent;
+}
+
+#singularity-canvas-wrap {
+    position: absolute;
+    inset: 0;
+}
+
+@media (max-width: 768px) {
+    #singularity-panel {
+        height: 50vh;
+    }
+}
 /* --- Quotes --- */
 .quotes {
     padding: 60px 48px;
