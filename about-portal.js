@@ -136,10 +136,7 @@
 
     arcGroup.position.set(center.x, center.y, 0);
     arcGroup.rotation.z = (PLANET_TILT_DEG * Math.PI) / 180;
-    scene.add(arcGroup); 
     scene.add(arcGroup);
-
-
 
     // sparse sparkle dust riding on the same orbits, for texture/depth
     const SPARK_COUNT = 380;
