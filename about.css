@@ -94,6 +94,7 @@
 .about-fullwidth-img {
     position: relative;
     width: 100%;
+    aspect-ratio: 1448 / 1086;
     z-index: 2;
 }
 
@@ -185,4 +186,44 @@
 
 .about-link:hover {
     text-decoration-color: #2a1f14;
+}
+
+#about-portal-canvas {
+    position: absolute;
+    left: 14.8%;
+    top: 39.44%;
+    width: 70.32%;
+    height: 53.99%;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+#about-portal-canvas canvas {
+    display: block;
+    width: 100% !important;
+    height: 100% !important;
+}
+/* ===== POR QUÉ SANTOS ARMADA — side-by-side on desktop ===== */
+.about-final-wrap {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.about-final-wrap .about-fullwidth-img {
+    flex: 1 1 50%;
+    margin: 0;
+}
+
+.about-final-wrap .about-section {
+    flex: 1 1 50%;
+}
+
+@media (max-width: 800px) {
+    .about-final-wrap {
+        flex-direction: column;
+    }
 }
