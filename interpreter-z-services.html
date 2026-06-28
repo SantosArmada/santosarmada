@@ -20,7 +20,7 @@
         <div id="izs-viz-canvas"></div>
     </div>
 
-    <!-- Theme picker + stats (easter egg, sits inside hero bounds) -->
+    <!-- Theme picker (easter egg, sits inside hero bounds) -->
     <div id="izs-viz-ui-panel">
         <div id="izs-viz-theme-selector">
             <div class="izs-viz-swatch active" data-idx="0" style="background:#FF0055;color:#FF0055;"></div>
@@ -30,12 +30,6 @@
         </div>
         <div id="izs-viz-theme-label">NEON MAGENTA</div>
     </div>
-    <div id="izs-viz-stats">
-        <span id="izs-viz-stat-nodes">NODES — 300</span>
-        <span id="izs-viz-stat-theme">THEME — 01 / 04</span>
-        <span id="izs-viz-stat-fps">FPS — —</span>
-    </div>
-
     <!-- Hero text content (z-index: 2, on top of visualization) -->
     <div class="izs-hero-inner">
         <a href="/interpreter-z" class="izs-back">← Interpreter Z</a>
@@ -558,14 +552,11 @@ scene.add(mainGroup);
 
 const selector  = document.getElementById('izs-viz-theme-selector');
 const label     = document.getElementById('izs-viz-theme-label');
-const statTheme = document.getElementById('izs-viz-stat-theme');
-const statFPS   = document.getElementById('izs-viz-stat-fps');
 
 function applyTheme(idx) {
     currentThemeIdx = idx;
     document.querySelectorAll('.izs-viz-swatch').forEach((s, i) => s.classList.toggle('active', i === idx));
     label.textContent     = THEMES[idx].name;
-    statTheme.textContent = `THEME — 0${idx+1} / 04`;
     heroEl.style.setProperty('--izs-viz-accent', THEMES[idx].hex);
 }
 document.querySelectorAll('.izs-viz-swatch').forEach(sw =>
@@ -575,18 +566,10 @@ applyTheme(0);
 
 document.getElementById('izs-viz-loading').style.opacity = '0';
 const clock = new THREE.Clock();
-let frames = 0, lastFPST = performance.now();
 
 function animate() {
     requestAnimationFrame(animate);
     const t = clock.getElapsedTime();
-
-    frames++;
-    const now = performance.now();
-    if (now - lastFPST >= 1000) {
-        statFPS.textContent = `FPS — ${frames}`;
-        frames = 0; lastFPST = now;
-    }
 
     const theme = THEMES[currentThemeIdx];
     instMat.uniforms.uBaseColor.value.lerp(theme.base, 0.04);
