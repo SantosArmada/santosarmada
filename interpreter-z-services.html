@@ -42,6 +42,14 @@
         <h1 class="izs-title">Services</h1>
         <p class="izs-sub">Interpreting Happens Here.</p>
     </div>
+
+    <!-- Scroll-down indicator -->
+    <button type="button" class="izs-scroll-cue" id="izs-scroll-cue" aria-label="Scroll to services">
+        <span>scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4v16M5 13l7 7 7-7"/>
+        </svg>
+    </button>
 </section>
 
 <!-- SERVICE CATEGORIES -->
@@ -87,6 +95,12 @@
     </a>
     <p class="iz-copyright">© 2026 Interpreter Z · Los Angeles, CA</p>
 </footer>
+
+<script>
+document.getElementById('izs-scroll-cue').addEventListener('click', () => {
+    document.querySelector('.izs-categories').scrollIntoView({ behavior: 'smooth' });
+});
+</script>
 
 <script type="importmap">
 { "imports": {
