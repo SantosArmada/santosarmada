@@ -213,13 +213,19 @@
     return new THREE.CanvasTexture(c);
   }
 
-  function onResize() {
+ function onResize() {
     const width = mount.clientWidth;
     const height = mount.clientHeight;
     if (!width || !height) return;
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
+
+    if (disk) {
+      const center = anchorToWorld(PLANET_ANCHOR, camera.aspect);
+      disk.arcGroup.position.set(center.x, center.y, 0);
+      disk.sparks.position.set(center.x, center.y, 0);
+    }
   }
 
   function animate() {
