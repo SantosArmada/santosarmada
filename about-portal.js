@@ -27,6 +27,14 @@
   const PLANET_ANCHOR = { x: 0.62, y: 0.53 }; // ringed planet, center
   const PLANET_TILT_DEG = -15; // matches the painted rings' downward-right tilt
 
+  // Camera distance, in world units. Increasing this zooms the view OUT
+  // (same FOV angle, but the frustum is wider at a greater distance),
+  // which makes the same orbit geometry appear smaller/more contained
+  // within the rendered frame. Must match the camDist used in init()'s
+  // camera.position.set — anchorToWorld() relies on the same value to
+  // keep the orbit's center locked to PLANET_ANCHOR.
+  const CAM_DIST = 13; // was 9 — increased to pull the dust ring in from the frame edges
+
   let scene, camera, renderer, clock;
   let disk;
   let raf = null;
@@ -37,7 +45,7 @@
   // Convert a 0..1 anchor (in image space) to world-space X/Y at z=0,
   // matching the camera's view frustum at the current aspect ratio.
   function anchorToWorld(anchor, aspect) {
-    const camDist = 9;
+    const camDist = CAM_DIST;
     const vFOV = (50 * Math.PI) / 180;
     const viewHeight = 2 * Math.tan(vFOV / 2) * camDist;
     const viewWidth = viewHeight * aspect;
@@ -54,7 +62,7 @@
     scene.background = null; // transparent, image shows through edges
 
     camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
-    camera.position.set(0, 0, 9);
+    camera.position.set(0, 0, CAM_DIST);
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
