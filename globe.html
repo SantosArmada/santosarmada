@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Globo — Santos Armada</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="globe.css">
     <link rel="stylesheet" href="timeline.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -23,6 +25,15 @@
 </div>
 
 <div id="globeViz"></div>
+
+<!-- Scroll-down indicator -->
+<button type="button" class="globe-scroll-cue" id="globe-scroll-cue" aria-label="Scroll to timeline">
+    <span>scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 4v16M5 13l7 7 7-7"/>
+    </svg>
+</button>
+
 <section class="timeline-section">
     <div id="timelineMount"></div>
 </section>
@@ -38,5 +49,10 @@
 <script src="globe.js"></script>
 <script src="timeline-data.js"></script>
 <script src="timeline.js"></script>
+<script>
+document.getElementById('globe-scroll-cue').addEventListener('click', () => {
+    document.querySelector('.timeline-section').scrollIntoView({ behavior: 'smooth' });
+});
+</script>
 </body>
 </html>
