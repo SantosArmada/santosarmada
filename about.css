@@ -176,6 +176,11 @@
         font-size: 17px;
     }
 }
+@media (max-width: 768px) {
+    .about-final-wrap .about-fullwidth {
+        max-height: none;
+    }
+}
 .about-link {
     color: #2a1f14;
     text-decoration: underline;
@@ -214,6 +219,8 @@
 }
 
 .about-final-wrap .about-fullwidth-img {
+    aspect-ratio: auto;
+    height: auto;
     flex: 1 1 50%;
     margin: 0;
 }
