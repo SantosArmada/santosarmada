@@ -62,6 +62,7 @@
     scene.background = null; // transparent, image shows through edges
 
     camera = new THREE.PerspectiveCamera(50, width / height, 0.1, 100);
+    window.__debugCamera = camera;
     camera.position.set(0, 0, CAM_DIST);
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -197,6 +198,7 @@
       tilt,
       sparkData: { orbitRadius, orbitAngle, orbitSpeed },
     };
+    window.__debugDisk = disk;
   }
 
   function makeSoftDotTexture() {
