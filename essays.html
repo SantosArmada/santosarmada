@@ -2,277 +2,679 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Essays — Santos Armada</title>
-<link rel="stylesheet" href="essays.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+:root{
+  --green:#00ff88;
+  --black:#0a0a0a;
+  --white:#ffffff;
+  --off-white:#e8e8e8;
+  --dim:#999;
+}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Arial Black', sans-serif;
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:1.2rem 2.5rem;
+  background:rgba(10,10,10,0.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+.logo-img{
+  height:48px;
+  width:auto;
+  display:block;
+  filter:invert(1);
+  transition:filter 0.25s ease, opacity 0.25s ease;
+}
+.logo-img:hover{
+  filter:invert(1) sepia(1) saturate(4) hue-rotate(90deg);
+}
+.footer-logo-img{
+  height:56px;
+}
+.nav-logo{display:flex;align-items:center;}
+.footer-logo{display:flex;align-items:center;}
+
+.nav-links{
+  display:flex;
+  gap:2rem;
+  list-style:none;
+  align-items:center;
+}
+
+.nav-links a{
+  font-family:'Arial Black', sans-serif;
+  font-size:0.72rem;
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--off-white);
+  text-decoration:none;
+  transition:color 0.2s;
+  position:relative;
+}
+.nav-links a::after{
+  content:'';
+  position:absolute;
+  bottom:-4px;left:0;right:0;
+  height:1px;
+  background:var(--green);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.25s ease;
+}
+.nav-links a:hover{color:var(--green);}
+.nav-links a:hover::after{transform:scaleX(1);}
+.nav-links a.active{color:var(--green);}
+.nav-links a.active::after{transform:scaleX(1);}
+
+/* hamburger */
+.hamburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  cursor:pointer;
+  background:none;border:none;padding:4px;
+}
+.hamburger span{
+  display:block;width:24px;height:2px;
+  background:var(--white);
+  transition:all 0.3s ease;
+}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+.mobile-menu{
+  display:none;
+  position:fixed;
+  top:0;left:0;right:0;bottom:0;
+  background:var(--black);
+  z-index:99;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:2.5rem;
+}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{
+  font-family:'Arial Black', sans-serif;
+  font-size:1.4rem;
+  font-weight:600;
+  letter-spacing:0.15em;
+  text-transform:uppercase;
+  color:var(--white);
+  text-decoration:none;
+  transition:color 0.2s;
+}
+.mobile-menu a:hover{color:var(--green);}
+
+/* ── HERO ── */
+.hero{
+  position:relative;
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  background:var(--black);
+  overflow:hidden;
+}
+
+.hero-tagline{
+  font-family:'Arial Black', sans-serif;
+  font-size:clamp(0.7rem, 1.5vw, 0.9rem);
+  letter-spacing:0.35em;
+  text-transform:uppercase;
+  color:var(--dim);
+  margin-bottom:1.5rem;
+  text-align:center;
+}
+.hero-tagline span{color:var(--green);}
+
+.text-effect{
+  position:relative;
+  width:100%;
+  height:clamp(130px, 18vw, 200px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+
+.title-ghost{
+  font-family:'Arial Black', sans-serif;
+  font-size:clamp(3.5rem, 11vw, 10rem);
+  font-weight:900;
+  color:#fff;
+  text-align:center;
+  position:absolute;
+  white-space:nowrap;
+  opacity:0;
+  letter-spacing:0.25em;
+  transform:scaleX(1.1);
+  left:50%;
+  top:50%;
+  translate:-50% -50%;
+}
+
+.slice-container{
+  position:absolute;
+  width:100%;
+  height:100%;
+}
+
+.slice{
+  position:absolute;
+  width:100%;
+  background:#fff;
+  left:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+  color:#000;
+}
+
+.slice-text{
+  font-family:'Arial Black', sans-serif;
+  font-size:clamp(3.5rem, 11vw, 10rem);
+  font-weight:900;
+  white-space:nowrap;
+  position:absolute;
+  letter-spacing:0.25em;
+  transform:scaleX(1.1);
+}
+
+.hero-sub{
+  margin-top:2.5rem;
+  font-family:'Arial Black', sans-serif;
+  font-size:clamp(1rem, 2vw, 1.25rem);
+  font-style:italic;
+  color:var(--dim);
+  letter-spacing:0.05em;
+  text-align:center;
+}
+.hero-sub em{
+  color:var(--white);
+  font-style:normal;
+}
+
+.scroll-hint{
+  position:absolute;
+  bottom:2rem;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.4rem;
+  opacity:0.4;
+}
+.scroll-hint span{
+  font-family:'Arial Black', sans-serif;
+  font-size:0.6rem;
+  letter-spacing:0.3em;
+  text-transform:uppercase;
+  color:var(--white);
+}
+.scroll-hint::after{
+  content:'';
+  width:1px;height:2rem;
+  background:var(--white);
+  animation:scrollPulse 1.8s ease-in-out infinite;
+}
+@keyframes scrollPulse{
+  0%,100%{transform:scaleY(1);opacity:0.4;}
+  50%{transform:scaleY(1.4);opacity:1;}
+}
+
+/* ── ERA GRID SECTION ── */
+.era-section{
+  padding:6rem 2.5rem 4rem;
+  max-width:1400px;
+  margin:0 auto;
+}
+
+.section-label{
+  font-family:'Arial Black', sans-serif;
+  font-size:0.68rem;
+  letter-spacing:0.4em;
+  text-transform:uppercase;
+  color:var(--green);
+  margin-bottom:3rem;
+  display:flex;
+  align-items:center;
+  gap:1rem;
+}
+.section-label::after{
+  content:'';
+  flex:1;
+  height:1px;
+  background:rgba(255,255,255,0.08);
+}
+
+.era-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+}
+
+/* ── ERA CARD ── */
+.era-card{
+  position:relative;
+  padding:3.5rem 3rem;
+  border-top:1px solid rgba(255,255,255,0.08);
+  cursor:pointer;
+  overflow:hidden;
+  transition:background 0.4s ease;
+  text-decoration:none;
+  display:block;
+  color:inherit;
+}
+.era-card:last-child{border-bottom:1px solid rgba(255,255,255,0.08);}
+
+/* green fill sweep on hover */
+.era-card::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:var(--green);
+  transform:translateX(-100%);
+  transition:transform 0.5s cubic-bezier(0.77,0,0.18,1);
+  z-index:0;
+}
+.era-card:hover::before{transform:translateX(0);}
+
+/* corner brackets */
+.era-card .bracket-tl,
+.era-card .bracket-br{
+  position:absolute;
+  width:20px;height:20px;
+  opacity:0;
+  transition:opacity 0.3s ease 0.1s;
+  z-index:1;
+}
+.era-card .bracket-tl{
+  top:1.2rem;left:1.2rem;
+  border-top:2px solid var(--black);
+  border-left:2px solid var(--black);
+}
+.era-card .bracket-br{
+  bottom:1.2rem;right:1.2rem;
+  border-bottom:2px solid var(--black);
+  border-right:2px solid var(--black);
+}
+.era-card:hover .bracket-tl,
+.era-card:hover .bracket-br{opacity:1;}
+
+.era-card-inner{
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:2rem;
+}
+
+.era-left{flex:1;}
+
+.era-number{
+  font-family:'Arial Black', sans-serif;
+  font-size:0.65rem;
+  font-weight:600;
+  letter-spacing:0.4em;
+  text-transform:uppercase;
+  color:var(--green);
+  margin-bottom:0.75rem;
+  transition:color 0.3s;
+}
+.era-card:hover .era-number{color:var(--black);}
+
+.era-name{
+  font-family:'Arial Black', sans-serif;
+  font-size:clamp(1.8rem, 4vw, 3.5rem);
+  font-weight:900;
+  letter-spacing:0.03em;
+  color:var(--white);
+  line-height:1;
+  transition:color 0.3s;
+  text-transform:uppercase;
+}
+.era-card:hover .era-name{color:var(--black);}
+
+.era-dates{
+  font-family:'Arial Black', sans-serif;
+  font-size:1rem;
+  font-style:italic;
+  color:var(--dim);
+  margin-top:0.6rem;
+  transition:color 0.3s;
+}
+.era-card:hover .era-dates{color:rgba(0,0,0,0.6);}
+
+.era-desc{
+  font-family:'Arial Black', sans-serif;
+  font-size:1rem;
+  line-height:1.6;
+  color:rgba(255,255,255,0.45);
+  margin-top:1rem;
+  max-width:550px;
+  transition:color 0.3s;
+}
+.era-card:hover .era-desc{color:rgba(0,0,0,0.65);}
+
+.era-right{
+  flex-shrink:0;
+  text-align:right;
+}
+
+.era-count{
+  font-family:'Arial Black', sans-serif;
+  font-size:clamp(3rem, 6vw, 5rem);
+  font-weight:900;
+  color:rgba(255,255,255,0.06);
+  line-height:1;
+  transition:color 0.3s;
+  user-select:none;
+}
+.era-card:hover .era-count{color:rgba(0,0,0,0.12);}
+
+.era-arrow{
+  margin-top:0.5rem;
+  font-family:'Arial Black', sans-serif;
+  font-size:0.75rem;
+  letter-spacing:0.2em;
+  color:var(--dim);
+  transition:color 0.3s, transform 0.3s;
+  display:block;
+}
+.era-card:hover .era-arrow{
+  color:var(--black);
+  transform:translateX(6px);
+}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid rgba(255,255,255,0.06);
+  padding:3rem 2.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:1rem;
+}
+
+.footer-copy{
+  font-family:'Arial Black', sans-serif;
+  font-size:0.85rem;
+  color:var(--dim);
+  font-style:italic;
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+
+  nav{padding:1rem 1.5rem;}
+
+  .era-section{padding:4rem 1.25rem 3rem;}
+  .era-card{padding:2.5rem 1.5rem;}
+  .era-card-inner{flex-direction:column;align-items:flex-start;gap:0.5rem;}
+  .era-right{display:none;}
+
+  footer{padding:2rem 1.5rem;}
+  .hero-tagline{font-size:0.6rem;letter-spacing:0.25em;}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .era-card::before{transition:none;}
+  .era-card .bracket-tl,
+  .era-card .bracket-br{transition:none;}
+}
+</style>
 </head>
 <body>
 
-<div class="content">
-    <img src="Images/cartoon-me-with-hat-logo.png" alt="Christian Santos sketch"/>
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="Images/SA-MAIN-LOGO.png" alt="Santos Armada" class="logo-img">
+  </a>
+  <ul class="nav-links">
+    <li><a href="authors.html">Authors</a></li>
+    <li><a href="globe.html">Space &amp; Time</a></li>
+    <li><a href="academic.html">Academic</a></li>
+    <li><a href="interpreter-z.html">Interpreter Z</a></li>
+    <li><a href="cv.html">CV</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Toggle menu" id="hamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="authors.html">Authors</a>
+  <a href="globe.html">Space &amp; Time</a>
+  <a href="academic.html">Academic</a>
+  <a href="interpreter-z.html">Interpreter Z</a>
+  <a href="cv.html">CV</a>
+  <a href="about.html">About</a>
 </div>
 
-<canvas></canvas>
+<!-- HERO -->
+<section class="hero">
+  <p class="hero-tagline">Santos Armada &nbsp;/&nbsp; <span>Ensayos</span></p>
 
-<div class="overlay">
-    Essays
-</div>
+  <div class="text-effect">
+    <h1 class="title-ghost">ESSAYS</h1>
+    <div class="slice-container" id="sliceContainer"></div>
+  </div>
 
-<div class="cubes-wrap">
-<svg id="cubes" viewBox="0 0 512 896" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg">
-<use href="#cube-top" x="0" y="64"/>
-<use href="#cube-top" x="128" y="64"/>
-<use href="#cube-middle" x="-64" y="96"/>
-<use href="#cube-middle" x="64" y="96"/>
-<use href="#cube-middle" x="192" y="96"/>
-<use href="#cube-top" x="0" y="256"/>
-<use href="#cube-top" x="128" y="256"/>
-<use href="#cube-middle" x="-64" y="288"/>
-<use href="#cube-middle" x="64" y="288"/>
-<use href="#cube-middle" x="192" y="288"/>
-<use href="#cube-top" x="0" y="448"/>
-<use href="#cube-top" x="128" y="448"/>
-<use href="#cube-middle" x="-64" y="480"/>
-<use href="#cube-middle" x="64" y="480"/>
-<use href="#cube-middle" x="192" y="480"/>
-<use href="#cube-top" x="0" y="640"/>
-<use href="#cube-top" x="128" y="640"/>
-<use href="#cube-middle" x="-64" y="672"/>
-<use href="#cube-middle" x="64" y="672"/>
-<use href="#cube-middle" x="192" y="672"/>
-<use href="#cube-top" x="0" y="832"/>
-<use href="#cube-top" x="128" y="832"/>
-<use href="#cube-middle" x="-64" y="864"/>
-<use href="#cube-middle" x="64" y="864"/>
-<use href="#cube-middle" x="192" y="864"/>
-<defs>
-	<g id="cube-top">
-		<path fill="#78808e">
-			<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="linear"
-				values="M64 64 L0 32 L0 96 L64 128Z;
-						M64 64 L0 32 L0 32 L64 64Z;
-						M64 64 L0 32 L0 32 L64 64Z; 	
-						M64 64 L0 32 L0 32 L64 64Z"/>
-		</path>
-		<path fill="#A2B1B7" >
-			<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="linear"
-				values="M64 64 L128 32 L128 96 L64 128Z;
-						M64 64 L128 32 L128 32 L64 64Z;
-						M64 64 L128 32 L128 32 L64 64Z;
-						M64 64 L128 32 L128 32 L64 64Z"/>
-		</path>
-		<path fill="#78808e">
-			<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="linear"
-				keyTimes="0;.33;1"
-				values="M64 256 L0 224 L0 224 L64 256Z;
-						M64 192 L0 160 L0 224 L64 256Z;
-						M64 64 L0 32 L0 96 L64 128Z"/>
-		</path>
-		<path fill="#A2B1B7">
-			<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="linear"
-				keyTimes="0;.33;1"
-				values="M64 256 L128 224 L128 224 L64 256Z;
-						M64 192 L128 160 L128 224 L64 256Z;
-						M64 64 L128 32 L128 96 L64 128Z"/>
-		</path>
-	</g>
-	<g id="cube-middle">
-		<path fill="#A2B1B7">
-			<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="linear"
-				values="M64 128 L128 96 L128 160 L64 192Z;
-						M64 64 L128 32 L128 96 L64 128Z;
-						M64 64 L128 32 L128 32 L64 64Z;
-						M64 64 L128 32 L128 32 L64 64Z"/>
-		</path>
-		<path fill="#78808e">
-			<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="linear"
-				values="M64 128 L0 96 L0 160 L64 192Z;
-						M64 64 L0 32 L0 96 L64 128Z;
-						M64 64 L0 32 L0 32 L64 64Z;
-						M64 64 L0 32 L0 32 L64 64Z"/>
-		</path>
-		<path fill="#A2B1B7"> 
-			<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="linear"
-				values="M64 256 L128 224 L128 224 L64 256Z;
-						M64 256 L128 224 L128 224 L64 256Z;
-						M64 192 L128 160 L128 224 L64 256Z;
-						M64 128 L128 96 L128 160 L64 192Z"/>
-		</path>
-		<path fill="#78808e"> 
-			<animate attributeName="d" dur="6s" repeatCount="indefinite" calcMode="linear"
-				values="M64 256 L0 224 L0 224 L64 256Z;
-						M64 256 L0 224 L0 224 L64 256Z;
-						M64 192 L0 160 L0 224 L64 256Z;
-						M64 128 L0 96 L0 160 L64 192Z"/>
-		</path>
-	</g>
-	<linearGradient id="fog" gradientTransform="rotate(90)">
-		<stop  offset="0.4" style="stop-color:#0a080500"/>
-		<stop  offset="1" style="stop-color:#0a0805ff"/>
-	</linearGradient>
-</defs>
-</svg>
-</div>
+  <p class="hero-sub">La <em>escritura</em> como acto de &nbsp;<em>resistencia</em></p>
 
-<script type="x-shader/x-fragment" id="vertShader">
-    precision highp float;
+  <div class="scroll-hint">
+    <span>Scroll</span>
+  </div>
+</section>
 
-    attribute vec2 aPosition;
-    varying vec2 vUv;
-    varying vec2 vL;
-    varying vec2 vR;
-    varying vec2 vT;
-    varying vec2 vB;
-    uniform vec2 u_vertex_texel;
+<!-- ERA GRID -->
+<section class="era-section">
+  <p class="section-label">Five Eras</p>
 
-    void main () {
-        vUv = aPosition * .5 + .5;
-        vL = vUv - vec2(u_vertex_texel.x, 0.);
-        vR = vUv + vec2(u_vertex_texel.x, 0.);
-        vT = vUv + vec2(0., u_vertex_texel.y);
-        vB = vUv - vec2(0., u_vertex_texel.y);
-        gl_Position = vec4(aPosition, 0., 1.);
-    }
+  <div class="era-grid">
+
+    <a href="essays/antes-de-1492.html" class="era-card">
+      <div class="bracket-tl"></div>
+      <div class="bracket-br"></div>
+      <div class="era-card-inner">
+        <div class="era-left">
+          <p class="era-number">Era I</p>
+          <h2 class="era-name">Antes de 1492</h2>
+          <p class="era-dates">Antes del contacto — el mundo que existía</p>
+          <p class="era-desc">Civilizaciones, cosmologías, y literaturas orales de las culturas indígenas del mundo hispánico antes de la llegada europea.</p>
+        </div>
+        <div class="era-right">
+          <p class="era-count">I</p>
+          <span class="era-arrow">LEER →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="essays/colonial.html" class="era-card">
+      <div class="bracket-tl"></div>
+      <div class="bracket-br"></div>
+      <div class="era-card-inner">
+        <div class="era-left">
+          <p class="era-number">Era II</p>
+          <h2 class="era-name">Colonial</h2>
+          <p class="era-dates">1492 — 1810</p>
+          <p class="era-desc">Conquista, sincretismo, y las voces que surgieron entre dos mundos — desde las crónicas hasta el barroco americano.</p>
+        </div>
+        <div class="era-right">
+          <p class="era-count">II</p>
+          <span class="era-arrow">LEER →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="essays/independencia.html" class="era-card">
+      <div class="bracket-tl"></div>
+      <div class="bracket-br"></div>
+      <div class="era-card-inner">
+        <div class="era-left">
+          <p class="era-number">Era III</p>
+          <h2 class="era-name">Independencia</h2>
+          <p class="era-dates">1810 — 1910</p>
+          <p class="era-desc">Romanticismo, costumbrismo, y el proyecto nacional — la búsqueda de identidad en las repúblicas recién nacidas.</p>
+        </div>
+        <div class="era-right">
+          <p class="era-count">III</p>
+          <span class="era-arrow">LEER →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="essays/revolucion-dictadura.html" class="era-card">
+      <div class="bracket-tl"></div>
+      <div class="bracket-br"></div>
+      <div class="era-card-inner">
+        <div class="era-left">
+          <p class="era-number">Era IV</p>
+          <h2 class="era-name">Revolución y Dictadura</h2>
+          <p class="era-dates">1910 — 1975</p>
+          <p class="era-desc">El Boom, la vanguardia, la Revolución Mexicana, el realismo mágico — décadas que redefinieron la literatura mundial.</p>
+        </div>
+        <div class="era-right">
+          <p class="era-count">IV</p>
+          <span class="era-arrow">LEER →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="essays/contemporaneo.html" class="era-card">
+      <div class="bracket-tl"></div>
+      <div class="bracket-br"></div>
+      <div class="era-card-inner">
+        <div class="era-left">
+          <p class="era-number">Era V</p>
+          <h2 class="era-name">Contemporáneo</h2>
+          <p class="era-dates">1975 — Presente</p>
+          <p class="era-desc">Narrativas de la diáspora, posmemoria, y la literatura hispana global — voces que siguen reescribiendo el canon.</p>
+        </div>
+        <div class="era-right">
+          <p class="era-count">V</p>
+          <span class="era-arrow">LEER →</span>
+        </div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="footer-logo">
+    <img src="Images/SA-MAIN-LOGO.png" alt="Santos Armada" class="logo-img footer-logo-img">
+  </a>
+  <p class="footer-copy">Una armada de conocimientos escritos</p>
+</footer>
+
+<script>
+// hamburger
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{
+  hamburger.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu.querySelectorAll('a').forEach(a=>{
+  a.addEventListener('click',()=>{
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+  });
+});
+
+// slice hero
+document.addEventListener('DOMContentLoaded',()=>{
+  const ghost=document.querySelector('.title-ghost');
+  const container=document.getElementById('sliceContainer');
+  const numSlices=8;
+  const text='ESSAYS';
+  const H=container.parentElement.offsetHeight;
+  const sliceH=H/numSlices;
+
+  for(let i=0;i<numSlices;i++){
+    const slice=document.createElement('div');
+    slice.className='slice';
+    slice.style.height=sliceH+'px';
+    slice.style.top=i*sliceH+'px';
+    const st=document.createElement('div');
+    st.className='slice-text';
+    st.textContent=text;
+    st.style.top=-i*sliceH+'px';
+    slice.appendChild(st);
+    container.appendChild(slice);
+  }
+
+  const slices=document.querySelectorAll('.slice');
+
+  function animateIn(){
+    gsap.set(slices,{x:-2000});
+    const tl=gsap.timeline();
+    tl.to(slices,{
+      duration:1,x:0,
+      stagger:{amount:0.5,from:'random'},
+      ease:'power4.out'
+    })
+    .to(slices,{
+      duration:0.5,scaleX:1.15,
+      stagger:{amount:0.2,from:'center'},
+      ease:'power2.inOut'
+    })
+    .to(slices,{
+      duration:0.5,scaleX:1,
+      stagger:{amount:0.2,from:'center'},
+      ease:'power2.inOut'
+    });
+  }
+
+  animateIn();
+
+  // green hover accent on slices
+  slices.forEach(s=>{
+    s.addEventListener('mouseenter',()=>{
+      gsap.to(s,{duration:0.25,backgroundColor:'#00ff88',color:'#000',scaleX:1.08,zIndex:2});
+    });
+    s.addEventListener('mouseleave',()=>{
+      gsap.to(s,{duration:0.25,backgroundColor:'#fff',color:'#000',scaleX:1,zIndex:1});
+    });
+  });
+});
 </script>
-
-<script type="x-shader/x-fragment" id="fragShaderAdvection">
-    precision highp float;
-    precision highp sampler2D;
-
-    varying vec2 vUv;
-    uniform sampler2D u_velocity_txr;
-    uniform sampler2D u_input_txr;
-    uniform vec2 u_vertex_texel;
-    uniform vec2 u_output_textel;
-    uniform float u_dt;
-    uniform float u_dissipation;
-
-    vec4 bilerp (sampler2D sam, vec2 uv, vec2 tsize) {
-        vec2 st = uv / tsize - 0.5;
-
-        vec2 iuv = floor(st);
-        vec2 fuv = fract(st);
-
-        vec4 a = texture2D(sam, (iuv + vec2(0.5, 0.5)) * tsize);
-        vec4 b = texture2D(sam, (iuv + vec2(1.5, 0.5)) * tsize);
-        vec4 c = texture2D(sam, (iuv + vec2(0.5, 1.5)) * tsize);
-        vec4 d = texture2D(sam, (iuv + vec2(1.5, 1.5)) * tsize);
-
-        return mix(mix(a, b, fuv.x), mix(c, d, fuv.x), fuv.y);
-    }
-
-    void main () {
-        vec2 coord = vUv - u_dt * bilerp(u_velocity_txr, vUv, u_vertex_texel).xy * u_vertex_texel;
-        gl_FragColor = u_dissipation * bilerp(u_input_txr, coord, u_output_textel);
-        gl_FragColor.a = 1.;
-    }
-</script>
-
-<script type="x-shader/x-fragment" id="fragShaderDivergence">
-    precision highp float;
-    precision highp sampler2D;
-
-    varying highp vec2 vUv;
-    varying highp vec2 vL;
-    varying highp vec2 vR;
-    varying highp vec2 vT;
-    varying highp vec2 vB;
-    uniform sampler2D u_velocity_txr;
-
-    void main () {
-        float L = texture2D(u_velocity_txr, vL).x;
-        float R = texture2D(u_velocity_txr, vR).x;
-        float T = texture2D(u_velocity_txr, vT).y;
-        float B = texture2D(u_velocity_txr, vB).y;
-
-        float div = .5 * (R - L + T - B);
-        gl_FragColor = vec4(div, 0., 0., 1.);
-    }
-</script>
-
-<script type="x-shader/x-fragment" id="fragShaderPressure">
-    precision highp float;
-    precision highp sampler2D;
-
-    varying highp vec2 vUv;
-    varying highp vec2 vL;
-    varying highp vec2 vR;
-    varying highp vec2 vT;
-    varying highp vec2 vB;
-    uniform sampler2D u_pressure_txr;
-    uniform sampler2D u_divergence_txr;
-
-    void main () {
-        float L = texture2D(u_pressure_txr, vL).x;
-        float R = texture2D(u_pressure_txr, vR).x;
-        float T = texture2D(u_pressure_txr, vT).x;
-        float B = texture2D(u_pressure_txr, vB).x;
-        float C = texture2D(u_pressure_txr, vUv).x;
-        float divergence = texture2D(u_divergence_txr, vUv).x;
-        float pressure = (L + R + B + T - divergence) * 0.25;
-        gl_FragColor = vec4(pressure, 0., 0., 1.);
-    }
-</script>
-
-<script type="x-shader/x-fragment" id="fragShaderGradientSubtract">
-    precision highp float;
-    precision highp sampler2D;
-
-    varying highp vec2 vUv;
-    varying highp vec2 vL;
-    varying highp vec2 vR;
-    varying highp vec2 vT;
-    varying highp vec2 vB;
-    uniform sampler2D u_pressure_txr;
-    uniform sampler2D u_velocity_txr;
-
-    void main () {
-        float L = texture2D(u_pressure_txr, vL).x;
-        float R = texture2D(u_pressure_txr, vR).x;
-        float T = texture2D(u_pressure_txr, vT).x;
-        float B = texture2D(u_pressure_txr, vB).x;
-        vec2 velocity = texture2D(u_velocity_txr, vUv).xy;
-        velocity.xy -= vec2(R - L, T - B);
-        gl_FragColor = vec4(velocity, 0., 1.);
-    }
-</script>
-
-<script type="x-shader/x-fragment" id="fragShaderPoint">
-    precision highp float;
-    precision highp sampler2D;
-
-    varying vec2 vUv;
-    uniform sampler2D u_input_txr;
-    uniform float u_ratio;
-    uniform vec3 u_point_value;
-    uniform vec2 u_point;
-    uniform float u_point_size;
-
-    void main () {
-        vec2 p = vUv - u_point.xy;
-        p.x *= u_ratio;
-        vec3 splat = pow(2., -dot(p, p) / u_point_size) * u_point_value;
-        vec3 base = texture2D(u_input_txr, vUv).xyz;
-        gl_FragColor = vec4(base + splat, 1.);
-    }
-</script>
-
-<script type="x-shader/x-fragment" id="fragShaderDisplay">
-    precision highp float;
-    precision highp sampler2D;
-
-    varying vec2 vUv;
-    uniform sampler2D u_output_texture;
-
-    void main () {
-        vec3 C = texture2D(u_output_texture, vUv).rgb;
-        float a = max(C.r, max(C.g, C.b));
-        a = pow(.1 * a, .1);
-        a = clamp(a, 0., 1.);
-        gl_FragColor = vec4(1. - C, 1. - a);
-    }
-</script>
-
-<script src="essays.js"></script>
-
 </body>
 </html>
