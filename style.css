@@ -123,6 +123,17 @@ body {
     z-index: 1;
 }
 
+#three-container {
+    width: 100%;
+    height: 180px;
+    position: relative;
+}
+
+#three-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 .hero-tagline {
     font-family: var(--font-title);
     font-size: 17px;
@@ -132,10 +143,9 @@ body {
 }
 
 .hero-title {
-    font-family: 'Playfair Display', serif;
-    font-family: var(--font-title);
-    font-size: 64px;
-    font-weight: 900;
+    font-family: "Playfair Display", serif;
+    font-size: 100px;
+    font-weight: 400;
     color: var(--gold-light);
     letter-spacing: 0.12em;
 }
