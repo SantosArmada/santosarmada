@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Era III — Independencia | Santos Armada</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    :root{
+      --green:    #00ff88;
+      --black:    #0a0a0a;
+      --white:    #ffffff;
+      --off-white:#e8e8e8;
+      --dim:      #999;
+    }
+
+    body{
+      background:var(--black);
+      color:var(--white);
+      font-family:'Arial Black', sans-serif;
+      overflow-x:hidden;
+    }
+
+    /* ── NAV ── */
+    nav{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:100;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1.2rem 2.5rem;
+      background:rgba(10,10,10,0.92);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo-img{
+      height:48px;width:auto;display:block;
+      filter:invert(1);
+      transition:filter 0.25s ease, opacity 0.25s ease;
+    }
+    .logo-img:hover{
+      filter:invert(1) sepia(1) saturate(4) hue-rotate(90deg);
+    }
+    .nav-logo{display:flex;align-items:center;}
+
+    .nav-links{
+      display:flex;gap:2rem;list-style:none;align-items:center;
+    }
+    .nav-links a{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.72rem;font-weight:600;
+      letter-spacing:0.12em;text-transform:uppercase;
+      color:var(--off-white);text-decoration:none;
+      transition:color 0.2s;position:relative;
+    }
+    .nav-links a::after{
+      content:'';position:absolute;
+      bottom:-4px;left:0;right:0;height:1px;
+      background:var(--green);transform:scaleX(0);
+      transform-origin:left;transition:transform 0.25s ease;
+    }
+    .nav-links a:hover{color:var(--green);}
+    .nav-links a:hover::after{transform:scaleX(1);}
+
+    .hamburger{
+      display:none;flex-direction:column;gap:5px;
+      cursor:pointer;background:none;border:none;padding:4px;
+    }
+    .hamburger span{
+      display:block;width:24px;height:2px;
+      background:var(--white);transition:all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    .mobile-menu{
+      display:none;position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:var(--black);z-index:99;
+      flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
+    }
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{
+      font-family:'Arial Black', sans-serif;
+      font-size:1.4rem;font-weight:600;
+      letter-spacing:0.15em;text-transform:uppercase;
+      color:var(--white);text-decoration:none;transition:color 0.2s;
+    }
+    .mobile-menu a:hover{color:var(--green);}
+
+    /* ── HERO ── */
+    .era-hero{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      min-height:100vh;
+      padding:100px 48px 80px;
+      text-align:center;
+      overflow:hidden;
+    }
+
+    /* ── BRICK ANIMATION STAGE ── */
+    .animation-stage{
+      position:relative;
+      width:100%;
+      height:320px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      perspective:25em;
+      perspective-origin:50% calc(50% - 9.75em);
+      margin-bottom:18rem;
+    }
+
+    /* vignette overlay */
+    .animation-stage::after{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:radial-gradient(circle, rgba(10,10,10,0), rgba(10,10,10,1) 22em);
+      z-index:1;
+      pointer-events:none;
+    }
+
+    .assembly{
+      position:relative;
+      transform-style:preserve-3d;
+    }
+
+    .brick{
+      position:absolute;
+      transform-style:preserve-3d;
+    }
+
+    .brick__face{
+      position:absolute;
+      --i:1;
+      --w:3.25em;
+      margin:calc(-0.8125em) calc(-0.5 * var(--w));
+      width:var(--w);
+      height:1.625em;
+      backface-visibility:hidden;
+      transform:
+        rotate3d(var(--i), calc(1 - var(--i)), 0, calc(var(--m, 0) * 90deg))
+        translateZ(calc(0.5 * var(--z, 1.625em)));
+      box-shadow:0 0 1px currentcolor;
+      background:currentcolor;
+    }
+
+    /* Green color scheme — sides dark, tops bright */
+    .brick__face                { color: #003311; }
+    .brick__face:nth-child(2n)  { color: #006622; }
+    .brick__face:nth-child(n+5) { color: #00ff88; }
+
+    /* faces 5-6: top/bottom caps */
+    .brick__face:nth-child(n+5){
+      --i:0;
+      --w:1.625em;
+      --z:3.25em;
+    }
+
+    /* ── ERA TEXT ── */
+    .era-eyebrow{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.68rem;font-weight:600;
+      letter-spacing:0.4em;text-transform:uppercase;
+      color:var(--green);margin-bottom:1rem;
+    }
+
+    .era-title{
+      font-family:'Arial Black', sans-serif;
+      font-size:clamp(2.5rem, 7vw, 5.5rem);
+      font-weight:900;letter-spacing:0.05em;
+      text-transform:uppercase;
+      color:var(--white);line-height:1;
+      margin-bottom:1.5rem;
+    }
+
+    .era-divider{
+      width:56px;height:1px;
+      background:var(--green);opacity:0.5;
+      margin:0 auto 2rem;
+    }
+
+    .era-desc{
+      font-family:'Arial Black', sans-serif;
+      font-size:clamp(0.9rem, 1.5vw, 1.1rem);
+      font-style:italic;
+      line-height:1.7;
+      color:rgba(255,255,255,0.45);
+      max-width:640px;
+      border-left:1px solid var(--green);
+      padding-left:1.5rem;
+      text-align:left;
+    }
+
+    /* ── ERA CARDS ── */
+    .cards-section{
+      padding:4rem 2rem;
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    .section-label{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.55rem;
+      letter-spacing:0.5em;
+      color:var(--green);
+      text-transform:uppercase;
+      margin-bottom:2.5rem;
+      text-align:center;
+    }
+
+    .era-cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+      gap:1px;
+      background:var(--green);
+    }
+
+    .era-card{
+      background:var(--black);
+      padding:1.75rem 1.25rem;
+      transition:background 0.2s;
+    }
+    .era-card:hover{ background:#050f08; }
+
+    .era-card-num{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.55rem;color:var(--green);
+      letter-spacing:0.3em;margin-bottom:0.75rem;
+    }
+    .era-card-title{
+      font-family:'Arial Black', sans-serif;
+      font-size:1rem;color:var(--white);
+      text-transform:uppercase;letter-spacing:0.04em;
+      margin-bottom:0.4rem;line-height:1.1;
+    }
+    .era-card-years{
+      font-size:0.65rem;color:var(--green);
+      letter-spacing:0.2em;margin-bottom:0.75rem;opacity:0.8;
+    }
+    .era-card-desc{
+      font-size:0.75rem;color:#555;line-height:1.6;
+      font-family:Arial, sans-serif;
+    }
+
+    /* ── FOOTER ── */
+    footer{
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:3rem 2.5rem;
+      display:flex;align-items:center;
+      justify-content:space-between;flex-wrap:wrap;gap:1rem;
+    }
+    .footer-logo{ display:flex;align-items:center; }
+    .footer-copy{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.85rem;color:var(--dim);font-style:italic;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .nav-links{ display:none; }
+      .hamburger{ display:flex; }
+      nav{ padding:1rem 1.5rem; }
+      .era-hero{ padding:80px 24px 60px; }
+      .era-desc{ font-size:0.85rem; }
+      footer{ padding:2rem 1.5rem; }
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      .assembly, .brick { animation:none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      <img src="../Images/SA-MAIN-LOGO.png" alt="Santos Armada" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="../authors.html">Authors</a></li>
+      <li><a href="../essays.html">Essays</a></li>
+      <li><a href="../globe.html">Space &amp; Time</a></li>
+      <li><a href="../academic.html">Academic</a></li>
+      <li><a href="../interpreter-z.html">Interpreter Z</a></li>
+      <li><a href="../cv.html">CV</a></li>
+      <li><a href="../about.html">About</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../authors.html">Authors</a>
+    <a href="../essays.html">Essays</a>
+    <a href="../globe.html">Space &amp; Time</a>
+    <a href="../academic.html">Academic</a>
+    <a href="../interpreter-z.html">Interpreter Z</a>
+    <a href="../cv.html">CV</a>
+    <a href="../about.html">About</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="era-hero">
+
+    <p class="era-eyebrow">1808 — 1821</p>
+
+    <!-- BRICK TOWER ANIMATION -->
+    <div class="animation-stage">
+      <div class="assembly" id="assembly"></div>
+    </div>
+
+    <p class="era-eyebrow">Era III</p>
+    <h1 class="era-title">Independencia</h1>
+    <div class="era-divider"></div>
+    <p class="era-desc">El colapso del orden imperial y el nacimiento violento de nuevas naciones — el momento en que el mundo colonial se rompió y los pueblos americanos tomaron su destino.</p>
+
+  </section>
+
+  <!-- ERA CARDS -->
+  <div style="border-top:1px solid var(--green);">
+    <div class="cards-section">
+      <p class="section-label">Temas del período</p>
+      <div class="era-cards">
+        <div class="era-card">
+          <div class="era-card-num">01</div>
+          <div class="era-card-title">Revueltas</div>
+          <div class="era-card-years">1808 — 1810</div>
+          <div class="era-card-desc">Las primeras fracturas del orden colonial tras la invasión napoleónica de España.</div>
+        </div>
+        <div class="era-card">
+          <div class="era-card-num">02</div>
+          <div class="era-card-title">Guerras</div>
+          <div class="era-card-years">1810 — 1820</div>
+          <div class="era-card-desc">Décadas de combate que dibujaron las fronteras de los nuevos estados americanos.</div>
+        </div>
+        <div class="era-card">
+          <div class="era-card-num">03</div>
+          <div class="era-card-title">Líderes</div>
+          <div class="era-card-years">1810 — 1821</div>
+          <div class="era-card-desc">Hidalgo, Bolívar, San Martín y los padres de la patria que forjaron naciones.</div>
+        </div>
+        <div class="era-card">
+          <div class="era-card-num">04</div>
+          <div class="era-card-title">Independencia</div>
+          <div class="era-card-years">1821</div>
+          <div class="era-card-desc">El año en que cayó el Imperio y México declaró su soberanía.</div>
+        </div>
+        <div class="era-card">
+          <div class="era-card-num">05</div>
+          <div class="era-card-title">Nuevas Naciones</div>
+          <div class="era-card-years">1821 —</div>
+          <div class="era-card-desc">El mapa americano se redibuja y las repúblicas comienzan a construirse.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="../index.html" class="footer-logo">
+      <img src="../Images/SA-MAIN-LOGO.png" alt="Santos Armada" class="logo-img footer-logo-img">
+    </a>
+    <p class="footer-copy">Una armada de conocimientos escritos</p>
+  </footer>
+
+  <script>
+    /* ── BRICK TOWER ANIMATION ──────────────────────────────
+       Rebuilt from the Geneva CSS tutorial in plain JS+CSS.
+       No template engine — JS generates the HTML and injects
+       the computed keyframes dynamically.
+    ─────────────────────────────────────────────────────── */
+
+    const nLayers = 8;
+    const nBricks = 10;
+    const w = 3.25;             // em — brick width
+    const h = w * 0.5;          // em — brick height (1.625)
+    const gap = w * 0.125;      // em — gap between layers (0.40625)
+    const dy = h + gap;         // em — vertical step (2.03125)
+    const ba = 360 / nBricks;   // deg — base angle (36)
+    const baRad = ba * Math.PI / 180;
+    const r = (1.0625 * w) / 2 / Math.tan(0.5 * baRad) + 0.5 * h; // inner radius ~6.13em
+    const t = 3;                // seconds — cycle duration
+    const k = 8;                // stagger constant
+    const p = 100 / (nBricks + k - 1); // keyframe % step ~5.88
+
+    // ── Face --m values (original logic) ──
+    // i < 4 → m = i; i >= 4 → m = (-1)^i
+    const mVals = [0, 1, 2, 3, 1, -1];
+
+    // ── Build CSS string ──
+    let css = '';
+
+    // Assembly cycle animation
+    css += `@keyframes assembly-move {
+      to { transform: translateY(${dy}em) rotateY(${ba / 2}deg); }
+    }\n`;
+
+    // Per-brick-index entry animations (ani-1 … ani-nBricks)
+    for (let i = 0; i < nBricks; i++) {
+      const start = (i * p).toFixed(3);
+      const end   = ((i + k) * p).toFixed(3);
+      const topY  = -((nLayers + 5) * dy);
+      css += `@keyframes ani-${i + 1} {
+        0%, ${start}% { transform: var(--rot) translate3d(0, ${topY.toFixed(4)}em, ${r.toFixed(4)}em); }
+        100%, ${end}% { transform: var(--rot) translate3d(0, 0, ${r.toFixed(4)}em); }
+      }\n`;
+    }
+
+    // Assembly animation rule
+    css += `.assembly { animation: assembly-move ${t}s linear infinite; }\n`;
+
+    // Layer property rules (cascade: later rule wins for higher layers)
+    for (let i = 0; i < nLayers; i++) {
+      const yVal = ((nLayers - 1 - i) * dy).toFixed(4);
+      const f    = i % 2;
+      const j    = Math.floor(i / 2);
+      css += `.brick:nth-child(n + ${i * nBricks + 1}) {
+        --y: ${yVal}em; --f: ${f}; --j: ${j};
+      }\n`;
+    }
+
+    // Brick rotation formula
+    css += `.brick {
+      --rot: rotateY(calc((var(--i, 0) - var(--f, 0) * 0.5) * ${ba}deg + 0.5turn));
+      transform: var(--rot) translate3d(0, var(--y, 0), ${r.toFixed(4)}em);
+    }\n`;
+
+    // Last nBricks get base entry animation
+    css += `.brick:nth-last-child(-n + ${nBricks}) {
+      animation: ani-1 ${t}s ease-in-out infinite;
+    }\n`;
+
+    // Per-brick-index: --i and staggered animation-name
+    for (let i = 1; i < nBricks; i++) {
+      css += `.brick:nth-child(${nBricks}n + ${i + 1}) {
+        --i: ${i};
+        animation-name: ani-${nBricks - i + 1};
+      }\n`;
+    }
+
+    // Face --m values
+    for (let i = 0; i < 6; i++) {
+      css += `.brick__face:nth-child(${i + 1}) { --m: ${mVals[i]}; }\n`;
+    }
+
+    // Inject
+    const styleEl = document.createElement('style');
+    styleEl.textContent = css;
+    document.head.appendChild(styleEl);
+
+    // ── Generate HTML ──
+    const assembly = document.getElementById('assembly');
+    const frag = document.createDocumentFragment();
+
+    for (let layer = 0; layer < nLayers; layer++) {
+      for (let brick = 0; brick < nBricks; brick++) {
+        const brickEl = document.createElement('div');
+        brickEl.className = 'brick';
+        for (let face = 0; face < 6; face++) {
+          const faceEl = document.createElement('div');
+          faceEl.className = 'brick__face';
+          brickEl.appendChild(faceEl);
+        }
+        frag.appendChild(brickEl);
+      }
+    }
+    assembly.appendChild(frag);
+
+    // ── Hamburger menu ──
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
