@@ -1,0 +1,262 @@
+:root {
+  --bg-gradient: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);
+  --text-dark: #222;
+  --text-light: #888;
+
+  /* Audiolibros corner accent — reuse this var for the audio player outline later */
+  --accent-audiolibros: #6F98EC;
+  --accent-audiolibros-soft: rgba(111, 152, 236, 0.15);
+
+  /* 3D Dark Clay Properties (kept from the base template) */
+  --clay-dark-bg: #2a2a2a;
+  --clay-shadow-out: 10px 15px 25px rgba(0, 0, 0, 0.15),
+    -5px -5px 15px rgba(255, 255, 255, 0.8);
+  --clay-shadow-in: inset 2px 2px 5px rgba(255, 255, 255, 0.15),
+    inset -2px -2px 5px rgba(0, 0, 0, 0.5);
+
+  /* Center logo glow, blue-tinted instead of the old red brain glow */
+  --logo-glow: drop-shadow(0 10px 15px rgba(111, 152, 236, 0.35));
+
+  /* Same footprint as the Essays / About center mark — adjust here if that page uses a different size */
+  --logo-size: 100px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  background: var(--bg-gradient);
+  color: var(--text-dark);
+  min-height: 120vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* --- Header / Top --- */
+.top-brand {
+  margin-top: 40px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.top-brand-line1 {
+  display: block;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--text-light);
+}
+.top-brand-line2 {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 6px;
+  font-weight: 700;
+  color: var(--accent-audiolibros);
+  margin-top: 4px;
+}
+
+/* --- Main Graphic Container --- */
+.graphic-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 450px;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- Concentric Circles --- */
+.circles {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.02);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+.circles::before {
+  content: "";
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.03);
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+  position: absolute;
+}
+.circles::after {
+  content: "";
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.04);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+  position: absolute;
+}
+
+/* --- Center Logo (replaces the brain) --- */
+.logo-link {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo-center {
+  width: var(--logo-size);
+  height: var(--logo-size);
+  object-fit: contain;
+  filter: var(--logo-glow);
+}
+
+/* --- Connecting Lines --- */
+.lines-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+.line-path {
+  fill: none;
+  stroke: var(--accent-audiolibros);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: 0.6;
+}
+
+/* --- Floating Era Nodes (4) --- */
+.icon-node {
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  background: var(--clay-dark-bg);
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in);
+  z-index: 5;
+  cursor: pointer;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.icon-node:hover {
+  border-color: var(--accent-audiolibros);
+  box-shadow: var(--clay-shadow-out), var(--clay-shadow-in),
+    0 0 0 3px var(--accent-audiolibros-soft);
+}
+.node-symbol {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent-audiolibros);
+  line-height: 1;
+}
+.node-label {
+  position: absolute;
+  top: 72px;
+  width: 140px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--text-light);
+  text-align: center;
+  pointer-events: none;
+}
+
+/* Node Positions — diamond layout, 4 nodes */
+.n-l1 {
+  top: 20%;
+  left: 15%;
+}
+.n-l3 {
+  bottom: 20%;
+  left: 15%;
+}
+.n-r1 {
+  top: 20%;
+  right: 15%;
+}
+.n-r3 {
+  bottom: 20%;
+  right: 15%;
+}
+
+/* --- Typography Section (Essays-style weight, blue accent) --- */
+.text-section {
+  text-align: center;
+  margin-top: 56px;
+  position: relative;
+  z-index: 10;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: var(--text-light);
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+h1 {
+  font-family: "Arial Black", "Inter", sans-serif;
+  font-weight: 900;
+  font-size: 42px;
+  letter-spacing: -1px;
+  color: #333;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+h1 strong {
+  font-weight: 900;
+  color: var(--accent-audiolibros);
+  display: block;
+  font-size: 48px;
+}
+.pointer-emoji {
+  font-size: 24px;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+/* --- Footer logo (links home, same treatment as Essays / About) --- */
+.footer-logo-link {
+  margin-top: 100px;
+  margin-bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  opacity: 0.85;
+  transition: opacity 0.3s ease;
+}
+.footer-logo-link:hover {
+  opacity: 1;
+}
+.footer-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+.footer-caption {
+  font-size: 10px;
+  letter-spacing: 8px;
+  color: #bbb;
+}

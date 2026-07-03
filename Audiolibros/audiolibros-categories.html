@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audiolibros — Santos Armada</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<link rel="stylesheet" href="audiolibros-categories.css">
+</head>
+<body>
+
+<!-- 1) Top brand: "Santos Armada" / "Audiolibros" -->
+<div class="top-brand gsap-fade">
+  <span class="top-brand-line1">Santos Armada</span>
+  <span class="top-brand-line2">Audiolibros</span>
+</div>
+
+<div class="graphic-container">
+  <div class="circles gsap-scale"></div>
+
+  <!-- 4 lines instead of 6, one per era node -->
+  <svg class="lines-svg" viewBox="0 0 800 450">
+    <path class="line-path" d="M 400 225 C 250 225, 200 120, 160 120" />
+    <path class="line-path" d="M 400 225 C 250 225, 200 330, 160 330" />
+    <path class="line-path" d="M 400 225 C 550 225, 600 120, 640 120" />
+    <path class="line-path" d="M 400 225 C 550 225, 600 330, 640 330" />
+  </svg>
+
+  <!-- 1) Center logo replaces the brain, same footprint as the Essays/About center mark.
+       Assumption: linked to ../index.html, same target as the footer logo below.
+       If this should point somewhere else (an Audiolibros index page, etc.) it's a one-line swap. -->
+  <a href="../index.html" class="logo-link gsap-pop float-slow" aria-label="Santos Armada — inicio">
+    <img class="logo-center" src="../Images/logo.PNG" alt="Santos Armada">
+  </a>
+
+  <!-- 6) Four era nodes — placeholder roman numerals stand in for the symbols to come -->
+  <div class="icon-node n-l1 float-anim" data-era="ERA I">
+    <span class="node-symbol">I</span>
+    <span class="node-label">Antes de 1492</span>
+  </div>
+  <div class="icon-node n-l3 float-anim-alt" data-era="ERA III">
+    <span class="node-symbol">III</span>
+    <span class="node-label">Independencia</span>
+  </div>
+  <div class="icon-node n-r1 float-anim-alt" data-era="ERA II">
+    <span class="node-symbol">II</span>
+    <span class="node-label">Colonial</span>
+  </div>
+  <div class="icon-node n-r3 float-anim" data-era="ERA IV">
+    <span class="node-symbol">IV</span>
+    <span class="node-label">Revolución y Dictadura</span>
+  </div>
+</div>
+
+<!-- 5) & 7) Header section, Essays-style weight, new blue accent -->
+<div class="text-section">
+  <div class="eyebrow gsap-fade">CUATRO ERAS. UNA VOZ.</div>
+  <h1 class="gsap-slide-up">
+    GUARDIÁN
+    <strong>DE HISTORIAS</strong>
+  </h1>
+  <div class="pointer-emoji float-slow gsap-fade">🎧</div>
+</div>
+
+<!-- Placeholder region for the audio player, to be built next.
+     It should inherit --accent-audiolibros (#6F98EC) for its outline. -->
+<!-- <div class="audio-player-mount"></div> -->
+
+<!-- 8) Bottom Santos Armada logo, same treatment as Essays / About, links home -->
+<a href="../index.html" class="footer-logo-link gsap-fade" aria-label="Volver a Santos Armada">
+  <img class="footer-logo" src="../Images/logo.PNG" alt="Santos Armada">
+  <span class="footer-caption">VOLVER AL INICIO</span>
+</a>
+
+<script src="audiolibros-categories.js"></script>
+</body>
+</html>
