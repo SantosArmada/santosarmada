@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Era V — Contemporáneo | Santos Armada</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    :root{
+      --green:    #00ff88;
+      --black:    #0a0a0a;
+      --white:    #ffffff;
+      --off-white:#e8e8e8;
+      --dim:      #999;
+    }
+
+    body{
+      background:var(--black);
+      color:var(--white);
+      font-family:'Arial Black', sans-serif;
+      overflow-x:hidden;
+    }
+
+    /* ── NAV ── */
+    nav{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:100;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1.2rem 2.5rem;
+      background:rgba(10,10,10,0.72);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo-img{
+      height:48px;width:auto;display:block;
+      filter:invert(1);
+      transition:filter 0.25s ease, opacity 0.25s ease;
+    }
+    .logo-img:hover{
+      filter:invert(1) sepia(1) saturate(4) hue-rotate(90deg);
+    }
+    .nav-logo{display:flex;align-items:center;}
+
+    .nav-links{
+      display:flex;gap:2rem;list-style:none;align-items:center;
+    }
+    .nav-links a{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.72rem;font-weight:600;
+      letter-spacing:0.12em;text-transform:uppercase;
+      color:var(--off-white);text-decoration:none;
+      transition:color 0.2s;position:relative;
+    }
+    .nav-links a::after{
+      content:'';position:absolute;
+      bottom:-4px;left:0;right:0;height:1px;
+      background:var(--green);transform:scaleX(0);
+      transform-origin:left;transition:transform 0.25s ease;
+    }
+    .nav-links a:hover{color:var(--green);}
+    .nav-links a:hover::after{transform:scaleX(1);}
+
+    .hamburger{
+      display:none;flex-direction:column;gap:5px;
+      cursor:pointer;background:none;border:none;padding:4px;
+    }
+    .hamburger span{
+      display:block;width:24px;height:2px;
+      background:var(--white);transition:all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    .mobile-menu{
+      display:none;position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:var(--black);z-index:99;
+      flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
+    }
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{
+      font-family:'Arial Black', sans-serif;
+      font-size:1.4rem;font-weight:600;
+      letter-spacing:0.15em;text-transform:uppercase;
+      color:var(--white);text-decoration:none;transition:color 0.2s;
+    }
+    .mobile-menu a:hover{color:var(--green);}
+
+    /* ── HERO — full viewport with WebGL background ── */
+    .era-hero{
+      position:relative;
+      width:100%;
+      height:100vh;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      overflow:hidden;
+      text-align:center;
+    }
+
+    /* WebGL canvas sits behind everything */
+    #three-canvas{
+      position:absolute;
+      inset:0;
+      width:100% !important;
+      height:100% !important;
+      z-index:0;
+    }
+
+    /* dark overlay so text stays readable */
+    .hero-overlay{
+      position:absolute;
+      inset:0;
+      background:radial-gradient(ellipse at center,
+        rgba(10,10,10,0.25) 0%,
+        rgba(10,10,10,0.65) 100%);
+      z-index:1;
+    }
+
+    /* text content sits above canvas + overlay */
+    .hero-content{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+    }
+
+    /* ── ERA TEXT ── */
+    .era-eyebrow{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.68rem;font-weight:600;
+      letter-spacing:0.4em;text-transform:uppercase;
+      color:var(--green);margin-bottom:1rem;
+    }
+
+    .era-title{
+      font-family:'Arial Black', sans-serif;
+      font-size:clamp(2.5rem, 7vw, 5.5rem);
+      font-weight:900;letter-spacing:0.05em;
+      text-transform:uppercase;
+      color:var(--white);line-height:1;
+      margin-bottom:1.5rem;
+    }
+
+    .era-divider{
+      width:56px;height:1px;
+      background:var(--green);opacity:0.5;
+      margin:0 auto 2rem;
+    }
+
+    .era-desc{
+      font-family:'Arial Black', sans-serif;
+      font-size:clamp(0.9rem, 1.5vw, 1.1rem);
+      font-style:italic;
+      line-height:1.7;
+      color:rgba(255,255,255,0.55);
+      max-width:600px;
+      border-left:1px solid var(--green);
+      padding-left:1.5rem;
+      text-align:left;
+    }
+
+    /* ── ERA CARDS ── */
+    .cards-section{
+      padding:4rem 2rem;
+      max-width:1200px;
+      margin:0 auto;
+    }
+
+    .section-label{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.55rem;
+      letter-spacing:0.5em;
+      color:var(--green);
+      text-transform:uppercase;
+      margin-bottom:2.5rem;
+      text-align:center;
+    }
+
+    .era-cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+      gap:1px;
+      background:var(--green);
+    }
+
+    .era-card{
+      background:var(--black);
+      padding:1.75rem 1.25rem;
+      transition:background 0.2s;
+    }
+    .era-card:hover{ background:#050f08; }
+
+    .era-card-num{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.55rem;color:var(--green);
+      letter-spacing:0.3em;margin-bottom:0.75rem;
+    }
+    .era-card-title{
+      font-family:'Arial Black', sans-serif;
+      font-size:1rem;color:var(--white);
+      text-transform:uppercase;letter-spacing:0.04em;
+      margin-bottom:0.4rem;line-height:1.1;
+    }
+    .era-card-years{
+      font-size:0.65rem;color:var(--green);
+      letter-spacing:0.2em;margin-bottom:0.75rem;opacity:0.8;
+    }
+    .era-card-desc{
+      font-size:0.75rem;color:#555;line-height:1.6;
+      font-family:Arial, sans-serif;
+    }
+
+    /* ── FOOTER ── */
+    footer{
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:3rem 2.5rem;
+      display:flex;align-items:center;
+      justify-content:space-between;flex-wrap:wrap;gap:1rem;
+    }
+    .footer-logo{ display:flex;align-items:center; }
+    .footer-copy{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.85rem;color:var(--dim);font-style:italic;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .nav-links{ display:none; }
+      .hamburger{ display:flex; }
+      nav{ padding:1rem 1.5rem; }
+      .era-desc{ font-size:0.85rem; }
+      footer{ padding:2rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      <img src="../Images/SA-MAIN-LOGO.png" alt="Santos Armada" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="../authors.html">Authors</a></li>
+      <li><a href="../essays.html">Essays</a></li>
+      <li><a href="../globe.html">Space &amp; Time</a></li>
+      <li><a href="../academic.html">Academic</a></li>
+      <li><a href="../interpreter-z.html">Interpreter Z</a></li>
+      <li><a href="../cv.html">CV</a></li>
+      <li><a href="../about.html">About</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../authors.html">Authors</a>
+    <a href="../essays.html">Essays</a>
+    <a href="../globe.html">Space &amp; Time</a>
+    <a href="../academic.html">Academic</a>
+    <a href="../interpreter-z.html">Interpreter Z</a>
+    <a href="../cv.html">CV</a>
+    <a href="../about.html">About</a>
+  </div>
+
+  <!-- HERO — fullscreen WebGL + overlaid text -->
+  <section class="era-hero">
+
+    <!-- Three.js canvas injected here by JS -->
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="era-eyebrow">1975 — Presente</p>
+      <p class="era-eyebrow" style="margin-top:-0.5rem;">Era V</p>
+      <h1 class="era-title">Contemporáneo</h1>
+      <div class="era-divider"></div>
+      <p class="era-desc">Narrativas de la diáspora, posmemoria, y la literatura hispana global — voces que siguen reescribiendo el canon.</p>
+    </div>
+
+  </section>
+
+  <!-- ERA CARDS -->
+  <div style="border-top:1px solid var(--green);">
+    <div class="cards-section">
+      <p class="section-label">Temas del período</p>
+      <div class="era-cards">
+        <div class="era-card">
+          <div class="era-card-num">01</div>
+          <div class="era-card-title">Narrativas de la diáspora</div>
+          <div class="era-card-years">1980 — Presente</div>
+          <div class="era-card-desc">Voces mexicano-americanas, dominicano-americanas y puertorriqueñas escribiendo desde Estados Unidos: Luiselli, Díaz, Santiago — la literatura de los que viven entre dos países.</div>
+        </div>
+        <div class="era-card">
+          <div class="era-card-num">02</div>
+          <div class="era-card-title">Posmemoria y dictadura</div>
+          <div class="era-card-years">1975 — Presente</div>
+          <div class="era-card-desc">La sombra de las guerras civiles y dictaduras sobre la narrativa contemporánea: El Salvador, Nicaragua, Guatemala, Argentina — cómo se escribe lo que una generación no vivió pero heredó.</div>
+        </div>
+        <div class="era-card">
+          <div class="era-card-num">03</div>
+          <div class="era-card-title">Crack y post-Boom mexicano</div>
+          <div class="era-card-years">1996 — Presente</div>
+          <div class="era-card-desc">Escritores que rompieron con el realismo mágico para explorar lo urbano, lo íntimo, lo experimental — el México literario después de Rulfo y Fuentes.</div>
+        </div>
+        <div class="era-card">
+          <div class="era-card-num">04</div>
+          <div class="era-card-title">Testimonio y narcoliteratura</div>
+          <div class="era-card-years">1983 — Presente</div>
+          <div class="era-card-desc">De los testimonios centroamericanos a la narrativa del narco en México y Colombia — la violencia contemporánea contada desde adentro.</div>
+        </div>
+        <div class="era-card">
+          <div class="era-card-num">05</div>
+          <div class="era-card-title">Voces caribeñas de hoy</div>
+          <div class="era-card-years">1990 — Presente</div>
+          <div class="era-card-desc">Cuba, República Dominicana y Puerto Rico en el presente — literatura insular que sigue reinventándose bajo el peso de la historia y la migración.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="../index.html" class="footer-logo">
+      <img src="../Images/SA-MAIN-LOGO.png" alt="Santos Armada" class="logo-img footer-logo-img">
+    </a>
+    <p class="footer-copy">Una armada de conocimientos escritos</p>
+  </footer>
+
+  <!-- THREE.JS — green torus tunnel, full hero background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+  <script>
+    (function(){
+      var hero = document.querySelector('.era-hero');
+      var ww = hero.clientWidth, wh = hero.clientHeight;
+
+      var torusRadius = 200;
+      var torusDiameter = 25;
+      var rings = 110;
+      var detail = 20;
+
+      var canvas = document.createElement('canvas');
+      canvas.id = 'three-canvas';
+      hero.prepend(canvas);
+
+      var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+      renderer.setClearColor(0x0a0a0a, 1);
+      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      renderer.setSize(ww, wh);
+
+      var scene = new THREE.Scene();
+      scene.fog = new THREE.Fog(0x0a0a0a, torusRadius * 0.8, torusRadius * 1.1);
+
+      var camera = new THREE.PerspectiveCamera(60, ww / wh, 1, torusRadius * 1.1);
+      camera.position.set(Math.cos(0) * torusRadius, 0, Math.sin(0) * torusRadius);
+
+      var light = new THREE.PointLight(0xffffff, 1.4, 150);
+      light.position.set(Math.cos(-Math.PI * 0.3) * torusRadius, 0, Math.sin(-Math.PI * 0.3) * torusRadius);
+      scene.add(light);
+
+      var ambient = new THREE.AmbientLight(0x003a1f, 1.2);
+      scene.add(ambient);
+
+      gsap.to(light.position, {
+        duration: 6,
+        x: Math.cos(Math.PI * 0.3) * torusRadius,
+        z: Math.sin(Math.PI * 0.3) * torusRadius,
+        ease: "power2.inOut",
+        repeat: -1,
+        yoyo: true
+      });
+
+      var torus = new THREE.Object3D();
+      gsap.to(torus.rotation, {
+        duration: 90,
+        y: Math.PI * 2,
+        ease: "none",
+        repeat: -1
+      });
+      scene.add(torus);
+
+      var noise = new SimplexNoise();
+
+      function createTorus() {
+        var geometry = new THREE.BoxGeometry(2, 2, 2);
+        var edgesGeo = new THREE.EdgesGeometry(geometry);
+        var edgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85 });
+
+        for (var i = 0; i < rings; i++) {
+          var u = i / rings * Math.PI * 2;
+          var ring = new THREE.Object3D();
+          ring.position.x = torusRadius * Math.cos(u);
+          ring.position.z = torusRadius * Math.sin(u);
+
+          var n = Math.abs(noise.noise2D(Math.cos(u) * 0.5, Math.sin(u) * 0.5));
+          var lightness = 35 + n * 30;
+          var isSpark = n > 0.95;
+          var color = isSpark
+            ? new THREE.Color(0xffffff)
+            : new THREE.Color("hsl(152, 100%, " + lightness + "%)");
+
+          var material = new THREE.MeshLambertMaterial({ color: color });
+
+          for (var j = 0; j < detail; j++) {
+            var v = j / detail * Math.PI * 2;
+            var x = torusDiameter * Math.cos(v) * Math.cos(u);
+            var y = torusDiameter * Math.sin(v);
+            var z = torusDiameter * Math.cos(v) * Math.sin(u);
+            var size = (Math.random() * 5) + 0.1;
+            var cube = new THREE.Mesh(geometry, material);
+            cube.scale.set(size, size, size);
+            cube.position.set(x, y, z);
+            var rotation = (Math.random() - 0.5) * Math.PI * 4;
+            cube.rotation.set(rotation, rotation, rotation);
+
+            var edges = new THREE.LineSegments(edgesGeo, edgeMat);
+            cube.add(edges);
+
+            ring.add(cube);
+          }
+          torus.add(ring);
+        }
+      }
+
+      createTorus();
+
+      window.addEventListener('resize', function() {
+        ww = hero.clientWidth;
+        wh = hero.clientHeight;
+        camera.aspect = ww / wh;
+        camera.updateProjectionMatrix();
+        renderer.setSize(ww, wh);
+      });
+
+      function render() {
+        requestAnimationFrame(render);
+        camera.lookAt(light.position);
+        renderer.render(scene, camera);
+      }
+      render();
+    })();
+  </script>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
