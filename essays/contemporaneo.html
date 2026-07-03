@@ -337,10 +337,11 @@
     <p class="footer-copy">Una armada de conocimientos escritos</p>
   </footer>
 
-  <!-- THREE.JS — green torus tunnel, full hero background -->
+  <!-- THREE.JS — black cube torus tunnel with bright green edge lines -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+  <script src="https://unpkg.com/three@0.128.0/examples/js/utils/BufferGeometryUtils.js"></script>
   <script>
     (function(){
       var hero = document.querySelector('.era-hero');
@@ -357,7 +358,7 @@
 
       var renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
       renderer.setClearColor(0x0a0a0a, 1);
-      renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       renderer.setSize(ww, wh);
 
       var scene = new THREE.Scene();
@@ -365,22 +366,6 @@
 
       var camera = new THREE.PerspectiveCamera(60, ww / wh, 1, torusRadius * 1.1);
       camera.position.set(Math.cos(0) * torusRadius, 0, Math.sin(0) * torusRadius);
-
-      var light = new THREE.PointLight(0xffffff, 1.4, 150);
-      light.position.set(Math.cos(-Math.PI * 0.3) * torusRadius, 0, Math.sin(-Math.PI * 0.3) * torusRadius);
-      scene.add(light);
-
-      var ambient = new THREE.AmbientLight(0x003a1f, 1.2);
-      scene.add(ambient);
-
-      gsap.to(light.position, {
-        duration: 6,
-        x: Math.cos(Math.PI * 0.3) * torusRadius,
-        z: Math.sin(Math.PI * 0.3) * torusRadius,
-        ease: "power2.inOut",
-        repeat: -1,
-        yoyo: true
-      });
 
       var torus = new THREE.Object3D();
       gsap.to(torus.rotation, {
@@ -393,10 +378,32 @@
 
       var noise = new SimplexNoise();
 
+      function buildThickEdgesGeometry(half, thickness) {
+        var geoms = [];
+        function pushEdge(sx, sy, sz, px, py, pz) {
+          var g = new THREE.BoxGeometry(sx, sy, sz);
+          g.translate(px, py, pz);
+          geoms.push(g);
+        }
+        pushEdge(2 * half, thickness, thickness, 0, half, half);
+        pushEdge(2 * half, thickness, thickness, 0, half, -half);
+        pushEdge(2 * half, thickness, thickness, 0, -half, half);
+        pushEdge(2 * half, thickness, thickness, 0, -half, -half);
+        pushEdge(thickness, 2 * half, thickness, half, 0, half);
+        pushEdge(thickness, 2 * half, thickness, half, 0, -half);
+        pushEdge(thickness, 2 * half, thickness, -half, 0, half);
+        pushEdge(thickness, 2 * half, thickness, -half, 0, -half);
+        pushEdge(thickness, thickness, 2 * half, half, half, 0);
+        pushEdge(thickness, thickness, 2 * half, half, -half, 0);
+        pushEdge(thickness, thickness, 2 * half, -half, half, 0);
+        pushEdge(thickness, thickness, 2 * half, -half, -half, 0);
+        return THREE.BufferGeometryUtils.mergeBufferGeometries(geoms);
+      }
+
       function createTorus() {
-        var geometry = new THREE.BoxGeometry(2, 2, 2);
-        var edgesGeo = new THREE.EdgesGeometry(geometry);
-        var edgeMat = new THREE.LineBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.85 });
+        var fillGeom = new THREE.BoxGeometry(2, 2, 2);
+        var edgesGeom = buildThickEdgesGeometry(1, 0.06);
+        var fillMat = new THREE.MeshBasicMaterial({ color: 0x0a0a0a });
 
         for (var i = 0; i < rings; i++) {
           var u = i / rings * Math.PI * 2;
@@ -405,13 +412,7 @@
           ring.position.z = torusRadius * Math.sin(u);
 
           var n = Math.abs(noise.noise2D(Math.cos(u) * 0.5, Math.sin(u) * 0.5));
-          var lightness = 35 + n * 30;
-          var isSpark = n > 0.95;
-          var color = isSpark
-            ? new THREE.Color(0xffffff)
-            : new THREE.Color("hsl(152, 100%, " + lightness + "%)");
-
-          var material = new THREE.MeshLambertMaterial({ color: color });
+          var edgeMat = new THREE.MeshBasicMaterial({ color: 0x00ff88, fog: false });
 
           for (var j = 0; j < detail; j++) {
             var v = j / detail * Math.PI * 2;
@@ -419,13 +420,13 @@
             var y = torusDiameter * Math.sin(v);
             var z = torusDiameter * Math.cos(v) * Math.sin(u);
             var size = (Math.random() * 5) + 0.1;
-            var cube = new THREE.Mesh(geometry, material);
+            var cube = new THREE.Mesh(fillGeom, fillMat);
             cube.scale.set(size, size, size);
             cube.position.set(x, y, z);
             var rotation = (Math.random() - 0.5) * Math.PI * 4;
             cube.rotation.set(rotation, rotation, rotation);
 
-            var edges = new THREE.LineSegments(edgesGeo, edgeMat);
+            var edges = new THREE.Mesh(edgesGeom, edgeMat);
             cube.add(edges);
 
             ring.add(cube);
@@ -446,7 +447,6 @@
 
       function render() {
         requestAnimationFrame(render);
-        camera.lookAt(light.position);
         renderer.render(scene, camera);
       }
       render();
