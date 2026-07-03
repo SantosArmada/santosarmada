@@ -1,4 +1,5 @@
 <section class="audiolibros-hero">
+    <div id="enterPrompt">tap to enter</div>
   <canvas id="growthCanvas"></canvas>
   <div id="flash"></div>
 
@@ -9,9 +10,33 @@
   >
 
   <div class="hero-label">audiolibros</div>
+  <audio id="transformSound" src="sounds/guitar-loop-arabic.wav" preload="auto"></audio>
+  <a class="back-link" href="index.html">back to santos armada</a>
 </section>
 
 <style>
+    #enterPrompt {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  text-transform: lowercase;
+  color: #000;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+
+#enterPrompt.hide {
+  opacity: 0;
+  pointer-events: none;
+}
     html, body {
   margin: 0;
   background: #fff;
@@ -88,7 +113,7 @@
     bottom: 8%;
     transform: translateX(-50%);
     font-family: Arial, sans-serif;
-    font-size: 14px;
+    font-size: 32px;
     font-weight: 900;
     letter-spacing: 0.35em;
     text-transform: lowercase;
@@ -100,6 +125,30 @@
   .hero-label.show {
     opacity: 0.8;
   }
+  .back-link {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: #000;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.1s linear;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.back-link.show {
+  opacity: 0.6;
+}
+
 </style>
 
 <script>
@@ -295,6 +344,8 @@
     var logo = document.getElementById("finalLogo");
     var flash = document.getElementById("flash");
     var label = document.querySelector(".hero-label");
+    var backLink = document.querySelector(".back-link");
+    var sound = document.getElementById("transformSound");
 
     can.classList.add("collapse");
 
@@ -306,9 +357,19 @@
     setTimeout(function () {
       logo.classList.add("show");
       label.classList.add("show");
+      backLink.classList.add("show");
     }, 95);
   }
+  document.getElementById("enterPrompt").addEventListener("click", function () {
+    var prompt = document.getElementById("enterPrompt");
+    var sound = document.getElementById("transformSound");
 
-  update();
+    prompt.classList.add("hide");
+
+    sound.currentTime = 0;
+    sound.play().catch(function () {});
+
+    update();
+  });
 })();
 </script>
