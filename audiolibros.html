@@ -1,0 +1,309 @@
+<section class="audiolibros-hero">
+  <canvas id="growthCanvas"></canvas>
+  <div id="flash"></div>
+
+  <img
+    id="finalLogo"
+    src="../Images/SA-MAIN-LOGO.png"
+    alt="Santos Armada Logo"
+  >
+
+  <div class="hero-label">audiolibros</div>
+</section>
+
+<style>
+  .audiolibros-hero {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  #growthCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transform: scale(1);
+    transition:
+      opacity 0.05s linear,
+      transform 0.08s cubic-bezier(.2, 1.4, .4, 1);
+  }
+
+  #growthCanvas.collapse {
+    transform: scale(0.05);
+  }
+
+  #growthCanvas.done {
+    opacity: 0;
+  }
+
+  #finalLogo {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: min(78vw, 760px);
+    transform: translate(-50%, -50%) scale(0.72);
+    opacity: 0;
+    filter: grayscale(1) contrast(1.45);
+    transition:
+      opacity 0.07s linear,
+      transform 0.12s cubic-bezier(.15, 1.5, .35, 1);
+    pointer-events: none;
+  }
+
+  #finalLogo.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  #flash {
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #flash.hit {
+    animation: flashHit 0.09s linear forwards;
+  }
+
+  @keyframes flashHit {
+    0% { opacity: 0; }
+    35% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+  .hero-label {
+    position: absolute;
+    left: 50%;
+    bottom: 8%;
+    transform: translateX(-50%);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: 0.35em;
+    text-transform: lowercase;
+    color: #000;
+    opacity: 0;
+    transition: opacity 0.1s linear;
+  }
+
+  .hero-label.show {
+    opacity: 0.8;
+  }
+</style>
+
+<script>
+(function () {
+  var can = document.getElementById("growthCanvas");
+  var ctx = can.getContext("2d");
+
+  var w;
+  var h;
+
+  function resize() {
+    w = can.width = window.innerWidth;
+    h = can.height = window.innerHeight;
+  }
+
+  resize();
+  window.addEventListener("resize", resize);
+
+  function Point(x, y) {
+    this.x = x || 0;
+    this.y = y || 0;
+    this.prev = null;
+    this.next = null;
+  }
+
+  Point.prototype.sub = function (other) {
+    this.x -= other.x;
+    this.y -= other.y;
+    return this;
+  };
+
+  Point.prototype.add = function (other) {
+    this.x += other.x;
+    this.y += other.y;
+    return this;
+  };
+
+  Point.prototype.mul = function (scalar) {
+    this.x *= scalar;
+    this.y *= scalar;
+    return this;
+  };
+
+  Point.prototype.normalize = function () {
+    var length = Math.sqrt(this.x * this.x + this.y * this.y);
+    if (length > 0) {
+      this.x /= length;
+      this.y /= length;
+    }
+    return this;
+  };
+
+  Point.prototype.distance = function (other) {
+    var x = this.x - other.x;
+    var y = this.y - other.y;
+    return Math.sqrt(x * x + y * y);
+  };
+
+  Point.sub = function (a, b, out) {
+    out = out || new Point();
+    out.x = a.x - b.x;
+    out.y = a.y - b.y;
+    return out;
+  };
+
+  function Stick(a, b, length) {
+    this.a = a;
+    this.b = b;
+    this.a.next = b;
+    this.b.prev = a;
+    this.dir = new Point();
+    this.length = length || a.distance(b);
+    this.active = true;
+  }
+
+  Stick.prototype.update = function (growthRate) {
+    var dist = this.a.distance(this.b);
+
+    if (dist > maxLength) {
+      var np = new Point(
+        (this.a.x + this.b.x) * 0.5,
+        (this.a.y + this.b.y) * 0.5
+      );
+
+      points.push(np);
+      sticks.push(new Stick(this.a, np));
+      sticks.push(new Stick(np, this.b));
+
+      this.active = false;
+      return;
+    }
+
+    this.length *= growthRate;
+
+    Point.sub(this.a, this.b, this.dir).normalize();
+
+    var force = (dist - this.length) / (dist * 0.5);
+    this.dir.mul(force + (Math.random() - 0.5));
+
+    this.a.sub(this.dir);
+    this.b.add(this.dir);
+  };
+
+  var growthRate = 1.018;
+  var maxLength = 38;
+  var minDist = 5 * maxLength;
+  var maxIteration = 90;
+
+  var points = [];
+  var sticks = [];
+  var dir = new Point();
+
+  var total = 3;
+  var step = Math.PI * 2 / total;
+  var r = total * 3;
+
+  for (var i = 0; i < total; i++) {
+    points.push(new Point(
+      Math.cos(i * step) * r,
+      Math.sin(i * step) * r
+    ));
+  }
+
+  for (i = 0; i < total; i++) {
+    sticks.push(new Stick(points[i], points[(i + 1) % points.length]));
+  }
+
+  function update() {
+    minDist += maxLength * 0.12;
+
+    var scale = 2000 / minDist;
+    var minPointDist = (maxLength * 4) / scale;
+
+    ctx.clearRect(0, 0, w, h);
+    ctx.save();
+    ctx.translate(w / 2, h / 2);
+    ctx.scale(scale, scale);
+
+    points.forEach(function (p, i) {
+      for (var j = i + 1; j < points.length; j++) {
+        var o = points[j];
+
+        if (p === o) continue;
+
+        var dist = p.distance(o);
+
+        if (dist > minPointDist) continue;
+
+        Point.sub(p, o, dir).normalize();
+
+        var force = (dist - minDist) / (dist * points.length);
+        dir.mul(force);
+
+        p.sub(dir);
+        o.add(dir);
+      }
+    });
+
+    for (var k = sticks.length - 1; k >= 0; k--) {
+      if (!sticks[k].active) {
+        sticks.splice(k, 1);
+      } else {
+        sticks[k].update(growthRate);
+      }
+    }
+
+    if (!sticks.length) return;
+
+    var start = sticks[0].a;
+    var origin = start;
+
+    ctx.fillStyle = "#000";
+    ctx.beginPath();
+    ctx.moveTo(origin.x, origin.y);
+
+    while (origin.next && origin.next !== start) {
+      origin = origin.next;
+      ctx.lineTo(origin.x, origin.y);
+    }
+
+    ctx.closePath();
+    ctx.fill();
+    ctx.restore();
+
+    if (sticks.length < maxIteration) {
+      requestAnimationFrame(update);
+    } else {
+      finishTransition();
+    }
+  }
+
+  function finishTransition() {
+    var logo = document.getElementById("finalLogo");
+    var flash = document.getElementById("flash");
+    var label = document.querySelector(".hero-label");
+
+    can.classList.add("collapse");
+
+    setTimeout(function () {
+      flash.classList.add("hit");
+      can.classList.add("done");
+    }, 55);
+
+    setTimeout(function () {
+      logo.classList.add("show");
+      label.classList.add("show");
+    }, 95);
+  }
+
+  update();
+})();
+</script>
