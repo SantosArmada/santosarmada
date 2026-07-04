@@ -142,10 +142,12 @@
   color: #000;
   text-decoration: none;
   opacity: 0;
-  transition: opacity 0.1s linear;
+  transition: opacity 0.1s linear, color 0.2s ease;
 }
 
-.back-link:hover {
+.back-link:hover,
+.back-link:active {
+  color: #6F98EC;
   text-decoration: underline;
 }
 
