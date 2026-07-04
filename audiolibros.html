@@ -3,13 +3,15 @@
   <canvas id="growthCanvas"></canvas>
   <div id="flash"></div>
 
-  <img
-    id="finalLogo"
-    src="../Images/logo.PNG"
-    alt="Santos Armada Logo"
-  >
+  <a id="forwardLink" href="Audiolibros/audiolibros-categories.html" aria-label="Ver categorías de audiolibros">
+    <img
+      id="finalLogo"
+      src="../Images/logo.PNG"
+      alt="Santos Armada Logo"
+    >
 
-  <div class="hero-label">audiolibros</div>
+    <div class="hero-label">audiolibros</div>
+  </a>
   <audio id="transformSound" src="sounds/guitar-loop-arabic.wav" preload="auto"></audio>
   <a class="back-link" href="index.html">back to santos armada</a>
 </section>
@@ -87,6 +89,8 @@
   #finalLogo.show {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
+    pointer-events: auto;
+    cursor: pointer;
   }
 
   #flash {
