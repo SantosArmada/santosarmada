@@ -107,6 +107,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // --- 5. Click to navigate to each era's titulos page ---
+  const eraPages = {
+    "ERA I": "titulos/era-1-slug.html",
+    "ERA II": "titulos/era-2-slug.html",
+    "ERA III": "titulos/era-3-slug.html",
+    "ERA IV": "titulos/era-4-slug.html"
+  };
+
+  nodes.forEach((node) => {
+    node.style.cursor = "pointer";
+    node.addEventListener("click", () => {
+      const era = node.getAttribute("data-era");
+      const page = eraPages[era];
+      if (page) {
+        window.location.href = page;
+      }
+    });
+  });
+
   // --- 4. Scroll Parallax (Subtle) ---
   gsap.to(".graphic-container", {
     y: 50,
