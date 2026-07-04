@@ -18,7 +18,7 @@
   --logo-glow: drop-shadow(0 10px 15px rgba(111, 152, 236, 0.35));
 
   /* Same footprint as the Essays / About center mark — adjust here if that page uses a different size */
-  --logo-size: 100px;
+  --logo-size: 175px;
 }
 
 * {
