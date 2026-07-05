@@ -36,9 +36,125 @@ body {
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
+  /* offset for the fixed permanent header below */
+  padding-top: 72px;
 }
 
-/* --- Header / Top --- */
+/* --- Permanent Header / Nav (same spirit as Essays / About / Interpreter Z,
+   recolored for the light Audiolibros palette) --- */
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 2rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.site-nav-logo {
+  display: flex;
+  align-items: center;
+}
+.site-nav-logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+.site-nav-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  align-items: center;
+}
+.site-nav-links a {
+  font-family: "Inter", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s;
+}
+.site-nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--accent-audiolibros);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.site-nav-links a:hover,
+.site-nav-links a.active {
+  color: var(--accent-audiolibros);
+}
+.site-nav-links a:hover::after,
+.site-nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.site-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.site-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--text-dark);
+  transition: all 0.3s ease;
+}
+.site-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.site-hamburger.open span:nth-child(2) { opacity: 0; }
+.site-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.site-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.site-mobile-menu.open { display: flex; }
+.site-mobile-menu a {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dark);
+  text-decoration: none;
+}
+.site-mobile-menu a:hover { color: var(--accent-audiolibros); }
+
+@media (max-width: 768px) {
+  .site-nav-links { display: none; }
+  .site-hamburger { display: flex; }
+}
+
+/* --- Header / Top brand ("Santos Armada" / "Audiolibros") — enlarged --- */
 .top-brand {
   margin-top: 40px;
   text-align: center;
@@ -46,17 +162,27 @@ body {
 }
 .top-brand-line1 {
   display: block;
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 4px;
   color: var(--text-light);
 }
 .top-brand-line2 {
   display: block;
-  font-size: 13px;
-  letter-spacing: 6px;
+  font-size: 22px;
+  letter-spacing: 5px;
   font-weight: 700;
   color: var(--accent-audiolibros);
-  margin-top: 4px;
+  margin-top: 6px;
+}
+.top-brand-line3 {
+  display: block;
+  font-family: "Arial Black", "Inter", sans-serif;
+  font-weight: 900;
+  font-size: 48px;
+  letter-spacing: -1px;
+  color: #000;
+  margin-top: 10px;
+  line-height: 1.1;
 }
 
 /* --- Main Graphic Container --- */
@@ -166,7 +292,7 @@ body {
   opacity: 0.6;
 }
 
-/* --- Floating Era Nodes (4) --- */
+/* --- Floating Ola Nodes (4) --- */
 .icon-node {
   position: absolute;
   width: 64px;
@@ -189,24 +315,40 @@ body {
   box-shadow: var(--clay-shadow-out), var(--clay-shadow-in),
     0 0 0 3px var(--accent-audiolibros-soft);
 }
+
+/* Ordinal + "OLA" stacked inside the box, e.g. "1ra" / "OLA" */
 .node-symbol {
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--accent-audiolibros);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   line-height: 1;
 }
+.node-symbol .ord {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--accent-audiolibros);
+}
+.node-symbol .ola {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--accent-audiolibros);
+  margin-top: 3px;
+}
+
 .node-label {
   position: absolute;
   top: 72px;
-  width: 140px;
+  width: 170px;
   left: 50%;
   transform: translateX(-50%);
-  font-size: 10px;
-  letter-spacing: 1px;
+  font-size: 9px;
+  letter-spacing: 0.5px;
   text-transform: uppercase;
   color: var(--text-light);
   text-align: center;
   pointer-events: none;
+  line-height: 1.4;
 }
 
 /* Node Positions — diamond layout, 4 nodes */
@@ -233,13 +375,16 @@ body {
   margin-top: 56px;
   position: relative;
   z-index: 10;
+  padding: 0 24px;
 }
 .eyebrow {
   font-size: 11px;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   color: var(--text-light);
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin: 0 auto 12px;
+  max-width: 560px;
+  line-height: 1.7;
 }
 h1 {
   font-family: "Arial Black", "Inter", sans-serif;
@@ -293,4 +438,43 @@ h1 strong {
 .footer-logo-link:active .footer-caption {
   color: var(--accent-audiolibros);
   text-decoration: underline;
+}
+
+/* --- Mission Statement — last element on the page --- */
+.mission-section {
+  max-width: 620px;
+  margin: 0 auto 80px;
+  padding: 40px 24px 0;
+  text-align: center;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+}
+.mission-eyebrow {
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent-audiolibros);
+  margin-bottom: 14px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+.mission-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .node-label {
+    width: 130px;
+    font-size: 8.5px;
+  }
+  .top-brand-line2 {
+    font-size: 18px;
+    letter-spacing: 3px;
+  }
+  .top-brand-line3 {
+    font-size: 30px;
+  }
 }

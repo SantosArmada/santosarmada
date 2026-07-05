@@ -15,10 +15,40 @@
 </head>
 <body>
 
-<!-- 1) Top brand: "Santos Armada" / "Audiolibros" -->
+<!-- PERMANENT HEADER — same spirit/pattern as Essays / About / Interpreter Z,
+     recolored for the light Audiolibros palette. ASSUMPTION: this file lives one
+     level under the site root (matching the existing ../index.html and
+     ../Images/logo.PNG paths below), so nav links use the same ../ prefix.
+     Swap hrefs if your real folder structure differs. -->
+<nav class="site-nav">
+  <a href="../index.html" class="site-nav-logo" aria-label="Santos Armada — inicio">
+    <img src="../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
+  </a>
+  <ul class="site-nav-links">
+    <li><a href="../essays.html">Ensayos</a></li>
+    <li><a href="audiolibros-categories.html" class="active">Audiolibros</a></li>
+    <li><a href="../interpreter-z.html">Interpreter Z</a></li>
+    <li><a href="../about.html">Sobre Mí</a></li>
+    <li><a href="../cv.html">CV</a></li>
+  </ul>
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="site-mobile-menu" id="siteMobileMenu">
+  <a href="../essays.html">Ensayos</a>
+  <a href="audiolibros-categories.html">Audiolibros</a>
+  <a href="../interpreter-z.html">Interpreter Z</a>
+  <a href="../about.html">Sobre Mí</a>
+  <a href="../cv.html">CV</a>
+</div>
+
+<!-- 1) Top brand: "Santos Armada" / "Audiolibros" — enlarged, same font/color -->
 <div class="top-brand gsap-fade">
   <span class="top-brand-line1">Santos Armada</span>
   <span class="top-brand-line2">Audiolibros</span>
+  <span class="top-brand-line3">Olas de Literatura</span>
 </div>
 
 <div class="graphic-container">
@@ -28,7 +58,7 @@
   <div class="pulse-ring pulse-ring-3"></div>
 </div>
 
-  <!-- 4 lines instead of 6, one per era node -->
+  <!-- 4 lines, one per Ola node -->
   <svg class="lines-svg" viewBox="0 0 800 450">
     <path class="line-path" d="M 400 225 C 250 225, 200 120, 160 120" />
     <path class="line-path" d="M 400 225 C 250 225, 200 330, 160 330" />
@@ -36,35 +66,32 @@
     <path class="line-path" d="M 400 225 C 550 225, 600 330, 640 330" />
   </svg>
 
-  <!-- 1) Center logo replaces the brain, same footprint as the Essays/About center mark.
-       Assumption: linked to ../index.html, same target as the footer logo below.
-       If this should point somewhere else (an Audiolibros index page, etc.) it's a one-line swap. -->
   <a href="../index.html" class="logo-link gsap-pop float-slow" aria-label="Santos Armada — inicio">
     <img class="logo-center" src="../Images/logo.PNG" alt="Santos Armada">
   </a>
 
-  <!-- 6) Four era nodes — placeholder roman numerals stand in for the symbols to come -->
-  <div class="icon-node n-l1 float-anim" data-era="ERA I">
-    <span class="node-symbol">I</span>
-    <span class="node-label">Antes de 1492</span>
+  <!-- 6) Four Ola nodes — 1ra/2da/3ra/4ta OLA stacked in the box, era label underneath -->
+  <div class="icon-node n-l1 float-anim" data-era="1ra Ola">
+    <span class="node-symbol"><span class="ord">1ra</span><span class="ola">OLA</span></span>
+    <span class="node-label">Voces de las Américas Antiguas y la España medieval</span>
   </div>
-  <div class="icon-node n-l3 float-anim-alt" data-era="ERA III">
-    <span class="node-symbol">III</span>
-    <span class="node-label">Independencia</span>
+  <div class="icon-node n-l3 float-anim-alt" data-era="3ra Ola">
+    <span class="node-symbol"><span class="ord">3ra</span><span class="ola">OLA</span></span>
+    <span class="node-label">Independencia y Nación</span>
   </div>
-  <div class="icon-node n-r1 float-anim-alt" data-era="ERA II">
-    <span class="node-symbol">II</span>
-    <span class="node-label">Colonial</span>
+  <div class="icon-node n-r1 float-anim-alt" data-era="2da Ola">
+    <span class="node-symbol"><span class="ord">2da</span><span class="ola">OLA</span></span>
+    <span class="node-label">El encuentro y la colonia</span>
   </div>
-  <div class="icon-node n-r3 float-anim" data-era="ERA IV">
-    <span class="node-symbol">IV</span>
-    <span class="node-label">Siglo XX</span>
+  <div class="icon-node n-r3 float-anim" data-era="4ta Ola">
+    <span class="node-symbol"><span class="ord">4ta</span><span class="ola">OLA</span></span>
+    <span class="node-label">Principios del siglo XX</span>
   </div>
 </div>
 
-<!-- 5) & 7) Header section, Essays-style weight, new blue accent -->
+<!-- 5) & 7) Header section -->
 <div class="text-section">
-  <div class="eyebrow gsap-fade">CUATRO ERAS. UNA VOZ.</div>
+  <div class="eyebrow gsap-fade">CUATRO OLAS DE LITERATURA — UNA VOZ DE UN HIJO DE MUCHOS SUEÑOS</div>
   <h1 class="gsap-slide-up">
     GUARDIÁN
     <strong>DE HISTORIAS</strong>
@@ -82,6 +109,27 @@
   <span class="footer-caption">VOLVER AL INICIO</span>
 </a>
 
+<!-- Mission statement — placed as the very last element on the page -->
+<section class="mission-section gsap-fade">
+  <p class="mission-eyebrow">La misión de información de Christian Ricardo Santos</p>
+  <p class="mission-text">Mi misión es preservar y compartir libremente la literatura hispánica —desde las voces indígenas y la España medieval, pasando por el encuentro colonial y el Siglo de Oro, hasta los primeros años del siglo XX— cuyos textos originales están o se cree que están en el dominio público en los Estados Unidos, basándome en una cuidadosa investigación bibliográfica y de derechos de autor.</p>
+</section>
+
 <script src="audiolibros-categories.js"></script>
+<script>
+// Permanent header hamburger toggle (site-wide nav pattern)
+const siteHamburger = document.getElementById('siteHamburger');
+const siteMobileMenu = document.getElementById('siteMobileMenu');
+siteHamburger.addEventListener('click', () => {
+  siteHamburger.classList.toggle('open');
+  siteMobileMenu.classList.toggle('open');
+});
+siteMobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    siteHamburger.classList.remove('open');
+    siteMobileMenu.classList.remove('open');
+  });
+});
+</script>
 </body>
 </html>
