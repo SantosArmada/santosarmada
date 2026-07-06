@@ -10,6 +10,118 @@
     --card-shadow: rgba(15, 20, 40, 0.15);
 }
 
+.site-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 2rem;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.site-nav-logo {
+  display: flex;
+  align-items: center;
+}
+.site-nav-logo-img {
+  height: 38px;
+  width: auto;
+  display: block;
+}
+.site-nav-links {
+  display: flex;
+  gap: 1.75rem;
+  list-style: none;
+  align-items: center;
+}
+.site-nav-links a {
+  font-family: "Inter", sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s;
+}
+.site-nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--audio-blue);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.site-nav-links a:hover,
+.site-nav-links a.active {
+  color: var(--audio-blue);
+}
+.site-nav-links a:hover::after,
+.site-nav-links a.active::after {
+  transform: scaleX(1);
+}
+
+.site-hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 4px;
+}
+.site-hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  transition: all 0.3s ease;
+}
+.site-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.site-hamburger.open span:nth-child(2) { opacity: 0; }
+.site-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.site-mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #ffffff;
+  z-index: 99;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+.site-mobile-menu.open { display: flex; }
+.site-mobile-menu a {
+  font-family: "Inter", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-decoration: none;
+}
+.site-mobile-menu a:hover { color: var(--audio-blue); }
+
+@media (max-width: 900px) {
+  .site-nav-links { display: none; }
+  .site-hamburger { display: flex; }
+}
+
 * {
     box-sizing: border-box;
 }
@@ -19,6 +131,7 @@ body {
     background-color: var(--audio-blue-pale);
     font-family: 'Poppins', sans-serif;
     color: var(--ink);
+    padding-top: 72px;
 }
 
 /* ---------- HEADER ---------- */
