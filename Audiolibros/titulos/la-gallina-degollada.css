@@ -641,5 +641,11 @@ body {
 @media (max-width: 900px) {
     .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
     .book-header { padding: 2rem; }
-    .chicken-signature { display: none; }
+    .chicken-signature {
+        width: 100px;
+        height: 52px;
+        flex-basis: 100%;
+        margin: 0.5rem auto 0;
+    }
+    .chick-align { transform: scale(0.2); }
 }
