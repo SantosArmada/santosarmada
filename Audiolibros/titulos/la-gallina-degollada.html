@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audiolibros — La Gallina Degollada</title>
+    <link rel="stylesheet" href="la-gallina-degollada.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
+    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
+  </a>
+  <ul class="site-nav-links">
+    <li><a href="../../essays.html">Ensayos</a></li>
+    <li><a href="#">Authors</a></li>
+    <li><a href="../audiolibros-categories.html" class="active">Audiolibros</a></li>
+    <li><a href="../../globe.html">Space and Time</a></li>
+    <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
+    <li><a href="../../about.html">Sobre Mí</a></li>
+    <li><a href="../../cv.html">CV</a></li>
+  </ul>
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="site-mobile-menu" id="siteMobileMenu">
+  <a href="../../essays.html">Ensayos</a>
+  <a href="#">Authors</a>
+  <a href="../audiolibros-categories.html">Audiolibros</a>
+  <a href="../../globe.html">Space and Time</a>
+  <a href="../../interpreter-z.html">Interpreter Z</a>
+  <a href="../../about.html">Sobre Mí</a>
+  <a href="../../cv.html">CV</a>
+</div>
+
+<header class="book-header">
+    <div class="book-header-text">
+        <p class="kicker">Audiolibros · Cuarta Ola</p>
+        <h1>La Gallina Degollada</h1>
+        <p class="subtitle">Horacio Quiroga</p>
+    </div>
+
+    <div class="chicken-signature" aria-hidden="true">
+        <div class="chick-align">
+            <div class="chick-circle">
+                <div class="chick-coal"></div>
+                <div class="chick-coal"></div>
+                <div class="chick-coal"></div>
+                <div class="chick-coal"></div>
+                <div class="chick-coal"></div>
+                <div class="chick-coal"></div>
+                <div class="chick-coal"></div>
+                <div id="chickCarrot">
+                    <div class="chick-carrot-c"></div>
+                </div>
+            </div>
+            <div class="chick-circle">
+                <div class="chick-left-branch">
+                    <div class="chick-extra-l"></div>
+                </div>
+                <div class="chick-right-branch">
+                    <div class="chick-extra-r"></div>
+                </div>
+            </div>
+            <div class="chick-circle"></div>
+        </div>
+    </div>
+</header>
+
+<div class="blood-scroll"><div class="blood-fill"></div></div>
+
+<section class="player-section" id="playerSection">
+    <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
+        <svg viewBox="0 0 60 60" width="46" height="46">
+            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--red)" stroke-width="3"/>
+            <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
+                  fill="none" stroke="var(--red)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--red)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="player">
+        <canvas></canvas>
+        <div class="song">
+            <div class="artist">La Gallina Degollada</div>
+            <div class="name">Capítulo 1</div>
+        </div>
+        <div class="playarea">
+            <div class="prevSong"></div>
+            <div class="play"></div>
+            <div class="pause"></div>
+            <div class="nextSong"></div>
+        </div>
+        <div class="soundControl"></div>
+        <div class="time">00:00</div>
+    </div>
+</section>
+
+<div class="extra-controls">
+    <div class="volume-dial" id="volumeDial">
+        <div class="volume-dial__control">
+            <div class="volume-dial__wrap">
+                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                    <span class="volume-dial__knob-label">Volumen</span>
+                </button>
+            </div>
+        </div>
+        <p class="volume-dial__caption">Volumen</p>
+    </div>
+</div>
+
+<audio id="chapterAudio" preload="auto" crossorigin="anonymous"
+       src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"></audio>
+<!-- ^ placeholder track so the scrubber/visualizer are testable right now.
+     Replace src with each recorded chapter file as you upload them. -->
+
+<div class="all">
+  <div class="card">
+    <div class="book">
+        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+        <img src="../../Images/la-gallina-degollada.png" alt="La Gallina Degollada">
+        <div class="controls">
+            <div class="box">Escucha ahora</div>
+        </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-body">
+        <div class="break"></div>
+        <h1>SINOPSIS</h1>
+        <p>[Sinopsis pendiente — se agrega próximamente.]</p>
+
+        <div class="break"></div>
+        <h1>CAPÍTULOS</h1>
+        <p class="chapter" data-time="0">Capítulo 1</p>
+        <p class="chapter" data-time="0">Capítulo 2</p>
+        <p class="chapter" data-time="0">Capítulo 3</p>
+        <p class="chapter" data-time="0">Capítulo 4</p>
+        <p class="chapter" data-time="0">Capítulo 5</p>
+
+        <div class="break"></div>
+        <h1>RESEÑAS</h1>
+        <div>
+            <svg class="good" style="width:20px;height:20px" viewBox="0 0 24 24"><path fill="#d91729" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" /></svg>
+            <svg class="good" style="width:20px;height:20px" viewBox="0 0 24 24"><path fill="#d91729" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" /></svg>
+            <svg class="good" style="width:20px;height:20px" viewBox="0 0 24 24"><path fill="#d91729" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" /></svg>
+            <svg class="good" style="width:20px;height:20px" viewBox="0 0 24 24"><path fill="#d91729" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" /></svg>
+            <svg class="good" style="width:20px;height:20px" viewBox="0 0 24 24"><path fill="#d91729" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" /></svg>
+            <p style="display:inline; margin-left:6px;">Bueno</p>
+        </div>
+        <div>
+            <svg class="bad" style="width:20px;height:20px" viewBox="0 0 24 24"><path fill="#d91729" d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z" /></svg>
+            <p style="display:inline; margin-left:6px;">Malo</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+    <a href="../../index.html" aria-label="Santos Armada — inicio">
+        <img src="../../Images/logo.PNG" alt="Santos Armada">
+    </a>
+</footer>
+
+<script src="la-gallina-degollada.js"></script>
+
+</body>
+</html>
