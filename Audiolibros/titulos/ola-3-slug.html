@@ -8,6 +8,34 @@
 </head>
 <body>
 
+    <nav class="site-nav">
+  <a href="../../index.html" class="site-nav-logo" aria-label="Santos Armada — inicio">
+    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
+  </a>
+  <ul class="site-nav-links">
+    <li><a href="../../essays.html">Ensayos</a></li>
+    <li><a href="#">Authors</a></li>
+    <li><a href="../audiolibros-categories.html" class="active">Audiolibros</a></li>
+    <li><a href="../../globe.html">Space and Time</a></li>
+    <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
+    <li><a href="../../about.html">Sobre Mí</a></li>
+    <li><a href="../../cv.html">CV</a></li>
+  </ul>
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="site-mobile-menu" id="siteMobileMenu">
+  <a href="../../essays.html">Ensayos</a>
+  <a href="#">Authors</a>
+  <a href="../audiolibros-categories.html">Audiolibros</a>
+  <a href="../../globe.html">Space and Time</a>
+  <a href="../../interpreter-z.html">Interpreter Z</a>
+  <a href="../../about.html">Sobre Mí</a>
+  <a href="../../cv.html">CV</a>
+</div>
+
     <header class="titulos-header">
     <svg class="wave-bg" viewBox="0 0 1600 300" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
       <path class="wave-layer-back" d="M-500,180 C-300,140 -100,220 100,170 C300,120 500,240 700,160 C900,90 1100,230 1300,150 C1500,200 1700,110 1900,180 L2100,174 L2100,300 L-500,300 Z">
@@ -107,6 +135,21 @@
     <footer class="titulos-footer">
         <a href="../audiolibros-categories.html" class="footer-link">&larr; Volver a las categorías</a>
     </footer>
+
+<script>
+const siteHamburger = document.getElementById('siteHamburger');
+const siteMobileMenu = document.getElementById('siteMobileMenu');
+siteHamburger.addEventListener('click', () => {
+  siteHamburger.classList.toggle('open');
+  siteMobileMenu.classList.toggle('open');
+});
+siteMobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    siteHamburger.classList.remove('open');
+    siteMobileMenu.classList.remove('open');
+  });
+});
+</script>
 
 </body>
 </html>
