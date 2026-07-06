@@ -269,6 +269,9 @@ body {
     box-shadow: 0 6px 14px var(--card-shadow);
     position: relative;
     overflow: hidden;
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .book-placeholder {
