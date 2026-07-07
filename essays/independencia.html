@@ -105,20 +105,19 @@
       overflow:hidden;
     }
 
-    /* ── BRICK ANIMATION STAGE ── */
+    /* ── RAINING CUBES ANIMATION STAGE ── */
     .animation-stage{
       position:relative;
       width:100%;
-      height:320px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      perspective:25em;
-      perspective-origin:50% calc(50% - 9.75em);
-      margin-bottom:18rem;
+      height:600px;
+      display:grid;
+      place-items:center;
+      perspective:700px;
+      overflow:hidden;
+      margin-bottom:2rem;
     }
 
-    /* vignette overlay */
+    /* vignette overlay, same treatment as other era pages */
     .animation-stage::after{
       content:'';
       position:absolute;
@@ -128,42 +127,42 @@
       pointer-events:none;
     }
 
-    .assembly{
+    .animation-stage, .animation-stage *{
+      transform-style:preserve-3d;
+    }
+
+    .scene{
       position:relative;
-      transform-style:preserve-3d;
+      font-size:38px;
+      transform:rotateX(-30deg) rotateY(0deg);
+      animation:sceneRotate 60s infinite linear;
     }
 
-    .brick{
+    .column{
       position:absolute;
-      transform-style:preserve-3d;
+      transform:rotateY(var(--ry)) translateX(2.8em);
     }
 
-    .brick__face{
+    .box{
       position:absolute;
-      --i:1;
-      --w:3.25em;
-      margin:calc(-0.8125em) calc(-0.5 * var(--w));
-      width:var(--w);
-      height:1.625em;
-      backface-visibility:hidden;
-      transform:
-        rotate3d(var(--i), calc(1 - var(--i)), 0, calc(var(--m, 0) * 90deg))
-        translateZ(calc(0.5 * var(--z, 1.625em)));
-      box-shadow:0 0 1px currentcolor;
-      background:currentcolor;
+      width:1em;height:1em;
+      transform-origin:top left;
     }
 
-    /* Green color scheme — sides dark, tops bright */
-    .brick__face                { color: #003311; }
-    .brick__face:nth-child(2n)  { color: #006622; }
-    .brick__face:nth-child(n+5) { color: #00ff88; }
-
-    /* faces 5-6: top/bottom caps */
-    .brick__face:nth-child(n+5){
-      --i:0;
-      --w:1.625em;
-      --z:3.25em;
+    .box i{
+      --gap:0.05em;
+      position:absolute;
+      inset:var(--gap);
+      background-color:rgba(0,0,0,0.85);
+      border:2px solid var(--green);
+      box-shadow:0 0 0.5em var(--green) inset;
     }
+    .box i:nth-child(1){ transform:translateZ(calc(0.5em - var(--gap))); }
+    .box i:nth-child(2){ transform:rotateY(90deg) translateZ(calc(0.5em - var(--gap))); }
+    .box i:nth-child(3){ transform:rotateY(180deg) translateZ(calc(0.5em - var(--gap))); }
+    .box i:nth-child(4){ transform:rotateY(270deg) translateZ(calc(0.5em - var(--gap))); }
+    .box i:nth-child(5){ transform:rotateX(270deg) translateZ(calc(0.5em - var(--gap))); }
+    .box i:nth-child(6){ transform:rotateX(90deg) translateZ(calc(0.5em - var(--gap))); }
 
     /* ── ERA TEXT ── */
     .era-eyebrow{
@@ -272,10 +271,12 @@
       .era-hero{ padding:80px 24px 60px; }
       .era-desc{ font-size:0.85rem; }
       footer{ padding:2rem 1.5rem; }
+      .animation-stage{ height:480px; }
+      .scene{ font-size:26px; }
     }
 
     @media(prefers-reduced-motion:reduce){
-      .assembly, .brick { animation:none !important; }
+      .scene, .box { animation:none !important; }
     }
   </style>
 </head>
@@ -290,7 +291,7 @@
       <li><a href="../authors.html">Authors</a></li>
       <li><a href="../essays.html">Essays</a></li>
       <li><a href="../globe.html">Space &amp; Time</a></li>
-      <li><a href="../academic.html">Academic</a></li>
+      <li><a href="../audiolibros.html">Audiolibros</a></li>
       <li><a href="../interpreter-z.html">Interpreter Z</a></li>
       <li><a href="../cv.html">CV</a></li>
       <li><a href="../about.html">About</a></li>
@@ -305,7 +306,7 @@
     <a href="../authors.html">Authors</a>
     <a href="../essays.html">Essays</a>
     <a href="../globe.html">Space &amp; Time</a>
-    <a href="../academic.html">Academic</a>
+    <a href="../audiolibros.html">Audiolibros</a>
     <a href="../interpreter-z.html">Interpreter Z</a>
     <a href="../cv.html">CV</a>
     <a href="../about.html">About</a>
@@ -316,9 +317,9 @@
 
     <p class="era-eyebrow">1808 — 1821</p>
 
-    <!-- BRICK TOWER ANIMATION -->
+    <!-- RAINING CUBES ANIMATION -->
     <div class="animation-stage">
-      <div class="assembly" id="assembly"></div>
+      <div class="scene" id="scene"></div>
     </div>
 
     <p class="era-eyebrow">Era III</p>
@@ -376,107 +377,91 @@
   </footer>
 
   <script>
-    /* ── BRICK TOWER ANIMATION ──────────────────────────────
-       Rebuilt from the Geneva CSS tutorial in plain JS+CSS.
-       No template engine — JS generates the HTML and injects
-       the computed keyframes dynamically.
+    /* ── RAINING CUBES ANIMATION ──────────────────────────────
+       Converted from the SCSS CodePen (12 columns × 6 boxes,
+       randomized tumble timing per column). SCSS @for loops and
+       random() can't run in the browser, so this JS generates the
+       same structure and keyframes at load time — same approach
+       we used for the brick tower on this page before.
     ─────────────────────────────────────────────────────── */
 
-    const nLayers = 8;
-    const nBricks = 10;
-    const w = 3.25;             // em — brick width
-    const h = w * 0.5;          // em — brick height (1.625)
-    const gap = w * 0.125;      // em — gap between layers (0.40625)
-    const dy = h + gap;         // em — vertical step (2.03125)
-    const ba = 360 / nBricks;   // deg — base angle (36)
-    const baRad = ba * Math.PI / 180;
-    const r = (1.0625 * w) / 2 / Math.tan(0.5 * baRad) + 0.5 * h; // inner radius ~6.13em
-    const t = 3;                // seconds — cycle duration
-    const k = 8;                // stagger constant
-    const p = 100 / (nBricks + k - 1); // keyframe % step ~5.88
+    const colCount   = 12;
+    const boxPerCol  = 6;
+    const duration   = 22; // seconds — slower, longer cycle
 
-    // ── Face --m values (original logic) ──
-    // i < 4 → m = i; i >= 4 → m = (-1)^i
-    const mVals = [0, 1, 2, 3, 1, -1];
+    function rand(max) { return Math.random() * max; }
 
-    // ── Build CSS string ──
     let css = '';
 
-    // Assembly cycle animation
-    css += `@keyframes assembly-move {
-      to { transform: translateY(${dy}em) rotateY(${ba / 2}deg); }
+    // Scene continuous rotation
+    css += `@keyframes sceneRotate {
+      from { transform: rotateX(-30deg) rotateY(0deg); }
+      to   { transform: rotateX(-30deg) rotateY(360deg); }
     }\n`;
 
-    // Per-brick-index entry animations (ani-1 … ani-nBricks)
-    for (let i = 0; i < nBricks; i++) {
-      const start = (i * p).toFixed(3);
-      const end   = ((i + k) * p).toFixed(3);
-      const topY  = -((nLayers + 5) * dy);
-      css += `@keyframes ani-${i + 1} {
-        0%, ${start}% { transform: var(--rot) translate3d(0, ${topY.toFixed(4)}em, ${r.toFixed(4)}em); }
-        100%, ${end}% { transform: var(--rot) translate3d(0, 0, ${r.toFixed(4)}em); }
+    // Shared vertical fall, all boxes — longer travel distance
+    css += `@keyframes boxTranslate {
+      from { translate: 0 1em; }
+      to   { translate: 0 11em; }
+    }\n`;
+
+    // Per-column tumble timing (randomized breakpoints, like the SCSS random())
+    for (let i = 0; i < colCount; i++) {
+      const p1 = rand(40);
+      const p2 = p1 + 4 + rand(4);
+      const p3 = p2 + 2 + rand(2);
+      const p4 = p3 + 2 + rand(2);
+      const p5 = p4 + 2 + rand(2);
+      const p6 = p5 + 2 + rand(2);
+      const p7 = p6 + 4 + rand(4);
+
+      css += `@keyframes boxRotate${i} {
+        0%, ${p1.toFixed(2)}% { rotate: 0.25turn; }
+        ${p2.toFixed(2)}%, ${p3.toFixed(2)}%, ${p4.toFixed(2)}%, ${p5.toFixed(2)}%, ${p6.toFixed(2)}% { rotate: -0.25turn; animation-timing-function: step-end; }
+        ${p2.toFixed(2)}%, ${p3.toFixed(2)}%, ${p4.toFixed(2)}%, ${p5.toFixed(2)}%, ${p6.toFixed(2)}% { rotate: 0turn; }
+        ${p7.toFixed(2)}%, 100% { rotate: -0.5turn; }
+      }\n`;
+
+      css += `@keyframes boxTop${i} {
+        0%, ${p1.toFixed(2)}% { top: 0; }
+        ${p2.toFixed(2)}% { top: -1em; }
+        ${p3.toFixed(2)}% { top: -2em; }
+        ${p4.toFixed(2)}% { top: -3em; }
+        ${p5.toFixed(2)}% { top: -4em; }
+        ${p6.toFixed(2)}% { top: -5em; }
       }\n`;
     }
 
-    // Assembly animation rule
-    css += `.assembly { animation: assembly-move ${t}s linear infinite; }\n`;
-
-    // Layer property rules (cascade: later rule wins for higher layers)
-    for (let i = 0; i < nLayers; i++) {
-      const yVal = ((nLayers - 1 - i) * dy).toFixed(4);
-      const f    = i % 2;
-      const j    = Math.floor(i / 2);
-      css += `.brick:nth-child(n + ${i * nBricks + 1}) {
-        --y: ${yVal}em; --f: ${f}; --j: ${j};
-      }\n`;
-    }
-
-    // Brick rotation formula
-    css += `.brick {
-      --rot: rotateY(calc((var(--i, 0) - var(--f, 0) * 0.5) * ${ba}deg + 0.5turn));
-      transform: var(--rot) translate3d(0, var(--y, 0), ${r.toFixed(4)}em);
-    }\n`;
-
-    // Last nBricks get base entry animation
-    css += `.brick:nth-last-child(-n + ${nBricks}) {
-      animation: ani-1 ${t}s ease-in-out infinite;
-    }\n`;
-
-    // Per-brick-index: --i and staggered animation-name
-    for (let i = 1; i < nBricks; i++) {
-      css += `.brick:nth-child(${nBricks}n + ${i + 1}) {
-        --i: ${i};
-        animation-name: ani-${nBricks - i + 1};
-      }\n`;
-    }
-
-    // Face --m values
-    for (let i = 0; i < 6; i++) {
-      css += `.brick__face:nth-child(${i + 1}) { --m: ${mVals[i]}; }\n`;
-    }
-
-    // Inject
     const styleEl = document.createElement('style');
     styleEl.textContent = css;
     document.head.appendChild(styleEl);
 
-    // ── Generate HTML ──
-    const assembly = document.getElementById('assembly');
+    // ── Generate columns, boxes, and cube faces ──
+    const scene = document.getElementById('scene');
     const frag = document.createDocumentFragment();
 
-    for (let layer = 0; layer < nLayers; layer++) {
-      for (let brick = 0; brick < nBricks; brick++) {
-        const brickEl = document.createElement('div');
-        brickEl.className = 'brick';
-        for (let face = 0; face < 6; face++) {
-          const faceEl = document.createElement('div');
-          faceEl.className = 'brick__face';
-          brickEl.appendChild(faceEl);
+    for (let i = 0; i < colCount; i++) {
+      const col = document.createElement('div');
+      col.className = 'column';
+      col.style.setProperty('--ry', (360 / colCount * i) + 'deg');
+
+      for (let b = 0; b < boxPerCol; b++) {
+        const box = document.createElement('div');
+        box.className = 'box';
+        const delay = -(duration / boxPerCol) * b;
+        box.style.animation =
+          `boxRotate${i} ${duration}s ${delay}s infinite ease-in-out, ` +
+          `boxTop${i} ${duration}s ${delay}s infinite step-end, ` +
+          `boxTranslate ${duration}s ${delay}s infinite linear`;
+
+        for (let f = 0; f < 6; f++) {
+          box.appendChild(document.createElement('i'));
         }
-        frag.appendChild(brickEl);
+        col.appendChild(box);
       }
+      frag.appendChild(col);
     }
-    assembly.appendChild(frag);
+    scene.appendChild(frag);
 
     // ── Hamburger menu ──
     const hamburger = document.getElementById('hamburger');
