@@ -382,3 +382,27 @@
         padding: 40px 20px;
     }
 }
+
+.globe-tagline {
+    position: fixed;
+    bottom: 78px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 15;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: rgba(200, 169, 110, 0.4);
+    text-transform: uppercase;
+    text-align: center;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .globe-tagline {
+        bottom: 64px;
+        font-size: 9px;
+        letter-spacing: 0.14em;
+    }
+}
