@@ -49,9 +49,78 @@
 
 .navbar {
     position: fixed;
-    top: 20px;
-    left: 30px;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 30px;
+    background: rgba(4, 6, 10, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(200, 169, 110, 0.15);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    font-family: 'Georgia', serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--gold);
+    font-size: 22px;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 64px;
+        left: 0;
+        width: 100%;
+        background: rgba(4, 6, 10, 0.96);
+        padding: 20px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(200, 169, 110, 0.15);
+        z-index: 19;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
 }
 
 .nav-logo {
@@ -65,7 +134,14 @@
     width: 36px;
     height: 36px;
     object-fit: contain;
-    filter: drop-shadow(0 0 8px rgba(200, 169, 110, 0.5));
+    filter: invert(1) sepia(1) saturate(1.5) hue-rotate(5deg) brightness(0.85)
+            drop-shadow(0 0 8px rgba(200, 169, 110, 0.5));
+    transition: filter 0.3s ease;
+}
+
+.nav-logo:hover .nav-crest {
+    filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.1)
+            drop-shadow(0 0 14px rgba(200, 169, 110, 0.8));
 }
 
 .nav-title {
@@ -113,8 +189,7 @@
 
 @media (max-width: 768px) {
     .navbar {
-        top: 14px;
-        left: 16px;
+        padding: 14px 16px;
     }
 
     .globe-info-panel {
@@ -187,5 +262,123 @@
 @media (max-width: 768px) {
     .globe-scroll-cue {
         bottom: 18px;
+    }
+}
+
+/* ============================================
+   MISSION STATEMENT + FOOTER
+   ============================================ */
+
+.globe-mission {
+    position: relative;
+    z-index: 2;
+    background: #04060a;
+    padding: 80px 30px 60px;
+    text-align: center;
+}
+
+.globe-mission-inner {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.globe-mission-label {
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 18px;
+}
+
+.globe-mission-text {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--text-main);
+}
+
+.footer {
+    position: relative;
+    z-index: 2;
+    background: #04060a;
+    padding: 60px 30px;
+    border-top: 1px solid rgba(200, 169, 110, 0.15);
+    text-align: center;
+}
+
+.footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: invert(1) sepia(1) saturate(1.5) hue-rotate(5deg) brightness(0.85);
+    transition: filter 0.2s ease;
+}
+
+.footer-logo-link:hover .footer-logo {
+    filter: invert(1) sepia(1) saturate(3) hue-rotate(5deg) brightness(1.1);
+}
+
+.footer-title {
+    font-family: 'Georgia', serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    transition: color 0.2s ease;
+}
+
+.footer-logo-link:hover .footer-title {
+    color: var(--neon-blue);
+}
+
+.footer-links {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--gold);
+    text-decoration: underline;
+}
+
+.footer-copy {
+    font-size: 12px;
+    color: rgba(240, 234, 216, 0.3);
+}
+
+@media (max-width: 768px) {
+    .globe-mission {
+        padding: 60px 20px 40px;
+    }
+    .globe-mission-text {
+        font-size: 17px;
+    }
+    .footer {
+        padding: 40px 20px;
     }
 }

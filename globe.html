@@ -18,6 +18,16 @@
         <img src="images/logo.PNG" alt="Santos Armada" class="nav-crest">
         <span class="nav-title">SANTOS ARMADA</span>
     </a>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="/essays">Essays</a></li>
+        <li><a href="/authors">Authors</a></li>
+        <li><a href="/time-and-space">Time + Space</a></li>
+        <li><a href="/audiolibros">Audiolibros</a></li>
+        <li><a href="/interpreter-z">Interpreter Z</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
 </nav>
 
 <div class="globe-watermark">
@@ -54,5 +64,37 @@ document.getElementById('globe-scroll-cue').addEventListener('click', () => {
     document.querySelector('.timeline-section').scrollIntoView({ behavior: 'smooth' });
 });
 </script>
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('nav-links');
+        nav.classList.toggle('open');
+    }
+</script>
+<section class="globe-mission">
+    <div class="globe-mission-inner">
+        <blockquote class="globe-mission-quote">
+            <p>"El Aleph: un punto del espacio que contiene todos los puntos."</p>
+            — Jorge Luis Borges, <em>El Aleph</em> (1949)
+        </blockquote>
+        <p class="globe-mission-text">Un mapa no es solo territorio — es memoria. Este es el tiempo y el espacio de la literatura hispana, desde el año 700 hasta hoy: un solo hilo que atraviesa imperios, conquistas, y las palabras que sobrevivieron todo eso.</p>
+    </div>
+</section>
+<footer class="footer">
+    <div class="footer-inner">
+        <a href="/" class="footer-logo-link">
+            <img src="images/logo.PNG" alt="Santos Armada" class="footer-logo">
+            <p class="footer-title">SANTOS ARMADA</p>
+        </a>
+        <p class="footer-links">
+            <a href="/essays">Essays</a> ·
+            <a href="/audiolibros">Audiolibros</a> ·
+            <a href="/authors">Authors</a> ·
+            <a href="/interpreter-z">Interpreter Z</a> ·
+            <a href="/cv">CV</a> ·
+            <a href="/about">About</a>
+        </p>
+        <p class="footer-copy">© 2026 Santos Armada · santosarmada@protonmail.com · All rights reserved</p>
+    </div>
+</footer>
 </body>
 </html>
