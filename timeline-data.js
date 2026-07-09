@@ -135,6 +135,39 @@ const TIMELINE_ENTRIES = [
       "Reforzado desde 712 por Musa ibn Nusayr, gobernador omeya del norte de África, el ejército musulmán completa la toma de las principales ciudades visigodas: Córdoba, Toledo, Sevilla y Mérida caen en rápida sucesión. Hacia 718, la mayor parte de la península ibérica está bajo dominio musulmán, dando origen formal a Al-Ándalus y marcando el fin del reino visigodo como entidad política."
   },
   {
+    id: "hallazgo-tumba-santiago-813",
+    year: 813,
+    title: "813: hallazgo de la tumba de Santiago",
+    author: "Hito histórico",
+    country: "España",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Un ermitaño, Paio (Pelayo), es guiado por una luz en el monte Libredón — de ahí Compostela, campus stellae, 'campo de la estrella' — hasta un antiguo sepulcro. El obispo Teodomiro de Iria Flavia lo identifica como la tumba del apóstol Santiago y avisa al rey Alfonso II de Asturias, quien viaja desde Oviedo para verificarlo y ordena construir una capilla en el lugar. Aquella ruta de Oviedo a Compostela —el Camino Primitivo— se convierte en el origen del Camino de Santiago, uno de los grandes ejes de peregrinación de la cristiandad y una pieza central en la construcción de una identidad cristiana ibérica que, siglos después, alimentaría la ideología de la Reconquista."
+  },
+  {
+    id: "califato-cordoba-929",
+    year: 929,
+    title: "929: proclamación del Califato de Córdoba",
+    author: "Hito histórico",
+    country: "España",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 16 de enero de 929, Abd al-Rahman III se presenta ante la congregación del viernes en la Mezquita Mayor de Córdoba y se proclama califa — 'Comendador de los Creyentes' —, rompiendo formalmente su lealtad nominal a los abasíes de Bagdad y desafiando al recién fundado califato fatimí de El Cairo. Córdoba se convierte así en la sede de un tercer califato, a la par de Bagdad y El Cairo. La proclamación inaugura la edad de oro de Al-Ándalus: bajo el califato, Córdoba se transforma en una de las ciudades más grandes, ricas y letradas de Europa, con bibliotecas, escuelas de traducción y una vida intelectual que conservaría y expandiría el saber clásico, árabe y judío."
+  },
+  {
+    id: "toma-toledo-1085",
+    year: 1085,
+    title: "1085: Alfonso VI conquista Toledo",
+    author: "Hito histórico",
+    country: "España",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Tras un largo asedio, Toledo —antigua capital visigoda— cae ante Alfonso VI de León y Castilla el 25 de mayo de 1085. El rey se proclama a sí mismo 'victoriosísimo rey de Toledo, y de España y Galicia', la primera vez que un monarca cristiano reclama explícitamente un título ligado a 'España' como conjunto. La pérdida de Toledo empuja a los reyes taifa, temerosos, a pedir ayuda a los almorávides del norte de África, abriendo una nueva fase del conflicto. Casi en paralelo, Rodrigo Díaz de Vivar —El Cid— conquista Valencia por cuenta propia en 1094; su figura quedaría inmortalizada en el Cantar de Mio Cid, el poema épico fundacional de la literatura española."
+  },
+  {
     id: "nezahualcoyotl",
     year: 1402,
     endYear: 1472,
