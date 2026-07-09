@@ -126,6 +126,12 @@ nav{
 }
 .mobile-menu a:hover{color:var(--aqua);}
 
+/* ── MOBILE NAV ── */
+@media (max-width: 768px){
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+}
+
 /* ── HERO ── */
 .authors-hero {
   position: relative;
