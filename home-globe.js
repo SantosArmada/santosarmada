@@ -60,7 +60,7 @@
     // Decorative only — the whole card is already a link.
     world.controls().enabled = false;
     world.controls().autoRotate = true;
-    world.controls().autoRotateSpeed = 0.6;
+    world.controls().autoRotateSpeed = 1.85;
 
     fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
       .then(res => res.json())
