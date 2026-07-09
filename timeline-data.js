@@ -135,6 +135,16 @@ const TIMELINE_ENTRIES = [
       "Reforzado desde 712 por Musa ibn Nusayr, gobernador omeya del norte de África, el ejército musulmán completa la toma de las principales ciudades visigodas: Córdoba, Toledo, Sevilla y Mérida caen en rápida sucesión. Hacia 718, la mayor parte de la península ibérica está bajo dominio musulmán, dando origen formal a Al-Ándalus y marcando el fin del reino visigodo como entidad política."
   },
   {
+    id: "quirigua-copan-738",
+    year: 738,
+    title: "738: Quiriguá derrota y decapita a Copán",
+    author: "Hito histórico",
+    country: "Guatemala",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "El 27 de abril de 738, el ejército de Quiriguá embosca y captura al gobernante de Copán, Uaxaclajuun Ubʼaah Kʼawiil ('18 Conejo'), tras quemar las efigies de las deidades patronas de la ciudad. El 3 de mayo es decapitado en un ritual público ordenado por su propio vasallo, Kʼakʼ Tiliw Chan Yopaat — la primera ejecución documentada de un señor maya en activo a manos de uno de sus subordinados. Quiriguá gana con ello el control total de la ruta comercial entre el Caribe y el corazón del mundo maya, mientras Copán entra en un silencio de veinte años sin nuevos monumentos."
+  },
+  {
     id: "hallazgo-tumba-santiago-813",
     year: 813,
     title: "813: hallazgo de la tumba de Santiago",
@@ -144,6 +154,16 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.HISTORY,
     description:
       "Un ermitaño, Paio (Pelayo), es guiado por una luz en el monte Libredón — de ahí Compostela, campus stellae, 'campo de la estrella' — hasta un antiguo sepulcro. El obispo Teodomiro de Iria Flavia lo identifica como la tumba del apóstol Santiago y avisa al rey Alfonso II de Asturias, quien viaja desde Oviedo para verificarlo y ordena construir una capilla en el lugar. Aquella ruta de Oviedo a Compostela —el Camino Primitivo— se convierte en el origen del Camino de Santiago, uno de los grandes ejes de peregrinación de la cristiandad y una pieza central en la construcción de una identidad cristiana ibérica que, siglos después, alimentaría la ideología de la Reconquista."
+  },
+  {
+    id: "tikal-ultima-estela-869",
+    year: 869,
+    title: "869: la última estela de Tikal",
+    author: "Hito histórico",
+    country: "Guatemala",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "La Estela 11 de Tikal, fechada en 869, es el último monumento tallado por una de las dinastías más poderosas del mundo maya, cuya ciudad había dominado gran parte de las tierras bajas mayas durante más de mil años. Entre 830 y 950, Tikal pierde la mayor parte de su población y su autoridad central se desmorona con rapidez, en uno de los episodios más estudiados del llamado colapso maya clásico."
   },
   {
     id: "califato-cordoba-929",
@@ -157,6 +177,27 @@ const TIMELINE_ENTRIES = [
       "El 16 de enero de 929, Abd al-Rahman III se presenta ante la congregación del viernes en la Mezquita Mayor de Córdoba y se proclama califa — 'Comendador de los Creyentes' —, rompiendo formalmente su lealtad nominal a los abasíes de Bagdad y desafiando al recién fundado califato fatimí de El Cairo. Córdoba se convierte así en la sede de un tercer califato, a la par de Bagdad y El Cairo. La proclamación inaugura la edad de oro de Al-Ándalus: bajo el califato, Córdoba se transforma en una de las ciudades más grandes, ricas y letradas de Europa, con bibliotecas, escuelas de traducción y una vida intelectual que conservaría y expandiría el saber clásico, árabe y judío."
   },
   {
+    id: "auge-tula-tolteca-950",
+    year: 950,
+    title: "950: Tula se consolida como capital tolteca",
+    author: "Hito histórico",
+    country: "México",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El asentamiento en Tula, en el actual estado de Hidalgo, había comenzado ya hacia 700–750, pero es entre 950 y 1000 cuando su centro cívico-religioso, Tula Grande, alcanza su máxima expansión y se convierte en la capital del imperio tolteca. Desde ahí, los toltecas dominarán buena parte del centro de México durante los dos siglos siguientes, hasta que la ciudad es incendiada hacia 1179."
+  },
+  {
+    id: "ocho-venado-1063",
+    year: 1063,
+    endYear: 1115,
+    title: "1063–1115: Ocho Venado Garra de Jaguar",
+    author: "Hito histórico",
+    country: "México",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Iya Nacuaa, conocido como Ocho Venado Garra de Jaguar, nace el 5 de octubre de 1063 y se convierte en el gobernante mixteco más poderoso de Oaxaca, con una vida documentada en detalle en el Códice Zouche-Nuttall. El manuscrito registra la conquista de 94 ciudades bajo su mando y su alianza con el gobernante tolteca de Cholula, Cuatro Jaguar, quien le otorga una nariguera de turquesa como símbolo de autoridad real tolteca. Es una de las biografías individuales mejor documentadas de todo el mundo prehispánico."
+  },
+  {
     id: "toma-toledo-1085",
     year: 1085,
     title: "1085: Alfonso VI conquista Toledo",
@@ -165,7 +206,18 @@ const TIMELINE_ENTRIES = [
     flag: "spain-not-latam",
     type: ICON_TYPE.CONFLICT,
     description:
-      "Tras un largo asedio, Toledo —antigua capital visigoda— cae ante Alfonso VI de León y Castilla el 25 de mayo de 1085. El rey se proclama a sí mismo 'victoriosísimo rey de Toledo, y de España y Galicia', la primera vez que un monarca cristiano reclama explícitamente un título ligado a 'España' como conjunto. La pérdida de Toledo empuja a los reyes taifa, temerosos, a pedir ayuda a los almorávides del norte de África, abriendo una nueva fase del conflicto. Casi en paralelo, Rodrigo Díaz de Vivar —El Cid— conquista Valencia por cuenta propia en 1094; su figura quedaría inmortalizada en el Cantar de Mio Cid, el poema épico fundacional de la literatura española."
+      "Tras un largo asedio, Toledo —antigua capital visigoda— cae ante Alfonso VI de León y Castilla el 25 de mayo de 1085. El rey se proclama a sí mismo 'victoriosísimo rey de Toledo, y de España y Galicia', la primera vez que un monarca cristiano reclama explícitamente un título ligado a 'España' como conjunto. La pérdida de Toledo empuja a los reyes taifa, temerosos, a pedir ayuda a los almorávides del norte de África, abriendo una nueva fase del conflicto."
+  },
+  {
+    id: "el-cid-valencia-1094",
+    year: 1094,
+    title: "1094: El Cid conquista Valencia",
+    author: "Hito histórico",
+    country: "España",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Rodrigo Díaz de Vivar —El Cid—, un noble castellano exiliado que había servido incluso a señores musulmanes como mercenario, toma Valencia por cuenta propia el 15 de junio de 1094, tras un asedio iniciado el verano anterior, y gobierna la ciudad como príncipe casi independiente hasta su muerte en 1099. Su figura, ambigua entre la leyenda y la historia, quedaría inmortalizada en el Cantar de Mio Cid, el poema épico fundacional de la literatura española, escrito unas décadas después de su muerte."
   },
   {
     id: "nezahualcoyotl",
