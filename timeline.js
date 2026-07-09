@@ -219,15 +219,19 @@
 
     activeIndex = idx;
 
-    const flagHtml = entry.flag
-      ? `<span class="timeline-detail-flag">${escapeHtml(
-          entry.flag === "spain-not-latam"
-            ? "España, no Latinoamérica"
-            : entry.flag === "essay-not-novel"
-            ? "Ensayo, no novela"
-            : entry.flag
-        )}</span>`
-      : "";
+    const isSpain = entry.country === "España";
+    const regionFlagHtml = `<span class="timeline-detail-flag ${
+      isSpain ? "timeline-detail-flag-spain" : "timeline-detail-flag-latam"
+    }">${escapeHtml(isSpain ? "España, no Latinoamérica" : "Latinoamérica")}</span>`;
+
+    const customFlagHtml =
+      entry.flag && entry.flag !== "spain-not-latam"
+        ? `<span class="timeline-detail-flag">${escapeHtml(
+            entry.flag === "essay-not-novel" ? "Ensayo, no novela" : entry.flag
+          )}</span>`
+        : "";
+
+    const flagHtml = regionFlagHtml + customFlagHtml;
 
     const yearLabel = entry.endYear
       ? `${entry.year} → refiere ${entry.endYear}`

@@ -222,6 +222,7 @@
 .timeline-detail-flag {
   display: inline-block;
   margin-top: 10px;
+  margin-right: 6px;
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -229,6 +230,16 @@
   border: 1px solid rgba(255, 47, 176, 0.4);
   border-radius: 6px;
   padding: 3px 8px;
+}
+
+.timeline-detail-flag-latam {
+  color: var(--neon-green);
+  border-color: rgba(57, 255, 106, 0.4);
+}
+
+.timeline-detail-flag-spain {
+  color: var(--neon-pink);
+  border-color: rgba(255, 47, 176, 0.4);
 }
 
 /* Personal note — distinct register from the curatorial description */
