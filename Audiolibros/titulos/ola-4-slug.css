@@ -336,9 +336,10 @@ body {
     color: #ffffff;
     padding: 1.5rem;
     position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    inset: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
     transform: translateY(101%);
     transition: transform 0.4s ease-in;
 }
