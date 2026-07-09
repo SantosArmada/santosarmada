@@ -20,7 +20,9 @@ const highlightedCountries = {
     'Portugal': '#c8a96e',
     'Morocco': '#c8a96e',
     'Belgium': '#c8a96e',
-    'United States of America': '#4da6ff'
+    'United States of America': '#4da6ff',
+    'United Kingdom': '#4da6ff',
+    'Japan': '#a64dff'
 };
 
 const world = Globe()
