@@ -26,3 +26,13 @@
   window.addEventListener('resize', updateArrows);
   updateArrows();
 })();
+
+(function () {
+  const cue = document.getElementById('authorsScrollCue');
+  const target = document.querySelector('.authors-strip');
+  if (!cue || !target) return;
+
+  cue.addEventListener('click', () => {
+    target.scrollIntoView({ behavior: 'smooth' });
+  });
+})();
