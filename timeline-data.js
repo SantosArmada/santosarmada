@@ -12,7 +12,7 @@ const ERA_BANDS = [
   {
     id: "pre-colonial",
     label: "Antes de 1492",
-    startYear: 100,
+    startYear: 700,
     endYear: 1491,
     color: "var(--gold)",
     butterfly: {
@@ -101,6 +101,39 @@ const ICON_TYPE = {
 const TIMELINE_ENTRIES = [
 
   // ---- PRE-COLONIAL ----
+  {
+    id: "witiza-crisis-sucesoria-710",
+    year: 710,
+    title: "710: crisis sucesoria visigoda",
+    author: "Hito histórico",
+    country: "España",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Muere el rey visigodo Witiza, y estalla una disputa sucesoria entre sus partidarios y los de Rodrigo, proclamado rey en su lugar. La fractura interna del reino visigodo — con facciones rivales debilitando la defensa del territorio — crea las condiciones que, un año después, permitirán el rápido avance del ejército musulmán liderado por Tariq ibn Ziyad."
+  },
+  {
+    id: "conquista-musulmana-711",
+    year: 711,
+    title: "711: la conquista musulmana de Hispania",
+    author: "Hito histórico",
+    country: "España",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Tariq ibn Ziyad cruza el Estrecho de Gibraltar al mando de un ejército mayormente bereber bajo la autoridad del Califato Omeya, aprovechando la crisis sucesoria visigoda desatada tras la muerte del rey Witiza en 710. En julio de 711, en la batalla de Guadalete, las fuerzas del rey Rodrigo son derrotadas y el propio Rodrigo muere en circunstancias inciertas; las crónicas posteriores atribuyen a Julián, gobernador de Ceuta, haber facilitado el cruce musulmán. Córdoba, Toledo y Sevilla caen en rápida sucesión, y hacia 718 la mayor parte de la península está bajo control musulmán, dando origen a Al-Ándalus. La conquista mezcla a las nuevas poblaciones árabes y bereberes musulmanas con la nobleza visigoda, la mayoría hispanorromana y las comunidades judías ya asentadas — sobre un territorio donde, décadas antes (552–624), también había pervivido una franja bizantina en el sur, ya ausente para esta fecha."
+  },
+  {
+    id: "consolidacion-al-andalus-718",
+    year: 718,
+    title: "718: la conquista musulmana se consolida",
+    author: "Hito histórico",
+    country: "España",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Reforzado desde 712 por Musa ibn Nusayr, gobernador omeya del norte de África, el ejército musulmán completa la toma de las principales ciudades visigodas: Córdoba, Toledo, Sevilla y Mérida caen en rápida sucesión. Hacia 718, la mayor parte de la península ibérica está bajo dominio musulmán, dando origen formal a Al-Ándalus y marcando el fin del reino visigodo como entidad política."
+  },
   {
     id: "nezahualcoyotl",
     year: 1402,
