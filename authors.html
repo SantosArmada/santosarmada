@@ -201,6 +201,60 @@ vec3 render(vec2 uv) {
 }</script>
 </div>
 
+<!-- AUTHORS STRIP -->
+<section class="authors-strip">
+  <button class="authors-strip-arrow authors-strip-arrow-left" id="authorsStripPrev" aria-label="Scroll left">
+    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M15 4L7 12L15 20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+
+  <div class="authors-strip-track" id="authorsStripTrack">
+    <a href="#" class="author-card"><div class="author-photo">01</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">02</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">03</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">04</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">05</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">06</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">07</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">08</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">09</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">10</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">11</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">12</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">13</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">14</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">15</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">16</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">17</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">18</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">19</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">20</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">21</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">22</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">23</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">24</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">25</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">26</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">27</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">28</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">29</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">30</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">31</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">32</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">33</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">34</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">35</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">36</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">37</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">38</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">39</div><span class="author-name">Author Name</span></a>
+    <a href="#" class="author-card"><div class="author-photo">40</div><span class="author-name">Author Name</span></a>
+  </div>
+
+  <button class="authors-strip-arrow authors-strip-arrow-right" id="authorsStripNext" aria-label="Scroll right">
+    <svg viewBox="0 0 24 24" width="18" height="18"><path d="M9 4L17 12L9 20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <a href="index.html" class="footer-logo">
@@ -212,6 +266,7 @@ vec3 render(vec2 uv) {
 <script src="authors-hero.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="authors-title.js"></script>
+<script src="authors-strip.js"></script>
 <script>
 // hamburger
 const hamburger=document.getElementById('hamburger');
