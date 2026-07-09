@@ -212,12 +212,35 @@ const TIMELINE_ENTRIES = [
     id: "el-cid-valencia-1094",
     year: 1094,
     title: "1094: El Cid conquista Valencia",
-    author: "Hito histórico",
+    author: "Anónimo",
     country: "España",
     flag: "spain-not-latam",
     type: ICON_TYPE.CONFLICT,
     description:
-      "Rodrigo Díaz de Vivar —El Cid—, un noble castellano exiliado que había servido incluso a señores musulmanes como mercenario, toma Valencia por cuenta propia el 15 de junio de 1094, tras un asedio iniciado el verano anterior, y gobierna la ciudad como príncipe casi independiente hasta su muerte en 1099. Su figura, ambigua entre la leyenda y la historia, quedaría inmortalizada en el Cantar de Mio Cid, el poema épico fundacional de la literatura española, escrito unas décadas después de su muerte."
+      "Rodrigo Díaz de Vivar —El Cid—, un noble castellano exiliado que había servido incluso a señores musulmanes como mercenario, toma Valencia por cuenta propia el 15 de junio de 1094, tras un asedio iniciado el verano anterior, y gobierna la ciudad como príncipe casi independiente hasta su muerte en 1099. Su figura, ambigua entre la leyenda y la historia, queda inmortalizada en el Cantar de mio Cid, poema épico anónimo copiado por Per Abbat en 1207 —el texto épico más antiguo conservado en castellano—, que sigue al Cid desde su destierro hasta la conquista de Valencia y la restitución de su honor, y el de sus hijas, tras la afrenta de los Infantes de Carrión."
+  },
+  {
+    id: "duelo-virgen-1250",
+    year: 1250,
+    title: "El duelo de la Virgen",
+    author: "Gonzalo de Berceo",
+    country: "España",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Poema devocional de Gonzalo de Berceo, pionero del mester de clerecía, en el que la Virgen narra en primera persona su dolor al presenciar la Crucifixión de su hijo —un episodio bíblico de casi 1,200 años antes—. Fechado de forma aproximada hacia mediados del siglo XIII, dentro del período de actividad conocida de Berceo, combina el relato bíblico con una intimidad emocional que buscaba conmover directamente a un público medieval devoto."
+  },
+  {
+    id: "libro-buen-amor-1330",
+    year: 1330,
+    endYear: 1343,
+    title: "Libro de buen amor",
+    author: "Juan Ruiz, Arcipreste de Hita",
+    country: "España",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Obra inclasificable del mester de clerecía en la que Juan Ruiz, Arcipreste de Hita, mezcla autobiografía, fábulas, exempla morales y episodios amorosos cómicos, narrados por un yo poético que oscila entre el 'loco amor' y el 'buen amor'. Se conservan dos redacciones, de 1330 y 1343; Trotaconventos, la alcahueta que guía al narrador, se convertiría en antecedente directo de la picaresca española."
   },
   {
     id: "nezahualcoyotl",
@@ -233,6 +256,16 @@ const TIMELINE_ENTRIES = [
   },
 
   // ---- COLONIAL ----
+  {
+    id: "popol-vuh-1554",
+    year: 1554,
+    title: "Popol Vuh",
+    author: "Anónimo k'iche'",
+    country: "Guatemala",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Texto sagrado de los k'iche' que narra la creación del mundo, las aventuras de los Héroes Gemelos Hunahpú e Ixbalanqué en el inframundo de Xibalbá, y las genealogías de los gobernantes k'iche'. Su contenido proviene de una tradición oral y pictórica mucho más antigua, pero la única fecha firme que se conserva es la de su transcripción al alfabeto latino, hacia 1554, obra de nobles k'iche' anónimos ya bajo dominio colonial."
+  },
   {
     id: "lazarillo",
     year: 1554,
