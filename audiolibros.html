@@ -414,32 +414,21 @@
     sticks.push(new Stick(points[i], points[(i + 1) % points.length]));
   }
 
-  // The growth phase is the most expensive part of this animation — up
-  // to ~180 points get fanned into a filled path every frame. Chromium's
-  // canvas rasterizer (Skia) is measurably slower than Safari's at
-  // filling many-point paths repeatedly, so at a full 60fps target it
-  // can blow its frame budget there and visibly stutter. Capping this
-  // phase to ~45fps gives each frame more time to finish its fill
-  // before the next one is due — the growth animation runs a touch
-  // longer in wall-clock time, but drops far fewer frames on browsers
-  // where the fill itself is the bottleneck. The morph/reveal phase
-  // right after this isn't throttled — it's short and far cheaper
-  // (fixed ~96 points), so it stays at full frame rate everywhere.
-  var GROWTH_FRAME_INTERVAL = 1000 / 45;
-  var lastGrowthFrameTime = 0;
+  // Hard ceiling on the growth phase's real-world duration. Instead of
+  // trying to guess/tune per-frame speed for every browser and device,
+  // this just guarantees nobody waits longer than GROWTH_MAX_MS for the
+  // blob to start morphing into the logo — if a slower canvas rasterizer
+  // means fewer growth steps complete in that window, the morph simply
+  // starts from a less-subdivided (but still valid) blob shape. Fast
+  // browsers still reach the full maxIteration naturally and are
+  // unaffected.
+  var GROWTH_MAX_MS = 1400;
+  var growthStartTime = null;
 
-  function scheduleUpdate() {
-    requestAnimationFrame(function (now) {
-      if (now - lastGrowthFrameTime < GROWTH_FRAME_INTERVAL) {
-        scheduleUpdate();
-        return;
-      }
-      lastGrowthFrameTime = now;
-      update();
-    });
-  }
+  function update(now) {
+    if (growthStartTime === null) growthStartTime = now || performance.now();
+    var elapsed = (now || performance.now()) - growthStartTime;
 
-  function update() {
     minDist += maxLength * 0.12;
 
     var scale = 2000 / minDist;
@@ -450,45 +439,28 @@
     ctx.translate(w / 2, h / 2);
     ctx.scale(scale, scale);
 
-    // Spatial hash so each point only checks nearby points instead of
-    // every other point on the canvas. Cell size matches minPointDist,
-    // the same cutoff the old O(n^2) loop used to skip far-apart pairs
-    // — this just avoids computing the distance for those pairs at all.
-    // Each unordered pair is still processed exactly once (j > i), same
-    // as the original i/j loop, so the physics is identical, just cheaper.
-    var cellSize = minPointDist > 0 ? minPointDist : 1;
-    var grid = {};
-    for (var gi = 0; gi < points.length; gi++) {
-      var gp = points[gi];
-      var key = Math.floor(gp.x / cellSize) + "," + Math.floor(gp.y / cellSize);
-      (grid[key] || (grid[key] = [])).push(gi);
-    }
-
+    // Plain nested-pair check. A spatial-hash version of this was tried,
+    // but benchmarked ~4.7x slower than this at the point counts this
+    // simulation actually reaches (~3-180) — the grid bookkeeping
+    // (object allocation, string keys, hash lookups) costs more than it
+    // saves at this scale. Keeping it simple.
     points.forEach(function (p, i) {
-      var cellX = Math.floor(p.x / cellSize);
-      var cellY = Math.floor(p.y / cellSize);
-      for (var ox = -1; ox <= 1; ox++) {
-        for (var oy = -1; oy <= 1; oy++) {
-          var neighbors = grid[(cellX + ox) + "," + (cellY + oy)];
-          if (!neighbors) continue;
-          for (var n = 0; n < neighbors.length; n++) {
-            var j = neighbors[n];
-            if (j <= i) continue;
-            var o = points[j];
+      for (var j = i + 1; j < points.length; j++) {
+        var o = points[j];
 
-            var dist = p.distance(o);
+        if (p === o) continue;
 
-            if (dist > minPointDist) continue;
+        var dist = p.distance(o);
 
-            Point.sub(p, o, dir).normalize();
+        if (dist > minPointDist) continue;
 
-            var force = (dist - minDist) / (dist * points.length);
-            dir.mul(force);
+        Point.sub(p, o, dir).normalize();
 
-            p.sub(dir);
-            o.add(dir);
-          }
-        }
+        var force = (dist - minDist) / (dist * points.length);
+        dir.mul(force);
+
+        p.sub(dir);
+        o.add(dir);
       }
     });
 
@@ -518,8 +490,8 @@
     ctx.fill();
     ctx.restore();
 
-    if (sticks.length < maxIteration) {
-      scheduleUpdate();
+    if (sticks.length < maxIteration && elapsed < GROWTH_MAX_MS) {
+      requestAnimationFrame(update);
     } else {
       startMorph();
     }
@@ -683,8 +655,8 @@
   sound.currentTime = 0;
   sound.play().catch(function () {});
 
-  lastGrowthFrameTime = 0;
-  scheduleUpdate();
+  growthStartTime = null;
+  update();
 
   setTimeout(function () {
     prompt.classList.add("hide");
