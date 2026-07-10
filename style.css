@@ -154,10 +154,24 @@ body {
     color: var(--gold);
 }
 
-.hero-image {
+.hero-image-wrap {
+    position: relative;
     width: 100%;
     max-width: 820px;
+}
+
+.hero-image {
+    display: block;
+    width: 100%;
     border: 0.5px solid var(--border);
+}
+
+.hero-sparks-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 2;
 }
 
 .hero-sub {
