@@ -222,7 +222,7 @@
     const isSpain = entry.country === "España";
     const regionFlagHtml = `<span class="timeline-detail-flag ${
       isSpain ? "timeline-detail-flag-spain" : "timeline-detail-flag-latam"
-    }">${escapeHtml(isSpain ? "España, no Latinoamérica" : "Latinoamérica")}</span>`;
+    }">${escapeHtml(isSpain ? "España" : "Latinoamérica")}</span>`;
 
     const customFlagHtml =
       entry.flag && entry.flag !== "spain-not-latam"
