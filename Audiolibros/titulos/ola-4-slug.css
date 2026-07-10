@@ -287,6 +287,14 @@ body {
     color: var(--audio-blue-dark);
     font-size: 0.85rem;
     font-style: italic;
+    overflow: hidden;
+}
+
+.book-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
 }
 
 .book-info {
