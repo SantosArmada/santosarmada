@@ -124,14 +124,7 @@
     width: 100%;
     height: 100%;
     opacity: 1;
-    transform: scale(1);
-    transition:
-      opacity 0.05s linear,
-      transform 0.08s cubic-bezier(.2, 1.4, .4, 1);
-  }
-
-  #growthCanvas.collapse {
-    transform: scale(0.05);
+    transition: opacity 0.4s ease;
   }
 
   #growthCanvas.done {
@@ -143,12 +136,12 @@
     left: 50%;
     top: calc(50% - 32px);
     width: min(78vw, 760px);
-    transform: translate(-50%, -50%) scale(0.72);
+    transform: translate(-50%, -50%) scale(0.94);
     opacity: 0;
     filter: grayscale(1) contrast(1.45);
     transition:
-      opacity 0.07s linear,
-      transform 0.12s cubic-bezier(.15, 1.5, .35, 1);
+      opacity 0.4s ease,
+      transform 0.4s cubic-bezier(.2, .9, .3, 1);
     pointer-events: none;
   }
 
@@ -168,12 +161,12 @@
   }
 
   #flash.hit {
-    animation: flashHit 0.09s linear forwards;
+    animation: flashHit 0.22s ease-out forwards;
   }
 
   @keyframes flashHit {
     0% { opacity: 0; }
-    35% { opacity: 1; }
+    30% { opacity: 0.5; }
     100% { opacity: 0; }
   }
 
@@ -189,7 +182,7 @@
     text-transform: lowercase;
     color: #6F98EC;
     opacity: 0;
-    transition: opacity 0.1s linear;
+    transition: opacity 0.35s ease;
   }
 
   .hero-label.show {
@@ -208,7 +201,7 @@
   color: #000;
   text-decoration: none;
   opacity: 0;
-  transition: opacity 0.1s linear, color 0.2s ease;
+  transition: opacity 0.35s ease, color 0.2s ease;
 }
 
 .back-link:hover,
@@ -238,6 +231,73 @@
 
   resize();
   window.addEventListener("resize", resize);
+
+  // ---------------------------------------------------------------
+  // Logo silhouette analysis
+  //
+  // Reads the actual logo image's alpha channel and, for a ring of
+  // evenly-spaced angles around its center, ray-marches outward to find
+  // where the shape's edge is at that angle. The result is a simple
+  // "radius per angle" profile of the logo's outline (a circle with
+  // four compass-rose spikes), which the growth animation morphs the
+  // organic blob into before crossfading into the real image.
+  // ---------------------------------------------------------------
+  var logoSilhouette = null;
+  var SILHOUETTE_ANGLES = 96;
+
+  function analyzeSilhouette(src, done) {
+    var img = new Image();
+    img.onload = function () {
+      try {
+        var WORK = 320;
+        var off = document.createElement("canvas");
+        off.width = WORK;
+        off.height = WORK;
+        var octx = off.getContext("2d");
+        octx.clearRect(0, 0, WORK, WORK);
+        octx.drawImage(img, 0, 0, WORK, WORK);
+        var data = octx.getImageData(0, 0, WORK, WORK).data;
+
+        var cx = WORK / 2;
+        var cy = WORK / 2;
+        var maxR = WORK * 0.5;
+
+        function alphaAt(x, y) {
+          x = Math.round(x);
+          y = Math.round(y);
+          if (x < 0 || y < 0 || x >= WORK || y >= WORK) return 0;
+          return data[(y * WORK + x) * 4 + 3];
+        }
+
+        var radii = new Array(SILHOUETTE_ANGLES);
+        for (var i = 0; i < SILHOUETTE_ANGLES; i++) {
+          var ang = (i / SILHOUETTE_ANGLES) * Math.PI * 2;
+          var dx = Math.cos(ang);
+          var dy = Math.sin(ang);
+          var lastInside = 0;
+          for (var r = 0; r <= maxR; r += 1) {
+            if (alphaAt(cx + dx * r, cy + dy * r) > 40) lastInside = r;
+          }
+          radii[i] = lastInside;
+        }
+
+        done({ r: radii, n: SILHOUETTE_ANGLES });
+      } catch (e) {
+        done(null);
+      }
+    };
+    img.onerror = function () {
+      done(null);
+    };
+    img.src = src;
+  }
+
+  analyzeSilhouette(
+    document.getElementById("finalLogo").getAttribute("src"),
+    function (result) {
+      logoSilhouette = result;
+    }
+  );
 
   function Point(x, y) {
     this.x = x || 0;
@@ -408,8 +468,138 @@
     if (sticks.length < maxIteration) {
       requestAnimationFrame(update);
     } else {
-      finishTransition();
+      startMorph();
     }
+  }
+
+  // ---------------------------------------------------------------
+  // Morph phase
+  //
+  // Takes the organic blob the growth sim just built, resamples both
+  // it and the logo's silhouette profile onto the same ring of angles
+  // around a shared center, and eases the blob's radius-per-angle from
+  // its current (organic) values to the logo's (circle + spikes)
+  // values. The blob visibly reshapes into the logo's actual outline
+  // before the crossfade reveals the full-color image underneath.
+  // ---------------------------------------------------------------
+  var LOGO_Y_OFFSET = -32; // keep in sync with #finalLogo's "top: calc(50% - 32px)"
+
+  function startMorph() {
+    if (!sticks.length) {
+      finishTransition();
+      return;
+    }
+
+    var start = sticks[0].a;
+    var loop = [{ x: start.x, y: start.y }];
+    var origin = start;
+    while (origin.next && origin.next !== start) {
+      origin = origin.next;
+      loop.push({ x: origin.x, y: origin.y });
+    }
+
+    if (loop.length < 3) {
+      finishTransition();
+      return;
+    }
+
+    var cx = 0;
+    var cy = 0;
+    loop.forEach(function (p) {
+      cx += p.x;
+      cy += p.y;
+    });
+    cx /= loop.length;
+    cy /= loop.length;
+
+    var polar = loop
+      .map(function (p) {
+        var ang = Math.atan2(p.y - cy, p.x - cx);
+        if (ang < 0) ang += Math.PI * 2; // normalize to [0, 2*PI) to match targetAngle's domain
+        return {
+          a: ang,
+          r: Math.sqrt((p.x - cx) * (p.x - cx) + (p.y - cy) * (p.y - cy))
+        };
+      })
+      .sort(function (a, b) {
+        return a.a - b.a;
+      });
+
+    function sampleSourceRadius(targetAngle) {
+      for (var i = 0; i < polar.length; i++) {
+        var cur = polar[i];
+        var nxt = polar[(i + 1) % polar.length];
+        var a0 = cur.a;
+        var a1 = i === polar.length - 1 ? nxt.a + Math.PI * 2 : nxt.a;
+        var ta = targetAngle < a0 ? targetAngle + Math.PI * 2 : targetAngle;
+        if (ta >= a0 && ta <= a1) {
+          var t = a1 === a0 ? 0 : (ta - a0) / (a1 - a0);
+          return cur.r + (nxt.r - cur.r) * t;
+        }
+      }
+      return polar[0].r;
+    }
+
+    var N = (logoSilhouette && logoSilhouette.n) || SILHOUETTE_ANGLES;
+    var sourceR = new Array(N);
+    for (var i = 0; i < N; i++) {
+      sourceR[i] = sampleSourceRadius((i / N) * Math.PI * 2);
+    }
+
+    var logoSizePx = Math.min(window.innerWidth * 0.78, 760);
+    var scale = 2000 / minDist;
+    var targetRadiusWorld = (logoSizePx * 0.5) / scale;
+
+    var rawTarget = logoSilhouette ? logoSilhouette.r : sourceR;
+    var meanRaw = 0;
+    rawTarget.forEach(function (v) {
+      meanRaw += v;
+    });
+    meanRaw = meanRaw / rawTarget.length || 1;
+
+    var targetR = new Array(N);
+    for (var j = 0; j < N; j++) {
+      targetR[j] = (rawTarget[j] / meanRaw) * targetRadiusWorld;
+    }
+
+    var duration = 550;
+    var startTime = null;
+
+    function easeInOutCubic(t) {
+      return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+    }
+
+    function drawMorphFrame(now) {
+      if (startTime === null) startTime = now;
+      var t = Math.min((now - startTime) / duration, 1);
+      var eased = easeInOutCubic(t);
+
+      ctx.clearRect(0, 0, w, h);
+      ctx.save();
+      ctx.translate(w / 2, h / 2 + LOGO_Y_OFFSET * eased);
+      ctx.scale(scale, scale);
+      ctx.fillStyle = "#000";
+      ctx.beginPath();
+      for (var k = 0; k < N; k++) {
+        var ang = (k / N) * Math.PI * 2;
+        var rr = sourceR[k] + (targetR[k] - sourceR[k]) * eased;
+        var px = Math.cos(ang) * rr;
+        var py = Math.sin(ang) * rr;
+        if (k === 0) ctx.moveTo(px, py);
+        else ctx.lineTo(px, py);
+      }
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+
+      if (t < 1) {
+        requestAnimationFrame(drawMorphFrame);
+      } else {
+        finishTransition();
+      }
+    }
+
+    requestAnimationFrame(drawMorphFrame);
   }
 
   function finishTransition() {
@@ -417,20 +607,13 @@
     var flash = document.getElementById("flash");
     var label = document.querySelector(".hero-label");
     var backLink = document.querySelector(".back-link");
-    var sound = document.getElementById("transformSound");
 
-    can.classList.add("collapse");
+    flash.classList.add("hit");
+    can.classList.add("done");
 
-    setTimeout(function () {
-      flash.classList.add("hit");
-      can.classList.add("done");
-    }, 55);
-
-    setTimeout(function () {
-      logo.classList.add("show");
-      label.classList.add("show");
-      backLink.classList.add("show");
-    }, 95);
+    logo.classList.add("show");
+    label.classList.add("show");
+    backLink.classList.add("show");
   }
   document.getElementById("enterBtn").addEventListener("click", function (e) {
   e.preventDefault();
