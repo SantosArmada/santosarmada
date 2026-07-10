@@ -257,6 +257,50 @@ const TIMELINE_ENTRIES = [
 
   // ---- COLONIAL ----
   {
+    id: "cuatro-viajes-colon-1492",
+    year: 1492,
+    endYear: 1506,
+    title: "Los cuatro viajes del almirante y su testamento",
+    author: "Cristóbal Colón",
+    country: "Bahamas",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Las cartas, diarios de a bordo y el testamento del propio Cristóbal Colón, documentando sus cuatro travesías atlánticas entre 1492 y 1504 y cerrando con las cláusulas de su testamento, firmado en Valladolid en 1506. Un relato de primera mano —y no poco interesado— del primer contacto europeo con el Caribe y las negociaciones con la Corona que lo hicieron posible."
+  },
+  {
+    id: "la-celestina-1499",
+    year: 1499,
+    title: "La Celestina",
+    author: "Fernando de Rojas",
+    country: "España",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Tragicomedia dialogada que sigue la obsesión amorosa de Calisto por Melibea, orquestada por Celestina, la vieja alcahueta que da nombre a la obra. Puente entre el mundo medieval y el renacentista, célebre por su realismo psicológico y su desenlace trágico y moralizante — y germen narrativo de la tradición picaresca que vendría después."
+  },
+  {
+    id: "naufragios-cabeza-de-vaca-1528",
+    year: 1528,
+    endYear: 1536,
+    pubYear: 1542,
+    title: "Naufragios",
+    author: "Álvar Núñez Cabeza de Vaca",
+    country: "México",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Álvar Núñez Cabeza de Vaca narra el desastre de la expedición de Pánfilo de Narváez y los ocho años que pasó vagando desnudo y cautivo por las costas y desiertos de lo que hoy es Florida, Texas y el norte de México, sobreviviendo como esclavo, comerciante y curandero entre los pueblos indígenas antes de reencontrar a los suyos en 1536. Publicada en 1542, es tan crónica de supervivencia como confesión de un hombre transformado por el contacto con un mundo que España apenas comenzaba a comprender."
+  },
+  {
+    id: "brevisima-relacion-1542",
+    year: 1542,
+    title: "Brevísima relación de la destrucción de las Indias",
+    author: "Bartolomé de las Casas",
+    country: "República Dominicana",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Denuncia testimonial de Bartolomé de las Casas contra las atrocidades cometidas por los colonizadores españoles en el Caribe y el continente, escrita en 1542 como petición directa a la Corona para reformar el trato a los pueblos indígenas. Un texto tan influyente como controvertido en la formación de la Leyenda Negra española."
+  },
+  {
     id: "popol-vuh-1554",
     year: 1554,
     title: "Popol Vuh",
@@ -276,6 +320,28 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.LITERATURE,
     description:
       "Novela picaresca anónima fundacional. Incluida como antecedente formal de la picaresca que después cruzaría el Atlántico."
+  },
+  {
+    id: "monja-alferez-erauso-1592",
+    year: 1592,
+    endYear: 1650,
+    pubYear: 1829,
+    title: "Historia de la Monja Alférez",
+    author: "Catalina de Erauso",
+    country: "Chile",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "La autobiografía de Catalina de Erauso, una monja vasca que escapó de su convento a los quince años, se vistió de hombre y cruzó el Atlántico para reinventarse como soldado en las guerras de conquista de Chile y Perú. Mantuvo su identidad oculta durante casi dos décadas, hasta que el Papa mismo le concedió permiso para vivir vestida de hombre el resto de su vida; murió en 1650 cerca de Veracruz, dirigiendo una recua de mulas bajo el nombre de Antonio de Erauso. El manuscrito de sus memorias no se publicó hasta 1829."
+  },
+  {
+    id: "comentarios-reales-incas-1609",
+    year: 1609,
+    title: "Comentarios Reales de los Incas",
+    author: "El Inca Garcilaso de la Vega",
+    country: "Perú",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Escrita por el hijo de un conquistador español y una princesa inca, esta crónica de 1609 entreteje la historia oral y la mitología incaicas con el relato de la conquista del Perú. Una de las primeras grandes obras de autoría mestiza, escrita desde ambos mundos a la vez."
   },
 
   // ---- INDEPENDENCE / 19th c ----
@@ -334,6 +400,48 @@ const TIMELINE_ENTRIES = [
     country: "México",
     type: ICON_TYPE.CONFLICT,
     description: "La novela fundacional del ciclo narrativo de la Revolución Mexicana."
+  },
+  {
+    id: "niebla-unamuno-1914",
+    year: 1914,
+    title: "Niebla",
+    author: "Miguel de Unamuno",
+    country: "España",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Miguel de Unamuno bautizó esta obra como 'nivola' para liberarla de las reglas de la novela tradicional: Augusto Pérez, atrapado en una crisis amorosa y existencial, termina viajando a Salamanca para confrontar cara a cara al propio Unamuno, su autor, y exigirle explicaciones sobre el libre albedrío que se le niega como personaje. Un ejercicio temprano y radical de metaficción."
+  },
+  {
+    id: "gallina-degollada-quiroga-1917",
+    year: 1917,
+    title: "La gallina degollada",
+    author: "Horacio Quiroga",
+    country: "Argentina",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "El cuento con el que Horacio Quiroga selló su lugar como el gran maestro del horror latinoamericano: un matrimonio ve nacer a sus cuatro primeros hijos con una discapacidad severa, uno tras otro, y deposita toda su esperanza en Bertita, la hija menor que nace sana. Cuando los hermanos mayores presencian a la sirvienta degollar una gallina para la cena, algo se despierta en ellos que la familia jamás vio venir."
+  },
+  {
+    id: "lenguas-diamante-ibarbourou-1919",
+    year: 1919,
+    title: "Las lenguas de diamante",
+    author: "Juana de Ibarbourou",
+    country: "Uruguay",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "El poemario que consagró a la uruguaya Juana de Ibarbourou como 'Juana de América': una celebración sin pudor del cuerpo, el deseo y la naturaleza desde una voz femenina que se niega a pedir permiso. Su sensualidad directa y su musicalidad la convirtieron en una de las figuras centrales del modernismo tardío latinoamericano."
+  },
+  {
+    id: "flor-de-la-playa-burgos-1920",
+    year: 1920,
+    title: "La flor de la playa",
+    author: "Carmen de Burgos",
+    country: "España",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Carmen de Burgos, pionera del periodismo y del feminismo español firmando como 'Colombine', publicó esta novela corta en 1920 dentro de la colección La Novela Corta. Ambientada en un pueblo costero donde el romance de temporada se cruza con las restricciones reales que enfrentaban las mujeres de la época, desliza su crítica constante a un mundo que exigía elegir entre el deseo y la respetabilidad."
   },
   {
     id: "el-senor-presidente",
