@@ -233,19 +233,34 @@
   window.addEventListener("resize", resize);
 
   // ---------------------------------------------------------------
-  // Logo silhouette analysis
+  // Logo silhouette
   //
-  // Reads the actual logo image's alpha channel and, for a ring of
-  // evenly-spaced angles around its center, ray-marches outward to find
-  // where the shape's edge is at that angle. The result is a simple
-  // "radius per angle" profile of the logo's outline (a circle with
+  // A "radius per angle" profile of the logo's outline (a circle with
   // four compass-rose spikes), which the growth animation morphs the
   // organic blob into before crossfading into the real image.
+  //
+  // This used to be computed live on every page load via
+  // ctx.getImageData() on an offscreen canvas. That read-back is slow
+  // and, on Brave, actively intercepted/slowed down by its built-in
+  // canvas fingerprinting protection (it "farbles" getImageData calls
+  // by design). Since the logo doesn't change at runtime, the profile
+  // is precomputed once offline and hardcoded here instead — same
+  // shape, zero canvas read-back, and one less thing blocking the
+  // animation on load in any browser.
+  //
+  // To regenerate after swapping the logo image, run analyzeSilhouetteOffline()
+  // (defined below, unused by default) against the new image and paste
+  // the resulting array back in here.
   // ---------------------------------------------------------------
-  var logoSilhouette = null;
   var SILHOUETTE_ANGLES = 96;
+  var logoSilhouette = {
+    n: SILHOUETTE_ANGLES,
+    r: [140, 141, 145, 135, 134, 134, 133, 134, 133, 134, 133, 133, 133, 133, 133, 134, 134, 134, 134, 134, 135, 135, 134, 135, 155, 135, 135, 135, 135, 135, 135, 135, 135, 135, 135, 135, 135, 134, 134, 134, 134, 134, 134, 135, 136, 136, 146, 142, 142, 143, 145, 150, 138, 138, 139, 139, 140, 141, 141, 141, 142, 142, 143, 143, 143, 144, 144, 145, 145, 145, 145, 145, 159, 145, 145, 145, 145, 145, 144, 144, 143, 143, 142, 141, 140, 140, 140, 139, 139, 138, 138, 137, 137, 149, 144, 142]
+  };
 
-  function analyzeSilhouette(src, done) {
+  // Dev utility only — not called at runtime. Kept for regenerating
+  // logoSilhouette above if the logo artwork ever changes.
+  function analyzeSilhouetteOffline(src, done) {
     var img = new Image();
     img.onload = function () {
       try {
@@ -291,13 +306,6 @@
     };
     img.src = src;
   }
-
-  analyzeSilhouette(
-    document.getElementById("finalLogo").getAttribute("src"),
-    function (result) {
-      logoSilhouette = result;
-    }
-  );
 
   function Point(x, y) {
     this.x = x || 0;
@@ -419,23 +427,45 @@
     ctx.translate(w / 2, h / 2);
     ctx.scale(scale, scale);
 
+    // Spatial hash so each point only checks nearby points instead of
+    // every other point on the canvas. Cell size matches minPointDist,
+    // the same cutoff the old O(n^2) loop used to skip far-apart pairs
+    // — this just avoids computing the distance for those pairs at all.
+    // Each unordered pair is still processed exactly once (j > i), same
+    // as the original i/j loop, so the physics is identical, just cheaper.
+    var cellSize = minPointDist > 0 ? minPointDist : 1;
+    var grid = {};
+    for (var gi = 0; gi < points.length; gi++) {
+      var gp = points[gi];
+      var key = Math.floor(gp.x / cellSize) + "," + Math.floor(gp.y / cellSize);
+      (grid[key] || (grid[key] = [])).push(gi);
+    }
+
     points.forEach(function (p, i) {
-      for (var j = i + 1; j < points.length; j++) {
-        var o = points[j];
+      var cellX = Math.floor(p.x / cellSize);
+      var cellY = Math.floor(p.y / cellSize);
+      for (var ox = -1; ox <= 1; ox++) {
+        for (var oy = -1; oy <= 1; oy++) {
+          var neighbors = grid[(cellX + ox) + "," + (cellY + oy)];
+          if (!neighbors) continue;
+          for (var n = 0; n < neighbors.length; n++) {
+            var j = neighbors[n];
+            if (j <= i) continue;
+            var o = points[j];
 
-        if (p === o) continue;
+            var dist = p.distance(o);
 
-        var dist = p.distance(o);
+            if (dist > minPointDist) continue;
 
-        if (dist > minPointDist) continue;
+            Point.sub(p, o, dir).normalize();
 
-        Point.sub(p, o, dir).normalize();
+            var force = (dist - minDist) / (dist * points.length);
+            dir.mul(force);
 
-        var force = (dist - minDist) / (dist * points.length);
-        dir.mul(force);
-
-        p.sub(dir);
-        o.add(dir);
+            p.sub(dir);
+            o.add(dir);
+          }
+        }
       }
     });
 
