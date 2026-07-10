@@ -74,21 +74,19 @@
 
 .color {
   display: block;
-  width: 0;
-  height: 0;
+  width: 42em;
+  height: 42em;
   left: 50%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0);
   position: absolute;
-  transition: 0.8s ease;
+  transition: transform 0.8s ease;
   border-radius: 50%;
   background-color: transparent;
 }
 
 .expanded {
-  width: 200%;
-  padding-bottom: 200%;
-  height: auto;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .color--black {
@@ -416,6 +414,31 @@
     sticks.push(new Stick(points[i], points[(i + 1) % points.length]));
   }
 
+  // The growth phase is the most expensive part of this animation — up
+  // to ~180 points get fanned into a filled path every frame. Chromium's
+  // canvas rasterizer (Skia) is measurably slower than Safari's at
+  // filling many-point paths repeatedly, so at a full 60fps target it
+  // can blow its frame budget there and visibly stutter. Capping this
+  // phase to ~45fps gives each frame more time to finish its fill
+  // before the next one is due — the growth animation runs a touch
+  // longer in wall-clock time, but drops far fewer frames on browsers
+  // where the fill itself is the bottleneck. The morph/reveal phase
+  // right after this isn't throttled — it's short and far cheaper
+  // (fixed ~96 points), so it stays at full frame rate everywhere.
+  var GROWTH_FRAME_INTERVAL = 1000 / 45;
+  var lastGrowthFrameTime = 0;
+
+  function scheduleUpdate() {
+    requestAnimationFrame(function (now) {
+      if (now - lastGrowthFrameTime < GROWTH_FRAME_INTERVAL) {
+        scheduleUpdate();
+        return;
+      }
+      lastGrowthFrameTime = now;
+      update();
+    });
+  }
+
   function update() {
     minDist += maxLength * 0.12;
 
@@ -496,7 +519,7 @@
     ctx.restore();
 
     if (sticks.length < maxIteration) {
-      requestAnimationFrame(update);
+      scheduleUpdate();
     } else {
       startMorph();
     }
@@ -660,7 +683,8 @@
   sound.currentTime = 0;
   sound.play().catch(function () {});
 
-  update();
+  lastGrowthFrameTime = 0;
+  scheduleUpdate();
 
   setTimeout(function () {
     prompt.classList.add("hide");
