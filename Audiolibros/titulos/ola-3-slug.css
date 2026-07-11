@@ -288,6 +288,7 @@ body {
     font-size: 0.85rem;
     font-style: italic;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .book-cover {
@@ -295,6 +296,25 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
+}
+
+.listen-btn {
+    display: block;
+    background-color: var(--audio-blue);
+    color: #ffffff;
+    text-align: center;
+    padding: 0.65rem 0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.listen-btn:hover {
+    background-color: var(--audio-blue-dark);
 }
 
 .book-info {
@@ -310,7 +330,16 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
     font-weight: 600;
+    line-height: 1.3;
     color: var(--ink);
+    /* Reserve room for 2 lines so 1-line and 2-line titles take up the
+       same height — keeps the ESCUCHAR AHORA button aligned to the same
+       row across every card, regardless of title length. */
+    min-height: 2.6em;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 .rating {
@@ -344,12 +373,18 @@ body {
     color: #ffffff;
     padding: 1.5rem;
     position: absolute;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 360px;
     overflow-y: auto;
     scrollbar-width: thin;
     scrollbar-color: rgba(255, 255, 255, 0.4) transparent;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
     transform: translateY(101%);
-    transition: transform 0.4s ease-in;
+    transition: transform 0.4s ease-in, opacity 0.4s ease-in;
 }
 
 .review h3 {
@@ -357,7 +392,9 @@ body {
     font-family: 'Playfair Display', serif;
 }
 
-.book:hover .review {
+.book.is-open .review {
+    opacity: 1;
+    pointer-events: auto;
     transform: translateY(0);
 }
 

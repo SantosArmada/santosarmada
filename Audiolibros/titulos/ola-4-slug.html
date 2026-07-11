@@ -83,6 +83,7 @@
                 <h3>Niebla</h3>
                 <a href="#" class="rating green">10.0</a>
             </div>
+            <a href="#" class="listen-btn">ESCUCHAR AHORA</a>
             <div class="review">
                 <h3>Resumen</h3>
                 <p>Miguel de Unamuno bautizó esta obra de 1914 como "nivola" para liberarla de las reglas de la novela tradicional: Augusto Pérez, un hombre atrapado en una crisis amorosa y existencial, termina viajando a Salamanca para confrontar cara a cara al propio Unamuno, su autor, y exigirle explicaciones sobre el libre albedrío que se le niega como personaje. Un ejercicio temprano y radical de metaficción que convierte la pregunta por la libertad humana en literatura pura.</p>
@@ -95,6 +96,7 @@
                 <h3>Los de abajo</h3>
                 <a href="#" class="rating green">10.0</a>
             </div>
+            <a href="#" class="listen-btn">ESCUCHAR AHORA</a>
             <div class="review">
                 <h3>Resumen</h3>
                 <p>Mariano Azuela escribió esta novela de 1915 casi al mismo tiempo que vivía la Revolución mexicana como médico de tropa, y se nota: sigue a Demetrio Macías, un campesino arrastrado a la lucha armada, a través del caos, el idealismo desgastado y la violencia cíclica de un movimiento que devora a los suyos. Considerada la primera gran novela de la Revolución, retrata sin heroísmo ni sentimentalismo lo que significa luchar por una causa que ya no se entiende del todo.</p>
@@ -107,6 +109,7 @@
                 <h3>Las lenguas de diamante</h3>
                 <a href="#" class="rating green">8.5</a>
             </div>
+            <a href="#" class="listen-btn">ESCUCHAR AHORA</a>
             <div class="review">
                 <h3>Resumen</h3>
                 <p>El poemario de 1919 que consagró a la uruguaya Juana de Ibarbourou como "Juana de América": una celebración sin pudor del cuerpo, el deseo y la naturaleza desde una voz femenina que se niega a pedir permiso. Su sensualidad directa y su musicalidad la convirtieron en una de las figuras centrales del modernismo tardío latinoamericano, e influyeron a generaciones de poetas que vinieron después.</p>
@@ -119,23 +122,25 @@
                 <h3>La flor de la playa</h3>
                 <a href="#" class="rating green">8.3</a>
             </div>
+            <a href="#" class="listen-btn">ESCUCHAR AHORA</a>
             <div class="review">
                 <h3>Resumen</h3>
                 <p>Carmen de Burgos, pionera del periodismo y del feminismo español firmando como "Colombine", ambienta esta novela corta en un pueblo costero donde el romance de temporada se cruza con las restricciones reales que enfrentaban las mujeres de la época. Bajo la superficie ligera de un relato de balneario, Burgos desliza su crítica constante a un mundo que le exigía a la mujer elegir entre el deseo y la respetabilidad.</p>
             </div>
         </div>
 
-<a href="la-gallina-degollada.html" class="book">
+<div class="book">
     <img src="../../Images/la-gallina-degollada.png" alt="La gallina degollada" class="book-placeholder">
     <div class="book-info">
         <h3>La gallina degollada</h3>
         <span class="rating green">10.0</span>
     </div>
+    <a href="la-gallina-degollada.html" class="listen-btn">ESCUCHAR AHORA</a>
     <div class="review">
         <h3>Resumen</h3>
         <p>El cuento de 1917 con el que Horacio Quiroga selló su lugar como el gran maestro del horror latinoamericano: un matrimonio ve nacer a sus cuatro primeros hijos con una discapacidad severa, uno tras otro, y deposita toda su esperanza en Bertita, la hija menor que nace sana. Cuando los hermanos mayores presencian a la sirvienta degollar una gallina para la cena, algo se despierta en ellos que la familia jamás vio venir. Un relato breve, brutal y perfectamente calculado sobre la culpa, la negligencia y el instinto que acecha bajo la superficie de lo doméstico.</p>
     </div>
-</a>
+</div>
 
     </main>
 
@@ -160,6 +165,18 @@ siteMobileMenu.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     siteHamburger.classList.remove('open');
     siteMobileMenu.classList.remove('open');
+  });
+});
+
+// Tap-to-flip book cards: tapping the artwork reveals the Resumen,
+// tapping the Resumen reveals the artwork again. Click-based (not
+// hover-based) so it works the same on touch and mouse — the
+// "ESCUCHAR AHORA" button is the only real link off a card.
+document.querySelectorAll('.book').forEach(book => {
+  book.querySelectorAll('.book-placeholder, .review').forEach(flipZone => {
+    flipZone.addEventListener('click', () => {
+      book.classList.toggle('is-open');
+    });
   });
 });
 </script>

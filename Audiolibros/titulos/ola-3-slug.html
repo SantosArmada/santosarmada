@@ -83,6 +83,7 @@
                 <h3>Título del libro</h3>
                 <a href="#" class="rating green">8.4</a>
             </div>
+            <a href="#" class="listen-btn">ESCUCHAR AHORA</a>
             <div class="review">
                 <h3>Resumen</h3>
                 <p>Paste plot summary here</p>
@@ -95,6 +96,7 @@
                 <h3>Título del libro</h3>
                 <a href="#" class="rating orange">6.2</a>
             </div>
+            <a href="#" class="listen-btn">ESCUCHAR AHORA</a>
             <div class="review">
                 <h3>Resumen</h3>
                 <p>Paste plot summary here</p>
@@ -107,6 +109,7 @@
                 <h3>Título del libro</h3>
                 <a href="#" class="rating red">3.9</a>
             </div>
+            <a href="#" class="listen-btn">ESCUCHAR AHORA</a>
             <div class="review">
                 <h3>Resumen</h3>
                 <p>Paste plot summary here</p>
@@ -119,6 +122,7 @@
                 <h3>Título del libro</h3>
                 <a href="#" class="rating green">9.1</a>
             </div>
+            <a href="#" class="listen-btn">ESCUCHAR AHORA</a>
             <div class="review">
                 <h3>Resumen</h3>
                 <p>Paste plot summary here</p>
@@ -131,6 +135,7 @@
                 <h3>Título del libro</h3>
                 <a href="#" class="rating green">7.8</a>
             </div>
+            <a href="#" class="listen-btn">ESCUCHAR AHORA</a>
             <div class="review">
                 <h3>Resumen</h3>
                 <p>Paste plot summary here</p>
@@ -160,6 +165,18 @@ siteMobileMenu.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     siteHamburger.classList.remove('open');
     siteMobileMenu.classList.remove('open');
+  });
+});
+
+// Tap-to-flip book cards: tapping the artwork reveals the Resumen,
+// tapping the Resumen reveals the artwork again. Click-based (not
+// hover-based) so it works the same on touch and mouse — the
+// "ESCUCHAR AHORA" button is the only real link off a card.
+document.querySelectorAll('.book').forEach(book => {
+  book.querySelectorAll('.book-placeholder, .review').forEach(flipZone => {
+    flipZone.addEventListener('click', () => {
+      book.classList.toggle('is-open');
+    });
   });
 });
 </script>
