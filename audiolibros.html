@@ -627,11 +627,35 @@
     requestAnimationFrame(drawMorphFrame);
   }
 
+  // The audio clip (~4.25s) is longer than the visual sequence now that
+  // the growth phase is time-capped (~1.4s growth + 550ms morph ≈ 2s
+  // total). Without this, the guitar loop would keep playing well past
+  // the reveal. Fade it out right as the transition finishes instead of
+  // letting it run to its own natural length.
+  function fadeOutAudio(audio, duration) {
+    var startVolume = audio.volume;
+    var start = null;
+    function step(now) {
+      if (start === null) start = now;
+      var t = Math.min((now - start) / duration, 1);
+      audio.volume = startVolume * (1 - t);
+      if (t < 1) {
+        requestAnimationFrame(step);
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+        audio.volume = startVolume;
+      }
+    }
+    requestAnimationFrame(step);
+  }
+
   function finishTransition() {
     var logo = document.getElementById("finalLogo");
     var flash = document.getElementById("flash");
     var label = document.querySelector(".hero-label");
     var backLink = document.querySelector(".back-link");
+    var sound = document.getElementById("transformSound");
 
     flash.classList.add("hit");
     can.classList.add("done");
@@ -639,6 +663,8 @@
     logo.classList.add("show");
     label.classList.add("show");
     backLink.classList.add("show");
+
+    fadeOutAudio(sound, 500);
   }
   document.getElementById("enterBtn").addEventListener("click", function (e) {
   e.preventDefault();
