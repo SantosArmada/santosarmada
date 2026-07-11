@@ -8,6 +8,8 @@
     --ink: #0d0d0d;
     --paper: #ffffff;
     --card-shadow: rgba(15, 20, 40, 0.15);
+    --ola-nav-h: 72px;
+    --ola-banner-h: 41px;
 }
 
 .site-nav {
@@ -131,7 +133,8 @@ body {
     background-color: var(--audio-blue-pale);
     font-family: 'Poppins', sans-serif;
     color: var(--ink);
-    padding-top: 72px;
+    padding-top: calc(var(--ola-nav-h) + var(--ola-banner-h));
+    padding-bottom: var(--ola-banner-h);
 }
 
 /* ---------- HEADER ---------- */
@@ -375,4 +378,43 @@ body {
 
 .footer-link:hover {
     text-decoration: underline;
+}
+
+/* ---------- MAYA BANNER (Audiolibros blue) ----------
+   Top strip is fixed in the gap between .site-nav and .titulos-header
+   (the wave section) — NOT pinned to the very top of the viewport like
+   the rest of the site. .site-nav itself is untouched/unmoved; instead
+   .titulos-header (and everything after it) is pushed down to make
+   room, via the body padding-top above. Bottom strip is fixed under
+   everything, below the footer, same as the rest of the site. */
+.ola-banner {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: var(--ola-banner-h);
+    z-index: 90;
+    overflow: hidden;
+    background: #000;
+}
+
+.ola-banner-top {
+    top: var(--ola-nav-h);
+}
+
+.ola-banner-bottom {
+    bottom: 0;
+    z-index: 200;
+}
+
+.ola-banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    :root {
+        --ola-banner-h: 27px;
+    }
 }

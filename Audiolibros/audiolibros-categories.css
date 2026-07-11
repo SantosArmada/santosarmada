@@ -19,6 +19,9 @@
 
   /* Same footprint as the Essays / About center mark — adjust here if that page uses a different size */
   --logo-size: 175px;
+
+  /* Audiolibros blue Maya banner — bottom strip only on this page */
+  --categories-banner-h: 41px;
 }
 
 * {
@@ -38,6 +41,8 @@ body {
   overflow-x: hidden;
   /* offset for the fixed permanent header below */
   padding-top: 72px;
+  /* reserve room for the fixed blue Maya banner pinned to the bottom */
+  padding-bottom: var(--categories-banner-h);
 }
 
 /* --- Permanent Header / Nav (same spirit as Essays / About / Interpreter Z,
@@ -477,5 +482,32 @@ h1 strong {
   }
   .top-brand-line3 {
     font-size: 30px;
+  }
+}
+
+/* ---------- MAYA BANNER (Audiolibros blue, bottom only) ----------
+   No top banner on this page — just a fixed strip under everything,
+   below the footer/mission section, same as the rest of the site. */
+.categories-banner-bottom {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: var(--categories-banner-h);
+  z-index: 200;
+  overflow: hidden;
+  background: #000;
+}
+
+.categories-banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --categories-banner-h: 27px;
   }
 }
