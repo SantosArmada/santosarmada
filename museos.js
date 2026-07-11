@@ -97,6 +97,15 @@
 
     var glyphUrl = makeGlyphTexture();
 
+    // Sphere sizing: it's "born" at 75% of its full expanded size and
+    // rests there, then clicking the building/door (setupDoorClick, below)
+    // grows it to full size in step with the camera's zoom-in. mainRing
+    // and subRing are handed off here once the RedGL world exists so that
+    // click handler — defined outside the RedGL callback — can reach them.
+    var SUB_RING_SCALE = 0.72; // subRing's scale relative to mainRing at full size
+    var BORN_SCALE = 0.75; // resting size, as a fraction of full size
+    var sphereRings = {};
+
     // Fixed 3D positions for the 4 wayfinding hotspots, spread around the
     // constellation at a radius just beyond it (radius ~9, vs the glyph
     // cloud's ~5–6) so they read as distinct points of interest.
@@ -240,27 +249,31 @@
 
         var mainRing = makeConstellation(this, glyphMaterial, glyphMaterial2);
         var subRing = makeConstellation(this, glyphMaterial, glyphMaterial2);
-        var subRingTargetScale = 0.72;
         subRing.rotationX = subRing.rotationY = subRing.rotationZ = Math.random() * 360;
 
         tScene.addChild(mainRing);
         tScene.addChild(subRing);
         spinGroups.push(mainRing, subRing);
 
-        // Entrance: the sphere starts noticeably smaller than its resting
-        // size and blooms up to full scale on load, instead of appearing
-        // at full size the instant the page renders.
-        var ENTRANCE_SCALE = 0.2;
-        mainRing.scaleX = mainRing.scaleY = mainRing.scaleZ = ENTRANCE_SCALE;
-        subRing.scaleX = subRing.scaleY = subRing.scaleZ = ENTRANCE_SCALE * subRingTargetScale;
-        TweenMax.to(mainRing, 2.2, {
-            scaleX: 1, scaleY: 1, scaleZ: 1,
+        // Entrance: a quick bloom-in from tiny up to the sphere's resting
+        // "born" size (75% of full) — not all the way to full size. Full
+        // size is reserved for the click-to-expand interaction, wired up
+        // in setupDoorClick() below via the sphereRings handoff.
+        var bornMain = BORN_SCALE;
+        var bornSub = SUB_RING_SCALE * BORN_SCALE;
+        mainRing.scaleX = mainRing.scaleY = mainRing.scaleZ = bornMain * 0.5;
+        subRing.scaleX = subRing.scaleY = subRing.scaleZ = bornSub * 0.5;
+        TweenMax.to(mainRing, 1.6, {
+            scaleX: bornMain, scaleY: bornMain, scaleZ: bornMain,
             ease: Quint.easeOut
         });
-        TweenMax.to(subRing, 2.2, {
-            scaleX: subRingTargetScale, scaleY: subRingTargetScale, scaleZ: subRingTargetScale,
+        TweenMax.to(subRing, 1.6, {
+            scaleX: bornSub, scaleY: bornSub, scaleZ: bornSub,
             ease: Quint.easeOut
         });
+
+        sphereRings.mainRing = mainRing;
+        sphereRings.subRing = subRing;
 
         // -------------------------------------------------------------
         // Wayfinding hotspots — 4 bright glowing beacons at fixed points
@@ -323,6 +336,22 @@
                 steppedIn = !steppedIn;
                 tController.distance = steppedIn ? NEAR : FAR;
                 if (hintEl) hintEl.classList.add("is-faded");
+
+                // Sphere grows from its 75%-born resting size to full size
+                // in step with the camera stepping toward the door, and
+                // shrinks back on the way out.
+                if (sphereRings.mainRing && sphereRings.subRing) {
+                    var targetMain = steppedIn ? 1 : BORN_SCALE;
+                    var targetSub = steppedIn ? SUB_RING_SCALE : SUB_RING_SCALE * BORN_SCALE;
+                    TweenMax.to(sphereRings.mainRing, 1.1, {
+                        scaleX: targetMain, scaleY: targetMain, scaleZ: targetMain,
+                        ease: Quint.easeInOut
+                    });
+                    TweenMax.to(sphereRings.subRing, 1.1, {
+                        scaleX: targetSub, scaleY: targetSub, scaleZ: targetSub,
+                        ease: Quint.easeInOut
+                    });
+                }
             }
         });
     })();
