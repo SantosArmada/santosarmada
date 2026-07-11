@@ -189,9 +189,16 @@
                 tMesh.blendDst = redGL.gl.ONE;
                 tMesh.useCullFace = false;
                 rootMesh.addChild(tMesh);
-                tMesh.x = positionList[j][0] * 5;
-                tMesh.y = positionList[j][1] * 5;
-                tMesh.z = positionList[j][2] * 5;
+                // Seed each particle at a random point within the breathing
+                // range (5–6x) instead of a uniform 5x — otherwise every
+                // particle starts bunched at the tight end and the sphere
+                // visibly grows into its full, fluffed-out size over the
+                // first second or two. Starting pre-scattered means it
+                // reads at full size from the very first frame.
+                var startFactor = 5 + Math.random();
+                tMesh.x = positionList[j][0] * startFactor;
+                tMesh.y = positionList[j][1] * startFactor;
+                tMesh.z = positionList[j][2] * startFactor;
                 tMesh.lookAt(0, 0, 0);
                 tMesh.rotationZ = Math.random() * 360;
 
