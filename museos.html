@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    <title>Museos — Santos Armada</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="museos.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <script src="https://redcamel.github.io/RedGL2/release/RedGL.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+</head>
+<body class="museos-page">
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <a href="index.html" class="nav-logo">
+        <img src="images/logo.PNG" alt="Santos Armada" class="nav-crest">
+        <span class="nav-title">SANTOS ARMADA</span>
+    </a>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="essays.html">Essays</a></li>
+        <li><a href="authors.html">Authors</a></li>
+        <li><a href="globe.html">Space and Time</a></li>
+        <li><a href="audiolibros.html">Audiolibros</a></li>
+        <li><a href="interpreter-z.html">Interpreter Z</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+</nav>
+
+<!-- MUSEOS WORLD: explorable 3D museum building, drag to look around,
+     scroll to zoom, click the building/door to step closer. Title
+     hovers over the top as a fluid ripple fed live by the world. -->
+<section class="museos-world" id="museosWorld">
+    <canvas id="museos-sphere-canvas"></canvas>
+
+    <div class="museos-title-band museos-mask" id="museosMask">
+        <svg id="museosTitleSvg" viewBox="0 0 1040 220" xmlns="http://www.w3.org/2000/svg" aria-label="Museos">
+            <text x="520" y="150" text-anchor="middle" class="museos-title-text">MUSEOS</text>
+        </svg>
+    </div>
+
+    <p class="museos-hint" id="museosHint">Arrastra para explorar · Clic en el edificio para acercarte a la puerta</p>
+
+    <!-- Glowing wayfinding hotspots — positioned every frame from their
+         real 3D coordinates in the scene, so they stay glued to the
+         building as you orbit. Click to jump into that part of the site. -->
+    <button type="button" class="museos-hotspot" id="museosHotspot-0" data-href="essays.html">
+        <span class="museos-hotspot-dot"></span>
+        <span class="museos-hotspot-label">Galería Real · Essays</span>
+    </button>
+    <button type="button" class="museos-hotspot" id="museosHotspot-1" data-href="authors.html">
+        <span class="museos-hotspot-dot"></span>
+        <span class="museos-hotspot-label">Salón de Retratos · Authors</span>
+    </button>
+    <button type="button" class="museos-hotspot" id="museosHotspot-2" data-href="globe.html">
+        <span class="museos-hotspot-dot"></span>
+        <span class="museos-hotspot-label">Patio Central · Space &amp; Time</span>
+    </button>
+    <button type="button" class="museos-hotspot" id="museosHotspot-3" data-href="interpreter-z.html">
+        <span class="museos-hotspot-dot"></span>
+        <span class="museos-hotspot-label">Biblioteca del Rey · Interpreter Z</span>
+    </button>
+
+    <button type="button" class="museos-scroll-cue" id="museosScrollCue" aria-label="Scroll to explore">
+        <span>Scroll</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4v16M5 13l7 7 7-7"/>
+        </svg>
+    </button>
+</section>
+
+<!-- WING DIRECTORY — Museo Santos Armada floor plan -->
+<section class="museos-wings" id="museosWings">
+    <p class="museos-eyebrow">Museo Santos Armada</p>
+    <h2 class="museos-wings-heading">Plano General</h2>
+    <img class="museos-directory-poster" src="images/museos-directory-poster.jpg" alt="Museo Santos Armada — directorio de alas y plano general">
+    <div class="museos-wings-grid">
+        <div class="museos-wing">
+            <span class="museos-wing-index">I</span>
+            <h3>Ala de los Conquistadores</h3>
+            <p>Exposiciones Temporales · Salas 1–10</p>
+        </div>
+        <div class="museos-wing">
+            <span class="museos-wing-index">II</span>
+            <h3>Patio de la Corona</h3>
+            <p>Esculturas, Fuentes y Colección Principal</p>
+        </div>
+        <div class="museos-wing">
+            <span class="museos-wing-index">III</span>
+            <h3>Galería Real</h3>
+            <p>Pinturas de la Corte · Salas 11–20</p>
+        </div>
+        <div class="museos-wing">
+            <span class="museos-wing-index">IV</span>
+            <h3>Biblioteca del Rey</h3>
+            <p>Manuscritos, Mapas y Libros Raros</p>
+        </div>
+        <div class="museos-wing">
+            <span class="museos-wing-index">V</span>
+            <h3>Salón de Embajadores</h3>
+            <p>Arte Diplomático · Salas 21–30</p>
+        </div>
+        <div class="museos-wing">
+            <span class="museos-wing-index">VI</span>
+            <h3>Jardín de las Musas</h3>
+            <p>Escultura Clásica y Artes Decorativas</p>
+        </div>
+        <div class="museos-wing">
+            <span class="museos-wing-index">VII</span>
+            <h3>Ala de Navegación</h3>
+            <p>Modelos, Instrumentos y Cartas Náuticas</p>
+        </div>
+        <div class="museos-wing">
+            <span class="museos-wing-index">VIII</span>
+            <h3>Capilla Real</h3>
+            <p>Arte Sacro y Reliquias</p>
+        </div>
+    </div>
+    <p class="museos-wings-note">Las salas se están amueblando — cada ala abrirá con su propia colección.</p>
+</section>
+
+<!-- MISSION (draft — placeholder until finalized) -->
+<section class="museos-mission">
+    <div class="museos-mission-inner">
+        <p class="museos-eyebrow">Un mensaje de Christian Ricardo Santos</p>
+        <h2 class="museos-mission-heading">Un cuarto propio para el asombro</h2>
+        <p class="museos-mission-text">
+            Crecí en Los Ángeles, una ciudad que guarda más museos de los que un ser humano podría
+            agotar en una sola vida. Y aun así, cada vez que viajo —a otra ciudad, a otro país— lo
+            primero que busco no es la playa ni el restaurante de moda, sino el museo. Ahí es donde una
+            cultura decide qué recordar, qué proteger, qué contarle a quien todavía no ha nacido.
+        </p>
+        <p class="museos-mission-text">
+            Museo Santos Armada nace de esa misma costumbre. No tiene paredes ni horario de visita; es
+            un intento —quizás imposible, seguramente incompleto— de construir un espacio donde la
+            historia hispana, sus objetos, sus historias y sus silencios puedan exhibirse sin pedir
+            permiso. Cada ala de este museo es una promesa: que lo que aquí se guarde no se perderá.
+        </p>
+        <p class="museos-mission-text">
+            Como historiador en formación e intérprete de oficio, sé que preservar no es solo archivar;
+            es traducir el pasado para que siga hablándole al presente. El próximo año viajaré a Perú, y
+            sé que volveré con más piezas para estas salas. Hasta entonces, este museo crece despacio,
+            sala por sala, como debe crecer todo lo que se construye para durar.
+        </p>
+        <p class="museos-mission-note">Bienvenido. Camine con calma. — Christian Ricardo Santos</p>
+    </div>
+</section>
+
+<!-- EXPLORE MORE — links to the rest of the site -->
+<section class="museos-explore">
+    <p class="museos-eyebrow">Sigue explorando</p>
+    <div class="museos-explore-links">
+        <a href="essays.html"><span>Essays</span><em>→</em></a>
+        <a href="authors.html"><span>Authors</span><em>→</em></a>
+        <a href="globe.html"><span>Space &amp; Time</span><em>→</em></a>
+        <a href="audiolibros.html"><span>Audiolibros</span><em>→</em></a>
+        <a href="interpreter-z.html"><span>Interpreter Z</span><em>→</em></a>
+        <a href="cv.html"><span>CV</span><em>→</em></a>
+        <a href="about.html"><span>About</span><em>→</em></a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
+        <a href="index.html" class="footer-logo-link">
+            <img src="images/logo.PNG" alt="Santos Armada" class="footer-logo">
+            <p class="footer-title">SANTOS ARMADA</p>
+        </a>
+        <p class="footer-links">
+            <a href="essays.html">Essays</a> ·
+            <a href="audiolibros.html">Audiolibros</a> ·
+            <a href="authors.html">Authors</a> ·
+            <a href="interpreter-z.html">Interpreter Z</a> ·
+            <a href="cv.html">CV</a> ·
+            <a href="about.html">About</a>
+        </p>
+        <p class="footer-copy">© 2026 Santos Armada · santosarmada@protonmail.com · All rights reserved</p>
+    </div>
+</footer>
+
+<script type="module" src="museos.js"></script>
+</body>
+</html>

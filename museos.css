@@ -1,0 +1,405 @@
+/* ================================
+   MUSEOS — Santos Armada
+   Explorable 3D museum building + persistent fluid title band
+================================ */
+
+.museos-page {
+    background: var(--bg-dark);
+}
+
+/* --- World / hero section --- */
+.museos-world {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #030201;
+}
+
+#museos-sphere-canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    cursor: pointer;
+}
+
+/* Title band: sits just under the navbar, spans full width, fixed
+   height — everything below it shows the museum building untouched. */
+.museos-title-band {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100vw;
+    height: clamp(150px, 24vh, 250px);
+    z-index: 3;
+}
+
+.museos-ogl-canvas {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100vw;
+    height: clamp(150px, 24vh, 250px);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.museos-mask {
+    background: #ffffff;
+    mix-blend-mode: screen;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+#museosTitleSvg {
+    width: min(80vw, 760px);
+    height: auto;
+}
+
+.museos-title-text {
+    font-family: var(--font-title);
+    font-weight: 900;
+    font-size: 120px;
+    letter-spacing: 0.14em;
+    fill: #000000;
+}
+
+.museos-hint {
+    position: fixed;
+    left: 50%;
+    bottom: 8%;
+    transform: translateX(-50%);
+    z-index: 5;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--text-secondary);
+    text-align: center;
+    opacity: 0;
+    animation: museos-hint-in 1s ease 1.2s forwards;
+    transition: opacity 0.8s ease;
+    pointer-events: none;
+}
+
+.museos-hint.is-faded {
+    opacity: 0.35 !important;
+}
+
+@keyframes museos-hint-in {
+    to { opacity: 1; }
+}
+
+/* --- Scroll cue --- */
+.museos-scroll-cue {
+    position: fixed;
+    left: 50%;
+    bottom: 3%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    font-family: var(--font-title);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    transition: color 0.3s ease, opacity 0.5s ease;
+}
+
+.museos-scroll-cue:hover {
+    color: var(--gold);
+}
+
+.museos-scroll-cue svg {
+    width: 15px;
+    height: 15px;
+    stroke: currentColor;
+    animation: museos-scroll-bounce 2s ease-in-out infinite;
+}
+
+@keyframes museos-scroll-bounce {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50%      { transform: translateY(6px); opacity: 1; }
+}
+
+/* --- Wayfinding hotspots ---
+   Positioned every frame via inline left/top (museos.js), computed from
+   their real 3D coordinates — the CSS here only handles appearance. */
+.museos-hotspot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    will-change: left, top;
+}
+
+.museos-hotspot.is-visible {
+    opacity: 1;
+}
+
+.museos-hotspot-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #fff6df 0%, var(--gold-light) 45%, rgba(200, 169, 110, 0) 75%);
+    box-shadow: 0 0 10px 2px rgba(255, 230, 180, 0.85), 0 0 22px 6px rgba(200, 169, 110, 0.35);
+    animation: museos-hotspot-pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes museos-hotspot-pulse {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.35); }
+}
+
+.museos-hotspot-label {
+    font-family: var(--font-title);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    white-space: nowrap;
+    background: rgba(10, 8, 5, 0.7);
+    padding: 4px 10px;
+    border: 0.5px solid var(--gold-dim);
+    border-radius: 999px;
+    opacity: 0;
+    transform: translateY(-4px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+    pointer-events: none;
+}
+
+.museos-hotspot:hover .museos-hotspot-label {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.museos-hotspot:hover .museos-hotspot-dot {
+    box-shadow: 0 0 14px 4px rgba(255, 230, 180, 1), 0 0 30px 10px rgba(200, 169, 110, 0.5);
+}
+
+/* --- Mission --- */
+.museos-mission {
+    padding: 110px 48px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.museos-eyebrow {
+    font-family: var(--font-title);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.museos-mission-heading {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(28px, 4vw, 44px);
+    color: var(--gold-light);
+    margin-bottom: 24px;
+}
+
+.museos-mission-text {
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-primary);
+}
+
+.museos-mission-note {
+    margin-top: 20px;
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* --- Wing directory (Plano General) --- */
+.museos-wings {
+    padding: 20px 48px 120px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    border-top: 0.5px solid var(--border);
+}
+
+.museos-wings-heading {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(24px, 3.4vw, 36px);
+    color: var(--gold-light);
+    margin: 40px 0 48px;
+}
+
+.museos-directory-poster {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto 56px;
+    border: 0.5px solid var(--border);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
+}
+
+.museos-wings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    text-align: left;
+}
+
+.museos-wing {
+    background: var(--bg-dark);
+    padding: 28px 26px;
+    transition: background 0.3s ease;
+}
+
+.museos-wing:hover {
+    background: var(--bg-card);
+}
+
+.museos-wing-index {
+    display: block;
+    font-family: var(--font-title);
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+
+.museos-wing h3 {
+    font-family: var(--font-title);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+}
+
+.museos-wing p {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.museos-wings-note {
+    margin-top: 40px;
+    font-family: var(--font-body);
+    font-style: italic;
+    color: var(--text-secondary);
+    font-size: 14px;
+}
+
+/* --- Explore more (bottom links) --- */
+.museos-explore {
+    padding: 0 48px 100px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.museos-explore-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.museos-explore-links a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-title);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    text-decoration: none;
+    border: 0.5px solid var(--border);
+    padding: 12px 20px;
+    transition: border-color 0.25s ease, color 0.25s ease, background 0.25s ease;
+}
+
+.museos-explore-links a em {
+    font-style: normal;
+    color: var(--gold);
+    transition: transform 0.25s ease;
+}
+
+.museos-explore-links a:hover {
+    border-color: var(--gold);
+    color: var(--gold-light);
+    background: rgba(200, 169, 110, 0.06);
+}
+
+.museos-explore-links a:hover em {
+    transform: translateX(4px);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    .museos-title-band,
+    .museos-ogl-canvas {
+        top: 66px;
+        height: clamp(110px, 20vh, 180px);
+    }
+
+    .museos-title-text {
+        font-size: 64px;
+    }
+
+    .museos-mission {
+        padding: 70px 24px;
+    }
+
+    .museos-hint {
+        bottom: 10%;
+        font-size: 10.5px;
+        padding: 0 20px;
+    }
+
+    .museos-wings {
+        padding: 10px 20px 80px;
+    }
+
+    .museos-wings-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .museos-hotspot-label {
+        font-size: 9px;
+        padding: 3px 8px;
+    }
+
+    .museos-explore-links a {
+        font-size: 11px;
+        padding: 10px 16px;
+    }
+}
