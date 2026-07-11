@@ -45,47 +45,51 @@
     // Procedural gold glyph texture (replaces the borrowed demo's
     // hud_001/hud_003 pngs — small decorative detail, not "the building",
     // so this stays generated/on-brand rather than a stock asset).
-    // Doubled resolution + a hot white core so it reads crisp and actually
-    // crosses the bloom threshold instead of looking like a soft smudge.
+    // Doubled again to 1024px with tighter, higher-contrast rings and a
+    // smaller/hotter core so each glyph reads as a sharp, defined point
+    // rather than a soft smudge once bloomed and scaled up in the scene.
     function makeGlyphTexture() {
-        var size = 512;
+        var size = 1024;
         var c = document.createElement("canvas");
         c.width = c.height = size;
         var ctx = c.getContext("2d");
         var cx = size / 2;
         var cy = size / 2;
 
-        ctx.strokeStyle = "rgba(255,238,205,0.95)";
-        ctx.lineWidth = 5;
+        ctx.strokeStyle = "rgba(255,242,215,1)";
+        ctx.lineWidth = 8;
         ctx.beginPath();
         ctx.arc(cx, cy, size * 0.36, 0, Math.PI * 2);
         ctx.stroke();
 
-        ctx.strokeStyle = "rgba(255,238,205,0.6)";
-        ctx.lineWidth = 2.5;
+        ctx.strokeStyle = "rgba(255,242,215,0.7)";
+        ctx.lineWidth = 4;
         ctx.beginPath();
         ctx.arc(cx, cy, size * 0.28, 0, Math.PI * 2);
         ctx.stroke();
 
-        ctx.strokeStyle = "rgba(255,238,205,0.85)";
-        ctx.lineWidth = 2;
-        for (var i = 0; i < 24; i++) {
-            var a = (i / 24) * Math.PI * 2;
+        ctx.strokeStyle = "rgba(255,242,215,0.95)";
+        ctx.lineWidth = 3.5;
+        for (var i = 0; i < 28; i++) {
+            var a = (i / 28) * Math.PI * 2;
             var r1 = size * 0.4;
-            var r2 = size * 0.445;
+            var r2 = size * 0.45;
             ctx.beginPath();
             ctx.moveTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1);
             ctx.lineTo(cx + Math.cos(a) * r2, cy + Math.sin(a) * r2);
             ctx.stroke();
         }
 
-        var glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, size * 0.24);
+        // Tighter hot core (0.18 vs the old 0.24) with a harder falloff —
+        // reads as a crisp pinpoint highlight instead of a soft glow disc.
+        var glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, size * 0.18);
         glow.addColorStop(0, "rgba(255,255,255,1)");
-        glow.addColorStop(0.35, "rgba(255,238,205,0.95)");
+        glow.addColorStop(0.3, "rgba(255,242,215,1)");
+        glow.addColorStop(0.7, "rgba(255,228,175,0.8)");
         glow.addColorStop(1, "rgba(255,222,163,0)");
         ctx.fillStyle = glow;
         ctx.beginPath();
-        ctx.arc(cx, cy, size * 0.24, 0, Math.PI * 2);
+        ctx.arc(cx, cy, size * 0.18, 0, Math.PI * 2);
         ctx.fill();
 
         return c.toDataURL();
@@ -153,7 +157,11 @@
         bloom.threshold = 150;
         bloom.bloomStrength = 1.1;
         bloom.exposure = 0.98;
-        bloom.blur = 18;
+        // Lower blur radius (was 18) keeps the bloom halo tight around each
+        // glyph instead of smearing it into a soft, low-detail glow — the
+        // higher-res texture above only reads as "sharper" if the bloom
+        // pass isn't blurring that detail back out.
+        bloom.blur = 12;
         tView["postEffectManager"].addEffect(bloom);
 
         // Original demo set tMaterial.alpha = 0.7 and left tMaterial2 at
@@ -168,7 +176,10 @@
 
         var makeConstellation = function (redGL, material, material2) {
             var rootMesh = RedMesh(redGL);
-            var tGeo = RedSphere(redGL, 1, 16, 8, 8);
+            // More width/height segments than the original demo (16,8) —
+            // a denser point cloud reads as a sharper, higher-resolution
+            // sphere rather than a sparse scatter of glyphs.
+            var tGeo = RedSphere(redGL, 1, 22, 11, 8);
             var positionList = [];
             var len = tGeo.interleaveBuffer.data.length / 8;
             var i;
@@ -239,7 +250,7 @@
         // Entrance: the sphere starts noticeably smaller than its resting
         // size and blooms up to full scale on load, instead of appearing
         // at full size the instant the page renders.
-        var ENTRANCE_SCALE = 0.4;
+        var ENTRANCE_SCALE = 0.2;
         mainRing.scaleX = mainRing.scaleY = mainRing.scaleZ = ENTRANCE_SCALE;
         subRing.scaleX = subRing.scaleY = subRing.scaleZ = ENTRANCE_SCALE * subRingTargetScale;
         TweenMax.to(mainRing, 2.2, {

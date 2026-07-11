@@ -9,6 +9,41 @@
     background: var(--bg-dark);
 }
 
+/* --- Santos Armada logo hover (navbar + footer) --- */
+.museos-page .nav-crest,
+.museos-page .footer-logo {
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.museos-page .nav-title,
+.museos-page .footer-title {
+    transition: color 0.3s ease, text-shadow 0.3s ease, letter-spacing 0.3s ease;
+}
+
+.museos-page .nav-logo:hover .nav-crest {
+    filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.15)
+            drop-shadow(0 0 12px rgba(200, 169, 110, 0.7));
+    transform: rotate(-4deg) scale(1.06);
+}
+
+.museos-page .nav-logo:hover .nav-title {
+    color: var(--gold-light);
+    letter-spacing: 0.2em;
+    text-shadow: 0 0 14px rgba(200, 169, 110, 0.5);
+}
+
+.museos-page .footer-logo-link:hover .footer-logo {
+    filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.15)
+            drop-shadow(0 0 16px rgba(200, 169, 110, 0.7));
+    transform: scale(1.06);
+}
+
+.museos-page .footer-logo-link:hover .footer-title {
+    color: var(--gold-light);
+    letter-spacing: 0.24em;
+    text-shadow: 0 0 14px rgba(200, 169, 110, 0.5);
+}
+
 /* The sphere canvas + title band are position:fixed so the museum stays
    pinned as an ambient backdrop while you scroll. Without an explicit
    stacking context + opaque background, everything below the hero
@@ -42,7 +77,7 @@
    height — everything below it shows the museum building untouched. */
 .museos-title-band {
     position: fixed;
-    top: 80px;
+    top: 62px;
     left: 0;
     width: 100vw;
     height: clamp(150px, 24vh, 250px);
@@ -257,7 +292,7 @@
 /* --- Responsive --- */
 @media (max-width: 768px) {
     .museos-title-band {
-        top: 66px;
+        top: 50px;
         height: clamp(110px, 20vh, 180px);
     }
 
