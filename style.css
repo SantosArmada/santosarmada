@@ -478,6 +478,41 @@ body {
     cursor: pointer;
 }
 
+/* --- Hamburger menu for tablets in portrait ---
+   The width-only breakpoint below misses tablets: an iPad in portrait
+   is ~768-834px wide (wider than the 768px mobile cutoff), so it was
+   still getting the full desktop nav crammed into the navbar. Switch
+   to the hamburger any time the viewport is taller than it is wide
+   (portrait) up through typical tablet widths, regardless of exact
+   pixel width — landscape tablets keep the normal desktop nav. */
+@media (orientation: portrait) and (max-width: 1024px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background-color: rgba(10, 8, 5, 0.98);
+        padding: 20px;
+        gap: 20px;
+        border-bottom: 0.5px solid var(--border);
+        z-index: 99;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .navbar {
+        position: relative;
+    }
+}
+
 @media (max-width: 768px) {
     .hamburger {
         display: block;

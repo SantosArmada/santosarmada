@@ -56,12 +56,15 @@
     .museos-page {
         --museos-banner-h: 27px; /* trimmed ~30% from 39px */
     }
+}
 
-    /* Below 768px the site-wide navbar switches from sticky to
-       position:relative (style.css), where `top` would just shove it
-       further down inside the normal flow on top of our padding-top.
-       Cancel that offset here since padding-top alone already reserves
-       the space for the fixed banner above it. */
+/* Below 768px, and on tablets in portrait up to 1024px, the site-wide
+   navbar switches from sticky to position:relative (style.css), where
+   `top` would just shove it further down inside the normal flow on top
+   of our padding-top. Cancel that offset in both cases since
+   padding-top alone already reserves the space for the fixed banner
+   above it. */
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
     .museos-page .navbar {
         top: 0;
     }
