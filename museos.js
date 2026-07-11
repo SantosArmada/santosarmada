@@ -189,16 +189,9 @@
                 tMesh.blendDst = redGL.gl.ONE;
                 tMesh.useCullFace = false;
                 rootMesh.addChild(tMesh);
-                // Seed each particle at a random point within the breathing
-                // range (5–6x) instead of a uniform 5x — otherwise every
-                // particle starts bunched at the tight end and the sphere
-                // visibly grows into its full, fluffed-out size over the
-                // first second or two. Starting pre-scattered means it
-                // reads at full size from the very first frame.
-                var startFactor = 5 + Math.random();
-                tMesh.x = positionList[j][0] * startFactor;
-                tMesh.y = positionList[j][1] * startFactor;
-                tMesh.z = positionList[j][2] * startFactor;
+                tMesh.x = positionList[j][0] * 5;
+                tMesh.y = positionList[j][1] * 5;
+                tMesh.z = positionList[j][2] * 5;
                 tMesh.lookAt(0, 0, 0);
                 tMesh.rotationZ = Math.random() * 360;
 
@@ -236,12 +229,27 @@
 
         var mainRing = makeConstellation(this, glyphMaterial, glyphMaterial2);
         var subRing = makeConstellation(this, glyphMaterial, glyphMaterial2);
-        subRing.scaleX = subRing.scaleY = subRing.scaleZ = 0.72;
+        var subRingTargetScale = 0.72;
         subRing.rotationX = subRing.rotationY = subRing.rotationZ = Math.random() * 360;
 
         tScene.addChild(mainRing);
         tScene.addChild(subRing);
         spinGroups.push(mainRing, subRing);
+
+        // Entrance: the sphere starts noticeably smaller than its resting
+        // size and blooms up to full scale on load, instead of appearing
+        // at full size the instant the page renders.
+        var ENTRANCE_SCALE = 0.4;
+        mainRing.scaleX = mainRing.scaleY = mainRing.scaleZ = ENTRANCE_SCALE;
+        subRing.scaleX = subRing.scaleY = subRing.scaleZ = ENTRANCE_SCALE * subRingTargetScale;
+        TweenMax.to(mainRing, 2.2, {
+            scaleX: 1, scaleY: 1, scaleZ: 1,
+            ease: Quint.easeOut
+        });
+        TweenMax.to(subRing, 2.2, {
+            scaleX: subRingTargetScale, scaleY: subRingTargetScale, scaleZ: subRingTargetScale,
+            ease: Quint.easeOut
+        });
 
         // -------------------------------------------------------------
         // Wayfinding hotspots — 4 bright glowing beacons at fixed points
