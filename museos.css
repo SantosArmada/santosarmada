@@ -130,6 +130,11 @@
     z-index: 1;
     display: block;
     cursor: pointer;
+    /* Without this, iOS/tablet Safari intercepts drag/pinch gestures on
+       the canvas for its own page-panning/zooming before our touch
+       handlers (museos.js) ever see them — the #1 reason the orbit
+       drag + tap-to-step interactivity didn't respond on iPad. */
+    touch-action: none;
 }
 
 /* Title band: sits just under the navbar, spans full width, fixed

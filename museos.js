@@ -357,6 +357,66 @@
     })();
 
     // =================================================================
+    // Touch support — RedObitController (drag-to-look-around, from the
+    // RedGL2 library) and the click-to-step-closer handler above only
+    // ever listen for mouse events, so on touch devices (iPad/tablet —
+    // no mouse at all) none of the drag/click interactivity responded,
+    // even though it worked fine on desktop. This proxies single-finger
+    // touch into the same mousedown/mousemove/mouseup events so both of
+    // those keep working completely unchanged, plus a basic two-finger
+    // pinch mapped directly to the controller's zoom distance (the
+    // touch equivalent of desktop scroll-to-zoom).
+    // =================================================================
+    (function enableTouchControls() {
+        function fireMouse(type, touch) {
+            sphereCanvas.dispatchEvent(new MouseEvent(type, {
+                bubbles: true,
+                cancelable: true,
+                clientX: touch.clientX,
+                clientY: touch.clientY,
+                button: 0
+            }));
+        }
+
+        function touchDistance(touches) {
+            var dx = touches[0].clientX - touches[1].clientX;
+            var dy = touches[0].clientY - touches[1].clientY;
+            return Math.sqrt(dx * dx + dy * dy);
+        }
+
+        var pinchStartDist = 0;
+        var pinchStartDistance = 0;
+
+        sphereCanvas.addEventListener("touchstart", function (e) {
+            if (e.touches.length === 1) {
+                fireMouse("mousedown", e.touches[0]);
+            } else if (e.touches.length === 2 && tController) {
+                pinchStartDist = touchDistance(e.touches);
+                pinchStartDistance = tController.distance;
+            }
+            e.preventDefault();
+        }, { passive: false });
+
+        sphereCanvas.addEventListener("touchmove", function (e) {
+            if (e.touches.length === 1) {
+                fireMouse("mousemove", e.touches[0]);
+            } else if (e.touches.length === 2 && tController && pinchStartDist) {
+                var dist = touchDistance(e.touches);
+                var ratio = pinchStartDist / dist; // pinch out (fingers apart) = zoom in
+                tController.distance = Math.min(20, Math.max(3, pinchStartDistance * ratio));
+            }
+            e.preventDefault();
+        }, { passive: false });
+
+        sphereCanvas.addEventListener("touchend", function (e) {
+            if (e.touches.length === 0 && e.changedTouches.length) {
+                fireMouse("mouseup", e.changedTouches[0]);
+            }
+            pinchStartDist = 0;
+        }, { passive: false });
+    })();
+
+    // =================================================================
     // Hotspot navigation — click a glowing beacon, jump to that page.
     // Positioning happens continuously in startHotspotProjection(); this
     // just wires the actual click behavior and the scroll cue.
