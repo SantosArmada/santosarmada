@@ -6,7 +6,65 @@
 ================================ */
 
 .museos-page {
+    --museos-banner-h: 41px; /* trimmed ~30% from 59px (~30% from original 84px) */
     background: var(--bg-dark);
+    /* Reserve room in normal flow at top/bottom so the fixed banners
+       (below) never sit on top of the nav or footer content. */
+    padding-top: var(--museos-banner-h);
+    padding-bottom: var(--museos-banner-h);
+}
+
+/* --- Maya glyph banner strip (top + bottom) ---
+   Permanent fixtures: pinned to the viewport edges with position:fixed,
+   so they never scroll away. The top strip sits above the navbar, the
+   bottom strip sits below the footer. Capped to a slim fixed height and
+   cropped with object-fit so the wide/short source image reads as a
+   decorative frieze instead of eating the whole screen. z-index is set
+   above the navbar (100) and every other fixed layer on this page. */
+.museos-banner {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: var(--museos-banner-h);
+    z-index: 200;
+    background: #000;
+    overflow: hidden;
+}
+
+.museos-banner-top {
+    top: 0;
+}
+
+.museos-banner-bottom {
+    bottom: 0;
+}
+
+.museos-banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Dock the sticky navbar directly beneath the fixed top banner instead
+   of at the very top of the viewport. */
+.museos-page .navbar {
+    top: var(--museos-banner-h);
+}
+
+@media (max-width: 768px) {
+    .museos-page {
+        --museos-banner-h: 27px; /* trimmed ~30% from 39px */
+    }
+
+    /* Below 768px the site-wide navbar switches from sticky to
+       position:relative (style.css), where `top` would just shove it
+       further down inside the normal flow on top of our padding-top.
+       Cancel that offset here since padding-top alone already reserves
+       the space for the fixed banner above it. */
+    .museos-page .navbar {
+        top: 0;
+    }
 }
 
 /* --- Santos Armada logo hover (navbar + footer) --- */
@@ -47,8 +105,9 @@
 /* The sphere canvas + title band are position:fixed so the museum stays
    pinned as an ambient backdrop while you scroll. Without an explicit
    stacking context + opaque background, everything below the hero
-   (mission statement, footer) would render underneath that fixed layer
-   instead of over it — invisible, even though it's all there in the DOM. */
+   (mission statement, footer, banners) would render underneath that
+   fixed layer instead of over it — invisible, even though it's all
+   there in the DOM. */
 .museos-mission,
 .museos-page footer.footer {
     position: relative;
