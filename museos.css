@@ -185,18 +185,41 @@
             drop-shadow(0 0 42px rgba(200, 169, 110, 0.3));
 }
 
-.museos-hint {
+/* --- Bottom stack (hint + scroll cue) ---
+   Both used to be independently position:fixed with their own bottom %,
+   which could overlap on short/resized viewports (a smaller viewport
+   height shrinks the % gap between them) or when the hint text wraps
+   to two lines. Anchoring them together in one flex column with a
+   fixed gap guarantees consistent spacing and no overlap at any size. */
+.museos-bottom-stack {
     position: fixed;
     left: 50%;
-    bottom: 8%;
+    bottom: 4%;
     transform: translateX(-50%);
     z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    width: min(92vw, 560px);
+}
+
+.museos-hint {
     font-family: var(--font-body);
     font-style: italic;
-    font-size: 12px;
+    font-size: 14px;
     letter-spacing: 0.05em;
-    color: var(--text-secondary);
+    color: var(--gold-light);
+    /* A dark pill behind the text (same trick as .museos-hotspot-label
+       elsewhere on this page) gives reliable contrast against the busy
+       photo backdrop. A stroke/heavy shadow directly on small text at
+       this size ends up swallowing the gradient fill below almost
+       entirely instead of just outlining it — this doesn't. */
+    background: rgba(10, 8, 5, 0.6);
+    padding: 6px 18px;
+    border-radius: 999px;
     text-align: center;
+    max-width: 100%;
     opacity: 0;
     animation: museos-hint-in 1s ease 1.2s forwards;
     transition: opacity 0.8s ease;
@@ -211,43 +234,61 @@
     to { opacity: 1; }
 }
 
+/* --- Ember gradient text sweep ---
+   Applied via JS (museos.js: startEmberTextSweep) to any element marked
+   .museos-anim-text — splits it into per-letter spans and animates a
+   molten gold/amber gradient sweeping across the text, staggered letter
+   by letter. Contrast against the busy photo comes from the dark pill
+   background on the wrapping element (.museos-hint, .museos-scroll-cue
+   .museos-anim-text below), not from a stroke on the letters — a stroke
+   at this font size ends up covering the gradient fill almost entirely
+   instead of just outlining it. */
+.museos-anim-char {
+    display: inline-block;
+    white-space: pre;
+    will-change: transform, opacity, background;
+}
+
 /* --- Scroll cue --- */
 .museos-scroll-cue {
-    position: fixed;
-    left: 50%;
-    bottom: 3%;
-    transform: translateX(-50%);
-    z-index: 5;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     background: none;
     border: none;
     padding: 8px;
     cursor: pointer;
     font-family: var(--font-title);
-    font-size: 10px;
-    font-weight: 500;
+    font-size: 14px;
+    font-weight: 700;
     letter-spacing: 0.25em;
     text-transform: uppercase;
-    color: var(--text-secondary);
+    color: var(--gold-light);
     transition: color 0.3s ease, opacity 0.5s ease;
 }
 
+.museos-scroll-cue .museos-anim-text {
+    background: rgba(10, 8, 5, 0.6);
+    padding: 4px 14px;
+    border-radius: 999px;
+}
+
 .museos-scroll-cue:hover {
-    color: var(--gold);
+    color: #fff6df;
 }
 
 .museos-scroll-cue svg {
-    width: 15px;
-    height: 15px;
+    width: 26px;
+    height: 26px;
     stroke: currentColor;
+    stroke-width: 2.2;
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.95)) drop-shadow(0 2px 3px rgba(0, 0, 0, 0.85));
     animation: museos-scroll-bounce 2s ease-in-out infinite;
 }
 
 @keyframes museos-scroll-bounce {
-    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    0%, 100% { transform: translateY(0); opacity: 0.75; }
     50%      { transform: translateY(6px); opacity: 1; }
 }
 
@@ -371,10 +412,14 @@
         padding: 70px 24px;
     }
 
+    .museos-bottom-stack {
+        bottom: 6%;
+        gap: 12px;
+    }
+
     .museos-hint {
-        bottom: 10%;
         font-size: 10.5px;
-        padding: 0 20px;
+        padding: 5px 14px;
     }
 
     .museos-hotspot-label {

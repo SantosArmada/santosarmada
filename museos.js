@@ -306,6 +306,7 @@
     // World doesn't need to be running for the title to spark — start
     // it independently as soon as the DOM is ready.
     startTitleSparks();
+    startEmberTextSweep();
 
     // =================================================================
     // Click the building / door to step closer.
@@ -712,6 +713,73 @@
             io.observe(wrap);
         } else {
             requestAnimationFrame(frame);
+        }
+    }
+
+    // =================================================================
+    // Ember gradient text sweep — same per-letter animated-gradient
+    // technique as jeanphilippebelley.com's "Always" demo (split text
+    // into letter spans, sweep a linear-gradient across each one's
+    // background with background-clip:text, staggered letter by
+    // letter). Recolored from that demo's orange/amber/white-gray to
+    // this page's molten-gold ember palette (matches the spark colors
+    // used in startTitleSparks above) and applied to every element
+    // marked .museos-anim-text — currently the "Arrastra..." hint and
+    // the "Scroll" label — instead of a single hard-coded headline.
+    // =================================================================
+    function startEmberTextSweep() {
+        var STAGGER = 10, ENTER = 60, HOLD = 50, EXIT = 55, PAUSE = 44;
+
+        function easeInOut(t) {
+            return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+
+        function cyc(f, offset) {
+            if (f < offset) return 0;
+            var total = ENTER + HOLD + EXIT + PAUSE;
+            var t = (f - offset) % total;
+            if (t < ENTER) return easeInOut(t / ENTER);
+            if (t < ENTER + HOLD) return 1;
+            if (t < ENTER + HOLD + EXIT) return 1 - easeInOut((t - ENTER - HOLD) / EXIT);
+            return 0;
+        }
+
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        function grad(el, css) {
+            el.style.background = css;
+            el.style.webkitBackgroundClip = "text";
+            el.style.backgroundClip = "text";
+            el.style.webkitTextFillColor = "transparent";
+        }
+
+        function split(el) {
+            var raw = el.textContent;
+            el.textContent = "";
+            return raw.split("").map(function (ch) {
+                var s = document.createElement("span");
+                s.className = "museos-anim-char";
+                s.textContent = ch === " " ? " " : ch;
+                el.appendChild(s);
+                return s;
+            });
+        }
+
+        var targets = document.querySelectorAll(".museos-anim-text");
+        for (var t = 0; t < targets.length; t++) {
+            (function (el) {
+                var chars = split(el);
+                var f = 0;
+                (function frame() {
+                    f++;
+                    for (var i = 0; i < chars.length; i++) {
+                        var p = cyc(f, i * STAGGER);
+                        var angle = lerp(180, 0, p).toFixed(1);
+                        grad(chars[i], "linear-gradient(" + angle + "deg, #f97316 0%, #fbbf24 42%, #fff6df 100%)");
+                    }
+                    requestAnimationFrame(frame);
+                })();
+            })(targets[t]);
         }
     }
 })();
