@@ -1,0 +1,244 @@
+html,
+body {
+  margin: 0;
+  background: #fff;
+}
+
+.audiolibros-hero {
+  position: relative;
+  width: 100vw;
+  height: 100dvh;
+  overflow: hidden;
+  background: #fff;
+}
+
+#enterPrompt {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.3em;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+
+#enterPrompt.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.entry-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 84px;
+  width: 84px;
+  color: #000;
+  text-decoration: none;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 42px;
+  box-shadow: 1px 3px 16px rgba(0, 0, 0, 0.25);
+  transition: width 0.9s cubic-bezier(0.2, 0.9, 0.3, 1),
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.entry-btn.grown {
+  width: 270px;
+}
+
+.entry-btn:hover {
+  background: #000;
+}
+
+.entry-logo-wrap {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 0.5px solid #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.entry-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.3);
+}
+
+.entry-btn:hover .entry-logo {
+  filter: grayscale(1) contrast(1.3) invert(1);
+}
+
+.entry-text {
+  position: absolute;
+  left: 92px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #000;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  transition: width 0.5s ease 0.5s, color 0.3s ease;
+}
+
+.entry-btn.grown .entry-text {
+  width: 150px;
+}
+
+.entry-btn:hover .entry-text {
+  color: #fff;
+}
+
+#enterBtn.btn--clicked {
+  width: 84px;
+  z-index: -10;
+}
+
+#enterBtn.btn--clicked .entry-text {
+  width: 0;
+}
+
+.color {
+  display: block;
+  position: absolute;
+  width: 42em;
+  height: 42em;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  border-radius: 50%;
+  transition: transform 0.8s ease;
+}
+
+.color.expanded {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.color--black {
+  background: #000;
+  transition-delay: 0.25s;
+}
+
+.color--white {
+  background: #fff;
+  transition-delay: 0.5s;
+}
+
+#growthCanvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+#growthCanvas.done {
+  opacity: 0;
+}
+
+#forwardLink {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+#finalLogo {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 32px);
+  width: min(78vw, 760px);
+  max-width: 760px;
+  transform: translate(-50%, -50%) scale(0.94);
+  opacity: 0;
+  filter: grayscale(1) contrast(1.45);
+  transition: opacity 0.4s ease,
+    transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+  pointer-events: none;
+}
+
+#finalLogo.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+#flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#flash.hit {
+  animation: flashHit 0.16s ease-out forwards;
+}
+
+@keyframes flashHit {
+  0% { opacity: 0; }
+  30% { opacity: 0.22; }
+  100% { opacity: 0; }
+}
+
+.hero-label {
+  position: absolute;
+  left: 50%;
+  bottom: 8%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 0.35em;
+  text-transform: lowercase;
+  color: #6f98ec;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.hero-label.show {
+  opacity: 0.8;
+}
+
+.back-link {
+  position: absolute;
+  left: 50%;
+  bottom: 4%;
+  transform: translateX(-50%);
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  color: #000;
+  text-decoration: none;
+  opacity: 0;
+  transition: opacity 0.35s ease, color 0.2s ease;
+}
+
+.back-link:hover {
+  color: #6f98ec;
+  text-decoration: underline;
+}
+
+.back-link.show {
+  opacity: 0.6;
+}
