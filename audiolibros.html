@@ -414,30 +414,69 @@
     sticks.push(new Stick(points[i], points[(i + 1) % points.length]));
   }
 
-  // Hard ceiling on the growth phase's real-world duration. Instead of
-  // trying to guess/tune per-frame speed for every browser and device,
-  // this just guarantees nobody waits longer than GROWTH_MAX_MS for the
-  // blob to start morphing into the logo — if a slower canvas rasterizer
-  // means fewer growth steps complete in that window, the morph simply
-  // starts from a less-subdivided (but still valid) blob shape. Fast
-  // browsers still reach the full maxIteration naturally and are
-  // unaffected.
-  var GROWTH_MAX_MS = 1400;
+  // ---------------------------------------------------------------
+  // Beat sync
+  //
+  // Timestamps (seconds) of the rhythmic swells in
+  // sounds/guitar-loop-arabic.wav, found by analyzing the clip's actual
+  // waveform (RMS envelope, sustained-energy regions above the 75th
+  // percentile). The clip is 4.324s long — the whole visual sequence is
+  // now built to run that long too, so the blob pulses on each swell and
+  // the morph into the logo lands on the final one.
+  // ---------------------------------------------------------------
+  var BEAT_TIMES = [0.69, 1.67, 2.19, 2.72]; // mid-sequence swells — pulse only
+  var MORPH_START_TIME = 3.84;               // final, biggest swell — triggers the morph
+  var HARD_CEILING_S = 4.2;                  // safety net if a device never reaches maxIteration
+  var PULSE_HALF_WIDTH = 0.16;
+  var PULSE_STRENGTH = 0.14;
+
+  function pulseEnvelope(t) {
+    var val = 0;
+    var all = BEAT_TIMES.concat([MORPH_START_TIME]);
+    for (var i = 0; i < all.length; i++) {
+      var dt = Math.abs(t - all[i]);
+      if (dt < PULSE_HALF_WIDTH) {
+        var e = 1 - dt / PULSE_HALF_WIDTH;
+        if (e > val) val = e;
+      }
+    }
+    return val;
+  }
+
+  function drawBlobPolygon() {
+    if (!sticks.length) return;
+    var start = sticks[0].a;
+    var origin = start;
+
+    ctx.fillStyle = "#000";
+    ctx.beginPath();
+    ctx.moveTo(origin.x, origin.y);
+
+    while (origin.next && origin.next !== start) {
+      origin = origin.next;
+      ctx.lineTo(origin.x, origin.y);
+    }
+
+    ctx.closePath();
+    ctx.fill();
+  }
+
   var growthStartTime = null;
 
   function update(now) {
     if (growthStartTime === null) growthStartTime = now || performance.now();
-    var elapsed = (now || performance.now()) - growthStartTime;
+    var elapsed = ((now || performance.now()) - growthStartTime) / 1000;
 
     minDist += maxLength * 0.12;
 
     var scale = 2000 / minDist;
     var minPointDist = (maxLength * 4) / scale;
+    var pulse = 1 + PULSE_STRENGTH * pulseEnvelope(elapsed);
 
     ctx.clearRect(0, 0, w, h);
     ctx.save();
     ctx.translate(w / 2, h / 2);
-    ctx.scale(scale, scale);
+    ctx.scale(scale * pulse, scale * pulse);
 
     // Plain nested-pair check. A spatial-hash version of this was tried,
     // but benchmarked ~4.7x slower than this at the point counts this
@@ -474,24 +513,41 @@
 
     if (!sticks.length) return;
 
-    var start = sticks[0].a;
-    var origin = start;
-
-    ctx.fillStyle = "#000";
-    ctx.beginPath();
-    ctx.moveTo(origin.x, origin.y);
-
-    while (origin.next && origin.next !== start) {
-      origin = origin.next;
-      ctx.lineTo(origin.x, origin.y);
-    }
-
-    ctx.closePath();
-    ctx.fill();
+    drawBlobPolygon();
     ctx.restore();
 
-    if (sticks.length < maxIteration && elapsed < GROWTH_MAX_MS) {
+    if (sticks.length < maxIteration && elapsed < HARD_CEILING_S) {
       requestAnimationFrame(update);
+    } else {
+      holdAndPulse();
+    }
+  }
+
+  // Growth naturally finishes well before the final swell (~1.5s vs a
+  // clip that runs to 4.324s). Rather than let the blob sit dead on
+  // screen for the gap, this keeps redrawing the now-frozen shape with
+  // a slow drift and the same beat-synced pulse, so it visibly "breathes"
+  // along with the quieter parts of the loop until the final swell
+  // triggers the morph into the logo.
+  var frozenScale = null;
+
+  function holdAndPulse(now) {
+    if (frozenScale === null) frozenScale = 2000 / minDist;
+    var elapsed = ((now || performance.now()) - growthStartTime) / 1000;
+    var pulse = 1 + PULSE_STRENGTH * pulseEnvelope(elapsed);
+    var drift = elapsed * 0.12; // slow, subtle rotation so the hold doesn't look frozen
+
+    ctx.clearRect(0, 0, w, h);
+    ctx.save();
+    ctx.translate(w / 2, h / 2);
+    ctx.rotate(drift);
+    ctx.scale(frozenScale * pulse, frozenScale * pulse);
+
+    drawBlobPolygon();
+    ctx.restore();
+
+    if (elapsed < MORPH_START_TIME) {
+      requestAnimationFrame(holdAndPulse);
     } else {
       startMorph();
     }
@@ -587,7 +643,7 @@
       targetR[j] = (rawTarget[j] / meanRaw) * targetRadiusWorld;
     }
 
-    var duration = 550;
+    var duration = 480; // MORPH_START_TIME (3.84s) + this ≈ 4.32s, matching the clip's natural end (4.324s)
     var startTime = null;
 
     function easeInOutCubic(t) {
@@ -627,11 +683,10 @@
     requestAnimationFrame(drawMorphFrame);
   }
 
-  // The audio clip (~4.25s) is longer than the visual sequence now that
-  // the growth phase is time-capped (~1.4s growth + 550ms morph ≈ 2s
-  // total). Without this, the guitar loop would keep playing well past
-  // the reveal. Fade it out right as the transition finishes instead of
-  // letting it run to its own natural length.
+  // The visual sequence is now timed to land right on the clip's natural
+  // end (MORPH_START_TIME + morph duration ≈ 4.32s, the clip is 4.324s),
+  // so this is just a short fade to avoid an abrupt digital cutoff/click
+  // rather than a hard early stop.
   function fadeOutAudio(audio, duration) {
     var startVolume = audio.volume;
     var start = null;
@@ -664,7 +719,7 @@
     label.classList.add("show");
     backLink.classList.add("show");
 
-    fadeOutAudio(sound, 500);
+    fadeOutAudio(sound, 180);
   }
   document.getElementById("enterBtn").addEventListener("click", function (e) {
   e.preventDefault();
@@ -682,6 +737,7 @@
   sound.play().catch(function () {});
 
   growthStartTime = null;
+  frozenScale = null;
   update();
 
   setTimeout(function () {
