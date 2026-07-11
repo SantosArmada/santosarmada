@@ -1,7 +1,10 @@
 <section class="audiolibros-hero">
     <div id="enterPrompt">
-  <a class="btn" id="enterBtn" href="#" title="tap to enter">
-    tap to enter
+  <a class="entry-btn" id="enterBtn" href="#" title="tap to enter">
+    <span class="entry-logo-wrap">
+      <img class="entry-logo" src="Images/logo.PNG" alt="Santos Armada logo">
+    </span>
+    <span class="entry-text">tap to enter</span>
     <span class="color color--black" data-value="1"></span>
     <span class="color color--white" data-value="1"></span>
   </a>
@@ -40,36 +43,98 @@
   transition: opacity 0.4s ease;
 }
 
-.btn {
+.entry-btn {
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  height: 84px;
+  width: 84px;
   font-family: Arial, sans-serif;
   color: #000;
   text-decoration: none;
-  text-transform: lowercase;
-  letter-spacing: 2.8px;
   background-color: #fff;
   border: 2px solid #000;
-  padding: 15px 50px;
-  border-radius: 5rem;
+  border-radius: 42px;
   box-shadow: 1px 2.9px 16px rgba(0, 0, 0, 0.25);
-  transition: 0.6s cubic-bezier(0.01, 1.69, 0.99, 0.94);
+  transition:
+    width 0.9s cubic-bezier(0.2, 0.9, 0.3, 1),
+    background-color 0.3s ease,
+    box-shadow 0.3s ease;
   cursor: pointer;
 }
 
-.btn:hover {
-  background-color: #6F98EC;
-  color: #fff;
-  border-color: #6F98EC;
-  box-shadow: 3px 4.9px 16px rgba(0, 0, 0, 0.45);
-  letter-spacing: 5px;
+.entry-btn.grown {
+  width: 270px;
 }
 
-.btn--clicked {
-  padding: 15px 2px;
-  width: 50px;
-  color: transparent;
+.entry-btn:hover {
+  background-color: #000;
+  box-shadow: 3px 4.9px 16px rgba(0, 0, 0, 0.45);
+}
+
+.entry-logo-wrap {
+  position: absolute;
+  left: 7px;
+  top: 7px;
+  width: 68px;
+  height: 68px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 0.5px solid #000;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+
+.entry-btn:hover .entry-logo-wrap {
+  border-color: #fff;
+}
+
+.entry-logo {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: grayscale(1) contrast(1.3);
+  transition: filter 0.3s ease;
+}
+
+.entry-btn:hover .entry-logo {
+  filter: grayscale(1) contrast(1.3) invert(1);
+}
+
+.entry-text {
+  position: absolute;
+  left: 92px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #000;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.28em;
+  text-transform: lowercase;
+  transition: width 0.5s ease 0.5s, color 0.3s ease;
+}
+
+.entry-btn.grown .entry-text {
+  width: 150px;
+}
+
+.entry-btn:hover .entry-text {
+  color: #fff;
+}
+
+#enterBtn.btn--clicked {
+  width: 84px;
   z-index: -10;
+}
+
+#enterBtn.btn--clicked .entry-text {
+  width: 0;
 }
 
 .color {
@@ -216,6 +281,18 @@
 
 <script>
 (function () {
+  // Grows the entry button from a circle (logo only) into a pill that
+  // reveals the "tap to enter" label, echoing the classic circle->bar
+  // reveal pattern, kept strictly black & white for this page.
+  var enterBtnEl = document.getElementById("enterBtn");
+  if (enterBtnEl) {
+    requestAnimationFrame(function () {
+      setTimeout(function () {
+        enterBtnEl.classList.add("grown");
+      }, 250);
+    });
+  }
+
   var can = document.getElementById("growthCanvas");
   var ctx = can.getContext("2d");
 
