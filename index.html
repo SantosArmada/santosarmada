@@ -16,10 +16,16 @@
 }
 </script>
     <title>Santos Armada — Una armada de conocimientos</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-<body>
+<body class="has-site-banners">
+
+<!-- BANNER: permanent frieze strip, fixed to the very top of the viewport,
+     sits above the navbar and never scrolls away. -->
+<section class="site-banner site-banner-top">
+    <img src="images/maya-banner.png" alt="Maya glyph frieze" class="site-banner-image">
+</section>
 
 <!-- GOLD BEAMS BACKDROP (fixed, full page) -->
 <div id="gold-beams-backdrop">
@@ -179,6 +185,13 @@
 </footer>
 
 </div><!-- /.page-content -->
+
+<!-- BANNER: permanent frieze strip, fixed to the very bottom of the
+     viewport, sits below the footer and never scrolls away. -->
+<section class="site-banner site-banner-bottom">
+    <img src="images/maya-banner.png" alt="Maya glyph frieze" class="site-banner-image">
+</section>
+
 <script>
     function toggleMenu() {
         const nav = document.getElementById('nav-links');

@@ -44,6 +44,69 @@ body {
     z-index: 1;
 }
 
+/* --- Maya glyph banner strip (top + bottom) ---
+   Reusable version of the fixed frieze strip built for the Museos page.
+   Permanent fixtures: pinned to the viewport edges with position:fixed
+   so they never scroll away, sitting above the navbar and below the
+   footer. Add class="has-site-banners" to <body>, drop a
+   .site-banner.site-banner-top and .site-banner.site-banner-bottom
+   section in (top one as the very first child of <body>, bottom one as
+   the last), and this handles the rest — including reserving room in
+   the normal flow so nothing loads hidden underneath them, and docking
+   the sticky navbar right below the top strip instead of at the very
+   top of the viewport. */
+body.has-site-banners {
+    --site-banner-h: 41px;
+    padding-top: var(--site-banner-h);
+    padding-bottom: var(--site-banner-h);
+}
+
+.site-banner {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: var(--site-banner-h, 41px);
+    z-index: 200;
+    background: #000;
+    overflow: hidden;
+}
+
+.site-banner-top {
+    top: 0;
+}
+
+.site-banner-bottom {
+    bottom: 0;
+}
+
+.site-banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+body.has-site-banners .navbar {
+    top: var(--site-banner-h);
+}
+
+@media (max-width: 768px) {
+    body.has-site-banners {
+        --site-banner-h: 27px;
+    }
+}
+
+/* Below 768px, and on tablets in portrait up to 1024px, the navbar
+   switches from sticky to position:relative, where `top` would just
+   shove it further down inside the normal flow on top of the
+   padding-top above. Cancel that offset in both cases since
+   padding-top alone already reserves the space for the fixed banner. */
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
+    body.has-site-banners .navbar {
+        top: 0;
+    }
+}
+
 /* --- Navbar --- */
 .navbar {
     display: flex;
