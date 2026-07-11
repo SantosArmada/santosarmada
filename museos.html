@@ -35,14 +35,17 @@
 
 <!-- MUSEOS WORLD: explorable 3D museum building, drag to look around,
      scroll to zoom, click the building/door to step closer. Title
-     hovers over the top as a fluid ripple fed live by the world. -->
+     hovers over the top, framed by an ember/spark particle effect. -->
 <section class="museos-world" id="museosWorld">
     <canvas id="museos-sphere-canvas"></canvas>
 
-    <div class="museos-title-band museos-mask" id="museosMask">
-        <svg id="museosTitleSvg" viewBox="0 0 1040 220" xmlns="http://www.w3.org/2000/svg" aria-label="Museos">
-            <text x="520" y="150" text-anchor="middle" class="museos-title-text">MUSEOS</text>
-        </svg>
+    <div class="museos-title-band" id="museosTitleBand">
+        <div class="museos-title-wrap" id="museosTitleWrap">
+            <svg id="museosTitleSvg" viewBox="0 0 1040 220" xmlns="http://www.w3.org/2000/svg" aria-label="Museos">
+                <text x="520" y="150" text-anchor="middle" class="museos-title-text">MUSEOS</text>
+            </svg>
+            <canvas class="museos-title-sparks-canvas" id="museosTitleSparks"></canvas>
+        </div>
     </div>
 
     <p class="museos-hint" id="museosHint">Arrastra para explorar · Clic en el edificio para acercarte a la puerta</p>
@@ -75,58 +78,8 @@
     </button>
 </section>
 
-<!-- WING DIRECTORY — Museo Santos Armada floor plan -->
-<section class="museos-wings" id="museosWings">
-    <p class="museos-eyebrow">Museo Santos Armada</p>
-    <h2 class="museos-wings-heading">Plano General</h2>
-    <img class="museos-directory-poster" src="images/museos-directory-poster.jpg" alt="Museo Santos Armada — directorio de alas y plano general">
-    <div class="museos-wings-grid">
-        <div class="museos-wing">
-            <span class="museos-wing-index">I</span>
-            <h3>Ala de los Conquistadores</h3>
-            <p>Exposiciones Temporales · Salas 1–10</p>
-        </div>
-        <div class="museos-wing">
-            <span class="museos-wing-index">II</span>
-            <h3>Patio de la Corona</h3>
-            <p>Esculturas, Fuentes y Colección Principal</p>
-        </div>
-        <div class="museos-wing">
-            <span class="museos-wing-index">III</span>
-            <h3>Galería Real</h3>
-            <p>Pinturas de la Corte · Salas 11–20</p>
-        </div>
-        <div class="museos-wing">
-            <span class="museos-wing-index">IV</span>
-            <h3>Biblioteca del Rey</h3>
-            <p>Manuscritos, Mapas y Libros Raros</p>
-        </div>
-        <div class="museos-wing">
-            <span class="museos-wing-index">V</span>
-            <h3>Salón de Embajadores</h3>
-            <p>Arte Diplomático · Salas 21–30</p>
-        </div>
-        <div class="museos-wing">
-            <span class="museos-wing-index">VI</span>
-            <h3>Jardín de las Musas</h3>
-            <p>Escultura Clásica y Artes Decorativas</p>
-        </div>
-        <div class="museos-wing">
-            <span class="museos-wing-index">VII</span>
-            <h3>Ala de Navegación</h3>
-            <p>Modelos, Instrumentos y Cartas Náuticas</p>
-        </div>
-        <div class="museos-wing">
-            <span class="museos-wing-index">VIII</span>
-            <h3>Capilla Real</h3>
-            <p>Arte Sacro y Reliquias</p>
-        </div>
-    </div>
-    <p class="museos-wings-note">Las salas se están amueblando — cada ala abrirá con su propia colección.</p>
-</section>
-
-<!-- MISSION (draft — placeholder until finalized) -->
-<section class="museos-mission">
+<!-- MISSION -->
+<section class="museos-mission" id="museosMission">
     <div class="museos-mission-inner">
         <p class="museos-eyebrow">Un mensaje de Christian Ricardo Santos</p>
         <h2 class="museos-mission-heading">Un cuarto propio para el asombro</h2>
@@ -149,20 +102,6 @@
             sala por sala, como debe crecer todo lo que se construye para durar.
         </p>
         <p class="museos-mission-note">Bienvenido. Camine con calma. — Christian Ricardo Santos</p>
-    </div>
-</section>
-
-<!-- EXPLORE MORE — links to the rest of the site -->
-<section class="museos-explore">
-    <p class="museos-eyebrow">Sigue explorando</p>
-    <div class="museos-explore-links">
-        <a href="essays.html"><span>Essays</span><em>→</em></a>
-        <a href="authors.html"><span>Authors</span><em>→</em></a>
-        <a href="globe.html"><span>Space &amp; Time</span><em>→</em></a>
-        <a href="audiolibros.html"><span>Audiolibros</span><em>→</em></a>
-        <a href="interpreter-z.html"><span>Interpreter Z</span><em>→</em></a>
-        <a href="cv.html"><span>CV</span><em>→</em></a>
-        <a href="about.html"><span>About</span><em>→</em></a>
     </div>
 </section>
 

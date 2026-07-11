@@ -3,11 +3,10 @@
    An explorable 3D museum building (RedGL2), drag to look around,
    scroll to zoom exactly like the original build. Click the building
    / door to step closer. "MUSEOS" hovers over the top of the scene,
-   always visible, as a fluid ripple fed live by the world itself
-   (like the Authors page title, but higher up and liquid).
+   always visible, framed by an ember/spark particle effect (the same
+   technique as the homepage hero image, adapted to trace the title's
+   bounding box instead of a photo).
 ================================================================= */
-
-import * as ogl from "https://cdn.jsdelivr.net/npm/ogl@1.0.3/+esm";
 
 (function () {
     "use strict";
@@ -22,10 +21,9 @@ import * as ogl from "https://cdn.jsdelivr.net/npm/ogl@1.0.3/+esm";
 
     var sphereCanvas = document.getElementById("museos-sphere-canvas");
     var worldSection = document.getElementById("museosWorld");
-    var maskEl = document.getElementById("museosMask");
     var hintEl = document.getElementById("museosHint");
 
-    if (!sphereCanvas || !worldSection || !maskEl) return;
+    if (!sphereCanvas || !worldSection) return;
 
     // =================================================================
     // SKYBOX — built from your Museo Santos Armada photography.
@@ -264,10 +262,11 @@ import * as ogl from "https://cdn.jsdelivr.net/npm/ogl@1.0.3/+esm";
         });
 
         startHotspotProjection(tController, hotspots, sphereCanvas);
-
-        // World is alive — start the fluid title band on top of it.
-        startTitleRipple(sphereCanvas);
     });
+
+    // World doesn't need to be running for the title to spark — start
+    // it independently as soon as the DOM is ready.
+    startTitleSparks();
 
     // =================================================================
     // Click the building / door to step closer.
@@ -319,10 +318,10 @@ import * as ogl from "https://cdn.jsdelivr.net/npm/ogl@1.0.3/+esm";
         }
 
         var scrollCue = document.getElementById("museosScrollCue");
-        var wingsSection = document.getElementById("museosWings");
-        if (scrollCue && wingsSection) {
+        var missionSection = document.getElementById("museosMission");
+        if (scrollCue && missionSection) {
             scrollCue.addEventListener("click", function () {
-                wingsSection.scrollIntoView({ behavior: "smooth" });
+                missionSection.scrollIntoView({ behavior: "smooth" });
             });
         }
     })();
@@ -384,162 +383,220 @@ import * as ogl from "https://cdn.jsdelivr.net/npm/ogl@1.0.3/+esm";
     }
 
     // =================================================================
-    // OGL fluid flowmap — "MUSEOS" title band, fed live by the museum
-    // canvas itself. Sits just under the navbar, always visible, like
-    // the Authors page title but liquid and higher up than center.
+    // Ember/spark particle effect for the "MUSEOS" title — the same
+    // Canvas2D technique used on the homepage hero image, adapted to
+    // trace the title text's bounding box instead of a photo. Sparks
+    // spawn along the perimeter of the title and drift outward, giving
+    // the persistent top band the same warm, alive feel as the sphere.
     // =================================================================
-    function startTitleRipple(sourceCanvas) {
-        var vertex = "attribute vec2 uv;attribute vec2 position;varying vec2 vUv;void main(){vUv=uv;gl_Position=vec4(position,0,1);}";
-        var fragment = [
-            "precision highp float;",
-            "precision highp int;",
-            "uniform sampler2D tWater;",
-            "uniform sampler2D tFlow;",
-            "uniform float uTime;",
-            "varying vec2 vUv;",
-            "uniform vec4 res;",
-            "void main() {",
-            "  vec3 flow = texture2D(tFlow, vUv).rgb;",
-            "  vec2 uv = .5 * gl_FragCoord.xy / res.xy;",
-            "  vec2 myUV = (uv - vec2(0.5)) * res.zw + vec2(0.5);",
-            "  myUV -= flow.xy * (0.15 * 1.2);",
-            "  vec2 myUV2 = (uv - vec2(0.5)) * res.zw + vec2(0.5);",
-            "  myUV2 -= flow.xy * (0.125 * 1.2);",
-            "  vec2 myUV3 = (uv - vec2(0.5)) * res.zw + vec2(0.5);",
-            "  myUV3 -= flow.xy * (0.10 * 1.4);",
-            "  vec3 tex = texture2D(tWater, myUV).rgb;",
-            "  vec3 tex2 = texture2D(tWater, myUV2).rgb;",
-            "  vec3 tex3 = texture2D(tWater, myUV3).rgb;",
-            "  gl_FragColor = vec4(tex.r, tex2.g, tex3.b, 1.0);",
-            "}"
-        ].join("\n");
+    function startTitleSparks() {
+        var wrap = document.getElementById("museosTitleWrap");
+        var canvas = document.getElementById("museosTitleSparks");
+        if (!wrap || !canvas) return;
 
-        // dpr capped at 1: this canvas is a thin decorative band, not a
-        // full hero — retina sharpness here isn't worth the extra fill cost.
-        var renderer = new ogl.Renderer({ dpr: 1, alpha: true });
-        var gl = renderer.gl;
-        gl.canvas.className = "museos-ogl-canvas";
-        worldSection.appendChild(gl.canvas);
+        var ctx = canvas.getContext("2d");
 
-        var aspect = 1;
-        var mouse = new ogl.Vec2(-1);
-        var velocity = new ogl.Vec2();
+        var PAD = 28;          // px the canvas extends past the title on each side
+        var AMOUNT = 90;       // spark count
+        var DUR_MIN = 0.9;
+        var DUR_MAX = 1.8;
 
-        var flowmap = new ogl.Flowmap(gl, { falloff: 0.3, dissipation: 0.92, alpha: 0.5 });
+        var w = 0;
+        var h = 0;
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        var running = true;
+        var particles = [];
 
-        var geometry = new ogl.Geometry(gl, {
-            position: { size: 2, data: new Float32Array([-1, -1, 3, -1, -1, 3]) },
-            uv: { size: 2, data: new Float32Array([0, 0, 2, 0, 0, 2]) }
-        });
+        function rand(a, b) {
+            return a + Math.random() * (b - a);
+        }
 
-        var texture = new ogl.Texture(gl, { minFilter: gl.LINEAR, magFilter: gl.LINEAR });
-        texture.image = sourceCanvas;
+        function smoothstep(edge0, edge1, x) {
+            var t = Math.min(Math.max((x - edge0) / (edge1 - edge0), 0), 1);
+            return t * t * (3 - 2 * t);
+        }
 
-        var program = new ogl.Program(gl, {
-            vertex: vertex,
-            fragment: fragment,
-            uniforms: {
-                uTime: { value: 0 },
-                tWater: { value: texture },
-                res: { value: new ogl.Vec4(1, 1, 1, 1) },
-                tFlow: flowmap.uniform
+        function easeOutCubic(k) {
+            var d = k - 1;
+            return d * d * d + 1;
+        }
+
+        function lerpColor(a, b, t) {
+            t = Math.min(Math.max(t, 0), 1);
+            return [
+                Math.round(a[0] + (b[0] - a[0]) * t),
+                Math.round(a[1] + (b[1] - a[1]) * t),
+                Math.round(a[2] + (b[2] - a[2]) * t)
+            ];
+        }
+
+        // Picks a random point along the title's border rectangle and the
+        // outward-facing normal at that point.
+        function spawnAt(p) {
+            var perim = 2 * (w + h);
+            var t = Math.random() * perim;
+            var x, y, nx, ny;
+            if (t < w) {
+                x = t; y = 0; nx = 0; ny = -1;
+            } else if ((t -= w) < h) {
+                x = w; y = t; nx = 1; ny = 0;
+            } else if ((t -= h) < w) {
+                x = w - t; y = h; nx = 0; ny = 1;
+            } else {
+                t -= w;
+                x = 0; y = h - t; nx = -1; ny = 0;
             }
-        });
+            var jitter = rand(-3, 3);
+            if (nx === 0) x += jitter; else y += jitter;
 
-        var mesh = new ogl.Mesh(gl, { geometry: geometry, program: program });
+            p.x = x + PAD;
+            p.y = y + PAD;
+            p.nx = nx;
+            p.ny = ny;
+            p.duration = rand(DUR_MIN, DUR_MAX);
+            p.delay = rand(0, 0.6);
+            p.distance = rand(14, 34);
+            p.size = Math.pow(Math.random(), 3) * 3.2 + 1.4;
+            p.age = 0;
+            p.px = NaN;
+            p.py = NaN;
+        }
 
-        function bandSize() {
-            var band = worldSection.querySelector(".museos-title-band");
-            var rect = band ? band.getBoundingClientRect() : { width: window.innerWidth, height: window.innerHeight * 0.3 };
-            return { w: Math.max(1, Math.round(rect.width)), h: Math.max(1, Math.round(rect.height)) };
+        function initParticles() {
+            particles.length = 0;
+            for (var i = 0; i < AMOUNT; i++) {
+                var p = {};
+                spawnAt(p);
+                // Stagger starting phase so sparks don't all pulse in sync.
+                p.age = Math.random() * (p.duration + p.delay);
+                particles.push(p);
+            }
         }
 
         function resize() {
-            var size = bandSize();
-            renderer.setSize(size.w, size.h);
+            var rect = wrap.getBoundingClientRect();
+            w = rect.width;
+            h = rect.height;
+            if (!w || !h) return;
 
-            var srcW = sourceCanvas.width || window.innerWidth;
-            var srcH = sourceCanvas.height || window.innerHeight;
-            var imageAspect = srcH / srcW;
-            var a1, a2;
-            if (size.h / size.w < imageAspect) {
-                a1 = 1;
-                a2 = (size.h / size.w) / imageAspect;
-            } else {
-                a1 = (size.w / size.h) * imageAspect;
-                a2 = 1;
+            var cw = w + PAD * 2;
+            var ch = h + PAD * 2;
+
+            canvas.style.width = cw + "px";
+            canvas.style.height = ch + "px";
+            canvas.style.left = -PAD + "px";
+            canvas.style.top = -PAD + "px";
+
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.round(cw * dpr);
+            canvas.height = Math.round(ch * dpr);
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+            initParticles();
+        }
+
+        var lastT = performance.now();
+
+        function frame(now) {
+            if (!running) return;
+            var dt = Math.min((now - lastT) / 1000, 0.05);
+            lastT = now;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.globalCompositeOperation = "lighter";
+
+            for (var i = 0; i < particles.length; i++) {
+                var p = particles[i];
+                p.age += dt;
+                if (p.age < p.delay) continue;
+
+                var local = p.age - p.delay;
+                if (local > p.duration) {
+                    spawnAt(p);
+                    continue;
+                }
+
+                var k = local / p.duration;
+                var dist = easeOutCubic(k) * p.distance;
+                var x = p.x + p.nx * dist;
+                var y = p.y + p.ny * dist;
+
+                var fade = smoothstep(0, 0.05, k) * (1 - smoothstep(0.95, 1, k));
+                if (fade <= 0.01) continue;
+
+                var flash = smoothstep(0.78, 0.85, k) - smoothstep(0.85, 0.95, k);
+                var cool = smoothstep(0.25, 0.75, k);
+
+                // hot core shifts peachy -> gold over the spark's life
+                var core = lerpColor([255, 190, 120], [255, 205, 70], smoothstep(0, 0.75, k));
+                // the rim of each point stays a warm golden-orange
+                var edge = [255, 140, 30];
+
+                core = lerpColor(core, [60, 25, 8], cool);
+                edge = lerpColor(edge, [60, 25, 8], cool);
+
+                if (flash > 0) {
+                    core = lerpColor(core, [255, 250, 200], flash);
+                    edge = lerpColor(edge, [255, 250, 200], flash * 0.6);
+                }
+
+                if (!Number.isNaN(p.px)) {
+                    var tw = Math.max(p.size * 0.9, 0.8);
+                    var trail = ctx.createLinearGradient(p.px, p.py, x, y);
+                    trail.addColorStop(0, "rgba(" + core[0] + "," + core[1] + "," + core[2] + ",0)");
+                    trail.addColorStop(1, "rgba(" + core[0] + "," + core[1] + "," + core[2] + "," + (fade * 0.85) + ")");
+                    ctx.strokeStyle = trail;
+                    ctx.lineWidth = tw;
+                    ctx.lineCap = "round";
+                    ctx.beginPath();
+                    ctx.moveTo(p.px, p.py);
+                    ctx.lineTo(x, y);
+                    ctx.stroke();
+                }
+                p.px = x;
+                p.py = y;
+
+                var r = Math.max(p.size * 1.4, 1.1);
+                var grad = ctx.createRadialGradient(x, y, 0, x, y, r);
+                grad.addColorStop(0, "rgba(" + core[0] + "," + core[1] + "," + core[2] + "," + fade + ")");
+                grad.addColorStop(0.45, "rgba(" + core[0] + "," + core[1] + "," + core[2] + "," + fade + ")");
+                grad.addColorStop(0.75, "rgba(" + edge[0] + "," + edge[1] + "," + edge[2] + "," + (fade * 0.55) + ")");
+                grad.addColorStop(1, "rgba(" + edge[0] + "," + edge[1] + "," + edge[2] + ",0)");
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.arc(x, y, r, 0, Math.PI * 2);
+                ctx.fill();
+
+                var hl = Math.max(r * 0.3, 0.55);
+                ctx.fillStyle = "rgba(255,245,215," + (fade * (0.7 + flash * 0.3)) + ")";
+                ctx.beginPath();
+                ctx.arc(x, y, hl, 0, Math.PI * 2);
+                ctx.fill();
             }
-            program.uniforms.res.value = new ogl.Vec4(size.w, size.h, a1, a2);
-            aspect = size.w / size.h;
+
+            ctx.globalCompositeOperation = "source-over";
+            requestAnimationFrame(frame);
         }
 
         window.addEventListener("resize", resize);
+        // The title is SVG text, not an <img> — it's laid out and
+        // measurable synchronously, so no need to wait for a load event.
         resize();
 
-        var isTouchCapable = "ontouchstart" in window;
-        var lastTime;
-        var lastMouse = new ogl.Vec2();
-
-        function updateMouse(e) {
-            if (e.changedTouches && e.changedTouches.length) {
-                e.x = e.changedTouches[0].pageX;
-                e.y = e.changedTouches[0].pageY;
-            }
-            if (e.x === undefined) {
-                e.x = e.pageX;
-                e.y = e.pageY;
-            }
-            var rect = gl.canvas.getBoundingClientRect();
-            mouse.set((e.x - rect.left) / rect.width, 1 - (e.y - rect.top) / rect.height);
-            if (!lastTime) {
-                lastTime = performance.now();
-                lastMouse.set(e.x, e.y);
-            }
-            var deltaX = e.x - lastMouse.x;
-            var deltaY = e.y - lastMouse.y;
-            lastMouse.set(e.x, e.y);
-            var time = performance.now();
-            var delta = Math.max(10.4, time - lastTime);
-            lastTime = time;
-            velocity.x = deltaX / delta;
-            velocity.y = deltaY / delta;
-            velocity.needsUpdate = true;
-        }
-
-        if (isTouchCapable) {
-            window.addEventListener("touchstart", updateMouse, false);
-            window.addEventListener("touchmove", updateMouse, { passive: true });
+        // Pause the loop when the hero scrolls out of view.
+        if ("IntersectionObserver" in window) {
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    running = entry.isIntersecting;
+                    if (running) {
+                        lastT = performance.now();
+                        requestAnimationFrame(frame);
+                    }
+                });
+            }, { threshold: 0 });
+            io.observe(wrap);
         } else {
-            window.addEventListener("mousemove", updateMouse, false);
+            requestAnimationFrame(frame);
         }
-
-        // Capturing the live RedGL canvas into this texture means a full
-        // re-upload of its pixels every time we flag needsUpdate — doing
-        // that on every single animation frame was the main tax on the
-        // museum's own drag/zoom smoothness. The ripple band doesn't need
-        // 60fps freshness to read as "fluid", so we only recapture every
-        // 3rd frame and let the flowmap distortion carry the motion between.
-        var frameCount = 0;
-        var CAPTURE_EVERY = 3;
-
-        function update(t) {
-            requestAnimationFrame(update);
-            if (!velocity.needsUpdate) {
-                mouse.set(-1);
-                velocity.set(0);
-            }
-            velocity.needsUpdate = false;
-            flowmap.aspect = aspect;
-            flowmap.mouse.copy(mouse);
-            flowmap.velocity.lerp(velocity, velocity.len ? 0.15 : 0.1);
-            flowmap.update();
-            frameCount++;
-            if (frameCount % CAPTURE_EVERY === 0) {
-                texture.needsUpdate = true;
-            }
-            program.uniforms.uTime.value = t * 0.001;
-            renderer.render({ scene: mesh });
-        }
-        requestAnimationFrame(update);
     }
 })();
