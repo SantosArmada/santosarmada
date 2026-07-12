@@ -343,28 +343,65 @@ body {
 }
 
 .rating {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
     padding: 0.3rem 0.6rem;
     border-radius: 4px;
     font-weight: 600;
     font-size: 0.85rem;
     text-decoration: none;
-    background-color: #ffffff;
+    background-color: #000000;
     border: 1px solid var(--audio-blue);
 }
 
+.rating-feather {
+    height: 26px;
+    width: auto;
+    display: block;
+}
+
+/* Hover tooltip: "Pluma de quetzal" appears above the feather icon */
+.feather-tip {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+.feather-tip::after {
+    content: "Pluma de quetzal";
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: 0;
+    background: #000000;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    padding: 4px 8px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 50;
+}
+.feather-tip:hover::after {
+    opacity: 1;
+}
+
 .rating.green {
-    color: #1e9e5a;
+    color: #ffffff;
     border-color: #1e9e5a;
 }
 
 .rating.orange {
-    color: #d98c1f;
+    color: #ffffff;
     border-color: #d98c1f;
 }
 
 .rating.red {
-    color: #d9422f;
+    color: #ffffff;
     border-color: #d9422f;
 }
 

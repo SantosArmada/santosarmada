@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 520" role="img" aria-labelledby="title desc">
+  <title id="title">Quetzal feather rating icon</title>
+  <desc id="desc">An upright green, teal, and blue quetzal feather icon for website ratings.</desc>
+  <defs>
+    <linearGradient id="featherGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#063f34"/>
+      <stop offset="18%" stop-color="#0bb84f"/>
+      <stop offset="42%" stop-color="#16d66a"/>
+      <stop offset="66%" stop-color="#00aebd"/>
+      <stop offset="86%" stop-color="#008fd4"/>
+      <stop offset="100%" stop-color="#003b66"/>
+    </linearGradient>
+    <linearGradient id="shaftGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#02322f"/>
+      <stop offset="45%" stop-color="#0c887d"/>
+      <stop offset="55%" stop-color="#67fff0"/>
+      <stop offset="100%" stop-color="#01211f"/>
+    </linearGradient>
+    <filter id="softShadow" x="-30%" y="-10%" width="160%" height="130%">
+      <feDropShadow dx="0" dy="1" stdDeviation="0.6" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#softShadow)">
+    <!-- Main plume -->
+    <path d="M60 14
+      C22 58 7 130 12 208
+      C16 274 35 346 51 430
+      C55 452 58 472 60 489
+      C62 472 65 452 69 430
+      C85 346 104 274 108 208
+      C113 130 98 58 60 14 Z"
+      fill="url(#featherGradient)"/>
+
+    <!-- Slight natural notches -->
+    <path d="M14 116 C24 125 33 133 44 141 M13 162 C27 171 38 180 50 192 M16 220 C30 230 41 242 53 256 M23 291 C36 301 45 314 55 329 M31 360 C42 371 50 386 57 405"
+      fill="none" stroke="#001a17" stroke-width="2.7" stroke-linecap="round" opacity="0.5"/>
+    <path d="M106 116 C96 125 87 133 76 141 M107 162 C93 171 82 180 70 192 M104 220 C90 230 79 242 67 256 M97 291 C84 301 75 314 65 329 M89 360 C78 371 70 386 63 405"
+      fill="none" stroke="#00131d" stroke-width="2.7" stroke-linecap="round" opacity="0.5"/>
+
+    <!-- Feather barbs -->
+    <g stroke-linecap="round" opacity="0.88">
+      <path d="M60 42 C48 58 37 74 27 97 M60 57 C45 75 33 95 21 125 M60 74 C43 95 30 120 16 155 M60 91 C41 117 27 145 14 187 M60 109 C40 139 27 173 15 221 M60 130 C40 164 29 199 18 255 M60 153 C42 192 32 229 23 291 M60 178 C43 220 35 260 30 329 M60 207 C45 249 38 294 37 366 M60 238 C48 283 43 328 47 405" stroke="#02120f" stroke-width="1.7" fill="none"/>
+      <path d="M60 42 C72 58 83 74 93 97 M60 57 C75 75 87 95 99 125 M60 74 C77 95 90 120 104 155 M60 91 C79 117 93 145 106 187 M60 109 C80 139 93 173 105 221 M60 130 C80 164 91 199 102 255 M60 153 C78 192 88 229 97 291 M60 178 C77 220 85 260 90 329 M60 207 C75 249 82 294 83 366 M60 238 C72 283 77 328 73 405" stroke="#011218" stroke-width="1.7" fill="none"/>
+    </g>
+
+    <!-- Highlight barbs -->
+    <g stroke="#8dffe9" stroke-width="1.4" stroke-linecap="round" opacity="0.55">
+      <path d="M60 81 C47 103 36 128 25 160 M60 132 C46 161 37 193 28 227 M60 188 C49 224 44 262 40 303 M60 250 C52 290 51 331 54 374" fill="none"/>
+      <path d="M60 81 C73 103 84 128 95 160 M60 132 C74 161 83 193 92 227 M60 188 C71 224 76 262 80 303 M60 250 C68 290 69 331 66 374" fill="none"/>
+    </g>
+
+    <!-- Central shaft -->
+    <path d="M56 29 C59 148 59 308 58 489 C58 503 62 503 62 489 C61 308 61 148 64 29 Z" fill="url(#shaftGradient)"/>
+    <path d="M60 32 C60 154 60 320 60 498" stroke="#001f1f" stroke-width="1.2" stroke-linecap="round" opacity="0.65"/>
+
+    <!-- Quill tip -->
+    <path d="M58 481 C53 503 54 515 60 517 C66 515 67 503 62 481 Z" fill="#6b461e"/>
+    <path d="M60 482 C60 498 60 509 60 516" stroke="#d5aa5a" stroke-width="1" stroke-linecap="round" opacity="0.6"/>
+  </g>
+</svg>

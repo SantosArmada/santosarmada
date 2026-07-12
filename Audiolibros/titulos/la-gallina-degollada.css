@@ -465,7 +465,42 @@ body {
 .chapter:hover { color: var(--cream); }
 .chapter.active { color: var(--red); font-weight: 600; }
 
-.good, .bad { vertical-align: middle; margin-right: 2px; }
+.feather-icon {
+    height: 34px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 2px;
+}
+
+/* Hover tooltip: "Pluma de quetzal" appears above the feather icon */
+.feather-tip {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+.feather-tip::after {
+    content: "Pluma de quetzal";
+    position: absolute;
+    bottom: calc(100% + 8px);
+    right: 0;
+    background: #000000;
+    color: #ffffff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    padding: 4px 8px;
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    z-index: 50;
+}
+.feather-tip:hover::after {
+    opacity: 1;
+}
 
 /* ---------- FOOTER ---------- */
 
