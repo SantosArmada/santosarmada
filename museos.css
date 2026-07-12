@@ -155,7 +155,7 @@
     pointer-events: none;
 }
 
-/* Wrap wraps just the SVG title text, so the spark canvas (padded
+/* Wrap wraps just the title text, so the spark canvas (padded
    around it) can use its bounding box as the emitter perimeter. */
 .museos-title-wrap {
     position: relative;
@@ -167,22 +167,28 @@
     pointer-events: none;
 }
 
-#museosTitleSvg {
+.museos-title-text {
     position: relative;
     z-index: 1;
-    width: min(80vw, 760px);
-    height: auto;
     display: block;
-}
-
-.museos-title-text {
-    font-family: var(--font-title);
-    font-weight: 900;
-    font-size: 120px;
-    letter-spacing: 0.14em;
-    fill: var(--gold-light);
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: clamp(56px, 10vw, 120px);
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    text-align: center;
     filter: drop-shadow(0 0 18px rgba(200, 169, 110, 0.55))
             drop-shadow(0 0 42px rgba(200, 169, 110, 0.3));
+}
+
+.museos-title-effect {
+    display: inline-flex;
+}
+
+.museos-title-text .char {
+    display: inline-block;
+    white-space: pre;
+    will-change: transform, opacity, background;
 }
 
 /* --- Bottom stack (hint + scroll cue) ---
@@ -402,10 +408,6 @@
     .museos-title-band {
         top: 50px;
         height: clamp(110px, 20vh, 180px);
-    }
-
-    .museos-title-text {
-        font-size: 64px;
     }
 
     .museos-mission {
