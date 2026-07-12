@@ -6,6 +6,7 @@
   --white:#ffffff;
   --off-white:#e8e8e8;
   --dim:#999;
+  --authors-banner-h: 41px;
 }
 
 html{scroll-behavior:smooth;}
@@ -20,6 +21,7 @@ body{
   background:var(--black);
   color:var(--white);
   font-family:'Arial Black', sans-serif;
+  padding-bottom:var(--authors-banner-h);
 }
 
 /* ── NAV ── */
@@ -359,3 +361,36 @@ footer{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  flex-wrap:wrap;
+  gap:1rem;
+}
+
+.footer-logo{ display:flex;align-items:center; }
+.footer-logo-img{ height:56px; }
+.footer-copy{
+  font-family:'Arial Black', sans-serif;
+  font-size:0.85rem;
+  color:var(--dim);
+  font-style:italic;
+}
+
+/* ── MAYA BANNER (cyan, bottom only) ──
+   Fixed frieze strip pinned to the very bottom of the viewport, below
+   everything, never scrolls away. No top banner. */
+.authors-banner-bottom{
+  position:fixed;
+  left:0;bottom:0;
+  width:100%;
+  height:var(--authors-banner-h);
+  z-index:200;
+  overflow:hidden;
+  background:#000;
+}
+.authors-banner-image{
+  width:100%;height:100%;
+  object-fit:cover;
+  display:block;
+}
+@media (max-width:768px){
+  :root{ --authors-banner-h: 27px; }
+}
