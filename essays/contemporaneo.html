@@ -13,6 +13,7 @@
       --white:    #ffffff;
       --off-white:#e8e8e8;
       --dim:      #999;
+      --essays-banner-h: 41px;
     }
 
     body{
@@ -20,6 +21,7 @@
       color:var(--white);
       font-family:'Arial Black', sans-serif;
       overflow-x:hidden;
+      padding-bottom:var(--essays-banner-h);
     }
 
     /* ── NAV ── */
@@ -233,6 +235,24 @@
       font-size:0.85rem;color:var(--dim);font-style:italic;
     }
 
+    /* ── MAYA BANNER (green, bottom only) ──
+       Fixed frieze strip pinned to the very bottom of the viewport,
+       below everything, never scrolls away. No top banner. */
+    .essays-banner-bottom{
+      position:fixed;
+      left:0;bottom:0;
+      width:100%;
+      height:var(--essays-banner-h);
+      z-index:200;
+      overflow:hidden;
+      background:#000;
+    }
+    .essays-banner-image{
+      width:100%;height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
     /* ── RESPONSIVE ── */
     @media(max-width:768px){
       .nav-links{ display:none; }
@@ -240,6 +260,7 @@
       nav{ padding:1rem 1.5rem; }
       .era-desc{ font-size:0.85rem; }
       footer{ padding:2rem 1.5rem; }
+      :root{ --essays-banner-h: 27px; }
     }
   </style>
 </head>
@@ -337,6 +358,13 @@
     </a>
     <p class="footer-copy">Una armada de conocimientos escritos</p>
   </footer>
+
+  <!-- BANNER: green Maya frieze, fixed to the very bottom of the
+       viewport, sits below everything and never scrolls away. No top
+       banner on this page. -->
+  <section class="essays-banner-bottom">
+    <img src="../Images/maya-banner-green.png" alt="Maya glyph frieze" class="essays-banner-image">
+  </section>
 
   <!-- THREE.JS — black cube torus tunnel with bright green edge lines -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
