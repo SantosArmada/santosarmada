@@ -213,8 +213,14 @@ body.has-site-banners .navbar {
     letter-spacing: 0.12em;
 }
 
-.hero-title span {
-    color: var(--gold);
+.hero-title-effect {
+    display: inline-flex;
+}
+
+.hero-title .char {
+    display: inline-block;
+    white-space: pre;
+    will-change: transform, opacity, background;
 }
 
 .hero-image-wrap {
