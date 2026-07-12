@@ -201,7 +201,7 @@ nav{
 /* ── SCROLL-DOWN INDICATOR ── */
 .authors-scroll-cue{
   position:absolute;
-  bottom:28px;
+  bottom:80px;
   left:50%;
   transform:translateX(-50%);
   z-index:3;
@@ -236,7 +236,7 @@ nav{
   .authors-scroll-cue svg{animation:none;}
 }
 @media (max-width:768px){
-  .authors-scroll-cue{bottom:16px;}
+  .authors-scroll-cue{bottom:50px;}
 }
 
 /* ── AUTHORS STRIP ── */
