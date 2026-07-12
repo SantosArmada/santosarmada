@@ -1,5 +1,14 @@
+@font-face {
+  font-family: 'Playfair Display';
+  src: url('/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
 :root {
     --gold: #c8a96e;
+    --gold-light: #e8d5a3;
     --neon-green: #39ff6a;
     --neon-blue: #4da6ff;
     --neon-pink: #ff2fb0;
@@ -31,6 +40,48 @@
     height: 100vh;
     height: 100dvh;
     z-index: 1;
+}
+
+/* Title band: sits just under the navbar, right above the globe. Same
+   gold shimmer treatment as the Museos title. */
+.space-time-title-band {
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100vw;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.space-time-title-text {
+    display: block;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: clamp(45px, 8vw, 96px);
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    text-align: center;
+    filter: drop-shadow(0 0 18px rgba(200, 169, 110, 0.55))
+            drop-shadow(0 0 42px rgba(200, 169, 110, 0.3));
+}
+
+.space-time-title-effect {
+    display: inline-flex;
+}
+
+.space-time-title-text .char {
+    display: inline-block;
+    white-space: pre;
+    will-change: transform, opacity, background;
+}
+
+@media (max-width: 768px) {
+    .space-time-title-band {
+        top: 38px;
+    }
 }
 
 .globe-watermark {
