@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="globe.css?v=2">
     <link rel="stylesheet" href="timeline.css">
+    <link rel="stylesheet" href="space-time-clock.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
 </head>
@@ -66,6 +67,7 @@
 <script src="space-time-title-effect.js" defer></script>
 <script src="timeline-data.js"></script>
 <script src="timeline.js"></script>
+<script src="space-time-clock.js" defer></script>
 <script>
 document.getElementById('globe-scroll-cue').addEventListener('click', () => {
     document.querySelector('.timeline-section').scrollIntoView({ behavior: 'smooth' });
@@ -78,6 +80,43 @@ document.getElementById('globe-scroll-cue').addEventListener('click', () => {
     }
 
 </script>
+<section class="space-time-clock-section">
+    <p class="space-time-clock-label">El Tiempo No Se Detiene</p>
+    <div class="space-time-clock" id="spaceTimeClock" role="img" aria-label="Live analog clock showing your local time">
+        <div class="stc-ring stc-ring-outer"></div>
+        <div class="stc-ring stc-ring-inner"></div>
+        <svg class="stc-face" viewBox="0 0 200 200" aria-hidden="true">
+            <circle class="stc-face-bg" cx="100" cy="100" r="92"/>
+            <g class="stc-ticks">
+                <line class="stc-tick-major" x1="100" y1="10" x2="100" y2="22" transform="rotate(0 100 100)"/>
+                <line class="stc-tick" x1="100" y1="10" x2="100" y2="19" transform="rotate(30 100 100)"/>
+                <line class="stc-tick" x1="100" y1="10" x2="100" y2="19" transform="rotate(60 100 100)"/>
+                <line class="stc-tick-major" x1="100" y1="10" x2="100" y2="22" transform="rotate(90 100 100)"/>
+                <line class="stc-tick" x1="100" y1="10" x2="100" y2="19" transform="rotate(120 100 100)"/>
+                <line class="stc-tick" x1="100" y1="10" x2="100" y2="19" transform="rotate(150 100 100)"/>
+                <line class="stc-tick-major" x1="100" y1="10" x2="100" y2="22" transform="rotate(180 100 100)"/>
+                <line class="stc-tick" x1="100" y1="10" x2="100" y2="19" transform="rotate(210 100 100)"/>
+                <line class="stc-tick" x1="100" y1="10" x2="100" y2="19" transform="rotate(240 100 100)"/>
+                <line class="stc-tick-major" x1="100" y1="10" x2="100" y2="22" transform="rotate(270 100 100)"/>
+                <line class="stc-tick" x1="100" y1="10" x2="100" y2="19" transform="rotate(300 100 100)"/>
+                <line class="stc-tick" x1="100" y1="10" x2="100" y2="19" transform="rotate(330 100 100)"/>
+            </g>
+            <circle class="stc-star" cx="156.6" cy="43.4" r="1.6"/>
+            <circle class="stc-star" cx="156.6" cy="156.6" r="1.6"/>
+            <circle class="stc-star" cx="43.4" cy="156.6" r="1.6"/>
+            <circle class="stc-star" cx="43.4" cy="43.4" r="1.6"/>
+            <text class="stc-numeral" x="100" y="34">XII</text>
+            <text class="stc-numeral" x="166" y="103">III</text>
+            <text class="stc-numeral" x="100" y="172">VI</text>
+            <text class="stc-numeral" x="34" y="103">IX</text>
+        </svg>
+        <div class="stc-hand stc-hand-hour" id="stcHour"></div>
+        <div class="stc-hand stc-hand-minute" id="stcMinute"></div>
+        <div class="stc-hand stc-hand-second" id="stcSecond"></div>
+        <div class="stc-center"></div>
+    </div>
+    <p class="space-time-clock-caption">Hora local &middot; <span id="stcTimezone">Local Time</span></p>
+</section>
 <section class="globe-mission">
     <div class="globe-mission-inner">
         <h2 class="globe-mission-heading">Tejedor de Mundos</h2>
