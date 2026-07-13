@@ -25,99 +25,11 @@
     margin: 0 0 34px;
 }
 
-/* stage wraps both the SVG/CSS clock (default) and the WebGL
-   particle clock (progressive enhancement) — same footprint, so the
-   dashed rings frame whichever one is active. */
-.stc-stage {
+.space-time-clock {
     position: relative;
     width: 220px;
     height: 220px;
     margin: 0 auto;
-}
-
-.space-time-clock {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* WebGL particle clock — hidden until JS confirms WebGL support and
-   swaps it in for the SVG clock above. */
-.stc3d-container {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    display: none;
-    border-radius: 50%;
-    overflow: hidden;
-    background: #04060a;
-}
-
-.stc3d-container canvas {
-    display: block;
-    width: 100% !important;
-    height: 100% !important;
-}
-
-.stc3d-loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    font-family: 'Cinzel', serif;
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    text-shadow: 0 0 10px rgba(200, 169, 110, 0.6);
-    text-align: center;
-    transition: opacity 0.5s ease;
-    white-space: nowrap;
-}
-
-/* shape-morph control for the 3D clock */
-.stc3d-transform-btn {
-    display: none;
-    align-items: center;
-    gap: 10px;
-    margin: 22px auto 0;
-    padding: 10px 20px;
-    background: rgba(20, 20, 30, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(200, 169, 110, 0.25);
-    border-radius: 14px;
-    color: var(--text-main);
-    font-family: 'EB Garamond', serif;
-    font-size: 13px;
-    letter-spacing: 0.04em;
-    cursor: pointer;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4), inset 0 0 0 1px rgba(255, 255, 255, 0.04);
-    transition: all 0.3s ease;
-}
-
-.stc3d-transform-btn:hover {
-    border-color: rgba(200, 169, 110, 0.5);
-    box-shadow: 0 8px 28px rgba(200, 169, 110, 0.18), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-    transform: translateY(-2px);
-}
-
-.stc3d-transform-btn svg {
-    width: 15px;
-    height: 15px;
-    fill: none;
-    stroke: var(--gold);
-    stroke-width: 2;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.stc3d-transform-btn strong {
-    color: var(--gold);
-    font-style: normal;
 }
 
 /* decorative rotating rings — the "space" half of Space & Time */
