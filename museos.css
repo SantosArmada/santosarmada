@@ -12,6 +12,15 @@
        (below) never sit on top of the nav or footer content. */
     padding-top: var(--museos-banner-h);
     padding-bottom: var(--museos-banner-h);
+    /* The footer crest is now wide enough (clamp up to ~1012px, plus a
+       1.05x hover scale on top of that) that on many screens it was
+       pushing past the viewport edge and growing the page's scrollable
+       width on hover. That shifts the whole layout by a few pixels the
+       instant you hover, nudging the crest out from under the cursor —
+       hover drops, it shrinks back, cursor's over it again, hover
+       re-fires. Reads exactly like "glows then flickers off." Clipping
+       horizontal overflow here removes that feedback loop entirely. */
+    overflow-x: hidden;
 }
 
 /* --- Maya glyph banner strip (top + bottom) ---
@@ -97,6 +106,35 @@
     filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.15)
             drop-shadow(0 0 16px rgba(200, 169, 110, 0.7));
     transform: scale(1.06);
+}
+
+/* --- Footer crest (replaces logo + wordmark on this page) --- */
+.museos-page .footer-crest {
+    width: clamp(632px, 69vw, 1012px);
+    /* Belt-and-suspenders alongside .museos-page's overflow-x:hidden
+       above: keep the crest itself from ever getting close enough to
+       the viewport edge for the 1.05x hover scale to matter. */
+    max-width: 92vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.1)
+            drop-shadow(0 0 20px rgba(200, 169, 110, 0.4));
+    transition: filter 0.35s ease, transform 0.35s ease;
+    will-change: transform;
+}
+
+/* Hover trigger lives on the image itself, not the parent link: once
+   the image scales up, its painted size grows past the anchor's own
+   (untransformed) layout box, so a parent-triggered ".footer-logo-link
+   :hover" loses hover the moment the cursor sits over that now-enlarged
+   overflow — the anchor's real hit box never grew. Self-hover keeps
+   the hover state matched to the image's own (correctly growing) hit
+   area, so it holds for as long as the cursor is actually over it. */
+.museos-page .footer-crest:hover {
+    filter: invert(1) sepia(1) saturate(2) hue-rotate(5deg) brightness(1.3)
+            drop-shadow(0 0 30px rgba(200, 169, 110, 0.75));
+    transform: scale(1.05);
 }
 
 .museos-page .footer-logo-link:hover .footer-title {

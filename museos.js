@@ -133,8 +133,14 @@
         var tWorld = (this["world"] = RedWorld());
         var tScene = RedScene(this);
         tController = RedObitController(this);
-        tController.pan = -25;
-        tController.tilt = -25;
+        // Startup framing chosen by hand (dragged live, values read out
+        // of the console): chandelier + spark sphere centered, Frida
+        // portrait and the mural both in frame, front door glow at
+        // left. pan 447.2 === 87.2 normalized (mod 360) — left as the
+        // raw dragged value since RedObitController accumulates pan
+        // rather than wrapping it.
+        tController.pan = 447.2;
+        tController.tilt = 22.1;
         tController.distance = 15;
         tController.speedDistance = 0.5;
 
