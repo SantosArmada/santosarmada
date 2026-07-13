@@ -134,13 +134,11 @@
         var tScene = RedScene(this);
         tController = RedObitController(this);
         // Startup framing chosen by hand (dragged live, values read out
-        // of the console): chandelier + spark sphere centered, Frida
-        // portrait and the mural both in frame, front door glow at
-        // left. pan 447.2 === 87.2 normalized (mod 360) — left as the
-        // raw dragged value since RedObitController accumulates pan
-        // rather than wrapping it.
-        tController.pan = 447.2;
-        tController.tilt = 22.1;
+        // of the console). pan 800.9 === 80.9 normalized (mod 360) —
+        // left as the raw dragged value since RedObitController
+        // accumulates pan rather than wrapping it.
+        tController.pan = 800.9;
+        tController.tilt = 5.4;
         tController.distance = 15;
         tController.speedDistance = 0.5;
 
@@ -153,12 +151,15 @@
         var spinGroups = []; // mainRing/subRing pushed in below — kept
         // separate from tScene.children so the wayfinding hotspots (added
         // later) don't get caught in the same spin as the constellation.
+        // Slowed roughly in half from the original (0.015/0.02/0.015) —
+        // the constellation was spinning fast enough on load to feel
+        // more like a carousel than an ambient, exploreable backdrop.
         tRenderer.start(this, function () {
             var i = spinGroups.length;
             while (i--) {
-                spinGroups[i].rotationX += 0.015;
-                spinGroups[i].rotationY += 0.02;
-                spinGroups[i].rotationZ += 0.015;
+                spinGroups[i].rotationX += 0.007;
+                spinGroups[i].rotationY += 0.009;
+                spinGroups[i].rotationZ += 0.007;
             }
         });
 
