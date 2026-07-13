@@ -27,7 +27,12 @@
     font-family: 'Georgia', serif;
     color: var(--text-main);
     background: #04060a;
-    overflow-y: auto;
+    /* overflow-y: auto removed — having body establish its own scroll
+       container is exactly what made the position:fixed title band
+       (.space-time-title-band below) scroll away with the page instead
+       of staying pinned to the actual viewport. Scrolling now happens
+       on the normal document/html level, where fixed positioning
+       behaves as expected. */
     /* reserve room for the fixed amber/gold Maya banner pinned to the bottom */
     padding-bottom: var(--space-time-banner-h);
 }
