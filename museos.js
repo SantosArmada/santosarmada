@@ -42,13 +42,13 @@
         "images/museos-sky/nz.jpg"
     ];
 
-    // Procedural gold glyph texture (replaces the borrowed demo's
-    // hud_001/hud_003 pngs — small decorative detail, not "the building",
-    // so this stays generated/on-brand rather than a stock asset).
-    // Doubled again to 1024px with tighter, higher-contrast rings and a
-    // smaller/hotter core so each glyph reads as a sharp, defined point
-    // rather than a soft smudge once bloomed and scaled up in the scene.
-    function makeGlyphTexture() {
+    // Procedural sci-fi "HUD ring" texture — recreates the broken-ring,
+    // tick-mark scale, and dashed-arc look of the reference build's
+    // hud_001.png (periwinkle) / hud_003.png (peach) sprites as an
+    // on-canvas drawing, stroke-for-stroke rather than pixel-for-pixel,
+    // so the sphere has no dependency on the external demo site those
+    // pngs are hosted on. Same two-tone color scheme as the reference.
+    function makeHudRingTexture(rgb) {
         var size = 1024;
         var c = document.createElement("canvas");
         c.width = c.height = size;
@@ -56,46 +56,70 @@
         var cx = size / 2;
         var cy = size / 2;
 
-        ctx.strokeStyle = "rgba(255,242,215,1)";
-        ctx.lineWidth = 8;
-        ctx.beginPath();
-        ctx.arc(cx, cy, size * 0.36, 0, Math.PI * 2);
-        ctx.stroke();
-
-        ctx.strokeStyle = "rgba(255,242,215,0.7)";
-        ctx.lineWidth = 4;
-        ctx.beginPath();
-        ctx.arc(cx, cy, size * 0.28, 0, Math.PI * 2);
-        ctx.stroke();
-
-        ctx.strokeStyle = "rgba(255,242,215,0.95)";
-        ctx.lineWidth = 3.5;
-        for (var i = 0; i < 28; i++) {
-            var a = (i / 28) * Math.PI * 2;
-            var r1 = size * 0.4;
-            var r2 = size * 0.45;
+        function ring(alpha, width, r, startDeg, endDeg) {
+            ctx.strokeStyle = "rgba(" + rgb + "," + alpha + ")";
+            ctx.lineWidth = width;
             ctx.beginPath();
-            ctx.moveTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1);
-            ctx.lineTo(cx + Math.cos(a) * r2, cy + Math.sin(a) * r2);
+            ctx.arc(cx, cy, r, (startDeg * Math.PI) / 180, (endDeg * Math.PI) / 180);
             ctx.stroke();
         }
 
-        // Tighter hot core (0.18 vs the old 0.24) with a harder falloff —
-        // reads as a crisp pinpoint highlight instead of a soft glow disc.
-        var glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, size * 0.18);
-        glow.addColorStop(0, "rgba(255,255,255,1)");
-        glow.addColorStop(0.3, "rgba(255,242,215,1)");
-        glow.addColorStop(0.7, "rgba(255,228,175,0.8)");
-        glow.addColorStop(1, "rgba(255,222,163,0)");
+        // Thick outer band, broken into four arcs with small gaps — the
+        // reference sprite's "target lock" ring.
+        [[-88, -4], [4, 86], [94, 176], [184, 266]].forEach(function (seg) {
+            ring(0.85, size * 0.085, size * 0.335, seg[0], seg[1]);
+        });
+
+        // Radial tick-mark scale along one arc, like a ruler.
+        ctx.strokeStyle = "rgba(" + rgb + ",0.9)";
+        ctx.lineWidth = size * 0.006;
+        for (var a = 168; a <= 322; a += 4) {
+            var rad = (a * Math.PI) / 180;
+            var r1 = size * 0.3, r2 = size * 0.345;
+            ctx.beginPath();
+            ctx.moveTo(cx + Math.cos(rad) * r1, cy + Math.sin(rad) * r1);
+            ctx.lineTo(cx + Math.cos(rad) * r2, cy + Math.sin(rad) * r2);
+            ctx.stroke();
+        }
+
+        // Segmented dashed mid ring.
+        ctx.setLineDash([size * 0.022, size * 0.016]);
+        ring(0.6, size * 0.012, size * 0.245, -70, 205);
+        ctx.setLineDash([]);
+
+        // Thin inner rings.
+        ring(0.9, size * 0.01, size * 0.185, 0, 360);
+        ring(0.45, size * 0.006, size * 0.145, 0, 360);
+
+        // Small corner brackets at the outer gaps, like a reticle.
+        ctx.strokeStyle = "rgba(" + rgb + ",0.8)";
+        ctx.lineWidth = size * 0.006;
+        [-88, 4, 86, 94, 176, 184, 266, -4].forEach(function (deg) {
+            var rad = (deg * Math.PI) / 180;
+            var r1 = size * 0.3, r2 = size * 0.38;
+            ctx.beginPath();
+            ctx.moveTo(cx + Math.cos(rad) * r1, cy + Math.sin(rad) * r1);
+            ctx.lineTo(cx + Math.cos(rad) * r2, cy + Math.sin(rad) * r2);
+            ctx.stroke();
+        });
+
+        // Hot core so each sprite still catches the bloom pass.
+        var glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, size * 0.1);
+        glow.addColorStop(0, "rgba(255,255,255,0.9)");
+        glow.addColorStop(0.5, "rgba(" + rgb + ",0.6)");
+        glow.addColorStop(1, "rgba(" + rgb + ",0)");
         ctx.fillStyle = glow;
         ctx.beginPath();
-        ctx.arc(cx, cy, size * 0.18, 0, Math.PI * 2);
+        ctx.arc(cx, cy, size * 0.1, 0, Math.PI * 2);
         ctx.fill();
 
         return c.toDataURL();
     }
 
-    var glyphUrl = makeGlyphTexture();
+    // hud_003 (large background ring, peach) / hud_001 (small accent
+    // ring, periwinkle) — same two colors as the reference build.
+    var hudRingUrlPeach = makeHudRingTexture("243,177,138");
+    var hudRingUrlBlue = makeHudRingTexture("133,142,245");
 
     // Sphere sizing: it's "born" at 75% of its full expanded size and
     // rests there, then clicking the building/door (setupDoorClick, below)
@@ -107,7 +131,7 @@
     var sphereRings = {};
 
     // Fixed 3D positions for the 4 wayfinding hotspots, spread around the
-    // constellation at a radius just beyond it (radius ~9, vs the glyph
+    // constellation at a radius just beyond it (radius ~9, vs the ring
     // cloud's ~5–6) so they read as distinct points of interest.
     var HOTSPOT_DEFS = [
         { x: 9 * Math.cos(Math.PI / 4), y: 0.8, z: 9 * Math.sin(Math.PI / 4) },
@@ -168,34 +192,30 @@
         // tuned for a dim castle interior, and blew out our full-daylight
         // courtyard. The skybox photos are already graded darker now, so
         // we can afford to bring the threshold back down closer to the
-        // original — enough for the glyph sphere and hotspots to bloom
+        // original — enough for the ring sphere and hotspots to bloom
         // crisp and bright without the environment washing out again.
         bloom.threshold = 150;
         bloom.bloomStrength = 1.1;
         bloom.exposure = 0.98;
         // Lower blur radius (was 18) keeps the bloom halo tight around each
-        // glyph instead of smearing it into a soft, low-detail glow — the
-        // higher-res texture above only reads as "sharper" if the bloom
-        // pass isn't blurring that detail back out.
+        // ring sprite instead of smearing it into a soft, low-detail glow.
         bloom.blur = 12;
         tView["postEffectManager"].addEffect(bloom);
 
-        // Original demo set tMaterial.alpha = 0.7 and left tMaterial2 at
-        // its default (effectively full brightness) — my first pass dimmed
-        // the secondary sprite layer to 0.45, which is a lot of the
-        // structure's visual density going dull. Bringing both back up
-        // near the original's brightness distribution.
-        var glyphMaterial = RedBitmapMaterial(this, RedBitmapTexture(this, glyphUrl));
-        glyphMaterial.alpha = 0.8;
-        var glyphMaterial2 = RedBitmapMaterial(this, RedBitmapTexture(this, glyphUrl));
-        glyphMaterial2.alpha = 0.9;
+        // Matches the reference build's own material setup: large
+        // background ring (peach, alpha 0.7) + small accent ring
+        // (periwinkle, full alpha).
+        var ringMaterialPeach = RedBitmapMaterial(this, RedBitmapTexture(this, hudRingUrlPeach));
+        ringMaterialPeach.alpha = 0.7;
+        var ringMaterialBlue = RedBitmapMaterial(this, RedBitmapTexture(this, hudRingUrlBlue));
+        ringMaterialBlue.alpha = 1;
 
         var makeConstellation = function (redGL, material, material2) {
             var rootMesh = RedMesh(redGL);
-            // More width/height segments than the original demo (16,8) —
-            // a denser point cloud reads as a sharper, higher-resolution
-            // sphere rather than a sparse scatter of glyphs.
-            var tGeo = RedSphere(redGL, 1, 22, 11, 8);
+            // Sphere resolution matches the reference build exactly
+            // (16 width segments / 8 height segments) — a sparser, more
+            // graphic point cloud rather than a dense smooth sphere.
+            var tGeo = RedSphere(redGL, 1, 16, 8, 8);
             var positionList = [];
             var len = tGeo.interleaveBuffer.data.length / 8;
             var i;
@@ -206,6 +226,9 @@
                     tGeo.interleaveBuffer.data[i * 8 + 2]
                 ]);
             }
+            // Shared point material for the tiny bright accent dot at the
+            // center of every ring sprite (reference build's tSphere).
+            var pointMaterial = RedColorMaterial(redGL, "#fff", 0.5);
             var j = positionList.length - 1;
             while (j--) {
                 var tMesh = RedMesh(redGL, RedPlane(redGL), material);
@@ -221,6 +244,10 @@
                 tMesh.z = positionList[j][2] * 5;
                 tMesh.lookAt(0, 0, 0);
                 tMesh.rotationZ = Math.random() * 360;
+
+                var tPoint = RedMesh(redGL, RedSphere(redGL, 0.1, 4, 4, 4), pointMaterial);
+                tPoint.drawMode = redGL.gl.POINTS;
+                tMesh.addChild(tPoint);
 
                 var tMesh2 = RedMesh(redGL, RedPlane(redGL), material2);
                 tMesh2.scaleX = tMesh2.scaleY = 0.5;
@@ -254,8 +281,8 @@
             return rootMesh;
         };
 
-        var mainRing = makeConstellation(this, glyphMaterial, glyphMaterial2);
-        var subRing = makeConstellation(this, glyphMaterial, glyphMaterial2);
+        var mainRing = makeConstellation(this, ringMaterialPeach, ringMaterialBlue);
+        var subRing = makeConstellation(this, ringMaterialPeach, ringMaterialBlue);
         subRing.rotationX = subRing.rotationY = subRing.rotationZ = Math.random() * 360;
 
         tScene.addChild(mainRing);
