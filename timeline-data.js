@@ -107,6 +107,7 @@ const TIMELINE_ENTRIES = [
     title: "710: crisis sucesoria visigoda",
     author: "Hito histórico",
     country: "España",
+    region: "Toledo",
     flag: "spain-not-latam",
     type: ICON_TYPE.HISTORY,
     description:
@@ -118,6 +119,7 @@ const TIMELINE_ENTRIES = [
     title: "711: la conquista musulmana de Hispania",
     author: "Hito histórico",
     country: "España",
+    region: "Cádiz",
     flag: "spain-not-latam",
     type: ICON_TYPE.CONFLICT,
     description:
@@ -129,6 +131,7 @@ const TIMELINE_ENTRIES = [
     title: "718: la conquista musulmana se consolida",
     author: "Hito histórico",
     country: "España",
+    region: "Córdoba",
     flag: "spain-not-latam",
     type: ICON_TYPE.CONFLICT,
     description:
@@ -150,6 +153,7 @@ const TIMELINE_ENTRIES = [
     title: "813: hallazgo de la tumba de Santiago",
     author: "Hito histórico",
     country: "España",
+    region: "Santiago de Compostela",
     flag: "spain-not-latam",
     type: ICON_TYPE.HISTORY,
     description:
@@ -171,6 +175,7 @@ const TIMELINE_ENTRIES = [
     title: "929: proclamación del Califato de Córdoba",
     author: "Hito histórico",
     country: "España",
+    region: "Córdoba",
     flag: "spain-not-latam",
     type: ICON_TYPE.HISTORY,
     description:
@@ -203,6 +208,7 @@ const TIMELINE_ENTRIES = [
     title: "1085: Alfonso VI conquista Toledo",
     author: "Hito histórico",
     country: "España",
+    region: "Toledo",
     flag: "spain-not-latam",
     type: ICON_TYPE.CONFLICT,
     description:
@@ -214,6 +220,7 @@ const TIMELINE_ENTRIES = [
     title: "1094: El Cid conquista Valencia",
     author: "Anónimo",
     country: "España",
+    region: "Valencia",
     flag: "spain-not-latam",
     type: ICON_TYPE.CONFLICT,
     description:
@@ -225,6 +232,7 @@ const TIMELINE_ENTRIES = [
     title: "El duelo de la Virgen",
     author: "Gonzalo de Berceo",
     country: "España",
+    region: "La Rioja",
     flag: "spain-not-latam",
     type: ICON_TYPE.LITERATURE,
     description:
@@ -237,6 +245,7 @@ const TIMELINE_ENTRIES = [
     title: "Libro de buen amor",
     author: "Juan Ruiz, Arcipreste de Hita",
     country: "España",
+    region: "Guadalajara",
     flag: "spain-not-latam",
     type: ICON_TYPE.LITERATURE,
     description:
@@ -273,6 +282,7 @@ const TIMELINE_ENTRIES = [
     title: "La Celestina",
     author: "Fernando de Rojas",
     country: "España",
+    region: "Toledo",
     flag: "spain-not-latam",
     type: ICON_TYPE.LITERATURE,
     description:
@@ -417,6 +427,7 @@ const TIMELINE_ENTRIES = [
     title: "Niebla",
     author: "Miguel de Unamuno",
     country: "España",
+    region: "Bilbao",
     flag: "spain-not-latam",
     type: ICON_TYPE.LITERATURE,
     description:
@@ -448,6 +459,7 @@ const TIMELINE_ENTRIES = [
     title: "La flor de la playa",
     author: "Carmen de Burgos",
     country: "España",
+    region: "Almería",
     flag: "spain-not-latam",
     type: ICON_TYPE.LITERATURE,
     description:
@@ -675,6 +687,7 @@ const TIMELINE_ENTRIES = [
     title: "La Sombra del Viento",
     author: "Carlos Ruiz Zafón",
     country: "España",
+    region: "Barcelona",
     flag: "spain-not-latam",
     type: ICON_TYPE.LITERATURE,
     description: "Misterio literario ambientado en la Barcelona de posguerra, 1945."
@@ -694,6 +707,7 @@ const TIMELINE_ENTRIES = [
     title: "Diversos Destinos Consulares",
     author: "Antonio Rómar",
     country: "España",
+    region: "Madrid",
     flag: "spain-not-latam",
     type: ICON_TYPE.LITERATURE,
     description: "Poemario de compromiso político y crítica social, primera obra del autor."
@@ -717,6 +731,204 @@ const TIMELINE_ENTRIES = [
     country: "Puerto Rico",
     type: ICON_TYPE.LITERATURE,
     description: "Narrativa doble entre la poeta Julia de Burgos y una escritora contemporánea."
+  },
+
+  // ---- ARTE — pintores de España y Latinoamérica ----
+  // Añadidos a partir del inventario de obras que aparecen en el mundo
+  // 3D de Museos. Se ordenan solos al cargar (ver el sort de abajo);
+  // cada uno usa year/endYear como nacimiento/muerte, siguiendo el
+  // mismo patrón que "Ocho Venado" y "Monja Alférez" más arriba.
+  {
+    id: "el-greco-1541",
+    year: 1541,
+    endYear: 1614,
+    title: "1541–1614: El Greco",
+    author: "El Greco (Domenikos Theotokopoulos)",
+    country: "España",
+    region: "Toledo",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Pintor de origen cretense que se instala en Toledo hacia 1577 y desarrolla un estilo propio de figuras alargadas, color vibrante y luz espiritual casi alucinada — germen del manierismo español. Obras como El entierro del conde de Orgaz definieron la imaginería religiosa española durante generaciones."
+  },
+  {
+    id: "velazquez-1599",
+    year: 1599,
+    endYear: 1660,
+    title: "1599–1660: Diego Velázquez",
+    author: "Diego Velázquez",
+    country: "España",
+    region: "Sevilla",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Pintor de cámara de Felipe IV y máxima figura del Siglo de Oro español. Las Meninas (1656) sigue siendo uno de los ejercicios más estudiados de la historia del arte occidental sobre la mirada, el poder y la representación misma."
+  },
+  {
+    id: "murillo-1617",
+    year: 1617,
+    endYear: 1682,
+    title: "1617–1682: Bartolomé Esteban Murillo",
+    author: "Bartolomé Esteban Murillo",
+    country: "España",
+    region: "Sevilla",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Pintor sevillano célebre por sus Inmaculadas Concepciones y sus escenas entrañables de niños de la calle, que combinan devoción religiosa y una calidez costumbrista poco común en la pintura barroca española."
+  },
+  {
+    id: "goya-1746",
+    year: 1746,
+    endYear: 1828,
+    title: "1746–1828: Francisco Goya",
+    author: "Francisco de Goya",
+    country: "España",
+    region: "Zaragoza",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Pintor de corte que terminó retratando el horror de la guerra napoleónica en España en Los fusilamientos del 3 de mayo y en Los desastres de la guerra, además de explorar los límites de la razón en sus Pinturas negras. Puente entre el barroco español y la modernidad."
+  },
+  {
+    id: "sorolla-1863",
+    year: 1863,
+    endYear: 1923,
+    title: "1863–1923: Joaquín Sorolla",
+    author: "Joaquín Sorolla",
+    country: "España",
+    region: "Valencia",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Maestro valenciano del 'pintor de la luz', célebre por escenas de playa como Paseo a orillas del mar (1909), donde el sol mediterráneo se vuelve casi el verdadero tema del lienzo por encima de las figuras que retrata."
+  },
+  {
+    id: "picasso-1881",
+    year: 1881,
+    endYear: 1973,
+    title: "1881–1973: Pablo Picasso",
+    author: "Pablo Picasso",
+    country: "España",
+    region: "Málaga",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Nacido en Málaga, cofundador del cubismo junto a Braque y una de las figuras más influyentes del arte del siglo XX. Guernica (1937) sigue siendo el retrato más citado del horror de la guerra civil española y del bombardeo a civiles en la era moderna."
+  },
+  {
+    id: "miro-1893",
+    year: 1893,
+    endYear: 1983,
+    title: "1893–1983: Joan Miró",
+    author: "Joan Miró",
+    country: "España",
+    region: "Barcelona",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Pintor catalán cuyo vocabulario de estrellas, lunas y formas biomórficas —a medio camino entre el surrealismo y la abstracción deliberadamente infantil— se volvió una de las firmas visuales más reconocibles del arte español del siglo XX."
+  },
+  {
+    id: "dali-1904",
+    year: 1904,
+    endYear: 1989,
+    title: "1904–1989: Salvador Dalí",
+    author: "Salvador Dalí",
+    country: "España",
+    region: "Figueres",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Figura central del surrealismo, catalán como Miró, célebre por la imaginería onírica y las formas derretidas de La persistencia de la memoria (1931). Su personaje público, tan calculado como su pintura, lo convirtió en uno de los artistas más reconocibles del siglo XX fuera del propio mundo del arte."
+  },
+  {
+    id: "diego-rivera-1886",
+    year: 1886,
+    endYear: 1957,
+    title: "1886–1957: Diego Rivera",
+    author: "Diego Rivera",
+    country: "México",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El más internacional de 'los tres grandes' del muralismo mexicano, llevó la épica de la historia y la lucha de clases del país a muros públicos en México y Estados Unidos. Su matrimonio con Frida Kahlo volvió su nombre inseparable de la identidad artística mexicana del siglo XX."
+  },
+  {
+    id: "frida-kahlo-1907",
+    year: 1907,
+    endYear: 1954,
+    title: "1907–1954: Frida Kahlo",
+    author: "Frida Kahlo",
+    country: "México",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Pintora de Coyoacán cuyos autorretratos —marcados por el accidente que la dejó convaleciente de por vida y por una identidad mexicana reivindicada sin concesiones— la convirtieron, décadas después de su muerte, en una de las artistas más reconocidas del mundo."
+  },
+  {
+    id: "orozco-1883",
+    year: 1883,
+    endYear: 1949,
+    title: "1883–1949: José Clemente Orozco",
+    author: "José Clemente Orozco",
+    country: "México",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Junto con Rivera y Siqueiros, uno de 'los tres grandes' del muralismo mexicano, pero el más oscuro de los tres: sus murales —como los del Hospicio Cabañas— tratan la violencia y la deshumanización con una furia visual que evita el triunfalismo revolucionario de sus contemporáneos."
+  },
+  {
+    id: "siqueiros-1896",
+    year: 1896,
+    endYear: 1974,
+    title: "1896–1974: David Alfaro Siqueiros",
+    author: "David Alfaro Siqueiros",
+    country: "México",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El más políticamente militante de 'los tres grandes', combatiente en la Guerra Civil española y muralista de técnica experimental —piroxilina, proyección fotográfica, perspectivas forzadas— que buscaba un arte tan revolucionario en su forma como en su contenido."
+  },
+  {
+    id: "tamayo-1899",
+    year: 1899,
+    endYear: 1991,
+    title: "1899–1991: Rufino Tamayo",
+    author: "Rufino Tamayo",
+    country: "México",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Pintor oaxaqueño de ascendencia zapoteca que deliberadamente se distanció del muralismo político de Rivera, Orozco y Siqueiros para construir un lenguaje propio, más cercano a la abstracción internacional, sin abandonar una paleta profundamente mexicana."
+  },
+  {
+    id: "remedios-varo-1908",
+    year: 1908,
+    endYear: 1963,
+    title: "1908–1963: Remedios Varo",
+    author: "Remedios Varo",
+    country: "México",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Pintora nacida en Cataluña que, tras huir de la Guerra Civil española y la ocupación de Francia, se exilia en México en 1941 y se convierte en una de las figuras centrales del surrealismo mexicano, con un universo propio de alquimistas, viajeras y máquinas imposibles."
+  },
+  {
+    id: "wifredo-lam-1902",
+    year: 1902,
+    endYear: 1982,
+    title: "1902–1982: Wifredo Lam",
+    author: "Wifredo Lam",
+    country: "Cuba",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Pintor cubano de ascendencia china, africana y española cuya obra —como La jungla (1943)— funde el modernismo europeo con la iconografía afrocubana y la santería, redefiniendo qué podía significar el surrealismo fuera de Europa."
+  },
+  {
+    id: "fernando-botero-1932",
+    year: 1932,
+    endYear: 2023,
+    title: "1932–2023: Fernando Botero",
+    author: "Fernando Botero",
+    country: "Colombia",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Pintor y escultor colombiano célebre por su 'boterismo': figuras humanas y animales de volumen exagerado y deliberado, con las que retrató —a veces con humor, a veces con crítica social directa— la vida cotidiana, el poder y la violencia latinoamericana."
   }
 ];
 

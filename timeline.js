@@ -220,9 +220,14 @@
     activeIndex = idx;
 
     const isSpain = entry.country === "España";
+    // For Spain entries, show the specific region/city (e.g. "Madrid",
+    // "Granada") + year instead of the generic "España" — falls back
+    // to plain "España" for entries where no region is set (e.g.
+    // anonymous works with no fixed point of origin).
+    const spainLabel = entry.region ? `${entry.region} · ${entry.year}` : "España";
     const regionFlagHtml = `<span class="timeline-detail-flag ${
       isSpain ? "timeline-detail-flag-spain" : "timeline-detail-flag-latam"
-    }">${escapeHtml(isSpain ? "España" : "Latinoamérica")}</span>`;
+    }">${escapeHtml(isSpain ? spainLabel : "Latinoamérica")}</span>`;
 
     const customFlagHtml =
       entry.flag && entry.flag !== "spain-not-latam"
