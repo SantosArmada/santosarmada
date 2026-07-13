@@ -6,6 +6,18 @@
    ============================================ */
 
 (function () {
+    // IANA timezone IDs are plain ASCII, so Spanish-named cities lose
+    // their accents (e.g. "Los_Angeles"). Correct the ones most likely
+    // to show up for this site's audience.
+    var TZ_NAME_OVERRIDES = {
+        'America/Los_Angeles': 'Los Ángeles',
+        'America/Mexico_City': 'Ciudad de México',
+        'America/Bogota': 'Bogotá',
+        'America/Sao_Paulo': 'São Paulo',
+        'America/Asuncion': 'Asunción',
+        'America/Yucatan': 'Yucatán'
+    };
+
     function init() {
         var hourHand = document.getElementById('stcHour');
         var minuteHand = document.getElementById('stcMinute');
@@ -20,7 +32,7 @@
         if (tzLabel) {
             try {
                 var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
-                var pretty = tz.split('/').pop().replace(/_/g, ' ');
+                var pretty = TZ_NAME_OVERRIDES[tz] || tz.split('/').pop().replace(/_/g, ' ');
                 tzLabel.textContent = pretty || 'Local Time';
             } catch (e) {
                 tzLabel.textContent = 'Local Time';
