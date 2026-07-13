@@ -929,6 +929,20 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.HISTORY,
     description:
       "Pintor y escultor colombiano célebre por su 'boterismo': figuras humanas y animales de volumen exagerado y deliberado, con las que retrató —a veces con humor, a veces con crítica social directa— la vida cotidiana, el poder y la violencia latinoamericana."
+  },
+
+  // ---- HITO HISTÓRICO ----
+  {
+    id: "inquisicion-espanola-1478",
+    year: 1478,
+    title: "1478: se establece la Inquisición española",
+    author: "Hito histórico",
+    country: "España",
+    region: "Sevilla",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 1 de noviembre de 1478, el papa Sixto IV emite la bula Exigit sinceras devotionis affectus a petición de los Reyes Católicos, Fernando de Aragón e Isabel de Castilla, autorizando el establecimiento de la Inquisición española — un tribunal bajo control directo de la Corona, no de Roma, a diferencia de la Inquisición medieval anterior. El primer tribunal se instala en Sevilla en 1480 y el primer auto de fe se celebra allí en febrero de 1481. Sus principales víctimas fueron los conversos: judíos y musulmanes que llevaban siglos viviendo en los territorios peninsulares, muchos de ellos convertidos al cristianismo bajo sospecha constante de practicar en secreto su fe original. La institución perduraría, con distintos grados de intensidad, hasta su abolición definitiva en 1834."
   }
 ];
 
