@@ -91,7 +91,7 @@
    for that stretch of track rather than a caption on the band. */
 .timeline-era-label {
   position: absolute;
-  top: 0px;
+  top: -30px;
   font-size: 20px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
