@@ -311,7 +311,10 @@
     const key = usingEntry ? "entry:" + entry.id : "era:" + era.id;
     if (key === lastButterflyKey) return;
     lastButterflyKey = key;
-    const eyebrowLabel = usingEntry ? entry.year + " · " + entry.title : era.label;
+    const titleHasYear = usingEntry && entry.title.indexOf(String(entry.year)) !== -1;
+    const eyebrowLabel = usingEntry
+      ? (titleHasYear ? entry.title : entry.year + " · " + entry.title)
+      : era.label;
     butterflyEl.innerHTML = `
       <p class="timeline-butterfly-eyebrow">Efecto Mariposa · ${escapeHtml(eyebrowLabel)}</p>
       <p class="timeline-butterfly-prompt">${escapeHtml(bf.prompt)}</p>
