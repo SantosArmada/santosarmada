@@ -12,6 +12,7 @@ const highlightedCountries = {
     'Ecuador': '#39ff6a',
     'Colombia': '#39ff6a',
     'Venezuela': '#39ff6a',
+    'Brazil': '#c8a96e',
     'Cuba': '#39ff6a',
     'Dominican Rep.': '#39ff6a',
     'Haiti': '#39ff6a',
