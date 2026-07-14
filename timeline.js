@@ -265,7 +265,7 @@
 
     scrollEntryIntoView(idx);
     updateHeader(entry.year);
-    updateButterfly(entry.year);
+    updateButterfly(entry.year, entry);
   }
 
   function scrollEntryIntoView(idx) {
@@ -284,16 +284,38 @@
     headerYear.textContent = Math.round(year) + (year < 0 ? " a.C." : " d.C.");
   }
 
-  /* ---------- Butterfly Effect panel ---------- */
-  let lastButterflyEra = null;
-  function updateButterfly(year) {
-    const era = eraForYear(year);
-    if (era.id === lastButterflyEra) return;
-    lastButterflyEra = era.id;
+  /* ---------- Butterfly Effect panel ----------
+     Each entry can carry its own butterfly {prompt, answer}. When one
+     is selected (click) or nearest-to-scroll, we show ITS butterfly.
+     Entries without one (rare) fall back to their era's butterfly so
+     the panel is never empty. */
+  function nearestEntryToYear(year) {
+    let closest = entries[0];
+    let minDiff = Infinity;
+    for (let i = 0; i < entries.length; i++) {
+      const diff = Math.abs(entries[i].year - year);
+      if (diff < minDiff) {
+        minDiff = diff;
+        closest = entries[i];
+      }
+    }
+    return closest;
+  }
+
+  let lastButterflyKey = null;
+  function updateButterfly(year, explicitEntry) {
+    const entry = explicitEntry || nearestEntryToYear(year);
+    const era = eraForYear(entry.year);
+    const bf = entry.butterfly || era.butterfly;
+    const usingEntry = !!entry.butterfly;
+    const key = usingEntry ? "entry:" + entry.id : "era:" + era.id;
+    if (key === lastButterflyKey) return;
+    lastButterflyKey = key;
+    const eyebrowLabel = usingEntry ? entry.year + " · " + entry.title : era.label;
     butterflyEl.innerHTML = `
-      <p class="timeline-butterfly-eyebrow">Efecto Mariposa · ${escapeHtml(era.label)}</p>
-      <p class="timeline-butterfly-prompt">${escapeHtml(era.butterfly.prompt)}</p>
-      <p class="timeline-butterfly-answer">${escapeHtml(era.butterfly.answer)}</p>
+      <p class="timeline-butterfly-eyebrow">Efecto Mariposa · ${escapeHtml(eyebrowLabel)}</p>
+      <p class="timeline-butterfly-prompt">${escapeHtml(bf.prompt)}</p>
+      <p class="timeline-butterfly-answer">${escapeHtml(bf.answer)}</p>
     `;
   }
 
