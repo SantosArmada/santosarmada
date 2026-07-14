@@ -54,7 +54,8 @@ const SPECIAL_PANELS = {
   'Portugal': {
     title: 'Connected Works',
     body:
-      "\"La flor de la playa\" (Carmen de Burgos, 1920) — Enrique y su amante deciden pasar su escapada de verano precisamente en Portugal: un viaje corto, \"tan corto como ir a un pueblo de España\", pero ya al extranjero, a \"una nación más libre\" donde podían vivir juntos sin la vigilancia de las patronas españolas y ella podía hacerse pasar por su esposa."
+      "\"La flor de la playa\" (Carmen de Burgos, 1920) — Enrique y su amante deciden pasar su escapada de verano precisamente en Portugal: un viaje corto, \"tan corto como ir a un pueblo de España\", pero ya al extranjero, a \"una nación más libre\" donde podían vivir juntos sin la vigilancia de las patronas españolas y ella podía hacerse pasar por su esposa.",
+    linkedEntryId: 'flor-de-la-playa-burgos-1920'
   },
   'Brazil': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
   'Angola': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
@@ -91,7 +92,8 @@ const SPECIAL_PANELS = {
   'Jamaica': {
     title: 'Colonized',
     body:
-      "Jamaica fue colonia británica durante más de tres siglos, hasta 1962, y de esa herencia angloparlante surgió Bob Marley, quien llevó el reggae y la filosofía rastafari de Kingston al mundo entero cantando en inglés. Canciones como 'One Love' o 'No Woman, No Cry' convirtieron a una isla de menos de tres millones de habitantes en una potencia cultural global, y su influencia sigue viva hoy en el hip hop, el reguetón y la música de protesta en todo el planeta. Pero Jamaica ya era un cruce de caminos histórico mucho antes de Marley: el 6 de septiembre de 1815, exiliado en Kingston tras la caída de la Segunda República de Venezuela, Simón Bolívar escribió ahí la Carta de Jamaica, dirigida al comerciante inglés Henry Cullen — el documento fundacional del pensamiento independentista latinoamericano, redactado en español sobre suelo colonizado por Inglaterra, precisamente porque esa colonia británica era uno de los pocos refugios seguros frente a las fuerzas realistas españolas."
+      "Jamaica fue colonia británica durante más de tres siglos, hasta 1962, y de esa herencia angloparlante surgió Bob Marley, quien llevó el reggae y la filosofía rastafari de Kingston al mundo entero cantando en inglés. Canciones como 'One Love' o 'No Woman, No Cry' convirtieron a una isla de menos de tres millones de habitantes en una potencia cultural global, y su influencia sigue viva hoy en el hip hop, el reguetón y la música de protesta en todo el planeta. Pero Jamaica ya era un cruce de caminos histórico mucho antes de Marley: el 6 de septiembre de 1815, exiliado en Kingston tras la caída de la Segunda República de Venezuela, Simón Bolívar escribió ahí la Carta de Jamaica, dirigida al comerciante inglés Henry Cullen — el documento fundacional del pensamiento independentista latinoamericano, redactado en español sobre suelo colonizado por Inglaterra, precisamente porque esa colonia británica era uno de los pocos refugios seguros frente a las fuerzas realistas españolas.",
+    linkedEntryId: 'carta-de-jamaica-1815'
   }
 };
 
@@ -191,32 +193,39 @@ if (infoCloseEl) {
     });
 }
 
+const JUMPABLE_SELECTOR = '.globe-info-work[data-id], .globe-info-jumplink[data-id]';
+
 if (infoContentEl) {
     infoContentEl.addEventListener('click', function (e) {
-        const workEl = e.target.closest('.globe-info-work[data-id]');
-        if (!workEl) return;
-        goToTimelineEntry(workEl.getAttribute('data-id'));
+        const jumpEl = e.target.closest(JUMPABLE_SELECTOR);
+        if (!jumpEl) return;
+        goToTimelineEntry(jumpEl.getAttribute('data-id'));
     });
     infoContentEl.addEventListener('keydown', function (e) {
         if (e.key !== 'Enter' && e.key !== ' ') return;
-        const workEl = e.target.closest('.globe-info-work[data-id]');
-        if (!workEl) return;
+        const jumpEl = e.target.closest(JUMPABLE_SELECTOR);
+        if (!jumpEl) return;
         e.preventDefault();
-        goToTimelineEntry(workEl.getAttribute('data-id'));
+        goToTimelineEntry(jumpEl.getAttribute('data-id'));
     });
 }
 
 /* ---------------------------------------------------------
-   The orbiting moon — reuses the same info panel as countries.
+   The orbiting moon — reuses the same info panel as countries,
+   and its connected work is just as clickable/jumpable.
    --------------------------------------------------------- */
 const moonMarkerEl = document.getElementById('moonMarker');
 if (moonMarkerEl) {
     moonMarkerEl.addEventListener('click', function () {
         infoPanelEl.classList.remove('is-hidden');
+        const entries = window.TIMELINE_ENTRIES || [];
+        const moonEntry = entries.find(function (e) { return e.id === 'rayo-de-luna-becquer-1862'; });
         infoContentEl.innerHTML =
             '<p class="globe-info-label">La Luna</p>' +
             '<h3 class="globe-info-title">Connected Works</h3>' +
-            '<p class="globe-info-body">"El rayo de luna" (Gustavo Adolfo Bécquer, 1862) — Manrique persigue toda una noche a una mujer entre las ruinas de Soria, y descubre al final que solo perseguía un rayo de luna filtrándose entre los árboles: la ilusión que el propio deseo romántico inventa para tener algo a lo cual aferrarse.</p>';
+            (moonEntry
+                ? '<ul class="globe-info-worklist">' + renderWorksList([moonEntry]) + '</ul>'
+                : '<p class="globe-info-body">"El rayo de luna" (Gustavo Adolfo Bécquer, 1862) — Manrique persigue toda una noche a una mujer entre las ruinas de Soria, y descubre al final que solo perseguía un rayo de luna filtrándose entre los árboles: la ilusión que el propio deseo romántico inventa para tener algo a lo cual aferrarse.</p>');
     });
 }
 
@@ -255,10 +264,23 @@ fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
 
                 const special = SPECIAL_PANELS[name];
                 if (special) {
-                    infoContentEl.innerHTML =
+                    let html =
                         '<p class="globe-info-label">' + name + '</p>' +
                         '<h3 class="globe-info-title">' + special.title + '</h3>' +
                         '<p class="globe-info-body">' + special.body + '</p>';
+
+                    if (special.linkedEntryId) {
+                        const linked = (window.TIMELINE_ENTRIES || []).find(
+                            function (e) { return e.id === special.linkedEntryId; }
+                        );
+                        if (linked) {
+                            html +=
+                                '<p class="globe-info-jumplink" data-id="' + escapeHtmlGlobe(linked.id) + '" tabindex="0" role="button">' +
+                                'Ver “' + escapeHtmlGlobe(linked.title) + '” en la línea de tiempo →</p>';
+                        }
+                    }
+
+                    infoContentEl.innerHTML = html;
                     return;
                 }
 
@@ -328,6 +350,43 @@ world
 
 world.controls().autoRotate = true;
 world.controls().autoRotateSpeed = 0.4;
+
+/* ---------------------------------------------------------
+   Timeline -> Globe hook
+   Rough centroid per country name AS USED IN timeline-data.js's
+   `country` field (Spanish), so selecting an entry on the
+   timeline can rotate the globe to that country — closing the
+   loop on the globe -> timeline links built earlier. Approximate
+   by eye, not sourced from precise centroid data; good enough to
+   bring the right region into view.
+   --------------------------------------------------------- */
+const COUNTRY_CENTER = {
+    'España': { lat: 40.0, lng: -4.0 },
+    'Guatemala': { lat: 15.5, lng: -90.3 },
+    'México': { lat: 23.6, lng: -102.5 },
+    'Bahamas': { lat: 24.25, lng: -76.0 },
+    'República Dominicana': { lat: 18.7, lng: -70.2 },
+    'Chile': { lat: -35.7, lng: -71.5 },
+    'Perú': { lat: -9.2, lng: -75.0 },
+    'Jamaica': { lat: 18.1, lng: -77.3 },
+    'Nicaragua': { lat: 12.9, lng: -85.2 },
+    'Argentina': { lat: -38.4, lng: -63.6 },
+    'Uruguay': { lat: -32.5, lng: -55.8 },
+    'Cuba': { lat: 21.5, lng: -79.5 },
+    'Colombia': { lat: 4.0, lng: -72.0 },
+    'Puerto Rico': { lat: 18.2, lng: -66.5 },
+    'El Salvador': { lat: 13.8, lng: -88.9 },
+    'Estados Unidos': { lat: 39.8, lng: -98.6 },
+    'Japón': { lat: 36.2, lng: 138.3 }
+};
+
+window.focusGlobeOnCountry = function (countryName) {
+    const center = COUNTRY_CENTER[countryName];
+    if (!center) return false;
+    world.controls().autoRotate = false;
+    world.pointOfView({ lat: center.lat, lng: center.lng, altitude: 1.7 }, 1200);
+    return true;
+};
 
 window.addEventListener('resize', () => {
     world.width(window.innerWidth);

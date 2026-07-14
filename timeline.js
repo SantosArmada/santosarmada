@@ -272,6 +272,13 @@
     scrollEntryIntoView(idx);
     updateHeader(entry.year);
     updateButterfly(entry.year, entry);
+
+    // Closes the loop with the globe: selecting an entry here rotates
+    // the globe (above) to that entry's country, same way clicking a
+    // country's Connected Works jumps down to this exact spot.
+    if (typeof window.focusGlobeOnCountry === "function" && entry.country) {
+      window.focusGlobeOnCountry(entry.country);
+    }
   }
 
   /* ---------- Close button ----------

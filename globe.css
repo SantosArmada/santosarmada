@@ -380,6 +380,23 @@
     margin: 0;
 }
 
+/* Jump link appended to a SPECIAL_PANELS entry when it references a
+   real timeline entry (e.g. Portugal -> La flor de la playa). */
+.globe-info-jumplink {
+    display: inline-block;
+    margin: 12px 0 0;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+    color: var(--neon-blue);
+    cursor: pointer;
+}
+
+.globe-info-jumplink:hover,
+.globe-info-jumplink:focus-visible {
+    text-decoration: underline;
+    outline: none;
+}
+
 .globe-info-label {
     font-size: 11px;
     letter-spacing: 0.1em;
