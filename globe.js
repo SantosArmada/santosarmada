@@ -95,6 +95,86 @@ const SPECIAL_PANELS = {
   }
 };
 
+/* ---------------------------------------------------------
+   Connected Works — pulled live from timeline-data.js
+   Maps this globe's English country labels (from the
+   world-atlas topology) to the Spanish `country` field used
+   throughout TIMELINE_ENTRIES, so clicking a country lists
+   its real, matching timeline entries instead of a static
+   placeholder. timeline-data.js loads after this file, but
+   since this only runs inside the click handler (well after
+   page load), window.TIMELINE_ENTRIES is always populated by
+   the time anyone actually clicks. */
+const GLOBE_TO_TIMELINE_COUNTRY = {
+    'Mexico': 'México',
+    'Guatemala': 'Guatemala',
+    'Nicaragua': 'Nicaragua',
+    'El Salvador': 'El Salvador',
+    'Honduras': 'Honduras',
+    'Costa Rica': 'Costa Rica',
+    'Panama': 'Panamá',
+    'Peru': 'Perú',
+    'Chile': 'Chile',
+    'Argentina': 'Argentina',
+    'Uruguay': 'Uruguay',
+    'Paraguay': 'Paraguay',
+    'Bolivia': 'Bolivia',
+    'Ecuador': 'Ecuador',
+    'Colombia': 'Colombia',
+    'Venezuela': 'Venezuela',
+    'Cuba': 'Cuba',
+    'Dominican Rep.': 'República Dominicana',
+    'Haiti': 'Haití',
+    'Spain': 'España',
+    'France': 'Francia',
+    'Italy': 'Italia',
+    'Eq. Guinea': 'Guinea Ecuatorial',
+    'United States of America': 'Estados Unidos',
+    'United Kingdom': 'Reino Unido',
+    'Puerto Rico': 'Puerto Rico',
+    'Jamaica': 'Jamaica',
+    'Japan': 'Japón'
+};
+
+function escapeHtmlGlobe(str) {
+    const div = document.createElement('div');
+    div.textContent = str == null ? '' : str;
+    return div.innerHTML;
+}
+
+function getConnectedWorks(globeName) {
+    const entries = window.TIMELINE_ENTRIES || [];
+    const spanishName = GLOBE_TO_TIMELINE_COUNTRY[globeName] || globeName;
+    return entries
+        .filter(function (e) { return e.country === spanishName; })
+        .slice()
+        .sort(function (a, b) { return a.year - b.year; });
+}
+
+function renderWorksList(works) {
+    return works.map(function (w) {
+        const yearLabel = w.endYear
+            ? escapeHtmlGlobe(w.year) + '–' + escapeHtmlGlobe(w.endYear)
+            : escapeHtmlGlobe(w.year);
+        return (
+            '<li class="globe-info-work">' +
+            '<p class="globe-info-work-title">' + escapeHtmlGlobe(w.title) + '</p>' +
+            '<p class="globe-info-work-meta">' + escapeHtmlGlobe(w.author) + ' · ' + yearLabel + '</p>' +
+            '</li>'
+        );
+    }).join('');
+}
+
+const infoPanelEl = document.getElementById('infoPanel');
+const infoContentEl = document.getElementById('globeInfoContent');
+const infoCloseEl = document.getElementById('globeInfoClose');
+
+if (infoCloseEl) {
+    infoCloseEl.addEventListener('click', function () {
+        infoPanelEl.classList.add('is-hidden');
+    });
+}
+
 const world = Globe()
        (document.getElementById('globeViz'))
        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
@@ -126,14 +206,25 @@ fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
                 const name = feat.properties.name;
                 if (!highlightedCountries[name]) return;
 
+                infoPanelEl.classList.remove('is-hidden');
+
                 const special = SPECIAL_PANELS[name];
                 if (special) {
-                    document.getElementById('infoPanel').innerHTML =
+                    infoContentEl.innerHTML =
                         '<p class="globe-info-label">' + name + '</p>' +
                         '<h3 class="globe-info-title">' + special.title + '</h3>' +
                         '<p class="globe-info-body">' + special.body + '</p>';
+                    return;
+                }
+
+                const works = getConnectedWorks(name);
+                if (works.length > 0) {
+                    infoContentEl.innerHTML =
+                        '<p class="globe-info-label">' + name + '</p>' +
+                        '<h3 class="globe-info-title">Connected Works</h3>' +
+                        '<ul class="globe-info-worklist">' + renderWorksList(works) + '</ul>';
                 } else {
-                    document.getElementById('infoPanel').innerHTML =
+                    infoContentEl.innerHTML =
                         '<p class="globe-info-label">' + name + '</p>' +
                         '<h3 class="globe-info-title">Connected Works</h3>' +
                         '<p class="globe-info-body">Authors and history tied to ' + name + ' will appear here as the archive grows.</p>';
