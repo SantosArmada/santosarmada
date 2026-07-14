@@ -47,6 +47,80 @@
     z-index: 1;
 }
 
+/* ---- Orbiting moon (decorative + clickable) ----
+   Same "child pinned to top of a rotating parent" trick as the
+   original build, restyled: no external hotlinked planet/moon
+   images (unreliable third-party host, and a flat 2D planet image
+   would just double up on the real 3D globe underneath it) — the
+   moon itself is a plain CSS sphere in the site's palette. */
+.moon-orbit-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.moon-orbit {
+    position: relative;
+    width: 380px;
+    height: 380px;
+    animation: moon-orbit-spin 42s linear infinite;
+}
+
+.moon {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 0 0 0 -15px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #f5f2ea 0%, #d8d2c4 45%, #9a9488 100%);
+    box-shadow: 0 0 14px 3px rgba(240, 234, 216, 0.35);
+    cursor: pointer;
+    pointer-events: auto;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.moon:hover,
+.moon:focus-visible {
+    box-shadow: 0 0 22px 6px rgba(240, 234, 216, 0.55);
+    transform: scale(1.15);
+    outline: none;
+}
+
+@keyframes moon-orbit-spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .moon-orbit {
+        animation: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .moon-orbit {
+        width: 240px;
+        height: 240px;
+    }
+    .moon {
+        width: 22px;
+        height: 22px;
+        margin-left: -11px;
+    }
+}
+
 /* Title band: sits just under the navbar, right above the globe. Same
    gold shimmer treatment as the Museos title. Positioned absolutely
    (not fixed) so it stays put on the page and scrolls away with the

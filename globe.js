@@ -175,6 +175,20 @@ if (infoCloseEl) {
     });
 }
 
+/* ---------------------------------------------------------
+   The orbiting moon — reuses the same info panel as countries.
+   --------------------------------------------------------- */
+const moonMarkerEl = document.getElementById('moonMarker');
+if (moonMarkerEl) {
+    moonMarkerEl.addEventListener('click', function () {
+        infoPanelEl.classList.remove('is-hidden');
+        infoContentEl.innerHTML =
+            '<p class="globe-info-label">La Luna</p>' +
+            '<h3 class="globe-info-title">Connected Works</h3>' +
+            '<p class="globe-info-body">"El rayo de luna" (Gustavo Adolfo Bécquer, 1862) — Manrique persigue toda una noche a una mujer entre las ruinas de Soria, y descubre al final que solo perseguía un rayo de luna filtrándose entre los árboles: la ilusión que el propio deseo romántico inventa para tener algo a lo cual aferrarse.</p>';
+    });
+}
+
 const world = Globe()
        (document.getElementById('globeViz'))
        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
@@ -269,6 +283,17 @@ world
     .pathColor(() => '#ff2b2b')
     .pathStroke(1.6)
     .pathPointAlt(() => 0.03);
+
+/* ---------------------------------------------------------
+   North Pole marker — small dot, same neon yellow as
+   Antarctica. Longitude is meaningless exactly at the pole,
+   so 0 is as good as any.
+   --------------------------------------------------------- */
+world
+    .pointsData([{ lat: 90, lng: 0 }])
+    .pointColor(() => '#faff00')
+    .pointRadius(0.3)
+    .pointAltitude(0.02);
 
 world.controls().autoRotate = true;
 world.controls().autoRotateSpeed = 0.4;

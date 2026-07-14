@@ -498,6 +498,23 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "rayo-de-luna-becquer-1862",
+    year: 1862,
+    title: "El rayo de luna",
+    author: "Gustavo Adolfo Bécquer",
+    country: "España",
+    region: "Soria",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Publicada el 13 de febrero de 1862, esta leyenda sigue a Manrique, un joven soñador de Soria que persigue durante una noche de luna llena a una mujer bellísima entre las ruinas del Monasterio de San Juan de Duero. Lo que perseguía, descubre al final, no era más que un rayo de luna filtrándose entre las ramas — una ilusión óptica que Bécquer convierte en metáfora de todo amor romántico: una mentira que la propia mente inventa para tener algo a lo cual aferrarse.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Manrique hubiera alcanzado a la mujer que perseguía esa noche?",
+      answer:
+        "Bécquer perdería la revelación que sostiene toda la leyenda: que el objeto del deseo romántico a menudo no es más que una proyección, un rayo de luna al que la imaginación le da forma humana. El desengaño final —no el encuentro— es el verdadero tema de la leyenda."
+    }
+  },
+  {
     id: "benito-juarez-bio",
     year: 1906,
     title: "Benito Juárez: su vida, su obra",
@@ -700,6 +717,22 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "sendas-de-oku-1957",
+    year: 1957,
+    title: "Sendas de Oku",
+    author: "Matsuo Bashō (trad. Octavio Paz y Eikichi Hayashiya)",
+    country: "Japón",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "El 9 de abril de 1957, Octavio Paz y el traductor japonés Eikichi Hayashiya publican Sendas de Oku, la primera traducción a una lengua occidental del Oku no Hosomichi de Matsuo Bashō — el diario de viaje que el poeta japonés escribió en 1689 recorriendo a pie el norte de su país. Paz, que no hablaba japonés, trabajó verso por verso junto a Hayashiya, cotejando traducciones a otros idiomas y discutiendo cada matiz; el libro tendría ediciones revisadas y ampliadas en 1970 y 1981. Es la culminación de una fascinación que Paz cultivó desde su breve paso como encargado de negocios de la embajada mexicana en Tokio en 1952, y que definiría buena parte de su poética posterior: la economía radical del haiku, la fusión entre naturaleza y percepción.",
+    anchor: true,
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Octavio Paz nunca hubiera sido enviado a la embajada mexicana en Tokio en 1952?",
+      answer:
+        "Sin ese breve paso diplomático, Paz probablemente nunca habría cultivado la amistad con Eikichi Hayashiya que hizo posible Sendas de Oku, la primera traducción occidental del diario de Bashō. La poesía hispanoamericana habría tardado más —o esperado a otro traductor— para incorporar la economía y el silencio del haiku a su propio lenguaje."
+    }
+  },
+  {
     id: "ciudad-real",
     year: 1960,
     title: "Ciudad Real",
@@ -860,6 +893,21 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si Manuel Puig hubiera inventado los diálogos de Sangre de amor correspondido, en vez de construirlos a partir de grabaciones reales?",
       answer:
         "La novela perdería la textura de habla auténtica que la distingue: el ritmo entrecortado, las repeticiones, los silencios de alguien que realmente está recordando su vida en voz alta, no de un personaje escrito para sonar así. Puig entendió que ninguna invención literaria supera el habla real bien escuchada."
+    }
+  },
+  {
+    id: "al-paso-paz-1992",
+    year: 1992,
+    title: "Al paso",
+    author: "Octavio Paz",
+    country: "México",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Publicado por Seix Barral en 1992, Al paso reúne apuntes que Paz mismo describe como 'impresiones' más que juicios: notas sobre Yeats, Alberti, Cernuda y D. H. Lawrence; excursiones por las artes visuales de Munch, Adami y Frida Kahlo; una miscelánea sobre el paso de los días; y tres traducciones comentadas de poemas de la dinastía Tang china. Un libro de sobremesa que recorre medio siglo de lecturas de uno de los ensayistas más abarcadores de la lengua española.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Paz hubiera organizado estos apuntes por tema en vez de dejarlos como miscelánea?",
+      answer:
+        "Al paso perdería precisamente lo que anuncia su título: la sensación de un pensamiento caminando, deteniéndose donde le interesa, sin la obligación de construir un argumento único. Es un libro que vale por sus itinerarios, no por su arquitectura."
     }
   },
   {
