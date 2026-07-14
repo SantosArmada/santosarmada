@@ -227,58 +227,6 @@ if (moonMarkerEl) {
                 ? '<ul class="globe-info-worklist">' + renderWorksList([moonEntry]) + '</ul>'
                 : '<p class="globe-info-body">"El rayo de luna" (Gustavo Adolfo Bécquer, 1862) — Manrique persigue toda una noche a una mujer entre las ruinas de Soria, y descubre al final que solo perseguía un rayo de luna filtrándose entre los árboles: la ilusión que el propio deseo romántico inventa para tener algo a lo cual aferrarse.</p>');
     });
-
-    /* ---------------------------------------------------------
-       Orbit driven frame-by-frame instead of a CSS keyframe, so the
-       moon can actually pass BEHIND the globe and not just spin in
-       a flat circle in front of it. Path is an ellipse (a circular
-       orbit viewed edge-on/at an angle projects as one); whichever
-       half of the loop is "far" gets a lower z-index than #globeViz
-       (z-index: 1) so the sphere occludes it there, plus a slight
-       scale/opacity dip as a depth cue, and the "near" half gets a
-       higher z-index so it passes in front, full size. Not orbital
-       mechanics — just enough of an illusion to read as "around"
-       rather than "in front of" the Earth. */
-    const ORBIT_PERIOD_S = 18;
-    const reduceMotionQuery = window.matchMedia
-        ? window.matchMedia('(prefers-reduced-motion: reduce)')
-        : null;
-
-    let angle = 0;
-    let lastFrameTime = null;
-
-    function orbitTick(now) {
-        if (lastFrameTime === null) lastFrameTime = now;
-        const dtSeconds = (now - lastFrameTime) / 1000;
-        lastFrameTime = now;
-
-        const reduceMotion = reduceMotionQuery && reduceMotionQuery.matches;
-        if (!reduceMotion) {
-            angle += (2 * Math.PI / ORBIT_PERIOD_S) * dtSeconds;
-        }
-
-        const isMobile = window.innerWidth <= 768;
-        const orbitRadiusX = isMobile ? 150 : 260;
-        const orbitRadiusY = isMobile ? 55 : 95;
-
-        const x = Math.cos(angle) * orbitRadiusX;
-        const y = Math.sin(angle) * orbitRadiusY;
-
-        // Bottom half of the ellipse reads as "nearer" (in front of
-        // the globe); top half reads as "farther" (behind it).
-        const isBehind = y < 0;
-        const depthScale = isBehind ? 0.6 : 1;
-        const depthOpacity = isBehind ? 0.5 : 1;
-
-        moonMarkerEl.style.transform =
-            'translate(-50%, -50%) translate(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px) scale(' + depthScale + ')';
-        moonMarkerEl.style.opacity = String(depthOpacity);
-        moonMarkerEl.style.zIndex = isBehind ? '0' : '3';
-
-        requestAnimationFrame(orbitTick);
-    }
-
-    requestAnimationFrame(orbitTick);
 }
 
 const world = Globe()
