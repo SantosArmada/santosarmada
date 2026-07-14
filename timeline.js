@@ -278,6 +278,7 @@
      mobile to block the whole screen with no way to dismiss it. */
   function closeDetailPanel() {
     detailPanel.classList.remove("is-open");
+    butterflyEl.classList.add("is-hidden");
     activeIndex = -1;
     document
       .querySelectorAll(".timeline-entry.is-active")
@@ -327,8 +328,10 @@
     const bf = entry.butterfly || era.butterfly;
     const usingEntry = !!entry.butterfly;
     const key = usingEntry ? "entry:" + entry.id : "era:" + era.id;
-    if (key === lastButterflyKey) return;
+    const wasHidden = butterflyEl.classList.contains("is-hidden");
+    if (key === lastButterflyKey && !wasHidden) return;
     lastButterflyKey = key;
+    butterflyEl.classList.remove("is-hidden");
     const titleHasYear = usingEntry && entry.title.indexOf(String(entry.year)) !== -1;
     const eyebrowLabel = usingEntry
       ? (titleHasYear ? entry.title : entry.year + " · " + entry.title)

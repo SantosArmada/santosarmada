@@ -322,6 +322,13 @@
   border-radius: 16px;
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
+  transition: opacity 0.25s ease;
+}
+
+/* Hidden by the detail panel's close button; reappears automatically
+   the next time an entry is selected or the track is scrolled. */
+.timeline-butterfly.is-hidden {
+  display: none;
 }
 
 .timeline-butterfly-eyebrow {
