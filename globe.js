@@ -40,6 +40,40 @@ const highlightedCountries = {
     'Japan': '#a64dff'
 };
 
+/* ---------------------------------------------------------
+   Special info-panel content
+   Overrides the generic "Connected Works" placeholder for
+   countries whose real story on this globe is linguistic
+   kinship with Spanish, not (yet) a specific author/work.
+   --------------------------------------------------------- */
+const ROMANCE_LANGUAGE_BODY =
+  "El portugués y el español son primos hermanos: ambos descienden del latín vulgar que trajeron los romanos a la península ibérica, y comparten la misma rama iberorromance del árbol de las lenguas latinas. Su gramática, su vocabulario y hasta su historia colonial corren en paralelo — las dos coronas repartieron el Nuevo Mundo con el Tratado de Tordesillas de 1494, y ambas construyeron imperios con instituciones asombrosamente similares. Son, además, mutuamente inteligibles en un grado poco común entre lenguas distintas: quien habla español puede leer un periódico portugués sin demasiado esfuerzo, y viceversa. La lingüista Ofelia García llama a esto \"translanguaging\" — la idea de que quien habla más de una lengua no guarda sistemas separados en compartimentos estancos, sino un solo repertorio lingüístico del que echa mano según lo necesite. Para quien aprende portugués o español, reconocer ese parentesco no es una distracción: es una herramienta. Cada palabra reconocible en la otra lengua es un puente ya construido.";
+
+const SPECIAL_PANELS = {
+  'Portugal': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
+  'Brazil': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
+  'Angola': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
+  'Mozambique': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
+  'Guinea-Bissau': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
+  'Timor-Leste': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
+
+  'Belgium': {
+    title: 'Entretejidos',
+    body:
+      "El francés y el español son también ramas del mismo árbol latino — primas menos cercanas que el español y el portugués, pero primas al fin. Bélgica entra además en la historia de España de un modo muy concreto: durante casi siglo y medio, bajo los Habsburgo, los actuales territorios belgas formaron parte de la Corona española como los \"Países Bajos españoles\", y Amberes y Bruselas fueron, políticamente, tan españolas como Madrid o Toledo. Esa doble herencia —lingüística y política— es otro hilo más en el tejido de la Europa románica."
+  },
+  'Morocco': {
+    title: 'Entretejidos',
+    body:
+      "Marruecos y España están separados por apenas 14 kilómetros de estrecho, y su historia lingüística lleva siglos entretejida. Durante casi ochocientos años, entre 711 y 1492, el árabe conformó buena parte de Al-Ándalus, y cientos de palabras españolas de uso cotidiano —aceite, almohada, alcalde, ojalá— son herencia directa de esa convivencia. Siglos después, entre 1912 y 1956, el norte de Marruecos fue protectorado español, y el español todavía se habla hoy en ciudades como Tetuán y Larache. Pocas fronteras en el mundo comparten una historia lingüística tan larga y tan recíproca."
+  },
+  'Philippines': {
+    title: 'Entretejidos',
+    body:
+      "Filipinas fue territorio español durante 333 años, de 1565 a 1898 — más tiempo del que España gobernó casi cualquier otra colonia. Esa presencia dejó una huella profunda en las lenguas filipinas: el tagalo y otras lenguas locales conservan cientos de préstamos españoles, desde los números hasta los días de la semana, y en Zamboanga todavía se habla el chabacano, un criollo nacido directamente del contacto entre el español y las lenguas del archipiélago. Hoy el español ya no es lengua oficial, pero su presencia sigue entretejida en el habla diaria de millones de filipinos, muchas veces sin que lo noten."
+  }
+};
+
 const world = Globe()
        (document.getElementById('globeViz'))
        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
@@ -69,7 +103,15 @@ fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
             .polygonAltitude(feat => highlightedCountries[feat.properties.name] ? 0.01 : 0.005)
             .onPolygonClick(feat => {
                 const name = feat.properties.name;
-                if (highlightedCountries[name]) {
+                if (!highlightedCountries[name]) return;
+
+                const special = SPECIAL_PANELS[name];
+                if (special) {
+                    document.getElementById('infoPanel').innerHTML =
+                        '<p class="globe-info-label">' + name + '</p>' +
+                        '<h3 class="globe-info-title">' + special.title + '</h3>' +
+                        '<p class="globe-info-body">' + special.body + '</p>';
+                } else {
                     document.getElementById('infoPanel').innerHTML =
                         '<p class="globe-info-label">' + name + '</p>' +
                         '<h3 class="globe-info-title">Connected Works</h3>' +
@@ -77,6 +119,43 @@ fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
                 }
             });
     });
+
+/* ---------------------------------------------------------
+   Amazon rainforest outline
+   Hand-drawn approximation (not sourced from a precise biome
+   shapefile — this environment has no access to GIS data
+   hosts) tracing the rough extent of the Amazon basin/
+   rainforest across Brazil, Peru, Bolivia, Ecuador, Colombia,
+   Venezuela, Guyana and French Guiana.
+   --------------------------------------------------------- */
+const AMAZON_OUTLINE = [
+    [7.0, -73.0],
+    [8.5, -66.0],
+    [6.5, -60.0],
+    [4.5, -58.0],
+    [2.0, -54.0],
+    [2.5, -51.0],
+    [0.5, -49.5],
+    [-1.5, -48.5],
+    [-3.0, -44.5],
+    [-7.0, -46.0],
+    [-10.0, -50.0],
+    [-13.0, -56.0],
+    [-15.5, -60.0],
+    [-16.0, -65.0],
+    [-13.0, -69.0],
+    [-10.5, -73.5],
+    [-6.0, -76.0],
+    [-3.5, -78.0],
+    [0.5, -77.0],
+    [2.5, -75.5],
+    [7.0, -73.0]
+];
+
+world
+    .pathsData([AMAZON_OUTLINE])
+    .pathColor(() => '#ff2b2b')
+    .pathStroke(0.6);
 
 world.controls().autoRotate = true;
 world.controls().autoRotateSpeed = 0.4;
