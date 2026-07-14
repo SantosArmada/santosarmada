@@ -236,6 +236,10 @@ const world = Globe()
        .showAtmosphere(true)
        .atmosphereColor('#4da6ff')
        .atmosphereAltitude(0.18)
+       .ringColor(() => '#c8a96e')
+       .ringMaxRadius(22)
+       .ringPropagationSpeed(9)
+       .ringRepeatPeriod(0)
        .width(window.innerWidth)
        .height(window.innerHeight);
 
@@ -385,6 +389,9 @@ window.focusGlobeOnCountry = function (countryName) {
     if (!center) return false;
     world.controls().autoRotate = false;
     world.pointOfView({ lat: center.lat, lng: center.lng, altitude: 1.7 }, 1200);
+    // Fresh array/object each call so the ring re-triggers even when
+    // clicking the same country's entries back to back.
+    world.ringsData([{ lat: center.lat, lng: center.lng }]);
     return true;
 };
 

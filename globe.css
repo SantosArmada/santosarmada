@@ -48,12 +48,18 @@
 }
 
 /* ---- Orbiting moon (decorative + clickable) ----
-   Same "child pinned to top of a rotating parent" trick as the
-   original build, restyled: no external hotlinked planet/moon
-   images (unreliable third-party host, and a flat 2D planet image
-   would just double up on the real 3D globe underneath it) — the
-   moon itself is a plain CSS sphere in the site's palette. */
+   Faithfully ported from the original build's exact recipe (same
+   350px orbit ring, same margin trick that gives the moon its
+   trajectory, same animation timing -- $gravitation-constant(3) *
+   $t(1.92) = 5.76s). Only change: moon doubled in size (120px ->
+   240px, margin -50px -> -100px to match), and the external
+   hotlinked planet/moon images swapped for a plain CSS sphere so it
+   doesn't depend on a random third-party host and doesn't duplicate
+   the real 3D globe underneath with a flat "planet" image. */
 .moon-orbit-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
     position: absolute;
     top: 0;
     left: 0;
@@ -61,63 +67,48 @@
     height: 100vh;
     height: 100dvh;
     z-index: 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     pointer-events: none;
 }
 
 .moon-orbit {
-    position: relative;
-    width: 380px;
-    height: 380px;
-    animation: moon-orbit-spin 42s linear infinite;
+    width: 350px;
+    height: 350px;
+    border: 1px solid rgba(255, 255, 255, 0);
+    position: absolute;
+    border-radius: 100%;
+    margin: 75px 0px;
+    animation: moon-orbit-spin 5.76s linear infinite;
 }
 
 .moon {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 30px;
-    height: 30px;
-    margin: 0 0 0 -15px;
-    padding: 0;
+    width: 240px;
+    height: 240px;
+    margin: -100px;
+    border-radius: 100%;
     border: none;
-    border-radius: 50%;
+    padding: 0;
     background: radial-gradient(circle at 35% 30%, #f5f2ea 0%, #d8d2c4 45%, #9a9488 100%);
     box-shadow: 0 0 14px 3px rgba(240, 234, 216, 0.35);
     cursor: pointer;
     pointer-events: auto;
-    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    transition: box-shadow 0.25s ease;
 }
 
 .moon:hover,
 .moon:focus-visible {
     box-shadow: 0 0 22px 6px rgba(240, 234, 216, 0.55);
-    transform: scale(1.15);
     outline: none;
 }
 
 @keyframes moon-orbit-spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .moon-orbit {
         animation: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .moon-orbit {
-        width: 240px;
-        height: 240px;
-    }
-    .moon {
-        width: 22px;
-        height: 22px;
-        margin-left: -11px;
     }
 }
 
