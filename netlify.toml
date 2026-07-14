@@ -1,0 +1,22 @@
+# Site-wide rate limiting.
+#
+# Why this exists: bots/crawlers were repeatedly hammering the site
+# (including old per-deploy preview URLs), driving up bandwidth usage.
+# This rule caps how many requests any single visitor (by IP) can make
+# per minute across the whole site. Real readers browsing pages will
+# never come close to this limit — it's aimed at automated traffic.
+#
+# `status = 200` makes this a rewrite (passthrough), not a real redirect:
+# the URL in the visitor's browser never changes and every path is served
+# exactly as it normally would be. The only effect is the rate limit
+# attached below.
+[[redirects]]
+  from = "/*"
+  to = "/:splat"
+  status = 200
+
+  [redirects.rate_limit]
+    # Block a visitor after 100 requests in a 60-second window.
+    window_limit = 100
+    window_size = 60
+    aggregate_by = ["ip", "domain"]
