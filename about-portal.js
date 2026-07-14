@@ -13,7 +13,7 @@
   const mount = document.getElementById("about-portal-canvas");
   if (!mount || typeof THREE === "undefined") return;
 
-  // ---- Palette pulled from the about-portal.png mosaic art ----
+  // ---- Palette pulled from the about-portal.jpg mosaic art ----
   const PALETTE = {
     bg: 0x05060c,
     gold: 0xd9a441,
