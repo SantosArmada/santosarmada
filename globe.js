@@ -37,7 +37,8 @@ const highlightedCountries = {
     'Belize': '#4da6ff',
     'Jamaica': '#4da6ff',
     'India': '#4da6ff',
-    'Japan': '#a64dff'
+    'Japan': '#a64dff',
+    'Antarctica': '#faff00'
 };
 
 /* ---------------------------------------------------------
@@ -50,7 +51,11 @@ const ROMANCE_LANGUAGE_BODY =
   "El portugués y el español son primos hermanos: ambos descienden del latín vulgar que trajeron los romanos a la península ibérica, y comparten la misma rama iberorromance del árbol de las lenguas latinas. Su gramática, su vocabulario y hasta su historia colonial corren en paralelo — las dos coronas repartieron el Nuevo Mundo con el Tratado de Tordesillas de 1494, y ambas construyeron imperios con instituciones asombrosamente similares. Son, además, mutuamente inteligibles en un grado poco común entre lenguas distintas: quien habla español puede leer un periódico portugués sin demasiado esfuerzo, y viceversa. La lingüista Ofelia García llama a esto \"translanguaging\" — la idea de que quien habla más de una lengua no guarda sistemas separados en compartimentos estancos, sino un solo repertorio lingüístico del que echa mano según lo necesite. Para quien aprende portugués o español, reconocer ese parentesco no es una distracción: es una herramienta. Cada palabra reconocible en la otra lengua es un puente ya construido.";
 
 const SPECIAL_PANELS = {
-  'Portugal': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
+  'Portugal': {
+    title: 'Connected Works',
+    body:
+      "\"La flor de la playa\" (Carmen de Burgos, 1920) — Enrique y su amante deciden pasar su escapada de verano precisamente en Portugal: un viaje corto, \"tan corto como ir a un pueblo de España\", pero ya al extranjero, a \"una nación más libre\" donde podían vivir juntos sin la vigilancia de las patronas españolas y ella podía hacerse pasar por su esposa."
+  },
   'Brazil': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
   'Angola': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
   'Mozambique': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
@@ -155,7 +160,8 @@ const AMAZON_OUTLINE = [
 world
     .pathsData([AMAZON_OUTLINE])
     .pathColor(() => '#ff2b2b')
-    .pathStroke(0.6);
+    .pathStroke(1.6)
+    .pathPointAlt(() => 0.03);
 
 world.controls().autoRotate = true;
 world.controls().autoRotateSpeed = 0.4;

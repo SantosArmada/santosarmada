@@ -42,7 +42,8 @@
     'Belize': '#4da6ff',
     'Jamaica': '#4da6ff',
     'India': '#4da6ff',
-    'Japan': '#a64dff'
+    'Japan': '#a64dff',
+    'Antarctica': '#faff00'
   };
 
   let started = false;

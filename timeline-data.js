@@ -618,7 +618,7 @@ const TIMELINE_ENTRIES = [
     flag: "spain-not-latam",
     type: ICON_TYPE.LITERATURE,
     description:
-      "Carmen de Burgos, pionera del periodismo y del feminismo español firmando como 'Colombine', publicó esta novela corta en 1920 dentro de la colección La Novela Corta. Ambientada en un pueblo costero donde el romance de temporada se cruza con las restricciones reales que enfrentaban las mujeres de la época, desliza su crítica constante a un mundo que exigía elegir entre el deseo y la respetabilidad.",
+      "Carmen de Burgos, pionera del periodismo y del feminismo español firmando como 'Colombine', publicó esta novela corta en 1920 dentro de la colección La Novela Corta. Enrique y su amante, buscando escapar de la vigilancia y el chismorreo de las patronas españolas, deciden pasar su escapada de verano en una playa modesta de Portugal — un viaje corto pero ya al extranjero, a 'una nación más libre' donde ella podría hacerse pasar por su esposa. Bajo esa premisa de fuga, la novela desliza su crítica constante a un mundo que exigía elegir entre el deseo y la respetabilidad.",
     butterfly: {
       prompt: "¿Qué hubiera pasado si Carmen de Burgos hubiera firmado esta novela con su propio nombre y no como \"Colombine\"?",
       answer:
