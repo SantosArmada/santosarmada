@@ -86,15 +86,19 @@
   opacity: 0.55;
 }
 
-/* Era label printed directly on its band */
+/* Era label — sits above the spine/entry points, near the top of the
+   track, underlined in the era's own color so it reads as a header
+   for that stretch of track rather than a caption on the band. */
 .timeline-era-label {
   position: absolute;
-  top: 106px;
+  top: 12px;
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
   white-space: nowrap;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent; /* color set inline per era */
 }
 
 /* Main horizontal line */

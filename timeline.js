@@ -131,6 +131,7 @@
     const labelEl = document.createElement("div");
     labelEl.className = "timeline-era-label";
     labelEl.style.left = era.trackStartX + 12 + "px";
+    labelEl.style.borderBottomColor = era.color;
     labelEl.textContent = era.label;
     track.appendChild(labelEl);
   });
