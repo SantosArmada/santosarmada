@@ -1003,6 +1003,24 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "ayotzinapa-iguala-2014",
+    year: 2014,
+    title: "26 de septiembre de 2014: la desaparición de los 43 de Ayotzinapa",
+    author: "Hito histórico",
+    country: "México",
+    region: "Iguala, Guerrero",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "En la noche del 26 de septiembre de 2014, estudiantes de la Escuela Normal Rural de Ayotzinapa son interceptados por policías municipales de Iguala y Cocula cuando viajaban a conseguir autobuses rumbo a la marcha conmemorativa de Tlatelolco en la Ciudad de México. En una serie de ataques coordinados que se prolongan por horas, 43 estudiantes son desaparecidos por la fuerza; la investigación oficial concluye que fueron entregados a la organización criminal Guerreros Unidos. Una década después, solo tres de los 43 han sido identificados con certeza, y el caso sigue abierto como uno de los episodios de violencia estatal y crimen organizado más documentados de México.",
+    sensitive: true,
+    anchor: true,
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si la policía de Iguala no hubiera interceptado a los estudiantes esa noche?",
+      answer:
+        "Los 43 habrían llegado a la marcha del 2 de octubre en la Ciudad de México como una generación más de normalistas exigiendo transporte y educación rural, sin volverse ellos mismos el símbolo. En cambio, Ayotzinapa se convirtió en la prueba más citada de cuán profundamente entrelazados pueden estar el Estado, la policía municipal y el crimen organizado en México — una lección que el país sigue pagando una década después."
+    }
+  },
+  {
     id: "invencible-verano",
     year: 2021,
     title: "El invencible verano de Liliana",
