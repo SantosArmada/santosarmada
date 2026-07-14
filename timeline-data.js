@@ -720,7 +720,7 @@ const TIMELINE_ENTRIES = [
     id: "sendas-de-oku-1957",
     year: 1957,
     title: "Sendas de Oku",
-    author: "Matsuo Bashō (trad. Octavio Paz y Eikichi Hayashiya)",
+    author: "Octavio Paz (traducción, con Eikichi Hayashiya, de Matsuo Bashō)",
     country: "Japón",
     type: ICON_TYPE.LITERATURE,
     description:

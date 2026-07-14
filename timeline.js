@@ -384,4 +384,15 @@
   /* ---------- Initial state ---------- */
   updateHeader(MIN_YEAR);
   updateButterfly(MIN_YEAR);
+
+  /* ---------- External hook (used by the globe's Connected Works) ----------
+     Lets other scripts (globe.js) jump straight to a specific entry by
+     id: scrolls it into view on the track, opens its detail panel, and
+     shows its own Efecto Mariposa card — same as clicking it directly. */
+  window.selectTimelineEntryById = function (id) {
+    const idx = entries.findIndex((e) => e.id === id);
+    if (idx === -1) return false;
+    selectEntry(idx);
+    return true;
+  };
 })();

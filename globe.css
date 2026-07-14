@@ -348,8 +348,18 @@
 }
 
 .globe-info-work {
-    padding: 9px 0;
+    padding: 9px 4px;
+    margin: 0 -4px;
     border-bottom: 1px solid rgba(200, 169, 110, 0.15);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.18s ease;
+}
+
+.globe-info-work:hover,
+.globe-info-work:focus-visible {
+    background: rgba(200, 169, 110, 0.1);
+    outline: none;
 }
 
 .globe-info-work:last-child {

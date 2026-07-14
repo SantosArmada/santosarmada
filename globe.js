@@ -157,12 +157,28 @@ function renderWorksList(works) {
             ? escapeHtmlGlobe(w.year) + '–' + escapeHtmlGlobe(w.endYear)
             : escapeHtmlGlobe(w.year);
         return (
-            '<li class="globe-info-work">' +
+            '<li class="globe-info-work" data-id="' + escapeHtmlGlobe(w.id) + '" tabindex="0" role="button">' +
             '<p class="globe-info-work-title">' + escapeHtmlGlobe(w.title) + '</p>' +
             '<p class="globe-info-work-meta">' + escapeHtmlGlobe(w.author) + ' · ' + yearLabel + '</p>' +
             '</li>'
         );
     }).join('');
+}
+
+/* Jump from a Connected Works list item to its actual point on the
+   timeline below: scroll the page down to the timeline section, then
+   (once that scroll is underway) select the entry so its detail panel
+   and Efecto Mariposa card open, same as clicking it directly there. */
+function goToTimelineEntry(id) {
+    const section = document.querySelector('.timeline-section');
+    if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+    setTimeout(function () {
+        if (typeof window.selectTimelineEntryById === 'function') {
+            window.selectTimelineEntryById(id);
+        }
+    }, 550);
 }
 
 const infoPanelEl = document.getElementById('infoPanel');
@@ -172,6 +188,21 @@ const infoCloseEl = document.getElementById('globeInfoClose');
 if (infoCloseEl) {
     infoCloseEl.addEventListener('click', function () {
         infoPanelEl.classList.add('is-hidden');
+    });
+}
+
+if (infoContentEl) {
+    infoContentEl.addEventListener('click', function (e) {
+        const workEl = e.target.closest('.globe-info-work[data-id]');
+        if (!workEl) return;
+        goToTimelineEntry(workEl.getAttribute('data-id'));
+    });
+    infoContentEl.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter' && e.key !== ' ') return;
+        const workEl = e.target.closest('.globe-info-work[data-id]');
+        if (!workEl) return;
+        e.preventDefault();
+        goToTimelineEntry(workEl.getAttribute('data-id'));
     });
 }
 
