@@ -241,8 +241,12 @@ if (moonMarkerEl) {
        if the wrap needs to run wider than a phone screen to look
        convincing, that's fine; it's not being shrunk to fit. */
     const ORBIT_PERIOD_S = 6.5;
-    const ORBIT_RADIUS_X = 260;
-    const ORBIT_RADIUS_Y = 95;
+    // Widened 1.8x, same aspect ratio as before (260:95 -> 468:171)
+    // so the ellipse's proportions -- and therefore how convincingly
+    // it reads as a tilted circular orbit -- don't change, just its
+    // overall scale.
+    const ORBIT_RADIUS_X = 468;
+    const ORBIT_RADIUS_Y = 171;
     const reduceMotionQuery = window.matchMedia
         ? window.matchMedia('(prefers-reduced-motion: reduce)')
         : null;
