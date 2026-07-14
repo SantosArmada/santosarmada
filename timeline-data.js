@@ -732,6 +732,19 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.LITERATURE,
     description: "Narrativa doble entre la poeta Julia de Burgos y una escritora contemporánea."
   },
+  {
+    id: "santos-armada-fundacion-2025",
+    year: 2025,
+    title: "2025: nace Santos Armada",
+    author: "Christian Ricardo Santos",
+    country: "Estados Unidos",
+    region: "Los Ángeles, California",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "En Los Ángeles, California, Christian Ricardo Santos funda Santos Armada: un proyecto digital que tiende puentes entre la novela en español y la historia latinoamericana que la rodea. No es solo una biblioteca de reseñas, sino un intento de traducción en el sentido más amplio — de idioma, de tiempo, de memoria — llevando siglos de literatura a un lector contemporáneo a través de líneas de tiempo interactivas, mapas y mundos narrativos en 3D. El sitio nace de una convicción simple: que ningún libro se entiende del todo fuera del momento histórico que lo produjo.",
+    anchor: true,
+    personalNote: "El proyecto que reúne todo lo demás en esta línea de tiempo — y el que más me ha enseñado sobre por qué leo lo que leo."
+  },
 
   // ---- ARTE — pintores de España y Latinoamérica ----
   // Añadidos a partir del inventario de obras que aparecen en el mundo
