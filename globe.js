@@ -76,6 +76,22 @@ const SPECIAL_PANELS = {
     title: 'Entretejidos',
     body:
       "Filipinas fue territorio español durante 333 años, de 1565 a 1898 — más tiempo del que España gobernó casi cualquier otra colonia. Esa presencia dejó una huella profunda en las lenguas filipinas: el tagalo y otras lenguas locales conservan cientos de préstamos españoles, desde los números hasta los días de la semana, y en Zamboanga todavía se habla el chabacano, un criollo nacido directamente del contacto entre el español y las lenguas del archipiélago. Hoy el español ya no es lengua oficial, pero su presencia sigue entretejida en el habla diaria de millones de filipinos, muchas veces sin que lo noten."
+  },
+
+  'India': {
+    title: 'Colonized',
+    body:
+      "Doscientos años de dominio británico —desde la Compañía Británica de las Indias Orientales hasta el Raj, hasta la independencia en 1947— dejaron al inglés como lengua de la ley, la administración y la educación superior india, un rol que nunca abandonó. En un país con veintidós lenguas oficiales y cientos más, el inglés se convirtió en el idioma que conecta a Bombay con Calcuta, a Delhi con Bangalore. Esa ventaja resultó decisiva tras la liberalización económica de 1991: India se volvió la capital mundial del outsourcing y los servicios de TI —call centers, desarrollo de software, soporte técnico— precisamente por contar con la fuerza laboral angloparlante más grande fuera del mundo angloparlante nativo. Empresas como Infosys, TCS y Wipro construyeron imperios enteros sobre esa herencia colonial reconvertida en ventaja competitiva. El inglés en India no es solo un idioma: es infraestructura económica."
+  },
+  'Belize': {
+    title: 'Colonized',
+    body:
+      "Belice —la antigua Honduras Británica— es el único país de Centroamérica donde el inglés es lengua oficial, herencia directa de una colonización que terminó apenas en 1981. Pocas historias ilustran esa doble identidad angloparlante y caribeña como la de Jamal Michael Barrow, nacido en Belize City. De niño emigró con su familia a Brooklyn, y bajo el nombre de Shyne se convirtió en una de las promesas del hip hop neoyorquino, firmado por Bad Boy Records de Diddy a fines de los noventa. Un tiroteo en un club de Manhattan en 1999 lo llevó a prisión casi una década; al no tener ciudadanía estadounidense, fue deportado a Belice al salir. Ahí reconstruyó su vida en la política: electo diputado en 2020, llegó a ser Líder de la Oposición y jefe del Partido Democrático Unido, antes de perder la reelección en marzo de 2025. De Bad Boy Records a la Cámara de Representantes de Belice — el inglés fue el hilo que conectó ambos mundos."
+  },
+  'Jamaica': {
+    title: 'Colonized',
+    body:
+      "Jamaica fue colonia británica durante más de tres siglos, hasta 1962, y de esa herencia angloparlante surgió Bob Marley, quien llevó el reggae y la filosofía rastafari de Kingston al mundo entero cantando en inglés. Canciones como 'One Love' o 'No Woman, No Cry' convirtieron a una isla de menos de tres millones de habitantes en una potencia cultural global, y su influencia sigue viva hoy en el hip hop, el reguetón y la música de protesta en todo el planeta. Pero Jamaica ya era un cruce de caminos histórico mucho antes de Marley: el 6 de septiembre de 1815, exiliado en Kingston tras la caída de la Segunda República de Venezuela, Simón Bolívar escribió ahí la Carta de Jamaica, dirigida al comerciante inglés Henry Cullen — el documento fundacional del pensamiento independentista latinoamericano, redactado en español sobre suelo colonizado por Inglaterra, precisamente porque esa colonia británica era uno de los pocos refugios seguros frente a las fuerzas realistas españolas."
   }
 };
 

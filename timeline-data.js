@@ -481,6 +481,23 @@ const TIMELINE_ENTRIES = [
 
   // ---- INDEPENDENCE / 19th c ----
   {
+    id: "carta-de-jamaica-1815",
+    year: 1815,
+    title: "Carta de Jamaica",
+    author: "Simón Bolívar",
+    country: "Jamaica",
+    region: "Kingston",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Exiliado en Kingston tras la caída de la Segunda República de Venezuela, Simón Bolívar dicta esta carta el 6 de septiembre de 1815 en respuesta a Henry Cullen, un comerciante inglés radicado en Jamaica. Publicada bajo el título 'Contestación de un Americano Meridional a un caballero de esta isla', expone las causas del fracaso independentista hasta ese momento y esboza su visión política para las futuras repúblicas americanas — dirigida, en el fondo, tanto a Cullen como a Gran Bretaña misma, cuya intervención buscaba ganar para la causa. Escrita en español sobre suelo de una colonia británica, es uno de los documentos fundacionales del pensamiento independentista latinoamericano.",
+    anchor: true,
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Jamaica no hubiera sido colonia británica en 1815?",
+      answer:
+        "Bolívar no habría tenido dónde refugiarse tras la caída de la Segunda República: Jamaica era, precisamente por estar bajo control británico y no español, uno de los pocos puertos seguros frente a las fuerzas realistas. Sin ese refugio inglés en tierra caribeña, la Carta de Jamaica —y buena parte de la estrategia diplomática que Bolívar tejió después con Gran Bretaña— simplemente no habría existido."
+    }
+  },
+  {
     id: "benito-juarez-bio",
     year: 1906,
     title: "Benito Juárez: su vida, su obra",
