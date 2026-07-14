@@ -91,14 +91,14 @@
    for that stretch of track rather than a caption on the band. */
 .timeline-era-label {
   position: absolute;
-  top: 12px;
-  font-size: 10px;
+  top: 10px;
+  font-size: 20px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--text-muted);
   white-space: nowrap;
-  padding-bottom: 5px;
-  border-bottom: 2px solid transparent; /* color set inline per era */
+  padding-bottom: 10px;
+  border-bottom: 4px solid transparent; /* color set inline per era */
 }
 
 /* Main horizontal line */
