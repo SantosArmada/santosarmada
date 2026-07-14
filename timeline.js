@@ -69,9 +69,12 @@
       </div>
     </div>
     <div class="timeline-detail-panel" id="timelineDetailPanel">
-      <p class="timeline-detail-label">Selecciona una obra</p>
-      <h3 class="timeline-detail-title">Explora la línea de tiempo</h3>
-      <p class="timeline-detail-body">Cada punto conecta una obra con su momento histórico.</p>
+      <button class="timeline-detail-close" id="timelineDetailClose" type="button" aria-label="Cerrar">&times;</button>
+      <div class="timeline-detail-content" id="timelineDetailContent">
+        <p class="timeline-detail-label">Selecciona una obra</p>
+        <h3 class="timeline-detail-title">Explora la línea de tiempo</h3>
+        <p class="timeline-detail-body">Cada punto conecta una obra con su momento histórico.</p>
+      </div>
     </div>
     <div class="timeline-butterfly" id="timelineButterfly" aria-live="polite"></div>
   `;
@@ -81,6 +84,8 @@
   const headerEra = document.getElementById("timelineHeaderEra");
   const headerYear = document.getElementById("timelineHeaderYear");
   const detailPanel = document.getElementById("timelineDetailPanel");
+  const detailContent = document.getElementById("timelineDetailContent");
+  const detailClose = document.getElementById("timelineDetailClose");
   const butterflyEl = document.getElementById("timelineButterfly");
 
   /* ---------- Scale helpers (piecewise) ---------- */
@@ -253,7 +258,7 @@
          </div>`
       : "";
 
-    detailPanel.innerHTML = `
+    detailContent.innerHTML = `
       <p class="timeline-detail-label">${escapeHtml(entry.region || entry.country)} · ${yearLabel}</p>
       <h3 class="timeline-detail-title">${escapeHtml(entry.title)}</h3>
       <p class="timeline-detail-meta">${escapeHtml(entry.author)}</p>
@@ -267,6 +272,19 @@
     updateHeader(entry.year);
     updateButterfly(entry.year, entry);
   }
+
+  /* ---------- Close button ----------
+     Without this, the fixed-position panel can grow tall enough on
+     mobile to block the whole screen with no way to dismiss it. */
+  function closeDetailPanel() {
+    detailPanel.classList.remove("is-open");
+    activeIndex = -1;
+    document
+      .querySelectorAll(".timeline-entry.is-active")
+      .forEach((n) => n.classList.remove("is-active"));
+  }
+
+  detailClose.addEventListener("click", closeDetailPanel);
 
   function scrollEntryIntoView(idx) {
     const entry = entries[idx];

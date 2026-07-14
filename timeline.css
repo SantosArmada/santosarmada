@@ -191,6 +191,38 @@
   transform: translateY(0);
 }
 
+.timeline-detail-content {
+  padding-right: 22px;
+}
+
+/* Close button — always pinned top-right regardless of content length,
+   so the panel can never trap the user with no way out on mobile. */
+.timeline-detail-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.timeline-detail-close:hover,
+.timeline-detail-close:focus-visible {
+  background: rgba(200, 169, 110, 0.22);
+  color: var(--text-main);
+  outline: none;
+}
+
 .timeline-detail-label {
   font-size: 11px;
   letter-spacing: 0.1em;
@@ -343,6 +375,9 @@
     right: 16px;
     bottom: 16px;
     max-width: none;
+    max-height: 65vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .timeline-butterfly {
     margin: 30px 16px 0;
