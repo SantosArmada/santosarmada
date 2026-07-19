@@ -291,3 +291,19 @@
 .footer-logo-link:hover .footer-logo{
     filter: brightness(0);
 }
+
+/* --- Nav logo hover state (matches footer hover) --- */
+.about-page .nav-title{
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+.about-page .nav-logo:hover .nav-title{
+    color:#000;
+    text-decoration:underline;
+}
+
+.about-page .nav-crest{
+    transition: filter 0.2s ease;
+}
+.about-page .nav-logo:hover .nav-crest{
+    filter: brightness(0);
+}
