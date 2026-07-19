@@ -27,6 +27,11 @@
     font-family: 'Georgia', serif;
     color: var(--text-main);
     background: #04060a;
+    /* Safety net: without this, off-screen decorative elements (the
+       moon's wide orbit swing, etc.) can silently widen the page's
+       layout viewport on mobile, throwing off every 100vw/fixed-
+       position element on the page. */
+    overflow-x: hidden;
     /* overflow-y: auto removed — having body establish its own scroll
        container is exactly what made the position:fixed title band
        (.space-time-title-band below) scroll away with the page instead
@@ -37,6 +42,14 @@
     padding-bottom: var(--space-time-banner-h);
 }
 
+/* Height is capped lower on narrow viewports (see the max-width:768px
+   override below) so the canvas doesn't claim the *entire* first
+   screen on mobile -- leaving a strip of plain, normally-scrollable
+   background beneath it so a visitor's first swipe scrolls the page
+   instead of getting captured as a globe-rotate gesture. globe.js's
+   resize handling mirrors this exact breakpoint/height so the WebGL
+   canvas's internal render resolution always matches its CSS box
+   size (see GLOBE_MOBILE_HEIGHT_VH in globe.js). */
 #globeViz {
     position: absolute;
     top: 0;
@@ -55,11 +68,13 @@
    toggles z-index/scale/opacity by which half of the loop it's in,
    so it wraps convincingly around the sphere from the viewer's
    side. Size (240px) and per-lap speed (6.5s) carried over as-is
-   from the flat version; the orbit radius is intentionally NOT
-   shrunk on mobile -- if the wrap needs more room to read as
-   realistic than a small screen can fully contain, letting part of
-   the path run off-screen is the right tradeoff. This wrapper
-   deliberately has no z-index of its own, so .moon's z-index
+   from the flat version; the orbit radius DOES now scale down on
+   narrow viewports (see getOrbitRadiusX in globe.js) so the moon
+   stays visible instead of spending most of its lap swung off both
+   edges. This wrapper's height is kept in lockstep with #globeViz
+   (see the mobile override below) so the moon's orbit center stays
+   aligned with the visually-shrunk globe's center on mobile. This
+   wrapper deliberately has no z-index of its own, so .moon's z-index
    compares directly against #globeViz's (z-index: 1) instead of
    being trapped in its own stacking context above/below it. */
 .moon-orbit-wrapper {
@@ -70,6 +85,14 @@
     height: 100vh;
     height: 100dvh;
     pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    #globeViz,
+    .moon-orbit-wrapper {
+        height: 80vh;
+        height: 80dvh;
+    }
 }
 
 /* The moon itself: no image, all CSS. Layered bottom-to-top as:
@@ -158,7 +181,7 @@
     display: block;
     font-family: "Playfair Display", serif;
     font-weight: 400;
-    font-size: clamp(45px, 8vw, 96px);
+    font-size: clamp(30px, 9vw, 96px);
     letter-spacing: 0.12em;
     color: var(--gold-light);
     text-align: center;

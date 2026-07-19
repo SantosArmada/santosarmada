@@ -237,19 +237,27 @@ if (moonMarkerEl) {
        (z-index: 1) so the sphere occludes it there, plus a
        scale/opacity dip as a depth cue; the "near" half gets a
        higher z-index and full size, passing in front. Speed (6.5s
-       per lap) and radius are fixed for every viewport on purpose --
-       if the wrap needs to run wider than a phone screen to look
-       convincing, that's fine; it's not being shrunk to fit. */
+       per lap) is fixed for every viewport. Radius is capped by
+       viewport width (see getOrbitRadiusX below) so the moon still
+       reads as visible on a phone-width screen instead of spending
+       most of its lap swung off both edges. */
     const ORBIT_PERIOD_S = 6.5;
     // Widened 1.8x, same aspect ratio as before (260:95 -> 468:171)
     // so the ellipse's proportions -- and therefore how convincingly
     // it reads as a tilted circular orbit -- don't change, just its
-    // overall scale.
-    const ORBIT_RADIUS_X = 468;
-    const ORBIT_RADIUS_Y = 171;
+    // overall scale. These are the desktop/wide-viewport maximums.
+    const ORBIT_RADIUS_X_MAX = 468;
+    const ORBIT_RADIUS_Y_MAX = 171;
+    const ORBIT_ASPECT = ORBIT_RADIUS_Y_MAX / ORBIT_RADIUS_X_MAX;
     const reduceMotionQuery = window.matchMedia
         ? window.matchMedia('(prefers-reduced-motion: reduce)')
         : null;
+
+    // Scales down toward narrow viewports, capped at the desktop max;
+    // window.innerWidth is cheap to read every frame (no reflow).
+    function getOrbitRadiusX() {
+        return Math.min(ORBIT_RADIUS_X_MAX, window.innerWidth * 0.4);
+    }
 
     let angle = 0;
     let lastFrameTime = null;
@@ -265,15 +273,17 @@ if (moonMarkerEl) {
             angle += (2 * Math.PI / ORBIT_PERIOD_S) * dtSeconds;
         }
 
-        const x = Math.cos(angle) * ORBIT_RADIUS_X;
-        const y = Math.sin(angle) * ORBIT_RADIUS_Y;
+        const orbitRadiusX = getOrbitRadiusX();
+        const orbitRadiusY = orbitRadiusX * ORBIT_ASPECT;
+        const x = Math.cos(angle) * orbitRadiusX;
+        const y = Math.sin(angle) * orbitRadiusY;
 
         // Depth as a continuous 0 (farthest/top) -> 1 (nearest/bottom)
         // factor instead of a hard behind/in-front switch, so scale and
         // opacity ease across the whole orbit rather than snapping at
         // the midpoint -- that snap (particularly on scale, which has
         // no CSS transition) was the main source of the choppy look.
-        const depthFactor = (y / ORBIT_RADIUS_Y + 1) / 2;
+        const depthFactor = (y / orbitRadiusY + 1) / 2;
         const depthScale = 0.6 + depthFactor * 0.4;
         const depthOpacity = 0.5 + depthFactor * 0.5;
 
@@ -296,6 +306,19 @@ if (moonMarkerEl) {
     requestAnimationFrame(orbitTick);
 }
 
+/* Mirrors the #globeViz / .moon-orbit-wrapper max-width:768px CSS
+   override in globe.css exactly (80vh there, 0.8 here) -- keeping the
+   WebGL canvas's actual render resolution in sync with its CSS box
+   size so it doesn't stretch or crop on mobile. */
+const GLOBE_MOBILE_BREAKPOINT_PX = 768;
+const GLOBE_MOBILE_HEIGHT_FRACTION = 0.8;
+
+function getGlobeHeight() {
+    return window.innerWidth <= GLOBE_MOBILE_BREAKPOINT_PX
+        ? window.innerHeight * GLOBE_MOBILE_HEIGHT_FRACTION
+        : window.innerHeight;
+}
+
 const world = Globe()
        (document.getElementById('globeViz'))
        .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
@@ -308,7 +331,7 @@ const world = Globe()
        .ringPropagationSpeed(9)
        .ringRepeatPeriod(0)
        .width(window.innerWidth)
-       .height(window.innerHeight);
+       .height(getGlobeHeight());
 
 fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
     .then(res => res.json())
@@ -499,7 +522,7 @@ window.focusGlobeOnRegion = function (regionName, countryName) {
 
 window.addEventListener('resize', () => {
     world.width(window.innerWidth);
-    world.height(window.innerHeight);
+    world.height(getGlobeHeight());
 });
 
 const ZOOM_ZONE_WIDTH_FRACTION = 0.5;
