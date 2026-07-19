@@ -400,11 +400,17 @@ world
    North Pole marker — small dot, same neon yellow as
    Antarctica. Longitude is meaningless exactly at the pole,
    so 0 is as good as any.
+
+   Shares the same pointsData layer with the region "blip" dot
+   (see focusGlobeOnRegion below), so both are tagged with a
+   `kind` field and styled per-kind via accessor functions.
    --------------------------------------------------------- */
+const POLE_POINT = { lat: 90, lng: 0, kind: 'pole' };
+
 world
-    .pointsData([{ lat: 90, lng: 0 }])
-    .pointColor(() => '#faff00')
-    .pointRadius(0.3)
+    .pointsData([POLE_POINT])
+    .pointColor((d) => (d.kind === 'region' ? '#c8a96e' : '#faff00'))
+    .pointRadius((d) => (d.kind === 'region' ? 0.45 : 0.3))
     .pointAltitude(0.02);
 
 world.controls().autoRotate = true;
@@ -439,14 +445,61 @@ const COUNTRY_CENTER = {
     'Japón': { lat: 36.2, lng: 138.3 }
 };
 
-window.focusGlobeOnCountry = function (countryName) {
-    const center = COUNTRY_CENTER[countryName];
+/* City/region-level centroids, keyed by timeline-data.js's `region`
+   field exactly. Covers every distinct region value in use as of
+   this writing. Approximate by eye, same spirit as COUNTRY_CENTER. */
+const REGION_CENTER = {
+    'Almería': { lat: 36.83, lng: -2.46 },
+    'Barcelona': { lat: 41.39, lng: 2.17 },
+    'Bilbao': { lat: 43.26, lng: -2.94 },
+    'Cádiz': { lat: 36.53, lng: -6.30 },
+    'Córdoba': { lat: 37.89, lng: -4.78 },
+    'Figueres': { lat: 42.27, lng: 2.96 },
+    'Guadalajara': { lat: 40.63, lng: -3.17 },
+    'Iguala, Guerrero': { lat: 18.35, lng: -99.54 },
+    'Kingston': { lat: 17.97, lng: -76.79 },
+    'La Rioja': { lat: 42.47, lng: -2.45 },
+    'Los Ángeles, California': { lat: 34.05, lng: -118.24 },
+    'Madrid': { lat: 40.42, lng: -3.70 },
+    'Málaga': { lat: 36.72, lng: -4.42 },
+    'Santiago de Compostela': { lat: 42.88, lng: -8.54 },
+    'Sevilla': { lat: 37.39, lng: -5.99 },
+    'Soria': { lat: 41.76, lng: -2.47 },
+    'Tlatelolco, Ciudad de México': { lat: 19.44, lng: -99.14 },
+    'Toledo': { lat: 39.86, lng: -4.02 },
+    'Valencia': { lat: 39.47, lng: -0.38 },
+    'San José Villanueva': { lat: 13.56, lng: -89.26 },
+    'Zaragoza': { lat: 41.65, lng: -0.88 }
+};
+
+let regionBlipTimeoutId = null;
+const regionBlipSound = new Audio('sounds/positive-blip-effect.wav');
+
+window.focusGlobeOnRegion = function (regionName, countryName) {
+    // Prefer the precise city/region centroid; fall back to the
+    // country-level centroid for entries with no region-specific entry.
+    const center = REGION_CENTER[regionName] || COUNTRY_CENTER[countryName];
     if (!center) return false;
     world.controls().autoRotate = false;
     world.pointOfView({ lat: center.lat, lng: center.lng, altitude: 1.7 }, 1200);
     // Fresh array/object each call so the ring re-triggers even when
-    // clicking the same country's entries back to back.
+    // clicking the same location's entries back to back.
     world.ringsData([{ lat: center.lat, lng: center.lng }]);
+
+    // Radar-ping blip: a solid dot flashes at the exact point, then
+    // clears while the ring keeps expanding outward from where it was.
+    if (regionBlipTimeoutId) clearTimeout(regionBlipTimeoutId);
+    world.pointsData([POLE_POINT, { lat: center.lat, lng: center.lng, kind: 'region' }]);
+    regionBlipTimeoutId = setTimeout(() => {
+        world.pointsData([POLE_POINT]);
+        regionBlipTimeoutId = null;
+    }, 1000);
+
+    // Restart from the top on every call so rapid clicks between
+    // different regions don't stack overlapping playback.
+    regionBlipSound.currentTime = 0;
+    regionBlipSound.play().catch(function () {});
+
     return true;
 };
 

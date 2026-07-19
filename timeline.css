@@ -235,6 +235,24 @@
   margin: 0 0 8px;
 }
 
+.timeline-detail-region-link {
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.timeline-detail-region-link:hover,
+.timeline-detail-region-link:focus-visible {
+  color: var(--text-main);
+  text-decoration: underline;
+}
+
 .timeline-detail-title {
   font-size: 18px;
   color: var(--text-main);

@@ -260,7 +260,7 @@
       : "";
 
     detailContent.innerHTML = `
-      <p class="timeline-detail-label">${escapeHtml(entry.region || entry.country)} · ${yearLabel}</p>
+      <p class="timeline-detail-label"><button type="button" class="timeline-detail-region-link">${escapeHtml(entry.region || entry.country)}</button> · ${yearLabel}</p>
       <h3 class="timeline-detail-title">${escapeHtml(entry.title)}</h3>
       <p class="timeline-detail-meta">${escapeHtml(entry.author)}</p>
       <p class="timeline-detail-body">${escapeHtml(entry.description)}</p>
@@ -269,16 +269,33 @@
     `;
     detailPanel.classList.add("is-open");
 
+    // Closes the loop with the globe: selecting an entry rotates the
+    // globe (above) to that entry's region (falling back to its country
+    // if no region-specific centroid exists). Clicking the region name
+    // itself re-triggers the same focus and scrolls the globe into view,
+    // so the effect is visible even after scrolling down into the
+    // timeline.
+    function focusGlobeOnEntry() {
+      if (typeof window.focusGlobeOnRegion === "function" && entry.country) {
+        window.focusGlobeOnRegion(entry.region, entry.country);
+      }
+    }
+
+    const regionLinkEl = detailContent.querySelector(".timeline-detail-region-link");
+    if (regionLinkEl) {
+      regionLinkEl.addEventListener("click", () => {
+        focusGlobeOnEntry();
+        const globeEl = document.getElementById("globeViz");
+        if (globeEl) {
+          globeEl.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    }
+
     scrollEntryIntoView(idx);
     updateHeader(entry.year);
     updateButterfly(entry.year, entry);
-
-    // Closes the loop with the globe: selecting an entry here rotates
-    // the globe (above) to that entry's country, same way clicking a
-    // country's Connected Works jumps down to this exact spot.
-    if (typeof window.focusGlobeOnCountry === "function" && entry.country) {
-      window.focusGlobeOnCountry(entry.country);
-    }
+    focusGlobeOnEntry();
   }
 
   /* ---------- Close button ----------
