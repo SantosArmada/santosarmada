@@ -253,6 +253,7 @@ if (moonMarkerEl) {
 
     let angle = 0;
     let lastFrameTime = null;
+    let lastIsBehind = null;
 
     function orbitTick(now) {
         if (lastFrameTime === null) lastFrameTime = now;
@@ -267,16 +268,27 @@ if (moonMarkerEl) {
         const x = Math.cos(angle) * ORBIT_RADIUS_X;
         const y = Math.sin(angle) * ORBIT_RADIUS_Y;
 
-        // Bottom half of the ellipse reads as "nearer" (in front of
-        // the globe); top half reads as "farther" (behind it).
+        // Depth as a continuous 0 (farthest/top) -> 1 (nearest/bottom)
+        // factor instead of a hard behind/in-front switch, so scale and
+        // opacity ease across the whole orbit rather than snapping at
+        // the midpoint -- that snap (particularly on scale, which has
+        // no CSS transition) was the main source of the choppy look.
+        const depthFactor = (y / ORBIT_RADIUS_Y + 1) / 2;
+        const depthScale = 0.6 + depthFactor * 0.4;
+        const depthOpacity = 0.5 + depthFactor * 0.5;
+
+        // z-index can't be eased (it's a discrete stacking property),
+        // so it still flips at the midpoint -- but only written when it
+        // actually changes, instead of every frame regardless.
         const isBehind = y < 0;
-        const depthScale = isBehind ? 0.6 : 1;
-        const depthOpacity = isBehind ? 0.5 : 1;
+        if (isBehind !== lastIsBehind) {
+            moonMarkerEl.style.zIndex = isBehind ? '0' : '3';
+            lastIsBehind = isBehind;
+        }
 
         moonMarkerEl.style.transform =
-            'translate(-50%, -50%) translate(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px) scale(' + depthScale + ')';
-        moonMarkerEl.style.opacity = String(depthOpacity);
-        moonMarkerEl.style.zIndex = isBehind ? '0' : '3';
+            'translate(-50%, -50%) translate(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px) scale(' + depthScale.toFixed(3) + ')';
+        moonMarkerEl.style.opacity = depthOpacity.toFixed(3);
 
         requestAnimationFrame(orbitTick);
     }
@@ -291,7 +303,7 @@ const world = Globe()
        .showAtmosphere(true)
        .atmosphereColor('#4da6ff')
        .atmosphereAltitude(0.18)
-       .ringColor(() => '#c8a96e')
+       .ringColor(() => '#D6FCFF')
        .ringMaxRadius(22)
        .ringPropagationSpeed(9)
        .ringRepeatPeriod(0)
@@ -359,44 +371,6 @@ fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
     });
 
 /* ---------------------------------------------------------
-   Amazon rainforest outline
-   Hand-drawn approximation (not sourced from a precise biome
-   shapefile — this environment has no access to GIS data
-   hosts) tracing the rough extent of the Amazon basin/
-   rainforest across Brazil, Peru, Bolivia, Ecuador, Colombia,
-   Venezuela, Guyana and French Guiana.
-   --------------------------------------------------------- */
-const AMAZON_OUTLINE = [
-    [7.0, -73.0],
-    [8.5, -66.0],
-    [6.5, -60.0],
-    [4.5, -58.0],
-    [2.0, -54.0],
-    [2.5, -51.0],
-    [0.5, -49.5],
-    [-1.5, -48.5],
-    [-3.0, -44.5],
-    [-7.0, -46.0],
-    [-10.0, -50.0],
-    [-13.0, -56.0],
-    [-15.5, -60.0],
-    [-16.0, -65.0],
-    [-13.0, -69.0],
-    [-10.5, -73.5],
-    [-6.0, -76.0],
-    [-3.5, -78.0],
-    [0.5, -77.0],
-    [2.5, -75.5],
-    [7.0, -73.0]
-];
-
-world
-    .pathsData([AMAZON_OUTLINE])
-    .pathColor(() => '#ff2b2b')
-    .pathStroke(1.6)
-    .pathPointAlt(() => 0.03);
-
-/* ---------------------------------------------------------
    North Pole marker — small dot, same neon yellow as
    Antarctica. Longitude is meaningless exactly at the pole,
    so 0 is as good as any.
@@ -409,7 +383,7 @@ const POLE_POINT = { lat: 90, lng: 0, kind: 'pole' };
 
 world
     .pointsData([POLE_POINT])
-    .pointColor((d) => (d.kind === 'region' ? '#c8a96e' : '#faff00'))
+    .pointColor((d) => (d.kind === 'region' ? '#D6FCFF' : '#faff00'))
     .pointRadius((d) => (d.kind === 'region' ? 0.45 : 0.3))
     .pointAltitude(0.02);
 
@@ -442,7 +416,10 @@ const COUNTRY_CENTER = {
     'Puerto Rico': { lat: 18.2, lng: -66.5 },
     'El Salvador': { lat: 13.8, lng: -88.9 },
     'Estados Unidos': { lat: 39.8, lng: -98.6 },
-    'Japón': { lat: 36.2, lng: 138.3 }
+    'Japón': { lat: 36.2, lng: 138.3 },
+    'Haití': { lat: 19.0, lng: -72.4 },
+    'Venezuela': { lat: 8.0, lng: -66.0 },
+    'Ecuador': { lat: -1.5, lng: -78.5 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -454,6 +431,7 @@ const REGION_CENTER = {
     'Bilbao': { lat: 43.26, lng: -2.94 },
     'Cádiz': { lat: 36.53, lng: -6.30 },
     'Córdoba': { lat: 37.89, lng: -4.78 },
+    'Estoril': { lat: 38.70, lng: -9.40 },
     'Figueres': { lat: 42.27, lng: 2.96 },
     'Guadalajara': { lat: 40.63, lng: -3.17 },
     'Iguala, Guerrero': { lat: 18.35, lng: -99.54 },
@@ -469,7 +447,23 @@ const REGION_CENTER = {
     'Toledo': { lat: 39.86, lng: -4.02 },
     'Valencia': { lat: 39.47, lng: -0.38 },
     'San José Villanueva': { lat: 13.56, lng: -89.26 },
-    'Zaragoza': { lat: 41.65, lng: -0.88 }
+    'Zaragoza': { lat: 41.65, lng: -0.88 },
+    // Abolition-of-slavery arc (added together, see timeline-data.js
+    // "ABOLICIÓN DE LA ESCLAVITUD EN AMÉRICA" section)
+    'Cap-Haïtien': { lat: 19.76, lng: -72.20 },
+    'Gonaïves': { lat: 19.45, lng: -72.68 },
+    'Santiago': { lat: -33.45, lng: -70.65 },
+    'Ciudad de Guatemala': { lat: 14.63, lng: -90.51 },
+    'Ciudad de México': { lat: 19.43, lng: -99.13 },
+    'Buenos Aires': { lat: -34.61, lng: -58.38 },
+    'Santa Fe': { lat: -31.63, lng: -60.70 },
+    'Bogotá': { lat: 4.71, lng: -74.07 },
+    'Quito': { lat: -0.18, lng: -78.47 },
+    'Montevideo': { lat: -34.90, lng: -56.16 },
+    'Caracas': { lat: 10.48, lng: -66.90 },
+    'Lima': { lat: -12.05, lng: -77.04 },
+    'San Juan': { lat: 18.47, lng: -66.11 },
+    'La Habana': { lat: 23.13, lng: -82.38 }
 };
 
 let regionBlipTimeoutId = null;

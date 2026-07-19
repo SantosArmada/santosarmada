@@ -648,11 +648,11 @@ const TIMELINE_ENTRIES = [
     title: "La flor de la playa",
     author: "Carmen de Burgos",
     country: "España",
-    region: "Almería",
+    region: "Estoril",
     flag: "spain-not-latam",
     type: ICON_TYPE.LITERATURE,
     description:
-      "Carmen de Burgos, pionera del periodismo y del feminismo español firmando como 'Colombine', publicó esta novela corta en 1920 dentro de la colección La Novela Corta. Enrique y su amante, buscando escapar de la vigilancia y el chismorreo de las patronas españolas, deciden pasar su escapada de verano en una playa modesta de Portugal — un viaje corto pero ya al extranjero, a 'una nación más libre' donde ella podría hacerse pasar por su esposa. Bajo esa premisa de fuga, la novela desliza su crítica constante a un mundo que exigía elegir entre el deseo y la respetabilidad.",
+      "Carmen de Burgos, pionera del periodismo y del feminismo español firmando como 'Colombine', publicó esta novela corta en 1920 dentro de la colección La Novela Corta. Enrique y su amante, buscando escapar de la vigilancia y el chismorreo de las patronas españolas, pasan por Lisboa antes de llegar a Los Manzanos, una playa modesta de Portugal donde deciden pasar su escapada de verano — un viaje corto pero ya al extranjero, a 'una nación más libre' donde ella podría hacerse pasar por su esposa. Bajo esa premisa de fuga, la novela desliza su crítica constante a un mundo que exigía elegir entre el deseo y la respetabilidad.",
     butterfly: {
       prompt: "¿Qué hubiera pasado si Carmen de Burgos hubiera firmado esta novela con su propio nombre y no como \"Colombine\"?",
       answer:
@@ -1466,6 +1466,284 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si el papa Sixto IV hubiera rechazado la petición de los Reyes Católicos?",
       answer:
         "España habría carecido de un tribunal bajo control directo de la Corona, y la persecución religiosa —aunque probablemente habría existido de otra forma— no habría alcanzado la escala institucional que persiguió a conversos judíos y musulmanes durante más de tres siglos. La censura que después asfixió la picaresca y el ensayo crítico americano habría tomado, quizás, otra forma."
+    }
+  },
+
+  // ---- ABOLICIÓN DE LA ESCLAVITUD EN AMÉRICA (1791–1886) ----
+  {
+    id: "bois-caiman-revuelta-1791",
+    year: 1791,
+    title: "1791: la ceremonia de Bois Caïman y el estallido de la revuelta",
+    author: "Hito histórico",
+    country: "Haití",
+    region: "Cap-Haïtien",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "En la noche del 14 de agosto de 1791, cerca de doscientos esclavizados de las plantaciones del norte de Saint-Domingue se reúnen en secreto en el bosque de Bois Caïman, cerca de Le Cap, para una ceremonia vodú presidida por el houngan Dutty Boukman y la mambo Cécile Fatiman. Ocho noches después, el 22 de agosto, Boukman reúne a los esclavizados de las plantaciones vecinas y los conduce al ingenio Noé, que incendian mientras matan o capturan a sus propietarios — el primer golpe de lo que se convertiría en la única revuelta de esclavizados exitosa a gran escala de la historia, y la que fundaría, trece años después, la primera nación libre de esclavitud del hemisferio.",
+    anchor: true,
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si el plan de Bois Caïman hubiera sido descubierto antes del 22 de agosto?",
+      answer:
+        "Los planes de una revuelta coordinada para el 24 de agosto ya habían empezado a circular entre las plantaciones del norte; una traición o descubrimiento temprano probablemente solo hubiera adelantado o dispersado el levantamiento, no impedido que ocurriera. Pero Boukman y Fatiman no habrían pasado a la historia como los fundadores simbólicos de la revolución, y Saint-Domingue habría tenido que esperar a otra chispa para encender la misma pólvora."
+    }
+  },
+  {
+    id: "sonthonax-convencion-abolicion-1794",
+    year: 1794,
+    title: "1794: Francia abole la esclavitud en Saint-Domingue",
+    author: "Hito histórico",
+    country: "Haití",
+    region: "Cap-Haïtien",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Con la revuelta de 1791 fuera de control y la colonia amenazada por invasiones española y británica, el comisario civil francés Léger-Félicité Sonthonax abole la esclavitud en el norte de Saint-Domingue el 29 de agosto de 1793 — en parte por convicción, en parte para ganar el apoyo militar de los antiguos esclavizados frente a esos enemigos externos. Sus delegados llevan la noticia a París, y el 4 de febrero de 1794 la Convención Nacional francesa, en plena Revolución, ratifica y extiende la medida a todas las colonias francesas: la primera abolición general de la esclavitud decretada por una potencia colonial en el hemisferio.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Sonthonax no hubiera abolido la esclavitud por su cuenta antes de que la Convención lo hiciera?",
+      answer:
+        "Sin la medida de emergencia de Sonthonax, buscando aliados contra España e Inglaterra, la Convención de París —lejos del campo de batalla— podría haber tardado años en actuar, si es que actuaba. La abolición de 1794 fue, en el fondo, una ratificación de lo que ya ocurría sobre el terreno, no una decisión tomada desde cero en la distancia."
+    }
+  },
+  {
+    id: "expedicion-leclerc-toussaint-1802",
+    year: 1802,
+    title: "1802: Napoleón envía a Leclerc a restaurar la esclavitud",
+    author: "Hito histórico",
+    country: "Haití",
+    region: "Cap-Haïtien",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Napoleón Bonaparte envía a su cuñado, el general Charles Leclerc, al mando de una expedición de veinte mil soldados que llega a Saint-Domingue en febrero de 1802 con el objetivo de restaurar el control directo de Francia y, según se sospechaba cada vez con más certeza, reinstaurar la esclavitud — como ya había ocurrido en Guadalupe ese mismo mayo bajo la expedición de Richepanse. Toussaint Louverture, gobernador de la colonia y antiguo esclavizado, es atraído a una negociación, arrestado por engaño en junio y deportado a Francia, donde muere en prisión en el castillo de Joux en abril de 1803 — sin haber visto la independencia que su ejército terminaría por conquistar sin él.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Toussaint Louverture no hubiera acudido a esa negociación con los franceses?",
+      answer:
+        "Sin su captura, Toussaint probablemente habría seguido al mando de la resistencia, y el nombre que hoy asociamos con la independencia de Haití sería el suyo, no el de Jean-Jacques Dessalines. Pero su arresto, lejos de aplastar la revuelta, radicalizó a sus antiguos oficiales: la traición francesa convenció a Dessalines de que ya no había nada que negociar, solo una guerra que ganar."
+    }
+  },
+  {
+    id: "haiti-independencia-1804",
+    year: 1804,
+    title: "1804: Haití declara su independencia y abole la esclavitud para siempre",
+    author: "Hito histórico",
+    country: "Haití",
+    region: "Gonaïves",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Tras la derrota decisiva de las fuerzas francesas en la batalla de Vertières el 18 de noviembre de 1803, Jean-Jacques Dessalines proclama la independencia de la antigua Saint-Domingue en Gonaïves el 1 de enero de 1804, devolviéndole el nombre indígena taíno de la isla: Haití. Es la primera nación del hemisferio fundada sobre la abolición permanente y explícita de la esclavitud, y la segunda en declarar su independencia en América después de Estados Unidos — lograda, a diferencia de aquella, mediante la única revuelta de esclavizados de la historia que terminó fundando un Estado soberano.",
+    anchor: true,
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si la expedición de Leclerc hubiera logrado restaurar la esclavitud en 1802?",
+      answer:
+        "Saint-Domingue habría vuelto a ser una colonia esclavista francesa, la más rentable del imperio, tal como Napoleón pretendía. El resto de las aboliciones americanas del siglo diecinueve —muchas de ellas conscientes del precedente haitiano— habrían carecido del ejemplo más radical y temido de todos: que una nación entera podía nacer, y sobrevivir, de una revuelta de esclavizados victoriosa."
+    }
+  },
+  {
+    id: "chile-abolicion-esclavitud-1823",
+    year: 1823,
+    title: "1823: Chile abole la esclavitud",
+    author: "Hito histórico",
+    country: "Chile",
+    region: "Santiago",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Tras la caída de Bernardo O'Higgins en enero de 1823, su sucesor Ramón Freire impulsa una ley que libera a los hijos de esclavizadas nacidos en territorio chileno, prohíbe la trata y declara libre a cualquier esclavizado que permanezca más de seis meses en el país. La medida libera a cerca de cinco mil personas y convierte a Chile en la segunda nación de las Américas —después de Haití— en abolir la esclavitud, tres décadas antes que la mayoría de sus vecinos sudamericanos.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si O'Higgins hubiera seguido en el poder en 1823 en vez de Freire?",
+      answer:
+        "O'Higgins había intentado medidas graduales contra la esclavitud durante su gobierno, pero fue el ala liberal de los pipiolos, liderada por Freire tras el golpe de enero de 1823, la que finalmente impulsó la abolición total. Sin ese giro político, Chile bien podría haber adoptado una ley de vientres libres más tibia, como la de Argentina, en vez de la abolición inmediata que la convirtió en pionera continental."
+    }
+  },
+  {
+    id: "centroamerica-abolicion-esclavitud-1824",
+    year: 1824,
+    title: "1824: las Provincias Unidas de Centroamérica abolen la esclavitud",
+    author: "Hito histórico",
+    country: "Guatemala",
+    region: "Ciudad de Guatemala",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 17 de abril de 1824, la asamblea nacional constituyente de las Provincias Unidas de Centroamérica —la federación que agrupaba a los actuales Guatemala, El Salvador, Honduras, Nicaragua y Costa Rica— decreta la abolición inmediata de la esclavitud en todo su territorio, incorporada después a la Constitución federal de ese mismo año. El decreto fue impulsado por el sacerdote y político salvadoreño José Simeón Cañas, quien interrumpió una sesión sobre otro asunto para exigir un debate urgente, argumentando que la libertad no admitía demora. La medida, una de las más tempranas del continente, careció sin embargo de reforma agraria, y buena parte de la servidumbre que sostenía a las grandes haciendas persistió bajo otras formas.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si José Simeón Cañas no hubiera interrumpido esa sesión de la asamblea?",
+      answer:
+        "Sin su intervención directa exigiendo debate inmediato, la abolición centroamericana pudo haber quedado postergada indefinidamente entre otras prioridades de una federación ya frágil, que colapsaría por completo en 1840. Cañas es hoy recordado en El Salvador precisamente por ese gesto: convertir una convicción moral en ley antes de que la oportunidad política se cerrara."
+    }
+  },
+  {
+    id: "guerrero-decreto-abolicion-1829",
+    year: 1829,
+    title: "1829: Vicente Guerrero abole la esclavitud en México",
+    author: "Hito histórico",
+    country: "México",
+    region: "Ciudad de México",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 15 de septiembre de 1829, el presidente Vicente Guerrero —de ascendencia afromexicana e indígena, y héroe de la guerra de independencia— decreta la abolición de la esclavitud en toda la joven república, exceptuando únicamente el istmo de Tehuantepec, convirtiendo a México en una de las primeras naciones de las Américas en prohibir la institución. El decreto llega a Texas el 16 de octubre, donde los colonos angloamericanos —que habían construido sus granjas sobre el trabajo esclavizado— se alarman de inmediato. Bajo esa presión, Guerrero cede el 2 de diciembre de 1829 y exime a Texas de la ley, socavando la universalidad del decreto y alimentando el resentimiento separatista que, siete años después, desembocaría en la revolución texana.",
+    anchor: true,
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Guerrero no hubiera cedido y hubiera exigido la abolición también en Texas?",
+      answer:
+        "Una aplicación estricta del decreto en Texas probablemente habría acelerado, no evitado, la revolución texana: los colonos angloamericanos ya buscaban pretextos para separarse, y una confrontación directa sobre la esclavitud se los habría dado antes. La exención de Guerrero, pensada para ganar tiempo, terminó comprando apenas siete años antes de perder Texas de todos modos."
+    }
+  },
+  {
+    id: "argentina-libertad-vientres-1813",
+    year: 1813,
+    title: "1813: la Asamblea del Año XIII declara la libertad de vientres",
+    author: "Hito histórico",
+    country: "Argentina",
+    region: "Buenos Aires",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 2 de febrero de 1813, la Asamblea General Constituyente de las Provincias Unidas del Río de la Plata declara la 'libertad de vientres': todo hijo de esclavizada nacido en el territorio después del 31 de enero de 1813 nacería libre, aunque obligado a servir a los dueños de su madre hasta cumplir entre dieciséis y veinte años. Días después, el 4 de febrero, la Asamblea declara también libre a todo esclavizado que ingresara al territorio, cerrando de facto la trata. No fue una abolición —esa esperaría cuarenta años más— sino el primer paso de un proceso deliberadamente gradual.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si la Asamblea del Año XIII hubiera decretado la abolición total e inmediata en 1813?",
+      answer:
+        "Una abolición inmediata habría enfrentado una resistencia económica y política mucho más dura en plena guerra de independencia, cuando las provincias necesitaban toda la cohesión posible entre las élites terratenientes. La gradualidad de la libertad de vientres —criticable desde hoy— fue probablemente la única fórmula políticamente viable en ese momento; la abolición total tendría que esperar a una Argentina ya consolidada como nación."
+    }
+  },
+  {
+    id: "argentina-abolicion-constitucion-1853",
+    year: 1853,
+    title: "1853: la Constitución argentina abole la esclavitud",
+    author: "Hito histórico",
+    country: "Argentina",
+    region: "Santa Fe",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 1 de mayo de 1853, el Congreso General Constituyente reunido en Santa Fe sanciona la primera Constitución Nacional argentina, promulgada por Justo José de Urquiza. Su artículo 15 declara: 'En la Nación Argentina no hay esclavos: los pocos que hoy existen quedan libres desde la jura de esta Constitución'. La ironía es notable: el propio texto que abolió la esclavitud para siempre fue sancionado por trece provincias sin la presencia de Buenos Aires, que se había separado de la Confederación en 1852 y no se reincorporaría hasta 1859.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Buenos Aires no se hubiera separado de la Confederación en 1852?",
+      answer:
+        "Con Buenos Aires —la provincia más rica y poblada— presente en Santa Fe, el debate constituyente de 1853 probablemente habría sido más largo y disputado, dada la histórica resistencia porteña a ceder poder al interior. La abolición constitucional, sin embargo, contaba ya con consenso suficiente entre las provincias del interior; lo que habría cambiado no es el resultado, sino cuánto habría tardado en llegar."
+    }
+  },
+  {
+    id: "colombia-ley-manumision-1851",
+    year: 1851,
+    title: "1851: Colombia abole la esclavitud",
+    author: "Hito histórico",
+    country: "Colombia",
+    region: "Bogotá",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "El 21 de mayo de 1851, el Congreso de la Nueva Granada sanciona la Ley de Manumisión, impulsada por el presidente liberal José Hilario López, que declara la libertad de todos los esclavizados a partir del 1 de enero de 1852 y compensa a sus antiguos dueños con bonos del Estado. Cerca de 16,147 personas quedan libres. La medida provoca un levantamiento armado de los grandes hacendados del Cauca y Pasto, que ven amenazada su mano de obra: la guerra civil de 1851 estalla directamente por esta causa, y termina cuatro meses después con la victoria liberal y la libertad confirmada.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si los hacendados del Cauca y Pasto hubieran ganado la guerra civil de 1851?",
+      answer:
+        "Una victoria conservadora en el Cauca probablemente habría revertido o postergado la manumisión en el sur del país, creando una Colombia con abolición desigual según la región. La derrota de los hacendados en apenas cuatro meses fue lo que permitió que la Ley de Manumisión se sostuviera como ley nacional uniforme, y no como una medida bogotana ignorada en la periferia."
+    }
+  },
+  {
+    id: "ecuador-abolicion-esclavitud-1851",
+    year: 1851,
+    title: "1851: Ecuador abole la esclavitud",
+    author: "Hito histórico",
+    country: "Ecuador",
+    region: "Quito",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El general José María Urbina, tras tomar el poder ese mismo año, decreta la abolición total de la esclavitud en Ecuador el 25 de junio de 1851, con compensación estatal a los antiguos propietarios. Fue una de las medidas centrales de un gobierno liberal que también enfrentó a la Iglesia católica en asuntos de propiedad y educación, consolidando a Urbina como una figura clave —y polémica— del liberalismo ecuatoriano del siglo diecinueve.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Urbina no hubiera tomado el poder en 1851?",
+      answer:
+        "Sin el golpe de Urbina, el Ecuador conservador de mediados de siglo —estrechamente aliado con la Iglesia y las élites terratenientes— probablemente habría postergado la abolición varios años más, como ocurrió en otros países de la región donde el poder liberal tardó en consolidarse."
+    }
+  },
+  {
+    id: "uruguay-abolicion-colorados-1842",
+    year: 1842,
+    title: "1842: los colorados abolen la esclavitud en Montevideo",
+    author: "Hito histórico",
+    country: "Uruguay",
+    region: "Montevideo",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "En plena Guerra Grande —la guerra civil que enfrentó a blancos y colorados entre 1839 y 1852, con Montevideo bajo asedio— el gobierno colorado de Fructuoso Rivera decreta en diciembre de 1842 la abolición de la esclavitud dentro de la ciudad sitiada, compensando a los dueños con 300 pesos por esclavizado. La medida, más pragmática que ideológica, busca sobre todo reclutar a los recién liberados para defender Montevideo del asedio blanco.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Montevideo no hubiera estado bajo asedio en 1842?",
+      answer:
+        "Sin la urgencia militar de reclutar defensores, es probable que el gobierno colorado hubiera tardado más en decretar la abolición, o que la hubiera limitado —como Argentina en 1813— a una fórmula gradual de vientres libres en vez de una liberación inmediata."
+    }
+  },
+  {
+    id: "uruguay-abolicion-blancos-1846",
+    year: 1846,
+    title: "1846: los blancos abolen la esclavitud en la campaña",
+    author: "Hito histórico",
+    country: "Uruguay",
+    region: "Montevideo",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Cuatro años después del decreto colorado, el gobierno rival blanco de Manuel Oribe —instalado en el campamento del Cerrito, a las afueras de Montevideo, y respaldado por los federales argentinos de Rosas— dicta en 1846 su propia abolición de la esclavitud en el territorio bajo su control, sin la exigencia de alistamiento militar que había acompañado la medida colorada, aunque manteniendo la compensación a los propietarios. Para 1846, ambos bandos de la guerra civil uruguaya habían abolido la esclavitud, cada uno en su propio territorio.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si los blancos nunca hubieran dictado su propia abolición tras la de los colorados en 1842?",
+      answer:
+        "Uruguay habría quedado dividido, por años, entre una capital sitiada sin esclavitud y una campaña rural bajo dominio blanco donde la institución seguía vigente —una fractura legal tan profunda como la política que ya dividía al país en la Guerra Grande."
+    }
+  },
+  {
+    id: "venezuela-abolicion-esclavitud-1854",
+    year: 1854,
+    title: "1854: Venezuela abole la esclavitud",
+    author: "Hito histórico",
+    country: "Venezuela",
+    region: "Caracas",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 24 de marzo de 1854, el presidente José Gregorio Monagas sanciona la ley que abole definitivamente la esclavitud en Venezuela, con compensación a los propietarios financiada mediante un impuesto especial. En su propuesta al Congreso, Monagas invoca directamente las palabras de Simón Bolívar, quien décadas antes había llamado a la esclavitud 'una infracción de todas las leyes y una violación de todos los derechos' — cerrando, en nombre del Libertador, una institución que él mismo nunca logró abolir del todo en vida.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Monagas no hubiera invocado la autoridad moral de Bolívar en su propuesta?",
+      answer:
+        "El Congreso venezolano de 1854 —con fuertes intereses terratenientes— habría tenido más margen para resistir o diluir la ley sin ese peso retórico. Invocar a Bolívar convertía la oposición a la abolición en una traición implícita al propio Libertador, una jugada política tan eficaz como simbólica."
+    }
+  },
+  {
+    id: "peru-abolicion-esclavitud-1854",
+    year: 1854,
+    title: "1854: Ramón Castilla abole la esclavitud en Perú",
+    author: "Hito histórico",
+    country: "Perú",
+    region: "Lima",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "En medio de la guerra civil contra el presidente Echenique, el caudillo Ramón Castilla decreta el 3 de diciembre de 1854 la libertad de todos los esclavizados del Perú, junto con la abolición del tributo indígena, compensando a los propietarios. La medida, presentada como un acto de justicia, era también una maniobra política calculada: Castilla buscaba el apoyo de los recién liberados y de las comunidades indígenas para ganar la presidencia, que efectivamente reconquistó al año siguiente.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Castilla hubiera perdido la guerra civil de 1854–1855?",
+      answer:
+        "Una victoria de Echenique probablemente no habría revertido la abolición ya decretada —la presión moral y política a esa altura era difícil de deshacer— pero sí habría dejado el crédito histórico de la medida en manos de Castilla como una promesa incumplida, no como el logro que terminó definiendo su segundo gobierno."
+    }
+  },
+  {
+    id: "puerto-rico-abolicion-esclavitud-1873",
+    year: 1873,
+    title: "1873: España abole la esclavitud en Puerto Rico",
+    author: "Hito histórico",
+    country: "Puerto Rico",
+    region: "San Juan",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 22 de marzo de 1873, la Asamblea Nacional de la Primera República Española decreta la abolición de la esclavitud en Puerto Rico, tras décadas de organización abolicionista liderada por figuras como Ramón Emeterio Betances, Segundo Ruiz Belvis, José Julián Acosta y Julio L. de Vizcarrondo. La ley compensa a los dueños con 35 millones de pesetas y obliga a los recién liberados a seguir trabajando bajo contrato tres años más — una libertad legal todavía condicionada, pero libertad al fin, veinticinco años antes de que la isla cambiara de manos coloniales.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si el movimiento abolicionista puertorriqueño no hubiera organizado durante décadas antes de 1873?",
+      answer:
+        "Sin la presión sostenida de Betances, Ruiz Belvis, Acosta y Vizcarrondo desde los años 1860, la breve Primera República Española —que duró apenas dos años— pudo haber caído sin dejar tiempo para actuar sobre Puerto Rico, dejando la abolición en manos de una futura restauración monárquica mucho menos favorable a la causa."
+    }
+  },
+  {
+    id: "cuba-abolicion-esclavitud-1886",
+    year: 1886,
+    title: "1886: Cuba, la última colonia española en abolir la esclavitud",
+    author: "Hito histórico",
+    country: "Cuba",
+    region: "La Habana",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "España abole formalmente la esclavitud en Cuba en 1886, trece años después de hacerlo en Puerto Rico, cerrando así la institución en su imperio colonial americano. El proceso venía preparándose desde 1870 con la Ley Moret, que liberaba a los mayores de sesenta años y a los nacidos después del 17 de septiembre de 1868, dejando un sistema de libertad parcial y gradual que se extendió durante más de una década antes de la abolición definitiva. Cuba fue la penúltima nación de las Américas en abolir la esclavitud: solo Brasil, dos años después, en 1888, la seguiría como la última.",
+    anchor: true,
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si la Ley Moret de 1870 hubiera decretado la abolición total en vez de una libertad gradual?",
+      answer:
+        "Una abolición total en 1870 —dieciséis años antes de lo que realmente ocurrió— habría privado a los hacendados cubanos de más de una década de mano de obra esclavizada durante un período de auge azucarero, y probablemente habría acelerado el estallido de la Guerra de los Diez Años que ya ardía en la isla desde ese mismo 1868."
     }
   }
 ];
