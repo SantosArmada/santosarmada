@@ -34,12 +34,12 @@
     // nz:    the arched front door, from the hall panorama (museo-3)
     // =================================================================
     var skyboxUrls = [
-        "images/museos-sky/px.jpg",
-        "images/museos-sky/nx.jpg",
-        "images/museos-sky/py.jpg",
-        "images/museos-sky/ny.jpg",
-        "images/museos-sky/pz.jpg",
-        "images/museos-sky/nz.jpg"
+        "Images/museos-sky/px.jpg",
+        "Images/museos-sky/nx.jpg",
+        "Images/museos-sky/py.jpg",
+        "Images/museos-sky/ny.jpg",
+        "Images/museos-sky/pz.jpg",
+        "Images/museos-sky/nz.jpg"
     ];
 
     // Procedural sci-fi "HUD ring" texture — recreates the broken-ring,
