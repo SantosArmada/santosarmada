@@ -308,6 +308,9 @@
     document
       .querySelectorAll(".timeline-entry.is-active")
       .forEach((n) => n.classList.remove("is-active"));
+    if (typeof window.clearGlobeRegionBlipDelayed === "function") {
+      window.clearGlobeRegionBlipDelayed(3000);
+    }
   }
 
   detailClose.addEventListener("click", closeDetailPanel);

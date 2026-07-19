@@ -489,8 +489,16 @@ const REGION_CENTER = {
     'La Habana': { lat: 23.13, lng: -82.38 }
 };
 
-let regionBlipTimeoutId = null;
+let regionRippleTimeoutIds = [];
+let regionBlipClearTimeoutId = null;
 const regionBlipSound = new Audio('sounds/positive-blip-effect.wav');
+
+// How long after the first ring each follow-up ripple fires. Staggered
+// well before the ~2.4s single-ring animation (ringMaxRadius /
+// ringPropagationSpeed) fully fades, so the ripples cascade outward
+// overlapping each other instead of playing one at a time.
+const REGION_RIPPLE_STAGGER_MS = 700;
+const REGION_RIPPLE_EXTRA_COUNT = 2;
 
 window.focusGlobeOnRegion = function (regionName, countryName) {
     // Prefer the precise city/region centroid; fall back to the
@@ -499,18 +507,36 @@ window.focusGlobeOnRegion = function (regionName, countryName) {
     if (!center) return false;
     world.controls().autoRotate = false;
     world.pointOfView({ lat: center.lat, lng: center.lng, altitude: 1.7 }, 1200);
-    // Fresh array/object each call so the ring re-triggers even when
-    // clicking the same location's entries back to back.
-    world.ringsData([{ lat: center.lat, lng: center.lng }]);
 
-    // Radar-ping blip: a solid dot flashes at the exact point, then
-    // clears while the ring keeps expanding outward from where it was.
-    if (regionBlipTimeoutId) clearTimeout(regionBlipTimeoutId);
+    // Cancel any ripples -- and any delayed dot-clear from a card that
+    // was just closed -- still pending from a previous click, so they
+    // don't fire late at the wrong (or now-current) location.
+    regionRippleTimeoutIds.forEach(clearTimeout);
+    regionRippleTimeoutIds = [];
+    if (regionBlipClearTimeoutId) {
+        clearTimeout(regionBlipClearTimeoutId);
+        regionBlipClearTimeoutId = null;
+    }
+
+    // Fresh array/object each call so the ring re-triggers even when
+    // clicking the same location's entries back to back, then two more
+    // staggered ripples from the same point for a cascading radar-ping
+    // look instead of a single pulse.
+    world.ringsData([{ lat: center.lat, lng: center.lng }]);
+    for (let i = 1; i <= REGION_RIPPLE_EXTRA_COUNT; i++) {
+        regionRippleTimeoutIds.push(
+            setTimeout(() => {
+                world.ringsData([{ lat: center.lat, lng: center.lng }]);
+            }, REGION_RIPPLE_STAGGER_MS * i)
+        );
+    }
+
+    // Radar-ping blip: a solid dot marks the exact point and stays
+    // there for as long as the card is open, plus a few seconds after
+    // it closes (see clearGlobeRegionBlipDelayed, called from
+    // timeline.js's closeDetailPanel) -- not cleared on a fixed timer
+    // tied to when it first appeared.
     world.pointsData([POLE_POINT, { lat: center.lat, lng: center.lng, kind: 'region' }]);
-    regionBlipTimeoutId = setTimeout(() => {
-        world.pointsData([POLE_POINT]);
-        regionBlipTimeoutId = null;
-    }, 1000);
 
     // Restart from the top on every call so rapid clicks between
     // different regions don't stack overlapping playback.
@@ -518,6 +544,24 @@ window.focusGlobeOnRegion = function (regionName, countryName) {
     regionBlipSound.play().catch(function () {});
 
     return true;
+};
+
+window.clearGlobeRegionBlip = function () {
+    if (regionBlipClearTimeoutId) {
+        clearTimeout(regionBlipClearTimeoutId);
+        regionBlipClearTimeoutId = null;
+    }
+    world.pointsData([POLE_POINT]);
+};
+
+// Same as clearGlobeRegionBlip, but waits delayMs first -- lets the dot
+// linger a moment after the card closes instead of vanishing instantly.
+window.clearGlobeRegionBlipDelayed = function (delayMs) {
+    if (regionBlipClearTimeoutId) clearTimeout(regionBlipClearTimeoutId);
+    regionBlipClearTimeoutId = setTimeout(() => {
+        world.pointsData([POLE_POINT]);
+        regionBlipClearTimeoutId = null;
+    }, delayMs);
 };
 
 window.addEventListener('resize', () => {
