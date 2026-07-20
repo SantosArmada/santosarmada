@@ -1012,10 +1012,25 @@ a[href="/academia"] p {
    authors-hand-core.png adds a concentrated bright flare right at the
    grip, and the two energy sweeps both start at the hand and travel
    outward in opposite directions instead of one sweep running top to
-   bottom. Every color/glow piece is a real cutout cropped tight to its
-   own bounding box (not the full canvas) to keep file size sane -- no
-   masking involved. Rest of the photo stays grayscale via a plain CSS
-   filter. The overlay stack carries the exact same transform as
+   bottom.
+
+   First pass glowed the whole shaft uniformly and it bled past the
+   pole's actual tip into a soft round cloud -- read as an accidental
+   floating orb instead of a controlled light source. Rebuilt the glow
+   masks to dilate laterally only (a 1-row-tall structuring element, not
+   a uniform blob dilation) and hard-clip vertically a couple px past
+   the pole's real top/bottom, so the light hugs the shaft and caps
+   cleanly instead of ballooning at the ends. Added authors-pole-
+   hotcore.png, a thin near-white line straight down the pole's center,
+   for the hot-core-plus-colored-bloom look real energy VFX use (a
+   lightsaber blade, not a highlighter pen). Sparks are a thin cross of
+   two bars, not round dots, on a sharp snap-on/snap-off timing curve
+   instead of a smooth breathing fade -- reads as electric crackle
+   rather than fairy-dust twinkle. Every color/glow piece is a real
+   cutout cropped tight to its own bounding box (not the full canvas) to
+   keep file size sane -- no masking involved. Rest of the photo stays
+   grayscale via a plain CSS filter. The overlay stack carries the exact
+   same transform as
    .grid-card img (including its hover zoom) so the color/glow stay
    pixel-aligned to the real pole instead of drifting as the photo
    scales; a hover-specific filter override keeps the grayscale-except-
@@ -1043,31 +1058,67 @@ a[href="/authors"]:hover img {
     transform: scale(1.1);
 }
 
+/* the photo's own decorative rounded-rect border is cyan too -- lit up
+   the same way as the pole (real color cutout + a soft screen-blended
+   glow) and pulsed on the exact same keyframe/timing as the pole's glow
+   so it reads as one contained energy field around her rather than a
+   second, competing light source. */
+.authors-border-glow {
+    position: absolute;
+    inset: 0;
+    background-image: url(Images/grid/authors-border-glow.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    mix-blend-mode: screen;
+    animation: authors-glow-pulse 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.authors-border-color {
+    position: absolute;
+    inset: 0;
+    background-image: url(Images/grid/authors-border-color.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    filter: saturate(1.3) brightness(1.05);
+}
+
 .authors-pole-glow-wide {
     position: absolute;
-    left: 80.46%;
-    top: 0%;
-    width: 15.26%;
-    height: 100%;
+    left: 83.36%;
+    top: 2.39%;
+    width: 9.46%;
+    height: 93.28%;
     background-image: url(Images/grid/authors-pole-glow-wide.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     mix-blend-mode: screen;
-    transform-origin: center;
-    animation: authors-glow-wide-pulse 3.2s ease-in-out infinite;
+    animation: authors-glow-pulse 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 .authors-pole-glow {
     position: absolute;
-    left: 84.12%;
-    top: 2.21%;
-    width: 7.94%;
-    height: 93.65%;
+    left: 85.01%;
+    top: 3.87%;
+    width: 6.15%;
+    height: 90.33%;
     background-image: url(Images/grid/authors-pole-glow.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     mix-blend-mode: screen;
-    animation: authors-glow-pulse 3.2s ease-in-out infinite;
+    animation: authors-glow-pulse 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.authors-pole-hotcore {
+    position: absolute;
+    left: 87.09%;
+    top: 4.97%;
+    width: 2.07%;
+    height: 88.12%;
+    background-image: url(Images/grid/authors-pole-hotcore.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    mix-blend-mode: screen;
+    animation: authors-core-flicker 3.4s ease-in-out infinite;
 }
 
 .authors-hand-core {
@@ -1080,7 +1131,7 @@ a[href="/authors"]:hover img {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     mix-blend-mode: screen;
-    animation: authors-core-pulse 2.4s ease-in-out infinite;
+    animation: authors-core-pulse 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
 }
 
 .authors-pole-color {
@@ -1092,12 +1143,13 @@ a[href="/authors"]:hover img {
     background-image: url(Images/grid/authors-pole-color.png);
     background-size: 100% 100%;
     background-repeat: no-repeat;
-    filter: saturate(1.3) brightness(1.05);
+    filter: saturate(1.45) contrast(1.1) brightness(1.05);
 }
 
 /* both sweeps share the pole's box and start at the hand's position
    within it -- (44.52 - 4.70) / 88.58 = ~45% down the box -- one
-   travels up toward the tip, the other down toward the base. */
+   travels up toward the tip, the other down toward the base. Tight and
+   fast, like a discharge, not a slow gentle wave. */
 .authors-pole-shimmer {
     position: absolute;
     left: 86.05%;
@@ -1114,66 +1166,82 @@ a[href="/authors"]:hover img {
     left: -60%;
     width: 220%;
     top: 45%;
-    height: 30%;
-    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 0.95) 50%, transparent 100%);
-    animation: authors-shimmer-up 3.2s ease-out infinite;
+    height: 16%;
+    background: linear-gradient(180deg, transparent 0%, rgba(255, 255, 255, 1) 50%, transparent 100%);
+    animation: authors-shimmer-up 1.9s cubic-bezier(0.25, 0, 0.3, 1) infinite;
 }
 
 .authors-pole-shimmer-2::before {
-    height: 22%;
-    background: linear-gradient(180deg, transparent 0%, rgba(150, 240, 255, 0.9) 50%, transparent 100%);
-    animation: authors-shimmer-down 3.2s ease-out infinite;
+    height: 12%;
+    background: linear-gradient(180deg, transparent 0%, rgba(160, 245, 255, 0.95) 50%, transparent 100%);
+    animation: authors-shimmer-down 1.9s cubic-bezier(0.25, 0, 0.3, 1) infinite;
 }
 
+/* sparks read as electric crackle, not soft twinkle: a thin cross of
+   two bars instead of a round dot, and a sharp snap-on/snap-off timing
+   curve instead of a smooth breathing fade. */
 .authors-spark {
     position: absolute;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 0 6px 2px rgba(140, 235, 250, 0.95);
+    width: 9px;
+    height: 9px;
     mix-blend-mode: screen;
     opacity: 0;
-    animation: authors-spark-flare 2.4s ease-in-out infinite;
+    animation: authors-spark-flare 1.6s cubic-bezier(0.1, 0, 0.2, 1) infinite;
 }
-.authors-spark-1 { left: 88.3%; top: 11%;    animation-duration: 2.1s; animation-delay: 0.2s; }
+.authors-spark::before,
+.authors-spark::after {
+    content: '';
+    position: absolute;
+    background: #eafeff;
+    box-shadow: 0 0 5px 1px rgba(150, 240, 255, 1);
+}
+.authors-spark::before { top: 50%; left: 0; width: 100%; height: 1.5px; transform: translateY(-50%); }
+.authors-spark::after  { left: 50%; top: 0; height: 100%; width: 1.5px; transform: translateX(-50%); }
+
+.authors-spark-1 { left: 88.3%; top: 11%;    animation-duration: 1.5s; animation-delay: 0.2s; }
 .authors-spark-2 {
-    left: 87.9%; top: 44.5%; width: 6px; height: 6px;
-    box-shadow: 0 0 10px 3px rgba(170, 245, 255, 1);
-    animation-duration: 1.7s; animation-delay: 0s;
+    left: 87.9%; top: 44.5%; width: 13px; height: 13px;
+    animation-duration: 1.3s; animation-delay: 0s;
 }
-.authors-spark-3 { left: 88.6%; top: 81%;    animation-duration: 1.9s; animation-delay: 0.7s; }
+.authors-spark-3 { left: 88.6%; top: 81%;    animation-duration: 1.4s; animation-delay: 0.7s; }
 
 @keyframes authors-glow-pulse {
-    0%, 100% { opacity: 0.55; }
-    50%      { opacity: 1;    }
+    0%   { opacity: 0.65; }
+    18%  { opacity: 1;    }
+    50%  { opacity: 0.8;  }
+    100% { opacity: 0.65; }
 }
 
-@keyframes authors-glow-wide-pulse {
-    0%, 100% { opacity: 0.35; transform: scale(1);    }
-    50%      { opacity: 0.75; transform: scale(1.06); }
+@keyframes authors-core-flicker {
+    0%, 100% { opacity: 0.92; }
+    47%      { opacity: 1;    }
+    50%      { opacity: 0.8;  }
+    53%      { opacity: 1;    }
 }
 
 @keyframes authors-core-pulse {
-    0%, 100% { opacity: 0.7; transform: scale(1);    }
-    50%      { opacity: 1;   transform: scale(1.12); }
+    0%   { opacity: 0.75; transform: scale(1);    }
+    18%  { opacity: 1;    transform: scale(1.15); }
+    50%  { opacity: 0.85; transform: scale(1.03); }
+    100% { opacity: 0.75; transform: scale(1);    }
 }
 
 @keyframes authors-shimmer-up {
     0%   { top: 45%;   opacity: 0; }
-    12%  { opacity: 1; }
-    100% { top: -35%;  opacity: 0; }
+    10%  { opacity: 1; }
+    100% { top: -20%;  opacity: 0; }
 }
 
 @keyframes authors-shimmer-down {
     0%   { top: 45%;   opacity: 0; }
-    12%  { opacity: 1; }
+    10%  { opacity: 1; }
     100% { top: 100%;  opacity: 0; }
 }
 
 @keyframes authors-spark-flare {
-    0%, 100% { opacity: 0;   transform: scale(0.6); }
-    50%      { opacity: 1;   transform: scale(1.4); }
+    0%, 78%, 100% { opacity: 0;   transform: scale(0.4) rotate(0deg);  }
+    85%           { opacity: 1;   transform: scale(1.3) rotate(20deg); }
+    92%           { opacity: 0.4; transform: scale(0.9) rotate(25deg); }
 }
 
 /* Bio text baked into the photo runs right up to where the card title
@@ -1208,6 +1276,10 @@ a[href="/authors"] p {
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .authors-border-glow {
+        animation: none;
+        opacity: 0.8;
+    }
     .authors-pole-glow-wide {
         animation: none;
         opacity: 0.5;
@@ -1216,6 +1288,10 @@ a[href="/authors"] p {
     .authors-pole-glow {
         animation: none;
         opacity: 0.8;
+    }
+    .authors-pole-hotcore {
+        animation: none;
+        opacity: 0.95;
     }
     .authors-hand-core {
         animation: none;
@@ -1231,6 +1307,50 @@ a[href="/authors"] p {
     }
     .authors-pole {
         transition: none;
+    }
+}
+
+/* --- Essays & Audiolibros cards: same glowing-border language as
+   Author Spotlights' cyan frame, each in its own accent color -- the
+   Essays glyph's green (sampled straight from essays.png's icon,
+   ~rgb(0,255,154)) and a cornflower blue for Audiolibros. Pure CSS
+   (border + box-shadow) since neither photo has a colored border baked
+   in the way authors.jpg does, so there's no pixel cutout to make.
+   Stays fixed to the card's true edge rather than tracking the hover
+   zoom transform -- unlike the Authors pole/border, this frame isn't
+   locked to a feature inside the photo, so it reads better as a frame
+   staying put while the photo moves behind it. Shares the Authors
+   border's exact pulse timing so all three cards read as one
+   consistent "energized frame" motif across the grid. */
+.essays-border-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border: 1.5px solid rgba(20, 255, 150, 0.9);
+    box-shadow:
+        0 0 8px 1px rgba(20, 255, 150, 0.8),
+        0 0 20px 3px rgba(20, 255, 150, 0.45),
+        inset 0 0 10px 1px rgba(20, 255, 150, 0.5);
+    animation: authors-glow-pulse 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.audiolibros-border-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border: 1.5px solid rgba(100, 149, 237, 0.9);
+    box-shadow:
+        0 0 8px 1px rgba(100, 149, 237, 0.8),
+        0 0 20px 3px rgba(100, 149, 237, 0.45),
+        inset 0 0 10px 1px rgba(100, 149, 237, 0.5);
+    animation: authors-glow-pulse 2.2s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .essays-border-glow,
+    .audiolibros-border-glow {
+        animation: none;
+        opacity: 0.85;
     }
 }
 
