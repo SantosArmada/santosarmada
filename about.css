@@ -238,6 +238,168 @@
     width: 100% !important;
     height: 100% !important;
 }
+
+/* The big painted sun/star in the doorway art (upper right, distinct
+   from the ringed planet the vortex canvas orbits) gets a soft pulsing
+   glow so it reads as alive rather than static -- two real RGBA cutouts
+   (a tight hot core + a wider ambient bloom), baked from a radial
+   gradient centered on the star's actual pixel position (found via
+   color-threshold + connected-component analysis on the source photo,
+   same technique used throughout the site), layered with
+   mix-blend-mode:screen so it only ever brightens, never flattens the
+   painted rings/rays already there. */
+.about-portal-star-glow,
+.about-portal-star-core {
+    position: absolute;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+.about-portal-star-glow {
+    left: 48.48%;
+    top: 31.95%;
+    width: 34.94%;
+    height: 27.89%;
+    background-image: url(Images/about-portal-star-glow.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    animation: about-star-pulse 3.4s ease-in-out infinite;
+}
+.about-portal-star-core {
+    left: 55.79%;
+    top: 37.73%;
+    width: 20.32%;
+    height: 16.26%;
+    background-image: url(Images/about-portal-star-core.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    animation: about-star-pulse 3.4s ease-in-out infinite;
+    animation-delay: -0.4s;
+}
+
+@keyframes about-star-pulse {
+    0%, 100% { opacity: 0.6; transform: scale(1);    }
+    50%      { opacity: 1;   transform: scale(1.08); }
+}
+
+/* 5 smaller standout stars elsewhere in the doorway art -- found the
+   same way as the big one (color-threshold + brightness-peak search on
+   the source photo, cross-checked visually against marked crops to
+   rule out the decorative lantern silhouettes and the "milky way"
+   band's own texture, which both false-positive on a naive brightness
+   scan).
+
+   First pass used the same round radial-gradient glow as the big star,
+   but at this small size a round glow reads as a blob sitting on top
+   of the star instead of the star itself lighting up -- it swallowed
+   the actual painted sparkle/cross shape. Rebuilt each one as a real
+   cutout of that star's own true pixels (a tight brightness-threshold
+   mask of just its rays, connected-component-filtered to the blob
+   touching its exact center so it can't pick up a neighboring speck),
+   brightened, screen-blended on top of itself. Since the highlight is
+   shaped exactly like the star, the sparkle/cross shape stays intact
+   -- it just lights up, rather than growing an orb.
+
+   Each star also gets its own hand-built keyframe (irregular stops,
+   not an even sine breathe) and its own cycle duration, so they flicker
+   like real atmospheric scintillation -- asynchronous and uneven --
+   instead of five lights breathing in unison. */
+.about-portal-sparkle {
+    position: absolute;
+    width: 4.991%;
+    height: 3.994%;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    mix-blend-mode: screen;
+    pointer-events: none;
+}
+
+.about-portal-sparkle-1 {
+    left: 21.301%; top: 47.860%;
+    background-image: url(Images/about-portal-mini-sparkle-1.png);
+    animation: about-twinkle-a 2.6s ease-in-out infinite;
+}
+.about-portal-sparkle-2 {
+    left: 39.216%; top: 55.563%;
+    background-image: url(Images/about-portal-mini-sparkle-2.png);
+    animation: about-twinkle-b 3.4s ease-in-out infinite;
+}
+.about-portal-sparkle-3 {
+    left: 50.980%; top: 47.076%;
+    background-image: url(Images/about-portal-mini-sparkle-3.png);
+    animation: about-twinkle-c 2.1s ease-in-out infinite;
+}
+.about-portal-sparkle-4 {
+    left: 45.098%; top: 44.365%;
+    background-image: url(Images/about-portal-mini-sparkle-4.png);
+    animation: about-twinkle-d 3.9s ease-in-out infinite;
+}
+.about-portal-sparkle-5 {
+    left: 41.711%; top: 74.750%;
+    background-image: url(Images/about-portal-mini-sparkle-5.png);
+    animation: about-twinkle-e 2.8s ease-in-out infinite;
+}
+
+@keyframes about-twinkle-a {
+    0%   { opacity: 0.25; }
+    9%   { opacity: 0.9;  }
+    17%  { opacity: 0.35; }
+    33%  { opacity: 1;    }
+    41%  { opacity: 0.3;  }
+    60%  { opacity: 0.75; }
+    71%  { opacity: 0.25; }
+    88%  { opacity: 0.85; }
+    100% { opacity: 0.25; }
+}
+@keyframes about-twinkle-b {
+    0%   { opacity: 0.3;  }
+    14%  { opacity: 0.35; }
+    22%  { opacity: 1;    }
+    36%  { opacity: 0.3;  }
+    50%  { opacity: 0.6;  }
+    64%  { opacity: 0.9;  }
+    77%  { opacity: 0.3;  }
+    100% { opacity: 0.3;  }
+}
+@keyframes about-twinkle-c {
+    0%   { opacity: 0.35; }
+    12%  { opacity: 1;    }
+    24%  { opacity: 0.3;  }
+    45%  { opacity: 0.3;  }
+    58%  { opacity: 0.8;  }
+    73%  { opacity: 0.35; }
+    90%  { opacity: 0.95; }
+    100% { opacity: 0.35; }
+}
+@keyframes about-twinkle-d {
+    0%   { opacity: 0.3;  }
+    18%  { opacity: 0.85; }
+    29%  { opacity: 0.3;  }
+    31%  { opacity: 0.3;  }
+    47%  { opacity: 1;    }
+    55%  { opacity: 0.35; }
+    80%  { opacity: 0.7;  }
+    100% { opacity: 0.3;  }
+}
+@keyframes about-twinkle-e {
+    0%   { opacity: 0.4;  }
+    10%  { opacity: 0.4;  }
+    20%  { opacity: 1;    }
+    30%  { opacity: 0.35; }
+    52%  { opacity: 0.9;  }
+    63%  { opacity: 0.3;  }
+    85%  { opacity: 0.75; }
+    100% { opacity: 0.4;  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about-portal-star-glow,
+    .about-portal-star-core,
+    .about-portal-sparkle {
+        animation: none;
+        opacity: 0.85;
+    }
+}
+
 /* ===== POR QUÉ SANTOS ARMADA — side-by-side on desktop ===== */
 .about-final-wrap {
     display: flex;

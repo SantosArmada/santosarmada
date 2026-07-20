@@ -23,9 +23,14 @@
   };
 
   // Anchor point read off the doorway artwork itself (fraction of the
-  // doorway opening, 0..1 left-to-right / top-to-bottom)
-  const PLANET_ANCHOR = { x: 0.62, y: 0.53 }; // ringed planet, center
-  const PLANET_TILT_DEG = -15; // matches the painted rings' downward-right tilt
+  // doorway opening, 0..1 left-to-right / top-to-bottom). Re-measured
+  // this alongside the ring angles below -- the old (0.62, 0.53) put
+  // the whole orbit noticeably above the actual planet once checked by
+  // rendering the exact same projection math in an offline script and
+  // overlaying it on the source photo pixel-for-pixel (screenshots of
+  // the live canvas were too small/compressed to catch how far off it
+  // was). y=0.53 was the main culprit.
+  const PLANET_ANCHOR = { x: 0.63, y: 0.595 }; // ringed planet, center
 
   // Camera distance, in world units. Increasing this zooms the view OUT
   // (same FOV angle, but the frustum is wider at a greater distance),
@@ -36,9 +41,27 @@
   const CAM_DIST = 13; // was 9 — increased to pull the dust ring in from the frame edges
 
   let scene, camera, renderer, clock;
-  let disk;
+  let rings = [];
   let raf = null;
-  let visible = true;
+  let running = true;
+
+  // Two painted rings, each with its own tilt -- they are not coplanar
+  // in this artwork the way Saturn's real rings are. Earlier passes at
+  // measuring these got fooled by nearby noise: a color-threshold scan
+  // over the whole ring blob at once landed between the two real angles,
+  // and a second attempt confused the galaxy's dust lane (a completely
+  // different, stippled art style) for a second ring. -8/-20 came from
+  // eyeballing a gridded crop, which was still off in magnitude for both
+  // bands. Nailed down properly by tracking each band's actual pixel
+  // centerline (a color-matched walk along the band, not a single guess)
+  // across its full visible run, converting every sample to this script's
+  // own world-space projection, and fitting the tilt as the slope of that
+  // line in world space -- which is exactly what tiltDeg represents here.
+  // Confirmed by drawing the resulting ellipses over the source photo.
+  const RING_BANDS = [
+    { tiltDeg: -16, minR: 1.6, maxR: 2.4, arcCount: 65, sparkCount: 280 }, // front, gold ring
+    { tiltDeg: -32, minR: 1.5, maxR: 2.2, arcCount: 55, sparkCount: 240 }, // back, white ring
+  ];
 
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -71,36 +94,63 @@
 
     clock = new THREE.Clock();
 
-    buildAccretionDisk(width / height);
+    rings = RING_BANDS.map((band) => buildRing(width / height, band));
 
     window.addEventListener("resize", onResize);
+    if ("ResizeObserver" in window) {
+      new ResizeObserver(onResize).observe(mount);
+    }
 
-    // Pause the render loop when off-screen to save battery/CPU
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => (visible = e.isIntersecting));
+    // This effect should never appear to stop. Previously it paused via
+    // IntersectionObserver whenever scrolled out of view -- removed, it
+    // now always keeps orbiting. The real risk to "never stops" is the
+    // GPU context dropping (mobile memory pressure, tab backgrounding,
+    // driver resets) with nothing to notice or recover -- that leaves
+    // the loop spinning against a dead context forever. preventDefault()
+    // on the loss event is what tells the browser this context is
+    // allowed to come back at all.
+    renderer.domElement.addEventListener(
+      "webglcontextlost",
+      (e) => {
+        e.preventDefault();
+        running = false;
+        if (raf !== null) {
+          cancelAnimationFrame(raf);
+          raf = null;
+        }
       },
-      { threshold: 0.05 }
+      false
     );
-    io.observe(mount);
+    renderer.domElement.addEventListener(
+      "webglcontextrestored",
+      () => {
+        onResize();
+        running = true;
+        animate();
+      },
+      false
+    );
 
     animate();
   }
 
-  // ---- Swirling accretion vortex: short curved arc lines that trace the
+  // ---- Swirling accretion ring: short curved arc lines that trace the
   // orbit direction (reads as actual flow/motion, not a static dot-cloud),
-  // plus a sparse layer of sparkle particles riding along for texture ----
-  function buildAccretionDisk(aspect) {
+  // plus a sparse layer of sparkle particles riding along for texture.
+  // Radii are confined to [minR, maxR] instead of one wide sweep, so this
+  // can be called once per painted ring band and each call hugs just
+  // that ring's own trail instead of smearing across the whole disk. ----
+  function buildRing(aspect, { tiltDeg, minR, maxR, arcCount, sparkCount }) {
     const center = anchorToWorld(PLANET_ANCHOR, aspect);
-    const ARC_COUNT = 90;
     const tilt = 0.34; // flattens the ring to echo the planet's own rings
     const palette = [PALETTE.gold, PALETTE.red, PALETTE.blue, PALETTE.cream];
+    const rSpan = maxR - minR;
 
     const arcs = [];
     const arcGroup = new THREE.Group();
 
-    for (let i = 0; i < ARC_COUNT; i++) {
-      const r = 0.6 + Math.pow(Math.random(), 0.55) * 3.3;
+    for (let i = 0; i < arcCount; i++) {
+      const r = minR + Math.pow(Math.random(), 0.55) * rSpan;
       const startAngle = Math.random() * Math.PI * 2;
       const arcLength = 0.35 + Math.random() * 0.5; // radians of sweep
       const segments = 14;
@@ -143,19 +193,18 @@
     }
 
     arcGroup.position.set(center.x, center.y, 0);
-    arcGroup.rotation.z = (PLANET_TILT_DEG * Math.PI) / 180;
+    arcGroup.rotation.z = (tiltDeg * Math.PI) / 180;
     scene.add(arcGroup);
 
     // sparse sparkle dust riding on the same orbits, for texture/depth
-    const SPARK_COUNT = 380;
-    const positions = new Float32Array(SPARK_COUNT * 3);
-    const colors = new Float32Array(SPARK_COUNT * 3);
-    const orbitRadius = new Float32Array(SPARK_COUNT);
-    const orbitAngle = new Float32Array(SPARK_COUNT);
-    const orbitSpeed = new Float32Array(SPARK_COUNT);
+    const positions = new Float32Array(sparkCount * 3);
+    const colors = new Float32Array(sparkCount * 3);
+    const orbitRadius = new Float32Array(sparkCount);
+    const orbitAngle = new Float32Array(sparkCount);
+    const orbitSpeed = new Float32Array(sparkCount);
 
-    for (let i = 0; i < SPARK_COUNT; i++) {
-      const r = 0.6 + Math.pow(Math.random(), 0.55) * 3.4;
+    for (let i = 0; i < sparkCount; i++) {
+      const r = minR + Math.pow(Math.random(), 0.55) * rSpan;
       const a = Math.random() * Math.PI * 2;
       orbitRadius[i] = r;
       orbitAngle[i] = a;
@@ -187,10 +236,10 @@
 
     const sparks = new THREE.Points(sparkGeo, sparkMat);
     sparks.position.set(center.x, center.y, 0);
-    sparks.rotation.z = (PLANET_TILT_DEG * Math.PI) / 180;
+    sparks.rotation.z = (tiltDeg * Math.PI) / 180;
     scene.add(sparks);
 
-    disk = {
+    return {
       arcGroup,
       arcs,
       sparks,
@@ -221,46 +270,50 @@
     camera.updateProjectionMatrix();
     renderer.setSize(width, height);
 
-    if (disk) {
-      const center = anchorToWorld(PLANET_ANCHOR, camera.aspect);
-      disk.arcGroup.position.set(center.x, center.y, 0);
-      disk.sparks.position.set(center.x, center.y, 0);
+    const center = anchorToWorld(PLANET_ANCHOR, camera.aspect);
+    for (let i = 0; i < rings.length; i++) {
+      rings[i].arcGroup.position.set(center.x, center.y, 0);
+      rings[i].sparks.position.set(center.x, center.y, 0);
     }
   }
 
   function animate() {
+    if (!running) return;
     raf = requestAnimationFrame(animate);
-    if (!visible) return;
 
     const t = clock.getElapsedTime();
     const speed = reduceMotion ? 0 : 1;
 
-    // advance each swirl arc along its orbit
-    for (let i = 0; i < disk.arcs.length; i++) {
-      const arc = disk.arcs[i];
-      arc.angle += arc.speed * 0.01 * speed;
-      const posAttr = arc.line.geometry.attributes.position;
-      for (let s = 0; s <= arc.segments; s++) {
-        const a = arc.angle + (arc.arcLength * s) / arc.segments;
-        posAttr.array[s * 3] = Math.cos(a) * arc.radius;
-        posAttr.array[s * 3 + 1] = Math.sin(a) * arc.radius * disk.tilt;
-        posAttr.array[s * 3 + 2] = Math.sin(a) * arc.radius * 0.12;
-      }
-      posAttr.needsUpdate = true;
-    }
+    for (let ri = 0; ri < rings.length; ri++) {
+      const disk = rings[ri];
 
-    // advance sparkle dust along the same swirl
-    const { orbitRadius, orbitAngle, orbitSpeed } = disk.sparkData;
-    const sparkPos = disk.sparks.geometry.attributes.position;
-    for (let i = 0; i < orbitRadius.length; i++) {
-      orbitAngle[i] += orbitSpeed[i] * 0.01 * speed;
-      const r = orbitRadius[i];
-      const a = orbitAngle[i];
-      sparkPos.array[i * 3] = Math.cos(a) * r;
-      sparkPos.array[i * 3 + 1] = Math.sin(a) * r * disk.tilt;
-      sparkPos.array[i * 3 + 2] = Math.sin(a) * r * 0.12;
+      // advance each swirl arc along its orbit
+      for (let i = 0; i < disk.arcs.length; i++) {
+        const arc = disk.arcs[i];
+        arc.angle += arc.speed * 0.01 * speed;
+        const posAttr = arc.line.geometry.attributes.position;
+        for (let s = 0; s <= arc.segments; s++) {
+          const a = arc.angle + (arc.arcLength * s) / arc.segments;
+          posAttr.array[s * 3] = Math.cos(a) * arc.radius;
+          posAttr.array[s * 3 + 1] = Math.sin(a) * arc.radius * disk.tilt;
+          posAttr.array[s * 3 + 2] = Math.sin(a) * arc.radius * 0.12;
+        }
+        posAttr.needsUpdate = true;
+      }
+
+      // advance sparkle dust along the same swirl
+      const { orbitRadius, orbitAngle, orbitSpeed } = disk.sparkData;
+      const sparkPos = disk.sparks.geometry.attributes.position;
+      for (let i = 0; i < orbitRadius.length; i++) {
+        orbitAngle[i] += orbitSpeed[i] * 0.01 * speed;
+        const r = orbitRadius[i];
+        const a = orbitAngle[i];
+        sparkPos.array[i * 3] = Math.cos(a) * r;
+        sparkPos.array[i * 3 + 1] = Math.sin(a) * r * disk.tilt;
+        sparkPos.array[i * 3 + 2] = Math.sin(a) * r * 0.12;
+      }
+      sparkPos.needsUpdate = true;
     }
-    sparkPos.needsUpdate = true;
 
     renderer.render(scene, camera);
   }
