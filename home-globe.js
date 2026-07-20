@@ -96,7 +96,24 @@
       world.width(Math.max(r.width, 1));
       world.height(Math.max(r.height, 1));
     }
+    // window 'resize' alone misses mobile Safari/Chrome's dynamic
+    // address-bar collapse, which can leave this canvas's size stale
+    // after the page's layout has actually changed. ResizeObserver
+    // catches the container's real box size regardless of cause.
     window.addEventListener('resize', resize);
+    if ('ResizeObserver' in window) {
+      new ResizeObserver(resize).observe(container);
+    }
+
+    // This page also runs a second, independent WebGL context (the
+    // Singularity orb above the grid) — two contexts is real pressure
+    // on a mobile GPU. Without this, losing the context under memory
+    // pressure would just leave the globe frozen with no recovery.
+    const canvas = world.renderer && world.renderer() && world.renderer().domElement;
+    if (canvas) {
+      canvas.addEventListener('webglcontextlost', (e) => e.preventDefault(), false);
+      canvas.addEventListener('webglcontextrestored', resize, false);
+    }
 
     setTimeout(() => container.classList.add('is-ready'), 500);
   }

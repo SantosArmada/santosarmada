@@ -205,6 +205,9 @@
   }
 
   window.addEventListener('resize', resize);
+  if ('ResizeObserver' in window) {
+    new ResizeObserver(resize).observe(img);
+  }
 
   if (img.complete && img.naturalWidth) {
     resize();

@@ -387,6 +387,11 @@
   }
 
   window.addEventListener('resize', setup);
+  // window 'resize' misses mobile Safari/Chrome's dynamic address-bar
+  // collapse; visualViewport is the API built specifically to catch that.
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', setup);
+  }
   setup();
   startAnimation();
 })();
@@ -573,8 +578,11 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
 
     var clock = new THREE.Clock();
     var camAngle = 0;
+    var running = true;
+    var rafId = null;
 
     function animate() {
+        if (!running) return;
         var time = clock.getElapsedTime();
         diskMaterial.uniforms.uTime.value = time;
         instancedDisk.rotation.y += 0.0005;
@@ -587,20 +595,62 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
         camera.lookAt(0, 0, 0);
 
         renderer.render(scene, camera);
-        requestAnimationFrame(animate);
+        rafId = requestAnimationFrame(animate);
     }
 
     function handleResize() {
         var w = container.clientWidth, h = container.clientHeight;
+        if (!w || !h) return;
         camera.aspect = w / h;
         camera.updateProjectionMatrix();
         renderer.setSize(w, h);
     }
 
+    // window 'resize' alone misses mobile Safari/Chrome's dynamic
+    // address-bar collapse (it doesn't reliably fire a resize event for
+    // that), which used to leave this canvas's pixel buffer stale
+    // relative to its 70vh/50vh container -- an oversized/mismatched
+    // WebGL canvas is a known way to escape overflow:hidden clipping on
+    // iOS Safari, which read as the orb "glitching" into the hero above
+    // it. ResizeObserver catches the container's actual box size
+    // changing regardless of what caused it.
     window.addEventListener('resize', handleResize);
+    if ('ResizeObserver' in window) {
+        new ResizeObserver(handleResize).observe(container);
+    }
     handleResize();
     setTimeout(handleResize, 300);
-    animate();
+
+    // Pause rendering while scrolled out of view -- also stops this
+    // context from burning GPU/battery underneath the grid further
+    // down the page, which matters more here than usual since the
+    // homepage runs a second, independent WebGL context (the mini
+    // globe in the Space and Time card) at the same time.
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                running = entry.isIntersecting;
+                if (running && rafId === null) animate();
+            });
+        }, { threshold: 0 }).observe(container);
+    } else {
+        animate();
+    }
+
+    // If the GPU context is lost (mobile memory pressure is the usual
+    // cause), the canvas would otherwise freeze on its last frame with
+    // no recovery. preventDefault() on the loss event is what tells the
+    // browser this context is allowed to be restored at all.
+    renderer.domElement.addEventListener('webglcontextlost', function (e) {
+        e.preventDefault();
+        running = false;
+        if (rafId !== null) { cancelAnimationFrame(rafId); rafId = null; }
+    }, false);
+    renderer.domElement.addEventListener('webglcontextrestored', function () {
+        handleResize();
+        running = true;
+        animate();
+    }, false);
 })();
 </script>
 <script>
