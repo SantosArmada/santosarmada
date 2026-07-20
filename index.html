@@ -16,7 +16,7 @@
 }
 </script>
     <title>Santos Armada — Una armada de conocimientos</title>
-    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="style.css?v=10">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
 <body class="has-site-banners">
@@ -118,6 +118,7 @@
         </a>
         <a href="/interpreter-z" class="grid-card">
             <img src="Images/grid/interpreter-z.jpg" alt="">
+            <div class="interpreter-z-glow" aria-hidden="true"></div>
             <div class="card-text"><h3>Interpreter Z</h3><p>The craft of language</p></div>
         </a>
         <a href="/tacos-de-ojo" class="grid-card">
@@ -135,6 +136,16 @@
         </a>
         <a href="/academia" class="grid-card">
             <img src="Images/grid/academia.jpg" alt="">
+            <div class="academia-sky" aria-hidden="true">
+                <div class="academia-sun"></div>
+                <div class="academia-architecture"></div>
+                <div class="academia-shadows"></div>
+                <div class="academia-sky-night">
+                    <div class="academia-star academia-star-1"></div>
+                    <div class="academia-star academia-star-2"></div>
+                    <div class="academia-star academia-star-3"></div>
+                </div>
+            </div>
             <div class="card-text"><h3>Academia</h3><p>Research + Journals</p></div>
         </a>
         <a href="/museos" class="grid-card">
@@ -155,14 +166,20 @@
         </a>
         <a href="/cv" class="grid-card">
             <img src="Images/grid/cv.jpg" alt="">
+            <div class="cv-shimmer" aria-hidden="true"></div>
             <div class="card-text"><h3>Curriculum Vitae</h3><p>Scholar · Interpreter · Writer</p></div>
         </a>
         <a href="/mercadeo" class="grid-card">
             <img src="Images/grid/mercadeo.jpg" alt="">
+            <div class="mercadeo-flame" aria-hidden="true"></div>
             <div class="card-text"><h3>Mercadeo</h3><p>Merch · Rentals</p></div>
         </a>
         <a href="/archives" class="grid-card">
             <img src="Images/grid/archives.jpg" alt="">
+            <div class="archives-eyes" aria-hidden="true">
+                <div class="archives-eye archives-eye-left"></div>
+                <div class="archives-eye archives-eye-right"></div>
+            </div>
             <div class="card-text"><h3>Archives</h3><p>Archival research & primary sources</p></div>
         </a>
     </div>
@@ -560,6 +577,37 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.m
     handleResize();
     setTimeout(handleResize, 300);
     animate();
+})();
+</script>
+<script>
+// ---- Academia card: pick 3 random stars to shimmer each page load ----
+(function () {
+    var CANDIDATES = [
+        { x: 5.52, y: 7.74 },   { x: 6.0, y: 2.21 },    { x: 7.59, y: 18.71 },
+        { x: 13.59, y: 14.47 }, { x: 17.79, y: 3.41 },  { x: 18.28, y: 52.26 },
+        { x: 18.76, y: 51.52 }, { x: 20.69, y: 3.13 },  { x: 24.07, y: 17.24 },
+        { x: 30.07, y: 2.67 },  { x: 30.55, y: 19.17 }, { x: 34.21, y: 22.03 },
+        { x: 35.31, y: 13.46 }, { x: 36.34, y: 2.58 },  { x: 38.0, y: 8.29 },
+        { x: 44.83, y: 14.75 }, { x: 46.07, y: 2.3 },   { x: 46.14, y: 2.21 },
+        { x: 53.1, y: 1.84 },   { x: 56.76, y: 18.16 }, { x: 57.66, y: 11.06 },
+        { x: 59.79, y: 19.72 }, { x: 61.31, y: 1.47 },  { x: 67.38, y: 19.72 },
+        { x: 76.9, y: 5.25 },   { x: 77.31, y: 12.44 }, { x: 80.69, y: 21.2 },
+        { x: 82.83, y: 14.19 }, { x: 93.38, y: 3.23 },  { x: 94.76, y: 4.33 },
+        { x: 95.03, y: 7.37 },  { x: 96.55, y: 21.29 }
+    ];
+
+    var stars = document.querySelectorAll('.academia-star');
+    if (!stars.length) return;
+
+    var pool = CANDIDATES.slice();
+    stars.forEach(function (star) {
+        var i = Math.floor(Math.random() * pool.length);
+        var pick = pool.splice(i, 1)[0];
+        star.style.top = pick.y + '%';
+        star.style.left = pick.x + '%';
+        star.style.animationDelay = (Math.random() * 3).toFixed(2) + 's';
+        star.style.animationDuration = (2 + Math.random() * 2).toFixed(2) + 's';
+    });
 })();
 </script>
 <script src="home-globe.js" defer></script>
