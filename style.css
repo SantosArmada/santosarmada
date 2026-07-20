@@ -469,7 +469,99 @@ body.has-site-banners .navbar {
     font-size: 13px;
     color: var(--text-secondary);
     line-height: 1.4;
-}/* --- Footer --- */
+}
+
+/* --- Libritos card: shooting stars confined to the sliver of dusk sky
+   visible between the foreground archway and the pyramid's roofline
+   in Images/grid/libritos.jpg. The clip-path traces that gap, this
+   time measured programmatically (scanned the actual source photo
+   pixel-by-pixel for the purple-sky/tan-stone color boundary, since
+   two rounds of eyeballing it -- first too cramped at y<=31%, then
+   too wide because dark shadow between the stone blocks near the top
+   of frame was mistaken for a narrow sky slot -- both missed). Real
+   sky doesn't start until y=~18% (everything above that, including
+   what looked like a slot at the very top, is shadowed stone) and
+   stays one continuous region through y=~48%, where the pyramid's
+   own silhouette starts splitting it into two narrower side slivers
+   -- not included here, kept to the one clean continuous region. So
+   the stars -- and their full animated paths -- only ever render
+   inside that sky, never over the stone, no matter how the paths
+   below are tuned. Three stars on three shallow near-horizontal streaks,
+   staggered so one is always mid-flight, read as a continuous stream
+   rather than a single star repeating with a gap. --- */
+.libritos-sky {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    clip-path: polygon(
+        43.0% 18%, 54.6% 18%,
+        54.4% 24%, 58.3% 30%, 65.3% 36%, 72.7% 42%, 79.9% 48%,
+        20.9% 48%, 27.4% 42%, 34.7% 36%, 41.4% 30%, 44.0% 24%
+    );
+}
+
+.libritos-shooting-star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: #fff;
+    box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.9);
+    animation: libritos-star-streak-1 3s linear infinite;
+}
+
+.libritos-shooting-star:nth-child(2) {
+    animation-name: libritos-star-streak-2;
+    animation-delay: 1s;
+}
+
+.libritos-shooting-star:nth-child(3) {
+    animation-name: libritos-star-streak-3;
+    animation-delay: 2s;
+}
+
+.libritos-shooting-star::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: 46px;
+    height: 1.5px;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.8), transparent);
+    transform: translateY(-50%) rotate(180deg) skewY(4deg);
+    transform-origin: right center;
+}
+
+@keyframes libritos-star-streak-1 {
+    0%   { left: 38%; top: 35%;   opacity: 0; }
+    8%   { opacity: 1; }
+    92%  { opacity: 1; }
+    100% { left: 62%; top: 37.5%; opacity: 0; }
+}
+
+@keyframes libritos-star-streak-2 {
+    0%   { left: 32%; top: 41%;   opacity: 0; }
+    8%   { opacity: 1; }
+    92%  { opacity: 1; }
+    100% { left: 68%; top: 43.5%; opacity: 0; }
+}
+
+@keyframes libritos-star-streak-3 {
+    0%   { left: 27%; top: 46%;   opacity: 0; }
+    8%   { opacity: 1; }
+    92%  { opacity: 1; }
+    100% { left: 73%; top: 47.5%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .libritos-shooting-star {
+        animation: none;
+        opacity: 0;
+    }
+}
+
+/* --- Footer --- */
 .footer {
     padding: 60px 48px;
     border-top: 0.5px solid var(--border);
