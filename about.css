@@ -448,12 +448,68 @@
 
 .portal-emblem-eye-right::before { animation-delay: 0.05s; }
 
+/* Single horizontal streak across both eyes, on top of the two vertical
+   beams -- same idea as archives-beam-flash (a scaleY bar spanning well
+   past the card, clipped by the wrapper's overflow:hidden) just rotated
+   90deg into a scaleX bar, and only ONE of them (not one per eye) since
+   it's meant to read as a single flash slicing across the whole emblem
+   rather than two separate beams. Sits at the same top:% as the eyes
+   (both are the same y already) so it cuts right through the pupils.
+
+   First version anchored the -9000%/19000% span directly to the whole
+   image width, instead of to a small local box the way the vertical
+   beams anchor to their own tiny eye element. That put the gradient's
+   fade zones tens of image-widths outside the visible frame, so instead
+   of a beam with a soft glow/falloff like the vertical ones, the visible
+   slice was just its flat, hard-edged solid-white middle -- same color,
+   very different "size"/character. Fixed by giving it its own small
+   anchor box (matching the eye box's 1.35% dimension exactly) centered
+   between the two eyes, so the percentages resolve at the same scale and
+   the falloff reads the same as the vertical beams. */
+.portal-emblem-hstreak-anchor {
+    position: absolute;
+    width: 1.35%;
+    height: 1.35%;
+    left: 49.73%;
+    top: 19.07%;
+    margin-left: -0.675%;
+    margin-top: -0.675%;
+}
+
+.portal-emblem-hstreak-anchor::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -9000%;
+    width: 19000%;
+    height: 1px;
+    margin-top: -0.5px;
+    background: linear-gradient(to right, transparent 0%, rgba(255, 250, 235, 0.9) 42%, #fff 50%, rgba(255, 250, 235, 0.9) 58%, transparent 100%);
+    filter: drop-shadow(0 0 3px rgba(255, 250, 235, 0.85)) drop-shadow(0 0 9px rgba(255, 240, 210, 0.55));
+    transform: scaleX(0);
+    transform-origin: center;
+    opacity: 0;
+    animation: portal-hstreak-flash 2.5s ease-in-out infinite;
+}
+
+@keyframes portal-hstreak-flash {
+    0%, 34% { opacity: 0; transform: scaleX(0); }
+    37%     { opacity: 1; transform: scaleX(1); }
+    40%     { opacity: 1; transform: scaleX(1); }
+    46%     { opacity: 0; transform: scaleX(1); }
+    100%    { opacity: 0; transform: scaleX(0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .portal-emblem-eye {
         animation: none;
         opacity: 0.85;
     }
     .portal-emblem-eye::before {
+        animation: none;
+        opacity: 0;
+    }
+    .portal-emblem-hstreak-anchor::before {
         animation: none;
         opacity: 0;
     }
