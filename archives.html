@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archives — Santos Armada</title>
+    <link rel="stylesheet" href="style.css?v=2">
+    <link rel="stylesheet" href="archives.css?v=7">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+    <script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/",
+    "opentype.js": "https://unpkg.com/opentype.js@latest/dist/opentype.module.js"
+  }
+}
+</script>
+</head>
+<body class="archives-page has-site-banners">
+
+<!-- BANNER: permanent frieze strip, fixed to the very top of the viewport,
+     sits above the navbar and never scrolls away. -->
+<section class="site-banner site-banner-top">
+    <img src="Images/maya-banner-chrome.png" alt="Maya glyph frieze, chrome relief" class="site-banner-image">
+</section>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <a href="/" class="nav-logo">
+        <span class="nav-crest-wrap">
+            <img src="Images/logo.PNG" alt="Santos Armada" class="nav-crest">
+            <span class="nav-laser nav-laser-0" aria-hidden="true"></span>
+            <span class="nav-laser nav-laser-1" aria-hidden="true"></span>
+            <span class="nav-laser nav-laser-2" aria-hidden="true"></span>
+            <span class="nav-laser nav-laser-3" aria-hidden="true"></span>
+            <span class="nav-laser nav-laser-4" aria-hidden="true"></span>
+            <span class="nav-laser nav-laser-5" aria-hidden="true"></span>
+            <span class="nav-laser nav-laser-6" aria-hidden="true"></span>
+            <span class="nav-laser nav-laser-7" aria-hidden="true"></span>
+        </span>
+        <span class="nav-title">SANTOS ARMADA</span>
+    </a>
+    <audio id="navLogoSound" src="sounds/laserlogo.wav" preload="auto"></audio>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="/essays">Essays</a></li>
+        <li><a href="/authors">Authors</a></li>
+        <li><a href="/space-and-time">Space and Time</a></li>
+        <li><a href="/audiolibros">Audiolibros</a></li>
+        <li><a href="/museos">Museos</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
+</nav>
+
+<!-- ARCHIVES WORLD: full-bleed chrome/laser-red hero. Drag to orbit the
+     lettering, which floats above a polished reflective floor. The
+     canvas itself is created and appended by archives.js, same as the
+     reference build (renderer.domElement), not declared here. -->
+<section class="archives-world" id="archivesWorld">
+    <h1 class="sr-only">Archives — Santos Armada</h1>
+
+    <div id="loader">Loading Scene...</div>
+
+    <div class="archives-bottom-stack">
+        <p class="archives-hint">Arrastra para explorar</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
+        <a href="/" class="footer-logo-link">
+            <img src="Images/logo.PNG" alt="Santos Armada" class="footer-logo">
+            <p class="footer-title">SANTOS ARMADA</p>
+        </a>
+        <p class="footer-links">
+            <a href="/essays">Essays</a> ·
+            <a href="/audiolibros">Audiolibros</a> ·
+            <a href="/authors">Authors</a> ·
+            <a href="/interpreter-z">Interpreter Z</a> ·
+            <a href="/cv">CV</a> ·
+            <a href="/about">About</a>
+        </p>
+        <p class="footer-copy">© 2026 Santos Armada · santosarmada@protonmail.com · All rights reserved</p>
+    </div>
+</footer>
+
+<!-- BANNER: permanent frieze strip, fixed to the very bottom of the
+     viewport, sits below the footer and never scrolls away. -->
+<section class="site-banner site-banner-bottom">
+    <img src="Images/maya-banner-chrome.png" alt="Maya glyph frieze, chrome relief" class="site-banner-image">
+</section>
+
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('nav-links');
+        nav.classList.toggle('open');
+    }
+
+    // Laser sting on logo hover, in sync with the CSS beam-burst.
+    // mouseenter (not mouseover) so it fires once per hover, not once
+    // per child element the mouse crosses inside the logo link.
+    (function () {
+        const logo = document.querySelector('.nav-logo');
+        const sound = document.getElementById('navLogoSound');
+        if (!logo || !sound) return;
+
+        logo.addEventListener('mouseenter', () => {
+            sound.currentTime = 0;
+            sound.play().catch(() => {});
+        });
+    })();
+</script>
+<script type="module" src="archives.js?v=6"></script>
+</body>
+</html>

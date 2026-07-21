@@ -1,0 +1,321 @@
+/* ================================
+   ARCHIVES — Santos Armada
+   First "welcome" page for the Archives wing: nav + a full-bleed 3D
+   hero (white lettering with a laser-red rim glow, afloat over a
+   reflective floor) built on top of the shared navbar/banner/footer
+   from style.css. The hero's own background/lighting/material values
+   live in archives.js (params) — nav and footer here stay in the
+   dark chrome/red trim established for this page. Document grid /
+   mission copy comes in a later pass.
+================================ */
+
+.archives-page {
+    --arch-black:      #030303;
+    --arch-white:      #ffffff;
+    --arch-chrome:     #eef1f3;
+    --arch-chrome-dim: #9aa3aa;
+    --arch-red:        #ff1a1a;
+    --arch-red-dim:    rgba(255, 26, 26, 0.35);
+    --archives-banner-h: 41px;
+
+    background: var(--arch-black);
+    color: var(--arch-white);
+    padding-top: var(--archives-banner-h);
+    padding-bottom: var(--archives-banner-h);
+    overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+    .archives-page {
+        --archives-banner-h: 27px;
+    }
+}
+
+/* Dock the sticky navbar directly beneath the fixed top banner. */
+.archives-page .navbar {
+    top: var(--archives-banner-h);
+}
+
+@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
+    .archives-page .navbar {
+        top: 0;
+    }
+}
+
+/* --- Navbar reskin: chrome/black/red instead of the site-wide gold --- */
+.archives-page .navbar {
+    background: rgba(3, 3, 3, 0.92);
+    border-bottom: 0.5px solid var(--arch-red-dim);
+}
+
+/* --- Logo: beaming laser red at rest, lasers burst on hover. No
+   rotation here — the spin lives on the 3D "ARCHIVES" text instead. --- */
+.archives-page .nav-crest-wrap {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+}
+
+.archives-page .nav-crest {
+    border-color: rgba(255, 26, 26, 0.4);
+    filter: grayscale(1) brightness(1.6) sepia(1) saturate(6) hue-rotate(-52deg);
+    animation: nav-crest-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes nav-crest-glow {
+    0%, 100% {
+        filter: grayscale(1) brightness(1.5) sepia(1) saturate(6) hue-rotate(-52deg)
+                drop-shadow(0 0 4px rgba(255, 26, 26, 0.75))
+                drop-shadow(0 0 9px rgba(255, 26, 26, 0.45));
+    }
+    50% {
+        filter: grayscale(1) brightness(1.8) sepia(1) saturate(6) hue-rotate(-52deg)
+                drop-shadow(0 0 7px rgba(255, 26, 26, 1))
+                drop-shadow(0 0 17px rgba(255, 26, 26, 0.8));
+    }
+}
+
+/* Eight beams radiating from the crest's center, hidden until hover.
+   Each carries its own angle via --ang; scaleY grows them outward from
+   the pivot at the crest's center. */
+.nav-laser {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 2px;
+    height: 28px;
+    margin-left: -1px;
+    transform-origin: 50% 0%;
+    background: linear-gradient(to bottom, rgba(255, 235, 225, 0.95), rgba(255, 26, 26, 0.6) 55%, transparent 100%);
+    filter: drop-shadow(0 0 3px rgba(255, 30, 20, 0.9));
+    opacity: 0;
+    transform: rotate(var(--ang)) scaleY(0);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.3, 1), opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.nav-laser-0 { --ang: 0deg; }
+.nav-laser-1 { --ang: 45deg;  transition-delay: 0.02s; }
+.nav-laser-2 { --ang: 90deg;  transition-delay: 0.04s; }
+.nav-laser-3 { --ang: 135deg; transition-delay: 0.06s; }
+.nav-laser-4 { --ang: 180deg; transition-delay: 0.08s; }
+.nav-laser-5 { --ang: 225deg; transition-delay: 0.06s; }
+.nav-laser-6 { --ang: 270deg; transition-delay: 0.04s; }
+.nav-laser-7 { --ang: 315deg; transition-delay: 0.02s; }
+
+.archives-page .nav-logo:hover .nav-laser {
+    opacity: 1;
+    transform: rotate(var(--ang)) scaleY(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .archives-page .nav-crest {
+        animation: none;
+        filter: grayscale(1) brightness(1.6) sepia(1) saturate(6) hue-rotate(-52deg)
+                drop-shadow(0 0 6px rgba(255, 26, 26, 0.85));
+    }
+}
+
+.archives-page .nav-title {
+    color: var(--arch-chrome);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.archives-page .nav-logo:hover .nav-title {
+    color: var(--arch-white);
+    text-shadow: 0 0 12px rgba(255, 26, 26, 0.55);
+}
+
+.archives-page .nav-links a {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+.archives-page .nav-links a:hover {
+    color: var(--arch-red);
+    text-shadow: 0 0 8px rgba(255, 26, 26, 0.6);
+}
+
+.archives-page .hamburger {
+    color: var(--arch-white);
+}
+
+/* --- Hamburger fallback for landscape tablets ---
+   style.css only switches to the hamburger for narrow screens
+   (max-width:768px) or portrait screens up to 1024px. A tablet held in
+   LANDSCAPE (iPad landscape is 1024-1366px wide) matches neither, so it
+   fell through to the cramped full desktop nav. `(hover:none) and
+   (pointer:coarse)` reliably identifies touch devices without a mouse/
+   trackpad — laptops in that same width range keep the desktop nav,
+   since they report hover:hover/pointer:fine. */
+@media (hover: none) and (pointer: coarse) and (max-width: 1366px) {
+    .archives-page .hamburger {
+        display: block;
+    }
+
+    .archives-page .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        background: rgba(3, 3, 3, 0.98);
+        padding: 20px;
+        gap: 20px;
+        border-bottom: 0.5px solid var(--arch-red-dim);
+        z-index: 99;
+    }
+
+    .archives-page .nav-links.open {
+        display: flex;
+    }
+
+    .archives-page .navbar {
+        position: relative;
+    }
+}
+
+/* --- World / hero --- */
+.archives-world {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    /* Matches the scene's own bgColor (archives.js) so there's no flash
+       of a different color before the canvas paints its first frame. */
+    background: #ffffff;
+}
+
+/* The canvas is created and appended by archives.js (renderer.domElement),
+   same as the reference build, so it's targeted structurally rather than
+   by id. */
+.archives-world canvas {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    display: block;
+    cursor: grab;
+    /* Without this, touch devices intercept drag as page-panning before
+       OrbitControls' own pointer handlers see it. */
+    touch-action: none;
+}
+
+.archives-world canvas:active {
+    cursor: grabbing;
+}
+
+/* --- Loader: reference build's exact styling. --- */
+#loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    font-family: sans-serif;
+    font-size: 14px;
+    color: #555;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 30px;
+    border-radius: 8px;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.archives-bottom-stack {
+    position: fixed;
+    left: 50%;
+    bottom: 6%;
+    transform: translateX(-50%);
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.archives-hint {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    color: var(--arch-chrome);
+    background: rgba(3, 3, 3, 0.6);
+    border: 0.5px solid var(--gold-dim);
+    padding: 6px 18px;
+    border-radius: 999px;
+    text-align: center;
+    opacity: 0;
+    animation: archives-hint-in 1s ease 1.2s forwards;
+    pointer-events: none;
+}
+
+@keyframes archives-hint-in {
+    to { opacity: 1; }
+}
+
+/* --- Footer reskin ---
+   The hero canvas is position:fixed, full-viewport, so it stays pinned
+   over the page as you scroll. Without its own stacking context here,
+   the footer would render underneath that fixed layer — present in the
+   DOM but invisible — instead of over it. */
+.archives-page footer.footer {
+    position: relative;
+    z-index: 10;
+    background: var(--arch-black);
+    border-top: 0.5px solid var(--arch-red-dim);
+}
+
+.archives-page .footer-title {
+    color: var(--arch-chrome);
+}
+
+.archives-page .footer-copy {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+.archives-page .footer-links a {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.archives-page .footer-links a:hover {
+    color: var(--arch-red);
+}
+
+.archives-page .footer-logo {
+    filter: grayscale(1) contrast(1.25) brightness(1.05);
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
+
+.archives-page .footer-logo-link:hover .footer-logo {
+    filter: grayscale(1) contrast(1.35) brightness(1.25)
+            drop-shadow(0 0 14px rgba(255, 26, 26, 0.6));
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .archives-hint {
+        font-size: 10.5px;
+        padding: 5px 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .archives-hint {
+        animation: none;
+        opacity: 1;
+    }
+}
