@@ -391,6 +391,74 @@
     100% { opacity: 0.4;  }
 }
 
+/* Santos Armada emblem eyes (the crest between "Santos" and "Armada"
+   in the doorway sign) -- same "Terminator eyes" glow-then-beam-flash
+   treatment as .archives-eye on the main page's Archives card, just
+   recolored white/cream instead of red and repositioned/resized for
+   this much smaller face. Position measured with a Python/PIL
+   brightness-threshold + connected-component scan of the source photo
+   (Images/about-portal.jpg), then corrected against the LIVE rendered
+   page: each eye is actually two separate white lobes (split by a dark
+   line through the middle), and the first full-image scan's blob
+   centroid landed on the upper lobe only, pulling the glow noticeably
+   above the eye. Re-measured by drawing the rendered <img> to a canvas
+   at its on-screen size and comparing the scanned blob centers directly
+   against the glow div's own getBoundingClientRect() in the same
+   viewport coordinates, which showed the glow sitting ~5.5px (0.83% of
+   the image height) too high; the top values below include that
+   correction. Shares the archives-eye-glow / archives-beam-flash
+   keyframes since only color lives in this class, not the keyframes. */
+.portal-emblem-eyes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.portal-emblem-eye {
+    position: absolute;
+    width: 1.7%;
+    height: 1.35%;
+    margin-left: -0.85%;
+    margin-top: -0.675%;
+    border-radius: 50%;
+    background: radial-gradient(ellipse at center, #ffffff 0%, #fff8ea 32%, #d9c9a8 68%, transparent 85%);
+    filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.95)) drop-shadow(0 0 6px rgba(255, 250, 230, 0.75));
+    animation: archives-eye-glow 2.5s ease-in-out infinite;
+}
+
+.portal-emblem-eye-left { left: 47.93%; top: 19.07%; }
+.portal-emblem-eye-right { left: 51.53%; top: 19.07%; animation-delay: 0.05s; }
+
+.portal-emblem-eye::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: -9000%;
+    width: 1px;
+    height: 19000%;
+    margin-left: -0.5px;
+    background: linear-gradient(to bottom, transparent 0%, rgba(255, 250, 235, 0.9) 42%, #fff 50%, rgba(255, 250, 235, 0.9) 58%, transparent 100%);
+    filter: drop-shadow(0 0 3px rgba(255, 250, 235, 0.85)) drop-shadow(0 0 9px rgba(255, 240, 210, 0.55));
+    transform: scaleY(0);
+    transform-origin: center;
+    opacity: 0;
+    animation: archives-beam-flash 2.5s ease-in-out infinite;
+}
+
+.portal-emblem-eye-right::before { animation-delay: 0.05s; }
+
+@media (prefers-reduced-motion: reduce) {
+    .portal-emblem-eye {
+        animation: none;
+        opacity: 0.85;
+    }
+    .portal-emblem-eye::before {
+        animation: none;
+        opacity: 0;
+    }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .about-portal-star-glow,
     .about-portal-star-core,
