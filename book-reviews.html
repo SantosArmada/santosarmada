@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book Reviews — Santos Armada</title>
+<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="book-reviews.css?v=1">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="book-reviews-page">
+
+<!-- SMOKE: fixed to the viewport, sits behind the whole page (title,
+     shelf, carousel, footer) — not scoped to any one section. -->
+<div class="book-smoke" aria-hidden="true">
+    <span class="book-smoke-ember"></span>
+    <span class="book-smoke-wisp" style="--sx:20%; --sw:200px; --sb:20px; --sd:15s; --sdelay:0s;"></span>
+    <span class="book-smoke-wisp" style="--sx:38%; --sw:260px; --sb:26px; --sd:19s; --sdelay:-4s;"></span>
+    <span class="book-smoke-wisp" style="--sx:52%; --sw:180px; --sb:18px; --sd:14s; --sdelay:-9s;"></span>
+    <span class="book-smoke-wisp" style="--sx:64%; --sw:240px; --sb:24px; --sd:21s; --sdelay:-2s;"></span>
+    <span class="book-smoke-wisp" style="--sx:78%; --sw:210px; --sb:20px; --sd:17s; --sdelay:-12s;"></span>
+    <span class="book-smoke-wisp" style="--sx:46%; --sw:300px; --sb:30px; --sd:23s; --sdelay:-7s;"></span>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <a href="/" class="nav-logo">
+        <img src="Images/logo.PNG" alt="Santos Armada" class="nav-crest">
+        <span class="nav-title">SANTOS ARMADA</span>
+    </a>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="/essays">Essays</a></li>
+        <li><a href="/authors">Authors</a></li>
+        <li><a href="/space-and-time">Space and Time</a></li>
+        <li><a href="/audiolibros">Audiolibros</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
+</nav>
+
+<div class="page-content">
+
+<!-- TITLE -->
+<section class="br-hero">
+    <h1 class="br-title">
+        <span class="br-title-row">
+            <span class="title-word title-word--book title-word--delay-0">Book</span>
+            <span class="title-word title-word--reviews title-word--delay-1">Reviews</span>
+        </span>
+        <span class="br-title-row br-title-byline">
+            <span class="title-word title-word--by">by</span>
+            <span class="title-word title-word--brand">Santos Armada</span>
+        </span>
+    </h1>
+</section>
+
+<!-- BOOK SHELF: one spine per reviewed title, colored by rating,
+     staggered in on scroll. Spines are injected by book-shelf.js. -->
+<section class="book-shelf-section" aria-label="Reseñas por calificación">
+    <div class="book-shelf-rail"></div>
+</section>
+
+<!-- BOOK CATALOG: rotating 3D carousel of cover art, one card per file
+     in book_covers/. Cards are injected by book-catalog.js. -->
+<section class="book-catalog-section" aria-label="Catálogo de portadas">
+    <div class="book-catalog-scene">
+        <div class="book-catalog-3d"></div>
+    </div>
+</section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
+        <a href="/" class="footer-logo-link">
+            <img src="Images/logo.PNG" alt="Santos Armada" class="footer-logo">
+            <p class="footer-title">SANTOS ARMADA</p>
+        </a>
+        <p class="footer-links">
+            <a href="/essays">Essays</a> ·
+            <a href="/audiolibros">Audiolibros</a> ·
+            <a href="/authors">Authors</a> ·
+            <a href="/cv">CV</a> ·
+            <a href="/about">About</a>
+        </p>
+        <p class="footer-copy">© 2026 Santos Armada · santosarmada@protonmail.com · All rights reserved</p>
+        <p class="footer-bottom">Una conciencia · Infinitos reinos · Sin fronteras</p>
+    </div>
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById('nav-links').classList.toggle('open');
+}
+</script>
+<script src="book-shelf.js" defer></script>
+<script src="book-catalog.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,428 @@
+/* ================================
+   BOOK REVIEWS — page theme
+   Tone set by two accent colors: sage (--br-sage) and terracotta
+   (--br-terracotta). Everything on this page keys off them; the
+   dark background and Cinzel/EB Garamond fonts still come from the
+   shared site style.css so the page stays part of the same hub.
+================================ */
+
+:root {
+    --br-sage:        #84A59D;
+    --br-sage-dim:    rgba(132, 165, 157, 0.4);
+    --br-terracotta:  #CE8C78;
+    --br-terracotta-dim: rgba(206, 140, 120, 0.4);
+    --br-cream:       #f3ede6;
+}
+
+.book-reviews-page {
+    background: var(--bg-dark);
+}
+
+/* --- Title --- */
+.br-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px 40px;
+    text-align: left;
+}
+
+.br-title {
+    position: relative;
+    padding-left: 28px;
+    font-family: var(--font-title);
+}
+
+.br-title:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 5px;
+    background: linear-gradient(180deg, var(--br-terracotta), var(--br-sage));
+    opacity: 0;
+    transform: translateX(-150px);
+    animation: br-border-slide-in .45s ease-out forwards;
+}
+
+.br-title-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em;
+    perspective: 500px;
+}
+
+.br-title-row + .br-title-row {
+    margin-top: 14px;
+}
+
+.title-word {
+    display: inline-block;
+    opacity: 0;
+    transform-origin: bottom center;
+    transform: rotateX(-90deg);
+    animation: br-roll-in .45s ease-out forwards;
+}
+
+.title-word--delay-0 { animation-delay: 0s; }
+.title-word--delay-1 { animation-delay: .175s; }
+
+.title-word--book,
+.title-word--reviews {
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 52px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.br-title-byline {
+    align-items: baseline;
+    gap: 0.45em;
+}
+
+/* Byline is frozen — no roll-in, just present from the start. */
+.title-word.title-word--by,
+.title-word.title-word--brand {
+    opacity: 1;
+    transform: none;
+    animation: none;
+}
+
+.title-word--by {
+    font-family: var(--font-body);
+    font-style: italic;
+    font-size: 19px;
+    color: var(--text-secondary);
+}
+
+.title-word--brand {
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+@keyframes br-border-slide-in {
+    0%   { transform: translateX(-150px); opacity: 0; }
+    100% { transform: translateX(0);       opacity: 1; }
+}
+
+@keyframes br-roll-in {
+    0%   { transform: rotateX(-90deg); opacity: 0; }
+    100% { transform: rotateX(0deg);   opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .br-title:before,
+    .title-word {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .title-word--book,
+    .title-word--reviews {
+        font-size: 40px;
+    }
+}
+
+/* --- Logo hover: header + footer ---
+   Same crest art everywhere on the site, but on this page it glows
+   sage-into-terracotta and lifts slightly on hover instead of the
+   plain gold the shared style.css gives every other page. */
+.book-reviews-page .nav-crest,
+.book-reviews-page .footer-logo {
+    transition: transform 0.35s ease, filter 0.35s ease, border-color 0.35s ease;
+}
+
+.book-reviews-page .nav-title,
+.book-reviews-page .footer-title {
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.book-reviews-page .nav-logo:hover .nav-crest,
+.book-reviews-page .footer-logo-link:hover .footer-logo {
+    transform: scale(1.08);
+    border-color: var(--br-sage);
+    filter: invert(1) sepia(1) saturate(1.5) hue-rotate(5deg) brightness(0.85)
+            drop-shadow(0 0 6px var(--br-sage-dim))
+            drop-shadow(0 0 12px var(--br-terracotta-dim));
+}
+
+.book-reviews-page .nav-logo:hover .nav-title,
+.book-reviews-page .footer-logo-link:hover .footer-title {
+    color: var(--br-terracotta);
+    text-shadow: 0 0 10px var(--br-terracotta-dim);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .book-reviews-page .nav-logo:hover .nav-crest,
+    .book-reviews-page .footer-logo-link:hover .footer-logo {
+        transform: none;
+    }
+}
+
+/* --- Book shelf ---
+   Spines are injected by book-shelf.js: one per reviewed title, sorted
+   best-to-worst, colored on a terracotta→sage gradient by rating, and
+   sized to whatever height the full vertical title text needs. The
+   rail fades/slides each spine in with a per-index delay once it
+   scrolls into view (.is-visible, added by the IntersectionObserver
+   in the script), then a hover bounce is layered on top at rest. */
+.book-shelf-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px 24px 20px;
+}
+
+.book-shelf-rail {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 3px;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: visible;
+    padding: 0 20px 16px;
+    border-bottom: 6px solid #6b4636;
+    border-radius: 3px;
+}
+
+.book-spine {
+    flex-shrink: 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 8px;
+    border-radius: 2px 2px 0 0;
+    box-shadow: inset -2px 0 0 rgba(0, 0, 0, 0.18), inset 2px 0 0 rgba(255, 255, 255, 0.1);
+    opacity: 0;
+    transform: translateY(26px);
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.5s ease, filter 0.2s ease;
+    cursor: default;
+}
+
+.book-shelf-rail.is-visible .book-spine {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.book-spine:hover {
+    filter: brightness(1.18);
+    animation: br-book-bounce 0.5s ease;
+    z-index: 1;
+}
+
+.book-spine-label {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-family: var(--font-body);
+    font-size: 10px;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    white-space: nowrap;
+    padding: 9px 0;
+    color: rgba(10, 8, 5, 0.82);
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+@keyframes br-book-bounce {
+    0%   { transform: translateY(0); }
+    40%  { transform: translateY(-14px); }
+    80%  { transform: translateY(-2px); }
+    100% { transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .book-spine {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+    .book-spine:hover {
+        animation: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .book-shelf-rail {
+        justify-content: flex-start;
+    }
+}
+
+/* --- Book catalog: 3D cover-art carousel ---
+   This is the original CodePen "100 divs" carousel technique, kept as
+   close to the source as possible: same --w (17.5em), same rotateY +
+   translateZ ring math, same 32s linear spin (128s under reduced
+   motion), same lateral fade mask. Cards are injected by
+   book-catalog.js, one per file in book_covers/, instead of a
+   hand-written DATA array.
+
+   The one deliberate departure: the original hardcodes
+   perspective: 35em because its demo is fixed at 12 cards. We have
+   25, and 25 cards need a much larger ring radius for the same card
+   width (radius grows as cards get thinner-angled) — 35em is smaller
+   than that radius, so the card passing nearest the camera each spin
+   blows up into a glitchy oversized flash. --radius makes that same
+   "smaller = more extreme effect" relationship the original describes
+   hold true for however many cards we actually have. */
+.book-catalog-section {
+    /* --w lives here (not on .book-catalog-scene) so this section's
+       own margin-top can reference it too — both the negative offset
+       that tucks the ring under the shelf AND the ring's card
+       size/radius/perspective all derive from the same value, so they
+       stay in proportion at every viewport width instead of a fixed
+       -Npx offset overlapping the shelf once cards shrink on resize.
+
+       --w is deliberately NOT the original's 17.5em: radius grows with
+       card count (thinner angular slices need more push-back to stay
+       edge-to-edge), and book-catalog.js caps the ring at SAMPLE_SIZE
+       (14) cards specifically so this doesn't need retuning as the
+       full catalog grows into the hundreds. clamp() scales the whole
+       ring smoothly with viewport width instead of a fixed size just
+       getting cropped tighter on narrow screens. */
+    --w: clamp(6.5em, 17vw, 13em);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 0 24px 60px;
+    margin-top: calc(var(--w) * -0.2564);
+    overflow: hidden;
+}
+
+.book-catalog-scene,
+.book-catalog-3d {
+    display: grid;
+}
+
+.book-catalog-scene {
+    --ba: 1turn / var(--n);
+    --radius: calc((0.5 * var(--w) + 0.5em) / tan(0.5 * var(--ba)));
+    position: relative;
+    z-index: 1;
+    place-items: center;
+    width: 100%;
+    max-width: 1100px;
+    height: calc(var(--w) * 10 / 7);
+    overflow: hidden;
+    /* Below the original's own ~1.976x ratio on purpose, for a more
+       pronounced wrap than the source demo — front card pops bigger,
+       side cards taper away faster. */
+    perspective: calc(var(--radius) * 1.6);
+    -webkit-mask: linear-gradient(90deg, #0000, #000 20% 80%, #0000);
+    mask: linear-gradient(90deg, #0000, #000 20% 80%, #0000);
+}
+
+.book-catalog-3d {
+    place-self: center;
+    transform-style: preserve-3d;
+    /* The original's 32s is timed for its 12 cards — 32s/12 = ~2.7s of
+       "screen time" per card before the next rotates into focus. Our
+       fixed sample is 14, so matching that same per-card pacing is
+       32s/12*14 ≈ 37s. */
+    animation: br-carousel-rotate 37s linear infinite;
+}
+
+@keyframes br-carousel-rotate {
+    to { rotate: y 1turn; }
+}
+
+/* .book-catalog-card is now the <a> wrapping each cover (see
+   book-catalog.js) — it carries the ring's sizing/transform, the img
+   inside just fills it. Each links to book-reviews/<slug>.html. */
+.book-catalog-card {
+    grid-area: 1 / 1;
+    display: block;
+    width: var(--w);
+    aspect-ratio: 7 / 10;
+    border-radius: 1.1em;
+    overflow: hidden;
+    backface-visibility: hidden;
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
+    transition: filter 0.2s ease;
+    transform:
+        rotateY(calc(var(--i) * var(--ba)))
+        translateZ(calc(-1 * var(--radius)));
+}
+
+.book-catalog-card:hover {
+    filter: brightness(1.1);
+}
+
+.book-catalog-card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --- Smoldering sage smoke, behind the whole page ---
+   A censer-glow ember and soft sage wisps drifting up, fixed to the
+   viewport (not the document) so the same ambient layer is always
+   present no matter where you've scrolled — behind the title, the
+   shelf, the carousel, the footer, all of it. Negative z-index keeps
+   it behind ordinary in-flow content regardless of DOM position (a
+   plain z-index:0 here would actually paint ON TOP of static content
+   like .page-content — negative stacking contexts are what render
+   before normal in-flow boxes). Purely decorative and inert. */
+.book-smoke {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.book-smoke-ember {
+    position: absolute;
+    left: 50%;
+    bottom: -10%;
+    width: 60%;
+    max-width: 640px;
+    aspect-ratio: 1;
+    transform: translateX(-50%);
+    background: radial-gradient(closest-side, var(--br-terracotta), transparent 70%);
+    filter: blur(40px);
+    opacity: 0.55;
+}
+
+.book-smoke-wisp {
+    position: absolute;
+    bottom: 6%;
+    width: var(--sw, 220px);
+    aspect-ratio: 1;
+    left: var(--sx, 50%);
+    background: radial-gradient(closest-side, var(--br-sage), transparent 72%);
+    filter: blur(var(--sb, 22px));
+    opacity: 0;
+    animation: br-smoke-rise var(--sd, 16s) ease-in infinite;
+    animation-delay: var(--sdelay, 0s);
+}
+
+@keyframes br-smoke-rise {
+    0%   { transform: translateY(0) scale(0.7) rotate(0deg);   opacity: 0; }
+    12%  { opacity: 0.85; }
+    55%  { opacity: 0.55; }
+    100% { transform: translateY(-70vh) scale(1.6) rotate(10deg); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .book-smoke-wisp {
+        animation: none;
+        opacity: 0.25;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .book-catalog-3d {
+        animation-duration: 148s;
+    }
+}
+
