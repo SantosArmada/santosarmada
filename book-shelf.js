@@ -4,29 +4,34 @@
    sage → terracotta color gradient. Height comes from the full title
    text set in vertical writing-mode, not a fixed box. */
 (() => {
+    // slug matches its Audiolibros/titulos/<slug>.html page — same
+    // short form as the cover filenames in book_covers/. Only
+    // la-gallina-degollada's page actually exists right now; the rest
+    // are being built out over the coming weeks and will 404 until
+    // then (same pattern as the book-reviews carousel links).
     const BOOKS = [
-        { title: "Popol Vuh", rating: 3.9 },
-        { title: "Cantar de mio Cid", rating: 3.2 },
-        { title: "Nezahualcóyotl", rating: 3.9 },
-        { title: "Libro de buen amor", rating: 4.0 },
-        { title: "Duelo de la Virgen", rating: 5.0 },
-        { title: "La Celestina", rating: 5.0 },
-        { title: "Los cuatro viajes del almirante y su testamento", rating: 3.0 },
-        { title: "Brevísima relación de la destrucción de las Indias", rating: 4.1 },
-        { title: "Naufragios", rating: 4.9 },
-        { title: "Lazarillo de Tormes", rating: 5.0 },
-        { title: "Comentarios Reales de los Incas", rating: 4.6 },
-        { title: "Historia de la Monja Alférez", rating: 4.4 },
-        { title: "Cartas de Jamaica", rating: 3.7 },
-        { title: "Facundo o Civilización y Barbarie", rating: 4.6 },
-        { title: "La Fontana de Oro", rating: 4.7 },
-        { title: "Martín Fierro", rating: 5.0 },
-        { title: "Misericordia", rating: 5.0 },
-        { title: "Niebla", rating: 5.0 },
-        { title: "Los de abajo", rating: 5.0 },
-        { title: "Las lenguas de diamante", rating: 4.3 },
-        { title: "La flor de la playa", rating: 4.2 },
-        { title: "La gallina degollada", rating: 5.0 },
+        { title: "Popol Vuh", rating: 3.9, slug: "popol-vuh" },
+        { title: "Cantar de mio Cid", rating: 3.2, slug: "mio-cid" },
+        { title: "Nezahualcóyotl", rating: 3.9, slug: "nezahualcoyotl" },
+        { title: "Libro de buen amor", rating: 4.0, slug: "buen-amor" },
+        { title: "Duelo de la Virgen", rating: 5.0, slug: "duelo-virgen" },
+        { title: "La Celestina", rating: 5.0, slug: "celestina" },
+        { title: "Los cuatro viajes del almirante y su testamento", rating: 3.0, slug: "los-cuatro-viajes" },
+        { title: "Brevísima relación de la destrucción de las Indias", rating: 4.1, slug: "brevisima" },
+        { title: "Naufragios", rating: 4.9, slug: "naufragios" },
+        { title: "Lazarillo de Tormes", rating: 5.0, slug: "lazarillo" },
+        { title: "Comentarios Reales de los Incas", rating: 4.6, slug: "comentarios" },
+        { title: "Historia de la Monja Alférez", rating: 4.4, slug: "monja-alferez" },
+        { title: "Cartas de Jamaica", rating: 3.7, slug: "cartas-de-jamaica" },
+        { title: "Facundo o Civilización y Barbarie", rating: 4.6, slug: "facundo" },
+        { title: "La Fontana de Oro", rating: 4.7, slug: "fontana-de-oro" },
+        { title: "Martín Fierro", rating: 5.0, slug: "martin-fierro" },
+        { title: "Misericordia", rating: 5.0, slug: "misericordia" },
+        { title: "Niebla", rating: 5.0, slug: "niebla" },
+        { title: "Los de abajo", rating: 5.0, slug: "los-de-abajo" },
+        { title: "Las lenguas de diamante", rating: 4.3, slug: "lenguas-diamante" },
+        { title: "La flor de la playa", rating: 4.2, slug: "la-flor-de-la-playa" },
+        { title: "La gallina degollada", rating: 5.0, slug: "la-gallina-degollada" },
     ];
 
     const TERRACOTTA = [206, 140, 120];
@@ -51,8 +56,9 @@
             const t = max === min ? 1 : (book.rating - min) / (max - min);
             const width = 16 + Math.round(Math.random() * 10);
 
-            const spine = document.createElement("div");
+            const spine = document.createElement("a");
             spine.className = "book-spine";
+            spine.href = `Audiolibros/titulos/${book.slug}.html`;
             spine.style.background = lerpColor(TERRACOTTA, SAGE, t);
             spine.style.width = width + "px";
             spine.style.transitionDelay = i * 45 + "ms";
