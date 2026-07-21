@@ -171,8 +171,7 @@ body.has-site-banners .navbar {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    padding: 60px 48px;
+    padding: 60px 48px 0;
     text-align: center;
 }
 
