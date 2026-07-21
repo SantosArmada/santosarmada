@@ -175,9 +175,59 @@
    scrolls into view (.is-visible, added by the IntersectionObserver
    in the script), then a hover bounce is layered on top at rest. */
 .book-shelf-section {
+    position: relative;
     display: flex;
     justify-content: center;
     padding: 20px 24px 20px;
+}
+
+/* Swipe hint — the shelf overflows on narrow screens (see the
+   overflow-x:auto below) with no visual cue that it's scrollable.
+   Mobile-only; book-shelf.js fades it out the moment the user
+   actually scrolls the rail, so it never lingers past its purpose. */
+.book-shelf-hint {
+    display: none;
+}
+
+@media (max-width: 640px) {
+    .book-shelf-hint {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        position: absolute;
+        right: 20px;
+        bottom: 2px;
+        font-family: var(--font-body);
+        font-style: italic;
+        font-size: 12px;
+        letter-spacing: 0.02em;
+        color: var(--text-secondary);
+        text-shadow: 0 0 8px rgba(10, 8, 5, 0.9);
+        opacity: 1;
+        transition: opacity 0.4s ease;
+        pointer-events: none;
+    }
+
+    .book-shelf-hint.is-hidden {
+        opacity: 0;
+    }
+
+    .book-shelf-hint-arrow {
+        display: inline-block;
+        color: var(--br-terracotta);
+        animation: br-hint-nudge 1.4s ease-in-out infinite;
+    }
+}
+
+@keyframes br-hint-nudge {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .book-shelf-hint-arrow {
+        animation: none;
+    }
 }
 
 .book-shelf-rail {

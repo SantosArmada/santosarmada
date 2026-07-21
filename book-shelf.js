@@ -82,6 +82,18 @@
         } else {
             rail.classList.add("is-visible");
         }
+
+        // Mobile-only swipe hint (see .book-shelf-hint in CSS) — fades
+        // out the moment the user actually scrolls the shelf, since at
+        // that point it's done its job.
+        const hint = document.querySelector(".book-shelf-hint");
+        if (hint) {
+            rail.addEventListener(
+                "scroll",
+                () => hint.classList.add("is-hidden"),
+                { once: true, passive: true }
+            );
+        }
     }
 
     if (document.readyState === "loading") {
