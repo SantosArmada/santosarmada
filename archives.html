@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Archives — Santos Armada</title>
     <link rel="stylesheet" href="style.css?v=2">
-    <link rel="stylesheet" href="archives.css?v=7">
+    <link rel="stylesheet" href="archives.css?v=8">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
     <script type="importmap">
@@ -107,6 +107,31 @@
         const logo = document.querySelector('.nav-logo');
         const sound = document.getElementById('navLogoSound');
         if (!logo || !sound) return;
+
+        // Browsers only allow audio playback after a real user gesture
+        // (click/keydown/touch) — a hover doesn't count. Without this,
+        // play() on the first hover of a fresh page load gets silently
+        // rejected, which is exactly what read as "inconsistent": it
+        // only worked once the visitor had already clicked/tapped
+        // something else on the page first. Priming the element with a
+        // muted play+pause on the first real gesture anywhere on the
+        // page marks it as already "activated," so every hover after
+        // that plays reliably.
+        let unlocked = false;
+        function unlock() {
+            if (unlocked) return;
+            unlocked = true;
+            sound.muted = true;
+            sound.play().then(() => {
+                sound.pause();
+                sound.currentTime = 0;
+                sound.muted = false;
+            }).catch(() => {
+                sound.muted = false;
+            });
+        }
+        document.addEventListener('pointerdown', unlock, { once: true });
+        document.addEventListener('keydown', unlock, { once: true });
 
         logo.addEventListener('mouseenter', () => {
             sound.currentTime = 0;
