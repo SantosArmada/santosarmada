@@ -564,10 +564,23 @@ window.clearGlobeRegionBlipDelayed = function (delayMs) {
     }, delayMs);
 };
 
-window.addEventListener('resize', () => {
+// window 'resize' alone can leave this canvas's actual render resolution
+// stale relative to its CSS box -- #globeViz/.moon-orbit-wrapper are plain
+// CSS %/vh, so they always relayout on any viewport change regardless of
+// whether a 'resize' event fires, but this canvas's WebGL resolution only
+// updates inside that event handler. Same class of bug already fixed this
+// way for the Singularity orb and the About page portal canvas:
+// ResizeObserver on the actual container catches the box's real size
+// changing regardless of what triggered it, instead of depending on a
+// 'resize' event that isn't guaranteed to fire for every resize.
+function syncGlobeSize() {
     world.width(window.innerWidth);
     world.height(getGlobeHeight());
-});
+}
+window.addEventListener('resize', syncGlobeSize);
+if ('ResizeObserver' in window) {
+    new ResizeObserver(syncGlobeSize).observe(document.getElementById('globeViz'));
+}
 
 const ZOOM_ZONE_WIDTH_FRACTION = 0.5;
 
