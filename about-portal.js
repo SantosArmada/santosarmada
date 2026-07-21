@@ -32,6 +32,20 @@
   // was). y=0.53 was the main culprit.
   const PLANET_ANCHOR = { x: 0.63, y: 0.595 }; // ringed planet, center
 
+  // Radius (world units, same scale as anchorToWorld) of the painted
+  // planet's body -- an invisible occluder this size gets planted at
+  // the anchor so the "far" half of each ring (the negative-Z side of
+  // the sin-based tilt below) passes behind it instead of always
+  // drawing on top. Same depth-occlusion idea as the moon orbiting the
+  // globe on the Space and Time page, just done with a real depth-buffer
+  // write (colorWrite off, depthWrite on) instead of a DOM z-index flip,
+  // since this orbit is a field of arcs/points rather than one marker.
+  const PLANET_RADIUS = 1.18;
+  // Occluder center, nudged slightly left/up from PLANET_ANCHOR -- measured
+  // by rendering the occluder disc opaque (bright magenta) and comparing
+  // its position against the painted planet's actual body in a screenshot.
+  const OCCLUDER_ANCHOR = { x: 0.60, y: 0.585 };
+
   // Camera distance, in world units. Increasing this zooms the view OUT
   // (same FOV angle, but the frustum is wider at a greater distance),
   // which makes the same orbit geometry appear smaller/more contained
@@ -42,6 +56,7 @@
 
   let scene, camera, renderer, clock;
   let rings = [];
+  let planetOccluder = null;
   let raf = null;
   let running = true;
 
@@ -94,6 +109,7 @@
 
     clock = new THREE.Clock();
 
+    planetOccluder = buildPlanetOccluder(width / height);
     rings = RING_BANDS.map((band) => buildRing(width / height, band));
 
     window.addEventListener("resize", onResize);
@@ -248,6 +264,23 @@
     };
   }
 
+  // Invisible depth-only occluder over the painted planet's body: a flat
+  // disc facing the camera, opaque so it renders (and writes the depth
+  // buffer) before the additive/transparent ring arcs and sparkle points,
+  // but colorWrite:false so it never actually paints over the artwork.
+  // Ring geometry with world Z < 0 (the far side of each arc's tilt) then
+  // fails the depth test right where it should be sliding behind the
+  // planet; Z > 0 (the near side) still draws normally in front.
+  function buildPlanetOccluder(aspect) {
+    const center = anchorToWorld(OCCLUDER_ANCHOR, aspect);
+    const geo = new THREE.CircleGeometry(PLANET_RADIUS, 48);
+    const mat = new THREE.MeshBasicMaterial({ colorWrite: false, depthWrite: true });
+    const mesh = new THREE.Mesh(geo, mat);
+    mesh.position.set(center.x, center.y, 0);
+    scene.add(mesh);
+    return mesh;
+  }
+
   function makeSoftDotTexture() {
     const size = 64;
     const c = document.createElement("canvas");
@@ -271,6 +304,10 @@
     renderer.setSize(width, height);
 
     const center = anchorToWorld(PLANET_ANCHOR, camera.aspect);
+    if (planetOccluder) {
+      const occCenter = anchorToWorld(OCCLUDER_ANCHOR, camera.aspect);
+      planetOccluder.position.set(occCenter.x, occCenter.y, 0);
+    }
     for (let i = 0; i < rings.length; i++) {
       rings[i].arcGroup.position.set(center.x, center.y, 0);
       rings[i].sparks.position.set(center.x, center.y, 0);
