@@ -54,7 +54,17 @@ nav{
 .footer-logo-img{
   height:56px;
 }
-.nav-logo{display:flex;align-items:center;}
+.nav-logo{display:flex;align-items:center;gap:0.7rem;}
+.nav-logo-text{
+  font-family:'Arial Black', sans-serif;
+  font-size:0.95rem;
+  font-weight:900;
+  letter-spacing:0.08em;
+  color:var(--white);
+  white-space:nowrap;
+  transition:color 0.25s ease;
+}
+.nav-logo:hover .nav-logo-text{color:var(--green);}
 .footer-logo{display:flex;align-items:center;}
 
 .nav-links{
@@ -483,6 +493,7 @@ footer{
 <nav>
   <a href="index.html" class="nav-logo">
     <img src="Images/SA-MAIN-LOGO.jpg" alt="Santos Armada" class="logo-img">
+    <span class="nav-logo-text">SANTOS ARMADA</span>
   </a>
   <ul class="nav-links">
     <li><a href="authors.html">Authors</a></li>
