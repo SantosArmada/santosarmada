@@ -247,6 +247,7 @@
 }
 
 .nav-links a {
+    position: relative;
     font-family: 'Georgia', serif;
     font-size: 12px;
     font-weight: 600;
@@ -257,8 +258,27 @@
     transition: color 0.2s ease;
 }
 
-.nav-links a:hover {
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
     color: var(--gold);
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1);
 }
 
 .hamburger {
