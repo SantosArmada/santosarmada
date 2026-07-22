@@ -369,26 +369,35 @@
     perspective: calc(var(--radius) * 1.6);
     -webkit-mask: linear-gradient(90deg, #0000, #000 20% 80%, #0000);
     mask: linear-gradient(90deg, #0000, #000 20% 80%, #0000);
+    /* Rotation is driven entirely by book-catalog.js now (a requestAnimationFrame
+       loop sets `rotate` directly), not a CSS animation — that's what lets
+       drag input and the auto-spin share one rotation value instead of
+       fighting each other. touch-action:pan-y is what stops a horizontal
+       drag here from also scrolling the page on mobile, while still
+       leaving vertical scrolling alone. */
+    touch-action: pan-y;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.book-catalog-scene.is-dragging {
+    cursor: grabbing;
 }
 
 .book-catalog-3d {
     place-self: center;
     transform-style: preserve-3d;
-    /* The original's 32s is timed for its 12 cards — 32s/12 = ~2.7s of
-       "screen time" per card before the next rotates into focus. Our
-       fixed sample is 14, so matching that same per-card pacing is
-       32s/12*14 ≈ 37s. */
-    animation: br-carousel-rotate 37s linear infinite;
 }
 
-@keyframes br-carousel-rotate {
-    to { rotate: y 1turn; }
-}
-
-/* .book-catalog-card is now the <a> wrapping each cover (see
-   book-catalog.js) — it carries the ring's sizing/transform, the img
-   inside just fills it. Each links to book-reviews/<slug>.html. */
+/* .book-catalog-card (see book-catalog.js) carries the ring's
+   sizing/transform — it's a plain div now, not a link, so pressing
+   and dragging from anywhere on a cover (including right on top of
+   the art) is unambiguously a drag, never a navigation. The only
+   actual link is the small logo badge overlaid at the bottom center;
+   that's what leads to book-reviews/<slug>.html. */
 .book-catalog-card {
+    position: relative;
     grid-area: 1 / 1;
     display: block;
     width: var(--w);
@@ -397,21 +406,57 @@
     overflow: hidden;
     backface-visibility: hidden;
     box-shadow: 0 14px 30px rgba(0, 0, 0, 0.5);
-    transition: filter 0.2s ease;
     transform:
         rotateY(calc(var(--i) * var(--ba)))
         translateZ(calc(-1 * var(--radius)));
 }
 
-.book-catalog-card:hover {
-    filter: brightness(1.1);
-}
-
-.book-catalog-card img {
+.book-catalog-cover {
     display: block;
     width: 100%;
     height: 100%;
     object-fit: cover;
+    /* Belt and suspenders against the browser's native "drag this
+       image" behavior hijacking our custom pointer-based rotation —
+       draggable=false in the markup handles most browsers, this
+       covers WebKit/Blink's own drag affordance too. */
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+
+/* Small badge, bottom-center of every cover — the one actual click
+   target on a card. Sized off --w so it scales with the carousel
+   instead of staying a fixed px size that's oversized on mobile's
+   smaller cards or lost on desktop's bigger ones. */
+.book-catalog-card-logo-link {
+    position: absolute;
+    left: 50%;
+    bottom: 0.5em;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max(44px, calc(var(--w) * 0.32));
+    height: max(44px, calc(var(--w) * 0.32));
+    border-radius: 50%;
+    background: rgba(10, 8, 5, 0.55);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.12);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.book-catalog-card-logo-link:hover {
+    transform: translateX(-50%) scale(1.15);
+    background: rgba(10, 8, 5, 0.75);
+}
+
+.book-catalog-card-logo {
+    width: 62%;
+    height: 62%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.92;
 }
 
 /* --- Smoldering sage smoke, behind the whole page ---
@@ -471,9 +516,7 @@
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .book-catalog-3d {
-        animation-duration: 148s;
-    }
-}
+/* Reduced-motion handling for the carousel is done in JS (auto-spin
+   rate drops to 0, rotation only happens on user drag) since rotation
+   is no longer a CSS animation. */
 

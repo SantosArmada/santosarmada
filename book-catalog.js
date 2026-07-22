@@ -57,29 +57,148 @@
         return sample;
     }
 
+    // Drag-to-rotate. Rotation is a single JS-owned value (`angle`)
+    // applied every frame via requestAnimationFrame, instead of a CSS
+    // animation — that's what lets a user's drag and the ambient
+    // auto-spin share state instead of fighting each other. A flick
+    // leaves some momentum that eases back to the steady auto-spin
+    // rate rather than snapping instantly.
+    function initDrag(scene, ring) {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        // 360deg / 37000ms matches the auto-spin rate the CSS animation
+        // used to have (tuned to the original CodePen's per-card pacing
+        // — see book-reviews.css).
+        const AUTO_SPIN_RATE = reduceMotion ? 0 : 360 / 37000; // deg/ms
+        const DRAG_SENSITIVITY = -0.4; // deg rotated per px dragged (negative = drag right rotates the ring left, and vice versa)
+        const CLICK_THRESHOLD = 6; // px of movement before it counts as a drag, not a card click
+
+        let angle = 0;
+        let velocity = AUTO_SPIN_RATE; // deg/ms — decays back to AUTO_SPIN_RATE after a flick
+        let dragging = false;
+        let lastX = 0;
+        let lastT = 0;
+        let totalMove = 0;
+        let suppressClick = false;
+        let lastFrameT = null;
+
+        function apply() {
+            ring.style.rotate = `y ${angle}deg`;
+        }
+
+        function frame(t) {
+            if (!dragging) {
+                const dt = lastFrameT ? t - lastFrameT : 0;
+                angle += velocity * dt;
+                // ease any post-flick velocity back toward the steady
+                // auto-spin rate over roughly 600ms
+                velocity += (AUTO_SPIN_RATE - velocity) * Math.min(1, dt / 600);
+                apply();
+            }
+            lastFrameT = t;
+            requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+
+        function onPointerDown(e) {
+            dragging = true;
+            totalMove = 0;
+            lastX = e.clientX;
+            lastT = performance.now();
+            scene.classList.add("is-dragging");
+            scene.setPointerCapture(e.pointerId);
+        }
+
+        function onPointerMove(e) {
+            if (!dragging) return;
+            const now = performance.now();
+            const dx = e.clientX - lastX;
+            const dt = Math.max(1, now - lastT);
+            angle += dx * DRAG_SENSITIVITY;
+            velocity = (dx * DRAG_SENSITIVITY) / dt;
+            totalMove += Math.abs(dx);
+            lastX = e.clientX;
+            lastT = now;
+            apply();
+            if (totalMove > CLICK_THRESHOLD) suppressClick = true;
+        }
+
+        function onPointerUp() {
+            if (!dragging) return;
+            dragging = false;
+            scene.classList.remove("is-dragging");
+            // a slow/deliberate release shouldn't leave the ring crawling
+            // slower than its normal resting speed
+            if (reduceMotion || Math.abs(velocity) < Math.abs(AUTO_SPIN_RATE)) {
+                velocity = AUTO_SPIN_RATE;
+            }
+        }
+
+        scene.addEventListener("pointerdown", onPointerDown);
+        scene.addEventListener("pointermove", onPointerMove);
+        scene.addEventListener("pointerup", onPointerUp);
+        scene.addEventListener("pointercancel", onPointerUp);
+
+        // A drag that crossed the click threshold shouldn't also fire
+        // the logo badge's navigation if the drag happened to start or
+        // end on top of it.
+        ring.addEventListener(
+            "click",
+            (e) => {
+                if (suppressClick) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    suppressClick = false;
+                }
+            },
+            true
+        );
+    }
+
     function init() {
         const ring = document.querySelector(".book-catalog-3d");
         if (!ring) return;
+        const scene = ring.parentElement;
 
         const sample = pickRandomSample(BOOKS, SAMPLE_SIZE);
 
         // Set on the scene (not the ring) so both the ring and every
         // card inherit the same --n for the shared --radius formula.
-        ring.parentElement.style.setProperty("--n", sample.length);
+        scene.style.setProperty("--n", sample.length);
 
         sample.forEach((book, i) => {
-            const link = document.createElement("a");
-            link.className = "book-catalog-card";
-            link.href = `book-reviews/${book.slug}.html`;
-            link.style.setProperty("--i", i);
+            // The card itself is just a drag surface now — no link, no
+            // click-to-navigate. Only the small logo badge overlaid on
+            // it is a real <a>, so dragging from anywhere on a cover
+            // (including right on top of the art) never gets confused
+            // with tapping through to the review.
+            const card = document.createElement("div");
+            card.className = "book-catalog-card";
+            card.style.setProperty("--i", i);
 
-            const img = document.createElement("img");
-            img.src = `book_covers/${book.file}`;
-            img.alt = book.title;
-            link.appendChild(img);
+            const cover = document.createElement("img");
+            cover.className = "book-catalog-cover";
+            cover.src = `book_covers/${book.file}`;
+            cover.alt = book.title;
+            cover.draggable = false;
+            card.appendChild(cover);
 
-            ring.appendChild(link);
+            const logoLink = document.createElement("a");
+            logoLink.className = "book-catalog-card-logo-link";
+            logoLink.href = `book-reviews/${book.slug}.html`;
+            logoLink.setAttribute("aria-label", `Ver reseña — ${book.title}`);
+
+            const logo = document.createElement("img");
+            logo.className = "book-catalog-card-logo";
+            logo.src = "Images/logo.PNG";
+            logo.alt = "";
+            logo.draggable = false;
+            logoLink.appendChild(logo);
+
+            card.appendChild(logoLink);
+            ring.appendChild(card);
         });
+
+        initDrag(scene, ring);
     }
 
     if (document.readyState === "loading") {
