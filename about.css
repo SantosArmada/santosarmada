@@ -25,6 +25,36 @@
     border-bottom: 0.5px solid rgba(42, 31, 20, 0.3);
 }
 
+/* Underline the active nav link, same pattern as the OLA pages'
+   Audiolibros link and globe.html's Space and Time link — style.css
+   has no underline/active mechanism at all, so it's added here,
+   scoped to this page only. */
+.about-page .nav-links a {
+    position: relative;
+}
+
+.about-page .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.about-page .nav-links a:hover::after,
+.about-page .nav-links a.active::after {
+    transform: scaleX(1);
+}
+
+.about-page .nav-links a.active {
+    color: var(--gold);
+}
+
 /* --- About Hero --- */
 .about-hero {
     padding: 80px 48px;
