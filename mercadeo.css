@@ -235,6 +235,94 @@ body.mercadeo-page {
     padding-right: 4px;
 }
 
+/* --- Portals (Merch / Alquileres) --- */
+.mercadeo-portals {
+    position: relative;
+    z-index: 2;
+    flex: 0 0 auto;
+    max-width: 1400px;
+    width: 100%;
+    margin: -70vh auto 0;
+    padding: 0 32px 80px;
+}
+
+/* On short/wide viewports (a half-height desktop window, a landscape
+   phone) 48vh is tall enough relative to the title's own height that
+   the cards would start cutting into the letters themselves instead of
+   just the shadow trail below them. Pull up less there. */
+@media (max-height: 560px) {
+    .mercadeo-portals {
+        margin-top: -8vh;
+    }
+}
+
+.mercadeo-portals-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+}
+
+.mercadeo-portal-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    text-decoration: none;
+}
+
+.mercadeo-portal-image-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    /* Dim gray reads on both the onyx background and the white part of
+       the title's shadow trail these cards overlap — a white or onyx
+       border would vanish against one of the two. */
+    border: 1px solid var(--mercadeo-gray);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45);
+    transition: border-color 0.25s ease;
+}
+
+.mercadeo-portal-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.mercadeo-portal-card:hover .mercadeo-portal-image-wrap {
+    border-color: var(--mercadeo-tangerine);
+}
+
+.mercadeo-portal-card:hover .mercadeo-portal-image-wrap img {
+    transform: scale(1.06);
+}
+
+/* Same hard-offset hover language as the nav/footer links. The cards
+   overlap the title's shadow trail, so the label can land on either
+   the onyx background or the white part of that trail — a permanent
+   thin onyx outline keeps it legible either way, and the tangerine
+   offset just layers on top of that outline on hover. */
+.mercadeo-portal-label {
+    font-size: clamp(1.1rem, 2.4vw, 1.7rem);
+    font-weight: 900;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mercadeo-white);
+    text-shadow:
+        -1px -1px 0 var(--mercadeo-onyx), 1px -1px 0 var(--mercadeo-onyx),
+        -1px  1px 0 var(--mercadeo-onyx), 1px  1px 0 var(--mercadeo-onyx);
+    transition: text-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.mercadeo-portal-card:hover .mercadeo-portal-label {
+    text-shadow:
+        -1px -1px 0 var(--mercadeo-onyx), 1px -1px 0 var(--mercadeo-onyx),
+        -1px  1px 0 var(--mercadeo-onyx), 1px  1px 0 var(--mercadeo-onyx),
+        3px 3px 0 var(--mercadeo-tangerine);
+    transform: translate(-3px, -3px);
+}
+
 /* --- Footer --- */
 .mercadeo-footer {
     flex: 0 0 auto;
@@ -341,6 +429,15 @@ body.mercadeo-page {
         width: 100%;
         padding: 10px 4px;
         font-size: 0.85rem;
+    }
+
+    .mercadeo-portals {
+        padding: 24px 20px 56px;
+    }
+
+    .mercadeo-portals-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
     }
 
     .mercadeo-footer {
