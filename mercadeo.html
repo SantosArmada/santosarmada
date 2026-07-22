@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Mercadeo — Santos Armada</title>
+    <link rel="stylesheet" href="mercadeo.css?v=8">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="mercadeo-page">
+
+<!-- BANNER: same slot every other corner page's own nav sits in, just
+     themed onyx/white/tangerine with the title's own bold display font. -->
+<nav class="mercadeo-nav">
+    <a href="/" class="mercadeo-nav-logo">
+        <img src="Images/logo.PNG" alt="Santos Armada" class="mercadeo-nav-crest">
+        <span>Santos Armada</span>
+    </a>
+    <button type="button" class="mercadeo-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+    <ul class="mercadeo-nav-links" id="mercadeoNavLinks">
+        <li><a href="essays.html">Essays</a></li>
+        <li><a href="authors.html">Authors</a></li>
+        <li><a href="globe.html">Space and Time</a></li>
+        <li><a href="audiolibros.html">Audiolibros</a></li>
+        <li><a href="interpreter-z.html">Interpreter Z</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+</nav>
+
+<!-- TITLE STAGE: the letters are colored to match the onyx background
+     (invisible on their own) — only their white text-shadow trail
+     (see mercadeo.css) is visible, which is what reads as a solid
+     extruded wordmark with a notched diagonal edge. No JS. -->
+<div class="mercadeo-stage">
+    <div class="mercadeo-title">
+        <div class="mercadeo-line-1">EL</div>
+        <div class="mercadeo-line-2">MERCADEO</div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="mercadeo-footer">
+    <a href="/" class="mercadeo-footer-logo-link">
+        <img src="Images/logo.PNG" alt="Santos Armada" class="mercadeo-footer-crest">
+    </a>
+    <ul class="mercadeo-footer-links">
+        <li><a href="globe.html">Space and Time</a></li>
+        <li><a href="audiolibros.html">Audiolibros</a></li>
+        <li><a href="interpreter-z.html">Interpreter Z</a></li>
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="about.html">About</a></li>
+    </ul>
+    <p class="mercadeo-footer-copy">© 2026 Santos Armada · santosarmada@protonmail.com · All rights reserved</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById('mercadeoNavLinks').classList.toggle('mercadeo-open');
+    }
+</script>
+</body>
+</html>

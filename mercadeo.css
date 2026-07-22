@@ -1,0 +1,354 @@
+/* ================================
+   EL MERCADEO — Santos Armada
+   Standalone corner page (own palette, own chrome — same pattern as
+   Interpreter Z / Museos). Palette:
+     primary:   #090A0C onyx, #FFFFFF white
+     accents:   #726E70 dim gray, #D64933 burnt tangerine
+
+   The extruded-shadow title: letters are colored to match the onyx
+   background (invisible on their own), and a dense stack of plain
+   text-shadow offsets — every 4px, straight out to 1024px toward the
+   bottom-right — paints a solid white trail of the letters' own
+   silhouette behind them. Because each step is far smaller than the
+   letters' own stroke width, the stack reads as one continuous white
+   shape whose top edge follows the letters' contours (the notched
+   diagonal), not a straight line.
+   (An earlier version built this same trail as a single deeply-chained
+   SVG filter; some browsers render very large chained filter regions
+   as solid black instead of the intended shadow, so that's gone in
+   favor of plain text-shadow, which every browser handles reliably.)
+================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --mercadeo-onyx:       #090A0C;
+    --mercadeo-white:      #ffffff;
+    --mercadeo-gray:       #726E70;
+    --mercadeo-tangerine:  #D64933;
+}
+
+body.mercadeo-page {
+    background-color: var(--mercadeo-onyx);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    /* Only x: the title's shadow trail (below) bleeds far past the
+       viewport edges by design, and shadows don't normally trigger
+       scrollbars — this is a defensive backstop, not a fix for one. */
+    overflow-x: hidden;
+    font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+}
+
+/* --- Nav --- */
+.mercadeo-nav {
+    position: sticky;
+    top: 0;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px 32px;
+    background: rgba(9, 10, 12, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+}
+
+.mercadeo-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.mercadeo-nav-crest {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    object-fit: contain;
+    /* logo.PNG is dark line-art on transparent — invisible on our onyx
+       background as-is. Invert turns the black lines white. */
+    filter: invert(1);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.mercadeo-nav-logo span {
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: var(--mercadeo-white);
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.mercadeo-nav-logo:hover .mercadeo-nav-crest {
+    border-color: var(--mercadeo-tangerine);
+    transform: rotate(-4deg) scale(1.06);
+}
+
+.mercadeo-nav-logo:hover span {
+    color: var(--mercadeo-tangerine);
+}
+
+.mercadeo-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--mercadeo-white);
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 4px 6px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.mercadeo-hamburger:hover {
+    color: var(--mercadeo-tangerine);
+}
+
+.mercadeo-nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 8px;
+}
+
+/* Hover echoes the title's own trick at a tiny scale: a hard offset
+   copy of the letters (a mini text-shadow, no blur) in tangerine, plus
+   a slight lift, so the nav links pop with the same extruded-block
+   language as the giant title instead of a plain color swap. */
+.mercadeo-nav-links a {
+    display: inline-block;
+    padding: 6px 8px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color: var(--mercadeo-gray);
+    text-transform: uppercase;
+    text-decoration: none;
+    text-shadow: 0 0 transparent;
+    transform: translate(0, 0);
+    transition: color 0.15s ease, text-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.mercadeo-nav-links a:hover {
+    color: var(--mercadeo-white);
+    text-shadow: 2px 2px 0 var(--mercadeo-tangerine);
+    transform: translate(-2px, -2px);
+}
+
+/* --- Stage / title --- */
+.mercadeo-stage {
+    position: relative;
+    /* At least a full viewport tall regardless of the nav's own height,
+       so the title still reads as a full-bleed hero on load — the footer
+       just sits below the fold until the visitor scrolls to it. */
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 2rem;
+}
+
+.mercadeo-title {
+    text-align: right;
+    /* Fluid instead of a couple of fixed breakpoints: scales continuously
+       with viewport width so the widest line never overflows a window
+       as it's resized, and tops out smaller than before (7rem vs the
+       original 11rem). */
+    font-size: clamp(2.5rem, 13.5vw, 7rem);
+    line-height: 0.82;
+    font-weight: 900;
+    letter-spacing: -2px;
+    color: var(--mercadeo-onyx);
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-shadow:
+        4px 4px #fff, 8px 8px #fff, 12px 12px #fff, 16px 16px #fff, 20px 20px #fff,
+        24px 24px #fff, 28px 28px #fff, 32px 32px #fff, 36px 36px #fff, 40px 40px #fff,
+        44px 44px #fff, 48px 48px #fff, 52px 52px #fff, 56px 56px #fff, 60px 60px #fff,
+        64px 64px #fff, 68px 68px #fff, 72px 72px #fff, 76px 76px #fff, 80px 80px #fff,
+        84px 84px #fff, 88px 88px #fff, 92px 92px #fff, 96px 96px #fff, 100px 100px #fff,
+        104px 104px #fff, 108px 108px #fff, 112px 112px #fff, 116px 116px #fff, 120px 120px #fff,
+        124px 124px #fff, 128px 128px #fff, 132px 132px #fff, 136px 136px #fff, 140px 140px #fff,
+        144px 144px #fff, 148px 148px #fff, 152px 152px #fff, 156px 156px #fff, 160px 160px #fff,
+        164px 164px #fff, 168px 168px #fff, 172px 172px #fff, 176px 176px #fff, 180px 180px #fff,
+        184px 184px #fff, 188px 188px #fff, 192px 192px #fff, 196px 196px #fff, 200px 200px #fff,
+        204px 204px #fff, 208px 208px #fff, 212px 212px #fff, 216px 216px #fff, 220px 220px #fff,
+        224px 224px #fff, 228px 228px #fff, 232px 232px #fff, 236px 236px #fff, 240px 240px #fff,
+        244px 244px #fff, 248px 248px #fff, 252px 252px #fff, 256px 256px #fff, 260px 260px #fff,
+        264px 264px #fff, 268px 268px #fff, 272px 272px #fff, 276px 276px #fff, 280px 280px #fff,
+        284px 284px #fff, 288px 288px #fff, 292px 292px #fff, 296px 296px #fff, 300px 300px #fff,
+        304px 304px #fff, 308px 308px #fff, 312px 312px #fff, 316px 316px #fff, 320px 320px #fff,
+        324px 324px #fff, 328px 328px #fff, 332px 332px #fff, 336px 336px #fff, 340px 340px #fff,
+        344px 344px #fff, 348px 348px #fff, 352px 352px #fff, 356px 356px #fff, 360px 360px #fff,
+        364px 364px #fff, 368px 368px #fff, 372px 372px #fff, 376px 376px #fff, 380px 380px #fff,
+        384px 384px #fff, 388px 388px #fff, 392px 392px #fff, 396px 396px #fff, 400px 400px #fff,
+        404px 404px #fff, 408px 408px #fff, 412px 412px #fff, 416px 416px #fff, 420px 420px #fff,
+        424px 424px #fff, 428px 428px #fff, 432px 432px #fff, 436px 436px #fff, 440px 440px #fff,
+        444px 444px #fff, 448px 448px #fff, 452px 452px #fff, 456px 456px #fff, 460px 460px #fff,
+        464px 464px #fff, 468px 468px #fff, 472px 472px #fff, 476px 476px #fff, 480px 480px #fff,
+        484px 484px #fff, 488px 488px #fff, 492px 492px #fff, 496px 496px #fff, 500px 500px #fff,
+        504px 504px #fff, 508px 508px #fff, 512px 512px #fff, 516px 516px #fff, 520px 520px #fff,
+        524px 524px #fff, 528px 528px #fff, 532px 532px #fff, 536px 536px #fff, 540px 540px #fff,
+        544px 544px #fff, 548px 548px #fff, 552px 552px #fff, 556px 556px #fff, 560px 560px #fff,
+        564px 564px #fff, 568px 568px #fff, 572px 572px #fff, 576px 576px #fff, 580px 580px #fff,
+        584px 584px #fff, 588px 588px #fff, 592px 592px #fff, 596px 596px #fff, 600px 600px #fff,
+        604px 604px #fff, 608px 608px #fff, 612px 612px #fff, 616px 616px #fff, 620px 620px #fff,
+        624px 624px #fff, 628px 628px #fff, 632px 632px #fff, 636px 636px #fff, 640px 640px #fff,
+        644px 644px #fff, 648px 648px #fff, 652px 652px #fff, 656px 656px #fff, 660px 660px #fff,
+        664px 664px #fff, 668px 668px #fff, 672px 672px #fff, 676px 676px #fff, 680px 680px #fff,
+        684px 684px #fff, 688px 688px #fff, 692px 692px #fff, 696px 696px #fff, 700px 700px #fff,
+        704px 704px #fff, 708px 708px #fff, 712px 712px #fff, 716px 716px #fff, 720px 720px #fff,
+        724px 724px #fff, 728px 728px #fff, 732px 732px #fff, 736px 736px #fff, 740px 740px #fff,
+        744px 744px #fff, 748px 748px #fff, 752px 752px #fff, 756px 756px #fff, 760px 760px #fff,
+        764px 764px #fff, 768px 768px #fff, 772px 772px #fff, 776px 776px #fff, 780px 780px #fff,
+        784px 784px #fff, 788px 788px #fff, 792px 792px #fff, 796px 796px #fff, 800px 800px #fff,
+        804px 804px #fff, 808px 808px #fff, 812px 812px #fff, 816px 816px #fff, 820px 820px #fff,
+        824px 824px #fff, 828px 828px #fff, 832px 832px #fff, 836px 836px #fff, 840px 840px #fff,
+        844px 844px #fff, 848px 848px #fff, 852px 852px #fff, 856px 856px #fff, 860px 860px #fff,
+        864px 864px #fff, 868px 868px #fff, 872px 872px #fff, 876px 876px #fff, 880px 880px #fff,
+        884px 884px #fff, 888px 888px #fff, 892px 892px #fff, 896px 896px #fff, 900px 900px #fff,
+        904px 904px #fff, 908px 908px #fff, 912px 912px #fff, 916px 916px #fff, 920px 920px #fff,
+        924px 924px #fff, 928px 928px #fff, 932px 932px #fff, 936px 936px #fff, 940px 940px #fff,
+        944px 944px #fff, 948px 948px #fff, 952px 952px #fff, 956px 956px #fff, 960px 960px #fff,
+        964px 964px #fff, 968px 968px #fff, 972px 972px #fff, 976px 976px #fff, 980px 980px #fff,
+        984px 984px #fff, 988px 988px #fff, 992px 992px #fff, 996px 996px #fff, 1000px 1000px #fff,
+        1004px 1004px #fff, 1008px 1008px #fff, 1012px 1012px #fff, 1016px 1016px #fff, 1020px 1020px #fff,
+        1024px 1024px #fff;
+}
+
+.mercadeo-line-1,
+.mercadeo-line-2 {
+    padding-right: 4px;
+}
+
+/* --- Footer --- */
+.mercadeo-footer {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 48px 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.mercadeo-footer-logo-link {
+    display: block;
+}
+
+.mercadeo-footer-crest {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    object-fit: contain;
+    filter: invert(1);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.mercadeo-footer-logo-link:hover .mercadeo-footer-crest {
+    border-color: var(--mercadeo-tangerine);
+    transform: rotate(-4deg) scale(1.06);
+}
+
+.mercadeo-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    gap: 8px;
+}
+
+/* Same hard-offset hover language as the nav links — one consistent
+   trick used everywhere on this page instead of a different hover
+   style per section. */
+.mercadeo-footer-links a {
+    display: inline-block;
+    padding: 6px 8px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color: var(--mercadeo-gray);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.15s ease, text-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.mercadeo-footer-links a:hover {
+    color: var(--mercadeo-white);
+    text-shadow: 2px 2px 0 var(--mercadeo-tangerine);
+    transform: translate(-2px, -2px);
+}
+
+.mercadeo-footer-copy {
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Responsive --- */
+@media (max-width: 700px) {
+    .mercadeo-nav {
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .mercadeo-nav-logo span {
+        display: none;
+    }
+
+    .mercadeo-hamburger {
+        display: block;
+    }
+
+    /* Collapses into a dropdown panel under the nav, toggled by
+       mercadeo.html's inline toggleMenu() script — same pattern the
+       rest of the site uses for its own mobile nav. */
+    .mercadeo-nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        gap: 0;
+        padding: 8px 16px 16px;
+        background: rgba(9, 10, 12, 0.98);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mercadeo-nav-links.mercadeo-open {
+        display: flex;
+    }
+
+    .mercadeo-nav-links a {
+        width: 100%;
+        padding: 10px 4px;
+        font-size: 0.85rem;
+    }
+
+    .mercadeo-footer {
+        padding: 36px 20px;
+    }
+
+    .mercadeo-footer-crest {
+        width: 46px;
+        height: 46px;
+    }
+}
