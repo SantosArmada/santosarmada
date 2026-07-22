@@ -321,7 +321,7 @@ function getGlobeHeight() {
 
 const world = Globe()
        (document.getElementById('globeViz'))
-       .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
+       .globeImageUrl('vendor/textures/earth-dark.jpg')
        .backgroundColor('rgba(0,0,0,0)')
        .showAtmosphere(true)
        .atmosphereColor('#4da6ff')
@@ -333,7 +333,7 @@ const world = Globe()
        .width(window.innerWidth)
        .height(getGlobeHeight());
 
-fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
+fetch('vendor/textures/countries-110m.json')
     .then(res => res.json())
     .then(topology => {
         const countries = topojson.feature(topology, topology.objects.countries);

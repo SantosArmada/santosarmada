@@ -127,7 +127,7 @@ function init() {
     const waterGeometry = new THREE.PlaneGeometry(10000, 10000);
     const textureLoader = new THREE.TextureLoader();
 
-    const waterNormals = textureLoader.load('https://threejs.org/examples/textures/water/Water_1_M_Normal.jpg', function (t) {
+    const waterNormals = textureLoader.load('vendor/textures/Water_1_M_Normal.jpg', function (t) {
         t.wrapS = t.wrapT = THREE.RepeatWrapping;
     });
 

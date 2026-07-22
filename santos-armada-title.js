@@ -27,7 +27,7 @@ import { FontLoader } from 'three/addons/loaders/FontLoader.js';
     // ── Load font and build geometry ─────────────────────────────
     const loader = new FontLoader();
     loader.load(
-        'https://cdn.jsdelivr.net/npm/three@0.170.0/examples/fonts/droid/droid_sans_bold.typeface.json',
+        'vendor/three/0.170.0/fonts/droid/droid_sans_bold.typeface.json',
         function (font) {
 
             const textGeo = new TextGeometry('SANTOS ARMADA', {

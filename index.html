@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="vendor/fonts/index-fonts.css" rel="stylesheet">
 
     <script type="importmap">
 {
   "imports": {
-    "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
-    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+    "three": "./vendor/three/0.170.0/three.module.js",
+    "three/addons/": "./vendor/three/0.170.0/jsm/"
   }
 }
 </script>
@@ -420,7 +418,7 @@
 </script>
 <script type="module">
 // ---- Singularity panel: locked "Stable Singularity" state, gold/amber palette ----
-import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js';
+import * as THREE from './vendor/three/0.170.0/three.module.js';
 
 (function () {
     var container = document.getElementById('singularity-canvas-wrap');

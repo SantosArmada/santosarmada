@@ -65,7 +65,7 @@
 
     const world = Globe()
       (container)
-      .globeImageUrl('https://unpkg.com/three-globe/example/img/earth-dark.jpg')
+      .globeImageUrl('vendor/textures/earth-dark.jpg')
       .backgroundColor('rgba(0,0,0,0)')
       .showAtmosphere(true)
       .atmosphereColor('#4da6ff')
@@ -78,7 +78,7 @@
     world.controls().autoRotate = true;
     world.controls().autoRotateSpeed = 1.85;
 
-    fetch('https://unpkg.com/world-atlas@2/countries-110m.json')
+    fetch('vendor/textures/countries-110m.json')
       .then(res => res.json())
       .then(topology => {
         const countries = topojson.feature(topology, topology.objects.countries);
@@ -124,10 +124,10 @@
 
     const tasks = [];
     if (typeof Globe === 'undefined') {
-      tasks.push(loadScript('https://unpkg.com/globe.gl@2.31.0/dist/globe.gl.min.js'));
+      tasks.push(loadScript('vendor/globe/globe.gl.min.js'));
     }
     if (typeof topojson === 'undefined') {
-      tasks.push(loadScript('https://unpkg.com/topojson-client@3'));
+      tasks.push(loadScript('vendor/globe/topojson-client.min.js'));
     }
 
     Promise.all(tasks).then(initGlobe).catch(() => {
