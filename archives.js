@@ -38,14 +38,13 @@ let scene, camera, renderer, controls;
 let water, textGroup, glowGroup, turntable;
 
 // --- FONTS ---
-const fontBaseURL = 'https://unpkg.com/@fontsource/inter@5.0.18/files/';
+// Self-hosted: params.fontWeight is fixed to 'Black' (the tuning panel
+// that could change it was removed), so only that one weight is ever
+// loaded. Kept local instead of fetching from unpkg at runtime so the
+// scene doesn't break if that CDN is down.
+const fontBaseURL = 'fonts/';
 const fontFiles = {
-    'Thin':    'inter-latin-100-normal.woff',
-    'Light':   'inter-latin-300-normal.woff',
-    'Regular': 'inter-latin-400-normal.woff',
-    'Medium':  'inter-latin-500-normal.woff',
-    'Bold':    'inter-latin-700-normal.woff',
-    'Black':   'inter-latin-900-normal.woff'
+    'Black': 'inter-latin-900-normal.woff'
 };
 
 const loadedFonts = {};
