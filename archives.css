@@ -20,8 +20,6 @@
 
     background: var(--arch-black);
     color: var(--arch-white);
-    padding-top: var(--archives-banner-h);
-    padding-bottom: var(--archives-banner-h);
     overflow-x: hidden;
 }
 
@@ -31,15 +29,18 @@
     }
 }
 
-/* Dock the sticky navbar directly beneath the fixed top banner. */
-.archives-page .navbar {
-    top: var(--archives-banner-h);
+/* This page has no top banner, only the bottom one — override the
+   shared body.has-site-banners padding-top/navbar-offset from
+   style.css (needs body.archives-page to out-specificity it so other
+   pages using that banner are untouched). padding-bottom still
+   reserves room for the bottom banner. */
+body.archives-page.has-site-banners {
+    padding-top: 0;
+    padding-bottom: var(--archives-banner-h);
 }
 
-@media (max-width: 768px), (orientation: portrait) and (max-width: 1024px) {
-    .archives-page .navbar {
-        top: 0;
-    }
+body.archives-page.has-site-banners .navbar {
+    top: 0;
 }
 
 /* --- Navbar reskin: chrome/black/red instead of the site-wide gold --- */
