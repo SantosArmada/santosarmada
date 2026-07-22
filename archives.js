@@ -173,27 +173,22 @@ function init() {
 }
 
 function loadFontAndCreateText() {
-    const loaderEl = document.getElementById('loader');
     const weightKey = params.fontWeight;
     const fileName = fontFiles[weightKey];
 
     if (loadedFonts[weightKey]) {
-        loaderEl.style.opacity = 0;
         createText(loadedFonts[weightKey]);
         return;
     }
 
-    loaderEl.style.opacity = 1;
     const url = fontBaseURL + fileName;
 
     ttfLoader.load(url, (json) => {
         const font = fontLoader.parse(json);
         loadedFonts[weightKey] = font;
-        loaderEl.style.opacity = 0;
         createText(font);
     }, undefined, (err) => {
         console.error(err);
-        loaderEl.innerText = "Error loading font";
     });
 }
 
