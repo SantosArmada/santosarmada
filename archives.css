@@ -79,15 +79,15 @@ body.archives-page.has-site-banners .navbar {
     }
 }
 
-/* Eight beams radiating from the crest's center, hidden until hover.
-   Each carries its own angle via --ang; scaleY grows them outward from
-   the pivot at the crest's center. */
+/* Two beams firing from the mask's eyes (not the crest's center),
+   hidden until hover. left/top pin each beam to an eye's exact
+   position, measured directly off logo.PNG (~36%/47% and ~54%/47%
+   of the image); --ang points each beam up and outward from there. */
 .nav-laser {
     position: absolute;
-    left: 50%;
-    top: 50%;
+    top: 47%;
     width: 2px;
-    height: 28px;
+    height: 22px;
     margin-left: -1px;
     transform-origin: 50% 0%;
     background: linear-gradient(to bottom, rgba(255, 235, 225, 0.95), rgba(255, 26, 26, 0.6) 55%, transparent 100%);
@@ -98,14 +98,8 @@ body.archives-page.has-site-banners .navbar {
     pointer-events: none;
 }
 
-.nav-laser-0 { --ang: 0deg; }
-.nav-laser-1 { --ang: 45deg;  transition-delay: 0.02s; }
-.nav-laser-2 { --ang: 90deg;  transition-delay: 0.04s; }
-.nav-laser-3 { --ang: 135deg; transition-delay: 0.06s; }
-.nav-laser-4 { --ang: 180deg; transition-delay: 0.08s; }
-.nav-laser-5 { --ang: 225deg; transition-delay: 0.06s; }
-.nav-laser-6 { --ang: 270deg; transition-delay: 0.04s; }
-.nav-laser-7 { --ang: 315deg; transition-delay: 0.02s; }
+.nav-laser-eye-l { left: 36%; --ang: 135deg; }
+.nav-laser-eye-r { left: 54%; --ang: 225deg; transition-delay: 0.03s; }
 
 .archives-page .nav-logo:hover .nav-laser {
     opacity: 1;
