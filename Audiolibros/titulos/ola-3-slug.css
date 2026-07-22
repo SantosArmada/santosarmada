@@ -468,6 +468,10 @@ body {
     text-decoration: underline;
 }
 
+.footer-links {
+    margin-top: 1rem;
+}
+
 /* ---------- MAYA BANNER (Audiolibros blue) ----------
    Top strip is fixed in the gap between .site-nav and .titulos-header
    (the wave section) — NOT pinned to the very top of the viewport like

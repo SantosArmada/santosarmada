@@ -445,6 +445,18 @@ footer{
   font-style:italic;
 }
 
+.footer-links{
+  font-family:'Arial Black', sans-serif;
+  font-size:0.85rem;
+}
+.footer-links a{
+  color:var(--dim);
+  text-decoration:none;
+}
+.footer-links a:hover{
+  color:var(--green);
+}
+
 /* ── MAYA BANNER (green, bottom only) ──
    Fixed frieze strip pinned to the very bottom of the viewport, below
    everything, never scrolls away. No top banner. */
@@ -496,12 +508,11 @@ footer{
     <span class="nav-logo-text">SANTOS ARMADA</span>
   </a>
   <ul class="nav-links">
+    <li><a href="essays.html">Essays</a></li>
     <li><a href="authors.html">Authors</a></li>
     <li><a href="globe.html">Space &amp; Time</a></li>
+    <li><a href="museos.html">Museos</a></li>
     <li><a href="audiolibros.html">Audiolibros</a></li>
-    <li><a href="interpreter-z.html">Interpreter Z</a></li>
-    <li><a href="cv.html">CV</a></li>
-    <li><a href="about.html">About</a></li>
   </ul>
   <button class="hamburger" aria-label="Toggle menu" id="hamburger">
     <span></span><span></span><span></span>
@@ -510,12 +521,11 @@ footer{
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="essays.html">Essays</a>
   <a href="authors.html">Authors</a>
   <a href="globe.html">Space &amp; Time</a>
+  <a href="museos.html">Museos</a>
   <a href="audiolibros.html">Audiolibros</a>
-  <a href="interpreter-z.html">Interpreter Z</a>
-  <a href="cv.html">CV</a>
-  <a href="about.html">About</a>
 </div>
 
 <!-- HERO -->
@@ -634,6 +644,11 @@ footer{
     <img src="Images/SA-MAIN-LOGO.jpg" alt="Santos Armada" class="logo-img footer-logo-img">
   </a>
   <p class="footer-copy">Una armada de conocimientos escritos</p>
+  <p class="footer-links">
+    <a href="cv.html">CV</a> ·
+    <a href="about.html">About</a> ·
+    <a href="contact.html">Contact</a>
+  </p>
 </footer>
 
 <!-- BANNER: green Maya frieze, fixed to the very bottom of the
