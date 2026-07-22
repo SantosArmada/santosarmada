@@ -25,6 +25,18 @@
     border-bottom: 0.5px solid rgba(42, 31, 20, 0.3);
 }
 
+/* This page has no top banner, only the bottom one — override the
+   shared body.has-site-banners padding-top/navbar-offset from
+   style.css (needs body.about-page to out-specificity it so other
+   pages using that banner, like index.html, are untouched). */
+body.about-page.has-site-banners {
+    padding-top: 0;
+}
+
+body.about-page.has-site-banners .navbar {
+    top: 0;
+}
+
 /* Underline the active nav link, same pattern as the OLA pages'
    Audiolibros link and globe.html's Space and Time link — style.css
    has no underline/active mechanism at all, so it's added here,
