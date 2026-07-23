@@ -333,6 +333,23 @@ const TIMELINE_ENTRIES = [
         "Tendríamos una voz filosófica prehispánica tan documentada como cualquier poeta europeo de su época, no una reconstrucción parcial hecha por cronistas mestizos generaciones después. El rey-poeta de Texcoco ocuparía en la historia literaria un lugar central, no el de excepción rescatada."
     }
   },
+  {
+    id: "pachacutec-imperio-inca-1438",
+    year: 1438,
+    endYear: 1471,
+    title: "1438: Pachacútec funda el Imperio Inca",
+    author: "Hito histórico",
+    country: "Perú",
+    region: "Cusco",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "En 1438, con Cusco sitiado y su padre Huiracocha Inca huido de la ciudad, el príncipe Cusi Yupanqui reúne a los pueblos aliados y derrota a los chancas en la llanura de Ichupampa, cerca del río Apurímac. La victoria le gana el trono —y un nuevo nombre: Pachacútec, 'el que transforma la tierra'—. En poco más de tres décadas de reinado convierte el pequeño curacazgo de Cusco en el Tahuantinsuyo, un imperio que llega a extenderse por los Andes desde el actual Ecuador hasta Chile. Rediseña Cusco —según la tradición, con la forma de un puma—, ordena construir Machu Picchu como finca real, formaliza el sistema de trabajo colectivo del mit'a y tiende la red de caminos del Qhapaq Ñan que mantiene unido al imperio. Casi dos siglos después, el cronista mestizo El Inca Garcilaso de la Vega —hijo de una princesa inca y un conquistador español— reconstruiría esta misma historia de memoria en sus Comentarios Reales, entretejiendo la crónica oral incaica con el relato español de la conquista.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si los chancas hubieran tomado el Cusco en 1438?",
+      answer:
+        "El pequeño curacazgo cusqueño habría desaparecido como tantos otros señoríos andinos de la época, absorbido por el imperio chanka en expansión. No existiría el Tahuantinsuyo, ni la red de caminos ni el mit'a que llegaron a unificar los Andes bajo una sola administración —y probablemente tampoco habría existido un imperio lo bastante grande y centralizado como para que, un siglo después, un puñado de conquistadores españoles pudiera tomarlo entero capturando a un solo hombre, el inca Atahualpa."
+    }
+  },
 
   // ---- COLONIAL ----
   {
@@ -824,6 +841,22 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si Carlos Fuentes hubiera narrado la vida de Artemio Cruz en orden cronológico simple?",
       answer:
         "La fragmentación —pasado, presente y futuro entrelazados, narrado en primera, segunda y tercera persona a la vez— es lo que permite que la novela sea, simultáneamente, la biografía de un hombre y una radiografía de cómo la Revolución Mexicana traicionó sus propios ideales. Contada en línea recta, sería solo lo primero."
+    }
+  },
+  {
+    id: "ciudad-los-perros-vargas-llosa-1963",
+    year: 1963,
+    title: "La ciudad y los perros",
+    author: "Mario Vargas Llosa",
+    country: "Perú",
+    region: "Lima",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "La primera novela de Mario Vargas Llosa, escrita antes de cumplir treinta años y ganadora del Premio Biblioteca Breve de Seix Barral en 1962, retrata con crudeza la violencia, el machismo y la corrupción moral dentro del Colegio Militar Leoncio Prado de Lima, donde el propio autor había sido interno. Estructurada en múltiples voces y saltos temporales, la novela desnuda un microcosmos brutal que funciona como espejo del Perú entero, y su publicación fue tan incendiaria que las autoridades del colegio real llegaron a quemar públicamente mil ejemplares del libro, acusándolo de traición a la patria. Se convirtió, junto con obras de García Márquez, Cortázar y Fuentes, en uno de los pilares fundacionales del Boom latinoamericano.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Vargas Llosa hubiera suavizado el retrato del Leoncio Prado para evitar la censura?",
+      answer:
+        "La ciudad y los perros habría perdido exactamente lo que la volvió un escándalo nacional y, a la vez, una obra maestra: su negativa a mirar hacia otro lado ante la violencia que el propio sistema militar producía y encubría. La quema pública de ejemplares terminó siendo la mejor prueba de que la novela había tocado un nervio real."
     }
   },
   {
