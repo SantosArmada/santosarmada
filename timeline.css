@@ -12,20 +12,163 @@
   overflow: hidden;
 }
 
-/* ---- Sticky dynamic header ---- */
-.timeline-header {
+/* ---- Sticky bar: header + era-nav + filters ---- */
+.timeline-sticky-bar {
   position: sticky;
   top: 0;
   z-index: 15;
-  padding: 22px 30px;
   background: var(--panel-bg);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   border-bottom: 1px solid rgba(200, 169, 110, 0.25);
+}
+
+.timeline-header {
+  padding: 22px 30px 14px;
   display: flex;
   align-items: baseline;
   gap: 16px;
   flex-wrap: wrap;
+}
+
+.timeline-controls {
+  padding: 0 30px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ---- Era-jump nav ---- */
+.timeline-era-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.timeline-era-nav::-webkit-scrollbar {
+  display: none;
+}
+
+.timeline-era-nav-btn {
+  flex: 0 0 auto;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(200, 169, 110, 0.2);
+  border-radius: 20px;
+  padding: 6px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.timeline-era-nav-btn:hover,
+.timeline-era-nav-btn:focus-visible {
+  color: var(--text-main);
+  border-color: var(--era-nav-color, var(--gold));
+  outline: none;
+}
+
+.timeline-era-nav-btn.is-current {
+  color: var(--text-main);
+  background: rgba(200, 169, 110, 0.12);
+  border-color: var(--era-nav-color, var(--gold));
+}
+
+/* ---- Type / country filters ---- */
+.timeline-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.timeline-filter-types {
+  display: flex;
+  gap: 6px;
+}
+
+.timeline-filter-chip {
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: transparent;
+  border: 1px solid rgba(240, 234, 216, 0.2);
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+
+.timeline-filter-chip.is-active {
+  opacity: 1;
+}
+
+.timeline-filter-chip[data-type="literature"].is-active {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+
+.timeline-filter-chip[data-type="history"].is-active {
+  color: var(--neon-blue);
+  border-color: var(--neon-blue);
+}
+
+.timeline-filter-chip[data-type="conflict"].is-active {
+  color: var(--neon-pink);
+  border-color: var(--neon-pink);
+}
+
+.timeline-filter-country {
+  font-size: 11px;
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(200, 169, 110, 0.25);
+  border-radius: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+/* ---- Minimap / scrubber ---- */
+.timeline-minimap {
+  position: relative;
+  height: 22px;
+  margin: 14px 30px 0;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.timeline-minimap-era {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  opacity: 0.35;
+}
+
+.timeline-minimap-viewport {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  min-width: 24px;
+  background: rgba(240, 234, 216, 0.18);
+  border: 1px solid rgba(200, 169, 110, 0.6);
+  border-radius: 6px;
+  cursor: grab;
+  touch-action: none;
+}
+
+.timeline-minimap-viewport:active {
+  cursor: grabbing;
 }
 
 .timeline-header-era {
@@ -167,6 +310,93 @@
   height: 26px;
   background: rgba(200, 169, 110, 0.4);
   transform: translateX(-50%);
+}
+
+/* ---- Cluster markers (2+ entries within CLUSTER_GAP_PX) ---- */
+.timeline-cluster {
+  position: absolute;
+  top: 84px;
+  transform: translateX(-50%);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.timeline-cluster-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 10px;
+  background: var(--gold);
+  color: #04060a;
+  font-size: 11px;
+  font-weight: 700;
+  border: 2px solid #04060a;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-cluster:hover .timeline-cluster-badge,
+.timeline-cluster.is-active .timeline-cluster-badge {
+  transform: scale(1.15);
+  box-shadow: 0 0 16px 4px rgba(200, 169, 110, 0.5);
+}
+
+/* Cluster list — renders inside the same detail panel as a single entry */
+.timeline-cluster-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.timeline-cluster-list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 4px;
+  border-bottom: 1px solid rgba(240, 234, 216, 0.08);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.timeline-cluster-list-item:last-child {
+  border-bottom: none;
+}
+
+.timeline-cluster-list-item:hover,
+.timeline-cluster-list-item:focus-visible {
+  background: rgba(200, 169, 110, 0.08);
+  outline: none;
+}
+
+.timeline-cluster-list-year {
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 0.06em;
+}
+
+.timeline-cluster-list-title {
+  font-size: 13px;
+  color: var(--text-main);
+}
+
+.timeline-cluster-list-author {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* ---- Filtered-out state (type/country filters) ----
+   Dims rather than removes — positions stay stable so the minimap and
+   track width never need to recompute when a filter changes. */
+.timeline-entry.is-filtered-out,
+.timeline-cluster.is-filtered-out {
+  opacity: 0.15;
+  pointer-events: none;
 }
 
 /* ---- Detail panel (click-to-open) ---- */
@@ -377,6 +607,7 @@
 
 /* ---- Keyboard focus visibility (accessibility floor) ---- */
 .timeline-entry:focus-visible .timeline-entry-dot,
+.timeline-cluster:focus-visible .timeline-cluster-badge,
 .timeline-glyph:focus-visible {
   outline: 2px solid var(--neon-blue);
   outline-offset: 4px;
@@ -394,10 +625,22 @@
 /* ---- Mobile ---- */
 @media (max-width: 768px) {
   .timeline-header {
-    padding: 16px 18px;
+    padding: 16px 18px 10px;
   }
   .timeline-header-year {
     font-size: 18px;
+  }
+  .timeline-controls {
+    padding: 0 18px 14px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  .timeline-filters {
+    justify-content: space-between;
+  }
+  .timeline-minimap {
+    margin: 10px 18px 0;
   }
   .timeline-detail-panel {
     left: 16px;

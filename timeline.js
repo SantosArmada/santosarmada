@@ -27,6 +27,12 @@
   const MIN_YEAR = eraBands[0].startYear;
   const MAX_YEAR = eraBands[eraBands.length - 1].endYear;
 
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
   /* ---------- Build the piecewise scale ---------- */
   const MIN_SEGMENT_PX = 420;   // floor: even a near-empty era reads as real space
   const PX_PER_ENTRY = 70;      // how much width one entry "earns" in a dense era
@@ -49,44 +55,6 @@
     runningX += era.trackPx;
   });
   const trackWidth = runningX;
-
-  /* ---------- DOM refs (built fresh into the mount point) ---------- */
-  const mount = document.getElementById("timelineMount");
-  if (!mount) {
-    console.warn("Time-and-Space: #timelineMount not found in the page.");
-    return;
-  }
-
-  mount.innerHTML = `
-    <div class="timeline-header" id="timelineHeader">
-      <span class="timeline-header-era" id="timelineHeaderEra">—</span>
-      <span class="timeline-header-year" id="timelineHeaderYear">—</span>
-      <span class="timeline-header-hint">usa ← → para navegar</span>
-    </div>
-    <div class="timeline-track-wrapper" id="timelineTrackWrapper" tabindex="0" role="region" aria-label="Línea de tiempo interactiva">
-      <div class="timeline-track" id="timelineTrack" style="width:${trackWidth}px;">
-        <div class="timeline-spine"></div>
-      </div>
-    </div>
-    <div class="timeline-detail-panel" id="timelineDetailPanel">
-      <button class="timeline-detail-close" id="timelineDetailClose" type="button" aria-label="Cerrar">&times;</button>
-      <div class="timeline-detail-content" id="timelineDetailContent">
-        <p class="timeline-detail-label">Selecciona una obra</p>
-        <h3 class="timeline-detail-title">Explora la línea de tiempo</h3>
-        <p class="timeline-detail-body">Cada punto conecta una obra con su momento histórico.</p>
-      </div>
-    </div>
-    <div class="timeline-butterfly" id="timelineButterfly" aria-live="polite"></div>
-  `;
-
-  const track = document.getElementById("timelineTrack");
-  const trackWrapper = document.getElementById("timelineTrackWrapper");
-  const headerEra = document.getElementById("timelineHeaderEra");
-  const headerYear = document.getElementById("timelineHeaderYear");
-  const detailPanel = document.getElementById("timelineDetailPanel");
-  const detailContent = document.getElementById("timelineDetailContent");
-  const detailClose = document.getElementById("timelineDetailClose");
-  const butterflyEl = document.getElementById("timelineButterfly");
 
   /* ---------- Scale helpers (piecewise) ---------- */
   function eraForYear(year) {
@@ -112,11 +80,91 @@
     return era.startYear + fraction * (era.endYear - era.startYear);
   }
 
-  function escapeHtml(str) {
-    const div = document.createElement("div");
-    div.textContent = str;
-    return div.innerHTML;
+  /* ---------- Country list (for the filter dropdown) ---------- */
+  const distinctCountries = Array.from(
+    new Set(entries.filter((e) => !e.glyph && e.country).map((e) => e.country))
+  ).sort((a, b) => a.localeCompare(b, "es"));
+
+  /* ---------- DOM refs (built fresh into the mount point) ---------- */
+  const mount = document.getElementById("timelineMount");
+  if (!mount) {
+    console.warn("Time-and-Space: #timelineMount not found in the page.");
+    return;
   }
+
+  const eraNavHtml = eraBands
+    .map(
+      (era) =>
+        `<button type="button" class="timeline-era-nav-btn" data-era-id="${era.id}" style="--era-nav-color:${era.color}">${escapeHtml(era.label)}</button>`
+    )
+    .join("");
+
+  const countryOptionsHtml = distinctCountries
+    .map((c) => `<option value="${escapeHtml(c)}">${escapeHtml(c)}</option>`)
+    .join("");
+
+  const minimapErasHtml = eraBands
+    .map(
+      (era) =>
+        `<div class="timeline-minimap-era" style="left:${(era.trackStartX / trackWidth) * 100}%;width:${(era.trackPx / trackWidth) * 100}%;background:${era.color}"></div>`
+    )
+    .join("");
+
+  mount.innerHTML = `
+    <div class="timeline-sticky-bar" id="timelineStickyBar">
+      <div class="timeline-header" id="timelineHeader">
+        <span class="timeline-header-era" id="timelineHeaderEra">—</span>
+        <span class="timeline-header-year" id="timelineHeaderYear">—</span>
+        <span class="timeline-header-hint">usa ← → para navegar</span>
+      </div>
+      <div class="timeline-controls" id="timelineControls">
+        <div class="timeline-era-nav" id="timelineEraNav">${eraNavHtml}</div>
+        <div class="timeline-filters" id="timelineFilters">
+          <div class="timeline-filter-types" id="timelineFilterTypes">
+            <button type="button" class="timeline-filter-chip is-active" data-type="literature">Literatura</button>
+            <button type="button" class="timeline-filter-chip is-active" data-type="history">Historia</button>
+            <button type="button" class="timeline-filter-chip is-active" data-type="conflict">Conflicto</button>
+          </div>
+          <select class="timeline-filter-country" id="timelineFilterCountry" aria-label="Filtrar por país">
+            <option value="">Todos los países</option>
+            ${countryOptionsHtml}
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="timeline-minimap" id="timelineMinimap">
+      ${minimapErasHtml}
+      <div class="timeline-minimap-viewport" id="timelineMinimapViewport"></div>
+    </div>
+    <div class="timeline-track-wrapper" id="timelineTrackWrapper" tabindex="0" role="region" aria-label="Línea de tiempo interactiva">
+      <div class="timeline-track" id="timelineTrack" style="width:${trackWidth}px;">
+        <div class="timeline-spine"></div>
+      </div>
+    </div>
+    <div class="timeline-detail-panel" id="timelineDetailPanel">
+      <button class="timeline-detail-close" id="timelineDetailClose" type="button" aria-label="Cerrar">&times;</button>
+      <div class="timeline-detail-content" id="timelineDetailContent">
+        <p class="timeline-detail-label">Selecciona una obra</p>
+        <h3 class="timeline-detail-title">Explora la línea de tiempo</h3>
+        <p class="timeline-detail-body">Cada punto conecta una obra con su momento histórico.</p>
+      </div>
+    </div>
+    <div class="timeline-butterfly" id="timelineButterfly" aria-live="polite"></div>
+  `;
+
+  const track = document.getElementById("timelineTrack");
+  const trackWrapper = document.getElementById("timelineTrackWrapper");
+  const headerEra = document.getElementById("timelineHeaderEra");
+  const headerYear = document.getElementById("timelineHeaderYear");
+  const detailPanel = document.getElementById("timelineDetailPanel");
+  const detailContent = document.getElementById("timelineDetailContent");
+  const detailClose = document.getElementById("timelineDetailClose");
+  const butterflyEl = document.getElementById("timelineButterfly");
+  const eraNavButtons = Array.from(document.querySelectorAll(".timeline-era-nav-btn"));
+  const filterTypeButtons = Array.from(document.querySelectorAll(".timeline-filter-chip"));
+  const countrySelect = document.getElementById("timelineFilterCountry");
+  const minimap = document.getElementById("timelineMinimap");
+  const minimapViewport = document.getElementById("timelineMinimapViewport");
 
   /* ---------- Render era bands ---------- */
   eraBands.forEach((era) => {
@@ -136,69 +184,53 @@
     track.appendChild(labelEl);
   });
 
-  /* ---------- Collision-aware vertical offset within dense eras ----------
-     Walk entries left-to-right in x-order. Track the x-position last
-     used on each of 3 stagger rows; place each entry on the first row
-     whose last-used x is at least MIN_GAP_PX behind this entry's x.
-     This correctly handles chains of 3+ close entries (including exact
-     same-year duplicates, which a simple prev-only check misses). */
-  const MIN_GAP_PX = 46;
-  const STAGGER_ROWS = 3;
-  const sortedForLayout = entries
+  /* ---------- Shared x-order (feeds clustering + keyboard jump) ----------
+     Excludes glyph entries — they live in their own sparse lane above
+     the main track and were never part of the collision problem. */
+  const entriesByX = entries
     .map((e, idx) => ({ idx, x: yearToX(e.year) }))
+    .filter((item) => !entries[item.idx].glyph)
     .sort((a, b) => a.x - b.x);
 
-  const rowOf = new Array(entries.length).fill(0);
-  const lastXOnRow = new Array(STAGGER_ROWS).fill(-Infinity);
+  const xByIdx = new Map(entriesByX.map((item) => [item.idx, item.x]));
 
-  sortedForLayout.forEach(({ idx, x }) => {
-    let placedRow = 0;
-    for (let r = 0; r < STAGGER_ROWS; r++) {
-      if (x - lastXOnRow[r] >= MIN_GAP_PX) {
-        placedRow = r;
-        break;
-      }
-      // if no row has enough clearance, fall back to the row that's
-      // furthest behind (least bad collision) rather than always row 0
-      if (lastXOnRow[r] < lastXOnRow[placedRow]) placedRow = r;
+  /* ---------- Clustering ----------
+     Single pass over x-sorted entries. Anything within CLUSTER_GAP_PX of
+     the previous entry joins the same cluster. Clusters of size 1 render
+     as a normal dot; size 2+ render as a numbered badge that opens a
+     list in the detail panel — replaces the old 3-row stagger, which
+     started overlapping once a 4th entry landed in the same ~46px
+     window. */
+  const CLUSTER_GAP_PX = 34;
+  const clusters = [];
+  entriesByX.forEach(({ idx, x }) => {
+    const last = clusters[clusters.length - 1];
+    if (last && x - last.lastX < CLUSTER_GAP_PX) {
+      last.members.push(idx);
+      last.lastX = x;
+    } else {
+      clusters.push({ members: [idx], lastX: x });
     }
-    rowOf[idx] = placedRow;
-    lastXOnRow[placedRow] = x;
   });
 
-  /* ---------- Render entries ---------- */
-  entries.forEach((entry, idx) => {
-    const isGlyph = entry.glyph;
-    const x = yearToX(entry.year);
-    const rowOffset = rowOf[idx] * 22;
+  /* ---------- Render clustered entries + cluster badges ---------- */
+  const clusterElements = []; // { el, members }
 
-    const el = document.createElement(isGlyph ? "div" : "button");
-    el.className = isGlyph ? "timeline-glyph" : "timeline-entry";
+  function renderSingleEntryMarker(idx) {
+    const entry = entries[idx];
+    const x = xByIdx.get(idx);
+    const el = document.createElement("button");
+    el.className = "timeline-entry";
     el.style.left = x + "px";
-    if (!isGlyph && rowOffset) {
-      el.style.top = 84 + rowOffset + "px";
-    }
     el.dataset.index = idx;
     el.dataset.type = entry.type || "literature";
+    el.dataset.country = entry.country || "";
     el.setAttribute("tabindex", "0");
-    el.setAttribute(
-      "aria-label",
-      `${entry.title}, ${entry.author}, ${entry.year}`
-    );
-
-    if (isGlyph) {
-      el.textContent = entry.glyph;
-      const stem = document.createElement("div");
-      stem.className = "timeline-glyph-stem";
-      stem.style.left = x + "px";
-      track.appendChild(stem);
-    } else {
-      el.innerHTML = `
-        <span class="timeline-entry-dot"></span>
-        <span class="timeline-entry-year">${entry.year}</span>
-      `;
-    }
-
+    el.setAttribute("aria-label", `${entry.title}, ${entry.author}, ${entry.year}`);
+    el.innerHTML = `
+      <span class="timeline-entry-dot"></span>
+      <span class="timeline-entry-year">${entry.year}</span>
+    `;
     el.addEventListener("click", () => selectEntry(idx));
     el.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
@@ -206,20 +238,98 @@
         selectEntry(idx);
       }
     });
+    track.appendChild(el);
+  }
 
+  function renderClusterMarker(cluster) {
+    const xs = cluster.members.map((idx) => xByIdx.get(idx));
+    const meanX = xs.reduce((a, b) => a + b, 0) / xs.length;
+    const years = cluster.members.map((idx) => entries[idx].year);
+    const minYear = Math.min(...years);
+    const maxYear = Math.max(...years);
+    const yearLabel = minYear === maxYear ? String(minYear) : `${minYear}–${maxYear}`;
+
+    const el = document.createElement("button");
+    el.className = "timeline-cluster";
+    el.style.left = meanX + "px";
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("aria-label", `${cluster.members.length} obras, ${yearLabel}`);
+    el.innerHTML = `
+      <span class="timeline-cluster-badge">${cluster.members.length}</span>
+      <span class="timeline-entry-year">${yearLabel}</span>
+    `;
+    const open = () => selectCluster(cluster.members, meanX, el);
+    el.addEventListener("click", open);
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open();
+      }
+    });
+    track.appendChild(el);
+    clusterElements.push({ el, members: cluster.members });
+  }
+
+  clusters.forEach((cluster) => {
+    if (cluster.members.length === 1) {
+      renderSingleEntryMarker(cluster.members[0]);
+    } else {
+      renderClusterMarker(cluster);
+    }
+  });
+
+  /* ---------- Render glyph entries (own lane, unaffected by clustering) ---------- */
+  entries.forEach((entry, idx) => {
+    if (!entry.glyph) return;
+    const x = yearToX(entry.year);
+
+    const stem = document.createElement("div");
+    stem.className = "timeline-glyph-stem";
+    stem.style.left = x + "px";
+    track.appendChild(stem);
+
+    const el = document.createElement("div");
+    el.className = "timeline-glyph";
+    el.style.left = x + "px";
+    el.dataset.index = idx;
+    el.setAttribute("tabindex", "0");
+    el.setAttribute("aria-label", `${entry.title}, ${entry.author}, ${entry.year}`);
+    el.textContent = entry.glyph;
+    el.addEventListener("click", () => selectEntry(idx));
+    el.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        selectEntry(idx);
+      }
+    });
     track.appendChild(el);
   });
 
   /* ---------- Detail panel ---------- */
   let activeIndex = -1;
 
+  function clearActiveMarkers() {
+    document
+      .querySelectorAll(".timeline-entry.is-active, .timeline-cluster.is-active")
+      .forEach((n) => n.classList.remove("is-active"));
+  }
+
+  function scrollXIntoView(x) {
+    const targetScroll = x - trackWrapper.clientWidth / 2;
+    trackWrapper.scrollTo({ left: targetScroll, behavior: "smooth" });
+  }
+
+  function scrollEntryIntoView(idx) {
+    const entry = entries[idx];
+    if (!entry) return;
+    scrollXIntoView(yearToX(entry.year));
+  }
+
   function selectEntry(idx) {
     const entry = entries[idx];
     if (!entry) return;
 
-    document
-      .querySelectorAll(".timeline-entry.is-active")
-      .forEach((n) => n.classList.remove("is-active"));
+    clearActiveMarkers();
     const node = track.querySelector(`[data-index="${idx}"]`);
     if (node) node.classList.add("is-active");
 
@@ -298,6 +408,50 @@
     focusGlobeOnEntry();
   }
 
+  /* ---------- Cluster list (detail panel, list mode) ----------
+     Reuses the same panel as selectEntry rather than a separate
+     component: picking a row just calls selectEntry, which re-renders
+     the panel as a normal single-entry view. */
+  function selectCluster(members, x, node) {
+    clearActiveMarkers();
+    if (node) node.classList.add("is-active");
+    activeIndex = -1;
+
+    const sortedMembers = members.slice().sort((a, b) => entries[a].year - entries[b].year);
+    const rowsHtml = sortedMembers
+      .map((idx) => {
+        const e = entries[idx];
+        return `<li class="timeline-cluster-list-item" data-idx="${idx}" tabindex="0">
+          <span class="timeline-cluster-list-year">${e.year}</span>
+          <span class="timeline-cluster-list-title">${escapeHtml(e.title)}</span>
+          <span class="timeline-cluster-list-author">${escapeHtml(e.author)}</span>
+        </li>`;
+      })
+      .join("");
+
+    detailContent.innerHTML = `
+      <p class="timeline-detail-label">${members.length} obras en este punto</p>
+      <ul class="timeline-cluster-list">${rowsHtml}</ul>
+    `;
+    detailPanel.classList.add("is-open");
+
+    detailContent.querySelectorAll(".timeline-cluster-list-item").forEach((li) => {
+      const openEntry = () => selectEntry(Number(li.dataset.idx));
+      li.addEventListener("click", openEntry);
+      li.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          openEntry();
+        }
+      });
+    });
+
+    const avgYear = members.reduce((sum, idx) => sum + entries[idx].year, 0) / members.length;
+    scrollXIntoView(x);
+    updateHeader(avgYear);
+    updateButterfly(avgYear);
+  }
+
   /* ---------- Close button ----------
      Without this, the fixed-position panel can grow tall enough on
      mobile to block the whole screen with no way to dismiss it. */
@@ -305,9 +459,7 @@
     detailPanel.classList.remove("is-open");
     butterflyEl.classList.add("is-hidden");
     activeIndex = -1;
-    document
-      .querySelectorAll(".timeline-entry.is-active")
-      .forEach((n) => n.classList.remove("is-active"));
+    clearActiveMarkers();
     if (typeof window.clearGlobeRegionBlipDelayed === "function") {
       window.clearGlobeRegionBlipDelayed(3000);
     }
@@ -315,20 +467,15 @@
 
   detailClose.addEventListener("click", closeDetailPanel);
 
-  function scrollEntryIntoView(idx) {
-    const entry = entries[idx];
-    if (!entry) return;
-    const x = yearToX(entry.year);
-    const targetScroll = x - trackWrapper.clientWidth / 2;
-    trackWrapper.scrollTo({ left: targetScroll, behavior: "smooth" });
-  }
-
   /* ---------- Dynamic header ---------- */
   function updateHeader(year) {
     const era = eraForYear(year);
     headerEra.textContent = era.label;
     headerEra.style.color = era.color.startsWith("var(") ? "" : era.color;
     headerYear.textContent = Math.round(year) + (year < 0 ? " a.C." : " d.C.");
+    eraNavButtons.forEach((btn) => {
+      btn.classList.toggle("is-current", btn.dataset.eraId === era.id);
+    });
   }
 
   /* ---------- Butterfly Effect panel ----------
@@ -371,7 +518,16 @@
     `;
   }
 
-  /* ---------- Scroll-position → header tracking (no entry selected) ---------- */
+  /* ---------- Minimap sync ---------- */
+  function syncMinimap() {
+    const vpWidthPct = Math.min(100, (trackWrapper.clientWidth / trackWidth) * 100);
+    const rawLeftPct = (trackWrapper.scrollLeft / trackWidth) * 100;
+    const vpLeftPct = Math.max(0, Math.min(100 - vpWidthPct, rawLeftPct));
+    minimapViewport.style.width = vpWidthPct + "%";
+    minimapViewport.style.left = vpLeftPct + "%";
+  }
+
+  /* ---------- Scroll-position → header/minimap tracking ---------- */
   let scrollRaf = null;
   trackWrapper.addEventListener("scroll", () => {
     if (scrollRaf) return;
@@ -380,19 +536,134 @@
       const year = xToYear(centerX);
       updateHeader(year);
       updateButterfly(year);
+      syncMinimap();
       scrollRaf = null;
     });
   });
 
-  /* ---------- Keyboard scrubbing ----------
-     Moves in pixel-space, not year-space, so a single arrow-press
-     feels consistent whether you're in a sparse or dense era —
-     otherwise the same keypress would leap centuries in 1500 but
-     crawl through individual years in 1970. */
+  /* ---------- Era-jump nav ---------- */
+  eraNavButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const era = eraBands.find((e) => e.id === btn.dataset.eraId);
+      if (era) {
+        trackWrapper.scrollTo({ left: Math.max(0, era.trackStartX - 24), behavior: "smooth" });
+      }
+    });
+  });
+
+  /* ---------- Minimap interaction ---------- */
+  minimap.addEventListener("click", (e) => {
+    if (e.target === minimapViewport) return;
+    const rect = minimap.getBoundingClientRect();
+    const fraction = (e.clientX - rect.left) / rect.width;
+    trackWrapper.scrollTo({
+      left: fraction * trackWidth - trackWrapper.clientWidth / 2,
+      behavior: "smooth",
+    });
+  });
+
+  let minimapDragging = false;
+  minimapViewport.addEventListener("pointerdown", (e) => {
+    minimapDragging = true;
+    minimapViewport.setPointerCapture(e.pointerId);
+  });
+  minimapViewport.addEventListener("pointermove", (e) => {
+    if (!minimapDragging) return;
+    const rect = minimap.getBoundingClientRect();
+    const fraction = (e.clientX - rect.left) / rect.width;
+    trackWrapper.scrollLeft = fraction * trackWidth - trackWrapper.clientWidth / 2;
+  });
+  function endMinimapDrag(e) {
+    if (!minimapDragging) return;
+    minimapDragging = false;
+    if (minimapViewport.hasPointerCapture(e.pointerId)) {
+      minimapViewport.releasePointerCapture(e.pointerId);
+    }
+  }
+  minimapViewport.addEventListener("pointerup", endMinimapDrag);
+  minimapViewport.addEventListener("pointercancel", endMinimapDrag);
+
+  /* ---------- Filters ---------- */
+  function applyFilters() {
+    const activeTypes = new Set(
+      filterTypeButtons.filter((b) => b.classList.contains("is-active")).map((b) => b.dataset.type)
+    );
+    const activeCountry = countrySelect.value;
+
+    track.querySelectorAll(".timeline-entry").forEach((el) => {
+      const idx = Number(el.dataset.index);
+      const entry = entries[idx];
+      const matches =
+        activeTypes.has(entry.type || "literature") &&
+        (!activeCountry || entry.country === activeCountry);
+      el.classList.toggle("is-filtered-out", !matches);
+    });
+
+    clusterElements.forEach(({ el, members }) => {
+      const anyMatch = members.some((idx) => {
+        const entry = entries[idx];
+        return (
+          activeTypes.has(entry.type || "literature") &&
+          (!activeCountry || entry.country === activeCountry)
+        );
+      });
+      el.classList.toggle("is-filtered-out", !anyMatch);
+    });
+  }
+
+  filterTypeButtons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("is-active");
+      applyFilters();
+    });
+  });
+  countrySelect.addEventListener("change", applyFilters);
+
+  /* ---------- Keyboard navigation ----------
+     Plain ArrowLeft/ArrowRight move in pixel-space (unchanged) so a
+     single keypress feels consistent whether you're in a sparse or
+     dense era. Ctrl/Cmd+Arrow instead jumps entry-to-entry using the
+     same x-order that feeds clustering. Home/End jump to the ends. */
   const STEP_PX = 24;
   const BIG_STEP_PX = 240;
 
+  function nearestEntryPosToX(x) {
+    let best = 0;
+    let bestDiff = Infinity;
+    entriesByX.forEach((item, i) => {
+      const diff = Math.abs(item.x - x);
+      if (diff < bestDiff) {
+        bestDiff = diff;
+        best = i;
+      }
+    });
+    return best;
+  }
+
+  function jumpToAdjacentEntry(direction) {
+    if (!entriesByX.length) return;
+    const centerX = trackWrapper.scrollLeft + trackWrapper.clientWidth / 2;
+    const currentPos = nearestEntryPosToX(centerX);
+    const targetPos = Math.min(entriesByX.length - 1, Math.max(0, currentPos + direction));
+    selectEntry(entriesByX[targetPos].idx);
+  }
+
   trackWrapper.addEventListener("keydown", (e) => {
+    if (e.key === "Home") {
+      e.preventDefault();
+      trackWrapper.scrollTo({ left: 0, behavior: "smooth" });
+      return;
+    }
+    if (e.key === "End") {
+      e.preventDefault();
+      trackWrapper.scrollTo({ left: trackWidth, behavior: "smooth" });
+      return;
+    }
+    if ((e.ctrlKey || e.metaKey) && (e.key === "ArrowRight" || e.key === "ArrowLeft")) {
+      e.preventDefault();
+      jumpToAdjacentEntry(e.key === "ArrowRight" ? 1 : -1);
+      return;
+    }
     if (["ArrowLeft", "ArrowRight"].indexOf(e.key) === -1) return;
     e.preventDefault();
 
@@ -411,6 +682,7 @@
   /* ---------- Initial state ---------- */
   updateHeader(MIN_YEAR);
   updateButterfly(MIN_YEAR);
+  syncMinimap();
 
   /* ---------- External hook (used by the globe's Connected Works) ----------
      Lets other scripts (globe.js) jump straight to a specific entry by
