@@ -38,6 +38,7 @@ const highlightedCountries = {
     'Jamaica': '#4da6ff',
     'India': '#4da6ff',
     'Japan': '#a64dff',
+    'China': '#ff3b3b',
     'Antarctica': '#faff00'
 };
 
@@ -94,6 +95,12 @@ const SPECIAL_PANELS = {
     body:
       "Jamaica fue colonia británica durante más de tres siglos, hasta 1962, y de esa herencia angloparlante surgió Bob Marley, quien llevó el reggae y la filosofía rastafari de Kingston al mundo entero cantando en inglés. Canciones como 'One Love' o 'No Woman, No Cry' convirtieron a una isla de menos de tres millones de habitantes en una potencia cultural global, y su influencia sigue viva hoy en el hip hop, el reguetón y la música de protesta en todo el planeta. Pero Jamaica ya era un cruce de caminos histórico mucho antes de Marley: el 6 de septiembre de 1815, exiliado en Kingston tras la caída de la Segunda República de Venezuela, Simón Bolívar escribió ahí la Carta de Jamaica, dirigida al comerciante inglés Henry Cullen — el documento fundacional del pensamiento independentista latinoamericano, redactado en español sobre suelo colonizado por Inglaterra, precisamente porque esa colonia británica era uno de los pocos refugios seguros frente a las fuerzas realistas españolas.",
     linkedEntryId: 'carta-de-jamaica-1815'
+  },
+  'China': {
+    title: 'Pandemia Global',
+    body:
+      'A finales de 2019 aparecen en <button type="button" class="globe-info-geolink" data-region="Wuhan" data-country="China">Wuhan</button> los primeros casos de una neumonía viral desconocida —un nuevo coronavirus— que en marzo de 2020 la Organización Mundial de la Salud (<button type="button" class="globe-info-geolink" data-region="Ginebra" data-country="Suiza">OMS</button>) declara pandemia global. El golpe fue desigual pero brutal: <button type="button" class="globe-info-geolink" data-country="México">México</button>, con un gobierno que minimizó el virus, cerró 2020 con 200,256 muertes por COVID-19 según el conteo definitivo del INEGI; <button type="button" class="globe-info-geolink" data-country="España">España</button> impuso un confinamiento draconiano mientras cerca de 20,000 mayores de 65 años morían solo en 2020 en residencias colapsadas; <button type="button" class="globe-info-geolink" data-country="Colombia">Colombia</button> decretó una de las cuarentenas más largas del planeta, casi cinco meses en Bogotá; <button type="button" class="globe-info-geolink" data-country="Argentina">Argentina</button> lanzó, ya en marzo, una de las cuarentenas más tempranas y prolongadas del mundo; <button type="button" class="globe-info-geolink" data-country="El Salvador">El Salvador</button>, bajo Bukele, encerró a miles en centros de contención forzosa; <button type="button" class="globe-info-geolink" data-country="Cuba">Cuba</button> desarrolló sus propias vacunas pese al embargo estadounidense; <button type="button" class="globe-info-geolink" data-country="Perú">Perú</button> sufrió la tasa de mortalidad per cápita más alta del mundo —37,621 muertes oficiales, más de 91,000 según el registro civil de decesos—; <button type="button" class="globe-info-geolink" data-country="Nicaragua">Nicaragua</button>, bajo Ortega, negó la gravedad del virus; <button type="button" class="globe-info-geolink" data-country="Venezuela">Venezuela</button> enfrentó la crisis con hospitales que ya carecían de agua y luz; <button type="button" class="globe-info-geolink" data-country="Guatemala">Guatemala</button> vio en los migrantes deportados desde Estados Unidos sus primeros focos de contagio; <button type="button" class="globe-info-geolink" data-country="Panamá">Panamá</button> cerró el Canal y selló fronteras en cuestión de días; <button type="button" class="globe-info-geolink" data-country="Costa Rica">Costa Rica</button> se apoyó en la Caja, su sistema público de salud; y <button type="button" class="globe-info-geolink" data-country="Puerto Rico">Puerto Rico</button>, todavía roto por el huracán María, sumó un toque de queda a una isla ya agotada. En <button type="button" class="globe-info-geolink" data-region="Bahía de San Francisco" data-country="Estados Unidos">Estados Unidos</button> el drama se concentró frente a la bahía de San Francisco: el crucero Grand Princess, con un brote de COVID a bordo, fue retenido varios días en altamar sin poder atracar mientras Washington decidía qué hacer con sus más de 3,500 pasajeros y tripulantes, hasta que finalmente fue autorizado a desembarcar bajo cuarentena en el puerto de Oakland.',
+    linkedEntryId: 'pandemia-covid19-2020'
   }
 };
 
@@ -135,7 +142,8 @@ const GLOBE_TO_TIMELINE_COUNTRY = {
     'United Kingdom': 'Reino Unido',
     'Puerto Rico': 'Puerto Rico',
     'Jamaica': 'Jamaica',
-    'Japan': 'Japón'
+    'Japan': 'Japón',
+    'China': 'China'
 };
 
 function escapeHtmlGlobe(str) {
@@ -194,19 +202,27 @@ if (infoCloseEl) {
 }
 
 const JUMPABLE_SELECTOR = '.globe-info-work[data-id], .globe-info-jumplink[data-id]';
+const GEOLINK_SELECTOR = '.globe-info-geolink[data-country]';
+
+function handleInfoContentActivation(e) {
+    const jumpEl = e.target.closest(JUMPABLE_SELECTOR);
+    if (jumpEl) {
+        goToTimelineEntry(jumpEl.getAttribute('data-id'));
+        return;
+    }
+    const geoEl = e.target.closest(GEOLINK_SELECTOR);
+    if (geoEl && typeof window.focusGlobeOnRegion === 'function') {
+        window.focusGlobeOnRegion(geoEl.getAttribute('data-region') || '', geoEl.getAttribute('data-country'));
+    }
+}
 
 if (infoContentEl) {
-    infoContentEl.addEventListener('click', function (e) {
-        const jumpEl = e.target.closest(JUMPABLE_SELECTOR);
-        if (!jumpEl) return;
-        goToTimelineEntry(jumpEl.getAttribute('data-id'));
-    });
+    infoContentEl.addEventListener('click', handleInfoContentActivation);
     infoContentEl.addEventListener('keydown', function (e) {
         if (e.key !== 'Enter' && e.key !== ' ') return;
-        const jumpEl = e.target.closest(JUMPABLE_SELECTOR);
-        if (!jumpEl) return;
+        if (!e.target.closest(JUMPABLE_SELECTOR + ', ' + GEOLINK_SELECTOR)) return;
         e.preventDefault();
-        goToTimelineEntry(jumpEl.getAttribute('data-id'));
+        handleInfoContentActivation(e);
     });
 }
 
@@ -442,7 +458,11 @@ const COUNTRY_CENTER = {
     'Japón': { lat: 36.2, lng: 138.3 },
     'Haití': { lat: 19.0, lng: -72.4 },
     'Venezuela': { lat: 8.0, lng: -66.0 },
-    'Ecuador': { lat: -1.5, lng: -78.5 }
+    'Ecuador': { lat: -1.5, lng: -78.5 },
+    'China': { lat: 35.86, lng: 104.2 },
+    'Panamá': { lat: 8.5, lng: -80.0 },
+    'Costa Rica': { lat: 9.9, lng: -84.1 },
+    'Suiza': { lat: 46.8, lng: 8.2 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -463,10 +483,15 @@ const REGION_CENTER = {
     'Los Ángeles, California': { lat: 34.05, lng: -118.24 },
     'Madrid': { lat: 40.42, lng: -3.70 },
     'Málaga': { lat: 36.72, lng: -4.42 },
+    'Salamanca': { lat: 40.97, lng: -5.66 },
     'Santiago de Compostela': { lat: 42.88, lng: -8.54 },
     'Sevilla': { lat: 37.39, lng: -5.99 },
     'Soria': { lat: 41.76, lng: -2.47 },
+    'Tepatitlán, Jalisco': { lat: 20.82, lng: -102.73 },
     'Tlatelolco, Ciudad de México': { lat: 19.44, lng: -99.14 },
+    'Wuhan': { lat: 30.59, lng: 114.31 },
+    'Bahía de San Francisco': { lat: 37.78, lng: -122.42 },
+    'Ginebra': { lat: 46.20, lng: 6.14 },
     'Toledo': { lat: 39.86, lng: -4.02 },
     'Valencia': { lat: 39.47, lng: -0.38 },
     'San José Villanueva': { lat: 13.56, lng: -89.26 },

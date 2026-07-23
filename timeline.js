@@ -336,9 +336,20 @@
     activeIndex = idx;
 
     const isSpain = entry.country === "España";
-    const regionFlagHtml = `<span class="timeline-detail-flag ${
-      isSpain ? "timeline-detail-flag-spain" : "timeline-detail-flag-latam"
-    }">${escapeHtml(isSpain ? "España" : "Latinoamérica")}</span>`;
+    const isOtherRegion = entry.country === "China";
+    const regionFlagClass = isSpain
+      ? "timeline-detail-flag-spain"
+      : isOtherRegion
+      ? "timeline-detail-flag-other"
+      : "timeline-detail-flag-latam";
+    const regionFlagLabel = isSpain
+      ? "España"
+      : isOtherRegion
+      ? entry.country
+      : "Latinoamérica";
+    const regionFlagHtml = `<span class="timeline-detail-flag ${regionFlagClass}">${escapeHtml(
+      regionFlagLabel
+    )}</span>`;
 
     const customFlagHtml =
       entry.flag && entry.flag !== "spain-not-latam"

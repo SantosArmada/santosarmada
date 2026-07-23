@@ -526,6 +526,11 @@
   border-color: rgba(255, 47, 176, 0.4);
 }
 
+.timeline-detail-flag-other {
+  color: #ff3b3b;
+  border-color: rgba(255, 59, 59, 0.4);
+}
+
 /* Personal note — distinct register from the curatorial description */
 .timeline-detail-personal {
   margin-top: 14px;

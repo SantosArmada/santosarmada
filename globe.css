@@ -478,6 +478,29 @@
     margin: 0;
 }
 
+/* Inline "fly the globe here" links embedded inside a SPECIAL_PANELS
+   body (e.g. every country named in the China/Pandemia Global panel).
+   Reset to plain inline text so a <button> reads like a hyperlink. */
+.globe-info-geolink {
+    display: inline;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font: inherit;
+    color: #ff6b6b;
+    text-decoration: underline dotted;
+    text-underline-offset: 2px;
+    cursor: pointer;
+}
+
+.globe-info-geolink:hover,
+.globe-info-geolink:focus-visible {
+    color: #ff3b3b;
+    text-decoration: underline solid;
+    outline: none;
+}
+
 @media (max-width: 768px) {
     .navbar {
         padding: 14px 16px;

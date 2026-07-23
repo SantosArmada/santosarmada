@@ -352,6 +352,23 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "gramatica-castellana-nebrija-1492",
+    year: 1492,
+    title: "Gramática de la lengua castellana",
+    author: "Antonio de Nebrija",
+    country: "España",
+    region: "Salamanca",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "Antonio de Nebrija, humanista nacido en Lebrija y formado en la Universidad de Salamanca, publica en esa misma ciudad la Gramática de la lengua castellana — la primera gramática dedicada al español y la primera de una lengua vernácula moderna en toda Europa, en una época en que estas obras se reservaban casi exclusivamente al latín. Dividida en cinco partes (ortografía, prosodia, etimología y dicción, sintaxis, y una guía para extranjeros), buscaba fijar las reglas de una lengua en plena expansión. Según la tradición, al presentársela a la reina Isabel I, Nebrija explicó que 'siempre la lengua fue compañera del imperio' — una idea que cobraría sentido literal ese mismo año, cuando terminó la Reconquista y Colón zarpó hacia América.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Nebrija nunca hubiera fijado por escrito las reglas del castellano en 1492?",
+      answer:
+        "El español se habría seguido fragmentando en hablas regionales sin una norma de referencia, como le ocurrió al latín tras la caída de Roma. La Corona habría exportado a América un mosaico de dialectos en vez de una lengua con gramática codificada, complicando la administración, la evangelización y la propia noción de una 'lengua del imperio' capaz de unificar los territorios conquistados."
+    }
+  },
+  {
     id: "la-celestina-1499",
     year: 1499,
     title: "La Celestina",
@@ -579,6 +596,22 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si Nellie Campobello hubiera escrito su infancia en Chihuahua desde la nostalgia, no desde la violencia directa?",
       answer:
         "Cartucho perdería lo que lo distingue de casi toda la novela de la Revolución escrita por hombres: la mirada de una niña para quien los cadáveres en la calle eran, simplemente, parte del paisaje cotidiano. Esa naturalidad —más perturbadora que cualquier heroísmo— es el verdadero logro del libro."
+    }
+  },
+  {
+    id: "martin-ramirez-emigra-1925",
+    year: 1925,
+    title: "1925: Martín Ramírez emigra a California",
+    author: "Hito histórico",
+    country: "México",
+    region: "Tepatitlán, Jalisco",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Nacido el 30 de enero de 1895 en Rincón de Velázquez, cerca de Tepatitlán, Jalisco, Martín Ramírez era ranchero y padre de familia cuando emigra en 1925 a California en busca de trabajo, como tantos otros mexicanos de su generación, y pasa varios años empleado en ferrocarriles y minas. La Gran Depresión lo deja sin sustento y, en 1931, es detenido e internado en hospitales psiquiátricos californianos, donde pasaría el resto de su vida. Sin formación artística alguna, produce allí cientos de dibujos extraordinarios —jinetes y trenes que entran y salen de túneles, vírgenes, paisajes de un México recordado— hechos con materiales improvisados: bolsas de papel, papel de hospital, lápices gastados y pegamento casero de papa y saliva. Hoy se le considera uno de los grandes maestros del arte autodidacta o 'outsider art' del siglo XX, y su obra —exhibida en museos como el American Folk Art Museum de Nueva York— se lee como un testimonio visual único de la experiencia migrante mexicana.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Martín Ramírez nunca hubiera emigrado a California en 1925?",
+      answer:
+        "Sin el desarraigo, la soledad y la eventual institucionalización que marcaron su vida en Estados Unidos, es poco probable que Ramírez hubiera producido la obra por la que hoy se le recuerda: sus dibujos nacen de la memoria de Jalisco vista a la distancia, dentro de las paredes de un hospital psiquiátrico californiano. El arte autodidacta del siglo XX habría perdido una de sus voces más singulares, y la experiencia del migrante mexicano, uno de sus testimonios visuales más profundos."
     }
   },
   {
@@ -1101,6 +1134,22 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si la policía de Iguala no hubiera interceptado a los estudiantes esa noche?",
       answer:
         "Los 43 habrían llegado a la marcha del 2 de octubre en la Ciudad de México como una generación más de normalistas exigiendo transporte y educación rural, sin volverse ellos mismos el símbolo. En cambio, Ayotzinapa se convirtió en la prueba más citada de cuán profundamente entrelazados pueden estar el Estado, la policía municipal y el crimen organizado en México — una lección que el país sigue pagando una década después."
+    }
+  },
+  {
+    id: "pandemia-covid19-2020",
+    year: 2020,
+    title: "2020: la pandemia de COVID-19",
+    author: "Hito histórico",
+    country: "China",
+    region: "Wuhan",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "A finales de 2019 aparecen en Wuhan, China, los primeros casos de una neumonía viral desconocida —un nuevo coronavirus— que en marzo de 2020 la Organización Mundial de la Salud (OMS) declara pandemia global. En América Latina, España y Puerto Rico el golpe fue desigual pero brutal: México, con un gobierno que minimizó el virus, cerró 2020 con 200,256 muertes por COVID-19 según el conteo definitivo del INEGI, una de las cifras más altas del mundo; España impuso un confinamiento draconiano mientras cerca de 20,000 mayores de 65 años morían solo en 2020 en residencias colapsadas, según el Ministerio de Sanidad; Colombia decretó una de las cuarentenas más largas del planeta, casi cinco meses en Bogotá; Argentina lanzó, ya en marzo, una de las cuarentenas más tempranas y prolongadas del mundo; El Salvador, bajo Bukele, encerró a miles en centros de contención forzosa; Cuba desarrolló sus propias vacunas —Abdala y Soberana— pese al embargo estadounidense; Perú sufrió la tasa de mortalidad per cápita más alta del mundo —el gobierno reportó 37,621 muertes por COVID en 2020, pero el registro civil de decesos (SINADEF) documentó más de 91,000, reflejo de hospitales sin oxígeno y un subregistro masivo—; Nicaragua, bajo Ortega, negó la gravedad del virus y organizó marchas masivas; Venezuela enfrentó la crisis con hospitales que ya carecían de agua y luz; Guatemala vio en los migrantes deportados desde Estados Unidos sus primeros focos de contagio; Panamá cerró el Canal a los cambios de tripulación y selló fronteras en cuestión de días; Costa Rica se apoyó en la Caja, su sistema público de salud, para una respuesta más ordenada; y Puerto Rico, todavía roto por el huracán María y los sismos de 2020, sumó un toque de queda a una isla ya agotada.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si el virus jamás hubiera salido de Wuhan en diciembre de 2019?",
+      answer:
+        "El mundo se habría ahorrado dos años que redefinieron la vida cotidiana, pero las fracturas que la pandemia solo expuso —sistemas de salud desiguales, economías informales sin red de contención, gobiernos que minimizaron o negaron según su conveniencia política— habrían seguido ahí, invisibles, esperando la próxima crisis que las revelara."
     }
   },
   {
