@@ -335,8 +335,9 @@
 
     activeIndex = idx;
 
+    const NON_LATAM_COUNTRIES = ["China", "San Vicente y las Granadinas"];
     const isSpain = entry.country === "España";
-    const isOtherRegion = entry.country === "China";
+    const isOtherRegion = NON_LATAM_COUNTRIES.includes(entry.country);
     const regionFlagClass = isSpain
       ? "timeline-detail-flag-spain"
       : isOtherRegion

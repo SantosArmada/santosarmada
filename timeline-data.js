@@ -1568,6 +1568,57 @@ const TIMELINE_ENTRIES = [
     }
   },
 
+  // ---- ETNOGÉNESIS Y DIÁSPORA GARÍFUNA (1635–1797) ----
+  {
+    id: "etnogenesis-garifuna-1635",
+    year: 1635,
+    title: "1635: nace el pueblo garífuna en San Vicente",
+    author: "Hito histórico",
+    country: "San Vicente y las Granadinas",
+    region: "San Vicente",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El origen del pueblo garífuna se remonta, según el relato más citado, a 1635, cuando dos barcos españoles cargados de personas esclavizadas naufragan frente a las costas de San Vicente, en el Caribe oriental. Los sobrevivientes africanos llegan a nado a la isla, donde los kalínago —los caribes isleños— les dan refugio. De generaciones de matrimonios entre ambos pueblos nace un grupo étnico genuinamente nuevo: los garínagu, con lengua propia de raíz arahuaca y una identidad que no es ni puramente africana ni puramente indígena, sino las dos cosas a la vez. (La historia del naufragio, documentada por primera vez recién en 1667 por un oficial colonial británico, es debatida por algunos historiadores, que apuntan a un mestizaje más gradual iniciado generaciones antes.) San Vicente —Yurumein, en lengua garífuna— se convierte así en la cuna de un pueblo que los europeos jamás lograron esclavizar.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si los kalínago de San Vicente hubieran esclavizado a los africanos náufragos en vez de darles refugio?",
+      answer:
+        "No existiría el pueblo garífuna tal como lo conocemos: una identidad afroindígena nacida del parentesco, no de la dominación. La decisión de los kalínago de recibir a los náufragos como iguales —y no como propiedad— es precisamente lo que hizo posible una fusión genuina de lenguas, sangre y memoria en vez de otra relación de esclavitud más."
+    }
+  },
+  {
+    id: "guerra-caribe-balliceaux-1796",
+    year: 1795,
+    endYear: 1796,
+    title: "1796: derrota garífuna y el horror de Balliceaux",
+    author: "Hito histórico",
+    country: "San Vicente y las Granadinas",
+    region: "Balliceaux",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Cuando Gran Bretaña reclama control total de San Vicente, los garífunas —aliados con Francia— toman las armas bajo el mando del jefe Joseph Chatoyer, también llamado Satuyé, en la que se conoce como la Segunda Guerra Carib. Chatoyer muere en combate el 14 de marzo de 1795, pero la resistencia continúa más de un año bajo sus lugartenientes hasta que, sin el apoyo francés, la rendición se vuelve inevitable hacia octubre de 1796. Cerca de 5,080 garífunas son capturados y enviados como prisioneros al islote de Balliceaux, sin infraestructura ni suministros suficientes para tantas personas. El hacinamiento, el hambre y la fiebre amarilla matan a más de la mitad antes de que termine el año.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Joseph Chatoyer no hubiera muerto en los primeros meses de la guerra?",
+      answer:
+        "Sin la muerte de su líder, la alianza garífuna-francesa pudo haber resistido lo suficiente para negociar en vez de rendirse sin condiciones. La captura masiva, el horror de Balliceaux y la deportación a Roatán no eran el único desenlace posible — pero fue el que terminó esparciendo la cultura garífuna por toda la costa caribeña centroamericana, en vez de dejarla concentrada, y vulnerable, en una sola isla."
+    }
+  },
+  {
+    id: "garifuna-llegada-roatan-1797",
+    year: 1797,
+    title: "12 de abril de 1797: los garífunas llegan a Honduras",
+    author: "Hito histórico",
+    country: "Honduras",
+    region: "Roatán",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 20 de febrero de 1797, los británicos embarcan a los garífunas sobrevivientes de Balliceaux con destino a Roatán, frente a la costa de Honduras. Tras casi dos meses en el mar, unos 2,026 garínagu desembarcan en Punta Gorda, Roatán, el 12 de abril de 1797 —fecha que Honduras conmemora cada año como el día de la llegada del pueblo garífuna—. Desde la isla, las familias se dispersan por la costa norte hondureña —Trujillo, La Ceiba, Tela— y más allá, hacia Belice, Guatemala y Nicaragua, fundando la diáspora garífuna centroamericana que perdura hoy. En 2001, la UNESCO declaró su lengua, música y danza Obra Maestra del Patrimonio Oral e Inmaterial de la Humanidad.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Gran Bretaña hubiera decidido simplemente dejar morir a los sobrevivientes de Balliceaux, en vez de deportarlos?",
+      answer:
+        "El pueblo garífuna se habría extinguido en un solo islote del Caribe oriental. En cambio, la deportación forzada a Roatán —pensada por los británicos como castigo y destierro— terminó multiplicando su presencia por toda la costa caribeña centroamericana: Honduras, Belice, Guatemala y Nicaragua heredaron una cultura que, sin querer, la propia crueldad británica ayudó a dispersar y preservar."
+    }
+  },
+
   // ---- ABOLICIÓN DE LA ESCLAVITUD EN AMÉRICA (1791–1886) ----
   {
     id: "bois-caiman-revuelta-1791",

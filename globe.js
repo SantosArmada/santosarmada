@@ -462,7 +462,9 @@ const COUNTRY_CENTER = {
     'China': { lat: 35.86, lng: 104.2 },
     'Panamá': { lat: 8.5, lng: -80.0 },
     'Costa Rica': { lat: 9.9, lng: -84.1 },
-    'Suiza': { lat: 46.8, lng: 8.2 }
+    'Suiza': { lat: 46.8, lng: 8.2 },
+    'Honduras': { lat: 14.6, lng: -86.8 },
+    'San Vicente y las Granadinas': { lat: 13.25, lng: -61.20 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -470,6 +472,7 @@ const COUNTRY_CENTER = {
    this writing. Approximate by eye, same spirit as COUNTRY_CENTER. */
 const REGION_CENTER = {
     'Almería': { lat: 36.83, lng: -2.46 },
+    'Balliceaux': { lat: 13.01, lng: -61.19 },
     'Barcelona': { lat: 41.39, lng: 2.17 },
     'Bilbao': { lat: 43.26, lng: -2.94 },
     'Cádiz': { lat: 36.53, lng: -6.30 },
@@ -484,7 +487,9 @@ const REGION_CENTER = {
     'Los Ángeles, California': { lat: 34.05, lng: -118.24 },
     'Madrid': { lat: 40.42, lng: -3.70 },
     'Málaga': { lat: 36.72, lng: -4.42 },
+    'Roatán': { lat: 16.32, lng: -86.53 },
     'Salamanca': { lat: 40.97, lng: -5.66 },
+    'San Vicente': { lat: 13.25, lng: -61.20 },
     'Santiago de Compostela': { lat: 42.88, lng: -8.54 },
     'Sevilla': { lat: 37.39, lng: -5.99 },
     'Soria': { lat: 41.76, lng: -2.47 },
