@@ -661,6 +661,23 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "gripe-espanola-1918",
+    year: 1918,
+    endYear: 1920,
+    title: "1918: la gripe española",
+    author: "Hito histórico",
+    country: "España",
+    region: "Madrid",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El primer caso oficialmente registrado de la gripe de 1918 no aparece en España, sino en el campamento militar de Fort Riley, Kansas, el 4 de marzo de 1918 —algunos historiadores rastrean un brote previo, semanas antes, en el condado rural de Haskell, en el mismo estado—. El nombre le llega por pura censura de guerra: los países beligerantes silenciaban cualquier noticia que debilitara la moral nacional, pero España, neutral en la Primera Guerra Mundial, no tenía esa restricción. Cuando el propio rey Alfonso XIII cae enfermo en Madrid en mayo de 1918 —dos tercios de los madrileños se contagian en apenas tres días— la prensa española es la única que informa con libertad, y el resto del mundo, que solo se entera de la pandemia a través de esos reportes, termina bautizándola 'gripe española': el peor caso de mala fama que ha sufrido nación alguna. En México, donde la epidemia se cruza con la Revolución en pleno curso, el 'trancazo' del otoño de 1918 mata, según estimaciones, entre 300,000 y 500,000 personas en apenas dos meses —más muertes, según el historiador Felipe Ávila, que toda la década de guerra civil revolucionaria—. En Brasil, el presidente electo Rodrigues Alves, célebre por haber erradicado la fiebre amarilla durante su primer mandato, muere de la misma gripe el 16 de enero de 1919 en Río de Janeiro, sin llegar a jurar el cargo. A nivel global, la pandemia infecta a un tercio de la humanidad y mata entre 50 y 100 millones de personas —más que la Primera Guerra Mundial que la mantuvo en silencio.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si la prensa española también hubiera censurado la noticia en 1918, como el resto de los países en guerra?",
+      answer:
+        "El virus se habría propagado exactamente igual —el silencio no detiene un patógeno— pero el mundo se habría quedado sin nombre para señalarlo, o habría terminado culpando a otro país igual de inocente. La ironía final es que la nación más honesta sobre la pandemia cargó con su apellido durante más de un siglo, mientras Kansas, su origen más probable, nunca entró en el nombre."
+    }
+  },
+  {
     id: "lenguas-diamante-ibarbourou-1919",
     year: 1919,
     title: "Las lenguas de diamante",
