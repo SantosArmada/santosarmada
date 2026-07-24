@@ -320,6 +320,7 @@ body.mercadeo-page {
 }
 
 .merch-card-image-wrap {
+    position: relative;
     width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
@@ -327,12 +328,31 @@ body.mercadeo-page {
     transition: border-color 0.25s ease;
 }
 
+/* Small exclusivity flag for one-off/limited pieces (e.g. Frida Kahlo
+   Collection) — same pill language as .merch-preview-badge, scaled
+   down to sit as a corner tag on the card image. */
+.merch-card-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mercadeo-onyx);
+    background: var(--mercadeo-tangerine);
+    border-radius: 999px;
+    padding: 5px 12px;
+}
+
 .merch-card-image-wrap img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease;
 }
 
 .merch-card:hover .merch-card-image-wrap {
@@ -341,6 +361,32 @@ body.mercadeo-page {
 
 .merch-card:hover .merch-card-image-wrap img {
     transform: scale(1.06);
+}
+
+/* Color-swap on hover (Nerd Riot's product-grid trick): the main photo
+   slides out to the right while the alt-color photo slides in from the
+   left to take its place — not a crossfade. Only cards with an
+   alt-color file carry the extra <img>.merch-card-image-primary /
+   .merch-card-image-alt pair; everything else keeps the plain
+   zoom-on-hover above. These selectors are written a notch more
+   specific than the zoom rule above so they win on cards that have
+   them, without needing !important. */
+.merch-card-image-wrap img.merch-card-image-primary,
+.merch-card-image-wrap img.merch-card-image-alt {
+    transform: translateX(0);
+    transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.merch-card-image-wrap img.merch-card-image-alt {
+    transform: translateX(-100%);
+}
+
+.merch-card:hover .merch-card-image-wrap img.merch-card-image-primary {
+    transform: translateX(100%);
+}
+
+.merch-card:hover .merch-card-image-wrap img.merch-card-image-alt {
+    transform: translateX(0);
 }
 
 .merch-card-name {
@@ -355,6 +401,28 @@ body.mercadeo-page {
     font-size: 0.75rem;
     font-weight: 900;
     color: var(--mercadeo-tangerine);
+}
+
+/* Sold-out state: the "Only 5 made" tag and the photo stay exactly as
+   normal — only the price row changes, striking the price and adding
+   an explicit "Sold out" label next to it. */
+.merch-card-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.merch-card-price-struck {
+    color: var(--mercadeo-gray);
+    text-decoration: line-through;
+}
+
+.merch-card-sold-out-label {
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--mercadeo-white);
 }
 
 /* --- Footer (identical to mercadeo.css) --- */
