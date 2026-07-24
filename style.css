@@ -1353,8 +1353,8 @@ a[href="/authors"] p {
     }
 }
 
-/* --- El Lobby card: clouds drifting through the strip of real sky at
-   the top of Images/grid/el-lobby.jpg. The photo's sky sits at y=0-18.7%
+/* --- El Cubo card: clouds drifting through the strip of real sky at
+   the top of Images/grid/el-cubo.jpg. The photo's sky sits at y=0-18.7%
    but dips as low as 14.3% at the corners where the roofline slants
    into frame, so the band is clipped at a conservative 13% to guarantee
    it never draws over the architecture. The 3 wisps are painted
@@ -1364,7 +1364,7 @@ a[href="/authors"] p {
    own travel, so there's no seam to hide. Different sizes/speeds/delays
    for a little parallax depth. mix-blend-mode:screen keeps them looking
    like part of the same bright sky instead of pasted-on shapes. */
-.el-lobby-sky {
+.el-cubo-sky {
     position: absolute;
     left: 0;
     top: 0;
@@ -1374,7 +1374,7 @@ a[href="/authors"] p {
     pointer-events: none;
 }
 
-.el-lobby-cloud {
+.el-cubo-cloud {
     position: absolute;
     top: 0;
     background-repeat: no-repeat;
@@ -1382,60 +1382,60 @@ a[href="/authors"] p {
     mix-blend-mode: screen;
 }
 
-.el-lobby-cloud-1 {
-    background-image: url(Images/grid/el-lobby-cloud-1.png);
+.el-cubo-cloud-1 {
+    background-image: url(Images/grid/el-cubo-cloud-1.png);
     width: 34%;
     height: 60%;
     top: 8%;
-    animation: el-lobby-drift 32s linear infinite;
+    animation: el-cubo-drift 32s linear infinite;
 }
-.el-lobby-cloud-2 {
-    background-image: url(Images/grid/el-lobby-cloud-2.png);
+.el-cubo-cloud-2 {
+    background-image: url(Images/grid/el-cubo-cloud-2.png);
     width: 26%;
     height: 46%;
     top: 42%;
     opacity: 0.85;
-    animation: el-lobby-drift 26s linear infinite;
+    animation: el-cubo-drift 26s linear infinite;
     animation-delay: -9s;
 }
-.el-lobby-cloud-3 {
-    background-image: url(Images/grid/el-lobby-cloud-3.png);
+.el-cubo-cloud-3 {
+    background-image: url(Images/grid/el-cubo-cloud-3.png);
     width: 20%;
     height: 38%;
     top: 60%;
     opacity: 0.7;
-    animation: el-lobby-drift 40s linear infinite;
+    animation: el-cubo-drift 40s linear infinite;
     animation-delay: -22s;
 }
-.el-lobby-cloud-4 {
-    background-image: url(Images/grid/el-lobby-cloud-4.png);
+.el-cubo-cloud-4 {
+    background-image: url(Images/grid/el-cubo-cloud-4.png);
     width: 30%;
     height: 54%;
     top: 0%;
     opacity: 0.8;
-    animation: el-lobby-drift 36s linear infinite;
+    animation: el-cubo-drift 36s linear infinite;
     animation-delay: -15s;
 }
-.el-lobby-cloud-5 {
-    background-image: url(Images/grid/el-lobby-cloud-5.png);
+.el-cubo-cloud-5 {
+    background-image: url(Images/grid/el-cubo-cloud-5.png);
     width: 17%;
     height: 32%;
     top: 25%;
     opacity: 0.65;
-    animation: el-lobby-drift 22s linear infinite;
+    animation: el-cubo-drift 22s linear infinite;
     animation-delay: -5s;
 }
-.el-lobby-cloud-6 {
-    background-image: url(Images/grid/el-lobby-cloud-2.png);
+.el-cubo-cloud-6 {
+    background-image: url(Images/grid/el-cubo-cloud-2.png);
     width: 22%;
     height: 40%;
     top: 50%;
     opacity: 0.6;
-    animation: el-lobby-drift 30s linear infinite;
+    animation: el-cubo-drift 30s linear infinite;
     animation-delay: -27s;
 }
 
-@keyframes el-lobby-drift {
+@keyframes el-cubo-drift {
     0%   { left: -36%; opacity: 0; }
     8%   { opacity: 1; }
     92%  { opacity: 1; }
@@ -1443,7 +1443,7 @@ a[href="/authors"] p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .el-lobby-cloud {
+    .el-cubo-cloud {
         animation: none;
         opacity: 0;
     }
