@@ -1,4 +1,5 @@
 @import url('../../vendor/fonts/ola-slug-fonts.css');
+@import url('ola-nav-arrows.css');
 
 :root {
     --audio-blue: #6F98EC;
