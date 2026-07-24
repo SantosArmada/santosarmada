@@ -92,7 +92,8 @@
 </footer>
 
 <script>
-document.getElementById('izs-scroll-cue').addEventListener('click', () => {
+document.getElementById('izs-scroll-cue').addEventListener('click', function () {
+    this.blur();
     document.querySelector('.izs-categories').scrollIntoView({ behavior: 'smooth' });
 });
 </script>
