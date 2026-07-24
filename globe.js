@@ -477,6 +477,7 @@ const REGION_CENTER = {
     'Barcelona': { lat: 41.39, lng: 2.17 },
     'Bilbao': { lat: 43.26, lng: -2.94 },
     'Cádiz': { lat: 36.53, lng: -6.30 },
+    'Covadonga': { lat: 43.31, lng: -4.99 },
     'Cusco': { lat: -13.53, lng: -71.97 },
     'Córdoba': { lat: 37.89, lng: -4.78 },
     'Estoril': { lat: 38.70, lng: -9.40 },

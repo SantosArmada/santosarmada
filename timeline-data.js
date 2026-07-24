@@ -153,6 +153,23 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "pelayo-covadonga-722",
+    year: 722,
+    title: "722: la batalla de Covadonga",
+    author: "Hito histórico",
+    country: "España",
+    region: "Covadonga",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Pelayo, antiguo espatario —guardia personal— del rey visigodo Witiza, se retira hacia las montañas de Asturias tras la conquista musulmana de 711, la misma fractura sucesoria que once años antes había debilitado al reino visigodo. Ahí reúne a unos trescientos combatientes astures y visigodos refugiados y, el 28 de mayo de 722, los enfrenta a un destacamento musulmán en un estrecho valle junto a Covadonga. La victoria —modesta en términos militares, inmensa en su peso simbólico— le permite proclamarse primer rey de Asturias, con corte en Cangas de Onís. El pequeño reino que funda nunca cae: se expande hacia León y Castilla en los siglos siguientes, y su línea dinástica llega, casi ocho siglos después, hasta los Reyes Católicos que completan la toma de Granada en 1492 — el mismo año en que termina la historia que Covadonga, según la tradición, empezó.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Pelayo hubiera sido derrotado en Covadonga?",
+      answer:
+        "Sin ese primer reducto cristiano en el norte, la conquista musulmana de la península pudo haberse consolidado sin oposición organizada durante generaciones más. La tradición historiográfica española —resumida en la célebre frase del historiador Claudio Sánchez-Albornoz, 'sin Covadonga no habría Reconquista'— sostiene que este pequeño enfrentamiento en las montañas asturianas fue la semilla de los casi ocho siglos que, en 1492, terminarían con la toma de Granada."
+    }
+  },
+  {
     id: "quirigua-copan-738",
     year: 738,
     title: "738: Quiriguá derrota y decapita a Copán",
