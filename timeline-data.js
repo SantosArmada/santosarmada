@@ -1930,6 +1930,23 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "el-morro-san-juan-1595",
+    year: 1595,
+    endYear: 1898,
+    title: "1595–1898: El Morro, la fortaleza que nunca cayó en combate",
+    author: "Hito histórico",
+    country: "Puerto Rico",
+    region: "San Juan",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Durante tres siglos, El Morro —el castillo de San Felipe que custodia la bahía de San Juan— repele o sobrevive a los mayores poderes navales de Europa. En 1595, Francis Drake ataca la ciudad buscando un cargamento de oro y plata; la artillería española lo rechaza, matando a su compañero John Hawkins, y Drake se retira derrotado. En 1598, el inglés George Clifford, conde de Cumberland, sí logra tomar el castillo y la ciudad con 1,700 hombres —la única vez que El Morro cae en combate—, pero la disentería diezma a sus tropas, y tras 65 días de ocupación los ingleses se retiran, no sin antes saquear e incendiar San Juan. En 1625, el almirante holandés Boudewijn Hendricksz ocupa la ciudad —ya evacuada— y sitia El Morro durante semanas con cañones y trincheras, pero carece de artillería suficiente para romper sus muros; también se retira, quemando buena parte de la ciudad al partir. Pero la fortaleza que ningún ejército pudo quebrar termina cayendo de todos modos: en 1898, tras la derrota naval de España frente a Estados Unidos en la guerra hispanoamericana, el Tratado de París le cede Puerto Rico a Washington sin que un solo cañonazo se dispare contra El Morro. Trescientos años de resistencia militar no bastaron frente a una firma en otro continente.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si El Morro hubiera caído ante Drake en 1595, en vez de resistir?",
+      answer:
+        "España probablemente habría perdido el control de Puerto Rico varios siglos antes, y la isla habría seguido una trayectoria colonial distinta —quizás inglesa o, más tarde, holandesa— en vez de permanecer española hasta 1898. La ironía final es que ni Drake, ni Cumberland, ni los holandeses lograron con cañones lo que Washington obtuvo con una firma: El Morro nunca fue verdaderamente conquistado, solo entregado."
+    }
+  },
+  {
     id: "cuba-abolicion-esclavitud-1886",
     year: 1886,
     title: "1886: Cuba, la última colonia española en abolir la esclavitud",
