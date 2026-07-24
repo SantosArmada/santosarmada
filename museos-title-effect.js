@@ -25,9 +25,17 @@ function grad(el, css) {
 }
 // ─── Loop & run ───────────────────────────────────────────────────────────────
 let _raf = null
+let _running = true
+let _resume = null
 function loop(tick) {
   cancelAnimationFrame(_raf)
-  ;(function frame() { tick(); _raf = requestAnimationFrame(frame) })()
+  function frame() {
+    if (!_running) return
+    tick()
+    _raf = requestAnimationFrame(frame)
+  }
+  _resume = frame
+  frame()
 }
 function run(fn) { fn(); }
 // ─── Easing ───────────────────────────────────────────────────────────────────
@@ -63,3 +71,20 @@ function sunrise() {
   })
 }
 if (TEXT_EL) run(sunrise)
+
+// Pause while the hero scrolls out of view. Watches #museosWorld itself,
+// not the title wrap: the wrap sits inside a position:fixed title band,
+// so its own getBoundingClientRect stays "in the viewport" no matter how
+// far you scroll (it's pinned to the screen) even once museosWorld's own
+// overflow:hidden has clipped it from view — observing it directly never
+// reports not-intersecting.
+if (TEXT_EL && 'IntersectionObserver' in window) {
+  const worldSection = document.getElementById('museosWorld') || TEXT_EL
+  new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const wasRunning = _running
+      _running = entry.isIntersecting
+      if (_running && !wasRunning && _resume) _resume()
+    })
+  }, { threshold: 0 }).observe(worldSection)
+}

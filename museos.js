@@ -148,6 +148,10 @@
     // =================================================================
     var tController; // referenced by the click-to-step-closer handler below
 
+    // Hoisted so the visibility-driven pause below (setupWorldVisibilityPause)
+    // can stop/restart the whole render+bloom loop from outside this callback.
+    var tRenderer, worldRedGL, spinTick;
+
     RedGL(sphereCanvas, function (v) {
         if (!v) {
             console.warn("Museos: WebGL initialization failed.");
@@ -166,7 +170,8 @@
         tController.distance = 15;
         tController.speedDistance = 0.5;
 
-        var tRenderer = RedRenderer();
+        tRenderer = RedRenderer();
+        worldRedGL = this;
         var tView = RedView(this, tScene, tController);
         tWorld.addView(tView);
 
@@ -178,14 +183,15 @@
         // Slowed roughly in half from the original (0.015/0.02/0.015) —
         // the constellation was spinning fast enough on load to feel
         // more like a carousel than an ambient, exploreable backdrop.
-        tRenderer.start(this, function () {
+        spinTick = function () {
             var i = spinGroups.length;
             while (i--) {
                 spinGroups[i].rotationX += 0.007;
                 spinGroups[i].rotationY += 0.009;
                 spinGroups[i].rotationZ += 0.007;
             }
-        });
+        };
+        tRenderer.start(this, spinTick);
 
         var bloom = RedPostEffect_Bloom(this);
         // Defaults (threshold 75 / bloomStrength 1.2 / exposure 1) were
@@ -341,6 +347,33 @@
     // it independently as soon as the DOM is ready.
     startTitleSparks();
     startEmberTextSweep();
+
+    // =================================================================
+    // Stop the WebGL render loop (scene + bloom post-effect) entirely
+    // once the museum world scrolls out of view, and resume it when it
+    // scrolls back in. Without this, RedGL keeps rendering and running
+    // the bloom shader every single frame forever, even behind the
+    // Mission/Footer sections further down the page — the single
+    // heaviest ongoing cost on this page. tRenderer.stop()/start() is
+    // RedGL's own pause API (it just removes/re-adds this renderer from
+    // its internal per-frame render list), so this doesn't touch the
+    // scene, camera, or any tween state — it picks back up exactly
+    // where it left off.
+    // =================================================================
+    (function setupWorldVisibilityPause() {
+        if (!("IntersectionObserver" in window)) return;
+        var io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (!tRenderer || !worldRedGL) return;
+                if (entry.isIntersecting) {
+                    tRenderer.start(worldRedGL, spinTick);
+                } else {
+                    tRenderer.stop();
+                }
+            });
+        }, { threshold: 0 });
+        io.observe(worldSection);
+    })();
 
     // =================================================================
     // Click the building / door to step closer.
@@ -733,7 +766,13 @@
         // measurable synchronously, so no need to wait for a load event.
         resize();
 
-        // Pause the loop when the hero scrolls out of view.
+        // Pause the loop when the hero scrolls out of view. Watches
+        // #museosWorld itself rather than `wrap`: wrap sits inside a
+        // position:fixed title band, so its own getBoundingClientRect
+        // stays "in the viewport" no matter how far you scroll (it's
+        // pinned to the screen) even once museosWorld's own
+        // overflow:hidden has clipped it from view — observing it
+        // directly never reports not-intersecting.
         if ("IntersectionObserver" in window) {
             var io = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
@@ -744,7 +783,7 @@
                     }
                 });
             }, { threshold: 0 });
-            io.observe(wrap);
+            io.observe(worldSection);
         } else {
             requestAnimationFrame(frame);
         }
@@ -799,12 +838,20 @@
             });
         }
 
+        // Both targets (hint + scroll-cue label) live inside the hero's
+        // bottom stack, so a single running flag/observer covers them —
+        // without this, these per-character loops kept sweeping forever,
+        // even scrolled down behind the Mission/Footer sections.
+        var running = true;
+        var resumeFns = [];
+
         var targets = document.querySelectorAll(".museos-anim-text");
         for (var t = 0; t < targets.length; t++) {
             (function (el) {
                 var chars = split(el);
                 var f = 0;
-                (function frame() {
+                function frame() {
+                    if (!running) return;
                     f++;
                     for (var i = 0; i < chars.length; i++) {
                         var p = cyc(f, i * STAGGER);
@@ -812,8 +859,31 @@
                         grad(chars[i], "linear-gradient(" + angle + "deg, #f97316 0%, #fbbf24 42%, #fff6df 100%)");
                     }
                     requestAnimationFrame(frame);
-                })();
+                }
+                resumeFns.push(function () { requestAnimationFrame(frame); });
+                frame();
             })(targets[t]);
+        }
+
+        // Watch #museosWorld itself, not the fixed-position bottom-stack:
+        // the stack is clipped by museosWorld's own overflow:hidden as
+        // soon as that section scrolls past the top of the viewport, so
+        // its own getBoundingClientRect stays "in the viewport" forever
+        // (fixed near the bottom of the screen) even though it's no
+        // longer actually visible — observing it directly would never
+        // report false.
+        if ("IntersectionObserver" in window && targets.length) {
+            var anchor = worldSection;
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    var wasRunning = running;
+                    running = entry.isIntersecting;
+                    if (running && !wasRunning) {
+                        resumeFns.forEach(function (resume) { resume(); });
+                    }
+                });
+            }, { threshold: 0 });
+            io.observe(anchor);
         }
     }
 })();
