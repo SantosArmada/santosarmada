@@ -160,18 +160,35 @@ body {
   display: block;
 }
 
+#forwardLink.shake {
+  animation: heroShake 0.55s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+@keyframes heroShake {
+  0% { transform: translate(0, 0) rotate(0); }
+  12% { transform: translate(-8px, 4px) rotate(-0.4deg); }
+  24% { transform: translate(7px, -5px) rotate(0.4deg); }
+  36% { transform: translate(-6px, 5px) rotate(-0.3deg); }
+  48% { transform: translate(5px, -4px) rotate(0.25deg); }
+  60% { transform: translate(-3px, 3px) rotate(-0.15deg); }
+  72% { transform: translate(2px, -2px) rotate(0.1deg); }
+  84% { transform: translate(-1px, 1px) rotate(0); }
+  100% { transform: translate(0, 0) rotate(0); }
+}
+
 #finalLogo {
   position: absolute;
   left: 50%;
   top: calc(50% - 32px);
   width: min(78vw, 760px);
   max-width: 760px;
-  transform: translate(-50%, -50%) scale(0.94);
+  transform: translate(-50%, -50%) scale(0.72);
   opacity: 0;
   filter: grayscale(1) contrast(1.45);
-  transition: opacity 0.4s ease,
-    transform 0.4s cubic-bezier(0.2, 0.9, 0.3, 1);
+  transition: opacity 0.3s ease-out,
+    transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
   pointer-events: none;
+  will-change: transform, opacity;
 }
 
 #finalLogo.show {
@@ -179,6 +196,66 @@ body {
   transform: translate(-50%, -50%) scale(1);
   pointer-events: auto;
   cursor: pointer;
+}
+
+#finalLogoStone {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 32px);
+  width: min(78vw, 760px);
+  max-width: 760px;
+  transform: translate(-50%, -50%) scale(1.05);
+  opacity: 1;
+  filter: grayscale(1) contrast(1.45) brightness(1.15);
+  clip-path: circle(0% at 50% 50%);
+  transition: clip-path 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.42s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.5s ease-out;
+  pointer-events: none;
+  z-index: 2;
+  will-change: clip-path, transform, filter;
+}
+
+#finalLogoStone.show {
+  clip-path: circle(75% at 50% 50%);
+  transform: translate(-50%, -50%) scale(1);
+  filter: grayscale(1) contrast(1.45) brightness(1);
+}
+
+#shockwave {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 32px);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3;
+  border: 4px solid rgba(15, 15, 15, 0.5);
+}
+
+#shockwave.burst {
+  animation: shockwaveBurst 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes shockwaveBurst {
+  0% {
+    width: 12px;
+    height: 12px;
+    opacity: 0.85;
+    border-width: 5px;
+  }
+  55% {
+    opacity: 0.22;
+  }
+  100% {
+    width: 860px;
+    height: 860px;
+    opacity: 0;
+    border-width: 1px;
+  }
 }
 
 #flash {
@@ -190,12 +267,12 @@ body {
 }
 
 #flash.hit {
-  animation: flashHit 0.16s ease-out forwards;
+  animation: flashHit 0.45s ease-out forwards;
 }
 
 @keyframes flashHit {
   0% { opacity: 0; }
-  30% { opacity: 0.22; }
+  8% { opacity: 0.85; }
   100% { opacity: 0; }
 }
 

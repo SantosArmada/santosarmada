@@ -2,10 +2,14 @@
   var enterBtn = document.getElementById("enterBtn");
   var prompt = document.getElementById("enterPrompt");
   var logo = document.getElementById("finalLogo");
+  var stoneLogo = document.getElementById("finalLogoStone");
+  var forwardLink = document.getElementById("forwardLink");
+  var shockwave = document.getElementById("shockwave");
   var label = document.querySelector(".hero-label");
   var backLink = document.querySelector(".back-link");
   var flash = document.getElementById("flash");
   var sound = document.getElementById("transformSound");
+  var crashSound = document.getElementById("crashSound");
   var canvas = document.getElementById("growthCanvas");
   var ctx = canvas.getContext("2d");
 
@@ -444,6 +448,25 @@
     if (label) label.classList.add("show");
     if (backLink) backLink.classList.add("show");
 
+    if (forwardLink) {
+      forwardLink.classList.remove("shake");
+      void forwardLink.offsetWidth;
+      forwardLink.classList.add("shake");
+    }
+
+    if (shockwave) {
+      shockwave.classList.remove("burst");
+      void shockwave.offsetWidth;
+      shockwave.classList.add("burst");
+    }
+
+    if (crashSound) {
+      crashSound.currentTime = 0;
+      crashSound.play().catch(function () {});
+    }
+
+    if (stoneLogo) stoneLogo.classList.add("show");
+
     fadeOutAudio(sound, 180);
   }
 
@@ -468,8 +491,16 @@
 
       if (canvas) canvas.classList.remove("done");
       if (logo) logo.classList.remove("show");
+      if (stoneLogo) stoneLogo.classList.remove("show");
       if (label) label.classList.remove("show");
       if (backLink) backLink.classList.remove("show");
+      if (forwardLink) forwardLink.classList.remove("shake");
+      if (shockwave) shockwave.classList.remove("burst");
+
+      if (crashSound) {
+        crashSound.pause();
+        crashSound.currentTime = 0;
+      }
 
       resetSymbiote();
 
