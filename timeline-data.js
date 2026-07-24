@@ -1304,6 +1304,22 @@ const TIMELINE_ENTRIES = [
         "Santos Armada nace precisamente de resistir esa tentación: convertir una obsesión personal por conectar libros e historia en algo público, navegable, compartido. La línea de tiempo que estás viendo ahora mismo es la prueba de que la idea no se quedó guardada."
     }
   },
+  {
+    id: "prospera-crawfish-rock-2026",
+    year: 2026,
+    title: "2026: Próspera y la resistencia garífuna en Roatán",
+    author: "Hito histórico",
+    country: "Honduras",
+    region: "Roatán",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "En 2013, Honduras crea las ZEDE (Zonas de Empleo y Desarrollo Económico), un marco legal que permite fundar ciudades privadas con su propio sistema judicial y fiscal, casi independientes del Estado hondureño. Bajo ese marco, el empresario Erick Brimen funda en 2017 Próspera, una 'ciudad estatuto' en Roatán financiada por inversionistas de Silicon Valley como Peter Thiel, Marc Andreessen y Balaji Srinivasan. Al expandirse, Próspera entra en conflicto con Crawfish Rock, la aldea garífuna vecina: según residentes, la empresa presiona a familias para vender tierra a precios ínfimos —en un caso, a cambio de un motor de lancha— y, cuando el pueblo intenta restaurar su propio sistema de agua independiente, le corta el suministro que antes le ofrecía. Para agosto de 2023, Próspera controla cerca del 3% de la superficie total de la isla. Luisa Connor, presidenta del consejo comunal de Crawfish Rock, lleva años al frente de la resistencia, denunciando que nunca fueron consultados. En 2022 el gobierno de Xiomara Castro deroga la ley ZEDE; Próspera responde demandando al Estado hondureño por 11,000 millones de dólares ante un tribunal de arbitraje internacional, un litigio que sigue abierto. Doscientos veintisiete años después de que los británicos desembarcaran a los primeros garífunas en esta misma isla como castigo y destierro, sus descendientes vuelven a defender el mismo pedazo de tierra —esta vez frente a un poder extranjero de otro tipo.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si el gobierno hondureño nunca hubiera aprobado la ley ZEDE en 2013?",
+      answer:
+        "Próspera no habría tenido el marco legal para operar como una ciudad casi independiente del Estado hondureño, y Crawfish Rock probablemente nunca habría enfrentado la presión de venta de tierras ni el corte de agua que denuncia hoy. Pero la derogación posterior de la ley, en 2022, tampoco resolvió el conflicto: solo lo trasladó a un tribunal de arbitraje internacional, mostrando que revertir una ley no siempre basta para revertir el poder que esa ley ya permitió acumular."
+    }
+  },
 
   // ---- ARTE — pintores de España y Latinoamérica ----
   // Añadidos a partir del inventario de obras que aparecen en el mundo
