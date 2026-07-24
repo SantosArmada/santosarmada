@@ -635,6 +635,23 @@ const TIMELINE_ENTRIES = [
 
   // ---- REVOLUTION & DICTATORSHIP (1900–1989) ----
   {
+    id: "jose-guadalupe-posada-1852",
+    year: 1852,
+    endYear: 1913,
+    title: "1852–1913: José Guadalupe Posada",
+    author: "José Guadalupe Posada",
+    country: "México",
+    region: "Ciudad de México",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Nacido el 2 de febrero de 1852 en Aguascalientes, José Guadalupe Posada se forma como litógrafo en León, Guanajuato, antes de instalarse en la Ciudad de México hacia 1888, donde trabaja durante décadas para el taller editorial de Antonio Vanegas Arroyo, ilustrando hojas sueltas, corridos y noticias sensacionalistas destinadas al pueblo llano, no a las élites. De ese trabajo casi anónimo e industrial nace su género más célebre: la calavera —esqueletos vestidos como políticos, borrachos, revolucionarios y aristócratas— que convierte la muerte en sátira social democratizada, accesible por unos centavos en cualquier puesto de periódicos. Hacia 1910 crea La Calavera Garbancera, burla de los mexicanos que renegaban de su raíz indígena por aparentar una elegancia europea que no podían costear. Posada muere en 1913, pobre y casi olvidado, sepultado en una fosa común, justo cuando la Revolución Mexicana que su obra parecía anticipar apenas comenzaba a desatarse. Su rescate llega después: en 1947, Diego Rivera reproduce a la Garbancera en su mural Sueño de una tarde dominical en la Alameda Central y la rebautiza La Catrina, catapultándola —a ella y, con retraso, a su creador— al centro mismo de la identidad visual mexicana y del Día de Muertos tal como se celebra hoy.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Diego Rivera nunca hubiera rescatado la Calavera Garbancera en su mural de 1947?",
+      answer:
+        "Posada habría seguido siendo, como en las tres décadas posteriores a su muerte, una nota al pie: un ilustrador industrial prolífico pero anónimo, sin nombre propio detrás de miles de grabados. Al rebautizar y elevar su calavera más célebre, Rivera no solo le dio fama a un personaje —le devolvió la autoría a un hombre que murió pensando que su trabajo se olvidaría con el papel barato en que se imprimió."
+    }
+  },
+  {
     id: "cartucho",
     year: 1931,
     title: "Cartucho",
