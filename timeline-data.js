@@ -532,6 +532,23 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "juana-azurduy-1816",
+    year: 1816,
+    endYear: 1862,
+    title: "1816: Juana Azurduy, la teniente coronela",
+    author: "Hito histórico",
+    country: "Bolivia",
+    region: "Sucre",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Juana Azurduy nace el 12 de julio de 1780 en Chuquisaca —hoy Sucre—, mestiza en un sistema colonial que no tenía lugar para ella: ni suficientemente española ni suficientemente indígena. Criada entre trabajadores indígenas de la hacienda familiar, aprende quechua, aymara, a montar y a disparar antes de ser expulsada, a los 17 años, del convento donde la habían internado. En 1805 se casa con Manuel Ascencio Padilla; cuando estalla la guerra de independencia del Alto Perú en 1809, ambos toman las armas al frente de los 'Batallones Leales', una guerrilla indígena y mestiza que llegaría a sumar miles de combatientes. Juana combate vestida de militar y dirige cargas de caballería: en agosto de 1814 gana la batalla de Cerro Carretas embarazada de nueve meses, y da a luz poco después; en 1815 recupera un estandarte español en Pintatora; en marzo de 1816, en Villar, captura otro con sus propias manos —hazaña que le vale el ascenso a teniente coronel de manos del general Manuel Belgrano, quien le regala su propia espada—. Semanas después, tropas realistas capturan y decapitan a su esposo, exhibiendo su cabeza en una pica. Herida y de nuevo embarazada, Juana recupera el cuerpo y sigue combatiendo: de sus cinco hijos, solo Luisa sobrevive a la guerra. En 1825, ya independiente Bolivia, Simón Bolívar la visita, la encuentra en la miseria y declara que el país debería llevar su apellido, no el suyo. Muere en la pobreza en 1862; en 2009 Argentina la asciende póstumamente a generala, y en 2015 una estatua suya reemplaza la de Colón en Buenos Aires.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Juana Azurduy se hubiera retirado de la guerra tras la decapitación de su esposo en 1816?",
+      answer:
+        "Nadie se lo hubiera reprochado —viuda, herida y embarazada, ya había perdido más de lo que cualquier ejército debería pedirle a una sola persona—. Pero de haberlo hecho, la independencia del Alto Perú habría perdido a una de sus comandantes más temidas en los años decisivos que siguieron, y la historia no tendría la prueba viviente que Bolívar necesitaba, años después, para admitir en voz alta que el país llevaba el nombre equivocado."
+    }
+  },
+  {
     id: "rayo-de-luna-becquer-1862",
     year: 1862,
     title: "El rayo de luna",

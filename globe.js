@@ -464,6 +464,7 @@ const COUNTRY_CENTER = {
     'Costa Rica': { lat: 9.9, lng: -84.1 },
     'Suiza': { lat: 46.8, lng: 8.2 },
     'Honduras': { lat: 14.6, lng: -86.8 },
+    'Bolivia': { lat: -16.5, lng: -64.7 },
     'San Vicente y las Granadinas': { lat: 13.25, lng: -61.20 }
 };
 
@@ -493,6 +494,7 @@ const REGION_CENTER = {
     'Santiago de Compostela': { lat: 42.88, lng: -8.54 },
     'Sevilla': { lat: 37.39, lng: -5.99 },
     'Soria': { lat: 41.76, lng: -2.47 },
+    'Sucre': { lat: -19.03, lng: -65.26 },
     'Tepatitlán, Jalisco': { lat: 20.82, lng: -102.73 },
     'Tlatelolco, Ciudad de México': { lat: 19.44, lng: -99.14 },
     'Wuhan': { lat: 30.59, lng: 114.31 },
