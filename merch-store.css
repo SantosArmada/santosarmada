@@ -1,0 +1,499 @@
+/* ================================
+   MERCH — El Mercadeo — Santos Armada
+   Same chrome (nav/footer) and palette as mercadeo.css:
+     primary:   #090A0C onyx, #FFFFFF white
+     accents:   #726E70 dim gray, #D64933 burnt tangerine
+   Modeled after Nerd Riot's shop (nerdriot.shop): a bento grid of bold
+   illustrated promo tiles up top instead of one plain hero, then a
+   clean product grid below — translated into this site's own onyx/
+   white/tangerine system and hard-offset hover language rather than
+   copied wholesale.
+================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --mercadeo-onyx:       #090A0C;
+    --mercadeo-white:      #ffffff;
+    --mercadeo-gray:       #726E70;
+    --mercadeo-tangerine:  #D64933;
+}
+
+body.mercadeo-page {
+    background-color: var(--mercadeo-onyx);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    font-family: 'Arial Black', 'Arial Bold', Gadget, sans-serif;
+}
+
+/* --- Nav (identical to mercadeo.css) --- */
+.mercadeo-nav {
+    position: sticky;
+    top: 0;
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px 32px;
+    background: rgba(9, 10, 12, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+}
+
+.mercadeo-nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.mercadeo-nav-crest {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    object-fit: contain;
+    filter: invert(1);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.mercadeo-nav-logo span {
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: var(--mercadeo-white);
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.mercadeo-nav-logo:hover .mercadeo-nav-crest {
+    border-color: var(--mercadeo-tangerine);
+    transform: rotate(-4deg) scale(1.06);
+}
+
+.mercadeo-nav-logo:hover span {
+    color: var(--mercadeo-tangerine);
+}
+
+.mercadeo-hamburger {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--mercadeo-white);
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 4px 6px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.mercadeo-hamburger:hover {
+    color: var(--mercadeo-tangerine);
+}
+
+.mercadeo-nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 8px;
+}
+
+.mercadeo-nav-links a {
+    display: inline-block;
+    padding: 6px 8px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color: var(--mercadeo-gray);
+    text-transform: uppercase;
+    text-decoration: none;
+    text-shadow: 0 0 transparent;
+    transform: translate(0, 0);
+    transition: color 0.15s ease, text-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.mercadeo-nav-links a:hover {
+    color: var(--mercadeo-white);
+    text-shadow: 2px 2px 0 var(--mercadeo-tangerine);
+    transform: translate(-2px, -2px);
+}
+
+/* --- Header --- */
+.merch-header {
+    position: relative;
+    padding: 56px 32px 32px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    text-align: center;
+}
+
+.merch-back-link {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mercadeo-gray);
+    text-decoration: none;
+    margin-bottom: 20px;
+    transition: color 0.15s ease;
+}
+
+.merch-back-link:hover {
+    color: var(--mercadeo-tangerine);
+}
+
+/* Same trick as El Mercadeo's own title (see mercadeo.css): the letters
+   are colored to match the onyx background — invisible on their own —
+   and a dense stack of plain text-shadow offsets paints a solid white
+   trail of the letters' own silhouette behind them. Pure CSS, no JS.
+   The trail is long enough to reach the tagline/badge below — that's
+   intentional. It sits BEHIND them (z-index below, see .merch-tagline
+   and .merch-preview-badge) rather than being shortened to avoid them. */
+.merch-title {
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 0.85;
+    font-weight: 900;
+    letter-spacing: -1px;
+    color: var(--mercadeo-onyx);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    text-shadow:
+        4px 4px #fff, 8px 8px #fff, 12px 12px #fff, 16px 16px #fff, 20px 20px #fff,
+        24px 24px #fff, 28px 28px #fff, 32px 32px #fff, 36px 36px #fff, 40px 40px #fff,
+        44px 44px #fff, 48px 48px #fff, 52px 52px #fff, 56px 56px #fff, 60px 60px #fff,
+        64px 64px #fff, 68px 68px #fff, 72px 72px #fff, 76px 76px #fff, 80px 80px #fff,
+        84px 84px #fff, 88px 88px #fff, 92px 92px #fff, 96px 96px #fff, 100px 100px #fff,
+        104px 104px #fff, 108px 108px #fff, 112px 112px #fff, 116px 116px #fff, 120px 120px #fff,
+        124px 124px #fff, 128px 128px #fff, 132px 132px #fff, 136px 136px #fff, 140px 140px #fff,
+        144px 144px #fff, 148px 148px #fff, 152px 152px #fff, 156px 156px #fff, 160px 160px #fff,
+        164px 164px #fff, 168px 168px #fff, 172px 172px #fff, 176px 176px #fff, 180px 180px #fff,
+        184px 184px #fff, 188px 188px #fff, 192px 192px #fff, 196px 196px #fff, 200px 200px #fff,
+        204px 204px #fff, 208px 208px #fff, 212px 212px #fff, 216px 216px #fff, 220px 220px #fff;
+}
+
+.merch-tagline {
+    position: relative;
+    z-index: 1;
+    font-size: 0.95rem;
+    color: var(--mercadeo-gray);
+    letter-spacing: 0.02em;
+    margin-bottom: 20px;
+}
+
+.merch-preview-badge {
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mercadeo-tangerine);
+    border: 1px solid var(--mercadeo-tangerine);
+    border-radius: 999px;
+    padding: 8px 18px;
+}
+
+/* --- Promo grid (bento tiles) --- */
+.merch-promos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+.merch-promo {
+    position: relative;
+    display: block;
+    aspect-ratio: 3 / 4;
+    overflow: hidden;
+    border: 1px solid var(--mercadeo-gray);
+    text-decoration: none;
+    transition: border-color 0.25s ease;
+}
+
+.merch-promo:hover {
+    border-color: var(--mercadeo-tangerine);
+}
+
+.merch-promo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.merch-promo:hover img {
+    transform: scale(1.08);
+}
+
+.merch-promo-copy {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 20px 16px;
+    background: linear-gradient(180deg, transparent 0%, rgba(9, 10, 12, 0.55) 45%, rgba(9, 10, 12, 0.92) 100%);
+}
+
+.merch-promo-copy h2 {
+    font-size: clamp(1rem, 1.8vw, 1.35rem);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--mercadeo-white);
+    margin-bottom: 6px;
+}
+
+.merch-promo-cta {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--mercadeo-tangerine);
+    transition: transform 0.15s ease;
+}
+
+.merch-promo:hover .merch-promo-cta {
+    transform: translateX(4px);
+}
+
+/* --- Products --- */
+.merch-products {
+    flex: 1 1 auto;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 24px 32px 80px;
+}
+
+.merch-category {
+    margin-top: 56px;
+}
+
+.merch-category:first-child {
+    margin-top: 24px;
+}
+
+.merch-category-title {
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    color: var(--mercadeo-white);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+}
+
+.merch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 28px;
+}
+
+.merch-card {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.merch-card-image-wrap {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 1px solid var(--mercadeo-gray);
+    transition: border-color 0.25s ease;
+}
+
+.merch-card-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.merch-card:hover .merch-card-image-wrap {
+    border-color: var(--mercadeo-tangerine);
+}
+
+.merch-card:hover .merch-card-image-wrap img {
+    transform: scale(1.06);
+}
+
+.merch-card-name {
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--mercadeo-white);
+}
+
+.merch-card-price {
+    font-size: 0.75rem;
+    font-weight: 900;
+    color: var(--mercadeo-tangerine);
+}
+
+/* --- Footer (identical to mercadeo.css) --- */
+.mercadeo-footer {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 48px 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.mercadeo-footer-logo-link {
+    display: block;
+}
+
+.mercadeo-footer-crest {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    object-fit: contain;
+    filter: invert(1);
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.mercadeo-footer-logo-link:hover .mercadeo-footer-crest {
+    border-color: var(--mercadeo-tangerine);
+    transform: rotate(-4deg) scale(1.06);
+}
+
+.mercadeo-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    gap: 8px;
+}
+
+.mercadeo-footer-links a {
+    display: inline-block;
+    padding: 6px 8px;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    color: var(--mercadeo-gray);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.15s ease, text-shadow 0.15s ease, transform 0.15s ease;
+}
+
+.mercadeo-footer-links a:hover {
+    color: var(--mercadeo-white);
+    text-shadow: 2px 2px 0 var(--mercadeo-tangerine);
+    transform: translate(-2px, -2px);
+}
+
+.mercadeo-footer-copy {
+    font-size: 0.68rem;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+    .merch-promos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .mercadeo-nav {
+        padding: 12px 16px;
+        gap: 12px;
+    }
+
+    .mercadeo-nav-logo span {
+        display: none;
+    }
+
+    .mercadeo-hamburger {
+        display: block;
+    }
+
+    .mercadeo-nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        gap: 0;
+        padding: 8px 16px 16px;
+        background: rgba(9, 10, 12, 0.98);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mercadeo-nav-links.mercadeo-open {
+        display: flex;
+    }
+
+    .mercadeo-nav-links a {
+        width: 100%;
+        padding: 10px 4px;
+        font-size: 0.85rem;
+    }
+
+    .merch-header {
+        padding: 40px 20px 24px;
+    }
+
+    .merch-promos {
+        grid-template-columns: 1fr;
+        padding: 20px;
+        gap: 16px;
+    }
+
+    .merch-promo {
+        aspect-ratio: 4 / 3;
+    }
+
+    .merch-products {
+        padding: 16px 20px 56px;
+    }
+
+    .merch-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 18px;
+    }
+
+    .mercadeo-footer {
+        padding: 36px 20px;
+    }
+
+    .mercadeo-footer-crest {
+        width: 46px;
+        height: 46px;
+    }
+}

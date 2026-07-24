@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merch — El Mercadeo — Santos Armada</title>
+    <link rel="stylesheet" href="merch-store.css?v=6">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="mercadeo-page">
+
+<!-- BANNER: identical to mercadeo.html's own nav — same slot, same theme. -->
+<nav class="mercadeo-nav">
+    <a href="/" class="mercadeo-nav-logo">
+        <img src="Images/logo.PNG" alt="Santos Armada" class="mercadeo-nav-crest">
+        <span>Santos Armada</span>
+    </a>
+    <button type="button" class="mercadeo-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+    <ul class="mercadeo-nav-links" id="mercadeoNavLinks">
+        <li><a href="audiolibros.html">Audiolibros</a></li>
+        <li><a href="interpreter-z.html">Interpreter Z</a></li>
+        <li><a href="museos.html">Museos</a></li>
+        <li><a href="libritos.html">Libritos</a></li>
+        <li><a href="el-cubo.html">El Cubo</a></li>
+    </ul>
+</nav>
+
+<!-- HEADER -->
+<header class="merch-header">
+    <a href="mercadeo.html" class="merch-back-link">← El Mercadeo</a>
+    <h1 class="merch-title">Merch</h1>
+    <p class="merch-tagline">Wearable Santos Armada — crests, myths, and inside jokes.</p>
+    <span class="merch-preview-badge">Now previewing · full store launching soon</span>
+</header>
+
+<!-- PROMO GRID: bold illustrated tiles, Nerd Riot style — big graphic,
+     headline, pill CTA. Each links down to a category on this same
+     page (no real store yet, so these are real in-page jumps, not
+     placeholders dressed up as links). -->
+<section class="merch-promos">
+    <a href="#tees" class="merch-promo">
+        <img src="Images/merch/cover_pages/Selena-and-Aaliyah.png" alt="Two women wearing Santos Armada tank tops">
+        <div class="merch-promo-copy">
+            <h2>Tanks &amp; Tees</h2>
+            <span class="merch-promo-cta">Shop Tees →</span>
+        </div>
+    </a>
+    <a href="#tees" class="merch-promo">
+        <img src="Images/merch/cover_pages/Virgencita-Morenita-Santos Armada.png" alt="Virgencita Morenita stained-glass artwork">
+        <div class="merch-promo-copy">
+            <h2>Faith &amp; Fire</h2>
+            <span class="merch-promo-cta">Shop Tees →</span>
+        </div>
+    </a>
+    <a href="#products" class="merch-promo">
+        <img src="Images/merch/cover_pages/santos-armada-dodgers.jpg" alt="Santos Armada neon sign">
+        <div class="merch-promo-copy">
+            <h2>The Brand</h2>
+            <span class="merch-promo-cta">Shop All →</span>
+        </div>
+    </a>
+    <a href="#products" class="merch-promo">
+        <img src="Images/merch/cover_pages/throw-up-on-a-truck.png" alt="Santos Armada graffiti tag on a truck">
+        <div class="merch-promo-copy">
+            <h2>Street Ready</h2>
+            <span class="merch-promo-cta">Shop All →</span>
+        </div>
+    </a>
+</section>
+
+<!-- PRODUCTS -->
+<main id="products" class="merch-products">
+
+    <section class="merch-category" id="tees">
+        <h2 class="merch-category-title">Tees</h2>
+        <div class="merch-grid">
+
+            <div class="merch-card">
+                <div class="merch-card-image-wrap">
+                    <img src="Images/merch/tees/TEE1-main-black.png" alt="Santos Armada Crest Tee">
+                </div>
+                <span class="merch-card-name">Santos Armada Crest</span>
+                <span class="merch-card-price">$30.00</span>
+            </div>
+
+            <div class="merch-card">
+                <div class="merch-card-image-wrap">
+                    <img src="Images/merch/tees/TEE2-emblem-black.png" alt="Santos Armada Emblem Tee">
+                </div>
+                <span class="merch-card-name">Santos Armada Emblem</span>
+                <span class="merch-card-price">$30.00</span>
+            </div>
+
+            <div class="merch-card">
+                <div class="merch-card-image-wrap">
+                    <img src="Images/merch/tees/TEE3-classic-black.png" alt="Classic Emblem Tee">
+                </div>
+                <span class="merch-card-name">Classic Emblem</span>
+                <span class="merch-card-price">$30.00</span>
+            </div>
+
+            <div class="merch-card">
+                <div class="merch-card-image-wrap">
+                    <img src="Images/merch/tees/TEE-eternitee-black.png" alt="Eternitee">
+                </div>
+                <span class="merch-card-name">Eternitee</span>
+                <span class="merch-card-price">$30.00</span>
+            </div>
+
+            <div class="merch-card">
+                <div class="merch-card-image-wrap">
+                    <img src="Images/merch/tees/TEE-native-nave-black.png" alt="Native Nave Tee">
+                </div>
+                <span class="merch-card-name">Native Nave</span>
+                <span class="merch-card-price">$30.00</span>
+            </div>
+
+            <div class="merch-card">
+                <div class="merch-card-image-wrap">
+                    <img src="Images/merch/tees/TEE-resistencia.png" alt="Resistencia Eterna Tee">
+                </div>
+                <span class="merch-card-name">Resistencia Eterna</span>
+                <span class="merch-card-price">$30.00</span>
+            </div>
+
+            <div class="merch-card">
+                <div class="merch-card-image-wrap">
+                    <img src="Images/merch/tees/TEE-sor-juana.png" alt="Sor Juana Inés de la Cruz Tee">
+                </div>
+                <span class="merch-card-name">Sor Juana Inés de la Cruz</span>
+                <span class="merch-card-price">$30.00</span>
+            </div>
+
+            <div class="merch-card">
+                <div class="merch-card-image-wrap">
+                    <img src="Images/merch/tees/TEE-street-tacos-black.png" alt="Street Tacos Tee">
+                </div>
+                <span class="merch-card-name">Street Tacos</span>
+                <span class="merch-card-price">$30.00</span>
+            </div>
+
+            <div class="merch-card">
+                <div class="merch-card-image-wrap">
+                    <img src="Images/merch/tees/TEE-swayze.png" alt="Estación de los Tamales Tee">
+                </div>
+                <span class="merch-card-name">Estación de los Tamales</span>
+                <span class="merch-card-price">$30.00</span>
+            </div>
+
+            <div class="merch-card">
+                <div class="merch-card-image-wrap">
+                    <img src="Images/merch/tees/TEE-tecnico.png" alt="Técnico Móvil Tee">
+                </div>
+                <span class="merch-card-name">Técnico Móvil</span>
+                <span class="merch-card-price">$30.00</span>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="merch-category" id="hoodies">
+        <h2 class="merch-category-title">Hoodies</h2>
+        <div class="merch-grid">
+
+            <div class="merch-card">
+                <div class="merch-card-image-wrap">
+                    <img src="Images/merch/sweaters/HDY-nas-sweater-black.png" alt="Nas Used Ether Hoodie">
+                </div>
+                <span class="merch-card-name">Nas Used Ether</span>
+                <span class="merch-card-price">$58.00</span>
+            </div>
+
+            <div class="merch-card">
+                <div class="merch-card-image-wrap">
+                    <img src="Images/merch/sweaters/HDY-puvunga-front.png" alt="Puvunga Hoodie">
+                </div>
+                <span class="merch-card-name">Puvunga</span>
+                <span class="merch-card-price">$58.00</span>
+            </div>
+
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="mercadeo-footer">
+    <a href="/" class="mercadeo-footer-logo-link">
+        <img src="Images/logo.PNG" alt="Santos Armada" class="mercadeo-footer-crest">
+    </a>
+    <ul class="mercadeo-footer-links">
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="mercadeo-footer-copy">© 2026 Santos Armada · santosarmada@protonmail.com · All rights reserved</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById('mercadeoNavLinks').classList.toggle('mercadeo-open');
+    }
+</script>
+</body>
+</html>
