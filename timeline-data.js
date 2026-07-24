@@ -452,6 +452,23 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "nicolas-enriquez-guadalupe-1773",
+    year: 1773,
+    endYear: 1789,
+    title: "1773–1789: Nicolás Enríquez y la Virgen tocada al original",
+    author: "Nicolás Enríquez",
+    country: "México",
+    region: "Ciudad de México",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El pintor novohispano Nicolás Enríquez —discípulo de Juan Rodríguez Juárez y cofundador, junto a José de Ibarra, de la Academia de Pintores de Nueva España en 1728— fue uno de los intérpretes más prolíficos de la Virgen de Guadalupe durante el siglo XVIII. En 1773 pinta una versión rodeada por las cuatro escenas clásicas de las apariciones a Juan Diego en el Tepeyac, una composición que repitió muchas veces a lo largo de su carrera. Pero esta copia en particular guarda un dato excepcional, revelado por su propia inscripción: fue 'tocada al original' en 1789 —dieciséis años después de pintada—, es decir, puesta físicamente en contacto con la tilma auténtica que se venera en la Ciudad de México, una práctica documentada desde el siglo XVII mediante la cual un cuadro dejaba de ser una simple copia para convertirse en objeto sagrado por derecho propio, casi una reliquia de segundo grado. El dueño de la pieza ya había regresado a España cuatro años antes, en 1785; la sacralización de 1789 implica que la pintura hizo, de algún modo, el viaje de vuelta cruzando el Atlántico —invirtiendo el flujo habitual de imágenes religiosas, que normalmente viajaban de España hacia las Américas, no al revés.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si la práctica de 'tocar' copias al original nunca se hubiera formalizado?",
+      answer:
+        "Las miles de reproducciones de la Virgen de Guadalupe que circularon por Nueva España y Europa durante el siglo XVIII habrían sido, en el mejor de los casos, ilustraciones piadosas más —sin la garantía de autenticidad ni el estatus casi de reliquia que la práctica de 'tocar al original' les otorgaba. Esa costumbre fue, en el fondo, lo que le permitió a México exportar su propia santidad de vuelta al imperio que lo había colonizado, en vez de solo recibir imágenes religiosas desde España."
+    }
+  },
+  {
     id: "brevisima-relacion-1542",
     year: 1542,
     title: "Brevísima relación de la destrucción de las Indias",
