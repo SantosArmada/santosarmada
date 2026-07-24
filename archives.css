@@ -223,6 +223,7 @@ body.archives-page.has-site-banners .navbar {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 16px;
 }
 
 .archives-hint {
@@ -243,6 +244,92 @@ body.archives-page.has-site-banners .navbar {
 
 @keyframes archives-hint-in {
     to { opacity: 1; }
+}
+
+/* --- Scroll cue --- */
+.archives-scroll-cue {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.archives-scroll-cue-pulse {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: var(--arch-red);
+    opacity: 0.6;
+    animation: archives-scroll-pulse 2s ease-out infinite;
+}
+
+@keyframes archives-scroll-pulse {
+    0%   { opacity: 0.6; transform: scale(0.5); }
+    50%  { opacity: 0.45; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.6); }
+}
+
+.archives-scroll-cue-circle {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--arch-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    box-shadow: 0 0 14px rgba(255, 26, 26, 0.5);
+    transition: filter 0.3s ease;
+}
+
+.archives-scroll-cue-circle::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.archives-scroll-cue-circle svg {
+    width: 16px;
+    height: 16px;
+    position: relative;
+    z-index: 2;
+    stroke: #ffffff;
+}
+
+.archives-scroll-cue:hover .archives-scroll-cue-circle {
+    filter: brightness(1.15);
+}
+
+@media (max-width: 768px) {
+    .archives-scroll-cue {
+        width: 52px;
+        height: 52px;
+    }
+    .archives-scroll-cue-circle {
+        width: 30px;
+        height: 30px;
+        top: 11px;
+        left: 11px;
+    }
+    .archives-scroll-cue-circle svg {
+        width: 13px;
+        height: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .archives-scroll-cue-pulse {
+        animation: none;
+        opacity: 0;
+    }
 }
 
 /* --- Footer reskin ---

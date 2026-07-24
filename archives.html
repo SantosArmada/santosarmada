@@ -50,6 +50,15 @@
 
     <div class="archives-bottom-stack">
         <p class="archives-hint">Arrastra para explorar</p>
+
+        <button type="button" class="archives-scroll-cue" id="archivesScrollCue" aria-label="Scroll down">
+            <span class="archives-scroll-cue-pulse"></span>
+            <span class="archives-scroll-cue-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 4v16M5 13l7 7 7-7"/>
+                </svg>
+            </span>
+        </button>
     </div>
 </section>
 
@@ -119,6 +128,12 @@
             sound.play().catch(() => {});
         });
     })();
+
+    // Scrolls to the footer for now — the nearest thing below the hero.
+    // Update the target once more content lands between them.
+    document.getElementById('archivesScrollCue').addEventListener('click', () => {
+        document.querySelector('.footer').scrollIntoView({ behavior: 'smooth' });
+    });
 </script>
 <script type="module" src="archives.js?v=8"></script>
 </body>
