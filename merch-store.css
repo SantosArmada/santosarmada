@@ -497,6 +497,54 @@ body.mercadeo-page {
     height: 100%;
     object-fit: cover;
     display: block;
+    cursor: zoom-in;
+}
+
+/* --- Click-to-zoom lightbox --- */
+.merch-lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    background: rgba(9, 10, 12, 0.94);
+    z-index: 1000;
+}
+
+.merch-lightbox-open {
+    display: flex;
+}
+
+.merch-lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border: 1px solid var(--mercadeo-gray);
+    cursor: zoom-out;
+}
+
+.merch-lightbox-close {
+    position: absolute;
+    top: 24px;
+    right: 32px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: none;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: var(--mercadeo-white);
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.merch-lightbox-close:hover {
+    border-color: var(--mercadeo-tangerine);
+    color: var(--mercadeo-tangerine);
 }
 
 .merch-product-views {
@@ -560,12 +608,88 @@ body.mercadeo-page {
     margin-bottom: 20px;
 }
 
+/* Exclusivity tag + sold-out price row, sized for the product page
+   (same language as .merch-card-tag / .merch-card-sold-out-label on
+   the store grid, just not absolutely positioned over a thumbnail). */
+.merch-product-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mercadeo-onyx);
+    background: var(--mercadeo-tangerine);
+    border-radius: 999px;
+    padding: 5px 12px;
+    margin-bottom: 14px;
+}
+
+.merch-product-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.merch-product-price-struck {
+    color: var(--mercadeo-gray);
+    text-decoration: line-through;
+}
+
+.merch-product-sold-out-label {
+    font-size: 0.85rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--mercadeo-white);
+}
+
 .merch-product-desc {
     font-size: 0.9rem;
     line-height: 1.6;
     color: var(--mercadeo-gray);
     max-width: 44ch;
     margin-bottom: 32px;
+}
+
+/* Inline link out to a figure's own Timeline entry on globe.html. */
+.merch-product-link {
+    color: var(--mercadeo-tangerine);
+    text-decoration: underline;
+    text-decoration-color: rgba(214, 73, 51, 0.4);
+    text-underline-offset: 2px;
+    transition: text-decoration-color 0.15s ease;
+}
+
+.merch-product-link:hover {
+    text-decoration-color: var(--mercadeo-tangerine);
+}
+
+/* Plain item list — for object-bundle products like the Frida Kahlo
+   Collection that have no colorways, just a set of physical pieces. */
+.merch-product-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.merch-product-list li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 0.9rem;
+    color: var(--mercadeo-white);
+}
+
+.merch-product-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--mercadeo-tangerine);
 }
 
 .merch-product-colors-label {
