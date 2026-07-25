@@ -540,7 +540,20 @@ const REGION_CENTER = {
     'Lake Jackson': { lat: 29.03, lng: -95.43 },
     'Santa Mónica, California': { lat: 34.02, lng: -118.50 },
     'Nueva York': { lat: 40.71, lng: -74.01 },
-    'Fort Lee, Nueva Jersey': { lat: 40.85, lng: -73.97 }
+    'Fort Lee, Nueva Jersey': { lat: 40.85, lng: -73.97 },
+    // Música — orígenes de género (added together, see timeline-data.js
+    // "MÚSICA: ORÍGENES DE GÉNERO" section)
+    'Cartagena de Indias': { lat: 10.39, lng: -75.51 },
+    'Cocula, Jalisco': { lat: 20.43, lng: -103.80 },
+    'Santiago de los Caballeros': { lat: 19.45, lng: -70.70 },
+    'Santo Domingo': { lat: 18.49, lng: -69.89 },
+    'Ciudad de Panamá': { lat: 8.98, lng: -79.52 },
+    'Hermosillo, Sonora': { lat: 29.07, lng: -110.96 },
+    'Nine Mile': { lat: 18.26, lng: -77.21 },
+    'Madison Square Garden': { lat: 40.75, lng: -73.99 },
+    'Houston': { lat: 29.76, lng: -95.37 },
+    'Indio, California': { lat: 33.72, lng: -116.22 },
+    'Royce Hall, UCLA': { lat: 34.07, lng: -118.44 }
 };
 
 let regionRippleTimeoutIds = [];
