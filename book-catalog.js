@@ -28,6 +28,7 @@
         { file: "celestina.jpg", title: "La Celestina", slug: "la-celestina" },
         { file: "comentarios.jpg", title: "Comentarios Reales de los Incas", slug: "comentarios-reales-de-los-incas" },
         { file: "conde-lucanor.jpg", title: "El Conde Lucanor", slug: "el-conde-lucanor" },
+        { file: "conquista-de-mexico.jpg", title: "Cartas de relación", slug: "cartas-de-relacion" },
         { file: "duelo-virgen.jpg", title: "Duelo de la Virgen", slug: "duelo-de-la-virgen" },
         { file: "facundo.jpg", title: "Facundo o Civilización y Barbarie", slug: "facundo-o-civilizacion-y-barbarie" },
         { file: "fontana-de-oro.jpg", title: "La Fontana de Oro", slug: "la-fontana-de-oro" },
