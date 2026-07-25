@@ -11,6 +11,7 @@
     document.querySelectorAll('.merch-card-swatches').forEach(function (group) {
         var card = group.closest('.merch-card');
         var img = card && card.querySelector('.merch-card-image');
+        var peekImg = card && card.querySelector('.merch-card-image-hover-peek');
         if (!img) return;
 
         group.querySelectorAll('.merch-swatch').forEach(function (btn) {
@@ -18,6 +19,12 @@
                 var next = btn.getAttribute('data-image');
                 if (!next) return;
                 img.src = next;
+                // Also update the hover-peek image: while the card is
+                // hovered, the peek is the element on screen (the main
+                // image is slid out of view), so without this a swatch
+                // click while hovering looked like it did nothing until
+                // the cursor left the card.
+                if (peekImg) peekImg.src = next;
                 group.querySelectorAll('.merch-swatch').forEach(function (b) {
                     b.classList.remove('merch-swatch-active');
                 });
