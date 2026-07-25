@@ -321,11 +321,17 @@ body.mercadeo-page {
 
 .merch-card-image-wrap {
     position: relative;
+    display: block;
     width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
     border: 1px solid var(--mercadeo-gray);
     transition: border-color 0.25s ease;
+}
+
+.merch-card-name-link {
+    display: block;
+    text-decoration: none;
 }
 
 /* Small exclusivity flag for one-off/limited pieces (e.g. Frida Kahlo
@@ -346,13 +352,11 @@ body.mercadeo-page {
 }
 
 .merch-card-image-wrap img {
-    position: absolute;
-    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.35s ease;
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .merch-card:hover .merch-card-image-wrap {
@@ -363,30 +367,63 @@ body.mercadeo-page {
     transform: scale(1.06);
 }
 
-/* Color-swap on hover (Nerd Riot's product-grid trick): the main photo
-   slides out to the right while the alt-color photo slides in from the
-   left to take its place — not a crossfade. Only cards with an
-   alt-color file carry the extra <img>.merch-card-image-primary /
-   .merch-card-image-alt pair; everything else keeps the plain
-   zoom-on-hover above. These selectors are written a notch more
-   specific than the zoom rule above so they win on cards that have
-   them, without needing !important. */
-.merch-card-image-wrap img.merch-card-image-primary,
-.merch-card-image-wrap img.merch-card-image-alt {
+/* Hover slide: independent of the swatches below. On cards that carry
+   a .merch-card-image-hover-peek (a second, fixed colorway photo),
+   hovering slides the current photo out to the right while that peek
+   photo slides in from the left — the click-to-select swatches don't
+   change which color this peek shows, it's always the same "here's
+   another option" tease. Both images need to be stacked for this, so
+   these two classes go absolute only on the cards that have the pair;
+   plain single-photo cards are untouched by these rules and keep the
+   zoom-only hover above. */
+.merch-card-image-wrap img.merch-card-image,
+.merch-card-image-wrap img.merch-card-image-hover-peek {
+    position: absolute;
+    inset: 0;
     transform: translateX(0);
     transition: transform 0.45s cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-.merch-card-image-wrap img.merch-card-image-alt {
+.merch-card-image-wrap img.merch-card-image-hover-peek {
     transform: translateX(-100%);
 }
 
-.merch-card:hover .merch-card-image-wrap img.merch-card-image-primary {
+.merch-card:hover .merch-card-image-wrap img.merch-card-image {
     transform: translateX(100%);
 }
 
-.merch-card:hover .merch-card-image-wrap img.merch-card-image-alt {
+.merch-card:hover .merch-card-image-wrap img.merch-card-image-hover-peek {
     transform: translateX(0);
+}
+
+/* Color swatches (Nerd Riot's product-grid trick): one circle per
+   colorway this item actually has a photo for. Clicking swaps
+   .merch-card-image's src (see merch-swatches.js) — no page to link
+   to yet, this is just picking which photo shows, ahead of each
+   item getting its own real product page later. */
+.merch-card-swatches {
+    display: flex;
+    gap: 7px;
+    margin-top: 2px;
+}
+
+.merch-swatch {
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.merch-swatch:hover {
+    transform: scale(1.15);
+}
+
+.merch-swatch-active {
+    border-color: var(--mercadeo-onyx);
+    box-shadow: 0 0 0 2px var(--mercadeo-onyx), 0 0 0 3px var(--mercadeo-tangerine);
 }
 
 .merch-card-name {
@@ -423,6 +460,147 @@ body.mercadeo-page {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     color: var(--mercadeo-white);
+}
+
+/* --- Product detail page (front/back + color, Nerd Riot's per-item
+   page layout) — the template the rest of the catalog will move to. --- */
+.merch-product {
+    flex: 1 1 auto;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 32px 32px 80px;
+}
+
+.merch-product-back {
+    display: inline-block;
+    margin-bottom: 24px;
+}
+
+.merch-product-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: start;
+}
+
+.merch-product-image-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border: 1px solid var(--mercadeo-gray);
+}
+
+.merch-product-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.merch-product-views {
+    display: flex;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.merch-product-view-btn {
+    font-family: inherit;
+    font-size: 0.7rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--mercadeo-gray);
+    background: none;
+    border: 1px solid var(--mercadeo-gray);
+    border-radius: 999px;
+    padding: 8px 18px;
+    cursor: pointer;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.merch-product-view-btn:hover {
+    color: var(--mercadeo-white);
+    border-color: var(--mercadeo-white);
+}
+
+.merch-product-view-active {
+    color: var(--mercadeo-onyx);
+    background: var(--mercadeo-tangerine);
+    border-color: var(--mercadeo-tangerine);
+}
+
+.merch-product-view-active:hover {
+    color: var(--mercadeo-onyx);
+    border-color: var(--mercadeo-tangerine);
+}
+
+.merch-product-info {
+    padding-top: 4px;
+}
+
+.merch-product-info .merch-preview-badge {
+    margin-bottom: 18px;
+}
+
+.merch-product-name {
+    font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    color: var(--mercadeo-white);
+    margin-bottom: 10px;
+}
+
+.merch-product-price {
+    font-size: 1.1rem;
+    font-weight: 900;
+    color: var(--mercadeo-tangerine);
+    margin-bottom: 20px;
+}
+
+.merch-product-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--mercadeo-gray);
+    max-width: 44ch;
+    margin-bottom: 32px;
+}
+
+.merch-product-colors-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--mercadeo-white);
+    margin-bottom: 12px;
+}
+
+.merch-product-colors-label span {
+    color: var(--mercadeo-tangerine);
+}
+
+.merch-product-swatches {
+    display: flex;
+    gap: 10px;
+}
+
+.merch-product-swatches .merch-swatch {
+    width: 26px;
+    height: 26px;
+}
+
+@media (max-width: 700px) {
+    .merch-product {
+        padding: 20px 20px 56px;
+    }
+
+    .merch-product-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
 }
 
 /* --- Footer (identical to mercadeo.css) --- */

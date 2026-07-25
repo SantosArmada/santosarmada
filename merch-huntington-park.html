@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Huntington Park — Merch — Santos Armada</title>
+    <link rel="stylesheet" href="merch-store.css?v=13">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="mercadeo-page">
+
+<!-- BANNER: identical to merch-store.html's own nav — same slot, same theme. -->
+<nav class="mercadeo-nav">
+    <a href="/" class="mercadeo-nav-logo">
+        <img src="Images/logo.PNG" alt="Santos Armada" class="mercadeo-nav-crest">
+        <span>Santos Armada</span>
+    </a>
+    <button type="button" class="mercadeo-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+    <ul class="mercadeo-nav-links" id="mercadeoNavLinks">
+        <li><a href="audiolibros.html">Audiolibros</a></li>
+        <li><a href="interpreter-z.html">Interpreter Z</a></li>
+        <li><a href="museos.html">Museos</a></li>
+        <li><a href="libritos.html">Libritos</a></li>
+        <li><a href="el-cubo.html">El Cubo</a></li>
+    </ul>
+</nav>
+
+<!-- PRODUCT DETAIL: front/back toggle + click-to-select color swatches,
+     same interaction language as the store grid's swatches, just given
+     room to breathe on their own page. Nothing here is purchasable yet
+     — this is the template the rest of the catalog will move to. -->
+<main class="merch-product">
+
+    <a href="merch-store.html#tees" class="merch-back-link merch-product-back">← Merch</a>
+
+    <div class="merch-product-layout">
+
+        <div class="merch-product-gallery">
+            <div class="merch-product-image-wrap">
+                <img id="merchProductImage" src="Images/merch/tees/TEE15-shop-in-hp-black.png" alt="Huntington Park Tee — front, black">
+            </div>
+            <div class="merch-product-views">
+                <button type="button" class="merch-product-view-btn merch-product-view-active" data-view="front">Front</button>
+                <button type="button" class="merch-product-view-btn" data-view="back">Back</button>
+            </div>
+        </div>
+
+        <div class="merch-product-info">
+            <span class="merch-preview-badge">Preview · full store launching soon</span>
+            <h1 class="merch-product-name">Huntington Park</h1>
+            <p class="merch-product-price">$35.00</p>
+            <p class="merch-product-desc">"Shop in Huntington Park" — a retro shopping-center ad, reprinted. More shops than a shopping center.</p>
+
+            <div class="merch-product-colors">
+                <span class="merch-product-colors-label">Color — <span id="merchProductColorName">Black</span></span>
+                <div class="merch-product-swatches">
+                    <button type="button" class="merch-swatch merch-swatch-active" style="background:#111111;" data-front="Images/merch/tees/TEE15-shop-in-hp-black.png" data-back="Images/merch/tees/TEE15-shop-in-hp-black-back.png" aria-label="Black"></button>
+                    <button type="button" class="merch-swatch" style="background:#013dc2;" data-front="Images/merch/tees/TEE15-shop-in-hp-blue.png" data-back="Images/merch/tees/TEE15-shop-in-hp-blue-back.png" aria-label="Blue"></button>
+                    <button type="button" class="merch-swatch" style="background:#f6f6f6;" data-front="Images/merch/tees/TEE15-shop-in-hp-white.png" data-back="Images/merch/tees/TEE15-shop-in-hp-white-back.png" aria-label="White"></button>
+                    <button type="button" class="merch-swatch" style="background:#fdd604;" data-front="Images/merch/tees/TEE15-shop-in-hp-yellow.png" data-back="Images/merch/tees/TEE15-shop-in-hp-yellow-back.png" aria-label="Yellow"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="mercadeo-footer">
+    <a href="/" class="mercadeo-footer-logo-link">
+        <img src="Images/logo.PNG" alt="Santos Armada" class="mercadeo-footer-crest">
+    </a>
+    <ul class="mercadeo-footer-links">
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="mercadeo-footer-copy">© 2026 Santos Armada · santosarmada@protonmail.com · All rights reserved</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById('mercadeoNavLinks').classList.toggle('mercadeo-open');
+    }
+</script>
+<script src="merch-product.js" defer></script>
+</body>
+</html>
