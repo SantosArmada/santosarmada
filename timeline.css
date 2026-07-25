@@ -509,6 +509,28 @@
   margin: 0;
 }
 
+/* Inline "fly the globe here" links inside entry.descriptionHtml — only
+   the MÚSICA entries use these, one per place named in the body text. */
+.timeline-detail-geolink {
+  display: inline;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: var(--neon-purple);
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.timeline-detail-geolink:hover,
+.timeline-detail-geolink:focus-visible {
+  color: var(--text-main);
+  text-decoration: underline solid;
+  outline: none;
+}
+
 .timeline-detail-flag {
   display: inline-block;
   margin-top: 10px;

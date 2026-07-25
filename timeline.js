@@ -386,7 +386,7 @@
       <p class="timeline-detail-label"><button type="button" class="timeline-detail-region-link">${escapeHtml(entry.region || entry.country)}</button> · ${yearLabel}</p>
       <h3 class="timeline-detail-title">${escapeHtml(entry.title)}</h3>
       <p class="timeline-detail-meta">${escapeHtml(entry.author)}</p>
-      <p class="timeline-detail-body">${escapeHtml(entry.description)}</p>
+      <p class="timeline-detail-body">${entry.descriptionHtml || escapeHtml(entry.description)}</p>
       ${flagHtml}
       ${personalNoteHtml}
     `;
@@ -414,6 +414,27 @@
         }
       });
     }
+
+    // Inline "fly the globe here" links embedded in entry.descriptionHtml
+    // (currently only the MÚSICA entries use these) — same idea as the
+    // region-link button above, just one per place named in the body
+    // text instead of a single link tied to the whole entry.
+    function activateGeoLink(el) {
+      if (typeof window.focusGlobeOnRegion !== "function") return;
+      window.focusGlobeOnRegion(el.getAttribute("data-region") || "", el.getAttribute("data-country"));
+      const globeEl = document.getElementById("globeViz");
+      if (globeEl) {
+        globeEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+    detailContent.querySelectorAll(".timeline-detail-geolink[data-country]").forEach((el) => {
+      el.addEventListener("click", () => activateGeoLink(el));
+      el.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        e.preventDefault();
+        activateGeoLink(el);
+      });
+    });
 
     scrollEntryIntoView(idx);
     updateHeader(entry.year);

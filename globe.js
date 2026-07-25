@@ -465,7 +465,8 @@ const COUNTRY_CENTER = {
     'Suiza': { lat: 46.8, lng: 8.2 },
     'Honduras': { lat: 14.6, lng: -86.8 },
     'Bolivia': { lat: -16.5, lng: -64.7 },
-    'San Vicente y las Granadinas': { lat: 13.25, lng: -61.20 }
+    'San Vicente y las Granadinas': { lat: 13.25, lng: -61.20 },
+    'Sudáfrica': { lat: -30.5, lng: 25.0 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -535,7 +536,11 @@ const REGION_CENTER = {
     'Huntington Park, California': { lat: 33.98, lng: -118.22 },
     'Culiacán': { lat: 24.79, lng: -107.38 },
     'Santa Clara, California': { lat: 37.35, lng: -121.95 },
-    'Vega Baja': { lat: 18.44, lng: -66.39 }
+    'Vega Baja': { lat: 18.44, lng: -66.39 },
+    'Lake Jackson': { lat: 29.03, lng: -95.43 },
+    'Santa Mónica, California': { lat: 34.02, lng: -118.50 },
+    'Nueva York': { lat: 40.71, lng: -74.01 },
+    'Fort Lee, Nueva Jersey': { lat: 40.85, lng: -73.97 }
 };
 
 let regionRippleTimeoutIds = [];
