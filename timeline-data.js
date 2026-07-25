@@ -89,7 +89,8 @@ const GLYPH = {
 const ICON_TYPE = {
   LITERATURE: "literature", // quill / book — gold
   CONFLICT: "conflict",     // crossed lines — neon-pink
-  HISTORY: "history"        // circle / monument — neon-blue
+  HISTORY: "history",       // circle / monument — neon-blue
+  MUSIC: "music"            // eighth note — neon-purple
 };
 
 /* ---------------------------------------------------------
@@ -1995,6 +1996,175 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si la Ley Moret de 1870 hubiera decretado la abolición total en vez de una libertad gradual?",
       answer:
         "Una abolición total en 1870 —dieciséis años antes de lo que realmente ocurrió— habría privado a los hacendados cubanos de más de una década de mano de obra esclavizada durante un período de auge azucarero, y probablemente habría acelerado el estallido de la Guerra de los Diez Años que ya ardía en la isla desde ese mismo 1868."
+    }
+  },
+
+  // ---- MÚSICA ----
+  {
+    id: "selena-quintanilla-1971",
+    year: 1971,
+    endYear: 1995,
+    title: "1971–1995: Selena Quintanilla",
+    author: "Selena Quintanilla",
+    country: "Estados Unidos",
+    region: "Corpus Christi",
+    type: ICON_TYPE.MUSIC,
+    description:
+      "Selena Quintanilla nace el 16 de abril de 1971 en Lake Jackson, Texas, y crece en Corpus Christi cantando cumbias y baladas en un español que apenas hablaba con fluidez —tuvo que aprender sus propias letras casi fonéticamente—. Al frente de Selena y Los Dinos, la banda familiar liderada por su padre Abraham, se convierte en la mayor estrella del tejano, un género fronterizo hecho por y para la comunidad méxico-americana del sur de Texas. En 1994 su éxito cruza la frontera: un concierto multitudinario en Monterrey confirma que su música conecta con México tanto como con Texas, pese a que ella misma se sentía, en sus propias palabras, 'ni de aquí ni de allá'. Estaba grabando su álbum en inglés —el que la habría lanzado al mercado angloparlante como a Gloria Estefan— cuando, el 31 de marzo de 1995, es asesinada a los 23 años en un motel de Corpus Christi por Yolanda Saldívar, presidenta de su club de fans, tras ser descubierta desviando fondos de sus negocios.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Selena hubiera terminado y lanzado su álbum en inglés antes de morir?",
+      answer:
+        "Probablemente se habría convertido, como planeaba, en la primera gran cruce tejana al mercado angloparlante masivo —el camino que después abrirían otras artistas latinas—. En cambio, Dreaming of You se publicó póstumamente meses después de su muerte y debutó en el número uno de Billboard, la prueba final, ya sin ella para verlo, de que tenía razón sobre su propio potencial."
+    }
+  },
+  {
+    id: "vicente-fernandez-1940",
+    year: 1940,
+    endYear: 2021,
+    title: "1940–2021: Vicente Fernández",
+    author: "Vicente Fernández",
+    country: "México",
+    region: "Guadalajara, Jalisco",
+    type: ICON_TYPE.MUSIC,
+    description:
+      "Nacido el 17 de febrero de 1940 en Huentitán el Alto, un barrio humilde a las afueras de Guadalajara, Vicente Fernández crece ordeñando vacas y cantando en fiestas antes de convertirse, décadas después, en 'El Charro de Huentitán': la voz definitiva de la ranchera y el ícono más reconocible del mariachi del siglo XX. Con más de 50 discos, docenas de películas y rancheras como 'Volver, volver' convertidas en himno nacional extraoficial, construye una carrera que atraviesa generaciones sin perder nunca su acento de pueblo ni su identidad de charro. Muere el 12 de diciembre de 2021 en Guadalajara, la misma ciudad que lo vio nacer pobre y despedirlo como leyenda.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Vicente Fernández hubiera adoptado un sonido más pop para ampliar su mercado, como le sugirieron varias veces?",
+      answer:
+        "Habría ganado, quizás, un público más joven o más internacional a corto plazo, pero habría perdido exactamente lo que lo volvió irremplazable: ser la ranchera más pura y menos diluida posible, en una época en que el género competía cada vez más con sonidos importados. Su terquedad por sonar como Huentitán, no como el mercado, es lo que lo convirtió en el charro de México entero."
+    }
+  },
+  {
+    id: "juan-gabriel-1950",
+    year: 1950,
+    endYear: 2016,
+    title: "1950–2016: Juan Gabriel",
+    author: "Juan Gabriel",
+    country: "México",
+    region: "Ciudad de México",
+    type: ICON_TYPE.MUSIC,
+    description:
+      "Alberto Aguilera Valadez nace el 7 de enero de 1950 en Parácuaro, Michoacán, y crece en un orfanato de Ciudad Juárez tras la muerte de su padre y el abandono forzado de su madre por pobreza extrema. De esa infancia sale Juan Gabriel, compositor prolífico —más de mil canciones— y uno de los intérpretes más queridos de la música popular mexicana, con éxitos como 'Amor eterno' y 'Querida'. En mayo de 1990 rompe una barrera de clase largamente vigilada: se presenta durante cuatro noches en el Palacio de Bellas Artes de la Ciudad de México, el recinto reservado tradicionalmente para la 'alta cultura', acompañado de la Orquesta Sinfónica Nacional. La élite intelectual mexicana protesta, indignada de que un cantante popular —y, para muchos, abiertamente afeminado, sin que él jamás confirmara ni negara su sexualidad en público— pisara ese escenario. El disco en vivo resultante se convierte en uno de los más vendidos en la historia del país. Muere el 28 de agosto de 2016 en Santa Mónica, California.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Bellas Artes hubiera rechazado la petición de Juan Gabriel en 1990?",
+      answer:
+        "La frontera simbólica entre la 'alta cultura' mexicana y la música popular habría permanecido intacta un poco más, reafirmando la idea de que ciertos escenarios no eran para artistas surgidos de la pobreza y los orfanatos. Al forzar esa puerta, Juan Gabriel no solo defendió su propio lugar: abrió el camino para que la música popular dejara de pedir permiso para ser tomada en serio."
+    }
+  },
+  {
+    id: "shakira-2010",
+    year: 2010,
+    endYear: 2020,
+    title: "2010–2020: Shakira, de Sudáfrica al Super Bowl",
+    author: "Shakira",
+    country: "Estados Unidos",
+    region: "Miami",
+    type: ICON_TYPE.MUSIC,
+    description:
+      "Nacida en Barranquilla, Colombia, Shakira ya era una superestrella latina cuando, en 2010, se convierte en la voz oficial del Mundial de fútbol con 'Waka Waka (This Time for Africa)', interpretada en las ceremonias de apertura y clausura en Sudáfrica; el video se convertiría en uno de los más vistos en la historia de YouTube y la canción, en el himno mundialista más exitoso jamás grabado. Una década después, el 2 de febrero de 2020, comparte el escenario del entretiempo del Super Bowl LIV en Miami junto a Jennifer López —con Bad Bunny y J Balvin como invitados especiales—, un show de apenas catorce minutos que se vuelve una de las presentaciones más comentadas en la historia del evento deportivo más visto de Estados Unidos. En ambos escenarios, cantando en español ante audiencias globales que no necesariamente lo hablaban, Shakira demuestra que el cruce no exige traducción.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Shakira hubiera grabado 'Waka Waka' completamente en inglés, sin ningún verso en español?",
+      answer:
+        "Habría sido, probablemente, un éxito igual de masivo en términos comerciales, pero perdería el gesto simbólico que la distingue: llevar el español al escenario más visto del planeta sin pedir disculpas por ello. Ese mismo gesto es el que repetiría, una década después, en el Super Bowl."
+    }
+  },
+  {
+    id: "mana-1986",
+    year: 1986,
+    title: "1986: nace Maná",
+    author: "Maná",
+    country: "México",
+    region: "Guadalajara, Jalisco",
+    type: ICON_TYPE.MUSIC,
+    description:
+      "En Guadalajara, Jalisco, el baterista Alex González, el vocalista Fher Olvera y el bajista Juan Calleros forman en 1986 la banda que originalmente se llama Sombrero Verde, antes de rebautizarse Maná en 1987 —el guitarrista Sergio Vallín se integraría después—. Con discos como ¿Dónde jugarán los niños? (1992), se convierten en la banda de rock en español más vendida de la historia, con giras que llenan estadios en toda América Latina, España y Estados Unidos durante casi cuatro décadas. En 2025, Maná se convierte en la primera banda de rock en español nominada al Salón de la Fama del Rock and Roll, un reconocimiento que tardó casi cuarenta años en llegar a un género que la industria angloparlante rara vez toma en cuenta.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Maná hubiera cantado en inglés desde el principio, como les sugirieron varios sellos discográficos en los noventa?",
+      answer:
+        "Habrían competido en un mercado angloparlante saturado, sin la ventaja que terminó siendo su mayor fortaleza: ser, durante años, prácticamente la única banda capaz de llenar estadios enteros cantando exclusivamente en español. Esa apuesta —quedarse en el idioma, no cruzar hacia el inglés— fue lo que los convirtió en el estadio de rock latinoamericano por excelencia."
+    }
+  },
+  {
+    id: "peso-pluma-2023",
+    year: 2023,
+    title: "2023: Peso Pluma y el año de los corridos tumbados",
+    author: "Peso Pluma",
+    country: "México",
+    region: "Zapopan",
+    type: ICON_TYPE.MUSIC,
+    description:
+      "Hassan Emilio Kabande Laija nace el 15 de junio de 1999 en Zapopan, Jalisco, y crece entre Guadalajara y la herencia sinaloense de su familia materna. Bautizado 'Peso Pluma' por el boxeador Canelo Álvarez, se convierte en 2023 en la figura central de los corridos tumbados —una fusión de corrido regional mexicano con trap y hip hop— junto a artistas como Natanael Cano. Ese año, 'Ella baila sola', a dúo con Eslabón Armado, lo vuelve el primer artista mexicano en alcanzar el número uno global de Spotify, y su álbum Génesis consolida el género como fenómeno internacional, llevando el corrido —históricamente un formato regional, casi folclórico— a listas de éxito que antes le eran completamente ajenas.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Peso Pluma hubiera evitado por completo las letras de corridos bélicos, dado el escrutinio y la censura que enfrentaron?",
+      answer:
+        "Habría esquivado buena parte de la controversia y hasta cancelaciones de conciertos que enfrentó por presiones de cárteles y gobiernos locales, pero también habría diluido la fórmula exacta —la fusión de narrativa de corrido tradicional con producción de trap— que lo distinguió de cualquier otro artista regional mexicano de su generación."
+    }
+  },
+  {
+    id: "leo-dan-1942",
+    year: 1942,
+    endYear: 2025,
+    title: "1942–2025: Leo Dan",
+    author: "Leo Dan",
+    country: "Argentina",
+    region: "Santiago del Estero",
+    type: ICON_TYPE.MUSIC,
+    description:
+      "Leopoldo Dante Tévez nace el 22 de marzo de 1942 en Villa Atamisqui, Santiago del Estero, y se convierte, bajo el nombre de Leo Dan, en una de las voces más influyentes de la música popular latinoamericana del siglo XX. Con éxitos como 'Celia', 'Como te extraño mi amor' y 'Estelita', se vuelve una figura inmensamente popular no solo en Argentina, sino sobre todo en México, donde pasó buena parte de su carrera y su vida, y donde sus baladas fueron adoptadas casi como propias. Muere el 1 de enero de 2025, a los 82 años, dejando un catálogo que generaciones de cantantes rancheros y baladistas latinoamericanos siguen versionando.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Leo Dan se hubiera quedado exclusivamente en el mercado argentino, sin mudarse a México?",
+      answer:
+        "Su música probablemente habría permanecido como un fenómeno regional argentino más, sin la adopción masiva que tuvo en México y buena parte de Latinoamérica. Fue precisamente ese cruce migratorio —un argentino que México terminó reclamando casi como propio— lo que multiplicó su alcance mucho más allá de lo que su país natal solo podía ofrecerle."
+    }
+  },
+  {
+    id: "chalino-sanchez-1960",
+    year: 1960,
+    endYear: 1992,
+    title: "1960–1992: Chalino Sánchez",
+    author: "Chalino Sánchez",
+    country: "Estados Unidos",
+    region: "Paramount, California",
+    type: ICON_TYPE.MUSIC,
+    description:
+      "Rosalino 'Chalino' Sánchez Félix nace el 30 de agosto de 1960 en un rancho cerca de Culiacán, Sinaloa, y llega a Los Ángeles en 1977 huyendo de la pobreza. En los clubes nocturnos del sureste de Los Ángeles —Paramount, Huntington Park y alrededores, el corredor de salones de baile de la comunidad inmigrante mexicana— construye desde cero, sin una voz especialmente privilegiada pero con un talento crudo para la composición, el sonido que refundaría el corrido moderno: letras directas sobre el narcotráfico y la vida en los márgenes, cantadas sin adornos ni disculpas. El 16 de mayo de 1992, horas después de cantar en un salón de Culiacán, Sinaloa —adonde había regresado ya convertido en 'el Rey del Corrido'—, es secuestrado y asesinado; su cuerpo aparece al día siguiente en un canal de riego. El caso nunca ha sido resuelto.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Chalino Sánchez nunca hubiera emigrado a Los Ángeles en 1977?",
+      answer:
+        "El narcocorrido moderno, tal como lo conocemos, probablemente no existiría en la forma en que lo hizo: fue precisamente en los salones de baile del sureste de Los Ángeles, lejos de Sinaloa pero rodeado de otros migrantes que compartían su mundo, donde Chalino encontró tanto la audiencia como la libertad narrativa para cantar temas que las disqueras mexicanas tradicionales evitaban. Su asesinato, lejos de acabar con el género, lo convirtió en mito fundacional."
+    }
+  },
+  {
+    id: "bad-bunny-2026",
+    year: 2026,
+    title: "2026: Bad Bunny y el primer halftime show mayormente en español",
+    author: "Bad Bunny",
+    country: "Estados Unidos",
+    region: "Santa Clara, California",
+    type: ICON_TYPE.MUSIC,
+    description:
+      "Benito Antonio Martínez Ocasio, Bad Bunny, nacido en Vega Baja, Puerto Rico, se convierte el 8 de febrero de 2026 en el primer artista latino en encabezar en solitario el espectáculo de medio tiempo del Super Bowl —y el primero en hacerlo cantando mayormente en español—, en el Levi's Stadium de Santa Clara, California, ante la audiencia televisiva más grande de Estados Unidos. El show, con invitados como Lady Gaga, Ricky Martin y Los Pleneros de la Cresta, convierte el escenario en una puesta en escena de identidad puertorriqueña: campos de caña de azúcar que evocan el pasado colonial de la isla, una 'casita' construida sobre el campo de juego, y la bandera de Puerto Rico llevada literalmente sobre su espalda mientras canta. Lo que para la NFL es un espectáculo de entretiempo, para millones de puertorriqueños es, por primera vez, verse representados enteros —lengua, historia colonial y todo— en el escenario más visto del país que gobierna la isla desde 1898.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Bad Bunny hubiera aceptado cantar principalmente en inglés para 'ampliar su alcance', como le sugirieron?",
+      answer:
+        "Habría sido, seguramente, un espectáculo exitoso de todos modos —su música ya domina las listas globales sin necesidad de traducción—. Pero habría perdido exactamente el gesto que lo volvió histórico: demostrar, ante la audiencia más grande y más estadounidense del año, que el español no necesita traducirse para ser el idioma principal del espectáculo más visto del país."
+    }
+  },
+  {
+    id: "celia-cruz-1925",
+    year: 1925,
+    endYear: 2003,
+    title: "1925–2003: Celia Cruz",
+    author: "Celia Cruz",
+    country: "Cuba",
+    region: "La Habana",
+    type: ICON_TYPE.MUSIC,
+    description:
+      "Úrsula Hilaria Celia de la Caridad Cruz Alfonso nace el 21 de octubre de 1925 en La Habana y se convierte, al frente de la orquesta La Sonora Matancera, en una de las voces más reconocibles de la música cubana antes de que la Revolución de 1959 lo cambie todo. En 1960 abandona Cuba y jamás regresa —ni siquiera para el funeral de su madre, a quien el gobierno cubano le negó la entrada—, estableciéndose en Estados Unidos como símbolo del exilio cubano. En Nueva York se convierte en la única mujer integrante de las Fania All-Stars, el supergrupo que en los años setenta terminó de definir la salsa como género global, y se gana el título por el que la recordaría el mundo entero: la Reina de la Salsa. Muere el 16 de julio de 2003 en Fort Lee, Nueva Jersey, sin haber vuelto nunca a pisar la isla que la formó.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Celia Cruz nunca hubiera salido de Cuba en 1960?",
+      answer:
+        "Habría seguido siendo una estrella de la música cubana dentro de la isla, pero probablemente nunca se habría cruzado con la escena neoyorquina que, en los años setenta, fusionó ritmos cubanos, puertorriqueños y de todo el Caribe hispanohablante bajo el nombre de salsa. Su exilio, doloroso como fue, la puso exactamente en el lugar y el momento donde ese género nuevo necesitaba a su reina."
     }
   }
 ];

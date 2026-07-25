@@ -520,7 +520,22 @@ const REGION_CENTER = {
     'Caracas': { lat: 10.48, lng: -66.90 },
     'Lima': { lat: -12.05, lng: -77.04 },
     'San Juan': { lat: 18.47, lng: -66.11 },
-    'La Habana': { lat: 23.13, lng: -82.38 }
+    'La Habana': { lat: 23.13, lng: -82.38 },
+    // Música arc (added together, see timeline-data.js "MÚSICA" section)
+    'Corpus Christi': { lat: 27.80, lng: -97.40 },
+    'Monterrey': { lat: 25.67, lng: -100.31 },
+    'Guadalajara, Jalisco': { lat: 20.68, lng: -103.35 },
+    'Ciudad Juárez': { lat: 31.69, lng: -106.42 },
+    'Parácuaro': { lat: 19.10, lng: -102.28 },
+    'Miami': { lat: 25.76, lng: -80.19 },
+    'Barranquilla': { lat: 10.96, lng: -74.80 },
+    'Zapopan': { lat: 20.72, lng: -103.40 },
+    'Santiago del Estero': { lat: -27.80, lng: -64.26 },
+    'Paramount, California': { lat: 33.89, lng: -118.16 },
+    'Huntington Park, California': { lat: 33.98, lng: -118.22 },
+    'Culiacán': { lat: 24.79, lng: -107.38 },
+    'Santa Clara, California': { lat: 37.35, lng: -121.95 },
+    'Vega Baja': { lat: 18.44, lng: -66.39 }
 };
 
 let regionRippleTimeoutIds = [];

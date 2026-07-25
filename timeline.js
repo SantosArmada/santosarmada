@@ -124,6 +124,7 @@
             <button type="button" class="timeline-filter-chip is-active" data-type="literature">Literatura</button>
             <button type="button" class="timeline-filter-chip is-active" data-type="history">Historia</button>
             <button type="button" class="timeline-filter-chip is-active" data-type="conflict">Conflicto</button>
+            <button type="button" class="timeline-filter-chip is-active" data-type="music">Música</button>
           </div>
           <select class="timeline-filter-country" id="timelineFilterCountry" aria-label="Filtrar por país">
             <option value="">Todos los países</option>
@@ -706,4 +707,15 @@
     selectEntry(idx);
     return true;
   };
+
+  /* Deep link support: globe.html#<entry-id> (e.g. linked from a merch
+     product page) jumps straight to that entry on load — same scroll +
+     select + detail-panel behavior as clicking it, via the same hook
+     globe.js's Connected Works list already uses. */
+  if (window.location.hash.length > 1) {
+    const targetId = decodeURIComponent(window.location.hash.slice(1));
+    if (entries.some((e) => e.id === targetId) && typeof window.goToTimelineEntry === "function") {
+      window.goToTimelineEntry(targetId);
+    }
+  }
 })();
