@@ -436,6 +436,19 @@
       });
     });
 
+    // Inline "jump to that other entry" links embedded in
+    // entry.descriptionHtml (e.g. Shakira's body text naming Bad Bunny) —
+    // re-runs selectEntry for the linked id, swapping the whole panel.
+    detailContent.querySelectorAll(".timeline-detail-entrylink[data-id]").forEach((el) => {
+      const jump = () => window.selectTimelineEntryById(el.getAttribute("data-id"));
+      el.addEventListener("click", jump);
+      el.addEventListener("keydown", (e) => {
+        if (e.key !== "Enter" && e.key !== " ") return;
+        e.preventDefault();
+        jump();
+      });
+    });
+
     scrollEntryIntoView(idx);
     updateHeader(entry.year);
     updateButterfly(entry.year, entry);

@@ -531,6 +531,30 @@
   outline: none;
 }
 
+/* Inline "jump to that other entry" links inside entry.descriptionHtml —
+   e.g. Shakira's body text naming Bad Bunny. Gold instead of the geolink
+   purple to read as a distinct link type: this one changes which entry
+   the detail panel shows, not where the globe points. */
+.timeline-detail-entrylink {
+  display: inline;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  color: var(--gold);
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+  cursor: pointer;
+}
+
+.timeline-detail-entrylink:hover,
+.timeline-detail-entrylink:focus-visible {
+  color: var(--gold-light);
+  text-decoration: underline solid;
+  outline: none;
+}
+
 .timeline-detail-flag {
   display: inline-block;
   margin-top: 10px;
