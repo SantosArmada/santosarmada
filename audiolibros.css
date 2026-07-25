@@ -180,7 +180,7 @@ body {
   position: absolute;
   left: 50%;
   top: calc(50% - 32px);
-  width: min(78vw, 760px);
+  width: min(78vw, 70dvh, 760px);
   max-width: 760px;
   transform: translate(-50%, -50%) scale(0.72);
   opacity: 0;
@@ -202,7 +202,7 @@ body {
   position: absolute;
   left: 50%;
   top: calc(50% - 32px);
-  width: min(78vw, 760px);
+  width: min(78vw, 70dvh, 760px);
   max-width: 760px;
   transform: translate(-50%, -50%) scale(1.05);
   opacity: 1;
