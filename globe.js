@@ -466,7 +466,10 @@ const COUNTRY_CENTER = {
     'Honduras': { lat: 14.6, lng: -86.8 },
     'Bolivia': { lat: -16.5, lng: -64.7 },
     'San Vicente y las Granadinas': { lat: 13.25, lng: -61.20 },
-    'Sudáfrica': { lat: -30.5, lng: 25.0 }
+    'Sudáfrica': { lat: -30.5, lng: 25.0 },
+    'Brasil': { lat: -14.24, lng: -51.93 },
+    'Francia': { lat: 46.6, lng: 2.2 },
+    'Rusia': { lat: 61.52, lng: 105.32 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -554,7 +557,20 @@ const REGION_CENTER = {
     'Houston': { lat: 29.76, lng: -95.37 },
     'Indio, California': { lat: 33.72, lng: -116.22 },
     'Royce Hall, UCLA': { lat: 34.07, lng: -118.44 },
-    'San Luis Potosí': { lat: 22.16, lng: -100.99 }
+    'San Luis Potosí': { lat: 22.16, lng: -100.99 },
+    'Central Park': { lat: 40.785, lng: -73.968 },
+    // Arquitectos e historia natural (added together, see timeline-data.js
+    // "ARQUITECTURA E HISTORIA NATURAL" section)
+    'Burgos': { lat: 42.34, lng: -3.70 },
+    'Río de Janeiro': { lat: -22.91, lng: -43.17 },
+    'Nazca': { lat: -14.83, lng: -74.94 },
+    'Galápagos': { lat: -0.74, lng: -90.31 },
+    'Tenerife': { lat: 28.29, lng: -16.62 },
+    'San Salvador': { lat: 13.69, lng: -89.19 },
+    'La Molina, Lima': { lat: -12.08, lng: -76.94 },
+    'León': { lat: 42.60, lng: -5.57 },
+    'París': { lat: 48.86, lng: 2.35 },
+    'San Petersburgo': { lat: 59.93, lng: 30.34 }
 };
 
 let regionRippleTimeoutIds = [];

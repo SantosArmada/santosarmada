@@ -132,6 +132,11 @@
   border-color: var(--neon-purple);
 }
 
+.timeline-filter-chip[data-type="vision"].is-active {
+  color: var(--vision-green);
+  border-color: var(--vision-green);
+}
+
 .timeline-filter-country {
   font-size: 11px;
   color: var(--text-main);
@@ -281,6 +286,7 @@
 .timeline-entry[data-type="history"] .timeline-entry-dot { background: var(--neon-blue); }
 .timeline-entry[data-type="literature"] .timeline-entry-dot { background: var(--gold); }
 .timeline-entry[data-type="music"] .timeline-entry-dot { background: var(--neon-purple); }
+.timeline-entry[data-type="vision"] .timeline-entry-dot { background: var(--vision-green); }
 
 .timeline-entry:hover .timeline-entry-dot,
 .timeline-entry.is-active .timeline-entry-dot {

@@ -125,6 +125,7 @@
             <button type="button" class="timeline-filter-chip is-active" data-type="history">Historia</button>
             <button type="button" class="timeline-filter-chip is-active" data-type="conflict">Conflicto</button>
             <button type="button" class="timeline-filter-chip is-active" data-type="music">Música</button>
+            <button type="button" class="timeline-filter-chip is-active" data-type="vision">Visión</button>
           </div>
           <select class="timeline-filter-country" id="timelineFilterCountry" aria-label="Filtrar por país">
             <option value="">Todos los países</option>
