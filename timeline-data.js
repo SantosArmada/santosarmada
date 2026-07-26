@@ -2201,6 +2201,7 @@ const TIMELINE_ENTRIES = [
     country: "Colombia",
     region: "Cartagena de Indias",
     type: ICON_TYPE.MUSIC,
+    types: [ICON_TYPE.MUSIC, ICON_TYPE.HISTORY],
     description:
       "En la costa Caribe de la Nueva Granada colonial —hoy Colombia—, con el puerto negrero de Cartagena de Indias como epicentro del comercio de personas esclavizadas hacia toda la región, nace la cumbia como danza de cortejo practicada entre comunidades afrodescendientes e indígenas. Sus gaitas de origen indígena (kogui y zenú) se combinan con los tambores de tradición africana y, más tarde, con elementos de danza española, en una de las fusiones musicales más completas de toda América Latina. Durante el siglo XX, la cumbia se expande desde la costa colombiana hacia México, Argentina, Perú y buena parte del continente, adoptando en cada país una identidad local propia —desde la cumbia sonidera mexicana hasta la cumbia villera argentina— sin perder nunca las gaitas, los tambores y las velas que los bailarines todavía cargan en las versiones más tradicionales.",
     descriptionHtml:
@@ -2220,6 +2221,7 @@ const TIMELINE_ENTRIES = [
     author: "Hito histórico",
     country: "México",
     type: ICON_TYPE.MUSIC,
+    types: [ICON_TYPE.MUSIC, ICON_TYPE.HISTORY],
     description:
       "Descendiente de la tradición del romance español, el corrido se vuelve una forma distintivamente mexicana durante la guerra de Independencia (1810–1821) y alcanza su mayor esplendor durante la Revolución mexicana (1910–1920), cuando circula de pueblo en pueblo narrando batallas, héroes, bandidos y traiciones casi en tiempo real, mucho antes de que la prensa oficial pudiera —o quisiera— contar la misma historia. Funciona como noticiero, registro histórico y relato oral para una población en buena parte analfabeta, y sus temas —la inmigración, la injusticia social, la vida al margen de la ley— siguen vivos un siglo después en el narcocorrido de Chalino Sánchez y en los corridos tumbados de Peso Pluma, dos géneros que reclaman esa misma herencia aunque suenen a mundos distintos.",
     descriptionHtml:
@@ -2240,6 +2242,7 @@ const TIMELINE_ENTRIES = [
     country: "México",
     region: "Cocula, Jalisco",
     type: ICON_TYPE.MUSIC,
+    types: [ICON_TYPE.MUSIC, ICON_TYPE.HISTORY],
     description:
       "En Cocula y otros pueblos del occidente de Jalisco, durante el siglo XIX, grupos de cuerdas —violines, vihuela, guitarrón y guitarra— animan bodas, fiestas patronales y velorios con un repertorio que todavía no lleva trompeta; ese instrumento se incorpora recién en el siglo XX, cuando el mariachi migra a las ciudades. La edad de oro del cine mexicano, entre los años treinta y cincuenta, convierte al mariachi de traje de charro en símbolo visual y sonoro de México ante el mundo —un símbolo que, décadas después, nadie encarnaría con más terquedad que Vicente Fernández, 'El Charro de Huentitán'—. En 2011, la UNESCO declara al mariachi Patrimonio Cultural Inmaterial de la Humanidad, formalizando lo que el cine ya había logrado décadas antes: convertir una tradición de pueblo en un emblema nacional.",
     descriptionHtml:
@@ -2258,6 +2261,7 @@ const TIMELINE_ENTRIES = [
     country: "República Dominicana",
     region: "Santiago de los Caballeros",
     type: ICON_TYPE.MUSIC,
+    types: [ICON_TYPE.MUSIC, ICON_TYPE.HISTORY],
     description:
       "Hacia mediados del siglo XIX, en el Cibao —la región agrícola del norte de la República Dominicana, con Santiago de los Caballeros como su ciudad más importante—, campesinos combinan el acordeón de origen europeo, la tambora de raíz africana y la güira de ascendencia taína en un baile de pareja rápido y sin complicaciones que pronto se llama merengue. En los años treinta del siglo XX, el dictador Rafael Trujillo lo adopta como música nacional oficial de la República Dominicana, imponiéndolo por decreto en actos de Estado frente a las clases altas que hasta entonces lo despreciaban por su origen campesino. Décadas más tarde, artistas como Johnny Ventura, Wilfrido Vargas y, sobre todo, Juan Luis Guerra —que también llevaría la bachata dominicana a audiencias internacionales— terminan de proyectar el merengue al resto del mundo.",
     descriptionHtml:
@@ -2275,6 +2279,7 @@ const TIMELINE_ENTRIES = [
     author: "Hito histórico",
     country: "México",
     type: ICON_TYPE.MUSIC,
+    types: [ICON_TYPE.MUSIC, ICON_TYPE.HISTORY],
     description:
       "Nacida en el México rural anterior a la Revolución y bautizada por la palabra 'rancho', la ranchera se transforma después de 1920 en símbolo de una identidad nacional en construcción, impulsada por la radio y, sobre todo, por el cine mexicano de los años treinta a cincuenta. Cantantes-actores como Jorge Negrete y Pedro Infante, y compositores como José Alfredo Jiménez, llevan sus temas de amor, despecho, patria y vida rural a audiencias masivas dentro y fuera de México, sentando las bases que décadas después heredaría Vicente Fernández, el intérprete que terminaría por convertirse en la voz definitiva del género.",
     descriptionHtml:
@@ -2293,6 +2298,7 @@ const TIMELINE_ENTRIES = [
     country: "República Dominicana",
     region: "Santo Domingo",
     type: ICON_TYPE.MUSIC,
+    types: [ICON_TYPE.MUSIC, ICON_TYPE.HISTORY],
     description:
       "En 1962, el guitarrista y cantante José Manuel Calderón graba en Santo Domingo lo que se considera la primera grabación comercial de bachata, un género surgido entre las comunidades trabajadoras y rurales dominicanas a partir del bolero, la guaracha y el son. Durante décadas, la bachata es despreciada por la radio y la industria discográfica dominicanas, relegada a los bares de los barrios pobres y bautizada con desdén 'música de amargue' por sus letras de despecho y corazones rotos. Recién con artistas como Luis Vargas y Antony Santos en los años ochenta y noventa, y después con Juan Luis Guerra, Aventura y Romeo Santos, la bachata se abre paso hasta convertirse en uno de los géneros latinos más escuchados del mundo.",
     descriptionHtml:
@@ -2312,6 +2318,7 @@ const TIMELINE_ENTRIES = [
     country: "Jamaica",
     region: "Kingston",
     type: ICON_TYPE.MUSIC,
+    types: [ICON_TYPE.MUSIC, ICON_TYPE.HISTORY],
     description:
       "En Kingston, a finales de los años sesenta, el reggae surge como evolución del mento, el ska y el rocksteady jamaicanos, con un ritmo más lento y marcado por el contratiempo de la guitarra y el bajo. Se convierte rápidamente en vehículo de la filosofía rastafari y de mensajes de justicia social, pobreza y resistencia, llevados al mundo entero por Bob Marley, Peter Tosh, Jimmy Cliff y Burning Spear. Lo que empieza como música de los barrios pobres de Kingston termina, en 2018, reconocido por la UNESCO como Patrimonio Cultural Inmaterial de la Humanidad — y, mucho antes de esa fecha, como la semilla directa de un género que Jamaica nunca imaginó exportar hacia el Caribe hispanohablante: el reggaetón.",
     descriptionHtml:
@@ -2351,6 +2358,7 @@ const TIMELINE_ENTRIES = [
     country: "Estados Unidos",
     region: "Nueva York",
     type: ICON_TYPE.MUSIC,
+    types: [ICON_TYPE.MUSIC, ICON_TYPE.HISTORY],
     description:
       "La salsa toma su forma moderna en Nueva York entre los años cuarenta y setenta, cuando el son, el mambo, la rumba y el bolero cubanos se mezclan con las tradiciones musicales puertorriqueñas dentro de las comunidades latinas de la ciudad. En 1971, un concierto multitudinario de las Fania All-Stars en el club Cheetah de Manhattan —documentado al año siguiente en la película Our Latin Thing— y la campaña de mercadeo del sello Fania Records terminan de fijar el nombre 'salsa' como término comercial para todo ese universo de ritmos afrocubanos y afroantillanos tocados en Nueva York. Bajo ese nombre nuevo, figuras como Tito Puente, Willie Colón, Héctor Lavoe y Rubén Blades —y, como única mujer del supergrupo, Celia Cruz— terminan de proyectar la salsa desde los clubes neoyorquinos hacia toda América Latina y el resto del mundo.",
     descriptionHtml:
@@ -2371,10 +2379,11 @@ const TIMELINE_ENTRIES = [
     country: "Panamá",
     region: "Ciudad de Panamá",
     type: ICON_TYPE.MUSIC,
+    types: [ICON_TYPE.MUSIC, ICON_TYPE.HISTORY],
     description:
       "Contra la creencia popular de que el reggaetón nació en Puerto Rico, sus raíces más tempranas están en Panamá, donde descendientes de trabajadores caribeños de habla inglesa —muchos llegados para construir el Canal— crean desde mediados de los años ochenta el reggae en español, adaptando el reggae y el dancehall jamaicanos al castellano. En Puerto Rico, durante los años noventa, esa base se mezcla con hip-hop y dancehall en la escena 'underground' de San Juan, incorporando el característico ritmo dembow tomado directamente del dancehall jamaicano. La explosión definitiva llega en 2004 con 'Gasolina', de Daddy Yankee, la canción que convierte al reggaetón en fenómeno de la cultura pop global y abre camino a Don Omar, Tego Calderón y, generaciones después, a Bad Bunny y Karol G.",
     descriptionHtml:
-      'Contra la creencia popular de que el reggaetón nació en Puerto Rico, sus raíces más tempranas están en <button type="button" class="timeline-detail-geolink" data-region="Ciudad de Panamá" data-country="Panamá">Panamá</button>, donde descendientes de trabajadores caribeños de habla inglesa —muchos llegados para construir el Canal— crean desde mediados de los años ochenta el reggae en español, adaptando el <button type="button" class="timeline-detail-entrylink" data-id="reggae-origenes-jamaica-1968">reggae</button> y el dancehall jamaicanos al castellano. En Puerto Rico, durante los años noventa, esa base se mezcla con hip-hop y dancehall en la escena \'underground\' de <button type="button" class="timeline-detail-geolink" data-region="San Juan" data-country="Puerto Rico">San Juan</button>, incorporando el característico ritmo dembow tomado directamente del dancehall jamaicano. La explosión definitiva llega en 2004 con \'Gasolina\', de Daddy Yankee, la canción que convierte al reggaetón en fenómeno de la cultura pop global y abre camino a Don Omar, Tego Calderón y, generaciones después, a <button type="button" class="timeline-detail-entrylink" data-id="bad-bunny-2026">Bad Bunny</button> y Karol G.',
+      'Contra la creencia popular de que el reggaetón nació en Puerto Rico, sus raíces más tempranas están en <button type="button" class="timeline-detail-geolink" data-region="Ciudad de Panamá" data-country="Panamá">Panamá</button>, donde descendientes de trabajadores caribeños de habla inglesa —muchos llegados para construir el Canal— crean desde mediados de los años ochenta el reggae en español, adaptando el <button type="button" class="timeline-detail-entrylink" data-id="reggae-origenes-jamaica-1968">reggae</button> y el dancehall jamaicanos al castellano. En Puerto Rico, durante los años noventa, esa base se mezcla con hip-hop y dancehall en la escena \'underground\' de <button type="button" class="timeline-detail-geolink" data-region="San Juan" data-country="Puerto Rico">San Juan</button>, incorporando el característico ritmo dembow tomado directamente del dancehall jamaicano. La explosión definitiva llega en 2004 con \'Gasolina\', de Daddy Yankee, la canción que convierte al reggaetón en fenómeno de la cultura pop global y abre camino a <button type="button" class="timeline-detail-entrylink" data-id="don-omar-1978">Don Omar</button>, Tego Calderón y, generaciones después, a <button type="button" class="timeline-detail-entrylink" data-id="bad-bunny-2026">Bad Bunny</button> y Karol G.',
     anchor: true,
     butterfly: {
       prompt: "¿Qué hubiera pasado si 'Gasolina' nunca se hubiera convertido en un éxito fuera de Puerto Rico en 2004?",
@@ -2390,14 +2399,33 @@ const TIMELINE_ENTRIES = [
     country: "México",
     region: "Hermosillo, Sonora",
     type: ICON_TYPE.MUSIC,
+    types: [ICON_TYPE.MUSIC, ICON_TYPE.HISTORY],
     description:
-      "José Natanael Cano Monge nace el 26 de febrero de 2000 en Hermosillo, Sonora, y en 2019, apenas adolescente, publica el álbum Corridos Tumbados, que da nombre a un género nuevo: la fusión del corrido regional mexicano tradicional con el trap, el hip-hop y la estética visual del reggaetón, con Cano cantando sobre capos y lujos vestido de cadenas y ropa urbana en vez del atuendo norteño clásico. La crítica especializada lo señala como el pionero que abrió el camino para toda una generación —Peso Pluma, Junior H, Fuerza Regida, Tito Double P— que llevaría los corridos tumbados a las listas globales apenas unos años después. El 28 de agosto de 2024, en la FENAPO (Feria Nacional Potosina) de San Luis Potosí, reúne a más de 310,000 personas, un récord de asistencia en la historia de los conciertos en México — superado apenas un año más tarde, en ese mismo festival, por el reguetonero Don Omar, con cerca de 385,000 asistentes.",
+      "José Natanael Cano Monge nace el 26 de febrero de 2000 en Hermosillo, Sonora, y en 2019, apenas adolescente, publica el álbum Corridos Tumbados, que da nombre a un género nuevo: la fusión del corrido regional mexicano tradicional con el trap, el hip-hop y la estética visual del reggaetón, con Cano cantando sobre capos y lujos vestido de cadenas y ropa urbana en vez del atuendo norteño clásico. La crítica especializada lo señala como el pionero que abrió el camino para toda una generación —Peso Pluma, Junior H, Fuerza Regida, Tito Double P— que llevaría los corridos tumbados a las listas globales apenas unos años después. El 28 de agosto de 2024, en la FENAPO (Feria Nacional Potosina) de San Luis Potosí, reúne a más de 310,000 personas, un récord de asistencia en la historia de los conciertos en México — superado casi exactamente un año después, el 19 de agosto de 2025 y en ese mismo festival, por Don Omar, con 358,000 asistentes.",
     descriptionHtml:
-      'José Natanael Cano Monge nace el 26 de febrero de 2000 en <button type="button" class="timeline-detail-geolink" data-region="Hermosillo, Sonora" data-country="México">Hermosillo, Sonora</button>, y en 2019, apenas adolescente, publica el álbum Corridos Tumbados, que da nombre a un género nuevo: la fusión del corrido regional mexicano tradicional (ver <button type="button" class="timeline-detail-entrylink" data-id="corrido-origenes-independencia-revolucion">los orígenes del corrido</button>) con el trap, el hip-hop y la estética visual del reggaetón, con Cano cantando sobre capos y lujos vestido de cadenas y ropa urbana en vez del atuendo norteño clásico. La crítica especializada lo señala como el pionero que abrió el camino para toda una generación —<button type="button" class="timeline-detail-entrylink" data-id="peso-pluma-2023">Peso Pluma</button>, Junior H, Fuerza Regida, Tito Double P— que llevaría los corridos tumbados a las listas globales apenas unos años después. El 28 de agosto de 2024, en la FENAPO (Feria Nacional Potosina) de San Luis Potosí, reúne a más de 310,000 personas, un récord de asistencia en la historia de los conciertos en México — superado apenas un año más tarde, en ese mismo festival, por el <button type="button" class="timeline-detail-entrylink" data-id="reggaeton-origenes-panama-puerto-rico-1985">reguetonero</button> Don Omar, con cerca de 385,000 asistentes.',
+      'José Natanael Cano Monge nace el 26 de febrero de 2000 en <button type="button" class="timeline-detail-geolink" data-region="Hermosillo, Sonora" data-country="México">Hermosillo, Sonora</button>, y en 2019, apenas adolescente, publica el álbum Corridos Tumbados, que da nombre a un género nuevo: la fusión del corrido regional mexicano tradicional (ver <button type="button" class="timeline-detail-entrylink" data-id="corrido-origenes-independencia-revolucion">los orígenes del corrido</button>) con el trap, el hip-hop y la estética visual del <button type="button" class="timeline-detail-entrylink" data-id="reggaeton-origenes-panama-puerto-rico-1985">reggaetón</button>, con Cano cantando sobre capos y lujos vestido de cadenas y ropa urbana en vez del atuendo norteño clásico. La crítica especializada lo señala como el pionero que abrió el camino para toda una generación —<button type="button" class="timeline-detail-entrylink" data-id="peso-pluma-2023">Peso Pluma</button>, Junior H, Fuerza Regida, Tito Double P— que llevaría los corridos tumbados a las listas globales apenas unos años después. El 28 de agosto de 2024, en la FENAPO (Feria Nacional Potosina) de <button type="button" class="timeline-detail-geolink" data-region="San Luis Potosí" data-country="México">San Luis Potosí</button>, reúne a más de 310,000 personas, un récord de asistencia en la historia de los conciertos en México — superado casi exactamente un año después, el 19 de agosto de 2025 y en ese mismo festival, por <button type="button" class="timeline-detail-entrylink" data-id="don-omar-1978">Don Omar</button>, con 358,000 asistentes.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Natanael Cano hubiera grabado corridos tradicionales sin fusionarlos con el trap en 2019?",
       answer:
         "El corrido regional mexicano habría seguido siendo, para las nuevas generaciones digitales, un género de sus padres y abuelos, no uno propio. Al vestirlo con la estética y el sonido del trap, Cano le dio al corrido una segunda juventud que, apenas cuatro años después, llevaría a Peso Pluma al número uno global de Spotify."
+    }
+  },
+  {
+    id: "don-omar-1978",
+    year: 1978,
+    title: "2025: Don Omar y el récord de la FENAPO",
+    author: "Don Omar",
+    country: "Puerto Rico",
+    region: "San Juan",
+    type: ICON_TYPE.MUSIC,
+    description:
+      "William Omar Landrón Rivera nace el 10 de febrero de 1978 en Villa Palmeras, un barrio popular de San Juan, Puerto Rico, y trabaja como pastor evangélico antes de dedicarse por completo a la música. En 2003 publica su álbum debut, The Last Don, y se convierte en una de las voces fundacionales del reguetón junto a Daddy Yankee y Tego Calderón, con éxitos como 'Dale Don Dale', 'Pobre Diabla' y 'Danza Kuduro'. El 19 de agosto de 2025, en la FENAPO (Feria Nacional Potosina) de San Luis Potosí, reúne a 358,000 personas —el show más multitudinario de toda su carrera y un nuevo récord de asistencia en la historia de los conciertos en México, superando el que Natanael Cano había impuesto apenas un año antes en ese mismo festival—. 'Este es el mejor día de mi vida', declara esa noche.",
+    descriptionHtml:
+      'William Omar Landrón Rivera nace el 10 de febrero de 1978 en Villa Palmeras, un barrio popular de <button type="button" class="timeline-detail-geolink" data-region="San Juan" data-country="Puerto Rico">San Juan, Puerto Rico</button>, y trabaja como pastor evangélico antes de dedicarse por completo a la música. En 2003 publica su álbum debut, The Last Don, y se convierte en una de las voces fundacionales del reguetón junto a Daddy Yankee y Tego Calderón, con éxitos como \'Dale Don Dale\', \'Pobre Diabla\' y \'Danza Kuduro\'. El 19 de agosto de 2025, en la FENAPO (Feria Nacional Potosina) de <button type="button" class="timeline-detail-geolink" data-region="San Luis Potosí" data-country="México">San Luis Potosí</button>, reúne a 358,000 personas —el show más multitudinario de toda su carrera y un nuevo récord de asistencia en la historia de los conciertos en México, superando el que <button type="button" class="timeline-detail-entrylink" data-id="natanael-cano-corridos-tumbados-2019">Natanael Cano</button> había impuesto apenas un año antes en ese mismo festival—. \'Este es el mejor día de mi vida\', declara esa noche.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Don Omar hubiera publicado The Last Don unos años más tarde, cuando el reguetón ya estuviera consolidado en el mercado mexicano?",
+      answer:
+        "Habría llegado como uno más entre docenas de artistas de un género ya establecido, no como una de sus voces fundacionales. Publicar en 2003, cuando el reguetón apenas cruzaba fronteras, es parte de lo que le permitió, veintidós años después, seguir siendo capaz de romper récords de asistencia en un país que ni siquiera era su mercado natural."
     }
   }
 ];

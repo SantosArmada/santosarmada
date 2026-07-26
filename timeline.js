@@ -631,6 +631,15 @@
   minimapViewport.addEventListener("pointercancel", endMinimapDrag);
 
   /* ---------- Filters ---------- */
+  // Most entries carry a single `type` (drives both the filter chip match
+  // and the dot color). A few — the MÚSICA genre-origin entries, which are
+  // as much a historical event as a musical one — also carry a `types`
+  // array for filter purposes; the dot color still comes from `type` alone,
+  // so no CSS changes are needed for the dual tag to work.
+  function entryFilterTypes(entry) {
+    return entry.types || [entry.type || "literature"];
+  }
+
   function applyFilters() {
     const activeTypes = new Set(
       filterTypeButtons.filter((b) => b.classList.contains("is-active")).map((b) => b.dataset.type)
@@ -641,7 +650,7 @@
       const idx = Number(el.dataset.index);
       const entry = entries[idx];
       const matches =
-        activeTypes.has(entry.type || "literature") &&
+        entryFilterTypes(entry).some((t) => activeTypes.has(t)) &&
         (!activeCountry || entry.country === activeCountry);
       el.classList.toggle("is-filtered-out", !matches);
     });
@@ -650,7 +659,7 @@
       const anyMatch = members.some((idx) => {
         const entry = entries[idx];
         return (
-          activeTypes.has(entry.type || "literature") &&
+          entryFilterTypes(entry).some((t) => activeTypes.has(t)) &&
           (!activeCountry || entry.country === activeCountry)
         );
       });

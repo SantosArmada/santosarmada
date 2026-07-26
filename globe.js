@@ -553,7 +553,8 @@ const REGION_CENTER = {
     'Madison Square Garden': { lat: 40.75, lng: -73.99 },
     'Houston': { lat: 29.76, lng: -95.37 },
     'Indio, California': { lat: 33.72, lng: -116.22 },
-    'Royce Hall, UCLA': { lat: 34.07, lng: -118.44 }
+    'Royce Hall, UCLA': { lat: 34.07, lng: -118.44 },
+    'San Luis Potosí': { lat: 22.16, lng: -100.99 }
 };
 
 let regionRippleTimeoutIds = [];
