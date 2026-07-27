@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class of 2004 — Merch — Santos Armada</title>
+    <link rel="stylesheet" href="merch-store.css?v=15">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="mercadeo-page">
+
+<!-- BANNER: identical to merch-store.html's own nav — same slot, same theme. -->
+<nav class="mercadeo-nav">
+    <a href="/" class="mercadeo-nav-logo">
+        <img src="Images/logo.PNG" alt="Santos Armada" class="mercadeo-nav-crest">
+        <span>Santos Armada</span>
+    </a>
+    <button type="button" class="mercadeo-hamburger" onclick="toggleMenu()" aria-label="Toggle menu">☰</button>
+    <ul class="mercadeo-nav-links" id="mercadeoNavLinks">
+        <li><a href="audiolibros.html">Audiolibros</a></li>
+        <li><a href="interpreter-z.html">Interpreter Z</a></li>
+        <li><a href="museos.html">Museos</a></li>
+        <li><a href="libritos.html">Libritos</a></li>
+        <li><a href="el-cubo.html">El Cubo</a></li>
+    </ul>
+</nav>
+
+<!-- PRODUCT DETAIL: front/back toggle + click-to-select color swatches,
+     same template as merch-santos-armada-bomber.html / merch-crest-bomber.html. -->
+<main class="merch-product">
+
+    <a href="merch-store.html#hoodies" class="merch-back-link merch-product-back">← Merch</a>
+
+    <div class="merch-product-layout">
+
+        <div class="merch-product-gallery">
+            <div class="merch-product-image-wrap">
+                <img id="merchProductImage" src="Images/merch/sweaters/SWT01-2004-black.png" alt="Class of 2004 — front, black">
+            </div>
+            <div class="merch-product-views">
+                <button type="button" class="merch-product-view-btn merch-product-view-active" data-view="front">Front</button>
+                <button type="button" class="merch-product-view-btn" data-view="back">Back</button>
+            </div>
+        </div>
+
+        <div class="merch-product-info">
+            <span class="merch-preview-badge">Preview · full store launching soon</span>
+            <h1 class="merch-product-name">Class of 2004</h1>
+            <span class="merch-product-price-row">
+                <span class="merch-product-price merch-product-price-struck">$119.00</span>
+                <span class="merch-product-sold-out-label">Sold out</span>
+            </span>
+            <p class="merch-product-desc">My Spanish teacher would be so proud.</p>
+
+            <div class="merch-product-colors">
+                <span class="merch-product-colors-label">Color — <span id="merchProductColorName">Black</span></span>
+                <div class="merch-product-swatches">
+                    <button type="button" class="merch-swatch merch-swatch-active" style="background:#111111;" data-front="Images/merch/sweaters/SWT01-2004-black.png" data-back="Images/merch/sweaters/SWT01-2004-black-back.png" aria-label="Black"></button>
+                    <button type="button" class="merch-swatch" style="background:#e9e4df;" data-front="Images/merch/sweaters/SWT01-2004-white.png" data-back="Images/merch/sweaters/SWT01-2004-white-back.png" aria-label="White"></button>
+                    <button type="button" class="merch-swatch" style="background:#f44703;" data-front="Images/merch/sweaters/SWT01-2004-classic.png" data-back="Images/merch/sweaters/SWT01-2004-classic-back.png" aria-label="Classic"></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
+<!-- LIGHTBOX: opens whatever the main product image currently shows. -->
+<div class="merch-lightbox" id="merchLightbox" aria-hidden="true">
+    <button type="button" class="merch-lightbox-close" aria-label="Close">✕</button>
+    <img id="merchLightboxImage" src="" alt="">
+</div>
+
+<!-- FOOTER -->
+<footer class="mercadeo-footer">
+    <a href="/" class="mercadeo-footer-logo-link">
+        <img src="Images/logo.PNG" alt="Santos Armada" class="mercadeo-footer-crest">
+    </a>
+    <ul class="mercadeo-footer-links">
+        <li><a href="cv.html">CV</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="mercadeo-footer-copy">© 2026 Santos Armada · santosarmada@protonmail.com · All rights reserved</p>
+</footer>
+
+<script>
+    function toggleMenu() {
+        document.getElementById('mercadeoNavLinks').classList.toggle('mercadeo-open');
+    }
+</script>
+<script src="merch-product.js" defer></script>
+</body>
+</html>
