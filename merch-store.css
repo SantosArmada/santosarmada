@@ -692,6 +692,62 @@ body.mercadeo-page {
     background: var(--mercadeo-tangerine);
 }
 
+/* Size picker — same click-to-select language as the color swatches,
+   just rectangular buttons with a label instead of a color fill. */
+.merch-product-size {
+    margin-top: 28px;
+}
+
+.merch-size-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.merch-size-btn {
+    padding: 9px 16px;
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    color: var(--mercadeo-white);
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.merch-size-btn:hover {
+    border-color: var(--mercadeo-tangerine);
+}
+
+.merch-size-btn-active {
+    background: var(--mercadeo-tangerine);
+    border-color: var(--mercadeo-tangerine);
+    color: var(--mercadeo-onyx);
+}
+
+.merch-size-btn:disabled {
+    color: var(--mercadeo-gray);
+    border-color: rgba(255, 255, 255, 0.12);
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+.merch-size-btn:disabled:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Bulleted spec list under the color swatches — fabric, care, sizing. */
+.merch-product-details {
+    margin-top: 28px;
+}
+
+.merch-product-details .merch-product-list {
+    margin-top: 12px;
+}
+
 .merch-product-colors-label {
     display: block;
     font-size: 0.72rem;

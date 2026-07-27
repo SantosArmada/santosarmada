@@ -49,6 +49,20 @@
         });
     }
 
+    // Size picker: cosmetic selection only (store's still preview-only,
+    // no cart) — just swaps the active button and the label text.
+    var sizeNameEl = document.getElementById('merchProductSizeName');
+    var sizeBtns = document.querySelectorAll('.merch-size-btn');
+
+    sizeBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            if (btn.disabled) return;
+            sizeBtns.forEach(function (b) { b.classList.remove('merch-size-btn-active'); });
+            btn.classList.add('merch-size-btn-active');
+            if (sizeNameEl) sizeNameEl.textContent = btn.getAttribute('data-size-label') || btn.textContent;
+        });
+    });
+
     // Click-to-zoom: opens whatever the main image currently shows
     // (current color + front/back), so it always matches what was clicked.
     var lightbox = document.getElementById('merchLightbox');
