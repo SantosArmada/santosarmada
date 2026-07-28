@@ -369,6 +369,23 @@ const TIMELINE_ENTRIES = [
         "El pequeño curacazgo cusqueño habría desaparecido como tantos otros señoríos andinos de la época, absorbido por el imperio chanka en expansión. No existiría el Tahuantinsuyo, ni la red de caminos ni el mit'a que llegaron a unificar los Andes bajo una sola administración —y probablemente tampoco habría existido un imperio lo bastante grande y centralizado como para que, un siglo después, un puñado de conquistadores españoles pudiera tomarlo entero capturando a un solo hombre, el inca Atahualpa."
     }
   },
+  {
+    id: "colon-porto-santo-1479",
+    year: 1479,
+    endYear: 1485,
+    title: "1479: Colón se instala en Porto Santo",
+    author: "Hito histórico",
+    country: "Portugal",
+    region: "Porto Santo",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Hacia 1479, Cristóbal Colón se casa con Filipa Moniz Perestrelo, hija de Bartolomeu Perestrelo, primer capitán-donatario de Porto Santo, pequeña isla del archipiélago portugués de Madeira. Perestrelo ya había muerto, pero a través de su familia política Colón obtiene acceso a sus mapas, diarios de navegación y cartas de marear. Instalado entre Porto Santo y la vecina Madeira, se involucra en el comercio del azúcar y en las rutas atlánticas hacia la costa de África, y absorbe ahí un conocimiento práctico de los vientos y las corrientes del Atlántico que, más de una década después, sustentaría su propuesta de navegar hacia el occidente. Hoy la Casa Museu Cristóvão Colombo, en Vila Baleira, conserva esa memoria isleña como antesala —discutida por los historiadores en sus detalles, pero no en su importancia— del viaje de 1492.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Colón nunca hubiera tenido acceso a los mapas y diarios de Bartolomeu Perestrelo?",
+      answer:
+        "Sin esos años isleños de comercio, navegación y estudio de vientos atlánticos, Colón habría llegado a la corte de los Reyes Católicos con una intuición, no con un expediente de navegación. Su propuesta —ya de por sí recibida con escepticismo— pudo haber sido descartada sin la evidencia acumulada en Porto Santo y Madeira, dejando el primer contacto con América en manos de otro marino, bajo otra bandera."
+    }
+  },
 
   // ---- COLONIAL ----
   {

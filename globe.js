@@ -509,6 +509,7 @@ const REGION_CENTER = {
     'Valencia': { lat: 39.47, lng: -0.38 },
     'San José Villanueva': { lat: 13.56, lng: -89.26 },
     'Zaragoza': { lat: 41.65, lng: -0.88 },
+    'Porto Santo': { lat: 33.07, lng: -16.33 },
     // Abolition-of-slavery arc (added together, see timeline-data.js
     // "ABOLICIÓN DE LA ESCLAVITUD EN AMÉRICA" section)
     'Cap-Haïtien': { lat: 19.76, lng: -72.20 },

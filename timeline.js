@@ -337,7 +337,7 @@
 
     activeIndex = idx;
 
-    const NON_LATAM_COUNTRIES = ["China", "San Vicente y las Granadinas"];
+    const NON_LATAM_COUNTRIES = ["China", "San Vicente y las Granadinas", "Portugal"];
     const isSpain = entry.country === "España";
     const isOtherRegion = NON_LATAM_COUNTRIES.includes(entry.country);
     const regionFlagClass = isSpain
