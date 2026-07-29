@@ -123,6 +123,9 @@ const TIMELINE_ENTRIES = [
   {
     id: "conquista-musulmana-711",
     year: 711,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. 710 and 711 were only 2px apart.
+    trackYear: 730.4,
     title: "711: la conquista musulmana de Hispania",
     author: "Hito histórico",
     country: "España",
@@ -143,7 +146,7 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. 710/711/718/722/738 sat within 34px of each other and
     // all chain-clustered into a single "5 obras" marker.
-    trackYear: 733,
+    trackYear: 750.7,
     title: "718: la conquista musulmana se consolida",
     author: "Hito histórico",
     country: "España",
@@ -161,7 +164,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "pelayo-covadonga-722",
     year: 722,
-    trackYear: 755,
+    trackYear: 771.1,
     title: "722: la batalla de Covadonga",
     author: "Hito histórico",
     country: "España",
@@ -179,7 +182,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "quirigua-copan-738",
     year: 738,
-    trackYear: 777,
+    trackYear: 791.5,
     title: "738: Quiriguá derrota y decapita a Copán",
     author: "Hito histórico",
     country: "Guatemala",
@@ -295,6 +298,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "el-cid-valencia-1094",
     year: 1094,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. 1085 and 1094 were only 17px apart in this sparse
+    // pre-colonial era (~1.86px/year), under the 34px cluster threshold.
+    trackYear: 1108,
     title: "1094: El Cid conquista Valencia",
     author: "Anónimo",
     country: "España",
@@ -399,6 +406,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "colon-porto-santo-1479",
     year: 1479,
+    trackYear: 1476.1,
     endYear: 1485,
     title: "1479: Colón se instala en Porto Santo",
     author: "Hito histórico",
@@ -418,6 +426,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "cuatro-viajes-colon-1492",
     year: 1492,
+    trackYear: 1493,
     endYear: 1506,
     title: "Los cuatro viajes del almirante y su testamento",
     author: "Cristóbal Colón",
@@ -434,6 +443,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "gramatica-castellana-nebrija-1492",
     year: 1492,
+    trackYear: 1493,
     title: "Gramática de la lengua castellana",
     author: "Antonio de Nebrija",
     country: "España",
@@ -487,6 +497,9 @@ const TIMELINE_ENTRIES = [
   {
     id: "naufragios-cabeza-de-vaca-1528",
     year: 1528,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. 1528/1531/1535/1541 chain-clustered together.
+    trackYear: 1515.4,
     endYear: 1536,
     pubYear: 1542,
     title: "Naufragios",
@@ -504,6 +517,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "vision-guadalupe-1531",
     year: 1531,
+    trackYear: 1520.7,
     title: "1531: la aparición de la Virgen de Guadalupe",
     author: "Hito histórico",
     country: "México",
@@ -601,6 +615,9 @@ const TIMELINE_ENTRIES = [
   {
     id: "monja-alferez-erauso-1592",
     year: 1592,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. 1592/1595/1599 chain-clustered together.
+    trackYear: 1559.4,
     endYear: 1650,
     pubYear: 1829,
     title: "Historia de la Monja Alférez",
@@ -673,6 +690,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "juana-azurduy-1816",
     year: 1816,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. 1815 and 1816 were only 24px apart, just under the
+    // 34px cluster threshold.
+    trackYear: 1817,
     endYear: 1862,
     title: "1816: Juana Azurduy, la teniente coronela",
     author: "Hito histórico",
@@ -722,6 +743,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "estacion-del-pantano",
     year: 1853,
+    trackYear: 1854.1,
     endYear: 1855,
     title: "La estación del pantano",
     author: "Yuri Herrera",
@@ -759,6 +781,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "jose-guadalupe-posada-1852",
     year: 1852,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. 1850/1851/1852/1853/1854 all chain-clustered; this
+    // splits them into four groups: [1850-1851], [1852], [1853], [1854].
+    trackYear: 1852.5,
     endYear: 1913,
     title: "1852–1913: José Guadalupe Posada",
     author: "José Guadalupe Posada",
@@ -1464,6 +1490,24 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "diaspora-salvadorena-virginia-2024",
+    year: 2024,
+    title: "2024: la diáspora salvadoreña en el norte de Virginia",
+    author: "Hito histórico",
+    country: "Estados Unidos",
+    region: "Chirilagua",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "En octubre de 2024, WTOP —la radio de noticias de Washington D.C., una de las emisoras de noticias más escuchadas del país— describe a Chirilagua —el barrio de Arlandria, entre Alexandria y Arlington— como 'una joya escondida de la representación salvadoreña' en el norte de Virginia: pupuserías, panaderías, iglesias evangélicas, ligas de fútbol y murales que celebran una herencia que llegó ahí huyendo de la guerra civil de El Salvador (1980-1992). El barrio toma su nombre de la ciudad salvadoreña de Chirilagua, de donde llegaron muchos de sus primeros residentes. Las cifras detrás de ese barrio son contundentes: Virginia concentra entre 185,000 y 195,000 personas de origen salvadoreño, cerca del 2.1% de la población total del estado y alrededor del 7% de todos los salvadoreños en Estados Unidos. El condado de Fairfax reúne por sí solo más de 47,000, y Prince William más de 41,000, con comunidades igual de significativas en Alexandria, Arlington, Manassas, Loudoun y Herndon —donde, junto con Manassas Park, los salvadoreños llegan a representar un porcentaje notablemente alto de la población local—. La huella económica es igual de medible: se estima que unos 10,000 trabajadores salvadoreños bajo el Estatus de Protección Temporal (TPS) están empleados en Virginia, aportando alrededor de 730 millones de dólares anuales a la economía del estado. Lo que empezó como una ola de refugiados de la guerra civil —trabajando en construcción, jardinería, hoteles y limpieza, muchos indocumentados, enviando remesas a casa— se ha convertido en una historia de tres generaciones: la que llegó durante la guerra, sus hijos criados bilingües en Virginia, y ahora una tercera generación cuyos abuelos fueron los inmigrantes originales. Muchos jóvenes de Chirilagua nunca han vivido en El Salvador, y aun así el barrio funciona como una patria cultural. Empresarios como Carlos Castro, originario de La Unión, construyeron instituciones regionales como los supermercados Todos, que hoy sirven a comunidades inmigrantes en todo el área de Washington D.C.",
+    descriptionHtml:
+      'En octubre de 2024, WTOP —la radio de noticias de Washington D.C., una de las emisoras de noticias más escuchadas del país— describe a <button type="button" class="timeline-detail-geolink" data-region="Chirilagua" data-country="Estados Unidos">Chirilagua</button> —el barrio de Arlandria, entre Alexandria y Arlington— como \'una joya escondida de la representación salvadoreña\' en el norte de Virginia: pupuserías, panaderías, iglesias evangélicas, ligas de fútbol y murales que celebran una herencia que llegó ahí huyendo de la guerra civil de <button type="button" class="timeline-detail-geolink" data-country="El Salvador">El Salvador</button> (1980-1992). El barrio toma su nombre de la ciudad salvadoreña de Chirilagua, de donde llegaron muchos de sus primeros residentes. Las cifras detrás de ese barrio son contundentes: Virginia concentra entre 185,000 y 195,000 personas de origen salvadoreño, cerca del 2.1% de la población total del estado y alrededor del 7% de todos los salvadoreños en Estados Unidos. El condado de Fairfax reúne por sí solo más de 47,000, y Prince William más de 41,000, con comunidades igual de significativas en Alexandria, Arlington, Manassas, Loudoun y Herndon —donde, junto con Manassas Park, los salvadoreños llegan a representar un porcentaje notablemente alto de la población local—. La huella económica es igual de medible: se estima que unos 10,000 trabajadores salvadoreños bajo el Estatus de Protección Temporal (TPS) están empleados en Virginia, aportando alrededor de 730 millones de dólares anuales a la economía del estado. Lo que empezó como una ola de refugiados de la guerra civil —trabajando en construcción, jardinería, hoteles y limpieza, muchos indocumentados, enviando remesas a casa— se ha convertido en una historia de tres generaciones: la que llegó durante la guerra, sus hijos criados bilingües en Virginia, y ahora una tercera generación cuyos abuelos fueron los inmigrantes originales. Muchos jóvenes de Chirilagua nunca han vivido en El Salvador, y aun así el barrio funciona como una patria cultural. Empresarios como Carlos Castro, originario de La Unión, construyeron instituciones regionales como los supermercados Todos, que hoy sirven a comunidades inmigrantes en todo el área de Washington D.C.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si la guerra civil salvadoreña de 1980-1992 nunca hubiera desatado esta migración hacia Virginia?",
+      answer:
+        "El norte de Virginia sería un lugar culturalmente distinto: sin Chirilagua, sin pupuserías tan comunes como las hamburgueserías, sin la red de remesas e instituciones —desde iglesias hasta supermercados— que hoy conectan a cientos de miles de familias con El Salvador. La diáspora no es un accidente demográfico; es la huella directa, generación tras generación, de una guerra que expulsó a cientos de miles de personas y que Virginia terminó absorbiendo como propia."
+    }
+  },
+  {
     id: "prospera-crawfish-rock-2026",
     year: 2026,
     title: "2026: Próspera y la resistencia garífuna en Roatán",
@@ -1488,6 +1532,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "el-greco-1541",
     year: 1541,
+    trackYear: 1531.3,
     endYear: 1614,
     title: "1541–1614: El Greco",
     author: "El Greco (Domenikos Theotokopoulos)",
@@ -1506,6 +1551,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "velazquez-1599",
     year: 1599,
+    trackYear: 1603.6,
     endYear: 1660,
     title: "1599–1660: Diego Velázquez",
     author: "Diego Velázquez",
@@ -1765,6 +1811,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "inquisicion-espanola-1478",
     year: 1478,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. 1478/1479/1492/1492 chain-clustered across the
+    // pre-colonial/colonial era boundary.
+    trackYear: 1456.3,
     title: "1478: se establece la Inquisición española",
     author: "Hito histórico",
     country: "España",
@@ -1800,6 +1850,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "guerra-caribe-balliceaux-1796",
     year: 1795,
+    trackYear: 1790.5,
     endYear: 1796,
     title: "1796: derrota garífuna y el horror de Balliceaux",
     author: "Hito histórico",
@@ -1817,6 +1868,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "garifuna-llegada-roatan-1797",
     year: 1797,
+    trackYear: 1796.5,
     title: "12 de abril de 1797: los garífunas llegan a Honduras",
     author: "Hito histórico",
     country: "Honduras",
@@ -1835,6 +1887,11 @@ const TIMELINE_ENTRIES = [
   {
     id: "bois-caiman-revuelta-1791",
     year: 1791,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Seven real events across 1791-1810 chain-clustered
+    // into a single "7 obras" marker; spread across the available room
+    // between the untouched 1773 and 1813 entries on either side.
+    trackYear: 1778.4,
     title: "1791: la ceremonia de Bois Caïman y el estallido de la revuelta",
     author: "Hito histórico",
     country: "Haití",
@@ -1852,6 +1909,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "sonthonax-convencion-abolicion-1794",
     year: 1794,
+    trackYear: 1784.5,
     title: "1794: Francia abole la esclavitud en Saint-Domingue",
     author: "Hito histórico",
     country: "Haití",
@@ -1868,6 +1926,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "expedicion-leclerc-toussaint-1802",
     year: 1802,
+    trackYear: 1802.6,
     title: "1802: Napoleón envía a Leclerc a restaurar la esclavitud",
     author: "Hito histórico",
     country: "Haití",
@@ -1884,6 +1943,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "haiti-independencia-1804",
     year: 1804,
+    trackYear: 1808.6,
     title: "1804: Haití declara su independencia y abole la esclavitud para siempre",
     author: "Hito histórico",
     country: "Haití",
@@ -1917,6 +1977,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "centroamerica-abolicion-esclavitud-1824",
     year: 1824,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. 1823 and 1824 were only 24px apart, just under the
+    // 34px cluster threshold.
+    trackYear: 1825,
     title: "1824: las Provincias Unidas de Centroamérica abolen la esclavitud",
     author: "Hito histórico",
     country: "Guatemala",
@@ -1966,6 +2030,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "argentina-abolicion-constitucion-1853",
     year: 1853,
+    trackYear: 1854.1,
     title: "1853: la Constitución argentina abole la esclavitud",
     author: "Hito histórico",
     country: "Argentina",
@@ -2046,6 +2111,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "venezuela-abolicion-esclavitud-1854",
     year: 1854,
+    trackYear: 1856,
     title: "1854: Venezuela abole la esclavitud",
     author: "Hito histórico",
     country: "Venezuela",
@@ -2062,6 +2128,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "peru-abolicion-esclavitud-1854",
     year: 1854,
+    trackYear: 1856,
     title: "1854: Ramón Castilla abole la esclavitud en Perú",
     author: "Hito histórico",
     country: "Perú",
@@ -2094,6 +2161,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "el-morro-san-juan-1595",
     year: 1595,
+    trackYear: 1581.5,
     endYear: 1898,
     title: "1595–1898: El Morro, la fortaleza que nunca cayó en combate",
     author: "Hito histórico",
@@ -2357,6 +2425,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "corrido-origenes-independencia-revolucion",
     year: 1810,
+    trackYear: 1811.5,
     endYear: 1920,
     title: "1810–1920: el corrido, el periódico del pueblo",
     author: "Hito histórico",
@@ -2896,6 +2965,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "galapagos-historia-darwin-1535",
     year: 1535,
+    trackYear: 1526.0,
     endYear: 1835,
     title: "1535–1835: Galápagos, de Tomás de Berlanga a Charles Darwin",
     author: "Hito histórico",

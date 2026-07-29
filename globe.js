@@ -26,11 +26,14 @@ const highlightedCountries = {
     'France': '#ff9ecf',
     'Canada': '#ff9ecf',
     'Italy': '#c8a96e',
+    'Greece': '#c8a96e',
+    'Turkey': '#c8a96e',
+    'Armenia': '#c8a96e',
     'Angola': '#ff6a00',
     'Mozambique': '#ff6a00',
     'Guinea-Bissau': '#ff6a00',
     'Timor-Leste': '#ff6a00',
-    'Eq. Guinea': '#c8a96e',
+    'Eq. Guinea': '#39ff6a',
     'Philippines': '#39ff6a',
     // Rest of Africa, lit up together in neon purple — Morocco, Angola,
     // Mozambique, Guinea-Bissau and Eq. Guinea keep their own colors above
@@ -445,6 +448,14 @@ const US_FRENCH_HERITAGE_STATES = new Set([
 ]);
 const US_FRENCH_HERITAGE_COLOR = '#ff9ecf';
 
+// U.S. states lit up for a present-day Latin American diaspora rather
+// than colonial territorial history — Virginia was never Spanish or
+// Mexican land, so it doesn't belong in US_HERITAGE_STATES above. Reuses
+// that same green, on purpose, as the visual language for "Latin America
+// lives here too." Currently just Virginia (see the 2024 Salvadoran
+// diaspora entry, centered on Chirilagua/Arlandria).
+const US_DIASPORA_STATES = new Set(['Virginia']);
+
 Promise.all([
     fetch('vendor/textures/countries-110m.json').then(res => res.json()),
     fetch('vendor/textures/us-states-10m.json').then(res => res.json())
@@ -453,7 +464,9 @@ Promise.all([
         const countries = topojson.feature(countryTopology, countryTopology.objects.countries);
         const states = topojson.feature(stateTopology, stateTopology.objects.states);
         const heritageStates = states.features.filter(f =>
-            US_HERITAGE_STATES.has(f.properties.name) || US_FRENCH_HERITAGE_STATES.has(f.properties.name)
+            US_HERITAGE_STATES.has(f.properties.name) ||
+            US_FRENCH_HERITAGE_STATES.has(f.properties.name) ||
+            US_DIASPORA_STATES.has(f.properties.name)
         );
         const combinedFeatures = countries.features.concat(heritageStates);
 
@@ -466,20 +479,21 @@ Promise.all([
                 const name = feat.properties.name;
                 if (US_HERITAGE_STATES.has(name)) return US_HERITAGE_COLOR;
                 if (US_FRENCH_HERITAGE_STATES.has(name)) return US_FRENCH_HERITAGE_COLOR;
+                if (US_DIASPORA_STATES.has(name)) return US_HERITAGE_COLOR;
                 return highlightedCountries[name] || 'rgba(255,255,255,0.04)';
             })
             .polygonSideColor(() => 'rgba(0,0,0,0)')
             .polygonStrokeColor(() => 'rgba(255,255,255,0.15)')
             .polygonAltitude(feat => {
                 const name = feat.properties.name;
-                if (US_HERITAGE_STATES.has(name) || US_FRENCH_HERITAGE_STATES.has(name)) return 0.016;
+                if (US_HERITAGE_STATES.has(name) || US_FRENCH_HERITAGE_STATES.has(name) || US_DIASPORA_STATES.has(name)) return 0.016;
                 return highlightedCountries[name] ? 0.01 : 0.005;
             })
             .onPolygonClick(feat => {
                 // Clicking one of the lit-up heritage states falls through to
                 // the same info panel as clicking anywhere else in the US —
                 // the states are a visual overlay, not a separate click target.
-                const name = (US_HERITAGE_STATES.has(feat.properties.name) || US_FRENCH_HERITAGE_STATES.has(feat.properties.name))
+                const name = (US_HERITAGE_STATES.has(feat.properties.name) || US_FRENCH_HERITAGE_STATES.has(feat.properties.name) || US_DIASPORA_STATES.has(feat.properties.name))
                     ? 'United States of America'
                     : feat.properties.name;
                 if (!highlightedCountries[name]) return;
@@ -605,6 +619,7 @@ const REGION_CENTER = {
     'Covadonga': { lat: 43.31, lng: -4.99 },
     'Cusco': { lat: -13.53, lng: -71.97 },
     'Copán': { lat: 14.83, lng: -89.14 },
+    'Chirilagua': { lat: 38.815, lng: -77.061 },
     'Quiriguá': { lat: 15.27, lng: -89.04 },
     'Córdoba': { lat: 37.89, lng: -4.78 },
     'Estoril': { lat: 38.70, lng: -9.40 },
