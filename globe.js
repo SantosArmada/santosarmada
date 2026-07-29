@@ -604,7 +604,8 @@ const COUNTRY_CENTER = {
     'Egipto': { lat: 26.8, lng: 30.8 },
     'Marruecos': { lat: 31.8, lng: -7.1 },
     'Reino Unido': { lat: 55.4, lng: -3.4 },
-    'Mongolia': { lat: 46.9, lng: 103.8 }
+    'Mongolia': { lat: 46.9, lng: 103.8 },
+    'Irak': { lat: 33.0, lng: 44.0 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -620,6 +621,7 @@ const REGION_CENTER = {
     'Cusco': { lat: -13.53, lng: -71.97 },
     'Copán': { lat: 14.83, lng: -89.14 },
     'Chirilagua': { lat: 38.815, lng: -77.061 },
+    'Chirilagua, El Salvador': { lat: 13.217, lng: -88.139 },
     'Quiriguá': { lat: 15.27, lng: -89.04 },
     'Córdoba': { lat: 37.89, lng: -4.78 },
     'Estoril': { lat: 38.70, lng: -9.40 },
@@ -666,6 +668,8 @@ const REGION_CENTER = {
     'Oxford': { lat: 51.75, lng: -1.26 },
     'Karakórum': { lat: 47.20, lng: 102.85 },
     'Pekín': { lat: 39.90, lng: 116.41 },
+    'Petra, Mallorca': { lat: 39.614, lng: 3.113 },
+    'La Paz, Baja California': { lat: 24.142, lng: -110.312 },
     // Abolition-of-slavery arc (added together, see timeline-data.js
     // "ABOLICIÓN DE LA ESCLAVITUD EN AMÉRICA" section)
     'Cap-Haïtien': { lat: 19.76, lng: -72.20 },
@@ -728,7 +732,22 @@ const REGION_CENTER = {
     'León': { lat: 42.60, lng: -5.57 },
     'París': { lat: 48.86, lng: 2.35 },
     'San Petersburgo': { lat: 59.93, lng: 30.34 },
-    'Nueva Delhi': { lat: 28.61, lng: 77.21 }
+    'Nueva Delhi': { lat: 28.61, lng: 77.21 },
+    // Siglos VII-X (added together — visigoths/Al-Ándalus/maya cluster,
+    // see timeline-data.js entries 710-950)
+    'Estrecho de Gibraltar': { lat: 35.95, lng: -5.60 },
+    'Ceuta': { lat: 35.888, lng: -5.322 },
+    'Mérida': { lat: 38.916, lng: -6.343 },
+    'Asturias': { lat: 43.36, lng: -5.85 },
+    'Cangas de Onís': { lat: 43.35, lng: -5.13 },
+    'Granada': { lat: 37.18, lng: -3.60 },
+    'Oviedo': { lat: 43.36, lng: -5.84 },
+    'Iria Flavia': { lat: 42.73, lng: -8.77 },
+    'Tikal': { lat: 17.222, lng: -89.623 },
+    'Bagdad': { lat: 33.315, lng: 44.366 },
+    'El Cairo': { lat: 30.044, lng: 31.236 },
+    'Tula': { lat: 20.058, lng: -99.343 },
+    'Roma': { lat: 41.9028, lng: 12.4964 }
 };
 
 let regionRippleTimeoutIds = [];
