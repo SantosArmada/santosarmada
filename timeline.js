@@ -188,9 +188,15 @@
 
   /* ---------- Shared x-order (feeds clustering + keyboard jump) ----------
      Excludes glyph entries — they live in their own sparse lane above
-     the main track and were never part of the collision problem. */
+     the main track and were never part of the collision problem.
+     Positions by entry.trackYear when set, falling back to entry.year —
+     lets a handful of real, tightly-dated entries (e.g. five events across
+     28 years in a 791-year era) get spread out on the track without
+     touching the actual year shown in their label, header, or detail
+     panel. Only the x-position math reads trackYear; everything else
+     keeps using entry.year. */
   const entriesByX = entries
-    .map((e, idx) => ({ idx, x: yearToX(e.year) }))
+    .map((e, idx) => ({ idx, x: yearToX(e.trackYear || e.year) }))
     .filter((item) => !entries[item.idx].glyph)
     .sort((a, b) => a.x - b.x);
 
@@ -324,7 +330,11 @@
   function scrollEntryIntoView(idx) {
     const entry = entries[idx];
     if (!entry) return;
-    scrollXIntoView(yearToX(entry.year));
+    // Reuse the same x already computed for the marker (respects
+    // trackYear) instead of recomputing from entry.year, so this always
+    // centers on where the dot actually sits, not its true-year position.
+    const x = xByIdx.has(idx) ? xByIdx.get(idx) : yearToX(entry.year);
+    scrollXIntoView(x);
   }
 
   function selectEntry(idx) {
