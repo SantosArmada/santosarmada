@@ -301,6 +301,24 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "orden-franciscana-1209",
+    year: 1209,
+    title: "1209: Francisco de Asís funda la Orden Franciscana",
+    author: "Francisco de Asís",
+    country: "Italia",
+    region: "Asís",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "En 1209, el mercader convertido a fraile Francisco de Asís funda en Asís, Italia, la Orden de Hermanos Menores —los franciscanos— tras obtener la aprobación oral del papa Inocencio III para una regla de vida basada en la pobreza absoluta, la predicación itinerante y el servicio a los pobres. Frente a una Iglesia medieval cada vez más rica y jerárquica, Francisco predicaba que los verdaderos seguidores de Cristo debían imitarlo renunciando a toda posesión material. La orden crece con rapidez por toda Europa y, siglos después, se convierte en uno de los brazos misioneros más activos de la expansión católica hacia Asia, África y América. Sus pilares —pobreza, misión itinerante, educación y conversión— viajan intactos hasta la California del siglo XVIII, donde fray Junípero Serra y sus hermanos franciscanos fundan la cadena de veintiuna misiones que da origen a ciudades como San Diego, San Francisco, Santa Bárbara y San José. Cinco siglos y medio después de que Francisco renunciara a la riqueza de su padre en las calles de Asís, sus herederos espirituales bautizarían medio estado de California.",
+    descriptionHtml:
+      'En 1209, el mercader convertido a fraile Francisco de Asís funda en <button type="button" class="timeline-detail-geolink" data-region="Asís" data-country="Italia">Asís</button>, Italia, la Orden de Hermanos Menores —los franciscanos— tras obtener la aprobación oral del papa Inocencio III para una regla de vida basada en la pobreza absoluta, la predicación itinerante y el servicio a los pobres. Frente a una Iglesia medieval cada vez más rica y jerárquica, Francisco predicaba que los verdaderos seguidores de Cristo debían imitarlo renunciando a toda posesión material. La orden crece con rapidez por toda Europa y, siglos después, se convierte en uno de los brazos misioneros más activos de la expansión católica hacia Asia, África y América. Sus pilares —pobreza, misión itinerante, educación y conversión— viajan intactos hasta la California del siglo XVIII, donde fray Junípero Serra y sus hermanos franciscanos fundan la cadena de veintiuna misiones que da origen a ciudades como San Diego, San Francisco, Santa Bárbara y San José, en la <button type="button" class="timeline-detail-entrylink" data-id="portola-expedicion-san-diego-1769">expedición Portolá de 1769</button>. Cinco siglos y medio después de que Francisco renunciara a la riqueza de su padre en las calles de Asís, sus herederos espirituales bautizarían medio estado de California.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si el papa Inocencio III hubiera rechazado la regla de Francisco de Asís en 1209?",
+      answer:
+        "Sin la aprobación papal, la comunidad de Francisco habría corrido el riesgo de ser declarada herética, como ocurrió con otros movimientos de pobreza radical de la época. Sin una orden franciscana reconocida por Roma, la Iglesia católica habría llegado a América sin uno de sus brazos misioneros más influyentes, y la historia religiosa de California —sus misiones, sus nombres, su arquitectura— sería irreconocible."
+    }
+  },
+  {
     id: "duelo-virgen-1250",
     year: 1250,
     title: "El duelo de la Virgen",
@@ -439,6 +457,25 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "sergas-esplandian-california-1510",
+    year: 1510,
+    title: "1510: Las sergas de Esplandián inventa el nombre 'California'",
+    author: "Garci Rodríguez de Montalvo",
+    country: "España",
+    region: "Sevilla",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "En 1510, el regidor sevillano Garci Rodríguez de Montalvo publica en Sevilla Las sergas de Esplandián, quinto libro de la serie de novelas de caballerías que arranca con el Amadís de Gaula. En ella inventa una isla imaginaria: 'Sabed que a la diestra mano de las Indias hubo una isla llamada California, muy llegada a la parte del Paraíso Terrenal...' — un territorio gobernado por la reina Calafia, poblado enteramente por mujeres guerreras 'de valientes cuerpos y esforzados y ardientes corazones', y rebosante de oro. Dos décadas después, expediciones enviadas por Hernán Cortés llegan a la península que hoy es Baja California y, convencidos —erróneamente— de que se trataba de una isla, adoptan para bautizarla el nombre ficticio tomado directamente de la novela de Montalvo. Con el tiempo, el nombre se extiende hacia el norte hasta cubrir también la Alta California que siglos más tarde entraría a Estados Unidos: un estado entero de la Unión Americana lleva el nombre de una isla de fantasía gobernada por amazonas negras en un libro de caballerías español.",
+    descriptionHtml:
+      'En 1510, el regidor sevillano Garci Rodríguez de Montalvo publica en <button type="button" class="timeline-detail-geolink" data-region="Sevilla" data-country="España">Sevilla</button> Las sergas de Esplandián, quinto libro de la serie de novelas de caballerías que arranca con el Amadís de Gaula. En ella inventa una isla imaginaria: \'Sabed que a la diestra mano de las Indias hubo una isla llamada California, muy llegada a la parte del Paraíso Terrenal...\' — un territorio gobernado por la reina Calafia, poblado enteramente por mujeres guerreras \'de valientes cuerpos y esforzados y ardientes corazones\', y rebosante de oro. Dos décadas después, expediciones enviadas por Hernán Cortés llegan a la península que hoy es Baja California y, convencidos —erróneamente— de que se trataba de una isla, adoptan para bautizarla el nombre ficticio tomado directamente de la novela de Montalvo. Con el tiempo, el nombre se extiende hacia el norte hasta cubrir también la Alta California que siglos más tarde entraría a Estados Unidos: un estado entero de la Unión Americana lleva el nombre de una isla de fantasía gobernada por amazonas negras en un libro de caballerías español — el mismo nombre que, tres siglos después, aparecería en la <button type="button" class="timeline-detail-entrylink" data-id="california-land-act-1851">Ley de Tierras de 1851</button>.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si los exploradores de Cortés no hubieran creído que Baja California era una isla?",
+      answer:
+        "Sin ese error cartográfico, la península probablemente habría recibido otro nombre —ligado a un santo, como tantos otros territorios novohispanos— y 'California' habría quedado como una isla de papel, olvidada dentro de un libro de caballerías, en vez de convertirse en el nombre del estado más poblado de Estados Unidos."
+    }
+  },
+  {
     id: "naufragios-cabeza-de-vaca-1528",
     year: 1528,
     endYear: 1536,
@@ -485,6 +522,25 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si la práctica de 'tocar' copias al original nunca se hubiera formalizado?",
       answer:
         "Las miles de reproducciones de la Virgen de Guadalupe que circularon por Nueva España y Europa durante el siglo XVIII habrían sido, en el mejor de los casos, ilustraciones piadosas más —sin la garantía de autenticidad ni el estatus casi de reliquia que la práctica de 'tocar al original' les otorgaba. Esa costumbre fue, en el fondo, lo que le permitió a México exportar su propia santidad de vuelta al imperio que lo había colonizado, en vez de solo recibir imágenes religiosas desde España."
+    }
+  },
+  {
+    id: "cabrillo-california-1542",
+    year: 1542,
+    endYear: 1543,
+    title: "1542: Juan Rodríguez Cabrillo llega a la costa de California",
+    author: "Juan Rodríguez Cabrillo",
+    country: "Estados Unidos",
+    region: "San Diego",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "En septiembre de 1542, el explorador Juan Rodríguez Cabrillo —nacido probablemente en Portugal, aunque España lo reclama como suyo— llega con tres naves, la San Salvador, la Victoria y la San Miguel, a la bahía que hoy ocupa San Diego: la primera expedición europea documentada en tocar la costa de la actual California. Zarpada desde Navidad, en la Nueva España, y al servicio de la Corona española, su misión era encontrar un paso hacia Asia y reclamar nuevas tierras. Desde ahí continúa hacia el norte, pasando frente a Santa Bárbara y la bahía de Monterey, y posiblemente hasta Point Reyes, antes de morir en enero de 1543 por complicaciones de una herida sufrida en una de las islas del Canal. Su segundo al mando, Bartolomé Ferrer, termina el viaje en su nombre. Nada de esto significa que Cabrillo 'descubriera' California: millones de personas indígenas —tongva, chumash, kumeyaay, entre muchos otros pueblos— ya habitaban la región desde hacía milenios. Lo que Cabrillo representa, desde la perspectiva del imperio español, es el primer europeo en documentar y reclamar esa costa para la Corona — treinta y dos años después de que Garci Rodríguez de Montalvo la hubiera bautizado, sin haberla visto jamás, como la isla de la reina Calafia. Su nombre sigue repitiéndose hoy por toda California: la playa de Cabrillo en San Pedro, el Cabrillo National Monument en San Diego, la carretera costera Cabrillo Highway, el Cabrillo College cerca de Santa Cruz, y el Día de Cabrillo, feriado estatal cada 9 de octubre.",
+    descriptionHtml:
+      'En septiembre de 1542, el explorador Juan Rodríguez Cabrillo —nacido probablemente en <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button>, aunque <button type="button" class="timeline-detail-geolink" data-country="España">España</button> lo reclama como suyo— llega con tres naves, la San Salvador, la Victoria y la San Miguel, a la bahía que hoy ocupa <button type="button" class="timeline-detail-geolink" data-region="San Diego" data-country="Estados Unidos">San Diego</button>: la primera expedición europea documentada en tocar la costa de la actual California. Zarpada desde <button type="button" class="timeline-detail-geolink" data-region="Navidad" data-country="México">Navidad</button>, en la Nueva España, y al servicio de la Corona española, su misión era encontrar un paso hacia Asia y reclamar nuevas tierras. Desde ahí continúa hacia el norte, pasando frente a <button type="button" class="timeline-detail-geolink" data-region="Santa Bárbara" data-country="Estados Unidos">Santa Bárbara</button> y la bahía de <button type="button" class="timeline-detail-geolink" data-region="Monterey" data-country="Estados Unidos">Monterey</button>, y posiblemente hasta <button type="button" class="timeline-detail-geolink" data-region="Point Reyes" data-country="Estados Unidos">Point Reyes</button>, antes de morir en enero de 1543 por complicaciones de una herida sufrida en una de las <button type="button" class="timeline-detail-geolink" data-region="Islas del Canal" data-country="Estados Unidos">islas del Canal</button>. Su segundo al mando, Bartolomé Ferrer, termina el viaje en su nombre. Nada de esto significa que Cabrillo \'descubriera\' California: millones de personas indígenas —tongva, chumash, kumeyaay, entre muchos otros pueblos— ya habitaban la región desde hacía milenios. Lo que Cabrillo representa, desde la perspectiva del imperio español, es el primer europeo en documentar y reclamar esa costa para la Corona — treinta y dos años después de que Garci Rodríguez de Montalvo la hubiera bautizado, sin haberla visto jamás, como <button type="button" class="timeline-detail-entrylink" data-id="sergas-esplandian-california-1510">la isla de la reina Calafia</button>. Su nombre sigue repitiéndose hoy por toda California: la playa de Cabrillo en <button type="button" class="timeline-detail-geolink" data-region="San Pedro, California" data-country="Estados Unidos">San Pedro</button>, el Cabrillo National Monument en <button type="button" class="timeline-detail-geolink" data-region="San Diego" data-country="Estados Unidos">San Diego</button>, la carretera costera Cabrillo Highway, el Cabrillo College cerca de <button type="button" class="timeline-detail-geolink" data-region="Santa Cruz, California" data-country="Estados Unidos">Santa Cruz</button>, y el Día de Cabrillo, feriado estatal cada 9 de octubre.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Cabrillo no hubiera muerto en las islas del Canal y hubiera terminado él mismo la expedición?",
+      answer:
+        "Es imposible saberlo con certeza, pero es probable que su nombre —y no el de Bartolomé Ferrer, su segundo al mando— hubiera quedado grabado con más fuerza en la memoria histórica de California. En cambio, es Ferrer quien firma el tramo final del viaje, y Cabrillo muere sin saber que su nombre terminaría bautizando, siglos después, una autopista, una universidad y un día festivo estatal."
     }
   },
   {
@@ -563,6 +619,25 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si el Inca Garcilaso hubiera crecido solo en la corte española, sin memoria directa del Perú incaico?",
       answer:
         "Los Comentarios Reales no serían la crónica mestiza que son —escrita desde ambos mundos a la vez—, sino una historia colonial más, contada enteramente desde afuera. Su valor único está en que el autor pudo reclamar como propia tanto la herencia inca como la española."
+    }
+  },
+
+  {
+    id: "portola-expedicion-san-diego-1769",
+    year: 1769,
+    title: "1769: la expedición Portolá funda la primera misión de Alta California",
+    author: "Gaspar de Portolá y Junípero Serra",
+    country: "Estados Unidos",
+    region: "San Diego",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El propio Cabrillo había reclamado California para la Corona española en 1542, pero un reclamo sobre el papel es muy distinto a una ocupación real: durante más de 225 años, España no estableció ningún asentamiento permanente en la actual Alta California. Las razones eran prácticas: pocos colonos disponibles frente a los territorios ya poblados y productivos de México, Centroamérica, Sudamérica y el Caribe; el costo de sostener una colonia remota —barcos, soldados, misioneros, suministros—; la enorme distancia terrestre y marítima desde Ciudad de México, capital del virreinato; y la ausencia de oro, plata o imperios indígenas densos que justificaran la inversión, a diferencia de México central o Perú. Eso cambia a mediados del siglo XVIII, cuando la expansión rusa de la caza de pieles desde Alaska y la creciente actividad británica en el Pacífico convencen a la Corona de que necesita una presencia efectiva en el territorio. En 1769, España lanza la expedición Portolá: Gaspar de Portolá, gobernador militar, y el misionero franciscano Junípero Serra fundan la Misión San Diego de Alcalá, el primer asentamiento español permanente en Alta California y la primera de una cadena de misiones y presidios que terminaría por extenderse a lo largo de toda la costa. Doscientos veintisiete años después del reclamo de Cabrillo, España finalmente ocupa lo que llevaba más de dos siglos reclamando solo de nombre. Meses después de fundar San Diego, la expedición sigue tierra adentro hacia el norte y, en noviembre de 1769, acampa junto a un enorme secuoya costero a orillas del arroyo San Francisquito: los soldados españoles lo bautizan simplemente 'el palo alto'. El árbol sigue en pie hoy, y su nombre terminaría bautizando, más de un siglo después, en 1894, la ciudad de Palo Alto —fundada junto a la naciente Universidad de Stanford— mucho después de que la expedición que le dio nombre hubiera desaparecido de la memoria de casi todos sus vecinos.",
+    descriptionHtml:
+      'El propio <button type="button" class="timeline-detail-entrylink" data-id="cabrillo-california-1542">Cabrillo</button> había reclamado California para la Corona española en 1542, pero un reclamo sobre el papel es muy distinto a una ocupación real: durante más de 225 años, España no estableció ningún asentamiento permanente en la actual Alta California. Las razones eran prácticas: pocos colonos disponibles frente a los territorios ya poblados y productivos de <button type="button" class="timeline-detail-geolink" data-country="México">México</button>, Centroamérica, Sudamérica y el Caribe; el costo de sostener una colonia remota —barcos, soldados, misioneros, suministros—; la enorme distancia terrestre y marítima desde <button type="button" class="timeline-detail-geolink" data-region="Ciudad de México" data-country="México">Ciudad de México</button>, capital del virreinato; y la ausencia de oro, plata o imperios indígenas densos que justificaran la inversión, a diferencia de México central o <button type="button" class="timeline-detail-geolink" data-country="Perú">Perú</button>. Eso cambia a mediados del siglo XVIII, cuando la expansión rusa de la caza de pieles desde Alaska y la creciente actividad británica en el Pacífico convencen a la Corona de que necesita una presencia efectiva en el territorio. En 1769, España lanza la expedición Portolá: Gaspar de Portolá, gobernador militar, y el misionero <button type="button" class="timeline-detail-entrylink" data-id="orden-franciscana-1209">franciscano</button> Junípero Serra fundan la Misión <button type="button" class="timeline-detail-geolink" data-region="San Diego" data-country="Estados Unidos">San Diego</button> de Alcalá, el primer asentamiento español permanente en Alta California y la primera de una cadena de misiones y presidios que terminaría por extenderse a lo largo de toda la costa. Doscientos veintisiete años después del reclamo de Cabrillo, España finalmente ocupa lo que llevaba más de dos siglos reclamando solo de nombre. Meses después de fundar San Diego, la expedición sigue tierra adentro hacia el norte y, en noviembre de 1769, acampa junto a un enorme secuoya costero a orillas del arroyo San Francisquito: los soldados españoles lo bautizan simplemente \'<button type="button" class="timeline-detail-geolink" data-region="El Palo Alto" data-country="Estados Unidos">el palo alto</button>\'. El árbol sigue en pie hoy, y su nombre terminaría bautizando, más de un siglo después, en 1894, la ciudad de Palo Alto —fundada junto a la naciente Universidad de Stanford— mucho después de que la expedición que le dio nombre hubiera desaparecido de la memoria de casi todos sus vecinos.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Rusia nunca hubiera expandido su comercio de pieles hacia Alaska a mediados del siglo XVIII?",
+      answer:
+        "Sin esa amenaza percibida desde el norte, España probablemente habría seguido posponiendo la colonización de Alta California indefinidamente, tal como lo hizo durante más de dos siglos. La misión de San Diego —y todo el sistema de misiones que la siguió— nace menos de una ambición expansiva española que de una reacción defensiva ante una potencia rival, la misma lógica que después llevaría a los rusos a fundar Fuerte Ross, a apenas un día de viaje de la futura San Francisco."
     }
   },
 
@@ -930,6 +1005,26 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si Carlos Fuentes hubiera narrado la vida de Artemio Cruz en orden cronológico simple?",
       answer:
         "La fragmentación —pasado, presente y futuro entrelazados, narrado en primera, segunda y tercera persona a la vez— es lo que permite que la novela sea, simultáneamente, la biografía de un hombre y una radiografía de cómo la Revolución Mexicana traicionó sus propios ideales. Contada en línea recta, sería solo lo primero."
+    }
+  },
+  {
+    id: "octavio-paz-embajador-india-1962",
+    year: 1962,
+    endYear: 1968,
+    pubYear: 1995,
+    title: "1962–1968: Octavio Paz, embajador de México en la India",
+    author: "Octavio Paz",
+    country: "India",
+    region: "Nueva Delhi",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "En 1962, Octavio Paz llega a Nueva Delhi como embajador de México en la India, cargo que ocupa hasta 1968. Los años indios transforman su poesía y su pensamiento: ahí escribe buena parte de Ladera este (1969), y encuentra en el hinduismo, el budismo y la filosofía india una vía distinta para pensar la identidad y la otredad que ya había explorado en El laberinto de la soledad. Se casa en 1964 con la escritora francesa Marie-José Tramini en Nueva Delhi. El 2 de octubre de 1968, tras la matanza de Tlatelolco en la Ciudad de México, Paz renuncia públicamente a la embajada en protesta por la represión de su propio gobierno contra el movimiento estudiantil — un gesto que le costó años de distancia con el poder mexicano, pero que consolidó su autoridad moral. Décadas después, en 1995, condensaría esa experiencia en el ensayo Vislumbres de la India, escrito ya junto a Marie-José: una de las miradas literarias más profundas que un escritor latinoamericano haya dedicado al subcontinente.",
+    descriptionHtml:
+      'En 1962, Octavio Paz llega a <button type="button" class="timeline-detail-geolink" data-region="Nueva Delhi" data-country="India">Nueva Delhi</button> como embajador de México en la India, cargo que ocupa hasta 1968. Los años indios transforman su poesía y su pensamiento: ahí escribe buena parte de Ladera este (1969), y encuentra en el hinduismo, el budismo y la filosofía india una vía distinta para pensar la identidad y la otredad que ya había explorado en <button type="button" class="timeline-detail-entrylink" data-id="laberinto-de-la-soledad">El laberinto de la soledad</button>. Se casa en 1964 con la escritora francesa Marie-José Tramini en Nueva Delhi. El 2 de octubre de 1968, tras la matanza de Tlatelolco en la <button type="button" class="timeline-detail-geolink" data-region="Ciudad de México" data-country="México">Ciudad de México</button>, Paz renuncia públicamente a la embajada en protesta por la represión de su propio gobierno contra el movimiento estudiantil — un gesto que le costó años de distancia con el poder mexicano, pero que consolidó su autoridad moral. Décadas después, en 1995, condensaría esa experiencia en el ensayo Vislumbres de la India, escrito ya junto a Marie-José: una de las miradas literarias más profundas que un escritor latinoamericano haya dedicado al subcontinente.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Paz no hubiera renunciado a la embajada tras Tlatelolco?",
+      answer:
+        "Habría conservado una carrera diplomática cómoda, pero habría perdido la autoridad moral que definió el resto de su vida pública. La renuncia de 1968 —tan drástica como impopular dentro del gobierno mexicano— es, en buena medida, lo que le permitió después hablar con independencia sobre política, poder y violencia de Estado, tanto en México como en el resto del mundo."
     }
   },
   {
@@ -1548,9 +1643,12 @@ const TIMELINE_ENTRIES = [
     title: "1907–1954: Frida Kahlo",
     author: "Frida Kahlo",
     country: "México",
+    region: "Coyoacán",
     type: ICON_TYPE.HISTORY,
     description:
-      "Pintora de Coyoacán cuyos autorretratos —marcados por el accidente que la dejó convaleciente de por vida y por una identidad mexicana reivindicada sin concesiones— la convirtieron, décadas después de su muerte, en una de las artistas más reconocidas del mundo.",
+      "Pintora de Coyoacán cuyos autorretratos —marcados por el accidente que la dejó convaleciente de por vida y por una identidad mexicana reivindicada sin concesiones— la convirtieron, décadas después de su muerte, en una de las artistas más reconocidas del mundo. La Casa Azul, la casa familiar donde nació y murió, se abrió como el Museo Frida Kahlo en 1958 y hoy puede visitarse en Coyoacán, Ciudad de México, con buena parte de sus objetos personales, su ropa y su estudio conservados tal como los dejó. Su vida se despliega también fuera de México, casi siempre a la sombra pública de la carrera de Diego Rivera. Entre 1930 y 1931 lo acompaña a San Francisco, donde él pinta murales para la Bolsa de Valores y la Escuela de Bellas Artes de California, y donde Frida traba amistad de por vida con el médico Leo Eloesser. En 1931 viaja con él a Nueva York para la gran retrospectiva de Rivera en el MoMA, y en 1932 a Detroit, donde Diego pinta los murales de la industria del Instituto de Artes de Detroit; ahí, en julio de ese año, Frida sufre un aborto espontáneo que retrata sin concesiones en Hospital Henry Ford. En 1933 vuelve a Nueva York para el mural que Rivera pinta —y que Rockefeller manda destruir— en el Rockefeller Center. En 1938 regresa sola a Nueva York para su primera exposición individual, en la galería de Julien Levy, y en 1939 viaja a París, invitada por André Breton para la exposición 'Mexique': ahí el Louvre le compra El marco, autorretrato que la convierte en la primera artista mexicana del siglo XX en entrar a la colección del museo. Vuelve a San Francisco en 1940, ya bajo el cuidado de Eloesser, y ese mismo año se casa con Rivera por segunda vez.",
+    descriptionHtml:
+      'Pintora de <button type="button" class="timeline-detail-geolink" data-region="Coyoacán" data-country="México">Coyoacán</button> cuyos autorretratos —marcados por el accidente que la dejó convaleciente de por vida y por una identidad mexicana reivindicada sin concesiones— la convirtieron, décadas después de su muerte, en una de las artistas más reconocidas del mundo. La Casa Azul, la casa familiar donde nació y murió, se abrió como el Museo Frida Kahlo en 1958 y hoy puede visitarse en <button type="button" class="timeline-detail-geolink" data-region="Coyoacán" data-country="México">Coyoacán</button>, Ciudad de México, con buena parte de sus objetos personales, su ropa y su estudio conservados tal como los dejó. Su vida se despliega también fuera de México, casi siempre a la sombra pública de la carrera de Diego Rivera. Entre 1930 y 1931 lo acompaña a <button type="button" class="timeline-detail-geolink" data-region="Bahía de San Francisco" data-country="Estados Unidos">San Francisco</button>, donde él pinta murales para la Bolsa de Valores y la Escuela de Bellas Artes de California, y donde Frida traba amistad de por vida con el médico Leo Eloesser. En 1931 viaja con él a <button type="button" class="timeline-detail-geolink" data-region="Nueva York" data-country="Estados Unidos">Nueva York</button> para la gran retrospectiva de Rivera en el MoMA, y en 1932 a <button type="button" class="timeline-detail-geolink" data-region="Detroit" data-country="Estados Unidos">Detroit</button>, donde Diego pinta los murales de la industria del Instituto de Artes de Detroit; ahí, en julio de ese año, Frida sufre un aborto espontáneo que retrata sin concesiones en Hospital Henry Ford. En 1933 vuelve a <button type="button" class="timeline-detail-geolink" data-region="Nueva York" data-country="Estados Unidos">Nueva York</button> para el mural que Rivera pinta —y que Rockefeller manda destruir— en el Rockefeller Center. En 1938 regresa sola a <button type="button" class="timeline-detail-geolink" data-region="Nueva York" data-country="Estados Unidos">Nueva York</button> para su primera exposición individual, en la galería de Julien Levy, y en 1939 viaja a <button type="button" class="timeline-detail-geolink" data-region="París" data-country="Francia">París</button>, invitada por André Breton para la exposición \'Mexique\': ahí el Louvre le compra El marco, autorretrato que la convierte en la primera artista mexicana del siglo XX en entrar a la colección del museo. Vuelve a <button type="button" class="timeline-detail-geolink" data-region="Bahía de San Francisco" data-country="Estados Unidos">San Francisco</button> en 1940, ya bajo el cuidado de Eloesser, y ese mismo año se casa con Rivera por segunda vez.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Frida Kahlo nunca hubiera sufrido el accidente que la dejó convaleciente de por vida?",
       answer:
@@ -2016,6 +2114,22 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si la Ley Moret de 1870 hubiera decretado la abolición total en vez de una libertad gradual?",
       answer:
         "Una abolición total en 1870 —dieciséis años antes de lo que realmente ocurrió— habría privado a los hacendados cubanos de más de una década de mano de obra esclavizada durante un período de auge azucarero, y probablemente habría acelerado el estallido de la Guerra de los Diez Años que ya ardía en la isla desde ese mismo 1868."
+    }
+  },
+  {
+    id: "california-land-act-1851",
+    year: 1851,
+    title: "1851: la Ley de Tierras despoja por la vía legal a los californios",
+    author: "Hito histórico",
+    country: "Estados Unidos",
+    region: "Bahía de San Francisco",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 3 de marzo de 1851, el Congreso de Estados Unidos aprueba la Ley de Tierras de California, que obliga a los poseedores de mercedes españolas y mexicanas a comprobar sus títulos ante una Comisión de Tierras federal con sede en San Francisco — pese a que el Tratado de Guadalupe Hidalgo de 1848, al cerrar la guerra México-Estados Unidos, había prometido proteger la propiedad ya existente. La carga de la prueba recae así sobre los propios rancheros californios. Muchos casos se prolongan más de una década, con apelaciones que a veces llegan hasta la Corte Suprema, y aunque una parte considerable de los reclamantes termina ganando su caso, los costos legales acumulados, los impuestos atrasados y las deudas contraídas durante el litigio los obligan a vender tierra o a pagar a sus abogados con fracciones enteras del rancho — como le ocurre a varios frente a abogados como Horace Carpentier, que amasa fortuna por esta vía. En la década siguiente, además, sequías severas y la caída de los precios del ganado terminan de erosionar lo que el litigio no alcanzó a consumir. No todas las familias californias pierden sus tierras, pero para muchas, la soberanía cambió en la guerra de 1848; la propiedad se perdió después, en los tribunales.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si el Congreso hubiera confirmado automáticamente los títulos amparados por el Tratado de Guadalupe Hidalgo, sin exigir litigio ante la Comisión de Tierras?",
+      answer:
+        "Miles de familias californias habrían conservado sus ranchos intactos, y el mapa de propiedad de California se habría parecido mucho más al de México que al de Estados Unidos. En cambio, el litigio prolongado trasladó buena parte de esa tierra a abogados, especuladores y nuevos colonos angloamericanos — un despojo lento y legal, y por eso mismo menos visible que los grandes episodios militares de la conquista."
     }
   },
 
@@ -2632,6 +2746,26 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "lesseps-fracaso-panama-1881",
+    year: 1881,
+    endYear: 1889,
+    title: "1881–1889: el fracaso francés de Ferdinand de Lesseps en Panamá",
+    author: "Ferdinand de Lesseps",
+    country: "Panamá",
+    region: "Ciudad de Panamá",
+    type: ICON_TYPE.VISION,
+    types: [ICON_TYPE.VISION, ICON_TYPE.HISTORY],
+    description:
+      "Ferdinand de Lesseps llega a Panamá en 1881 con el prestigio absoluto de haber construido el Canal de Suez una década antes, y con la misma receta: un canal a nivel del mar, sin esclusas. La receta no sobrevive el traslado. La selva panameña opone un terreno volcánico e inestable, lluvias torrenciales que provocan derrumbes constantes en el Corte Culebra, y sobre todo enfermedades tropicales —malaria y fiebre amarilla, cuya transmisión por mosquitos nadie identifica todavía— que matan a cerca de 22,000 trabajadores en apenas ocho años. La Compagnie Universelle du Canal Interocéanique, financiada por cientos de miles de pequeños inversionistas franceses, quiebra en 1889, arrastrando sus ahorros. El colapso destapa el 'Escándalo de Panamá': sobornos a políticos y prensa franceses para ocultar la ruina financiera de la empresa, un fraude por el que el propio Lesseps —junto con su hijo Charles y el ingeniero Gustave Eiffel, contratado para diseñar unas esclusas que nunca llegaron a construirse— es condenado en 1893. La sentencia se anula después por prescripción, pero Lesseps, ya senil y arruinado en su reputación, muere en 1894 sin volver a hablar en público de Panamá.",
+    descriptionHtml:
+      'Ferdinand de Lesseps llega a <button type="button" class="timeline-detail-geolink" data-region="Ciudad de Panamá" data-country="Panamá">Panamá</button> en 1881 con el prestigio absoluto de haber construido el Canal de Suez una década antes, y con la misma receta: un canal a nivel del mar, sin esclusas. La receta no sobrevive el traslado. La selva panameña opone un terreno volcánico e inestable, lluvias torrenciales que provocan derrumbes constantes en el Corte Culebra, y sobre todo enfermedades tropicales —malaria y fiebre amarilla, cuya transmisión por mosquitos nadie identifica todavía— que matan a cerca de 22,000 trabajadores en apenas ocho años. La Compagnie Universelle du Canal Interocéanique, financiada por cientos de miles de pequeños inversionistas franceses, quiebra en 1889, arrastrando sus ahorros. El colapso destapa el \'Escándalo de Panamá\': sobornos a políticos y prensa franceses para ocultar la ruina financiera de la empresa, un fraude por el que el propio Lesseps —junto con su hijo Charles y el ingeniero Gustave Eiffel, contratado para diseñar unas esclusas que nunca llegaron a construirse— es condenado en 1893. La sentencia se anula después por prescripción, pero Lesseps, ya senil y arruinado en su reputación, muere en 1894 sin volver a hablar en público de Panamá.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Lesseps hubiera aceptado desde 1881 construir esclusas en vez de insistir en un canal a nivel del mar?",
+      answer:
+        "El diseño con esclusas —el mismo que Stevens adoptaría veinticinco años después— pudo haber salvado el proyecto francés, o al menos reducido su costo humano y financiero. Pero Lesseps llegaba de Suez, un canal sin desniveles que nunca necesitó esclusas, y su terquedad en repetir esa fórmula en un terreno completamente distinto es, en el fondo, la causa técnica detrás de las 22,000 muertes y la quiebra de 1889."
+    }
+  },
+  {
     id: "panama-canal-ingenieros-1905",
     year: 1905,
     endYear: 1914,
@@ -2642,9 +2776,9 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.VISION,
     types: [ICON_TYPE.VISION, ICON_TYPE.HISTORY],
     description:
-      "No hay un solo 'arquitecto' del Canal de Panamá: hay una sucesión de ingenieros que heredaron, y finalmente resolvieron, el fracaso francés de Ferdinand de Lesseps, quien entre 1881 y 1889 había intentado excavar un canal a nivel del mar y quebró después de casi 22,000 muertes por enfermedades tropicales. Estados Unidos retoma el proyecto en 1904, tras negociar derechos con la recién independizada República de Panamá. En 1905, el ingeniero John Frank Stevens asume como jefe de obra y toma la decisión técnica decisiva: abandonar el canal a nivel del mar y construir, en su lugar, un sistema de esclusas — la solución que finalmente hace viable la obra. Stevens renuncia en 1907 tras chocar con el presidente Theodore Roosevelt, quien nombra en su lugar al coronel George Washington Goethals, ingeniero militar que dirige la construcción hasta su culminación el 15 de agosto de 1914. Ningún francés, y ningún arquitecto en el sentido tradicional, figura en la versión que finalmente funcionó.",
+      "No hay un solo 'arquitecto' del Canal de Panamá: hay una sucesión de ingenieros que heredaron, y finalmente resolvieron, el fracaso francés de Ferdinand de Lesseps. Estados Unidos retoma el proyecto en 1904, tras negociar derechos con la recién independizada República de Panamá. En 1905, el ingeniero John Frank Stevens asume como jefe de obra y toma la decisión técnica decisiva: abandonar el canal a nivel del mar y construir, en su lugar, un sistema de esclusas — la solución que finalmente hace viable la obra. Stevens renuncia en 1907 tras chocar con el presidente Theodore Roosevelt, quien nombra en su lugar al coronel George Washington Goethals, ingeniero militar que dirige la construcción hasta su culminación el 15 de agosto de 1914. Ningún francés, y ningún arquitecto en el sentido tradicional, figura en la versión que finalmente funcionó.",
     descriptionHtml:
-      'No hay un solo \'arquitecto\' del Canal de <button type="button" class="timeline-detail-geolink" data-region="Ciudad de Panamá" data-country="Panamá">Panamá</button>: hay una sucesión de ingenieros que heredaron, y finalmente resolvieron, el fracaso francés de Ferdinand de Lesseps, quien entre 1881 y 1889 había intentado excavar un canal a nivel del mar y quebró después de casi 22,000 muertes por enfermedades tropicales. Estados Unidos retoma el proyecto en 1904, tras negociar derechos con la recién independizada República de Panamá. En 1905, el ingeniero John Frank Stevens asume como jefe de obra y toma la decisión técnica decisiva: abandonar el canal a nivel del mar y construir, en su lugar, un sistema de esclusas — la solución que finalmente hace viable la obra. Stevens renuncia en 1907 tras chocar con el presidente Theodore Roosevelt, quien nombra en su lugar al coronel George Washington Goethals, ingeniero militar que dirige la construcción hasta su culminación el 15 de agosto de 1914. Ningún francés, y ningún arquitecto en el sentido tradicional, figura en la versión que finalmente funcionó.',
+      'No hay un solo \'arquitecto\' del Canal de <button type="button" class="timeline-detail-geolink" data-region="Ciudad de Panamá" data-country="Panamá">Panamá</button>: hay una sucesión de ingenieros que heredaron, y finalmente resolvieron, el <button type="button" class="timeline-detail-entrylink" data-id="lesseps-fracaso-panama-1881">fracaso francés de Ferdinand de Lesseps</button>. Estados Unidos retoma el proyecto en 1904, tras negociar derechos con la recién independizada República de Panamá. En 1905, el ingeniero John Frank Stevens asume como jefe de obra y toma la decisión técnica decisiva: abandonar el canal a nivel del mar y construir, en su lugar, un sistema de esclusas — la solución que finalmente hace viable la obra. Stevens renuncia en 1907 tras chocar con el presidente Theodore Roosevelt, quien nombra en su lugar al coronel George Washington Goethals, ingeniero militar que dirige la construcción hasta su culminación el 15 de agosto de 1914. Ningún francés, y ningún arquitecto en el sentido tradicional, figura en la versión que finalmente funcionó.',
     anchor: true,
     butterfly: {
       prompt: "¿Qué hubiera pasado si Stevens nunca hubiera abandonado el diseño de canal a nivel del mar heredado de los franceses?",

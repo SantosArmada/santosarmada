@@ -15,20 +15,21 @@ const highlightedCountries = {
     'Ecuador': '#39ff6a',
     'Colombia': '#39ff6a',
     'Venezuela': '#39ff6a',
-    'Brazil': '#c8a96e',
+    'Brazil': '#ff6a00',
     'Cuba': '#39ff6a',
     'Dominican Rep.': '#39ff6a',
     'Haiti': '#39ff6a',
-    'Spain': '#c8a96e',
-    'Portugal': '#c8a96e',
+    'Spain': '#39ff6a',
+    'Portugal': '#ff6a00',
     'Morocco': '#c8a96e',
     'Belgium': '#c8a96e',
-    'France': '#c8a96e',
+    'France': '#ff9ecf',
+    'Canada': '#ff9ecf',
     'Italy': '#c8a96e',
-    'Angola': '#c8a96e',
-    'Mozambique': '#c8a96e',
-    'Guinea-Bissau': '#c8a96e',
-    'Timor-Leste': '#c8a96e',
+    'Angola': '#ff6a00',
+    'Mozambique': '#ff6a00',
+    'Guinea-Bissau': '#ff6a00',
+    'Timor-Leste': '#ff6a00',
     'Eq. Guinea': '#c8a96e',
     'Philippines': '#c8a96e',
     'United States of America': '#4da6ff',
@@ -37,6 +38,7 @@ const highlightedCountries = {
     'Belize': '#4da6ff',
     'Jamaica': '#4da6ff',
     'India': '#4da6ff',
+    'Pakistan': '#4da6ff',
     'Japan': '#a64dff',
     'China': '#ff3b3b',
     'Antarctica': '#faff00'
@@ -64,6 +66,12 @@ const SPECIAL_PANELS = {
   'Guinea-Bissau': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
   'Timor-Leste': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
 
+  'Canada': {
+    title: 'Francofonía',
+    body:
+      "Canadá es oficialmente bilingüe desde la Ley de Lenguas Oficiales de 1969: el inglés y el francés tienen el mismo estatus ante el gobierno federal. Esa igualdad nace sobre todo de Quebec, la provincia donde casi el 80% de la población habla francés como primera lengua, y donde Montreal se ha convertido en la segunda ciudad francófona más grande del mundo, después de París. Casi 7.7 millones de canadienses tienen el francés como lengua materna, y el país es miembro pleno de la Francofonía internacional. El francés canadiense, además, conserva rasgos propios —el joual quebequense, el acadiense de los Maritimes— que lo distinguen claramente del francés de Francia: prueba de una lengua que echó raíces propias a miles de kilómetros de su origen."
+  },
+
   'Belgium': {
     title: 'Entretejidos',
     body:
@@ -81,9 +89,15 @@ const SPECIAL_PANELS = {
   },
 
   'India': {
-    title: 'Colonized',
+    title: 'Partición',
     body:
-      "Doscientos años de dominio británico —desde la Compañía Británica de las Indias Orientales hasta el Raj, hasta la independencia en 1947— dejaron al inglés como lengua de la ley, la administración y la educación superior india, un rol que nunca abandonó. En un país con veintidós lenguas oficiales y cientos más, el inglés se convirtió en el idioma que conecta a Bombay con Calcuta, a Delhi con Bangalore. Esa ventaja resultó decisiva tras la liberalización económica de 1991: India se volvió la capital mundial del outsourcing y los servicios de TI —call centers, desarrollo de software, soporte técnico— precisamente por contar con la fuerza laboral angloparlante más grande fuera del mundo angloparlante nativo. Empresas como Infosys, TCS y Wipro construyeron imperios enteros sobre esa herencia colonial reconvertida en ventaja competitiva. El inglés en India no es solo un idioma: es infraestructura económica."
+      "La independencia de la India el 15 de agosto de 1947 llega inseparable de su partición: un solo país colonial se convierte, de la noche a la mañana, en dos estados enfrentados por la línea que el abogado británico Cyril Radcliffe trazó sin haber pisado nunca el subcontinente. Jawaharlal Nehru se convierte en el primer primer ministro de una India independiente pero herida, mientras Mahatma Gandhi —que se había opuesto a la partición y ayunaba para detener la violencia entre hindúes y musulmanes— es asesinado apenas cinco meses y medio después, el 30 de enero de 1948, por Nathuram Godse, un nacionalista hindú que lo consideraba demasiado conciliador con los musulmanes y con Pakistán. La disputa por Cachemira, un estado principesco de mayoría musulmana gobernado por un maharajá hindú que optó por unirse a la India, desata la primera guerra indo-pakistaní ese mismo año y sigue sin resolverse casi ocho décadas después. Catorce años más tarde, en 1962, el poeta mexicano Octavio Paz llega a Nueva Delhi como embajador de México — la mirada más profunda que un escritor latinoamericano dedicaría jamás al subcontinente, todavía habitado por las heridas abiertas de la partición.",
+    linkedEntryId: 'octavio-paz-embajador-india-1962'
+  },
+  'Pakistan': {
+    title: 'Partición',
+    body:
+      "En agosto de 1947, apenas semanas antes de que el Raj británico dejara de existir, el gobierno de Londres encarga al abogado Cyril Radcliffe —que nunca antes había pisado la India— trazar en cinco semanas la frontera que dividiría el subcontinente en dos países independientes: la India de mayoría hindú y Pakistán, de mayoría musulmana, formado además por dos alas separadas por 1,600 kilómetros de territorio indio (Pakistán Occidental y Pakistán Oriental, este último independizado en 1971 como Bangladesh). La llamada 'Línea Radcliffe' cortó de golpe regiones enteras —Punjab y Bengala— sin considerar ríos, ferrocarriles ni comunidades que quedaron divididas de la noche a la mañana. El resultado fue una de las mayores migraciones forzadas de la historia: entre 10 y 20 millones de personas cruzaron la nueva frontera en ambas direcciones, y la violencia comunal que estalló durante la partición dejó entre 200,000 y dos millones de muertos, según distintas estimaciones. Lord Mountbatten, el último virrey británico, adelantó la fecha de independencia casi diez meses, dejando apenas semanas para una tarea que debía tomar años — una salida apresurada cuyas consecuencias el subcontinente sigue procesando casi ocho décadas después."
   },
   'Belize': {
     title: 'Colonized',
@@ -136,6 +150,7 @@ const GLOBE_TO_TIMELINE_COUNTRY = {
     'Haiti': 'Haití',
     'Spain': 'España',
     'France': 'Francia',
+    'Canada': 'Canadá',
     'Italy': 'Italia',
     'Eq. Guinea': 'Guinea Ecuatorial',
     'United States of America': 'Estados Unidos',
@@ -349,25 +364,71 @@ const world = Globe()
        .width(window.innerWidth)
        .height(getGlobeHeight());
 
-fetch('vendor/textures/countries-110m.json')
-    .then(res => res.json())
-    .then(topology => {
-        const countries = topojson.feature(topology, topology.objects.countries);
+// U.S. states once claimed/governed as Spanish or Mexican territory —
+// the Mexican Cession of 1848 (CA, NV, UT, AZ, NM, CO), the Republic of
+// Texas (formerly Coahuila y Tejas), Spanish Florida (ceded 1821), and
+// Spanish Louisiana (1762-1800, including the future state of Louisiana).
+// Rendered as a second, higher-altitude polygon layer on top of the
+// country layer so they read as lit-up regions within the US, same idea
+// as highlightedCountries but at state granularity.
+const US_HERITAGE_STATES = new Set([
+    'California', 'Nevada', 'Utah', 'Arizona', 'New Mexico', 'Colorado',
+    'Texas', 'Florida', 'Louisiana'
+]);
+const US_HERITAGE_COLOR = '#39ff6a';
+
+// U.S. states first claimed/settled as French territory — the Louisiana
+// Territory's Great Plains footprint, the Illinois Country and Great
+// Lakes fur-trade posts, the Gulf Coast (Mobile, Biloxi, Natchez), and
+// the Acadian corner of Maine. Louisiana, Texas, Colorado and New Mexico
+// are French-adjacent too (La Salle's claim, then Spanish 1762-1800) but
+// stay in US_HERITAGE_STATES above since they're colored for their
+// Spanish/Mexican chapter instead — a state only carries one color here.
+const US_FRENCH_HERITAGE_STATES = new Set([
+    'Arkansas', 'Missouri', 'Iowa', 'Minnesota', 'North Dakota', 'South Dakota',
+    'Nebraska', 'Kansas', 'Oklahoma', 'Wyoming', 'Montana',
+    'Illinois', 'Indiana', 'Michigan', 'Wisconsin',
+    'Alabama', 'Mississippi', 'Maine'
+]);
+const US_FRENCH_HERITAGE_COLOR = '#ff9ecf';
+
+Promise.all([
+    fetch('vendor/textures/countries-110m.json').then(res => res.json()),
+    fetch('vendor/textures/us-states-10m.json').then(res => res.json())
+])
+    .then(([countryTopology, stateTopology]) => {
+        const countries = topojson.feature(countryTopology, countryTopology.objects.countries);
+        const states = topojson.feature(stateTopology, stateTopology.objects.states);
+        const heritageStates = states.features.filter(f =>
+            US_HERITAGE_STATES.has(f.properties.name) || US_FRENCH_HERITAGE_STATES.has(f.properties.name)
+        );
+        const combinedFeatures = countries.features.concat(heritageStates);
 
         const matched = countries.features.filter(f => highlightedCountries[f.properties.name]);
         console.log('Matched:', matched.length, 'of', Object.keys(highlightedCountries).length);
 
         world
-            .polygonsData(countries.features)
+            .polygonsData(combinedFeatures)
             .polygonCapColor(feat => {
                 const name = feat.properties.name;
+                if (US_HERITAGE_STATES.has(name)) return US_HERITAGE_COLOR;
+                if (US_FRENCH_HERITAGE_STATES.has(name)) return US_FRENCH_HERITAGE_COLOR;
                 return highlightedCountries[name] || 'rgba(255,255,255,0.04)';
             })
             .polygonSideColor(() => 'rgba(0,0,0,0)')
             .polygonStrokeColor(() => 'rgba(255,255,255,0.15)')
-            .polygonAltitude(feat => highlightedCountries[feat.properties.name] ? 0.01 : 0.005)
-            .onPolygonClick(feat => {
+            .polygonAltitude(feat => {
                 const name = feat.properties.name;
+                if (US_HERITAGE_STATES.has(name) || US_FRENCH_HERITAGE_STATES.has(name)) return 0.016;
+                return highlightedCountries[name] ? 0.01 : 0.005;
+            })
+            .onPolygonClick(feat => {
+                // Clicking one of the lit-up heritage states falls through to
+                // the same info panel as clicking anywhere else in the US —
+                // the states are a visual overlay, not a separate click target.
+                const name = (US_HERITAGE_STATES.has(feat.properties.name) || US_FRENCH_HERITAGE_STATES.has(feat.properties.name))
+                    ? 'United States of America'
+                    : feat.properties.name;
                 if (!highlightedCountries[name]) return;
 
                 infoPanelEl.classList.remove('is-hidden');
@@ -469,7 +530,10 @@ const COUNTRY_CENTER = {
     'Sudáfrica': { lat: -30.5, lng: 25.0 },
     'Brasil': { lat: -14.24, lng: -51.93 },
     'Francia': { lat: 46.6, lng: 2.2 },
-    'Rusia': { lat: 61.52, lng: 105.32 }
+    'Rusia': { lat: 61.52, lng: 105.32 },
+    'Portugal': { lat: 39.5, lng: -8.0 },
+    'Italia': { lat: 42.5, lng: 12.5 },
+    'Canadá': { lat: 56.13, lng: -106.35 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -510,6 +574,18 @@ const REGION_CENTER = {
     'San José Villanueva': { lat: 13.56, lng: -89.26 },
     'Zaragoza': { lat: 41.65, lng: -0.88 },
     'Porto Santo': { lat: 33.07, lng: -16.33 },
+    'San Diego': { lat: 32.72, lng: -117.16 },
+    'Navidad': { lat: 19.13, lng: -104.68 },
+    'Santa Bárbara': { lat: 34.42, lng: -119.70 },
+    'Monterey': { lat: 36.60, lng: -121.89 },
+    'Point Reyes': { lat: 38.07, lng: -122.94 },
+    'Islas del Canal': { lat: 34.00, lng: -119.80 },
+    'San Pedro, California': { lat: 33.74, lng: -118.29 },
+    'Santa Cruz, California': { lat: 36.97, lng: -122.03 },
+    'Coyoacán': { lat: 19.35, lng: -99.16 },
+    'Detroit': { lat: 42.33, lng: -83.05 },
+    'El Palo Alto': { lat: 37.43, lng: -122.15 },
+    'Asís': { lat: 43.07, lng: 12.61 },
     // Abolition-of-slavery arc (added together, see timeline-data.js
     // "ABOLICIÓN DE LA ESCLAVITUD EN AMÉRICA" section)
     'Cap-Haïtien': { lat: 19.76, lng: -72.20 },
@@ -571,7 +647,8 @@ const REGION_CENTER = {
     'La Molina, Lima': { lat: -12.08, lng: -76.94 },
     'León': { lat: 42.60, lng: -5.57 },
     'París': { lat: 48.86, lng: 2.35 },
-    'San Petersburgo': { lat: 59.93, lng: 30.34 }
+    'San Petersburgo': { lat: 59.93, lng: 30.34 },
+    'Nueva Delhi': { lat: 28.61, lng: 77.21 }
 };
 
 let regionRippleTimeoutIds = [];

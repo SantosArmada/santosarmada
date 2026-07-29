@@ -469,6 +469,35 @@
   outline: none;
 }
 
+/* Second close button, appended after the body text on long/fact-dense
+   entries only (see isLongEntry in timeline.js). The fixed-position panel
+   grows with content, so on a long card the top-right close button can
+   scroll off the top of the viewport — this gives the reader a way out
+   without hunting for it. */
+.timeline-detail-close-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  margin: 18px 0 0 auto;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-muted);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.timeline-detail-close-bottom:hover,
+.timeline-detail-close-bottom:focus-visible {
+  background: rgba(200, 169, 110, 0.22);
+  color: var(--text-main);
+  outline: none;
+}
+
 .timeline-detail-label {
   font-size: 11px;
   letter-spacing: 0.1em;
@@ -587,6 +616,11 @@
 .timeline-detail-flag-other {
   color: #ff3b3b;
   border-color: rgba(255, 59, 59, 0.4);
+}
+
+.timeline-detail-flag-us {
+  color: var(--neon-blue);
+  border-color: rgba(77, 166, 255, 0.4);
 }
 
 /* Personal note — distinct register from the curatorial description */

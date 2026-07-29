@@ -337,16 +337,21 @@
 
     activeIndex = idx;
 
-    const NON_LATAM_COUNTRIES = ["China", "San Vicente y las Granadinas", "Portugal"];
+    const NON_LATAM_COUNTRIES = ["China", "San Vicente y las Granadinas", "Portugal", "Italia"];
     const isSpain = entry.country === "España";
+    const isUS = entry.country === "Estados Unidos";
     const isOtherRegion = NON_LATAM_COUNTRIES.includes(entry.country);
     const regionFlagClass = isSpain
       ? "timeline-detail-flag-spain"
+      : isUS
+      ? "timeline-detail-flag-us"
       : isOtherRegion
       ? "timeline-detail-flag-other"
       : "timeline-detail-flag-latam";
     const regionFlagLabel = isSpain
       ? "España"
+      : isUS
+      ? "Estados Unidos"
       : isOtherRegion
       ? entry.country
       : "Latinoamérica";
@@ -383,6 +388,15 @@
          </div>`
       : "";
 
+    // Long, fact-dense entries can grow the fixed-position panel taller
+    // than the viewport, pushing the top-right close button off-screen.
+    // A second close button at the end of the content gives the reader
+    // a way out without scrolling back up to hunt for it.
+    const isLongEntry = (entry.description || "").length > 1000;
+    const bottomCloseHtml = isLongEntry
+      ? `<button type="button" class="timeline-detail-close-bottom" aria-label="Cerrar">&times;</button>`
+      : "";
+
     detailContent.innerHTML = `
       <p class="timeline-detail-label"><button type="button" class="timeline-detail-region-link">${escapeHtml(entry.region || entry.country)}</button> · ${yearLabel}</p>
       <h3 class="timeline-detail-title">${escapeHtml(entry.title)}</h3>
@@ -390,8 +404,14 @@
       <p class="timeline-detail-body">${entry.descriptionHtml || escapeHtml(entry.description)}</p>
       ${flagHtml}
       ${personalNoteHtml}
+      ${bottomCloseHtml}
     `;
     detailPanel.classList.add("is-open");
+
+    const detailCloseBottom = detailContent.querySelector(".timeline-detail-close-bottom");
+    if (detailCloseBottom) {
+      detailCloseBottom.addEventListener("click", closeDetailPanel);
+    }
 
     // Closes the loop with the globe: selecting an entry rotates the
     // globe (above) to that entry's region (falling back to its country
