@@ -351,14 +351,19 @@
     const isSpain = entry.country === "España";
     const isUS = entry.country === "Estados Unidos";
     const isOtherRegion = NON_LATAM_COUNTRIES.includes(entry.country);
-    const regionFlagClass = isSpain
+    const isNavegando = entry.flag === "navegando";
+    const regionFlagClass = isNavegando
+      ? "timeline-detail-flag-navegando"
+      : isSpain
       ? "timeline-detail-flag-spain"
       : isUS
       ? "timeline-detail-flag-us"
       : isOtherRegion
       ? "timeline-detail-flag-other"
       : "timeline-detail-flag-latam";
-    const regionFlagLabel = isSpain
+    const regionFlagLabel = isNavegando
+      ? "Navegando"
+      : isSpain
       ? "España"
       : isUS
       ? "Estados Unidos"
@@ -370,7 +375,7 @@
     )}</span>`;
 
     const customFlagHtml =
-      entry.flag && entry.flag !== "spain-not-latam"
+      entry.flag && entry.flag !== "spain-not-latam" && entry.flag !== "navegando"
         ? `<span class="timeline-detail-flag">${escapeHtml(
             entry.flag === "essay-not-novel" ? "Ensayo, no novela" : entry.flag
           )}</span>`
@@ -410,7 +415,11 @@
     detailContent.innerHTML = `
       <p class="timeline-detail-label"><button type="button" class="timeline-detail-region-link">${escapeHtml(entry.region || entry.country)}</button> · ${yearLabel}</p>
       <h3 class="timeline-detail-title">${escapeHtml(entry.title)}</h3>
-      <p class="timeline-detail-meta">${escapeHtml(entry.author)}</p>
+      <p class="timeline-detail-meta">${
+        entry.authorEntryId
+          ? `<button type="button" class="timeline-detail-entrylink" data-id="${escapeHtml(entry.authorEntryId)}">${escapeHtml(entry.author)}</button>`
+          : escapeHtml(entry.author)
+      }</p>
       <p class="timeline-detail-body">${entry.descriptionHtml || escapeHtml(entry.description)}</p>
       ${flagHtml}
       ${personalNoteHtml}

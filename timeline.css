@@ -630,6 +630,11 @@
   border-color: rgba(77, 166, 255, 0.4);
 }
 
+.timeline-detail-flag-navegando {
+  color: var(--neon-purple);
+  border-color: rgba(166, 77, 255, 0.4);
+}
+
 /* Personal note — distinct register from the curatorial description */
 .timeline-detail-personal {
   margin-top: 14px;
