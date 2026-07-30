@@ -40,6 +40,8 @@ const highlightedCountries = {
     'Italy': '#c8a96e',
     'Greece': '#c8a96e',
     'Turkey': '#c8a96e',
+    'Bulgaria': '#c8a96e',
+    'Georgia': '#c8a96e',
     'Angola': '#ff6a00',
     'Mozambique': '#ff6a00',
     'Guinea-Bissau': '#ff6a00',
@@ -114,12 +116,12 @@ const highlightedCountries = {
     'Vietnam': '#ff3b3b',
     'Taiwan': '#ff3b3b',
     'South Korea': '#ff3b3b',
-    'Russia': '#ffffff',
-    'North Korea': '#ffffff',
-    'Israel': '#ffffff',
+    'Russia': '#faff00',
+    'North Korea': '#faff00',
+    'Israel': '#faff00',
     'Nepal': '#4da6ff',
     'Bhutan': '#4da6ff',
-    'Antarctica': '#faff00'
+    'Antarctica': '#ffffff'
 };
 
 /* ---------------------------------------------------------
@@ -572,7 +574,7 @@ const POLE_POINT = { lat: 90, lng: 0, kind: 'pole' };
 
 world
     .pointsData([POLE_POINT])
-    .pointColor((d) => (d.kind === 'region' ? '#D6FCFF' : '#faff00'))
+    .pointColor((d) => (d.kind === 'region' ? '#D6FCFF' : '#ffffff'))
     .pointRadius((d) => (d.kind === 'region' ? 0.45 : 0.3))
     .pointAltitude(0.02);
 
@@ -591,6 +593,7 @@ world.controls().autoRotateSpeed = 0.4;
 const COUNTRY_CENTER = {
     'India': { lat: 20.5937, lng: 78.9629 },
     'Israel': { lat: 31.0461, lng: 34.8516 },
+    'Filipinas': { lat: 12.8797, lng: 121.7740 },
     'Sri Lanka': { lat: 7.8731, lng: 80.7718 },
     'Indonesia': { lat: -0.7893, lng: 113.9213 },
     'España': { lat: 40.0, lng: -4.0 },
@@ -776,6 +779,14 @@ const REGION_CENTER = {
     'Comitán': { lat: 16.2300, lng: -92.1156 },
     'Tel Aviv': { lat: 32.0853, lng: 34.7818 },
     'Universidad Hebrea de Jerusalén': { lat: 31.7925, lng: 35.2442 },
+    'Museo del Prado': { lat: 40.4137, lng: -3.6921 },
+    'Calicut': { lat: 11.2588, lng: 75.7804 },
+    'Sonora': { lat: 29.6461, lng: -110.8689 },
+    'Sinaloa': { lat: 25.0, lng: -107.5 },
+    'Porto Seguro': { lat: -16.4497, lng: -39.0647 },
+    'Sanlúcar de Barrameda': { lat: 36.7761, lng: -6.3535 },
+    'Estrecho de Magallanes': { lat: -53.4752, lng: -70.7833 },
+    'Mactán': { lat: 10.3111, lng: 124.0153 },
     'Ceilán': { lat: 7.8731, lng: 80.7718 },
     'Sumatra': { lat: -0.5, lng: 101.3 },
     'Damieta': { lat: 31.42, lng: 31.82 },

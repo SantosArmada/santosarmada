@@ -476,8 +476,9 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Part of the chain described at
     // inquisicion-espanola-1478 — keeps this standalone rather than
-    // merging into the corsali-explorador-1487 marker.
-    trackYear: 1457.6,
+    // merging into the corsali-explorador-1487 marker. Re-solved in 2026
+    // as part of the wider 1479-1533 chain (see faras-cruz-del-sur-1500).
+    trackYear: 1458.9,
     endYear: 1485,
     title: "1479: Colón se instala en Porto Santo",
     author: "Hito histórico",
@@ -499,7 +500,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "cuatro-viajes-colon-1492",
     year: 1492,
-    trackYear: 1493,
+    trackYear: 1492.1,
     endYear: 1506,
     title: "Los cuatro viajes del almirante y su testamento",
     author: "Cristóbal Colón",
@@ -518,7 +519,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "gramatica-castellana-nebrija-1492",
     year: 1492,
-    trackYear: 1493,
+    trackYear: 1492.1,
     title: "Gramática de la lengua castellana",
     author: "Antonio de Nebrija",
     country: "España",
@@ -536,13 +537,35 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "expulsion-judios-1492",
+    year: 1492,
+    trackYear: 1492.1,
+    title: "1492: el Decreto de la Alhambra expulsa a los judíos de España",
+    author: "Hito histórico",
+    country: "España",
+    region: "Granada",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 31 de marzo de 1492, los Reyes Católicos Fernando de Aragón e Isabel de Castilla firman en la Alhambra de Granada el Decreto de la Alhambra —también llamado Edicto de Granada—, que ordena la expulsión de todos los judíos que no se convirtieran al cristianismo. El decreto les da hasta el 31 de julio para abandonar sus reinos; los últimos en salir lo hacen el 2 de agosto, coincidiendo con el ayuno judío de Tisha B'Av, que conmemora la destrucción de los dos Templos de Jerusalén. Las cifras varían mucho según la fuente —los cálculos tradicionales hablan de hasta 300.000 personas—, pero la investigación histórica moderna sitúa el número de judíos realmente expulsados, los que no se convirtieron, entre 40.000 y 100.000. Muchos cruzan primero a Portugal, donde apenas cinco años después la corona portuguesa también los expulsaría o forzaría a convertirse; otros se instalan en el norte de África o, sobre todo, en el Imperio otomano, cuyo sultán Bayaceto II habría comentado que Fernando de Aragón 'empobrecía su propio reino para enriquecer el mío'. De esa diáspora nace el mundo sefardí, una comunidad que conservaría durante siglos el ladino —una forma arcaica del español— y la memoria de un país que los expulsó. El decreto permanecería vigente, al menos de forma simbólica, hasta que fue revocado formalmente el 16 de diciembre de 1968. Un día después de que se cerrara el plazo final para salir, el 3 de agosto de 1492, Cristóbal Colón zarpó de Palos de la Frontera rumbo a las Indias —según algunos historiadores, retrasando su partida un día para no navegar durante el ayuno judío—.",
+    descriptionHtml:
+      'El 31 de marzo de 1492, los Reyes Católicos Fernando de Aragón e Isabel de Castilla firman en la <button type="button" class="timeline-detail-geolink" data-region="Alhambra" data-country="España">Alhambra</button> de Granada el Decreto de la Alhambra —también llamado Edicto de Granada—, que ordena la expulsión de todos los judíos que no se convirtieran al cristianismo. El decreto les da hasta el 31 de julio para abandonar sus reinos; los últimos en salir lo hacen el 2 de agosto, coincidiendo con el ayuno judío de Tisha B\'Av, que conmemora la destrucción de los dos Templos de Jerusalén. Las cifras varían mucho según la fuente —los cálculos tradicionales hablan de hasta 300.000 personas—, pero la investigación histórica moderna sitúa el número de judíos realmente expulsados, los que no se convirtieron, entre 40.000 y 100.000. Muchos cruzan primero a <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button>, donde apenas cinco años después la corona portuguesa también los expulsaría o forzaría a convertirse; otros se instalan en el norte de África o, sobre todo, en el Imperio otomano, cuyo sultán Bayaceto II habría comentado que Fernando de Aragón \'empobrecía su propio reino para enriquecer el mío\'. De esa diáspora nace el mundo sefardí, una comunidad que conservaría durante siglos el ladino —una forma arcaica del español— y la memoria de un país que los expulsó. El decreto permanecería vigente, al menos de forma simbólica, hasta que fue revocado formalmente el 16 de diciembre de 1968. Un día después de que se cerrara el plazo final para salir, el 3 de agosto de 1492, <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">Cristóbal Colón</button> zarpó de Palos de la Frontera rumbo a las Indias —según algunos historiadores, retrasando su partida un día para no navegar durante el ayuno judío—.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si los Reyes Católicos nunca hubieran firmado el Decreto de la Alhambra?",
+      answer:
+        "España habría conservado a una de sus comunidades más antiguas e integradas, con siglos de aportes intelectuales, médicos y comerciales. En cambio, la diáspora sefardí llevó consigo a Portugal, el norte de África y el Imperio otomano una memoria de España —y un español arcaico, el ladino— que sobrevivió durante más de cinco siglos a la corona que la expulsó. Y sin ese éxodo, la posible ascendencia sefardí de figuras como João Faras, huido hacia Portugal apenas unos años después, quedaría sin explicación."
+    }
+  },
+  {
     id: "corsali-explorador-1487",
     year: 1487,
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Part of the chain described at
     // inquisicion-espanola-1478 — keeps this standalone rather than
     // merging into either colon-porto-santo-1479 or the 1492 pair.
-    trackYear: 1476.4,
+    // Re-solved in 2026 as part of the wider 1479-1533 chain (see
+    // faras-cruz-del-sur-1500).
+    trackYear: 1475.2,
     endYear: 1516,
     title: "1487–1516: Andrea Corsali, el florentino que describió la Cruz del Sur desde la India",
     author: "Andrea Corsali",
@@ -563,6 +586,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "la-celestina-1499",
     year: 1499,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Part of the 1479-1533 chain described at
+    // faras-cruz-del-sur-1500.
+    trackYear: 1496.7,
     title: "La Celestina",
     author: "Fernando de Rojas",
     country: "España",
@@ -578,8 +605,34 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "faras-cruz-del-sur-1500",
+    year: 1500,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Part of the 1479-1533 chain-clustered sequence — see
+    // inquisicion-espanola-1478 for the earlier links in the same chain.
+    trackYear: 1501.3,
+    title: "1500: João Faras dibuja el primer boceto europeo de la Cruz del Sur",
+    author: "João Faras",
+    country: "Brasil",
+    region: "Porto Seguro",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "En marzo de 1500, el bachiller João Faras —conocido como Mestre João, astrólogo, astrónomo, médico y cirujano del rey Manuel I de Portugal— zarpa de Lisboa con la segunda armada portuguesa rumbo a Calicut, India, al mando de Pedro Álvares Cabral. Su misión era ante todo científica: probar un nuevo astrolabio náutico y las tablas astronómicas de Abraham Zacuto, y resolver un problema práctico de la navegación austral —la estrella Polar desaparece bajo el horizonte cerca del ecuador, dejando a los pilotos sin referencia fija—. El 22 de abril de 1500 la armada avista la costa de lo que hoy es Brasil; cinco días después, Faras desembarca cerca de la actual Porto Seguro y arma un astrolabio de madera en la playa junto a los pilotos Afonso Lopes y Pedro Escobar, calculando una latitud de 17 grados sur —a menos de 40 minutos de la real—. El 1 de mayo, desde el campamento que los portugueses bautizan Vera Cruz, escribe una carta al rey Manuel I que incluye el boceto europeo más antiguo conocido del cielo austral visto desde América: identifica las cinco estrellas de la constelación que hoy llamamos Cruz del Sur, llamándolas 'las Guardas', y ensaya —sin éxito— identificar una estrella polar sur equivalente a la del hemisferio norte. Según algunos historiadores, Faras era de origen sefardí, posiblemente huido de España tras la expulsión de los judíos en 1492 y convertido al cristianismo hacia 1496 para poder servir a la corona portuguesa. Su carta, redescubierta en los archivos reales portugueses y publicada recién en 1843, antecede en dieciséis años a la descripción más célebre de la Cruz del Sur, la de Andrea Corsali desde la India, y en diecinueve a la del cronista Antonio Pigafetta durante la expedición de Magallanes.",
+    descriptionHtml:
+      'En marzo de 1500, el bachiller João Faras —conocido como Mestre João, astrólogo, astrónomo, médico y cirujano del rey Manuel I de Portugal— zarpa de <button type="button" class="timeline-detail-geolink" data-region="Lisboa" data-country="Portugal">Lisboa</button> con la segunda armada portuguesa rumbo a <button type="button" class="timeline-detail-geolink" data-region="Calicut" data-country="India">Calicut</button>, India, al mando de Pedro Álvares Cabral. Su misión era ante todo científica: probar un nuevo astrolabio náutico y las tablas astronómicas de Abraham Zacuto, y resolver un problema práctico de la navegación austral —la estrella Polar desaparece bajo el horizonte cerca del ecuador, dejando a los pilotos sin referencia fija—. El 22 de abril de 1500 la armada avista la costa de lo que hoy es Brasil; cinco días después, Faras desembarca cerca de la actual <button type="button" class="timeline-detail-geolink" data-region="Porto Seguro" data-country="Brasil">Porto Seguro</button> y arma un astrolabio de madera en la playa junto a los pilotos Afonso Lopes y Pedro Escobar, calculando una latitud de 17 grados sur —a menos de 40 minutos de la real—. El 1 de mayo, desde el campamento que los portugueses bautizan Vera Cruz, escribe una carta al rey Manuel I que incluye el boceto europeo más antiguo conocido del cielo austral visto desde América: identifica las cinco estrellas de la constelación que hoy llamamos Cruz del Sur, llamándolas \'las Guardas\', y ensaya —sin éxito— identificar una estrella polar sur equivalente a la del hemisferio norte. Según algunos historiadores, Faras era de origen sefardí, posiblemente huido de España tras la <button type="button" class="timeline-detail-entrylink" data-id="expulsion-judios-1492">expulsión de los judíos en 1492</button> y convertido al cristianismo hacia 1496 para poder servir a la corona portuguesa. Su carta, redescubierta en los archivos reales portugueses y publicada recién en 1843, antecede en dieciséis años a la descripción más célebre de la Cruz del Sur, la de <button type="button" class="timeline-detail-entrylink" data-id="corsali-explorador-1487">Andrea Corsali</button> desde la India, y en diecinueve a la del cronista Antonio Pigafetta durante la <button type="button" class="timeline-detail-entrylink" data-id="magallanes-circunnavegacion-1519">expedición de Magallanes</button>.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si la carta de Faras nunca hubiera sido redescubierta en los archivos portugueses?",
+      answer:
+        "La descripción más antigua conocida de la Cruz del Sur habría quedado en manos de Andrea Corsali, dieciséis años después, o incluso del cronista Antonio Pigafetta durante la expedición de Magallanes. La astronomía europea del hemisferio sur no habría perdido la constelación misma, pero sí a su primer testigo documentado: un médico de origen incierto, posiblemente un judío converso huido de la España de 1492, cuya única huella en la historia es una carta que durmió olvidada en un archivo durante más de tres siglos."
+    }
+  },
+  {
     id: "sergas-esplandian-california-1510",
     year: 1510,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Part of the 1479-1533 chain-clustered sequence — see
+    // inquisicion-espanola-1478 for the earlier links in the same chain.
+    trackYear: 1505.9,
     title: "1510: Las sergas de Esplandián inventa el nombre 'California'",
     author: "Garci Rodríguez de Montalvo",
     country: "España",
@@ -597,11 +650,36 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "magallanes-circunnavegacion-1519",
+    year: 1519,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Part of the chain described at
+    // inquisicion-espanola-1478.
+    trackYear: 1510.5,
+    endYear: 1522,
+    title: "1519–1522: Fernando de Magallanes y la primera vuelta al mundo",
+    author: "Fernando de Magallanes",
+    country: "Chile",
+    region: "Estrecho de Magallanes",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Fernando de Magallanes zarpa de Sanlúcar de Barrameda en septiembre de 1519 al mando de cinco naves —la Trinidad, la San Antonio, la Concepción, la Victoria y la Santiago—, financiado por la misma Corona española que, veintisiete años antes, había financiado a Cristóbal Colón. Como Colón, Magallanes era un navegante extranjero al servicio de España —portugués, no genovés—, y como en 1492, la búsqueda de una ruta occidental terminaría revelando algo que nadie había salido a buscar: no un atajo hacia las islas de las especias, sino la primera vuelta completa al mundo. En 1520 la expedición cruza el estrecho que hoy lleva su nombre, entre la Patagonia continental y Tierra del Fuego, la primera flota europea en navegar del Atlántico al Pacífico bordeando el extremo sur de América. Durante los meses que pasa en el hemisferio sur, el cronista veneciano Antonio Pigafetta registra en su diario la Cruz del Sur y dos manchas difusas en el cielo austral —hoy las Nubes de Magallanes—, aunque ninguna de las dos era, en realidad, un descubrimiento: Andrea Corsali ya las había descrito desde la India cuatro años antes, en 1516. Lo que la expedición de Magallanes aportó no fue la primera observación, sino la fama: un viaje que recorrió el planeta entero terminó bautizando con su nombre algo que otros ya habían visto. Magallanes muere el 27 de abril de 1521 en una batalla en Mactán, Filipinas, sin completar el viaje; es su segundo al mando, Juan Sebastián Elcano, quien trae de vuelta a España en 1522 la única nave superviviente, la Victoria, con apenas 18 de los 270 hombres que habían zarpado tres años antes — la primera vuelta al mundo, completada bajo otro nombre.",
+    descriptionHtml:
+      'Fernando de Magallanes zarpa de <button type="button" class="timeline-detail-geolink" data-region="Sanlúcar de Barrameda" data-country="España">Sanlúcar de Barrameda</button> en septiembre de 1519 al mando de cinco naves —la Trinidad, la San Antonio, la Concepción, la Victoria y la Santiago—, financiado por la misma Corona española que, veintisiete años antes, había financiado a <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">Cristóbal Colón</button>. Como Colón, Magallanes era un navegante extranjero al servicio de España —portugués, no genovés—, y como en 1492, la búsqueda de una ruta occidental terminaría revelando algo que nadie había salido a buscar: no un atajo hacia las islas de las especias, sino la primera vuelta completa al mundo. En 1520 la expedición cruza el <button type="button" class="timeline-detail-geolink" data-region="Estrecho de Magallanes" data-country="Chile">estrecho que hoy lleva su nombre</button>, entre la Patagonia continental y Tierra del Fuego, la primera flota europea en navegar del Atlántico al Pacífico bordeando el extremo sur de América. Durante los meses que pasa en el hemisferio sur, el cronista veneciano Antonio Pigafetta registra en su diario la Cruz del Sur y dos manchas difusas en el cielo austral —hoy las Nubes de Magallanes—, aunque ninguna de las dos era, en realidad, un descubrimiento: <button type="button" class="timeline-detail-entrylink" data-id="corsali-explorador-1487">Andrea Corsali</button> ya las había descrito desde la India cuatro años antes, en 1516. Lo que la expedición de Magallanes aportó no fue la primera observación, sino la fama: un viaje que recorrió el planeta entero terminó bautizando con su nombre algo que otros ya habían visto. Magallanes muere el 27 de abril de 1521 en una batalla en <button type="button" class="timeline-detail-geolink" data-region="Mactán" data-country="Filipinas">Mactán, Filipinas</button>, sin completar el viaje; es su segundo al mando, Juan Sebastián Elcano, quien trae de vuelta a España en 1522 la única nave superviviente, la Victoria, con apenas 18 de los 270 hombres que habían zarpado tres años antes — la primera vuelta al mundo, completada bajo otro nombre.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Magallanes hubiera sobrevivido para completar él mismo la vuelta al mundo?",
+      answer:
+        "El relato heroico llevaría un solo nombre, no dos: hoy hablaríamos únicamente de la expedición de Magallanes, no de la hazaña compartida y algo incómoda de Magallanes y Elcano, un capitán vasco al que el propio Magallanes había encadenado por motín años antes y que terminó completando lo que su antiguo prisionero no pudo. La historia de la primera vuelta al mundo perdería esa ironía final."
+    }
+  },
+  {
     id: "naufragios-cabeza-de-vaca-1528",
     year: 1528,
     // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. 1528/1531/1535/1541 chain-clustered together.
-    trackYear: 1515.4,
+    // timeline.js. 1528/1531/1535/1541 chain-clustered together — also
+    // part of the wider 1479-1533 chain described at
+    // inquisicion-espanola-1478.
+    trackYear: 1515.1,
     endYear: 1536,
     pubYear: 1542,
     title: "Naufragios",
@@ -619,7 +697,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "vision-guadalupe-1531",
     year: 1531,
-    trackYear: 1518,
+    trackYear: 1519.7,
     title: "1531: la aparición de la Virgen de Guadalupe",
     author: "Hito histórico",
     country: "México",
@@ -656,7 +734,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "fortun-ximenez-baja-california-1533",
     year: 1533,
-    trackYear: 1524,
+    trackYear: 1524.3,
     title: "1533: Fortún Ximénez toca Baja California en un motín",
     author: "Fortún Ximénez Bertandoña",
     country: "México",
@@ -803,11 +881,34 @@ const TIMELINE_ENTRIES = [
     description:
       "El propio Cabrillo había reclamado California para la Corona española en 1542, pero un reclamo sobre el papel es muy distinto a una ocupación real: durante más de 225 años, España no estableció ningún asentamiento permanente en la actual Alta California. Las razones eran prácticas: pocos colonos disponibles frente a los territorios ya poblados y productivos de México, Centroamérica, Sudamérica y el Caribe; el costo de sostener una colonia remota —barcos, soldados, misioneros, suministros—; la enorme distancia terrestre y marítima desde Ciudad de México, capital del virreinato; y la ausencia de oro, plata o imperios indígenas densos que justificaran la inversión, a diferencia de México central o Perú. Eso cambia a mediados del siglo XVIII, cuando la expansión rusa de la caza de pieles desde Alaska y la creciente actividad británica en el Pacífico convencen a la Corona de que necesita una presencia efectiva en el territorio. En 1769, España lanza la expedición Portolá: Gaspar de Portolá, gobernador militar, y el misionero franciscano Junípero Serra fundan la Misión San Diego de Alcalá, el primer asentamiento español permanente en Alta California y la primera de una cadena de misiones y presidios que terminaría por extenderse a lo largo de toda la costa. Doscientos veintisiete años después del reclamo de Cabrillo, España finalmente ocupa lo que llevaba más de dos siglos reclamando solo de nombre. Semanas después de fundar San Diego, el 2 de agosto de 1769 —fiesta de Nuestra Señora de los Ángeles de la Porciúncula en el calendario franciscano— la expedición acampa junto a un río más al norte y lo bautiza El Río de Nuestra Señora la Reina de los Ángeles de Porciúncula, en honor a la capilla que Francesco d'Assisi (Francisco de Asís) había restaurado más de cinco siglos antes; el nombre terminaría heredándolo la futura ciudad de Los Ángeles. Meses después, ya en noviembre de 1769, la expedición sigue tierra adentro hacia el norte y acampa junto a un enorme secuoya costero a orillas del arroyo San Francisquito: los soldados españoles lo bautizan simplemente 'el palo alto'. El árbol sigue en pie hoy, y su nombre terminaría bautizando, más de un siglo después, en 1894, la ciudad de Palo Alto —fundada junto a la naciente Universidad de Stanford— mucho después de que la expedición que le dio nombre hubiera desaparecido de la memoria de casi todos sus vecinos.",
     descriptionHtml:
-      'El propio <button type="button" class="timeline-detail-entrylink" data-id="cabrillo-california-1542">Cabrillo</button> había reclamado California para la Corona española en 1542, pero un reclamo sobre el papel es muy distinto a una ocupación real: durante más de 225 años, España no estableció ningún asentamiento permanente en la actual Alta California. Las razones eran prácticas: pocos colonos disponibles frente a los territorios ya poblados y productivos de <button type="button" class="timeline-detail-geolink" data-country="México">México</button>, Centroamérica, Sudamérica y el Caribe; el costo de sostener una colonia remota —barcos, soldados, misioneros, suministros—; la enorme distancia terrestre y marítima desde <button type="button" class="timeline-detail-geolink" data-region="Ciudad de México" data-country="México">Ciudad de México</button>, capital del virreinato; y la ausencia de oro, plata o imperios indígenas densos que justificaran la inversión, a diferencia de México central o <button type="button" class="timeline-detail-geolink" data-country="Perú">Perú</button>. Eso cambia a mediados del siglo XVIII, cuando la expansión rusa de la caza de pieles desde Alaska y la creciente actividad británica en el Pacífico convencen a la Corona de que necesita una presencia efectiva en el territorio. En 1769, España lanza la expedición Portolá: Gaspar de Portolá, gobernador militar, y el misionero <button type="button" class="timeline-detail-entrylink" data-id="orden-franciscana-1209">franciscano</button> <button type="button" class="timeline-detail-entrylink" data-id="junipero-serra-nace-1713">Junípero Serra</button> fundan la <button type="button" class="timeline-detail-geolink" data-region="Misión San Diego de Alcalá" data-country="Estados Unidos">Misión San Diego de Alcalá</button>, el primer asentamiento español permanente en Alta California y la primera de una cadena de misiones y presidios que terminaría por extenderse a lo largo de toda la costa. Doscientos veintisiete años después del reclamo de Cabrillo, España finalmente ocupa lo que llevaba más de dos siglos reclamando solo de nombre. Semanas después de fundar San Diego, el 2 de agosto de 1769 —fiesta de Nuestra Señora de los Ángeles de la <button type="button" class="timeline-detail-entrylink" data-id="porciuncula-restauracion-1205">Porciúncula</button> en el calendario franciscano— la expedición acampa junto a un río más al norte y lo bautiza <button type="button" class="timeline-detail-geolink" data-region="Los Ángeles, California" data-country="Estados Unidos">El Río de Nuestra Señora la Reina de los Ángeles de Porciúncula</button>, en honor a la capilla que Francesco d\'Assisi (Francisco de Asís) había restaurado más de cinco siglos antes; el nombre terminaría heredándolo la futura ciudad de Los Ángeles. Meses después, ya en noviembre de 1769, la expedición sigue tierra adentro hacia el norte y acampa junto a un enorme secuoya costero a orillas del arroyo San Francisquito: los soldados españoles lo bautizan simplemente \'<button type="button" class="timeline-detail-geolink" data-region="El Palo Alto" data-country="Estados Unidos">el palo alto</button>\'. El árbol sigue en pie hoy, y su nombre terminaría bautizando, más de un siglo después, en 1894, la ciudad de Palo Alto —fundada junto a la naciente <button type="button" class="timeline-detail-geolink" data-region="Universidad de Stanford" data-country="Estados Unidos">Universidad de Stanford</button>— mucho después de que la expedición que le dio nombre hubiera desaparecido de la memoria de casi todos sus vecinos.',
+      'El propio <button type="button" class="timeline-detail-entrylink" data-id="cabrillo-california-1542">Cabrillo</button> había reclamado California para la Corona española en 1542, pero un reclamo sobre el papel es muy distinto a una ocupación real: durante más de 225 años, España no estableció ningún asentamiento permanente en la actual Alta California. Las razones eran prácticas: pocos colonos disponibles frente a los territorios ya poblados y productivos de <button type="button" class="timeline-detail-geolink" data-country="México">México</button>, Centroamérica, Sudamérica y el Caribe; el costo de sostener una colonia remota —barcos, soldados, misioneros, suministros—; la enorme distancia terrestre y marítima desde <button type="button" class="timeline-detail-geolink" data-region="Ciudad de México" data-country="México">Ciudad de México</button>, capital del virreinato; y la ausencia de oro, plata o imperios indígenas densos que justificaran la inversión, a diferencia de México central o <button type="button" class="timeline-detail-geolink" data-country="Perú">Perú</button>. Eso cambia a mediados del siglo XVIII, cuando la expansión rusa de la caza de pieles desde Alaska y la creciente actividad británica en el Pacífico convencen a la Corona de que necesita una presencia efectiva en el territorio. En 1769, España lanza la expedición Portolá: Gaspar de Portolá, gobernador militar, y el misionero <button type="button" class="timeline-detail-entrylink" data-id="orden-franciscana-1209">franciscano</button> <button type="button" class="timeline-detail-entrylink" data-id="junipero-serra-nace-1713">Junípero Serra</button> fundan la <button type="button" class="timeline-detail-geolink" data-region="Misión San Diego de Alcalá" data-country="Estados Unidos">Misión San Diego de Alcalá</button>, el primer asentamiento español permanente en Alta California y la primera de una cadena de misiones y presidios que terminaría por extenderse a lo largo de toda la costa. Doscientos veintisiete años después del reclamo de Cabrillo, España finalmente ocupa lo que llevaba más de dos siglos reclamando solo de nombre. Semanas después de fundar San Diego, el 2 de agosto de 1769 —fiesta de Nuestra Señora de los Ángeles de la <button type="button" class="timeline-detail-entrylink" data-id="porciuncula-restauracion-1205">Porciúncula</button> en el calendario franciscano— la expedición acampa junto a un río más al norte y lo bautiza <button type="button" class="timeline-detail-geolink" data-region="Los Ángeles, California" data-country="Estados Unidos">El Río de Nuestra Señora la Reina de los Ángeles de Porciúncula</button>, en honor a la capilla que Francesco d\'Assisi (Francisco de Asís) había restaurado más de cinco siglos antes; el nombre terminaría heredándolo la futura <button type="button" class="timeline-detail-entrylink" data-id="pueblo-de-los-44-1781">ciudad de Los Ángeles</button>. Meses después, ya en noviembre de 1769, la expedición sigue tierra adentro hacia el norte y acampa junto a un enorme secuoya costero a orillas del arroyo San Francisquito: los soldados españoles lo bautizan simplemente \'<button type="button" class="timeline-detail-geolink" data-region="El Palo Alto" data-country="Estados Unidos">el palo alto</button>\'. El árbol sigue en pie hoy, y su nombre terminaría bautizando, más de un siglo después, en 1894, la ciudad de Palo Alto —fundada junto a la naciente <button type="button" class="timeline-detail-geolink" data-region="Universidad de Stanford" data-country="Estados Unidos">Universidad de Stanford</button>— mucho después de que la expedición que le dio nombre hubiera desaparecido de la memoria de casi todos sus vecinos.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Rusia nunca hubiera expandido su comercio de pieles hacia Alaska a mediados del siglo XVIII?",
       answer:
         "Sin esa amenaza percibida desde el norte, España probablemente habría seguido posponiendo la colonización de Alta California indefinidamente, tal como lo hizo durante más de dos siglos. La misión de San Diego —y todo el sistema de misiones que la siguió— nace menos de una ambición expansiva española que de una reacción defensiva ante una potencia rival, la misma lógica que después llevaría a los rusos a fundar Fuerte Ross, a apenas un día de viaje de la futura San Francisco."
+    }
+  },
+  {
+    id: "pueblo-de-los-44-1781",
+    year: 1781,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Part of the pre-existing 1791-1810 "7 obras" chain
+    // (see bois-caiman-revuelta-1791), extended to an 8-point chain in
+    // 2026 to fit this entry in at the front without re-clustering.
+    trackYear: 1778.9,
+    title: "1781: El Pueblo de los 44",
+    author: "Felipe de Neve",
+    country: "Estados Unidos",
+    region: "Los Ángeles, California",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 4 de septiembre de 1781, un grupo de 44 pobladores —once familias, la mayoría procedentes de Sonora y Sinaloa, no de España— funda, por orden del gobernador Felipe de Neve, El Pueblo de Nuestra Señora la Reina de los Ángeles del Río de Porciúncula, el nombre que doce años antes le había dado la expedición Portolá al río cercano en honor a la capilla que Francisco de Asís había restaurado en el siglo XIII. A diferencia de las misiones —centros religiosos— y los presidios —fuertes militares—, el pueblo es una colonia civil y agrícola, pensada para asegurar la frontera norte de Nueva España frente a la expansión rusa y británica, abastecer a los presidios cercanos y complementar económicamente a la Misión San Gabriel. La autoridad fluye en cascada: nominalmente desde el rey Carlos III, que nunca pisó California; en la práctica desde el virrey de Nueva España en Ciudad de México, que gobernaba un territorio que iba de Filipinas a Centroamérica; y sobre el terreno, desde De Neve mismo, gobernador de la Alta California entre 1775 y 1782, quien eligió el sitio por su tierra fértil, agua confiable y cercanía a la misión. Los 44 fundadores eran, contra el mito de una fundación puramente española, abrumadoramente mestizos: según la investigación del historiador William M. Mason, solo dos de ellos eran blancos, veintiséis tenían ascendencia africana y dieciséis eran indígenas o mestizos. La cuenca de Los Ángeles, sin embargo, no estaba vacía: era territorio tongva —también llamados gabrielinos, por la misión cercana— desde hacía miles de años, y su desposesión, aunque gradual, ya había comenzado con la instalación de las misiones. El pueblo crece con lentitud: unos 300 habitantes hacia 1800, entre 1,500 y 2,000 hacia el fin del periodo mexicano, minúsculo comparado con Ciudad de México, que ya rondaba los 150,000. Solo después de la anexión estadounidense de 1848, la fiebre del oro, el ferrocarril y, más tarde, el petróleo y el cine, ese pueblo fronterizo de 44 personas se convertiría en una de las ciudades más grandes del planeta.",
+    descriptionHtml:
+      'El 4 de septiembre de 1781, un grupo de 44 pobladores —once familias, la mayoría procedentes de <button type="button" class="timeline-detail-geolink" data-region="Sonora" data-country="México">Sonora</button> y <button type="button" class="timeline-detail-geolink" data-region="Sinaloa" data-country="México">Sinaloa</button>, no de España— funda, por orden del gobernador Felipe de Neve, El Pueblo de Nuestra Señora la Reina de los Ángeles del Río de Porciúncula, el nombre que doce años antes le había dado la <button type="button" class="timeline-detail-entrylink" data-id="portola-expedicion-san-diego-1769">expedición Portolá</button> al río cercano en honor a la capilla que <button type="button" class="timeline-detail-entrylink" data-id="porciuncula-restauracion-1205">Francisco de Asís</button> había restaurado en el siglo XIII. A diferencia de las misiones —centros religiosos— y los presidios —fuertes militares—, el pueblo es una colonia civil y agrícola, pensada para asegurar la frontera norte de Nueva España frente a la expansión rusa y británica, abastecer a los presidios cercanos y complementar económicamente a la Misión San Gabriel. La autoridad fluye en cascada: nominalmente desde el rey Carlos III, que nunca pisó California; en la práctica desde el virrey de Nueva España en <button type="button" class="timeline-detail-geolink" data-region="Ciudad de México" data-country="México">Ciudad de México</button>, que gobernaba un territorio que iba de Filipinas a Centroamérica; y sobre el terreno, desde De Neve mismo, gobernador de la Alta California entre 1775 y 1782, quien eligió el sitio por su tierra fértil, agua confiable y cercanía a la misión. Los 44 fundadores eran, contra el mito de una fundación puramente española, abrumadoramente mestizos: según la investigación del historiador William M. Mason, solo dos de ellos eran blancos, veintiséis tenían ascendencia africana y dieciséis eran indígenas o mestizos. La cuenca de <button type="button" class="timeline-detail-geolink" data-region="Los Ángeles, California" data-country="Estados Unidos">Los Ángeles</button>, sin embargo, no estaba vacía: era territorio tongva —también llamados gabrielinos, por la misión cercana— desde hacía miles de años, y su desposesión, aunque gradual, ya había comenzado con la instalación de las misiones. El pueblo crece con lentitud: unos 300 habitantes hacia 1800, entre 1,500 y 2,000 hacia el fin del periodo mexicano, minúsculo comparado con Ciudad de México, que ya rondaba los 150,000. Solo después de la anexión estadounidense de 1848, la fiebre del oro, el ferrocarril y, más tarde, el petróleo y el cine, ese pueblo fronterizo de 44 personas se convertiría en una de las ciudades más grandes del planeta.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Felipe de Neve nunca hubiera insistido en fundar pueblos civiles en Alta California?",
+      answer:
+        "Alta California habría seguido dependiendo casi por completo de las misiones y los presidios, sin la base civil y agrícola que De Neve consideraba indispensable para sostener la frontera a largo plazo. Es posible que un asentamiento civil hubiera surgido de todos modos en algún punto de la cuenca, pero no necesariamente en 1781, ni con ese nombre heredado de una capilla italiana del siglo XIII, ni con la composición racial tan diversa que documentó Mason — una fundación que la memoria oficial tardaría dos siglos en reconocer."
     }
   },
 
@@ -1742,7 +1843,9 @@ const TIMELINE_ENTRIES = [
     flag: "spain-not-latam",
     type: ICON_TYPE.HISTORY,
     description:
-      "Pintor de cámara de Felipe IV y máxima figura del Siglo de Oro español. Las Meninas (1656) sigue siendo uno de los ejercicios más estudiados de la historia del arte occidental sobre la mirada, el poder y la representación misma.",
+      "Pintor de cámara de Felipe IV y máxima figura del Siglo de Oro español. Las Meninas (1656) sigue siendo uno de los ejercicios más estudiados de la historia del arte occidental sobre la mirada, el poder y la representación misma, y hoy cuelga en el Museo del Prado de Madrid, donde sigue siendo una de sus obras más visitadas.",
+    descriptionHtml:
+      'Pintor de cámara de Felipe IV y máxima figura del Siglo de Oro español. Las Meninas (1656) sigue siendo uno de los ejercicios más estudiados de la historia del arte occidental sobre la mirada, el poder y la representación misma, y hoy cuelga en el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Museo del Prado</button> de Madrid, donde sigue siendo una de sus obras más visitadas.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Velázquez nunca hubiera sido pintor de cámara de Felipe IV?",
       answer:
@@ -2040,7 +2143,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "guerra-caribe-balliceaux-1796",
     year: 1795,
-    trackYear: 1790.5,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Part of the chain described at
+    // bois-caiman-revuelta-1791.
+    trackYear: 1793.2,
     endYear: 1796,
     title: "1796: derrota garífuna y el horror de Balliceaux",
     author: "Hito histórico",
@@ -2058,7 +2164,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "garifuna-llegada-roatan-1797",
     year: 1797,
-    trackYear: 1796.5,
+    trackYear: 1798,
     title: "12 de abril de 1797: los garífunas llegan a Honduras",
     author: "Hito histórico",
     country: "Honduras",
@@ -2078,10 +2184,10 @@ const TIMELINE_ENTRIES = [
     id: "bois-caiman-revuelta-1791",
     year: 1791,
     // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. Seven real events across 1791-1810 chain-clustered
-    // into a single "7 obras" marker; spread across the available room
+    // timeline.js. Now an 8-point chain — pueblo-de-los-44-1781 was
+    // added to the front in 2026 — spread across the available room
     // between the untouched 1773 and 1813 entries on either side.
-    trackYear: 1778.4,
+    trackYear: 1783.7,
     title: "1791: la ceremonia de Bois Caïman y el estallido de la revuelta",
     author: "Hito histórico",
     country: "Haití",
@@ -2099,7 +2205,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "sonthonax-convencion-abolicion-1794",
     year: 1794,
-    trackYear: 1784.5,
+    trackYear: 1788.4,
     title: "1794: Francia abole la esclavitud en Saint-Domingue",
     author: "Hito histórico",
     country: "Haití",
@@ -2116,7 +2222,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "expedicion-leclerc-toussaint-1802",
     year: 1802,
-    trackYear: 1802.6,
+    trackYear: 1802.8,
     title: "1802: Napoleón envía a Leclerc a restaurar la esclavitud",
     author: "Hito histórico",
     country: "Haití",
@@ -2135,7 +2241,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "haiti-independencia-1804",
     year: 1804,
-    trackYear: 1808.6,
+    trackYear: 1807.6,
     title: "1804: Haití declara su independencia y abole la esclavitud para siempre",
     author: "Hito histórico",
     country: "Haití",
@@ -2619,7 +2725,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "corrido-origenes-independencia-revolucion",
     year: 1810,
-    trackYear: 1811.5,
+    trackYear: 1811.1,
     endYear: 1920,
     title: "1810–1920: el corrido, el periódico del pueblo",
     author: "Hito histórico",

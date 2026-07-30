@@ -161,6 +161,17 @@
     letter-spacing: 0.08em;
 }
 
+.space-time-clock-caption span.is-linked {
+    cursor: pointer;
+    text-decoration: underline dotted;
+    text-underline-offset: 3px;
+}
+
+.space-time-clock-caption span.is-linked:hover,
+.space-time-clock-caption span.is-linked:focus-visible {
+    color: var(--gold-light);
+}
+
 @media (prefers-reduced-motion: reduce) {
     .stc-ring-outer,
     .stc-ring-inner {

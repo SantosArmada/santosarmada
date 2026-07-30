@@ -18,6 +18,17 @@
         'America/Yucatan': 'Yucatán'
     };
 
+    // Timezones whose city name is already geotagged on the globe (see
+    // REGION_CENTER in globe.js) — these get a clickable caption that
+    // flies the globe there, same mechanism as the inline geolinks in
+    // timeline.js. Cities above without an entry here just render as
+    // plain text.
+    var TZ_GLOBE_TARGET = {
+        'America/Los_Angeles': { region: 'Los Ángeles, California', country: 'Estados Unidos' },
+        'America/Mexico_City': { region: 'Ciudad de México', country: 'México' },
+        'America/Bogota': { region: 'Bogotá', country: 'Colombia' }
+    };
+
     function init() {
         var hourHand = document.getElementById('stcHour');
         var minuteHand = document.getElementById('stcMinute');
@@ -34,6 +45,26 @@
                 var tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
                 var pretty = TZ_NAME_OVERRIDES[tz] || tz.split('/').pop().replace(/_/g, ' ');
                 tzLabel.textContent = pretty || 'Local Time';
+
+                var target = TZ_GLOBE_TARGET[tz];
+                if (target) {
+                    tzLabel.classList.add('is-linked');
+                    tzLabel.setAttribute('role', 'button');
+                    tzLabel.setAttribute('tabindex', '0');
+                    tzLabel.setAttribute('aria-label', 'Ver ' + pretty + ' en el globo');
+                    var activate = function () {
+                        if (typeof window.focusGlobeOnRegion !== 'function') return;
+                        window.focusGlobeOnRegion(target.region, target.country);
+                        var globeEl = document.getElementById('globeViz');
+                        if (globeEl) globeEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    };
+                    tzLabel.addEventListener('click', activate);
+                    tzLabel.addEventListener('keydown', function (e) {
+                        if (e.key !== 'Enter' && e.key !== ' ') return;
+                        e.preventDefault();
+                        activate();
+                    });
+                }
             } catch (e) {
                 tzLabel.textContent = 'Local Time';
             }
