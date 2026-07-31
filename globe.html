@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Globo — Santos Armada</title>
     <link href="vendor/fonts/globe-fonts.css" rel="stylesheet">
-    <link rel="stylesheet" href="globe.css?v=5">
+    <link rel="stylesheet" href="globe.css?v=6">
     <link rel="stylesheet" href="timeline.css?v=11">
     <link rel="stylesheet" href="space-time-clock.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -73,9 +73,28 @@
 <script src="timeline.js?v=13"></script>
 <script src="space-time-clock.js" defer></script>
 <script>
-document.getElementById('globe-scroll-cue').addEventListener('click', () => {
-    document.querySelector('.timeline-section').scrollIntoView({ behavior: 'smooth' });
-});
+(function () {
+    const scrollCue = document.getElementById('globe-scroll-cue');
+    const timelineSection = document.querySelector('.timeline-section');
+    const butterflyPanel = document.getElementById('timelineButterfly');
+
+    scrollCue.addEventListener('click', () => {
+        timelineSection.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Single threshold, keyed off the butterfly-effect panel's TOP edge
+    // (not its bottom): the moment the panel starts sliding out of view —
+    // while it's still partially on screen, not only once it's fully
+    // gone — hide the cue. Scroll back up past that same point (the panel's
+    // top is visible again) and it reappears. Symmetric on purpose so
+    // there's no lag/dead zone in either direction.
+    function updateScrollCueVisibility() {
+        const panelTop = butterflyPanel.getBoundingClientRect().top;
+        scrollCue.classList.toggle('is-hidden', panelTop <= 0);
+    }
+    window.addEventListener('scroll', updateScrollCueVisibility, { passive: true });
+    updateScrollCueVisibility();
+})();
 </script>
 <script>
     function toggleMenu() {
