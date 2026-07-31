@@ -347,7 +347,7 @@
 
     activeIndex = idx;
 
-    const NON_LATAM_COUNTRIES = ["China", "San Vicente y las Granadinas", "Portugal", "Italia"];
+    const NON_LATAM_COUNTRIES = ["China", "San Vicente y las Granadinas", "Portugal", "Italia", "Turquía"];
     // Countries anchoring an entry in Africa get their own purple badge
     // instead of falling through to the green "Latinoamérica" default.
     const AFRICA_COUNTRIES = [
@@ -523,7 +523,13 @@
     if (node) node.classList.add("is-active");
     activeIndex = -1;
 
-    const sortedMembers = members.slice().sort((a, b) => entries[a].year - entries[b].year);
+    // Same-year ties break on `month` (1-12, optional) so entries sharing
+    // a year still list chronologically instead of by array insertion order.
+    const sortedMembers = members.slice().sort((a, b) => {
+      const yearDiff = entries[a].year - entries[b].year;
+      if (yearDiff !== 0) return yearDiff;
+      return (entries[a].month || 0) - (entries[b].month || 0);
+    });
     const rowsHtml = sortedMembers
       .map((idx) => {
         const e = entries[idx];
@@ -600,6 +606,19 @@
       }
     }
     return closest;
+  }
+
+  /* Shown once, before the user has scrolled the track or clicked an
+     entry. The very next call to updateButterfly() (from the scroll
+     listener or a click) replaces it — lastButterflyKey stays null so
+     that first real call is never skipped as a no-op duplicate. */
+  function showIntroButterfly() {
+    butterflyEl.classList.remove("is-hidden");
+    butterflyEl.innerHTML = `
+      <p class="timeline-butterfly-eyebrow">Efecto Mariposa</p>
+      <p class="timeline-butterfly-prompt">¿Qué hubiera pasado si España nunca se hubiera formado como estado?</p>
+      <p class="timeline-butterfly-answer">Este es quizás el efecto mariposa más grande de todos. Hoy, cerca de quinientos millones de personas hablan español. Sin España, países como México, Colombia, Argentina, Perú, Chile, Venezuela, Ecuador, Guatemala, Honduras, El Salvador, Nicaragua, Costa Rica, Cuba y República Dominicana quizás nunca habrían sido hispanohablantes — el mapa lingüístico entero del hemisferio occidental sería otro. Tal vez el portugués o el inglés dominarían en su lugar, y lenguas indígenas como el náhuatl, el quechua, el aimara, las lenguas mayas y el mapudungún habrían conservado estatus de lengua de estado.</p>
+    `;
   }
 
   let lastButterflyKey = null;
@@ -796,7 +815,7 @@
 
   /* ---------- Initial state ---------- */
   updateHeader(MIN_YEAR);
-  updateButterfly(MIN_YEAR);
+  showIntroButterfly();
   syncMinimap();
 
   /* ---------- External hook (used by the globe's Connected Works) ----------

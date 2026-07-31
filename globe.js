@@ -1,16 +1,16 @@
 const highlightedCountries = {
-    // Neon Wild Blue Yonder — West Asia / Middle East cluster
-    'Iraq': '#6c8cff',
-    'Iran': '#6c8cff',
-    'Palestine': '#6c8cff',
-    'Saudi Arabia': '#6c8cff',
-    'Armenia': '#6c8cff',
-    'United Arab Emirates': '#6c8cff',
-    'Jordan': '#6c8cff',
-    'Yemen': '#6c8cff',
-    'Oman': '#6c8cff',
-    'Syria': '#6c8cff',
-    'Afghanistan': '#6c8cff',
+    // Charcoal gray — West Asia / Middle East cluster
+    'Iraq': '#4a4a52',
+    'Iran': '#4a4a52',
+    'Palestine': '#4a4a52',
+    'Saudi Arabia': '#4a4a52',
+    'Armenia': '#4a4a52',
+    'United Arab Emirates': '#4a4a52',
+    'Jordan': '#4a4a52',
+    'Yemen': '#4a4a52',
+    'Oman': '#4a4a52',
+    'Syria': '#4a4a52',
+    'Afghanistan': '#4a4a52',
     'Mexico': '#39ff6a',
     'Guatemala': '#39ff6a',
     'Nicaragua': '#39ff6a',
@@ -35,6 +35,7 @@ const highlightedCountries = {
     'Portugal': '#ff6a00',
     'Morocco': '#39ff6a',
     'Belgium': '#ff9ecf',
+    'Austria': '#ff9ecf',
     'France': '#ff9ecf',
     'Canada': '#ff9ecf',
     'Italy': '#c8a96e',
@@ -99,10 +100,10 @@ const highlightedCountries = {
     'eSwatini': '#a64dff',
     'United States of America': '#4da6ff',
     'United Kingdom': '#4da6ff',
+    'Netherlands': '#4da6ff',
     'Australia': '#4da6ff',
     'Germany': '#4da6ff',
     'Poland': '#4da6ff',
-    'Austria': '#4da6ff',
     'Puerto Rico': '#4da6ff',
     'Belize': '#4da6ff',
     'Jamaica': '#4da6ff',
@@ -238,7 +239,8 @@ const GLOBE_TO_TIMELINE_COUNTRY = {
     'Puerto Rico': 'Puerto Rico',
     'Jamaica': 'Jamaica',
     'Japan': 'Japón',
-    'China': 'China'
+    'China': 'China',
+    'Turkey': 'Turquía'
 };
 
 function escapeHtmlGlobe(str) {
@@ -637,7 +639,11 @@ const COUNTRY_CENTER = {
     'Irak': { lat: 33.0, lng: 44.0 },
     'Mauritania': { lat: 20.0, lng: -10.9 },
     'Congo': { lat: -0.4, lng: 15.8 },
-    'Angola': { lat: -11.2027, lng: 17.8739 }
+    'Angola': { lat: -11.2027, lng: 17.8739 },
+    'Turquía': { lat: 38.9637, lng: 35.2433 },
+    'Cabo Verde': { lat: 16.5388, lng: -23.0418 },
+    'Kirguistán': { lat: 41.20, lng: 74.77 },
+    'Ucrania': { lat: 48.38, lng: 31.17 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -883,7 +889,16 @@ const REGION_CENTER = {
     'Cabo Branco': { lat: 20.7700, lng: -17.0300 },
     'Mbanza Kongo': { lat: -6.2667, lng: 14.2500 },
     'Luanda': { lat: -8.8390, lng: 13.2894 },
-    'Yara': { lat: 20.2967, lng: -76.9578 }
+    'Yara': { lat: 20.2967, lng: -76.9578 },
+    'Estambul': { lat: 41.0082, lng: 28.9784 },
+    'Tordesillas': { lat: 41.5010, lng: -5.0006 },
+    'Kumamoto': { lat: 32.8032, lng: 130.7079 },
+    'Santos': { lat: -23.9608, lng: -46.3339 },
+    'São Paulo': { lat: -23.5505, lng: -46.6333 },
+    'Liberdade': { lat: -23.5583, lng: -46.6350 },
+    'Issyk-Kul': { lat: 42.60, lng: 77.00 },
+    'Caffa': { lat: 45.0333, lng: 35.3833 },
+    'Mesina': { lat: 38.1938, lng: 15.5540 }
 };
 
 let regionRippleTimeoutIds = [];

@@ -435,7 +435,7 @@ const TIMELINE_ENTRIES = [
     // room to the 1438/1441/1442/1478/1479/1487 chain described at
     // inquisicion-espanola-1478 — this entry has plenty of slack toward
     // libro-buen-amor-1330 to spare.
-    trackYear: 1384.6,
+    trackYear: 1344.76,
     endYear: 1472,
     title: "Nezahualcóyotl: vida y obra",
     author: "José Luis Martínez",
@@ -463,7 +463,7 @@ const TIMELINE_ENTRIES = [
     // legado-trata-transatlantica-1442 were inserted into the same gap,
     // and again to give 1441 and 1442 their own standalone points too
     // (see nezahualcoyotl for how room was found).
-    trackYear: 1399.8,
+    trackYear: 1359.52,
     endYear: 1471,
     title: "1438: Pachacútec funda el Imperio Inca",
     author: "Hito histórico",
@@ -489,7 +489,7 @@ const TIMELINE_ENTRIES = [
     // rest of the chain. Given its own standalone point (not clustered
     // with legado-trata-transatlantica-1442) by borrowing extra room
     // from nezahualcoyotl.
-    trackYear: 1415.0,
+    trackYear: 1374.28,
     title: "1441: el origen de la trata transatlántica de esclavos",
     author: "Hito histórico",
     country: "Portugal",
@@ -514,7 +514,7 @@ const TIMELINE_ENTRIES = [
     // rest of the chain. Given its own standalone point (not clustered
     // with origen-trata-transatlantica-1441) by borrowing extra room
     // from nezahualcoyotl.
-    trackYear: 1430.2,
+    trackYear: 1389.04,
     endYear: 2026,
     title: "1442–hoy: el legado de la trata, de San Basilio de Palenque a LaDainian Tomlinson",
     author: "Hito histórico",
@@ -541,7 +541,7 @@ const TIMELINE_ENTRIES = [
     // as part of the wider 1479-1533 chain (see faras-cruz-del-sur-1500),
     // and again later in 2026 to make room for
     // origen-trata-transatlantica-1441 / legado-trata-transatlantica-1442.
-    trackYear: 1460.6,
+    trackYear: 1433.32,
     endYear: 1485,
     title: "1479: Colón se instala en Porto Santo",
     author: "Hito histórico",
@@ -558,11 +558,82 @@ const TIMELINE_ENTRIES = [
         "Sin esos años isleños de comercio, navegación y estudio de vientos atlánticos, Colón habría llegado a la corte de los Reyes Católicos con una intuición, no con un expediente de navegación. Su propuesta —ya de por sí recibida con escepticismo— pudo haber sido descartada sin la evidencia acumulada en Porto Santo y Madeira, dejando el primer contacto con América en manos de otro marino, bajo otra bandera."
     }
   },
+  {
+    id: "peste-negra-1338",
+    year: 1338,
+    endYear: 1353,
+    title: "1338: la Peste Negra",
+    author: "Hito histórico",
+    country: "Kirguistán",
+    region: "Issyk-Kul",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "La Peste Negra, causada por la bacteria Yersinia pestis, no comienza en Europa: el ADN antiguo extraído de tumbas cerca del lago Issyk-Kul, en las montañas del Tian Shan (actual Kirguistán), y datadas en 1338-1339, revela la cepa ancestral más cercana a la que después arrasaría el continente —el punto de origen genético más preciso que la ciencia ha logrado establecer hasta ahora, más específico que la vaga referencia tradicional a 'Asia Central'. Desde ahí, la peste viaja hacia el oeste junto a las caravanas de la Ruta de la Seda bajo la Pax Mongólica. En 1346, durante el asedio mongol a la ciudad genovesa de Caffa, en Crimea, los sitiadores catapultan cadáveres infectados por encima de las murallas —posiblemente el primer uso documentado de la guerra biológica—; los mercaderes genoveses que huyen por mar llevan la enfermedad consigo. En 1347 llega a Mesina, Sicilia, a bordo de barcos cargados de marineros infectados y ratas, y desde ahí se propaga con rapidez por todo el Mediterráneo y Europa. Entre 1346 y 1353 mata entre 25 y 50 millones de personas —entre el 30% y el 60% de la población europea—, en sus formas bubónica, neumónica y septicémica. Aldeas enteras desaparecen; algunos historiadores calculan que Europa no recuperaría sus niveles de población previos hasta el siglo XVI. La escasez de mano de obra que dejó la peste elevó los salarios de los sobrevivientes y debilitó el sistema feudal, mientras el miedo generalizado alimentaba movimientos flagelantes y acusaciones religiosas —Boccaccio, testigo directo en Florencia, describiría familias enteras abandonando a sus propios enfermos por miedo al contagio—. Pocas catástrofes han remodelado tanto una civilización desde un origen tan preciso y, a la vez, tan lejano.",
+    descriptionHtml:
+      'La Peste Negra, causada por la bacteria Yersinia pestis, no comienza en Europa: el ADN antiguo extraído de tumbas cerca del <button type="button" class="timeline-detail-geolink" data-region="Issyk-Kul" data-country="Kirguistán">lago Issyk-Kul</button>, en las montañas del Tian Shan (actual Kirguistán), y datadas en 1338-1339, revela la cepa ancestral más cercana a la que después arrasaría el continente —el punto de origen genético más preciso que la ciencia ha logrado establecer hasta ahora, más específico que la vaga referencia tradicional a \'Asia Central\'. Desde ahí, la peste viaja hacia el oeste junto a las caravanas de la <button type="button" class="timeline-detail-entrylink" data-id="caida-constantinopla-1453">Ruta de la Seda</button> bajo la Pax Mongólica. En 1346, durante el asedio mongol a la ciudad genovesa de <button type="button" class="timeline-detail-geolink" data-region="Caffa" data-country="Ucrania">Caffa</button>, en Crimea, los sitiadores catapultan cadáveres infectados por encima de las murallas —posiblemente el primer uso documentado de la guerra biológica—; los mercaderes genoveses que huyen por mar llevan la enfermedad consigo. En 1347 llega a <button type="button" class="timeline-detail-geolink" data-region="Mesina" data-country="Italia">Mesina</button>, Sicilia, a bordo de barcos cargados de marineros infectados y ratas, y desde ahí se propaga con rapidez por todo el Mediterráneo y Europa. Entre 1346 y 1353 mata entre 25 y 50 millones de personas —entre el 30% y el 60% de la población europea—, en sus formas bubónica, neumónica y septicémica. Aldeas enteras desaparecen; algunos historiadores calculan que Europa no recuperaría sus niveles de población previos hasta el siglo XVI. La escasez de mano de obra que dejó la peste elevó los salarios de los sobrevivientes y debilitó el sistema feudal, mientras el miedo generalizado alimentaba movimientos flagelantes y acusaciones religiosas —Boccaccio, testigo directo en Florencia, describiría familias enteras abandonando a sus propios enfermos por miedo al contagio—. Pocas catástrofes han remodelado tanto una civilización desde un origen tan preciso y, a la vez, tan lejano.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si la Peste Negra nunca hubiera salido de las montañas del Tian Shan?",
+      answer:
+        "Sin esa cepa ancestral cruzando la Ruta de la Seda hacia el oeste, Europa habría conservado la estructura feudal muchas décadas más: sin la escasez de mano de obra que empujó los salarios al alza, ni la crisis de autoridad eclesiástica que abrió paso a los movimientos religiosos y, más tarde, al humanismo renacentista. Una bacteria nacida en las montañas de la actual Kirguistán terminó acelerando, sin que nadie lo supiera en 1338, el fin de la Edad Media."
+    }
+  },
+  {
+    id: "caida-constantinopla-1453",
+    year: 1453,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Part of the 1438/1441/1442/1453/1478/1479/1484/1487/
+    // 1492/1492 chain-clustered sequence — see inquisicion-espanola-1478
+    // for the rest of the chain. Re-spaced across the board (including
+    // nezahualcoyotl) to fit this entry between
+    // legado-trata-transatlantica-1442 and inquisicion-espanola-1478.
+    trackYear: 1403.8,
+    title: "1453: cae Constantinopla y se encarece la Ruta de la Seda",
+    author: "Hito histórico",
+    country: "Turquía",
+    region: "Estambul",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Durante más de mil quinientos años, ninguna potencia controló jamás la totalidad de lo que hoy se conoce como la Ruta de la Seda: la mantuvieron a la vez mercaderes y funcionarios del Imperio Han, comerciantes sogdianos de Asia Central, mercaderes partos e indios, comerciantes árabes, pueblos turcos y, más tarde, las autoridades mongolas durante la Pax Mongólica. El nombre mismo —'Ruta de la Seda'— es una invención moderna: lo acuñó en 1877 el geógrafo alemán Ferdinand von Richthofen; nadie en la Antigüedad la llamó así. El 29 de mayo de 1453, el sultán otomano Mehmed II toma Constantinopla tras un asedio de casi dos meses, poniendo fin a mil años de Imperio Bizantino y convirtiendo a los otomanos en la potencia dominante del Mediterráneo oriental y de buena parte de las rutas comerciales que unían Europa con Asia. Contra la narrativa popular, los otomanos no 'cierran' la Ruta de la Seda: el comercio continúa, y mercaderes venecianos y genoveses siguen comprando especias, seda y porcelana asiáticas. Lo que cambia es que las coronas europeas ahora dependen de intermediarios —entre ellos el propio Imperio Otomano— que cobran su parte en cada tramo de la ruta, encareciendo productos ya de por sí costosos: pimienta, canela, clavo, nuez moscada, seda, porcelana. Para monarcas ambiciosos, la pregunta se vuelve inevitable: ¿por qué seguir pagando intermediarios si se puede llegar directamente a Asia? Portugal responde bordeando África —una apuesta que culmina en 1488, cuando Bartolomeu Dias dobla el cabo de Buena Esperanza, y en 1498, cuando Vasco da Gama llega a la India por mar—. España responde con la apuesta de Cristóbal Colón: cruzar el Atlántico hacia el occidente para llegar directamente a China (Catay), Japón (Cipango), la India y las islas de las Especias, evitando de un salto toda la cadena de intermediarios. La caída de Constantinopla no provoca por sí sola el viaje de Colón —es una pieza más de una transformación más amplia—, pero ayuda a convencer a Europa de que necesita rutas alternativas hacia Asia. La ironía final es doble: Colón nunca llega a Asia, y los otomanos, lejos de frenar el comercio euroasiático, terminan empujando a las coronas ibéricas a tejer, sin buscarlo, la primera red comercial verdaderamente global.",
+    descriptionHtml:
+      'Durante más de mil quinientos años, ninguna potencia controló jamás la totalidad de lo que hoy se conoce como la Ruta de la Seda: la mantuvieron a la vez mercaderes y funcionarios del Imperio Han, comerciantes sogdianos de Asia Central, mercaderes partos e indios, comerciantes árabes, pueblos turcos y, más tarde, las autoridades mongolas durante la Pax Mongólica. El nombre mismo —\'Ruta de la Seda\'— es una invención moderna: lo acuñó en 1877 el geógrafo alemán Ferdinand von Richthofen; nadie en la Antigüedad la llamó así. El 29 de mayo de 1453, el sultán otomano Mehmed II toma <button type="button" class="timeline-detail-geolink" data-region="Estambul" data-country="Turquía">Constantinopla</button> tras un asedio de casi dos meses, poniendo fin a mil años de Imperio Bizantino y convirtiendo a los otomanos en la potencia dominante del Mediterráneo oriental y de buena parte de las rutas comerciales que unían Europa con Asia. Contra la narrativa popular, los otomanos no \'cierran\' la Ruta de la Seda: el comercio continúa, y mercaderes venecianos y genoveses siguen comprando especias, seda y porcelana asiáticas. Lo que cambia es que las coronas europeas ahora dependen de intermediarios —entre ellos el propio Imperio Otomano— que cobran su parte en cada tramo de la ruta, encareciendo productos ya de por sí costosos: pimienta, canela, clavo, nuez moscada, seda, porcelana. Para monarcas ambiciosos, la pregunta se vuelve inevitable: ¿por qué seguir pagando intermediarios si se puede llegar directamente a Asia? Portugal responde bordeando África —una apuesta que culmina en 1488, cuando Bartolomeu Dias dobla el cabo de Buena Esperanza, y en 1498, cuando Vasco da Gama llega a la India por mar—. España responde con <button type="button" class="timeline-detail-entrylink" data-id="colon-joao-ii-1484">la apuesta de Cristóbal Colón</button>: cruzar el Atlántico hacia el occidente para llegar directamente a China (Catay), Japón (Cipango), la India y las islas de las Especias, evitando de un salto toda la cadena de intermediarios. La caída de Constantinopla no provoca por sí sola el viaje de Colón —es una pieza más de una transformación más amplia—, pero ayuda a convencer a Europa de que necesita rutas alternativas hacia Asia. La ironía final es doble: Colón nunca llega a Asia, y los otomanos, lejos de frenar el comercio euroasiático, terminan empujando a las coronas ibéricas a tejer, sin buscarlo, la primera red comercial verdaderamente global.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Constantinopla nunca hubiera caído en manos otomanas en 1453?",
+      answer:
+        "El comercio euroasiático habría seguido fluyendo por las mismas rutas terrestres de siempre, sin el incentivo añadido de intermediarios otomanos más costosos. Portugal probablemente habría seguido buscando una ruta marítima a la India de todos modos —ya llevaba décadas explorando la costa africana antes de 1453—, pero la urgencia española por encontrar una alternativa habría sido menor, y la ventana en la que Colón logró convencer a Isabel y Fernando en 1492 pudo haberse cerrado sin que nadie la aprovechara."
+    }
+  },
+  {
+    id: "colon-joao-ii-1484",
+    year: 1484,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Part of the 1438/1441/1442/1478/1479/1484/1487/1492/1492
+    // chain-clustered sequence — see inquisicion-espanola-1478 for the
+    // rest of the chain. Re-spaced across the board (including
+    // nezahualcoyotl) to fit this entry between colon-porto-santo-1479 and
+    // corsali-explorador-1487 without re-breaking any of them.
+    trackYear: 1448.08,
+    endYear: 1485,
+    title: "1484: João II de Portugal rechaza a Colón",
+    author: "Hito histórico",
+    country: "Portugal",
+    region: "Lisboa",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Antes de convencer a los Reyes Católicos, Cristoforo Colombo (Cristóbal Colón) presenta primero su plan a Portugal. Hacia 1484-1485 expone ante el rey João II su propuesta de alcanzar Asia navegando hacia el occidente a través del Atlántico. João II —heredero de la política atlántica que su tío abuelo, el infante Enrique el Navegante, había iniciado generaciones antes— convoca a una junta de expertos portugueses en navegación, astronomía y matemáticas para evaluar el proyecto. El comité lo rechaza: concluye que Colón ha subestimado gravemente la circunferencia de la Tierra y, con ella, la distancia real hasta Asia navegando hacia el oeste. La decisión no nace de ignorancia, sino de una ventaja real: Portugal lleva décadas cartografiando la costa africana y confía en su propia ruta oriental hacia la India, cuyo avance —bordear el continente por el sur— ya parece cuestión de tiempo, no de apuesta. De hecho, los expertos portugueses están más cerca de la verdad que el propio Colón: subestima tanto la circunferencia terrestre que, de no haber tierra alguna entre Europa y Asia, sus naves habrían agotado agua y víveres mucho antes de tocar costa asiática. Lo que vuelve posible su viaje no es que su cálculo fuera correcto, sino que un continente entero —América— existía donde ningún europeo lo sospechaba. Existe además un rumor persistente, nunca confirmado por evidencia documental sólida, de que João II habría enviado en secreto una carabela hacia el oeste para poner a prueba los cálculos de Colón antes de descartarlo oficialmente; varios cronistas lo repitieron, pero los historiadores modernos lo consideran, en el mejor de los casos, no demostrado. Rechazado, Colón cruza a España, donde —tras otro rechazo inicial— consigue por fin el respaldo de Isabel y Fernando en 1492. Portugal, mientras tanto, confirma que había apostado bien: Bartolomeu Dias dobla el cabo de Buena Esperanza en 1488, y Vasco da Gama llega a la India por mar en 1498, consolidando la ruta oriental que la Corona portuguesa había preferido sobre la occidental de Colón.",
+    descriptionHtml:
+      'Antes de convencer a los Reyes Católicos, Cristoforo Colombo (Cristóbal Colón) presenta primero su plan a <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button>. Hacia 1484-1485, mientras vive <button type="button" class="timeline-detail-entrylink" data-id="colon-porto-santo-1479">instalado entre Porto Santo y Madeira</button>, expone ante el rey João II su propuesta de alcanzar Asia navegando hacia el occidente a través del Atlántico. João II —heredero de la política atlántica que su tío abuelo, el infante Enrique el Navegante, había iniciado generaciones antes— convoca a una junta de expertos portugueses en navegación, astronomía y matemáticas para evaluar el proyecto. El comité lo rechaza: concluye que Colón ha subestimado gravemente la circunferencia de la Tierra y, con ella, la distancia real hasta Asia navegando hacia el oeste. La decisión no nace de ignorancia, sino de una ventaja real: Portugal lleva décadas cartografiando la costa africana y confía en su propia ruta oriental hacia la India, cuyo avance —bordear el continente por el sur— ya parece cuestión de tiempo, no de apuesta. De hecho, los expertos portugueses están más cerca de la verdad que el propio Colón: subestima tanto la circunferencia terrestre que, de no haber tierra alguna entre Europa y Asia, sus naves habrían agotado agua y víveres mucho antes de tocar costa asiática. Lo que vuelve posible su viaje no es que su cálculo fuera correcto, sino que un continente entero —América— existía donde ningún europeo lo sospechaba. Existe además un rumor persistente, nunca confirmado por evidencia documental sólida, de que João II habría enviado en secreto una carabela hacia el oeste para poner a prueba los cálculos de Colón antes de descartarlo oficialmente; varios cronistas lo repitieron, pero los historiadores modernos lo consideran, en el mejor de los casos, no demostrado. Rechazado, Colón cruza a España, donde —tras otro rechazo inicial— consigue por fin el respaldo de Isabel y Fernando en <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">1492</button>. Portugal, mientras tanto, confirma que había apostado bien: Bartolomeu Dias dobla el cabo de Buena Esperanza en 1488, y Vasco da Gama llega a la India por mar en 1498, consolidando la ruta oriental que la Corona portuguesa había preferido sobre la occidental de Colón.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si el comité de expertos portugueses hubiera aprobado la propuesta de Colón en 1484?",
+      answer:
+        "Portugal habría financiado la expedición hacia el oeste con los mismos recursos que ya invertía en la ruta africana, adelantando quizás años el primer contacto europeo con América — pero bajo bandera portuguesa, no española. El idioma, la religión y las instituciones que llegaron primero al continente habrían sido otras, y el mapa lingüístico de América tal como lo conocemos hoy sería irreconocible: casi el giro simétrico e inverso de lo que habría ocurrido si, en cambio, España hubiera rechazado a Colón en 1492."
+    }
+  },
 
   // ---- COLONIAL ----
   {
     id: "cuatro-viajes-colon-1492",
     year: 1492,
+    month: 8,
     trackYear: 1492.1,
     endYear: 1506,
     title: "Los cuatro viajes del almirante y su testamento",
@@ -582,6 +653,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "gramatica-castellana-nebrija-1492",
     year: 1492,
+    month: 8,
     trackYear: 1492.1,
     title: "Gramática de la lengua castellana",
     author: "Antonio de Nebrija",
@@ -602,6 +674,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "expulsion-judios-1492",
     year: 1492,
+    month: 3,
     trackYear: 1492.1,
     title: "1492: el Decreto de la Alhambra expulsa a los judíos de España",
     author: "Hito histórico",
@@ -620,6 +693,33 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "tordesillas-1494",
+    year: 1494,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Part of the pre-existing, tightly packed 1492-1592
+    // chain (regular ~4.5-4.9 track-year gaps, re-solved repeatedly as
+    // afonso-i-kongo-nzinga-mbemba-1509 and hatuey-cuba-1512 were added —
+    // see their own trackYear comments). Inserted right after the
+    // 1492 cluster and re-spaced the whole chain through
+    // monja-alferez-erauso-1592 (itself left untouched as the fixed
+    // right anchor) to fit this entry too.
+    trackYear: 1496.59,
+    title: "1494: el Tratado de Tordesillas divide el mundo",
+    author: "Hito histórico",
+    country: "España",
+    region: "Tordesillas",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Cuando Cristóbal Colón regresa en 1493 de su primer viaje y reclama nuevas tierras caribeñas para la Corona de Castilla, Portugal se alarma: lleva décadas explorando África y el Atlántico bajo patrocinio real, y considera que bulas papales anteriores ya protegían su propia esfera de influencia. El rey João II argumenta que los nuevos descubrimientos de Colón podrían caer dentro de esa esfera portuguesa — y con España y Portugal como las dos potencias marítimas dominantes de Europa, la disputa amenaza con escalar a una guerra abierta. El papa Alejandro VI (el valenciano Rodrigo Borja), elegido apenas en 1492, media entre ambas coronas: en 1493 emite una serie de bulas, entre ellas Inter Caetera, trazando una línea de demarcación en el Atlántico —las tierras al oeste corresponderían a España, las del este a Portugal—, apoyado en la creencia medieval de que el papado tenía autoridad para arbitrar entre monarcas cristianos sobre territorios no cristianos recién descubiertos. Portugal considera la línea papal demasiado favorable a España, y João II negocia directamente con los Reyes Católicos una revisión. El 7 de junio de 1494, Castilla y Portugal firman en la villa de Tordesillas el tratado que mueve la línea trescientas setenta leguas al oeste de las islas de Cabo Verde: España recibe derechos sobre las tierras al occidente de esa línea, Portugal sobre las del oriente — sin que ninguna de las dos coronas supiera realmente qué había del otro lado del horizonte. La consecuencia más duradera del tratado tardaría solo seis años en manifestarse: en 1500, cuando la expedición portuguesa de Pedro Álvares Cabral toca la costa de lo que hoy es Brasil, esa franja oriental de Sudamérica cae del lado portugués de la línea, y Portugal la reclama — la razón concreta por la que Brasil habla portugués mientras el resto de Hispanoamérica habla español. El propio tratado original todavía existe: la ratificación castellana se conserva en el Archivo General de Indias de Sevilla, y la portuguesa en el Arquivo Nacional da Torre do Tombo de Lisboa; desde 2007, la UNESCO inscribe ambos documentos conjuntamente en su Registro Memoria del Mundo. Ninguna de las dos coronas, por supuesto, consultó jamás a los millones de personas indígenas que ya habitaban esas tierras: los historiadores modernos consideran Tordesillas uno de los primeros y más flagrantes ejemplos de un reparto imperial del mundo trazado a puro pulso de línea recta sobre un mapa.",
+    descriptionHtml:
+      'Cuando <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">Cristóbal Colón</button> regresa en 1493 de su primer viaje y reclama nuevas tierras caribeñas para la Corona de Castilla, Portugal se alarma: lleva décadas explorando África y el Atlántico bajo patrocinio real, y considera que bulas papales anteriores ya protegían su propia esfera de influencia. El rey João II argumenta que los nuevos descubrimientos de Colón podrían caer dentro de esa esfera portuguesa — y con <button type="button" class="timeline-detail-geolink" data-country="España">España</button> y <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button> como las dos potencias marítimas dominantes de Europa, la disputa amenaza con escalar a una guerra abierta. El papa Alejandro VI (el valenciano Rodrigo Borja), elegido apenas en 1492, media entre ambas coronas: en 1493 emite una serie de bulas, entre ellas Inter Caetera, trazando una línea de demarcación en el Atlántico —las tierras al oeste corresponderían a España, las del este a Portugal—, apoyado en la creencia medieval de que el papado tenía autoridad para arbitrar entre monarcas cristianos sobre territorios no cristianos recién descubiertos. Portugal considera la línea papal demasiado favorable a España, y João II negocia directamente con los Reyes Católicos una revisión. El 7 de junio de 1494, Castilla y Portugal firman en la villa de <button type="button" class="timeline-detail-geolink" data-region="Tordesillas" data-country="España">Tordesillas</button> el tratado que mueve la línea trescientas setenta leguas al oeste de las islas de <button type="button" class="timeline-detail-geolink" data-country="Cabo Verde">Cabo Verde</button>: España recibe derechos sobre las tierras al occidente de esa línea, Portugal sobre las del oriente — sin que ninguna de las dos coronas supiera realmente qué había del otro lado del horizonte. La consecuencia más duradera del tratado tardaría solo seis años en manifestarse: en 1500, cuando <button type="button" class="timeline-detail-entrylink" data-id="faras-cruz-del-sur-1500">la expedición portuguesa de Pedro Álvares Cabral toca la costa de lo que hoy es Brasil</button>, esa franja oriental de Sudamérica cae del lado portugués de la línea, y Portugal la reclama — la razón concreta por la que Brasil habla portugués mientras el resto de Hispanoamérica habla español. El propio tratado original todavía existe: la ratificación castellana se conserva en el <button type="button" class="timeline-detail-geolink" data-region="Sevilla" data-country="España">Archivo General de Indias de Sevilla</button>, y la portuguesa en el <button type="button" class="timeline-detail-geolink" data-region="Lisboa" data-country="Portugal">Arquivo Nacional da Torre do Tombo de Lisboa</button>; desde 2007, la <button type="button" class="timeline-detail-geolink" data-region="París" data-country="Francia">UNESCO</button> inscribe ambos documentos conjuntamente en su Registro Memoria del Mundo. Ninguna de las dos coronas, por supuesto, consultó jamás a los millones de personas indígenas que ya habitaban esas tierras: los historiadores modernos consideran Tordesillas uno de los primeros y más flagrantes ejemplos de un reparto imperial del mundo trazado a puro pulso de línea recta sobre un mapa.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Colón nunca hubiera zarpado en 1492, dejando a España sin reclamos que defender?",
+      answer:
+        "Portugal habría seguido concentrado en su ruta africana hacia la India sin necesidad de negociar una línea de demarcación con nadie, y el papa Alejandro VI no habría tenido disputa alguna que mediar. Sin el Tratado de Tordesillas, la futura Sudamérica portuguesa —y con ella el idioma que hoy habla Brasil— habría dependido de un reparto completamente distinto, o quizás de ningún reparto en absoluto."
+    }
+  },
+  {
     id: "corsali-explorador-1487",
     year: 1487,
     // Real date; nudged track position only — see trackYear comment in
@@ -631,7 +731,7 @@ const TIMELINE_ENTRIES = [
     // origen-trata-transatlantica-1441 / legado-trata-transatlantica-1442
     // (this marker now sits right at the edge of the 1492 cluster's
     // capture radius — do not nudge it any further right).
-    trackYear: 1475.8,
+    trackYear: 1462.84,
     endYear: 1516,
     title: "1487–1516: Andrea Corsali, el florentino que describió la Cruz del Sur desde la India",
     author: "Andrea Corsali",
@@ -655,7 +755,7 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Part of the 1479-1533 chain described at
     // faras-cruz-del-sur-1500.
-    trackYear: 1496.7,
+    trackYear: 1501.07,
     title: "La Celestina",
     author: "Fernando de Rojas",
     country: "España",
@@ -676,7 +776,7 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Part of the 1479-1533 chain-clustered sequence — see
     // inquisicion-espanola-1478 for the earlier links in the same chain.
-    trackYear: 1501.3,
+    trackYear: 1505.56,
     title: "1500: João Faras dibuja el primer boceto europeo de la Cruz del Sur",
     author: "João Faras",
     country: "Brasil",
@@ -700,7 +800,7 @@ const TIMELINE_ENTRIES = [
     // inquisicion-espanola-1478 for the earlier links in the same chain.
     // Re-spaced in 2026 to make room for
     // afonso-i-kongo-nzinga-mbemba-1509 inserted just before it.
-    trackYear: 1510.98,
+    trackYear: 1514.53,
     title: "1510: Las sergas de Esplandián inventa el nombre 'California'",
     author: "Garci Rodríguez de Montalvo",
     country: "España",
@@ -724,7 +824,7 @@ const TIMELINE_ENTRIES = [
     // timeline.js. Part of the chain described at
     // inquisicion-espanola-1478. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509.
-    trackYear: 1520.67,
+    trackYear: 1523.51,
     endYear: 1522,
     title: "1519–1522: Fernando de Magallanes y la primera vuelta al mundo",
     author: "Fernando de Magallanes",
@@ -749,7 +849,7 @@ const TIMELINE_ENTRIES = [
     // part of the wider 1479-1533 chain described at
     // inquisicion-espanola-1478. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509.
-    trackYear: 1525.51,
+    trackYear: 1527.99,
     endYear: 1536,
     pubYear: 1542,
     title: "Naufragios",
@@ -770,7 +870,7 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509.
-    trackYear: 1530.35,
+    trackYear: 1532.48,
     title: "1531: la aparición de la Virgen de Guadalupe",
     author: "Hito histórico",
     country: "México",
@@ -810,7 +910,7 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509.
-    trackYear: 1535.19,
+    trackYear: 1536.97,
     title: "1533: Fortún Ximénez toca Baja California en un motín",
     author: "Fortún Ximénez Bertandoña",
     country: "México",
@@ -833,7 +933,7 @@ const TIMELINE_ENTRIES = [
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with
     // brevisima-relacion-1542.
-    trackYear: 1549.72,
+    trackYear: 1550.43,
     endYear: 1543,
     title: "1542: Juan Rodríguez Cabrillo llega a la costa de California",
     author: "Juan Rodríguez Cabrillo",
@@ -857,7 +957,7 @@ const TIMELINE_ENTRIES = [
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with
     // cabrillo-california-1542.
-    trackYear: 1549.72,
+    trackYear: 1550.43,
     title: "Brevísima relación de la destrucción de las Indias",
     author: "Bartolomé de las Casas",
     country: "República Dominicana",
@@ -882,7 +982,7 @@ const TIMELINE_ENTRIES = [
     // faras-cruz-del-sur-1500 to monja-alferez-erauso-1592 had just enough
     // room for one more standalone point. See those entries' own trackYear
     // comments for their part of this re-spacing.
-    trackYear: 1506.14,
+    trackYear: 1510.05,
     endYear: 1543,
     title: "Nzinga Mbemba",
     author: "Nzinga Mbemba (Afonso I de Kongo)",
@@ -910,7 +1010,7 @@ const TIMELINE_ENTRIES = [
     // afonso-i-kongo-nzinga-mbemba-1509 through monja-alferez-erauso-1592
     // slightly tighter again — see those entries' own trackYear comments
     // for their part of this second re-spacing.
-    trackYear: 1515.83,
+    trackYear: 1519.02,
     title: "1512: la ejecución de Hatuey",
     author: "Hatuey",
     country: "Cuba",
@@ -932,7 +1032,7 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with lazarillo.
-    trackYear: 1554.56,
+    trackYear: 1554.91,
     title: "Popol Vuh",
     author: "Anónimo k'iche'",
     country: "Guatemala",
@@ -951,7 +1051,7 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with popol-vuh-1554.
-    trackYear: 1554.56,
+    trackYear: 1554.91,
     title: "Lazarillo de Tormes",
     author: "Anónimo",
     country: "España",
@@ -1178,6 +1278,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "estacion-del-pantano",
     year: 1853,
+    month: 12,
     trackYear: 1854.1,
     endYear: 1855,
     title: "La estación del pantano",
@@ -1442,6 +1543,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "rosario-castellanos-1925",
     year: 1925,
+    month: 5,
     endYear: 1974,
     title: "1925–1974: Rosario Castellanos",
     author: "Rosario Castellanos",
@@ -1682,6 +1784,62 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "kasato-maru-1908",
+    year: 1908,
+    month: 6,
+    title: "18 de junio de 1908: llega el Kasato Maru a Brasil",
+    author: "Hito histórico",
+    country: "Brasil",
+    region: "Santos",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 18 de junio de 1908, el vapor Kasato Maru atraca en el puerto de Santos, São Paulo, con 781 inmigrantes japoneses a bordo: el inicio oficial de la inmigración japonesa a Brasil. Llegan por una coincidencia de necesidades opuestas: Brasil, que abolió la esclavitud en 1888, enfrenta una escasez aguda de mano de obra en las plantaciones de café, mientras que el Japón de la era Meiji (1868-1912) expulsa a miles de familias rurales empobrecidas por la superpoblación y la falta de tierra cultivable. Entre 1908 y 1963 llegarían más de 240,000 inmigrantes japoneses, asentados sobre todo en São Paulo, Paraná y Mato Grosso do Sul. Sus descendientes —hoy cerca de dos millones de nikkei— convierten a Brasil, y no a Perú, Estados Unidos ni Canadá, en el país con la mayor población de origen japonés fuera de Japón; el barrio de Liberdade, en pleno centro de São Paulo, se volvió su corazón cultural, con templos budistas, escuelas de idioma y festivales que conviven con el resto de la ciudad. La comunidad no estuvo exenta de sufrimiento: al entrar Brasil en la Segunda Guerra Mundial contra Japón en 1942, las publicaciones y escuelas en japonés fueron restringidas. Y desde los años ochenta se dio el giro inverso —el fenómeno dekasegi—: nietos y bisnietos de aquellos inmigrantes regresaron a trabajar a las fábricas de un Japón que ya no reconocían como propio. La ironía final es que Brasil tiene la comunidad nikkei más grande del continente, pero es el Perú —con una fracción de esa población— el que terminó dando a Latinoamérica sus dos jefes de Estado de ascendencia japonesa.",
+    descriptionHtml:
+      'El 18 de junio de 1908, el vapor Kasato Maru atraca en el puerto de <button type="button" class="timeline-detail-geolink" data-region="Santos" data-country="Brasil">Santos</button>, <button type="button" class="timeline-detail-geolink" data-region="São Paulo" data-country="Brasil">São Paulo</button>, con 781 inmigrantes japoneses a bordo: el inicio oficial de la inmigración japonesa a Brasil. Llegan por una coincidencia de necesidades opuestas: <button type="button" class="timeline-detail-geolink" data-country="Brasil">Brasil</button>, que abolió la esclavitud en 1888, enfrenta una escasez aguda de mano de obra en las plantaciones de café, mientras que el <button type="button" class="timeline-detail-geolink" data-country="Japón">Japón</button> de la era Meiji (1868-1912) expulsa a miles de familias rurales empobrecidas por la superpoblación y la falta de tierra cultivable. Entre 1908 y 1963 llegarían más de 240,000 inmigrantes japoneses, asentados sobre todo en São Paulo, Paraná y Mato Grosso do Sul. Sus descendientes —hoy cerca de dos millones de nikkei— convierten a Brasil, y no a <button type="button" class="timeline-detail-geolink" data-country="Perú">Perú</button>, Estados Unidos ni Canadá, en el país con la mayor población de origen japonés fuera de Japón; el barrio de <button type="button" class="timeline-detail-geolink" data-region="Liberdade" data-country="Brasil">Liberdade</button>, en pleno centro de São Paulo, se volvió su corazón cultural, con templos budistas, escuelas de idioma y festivales que conviven con el resto de la ciudad. La comunidad no estuvo exenta de sufrimiento: al entrar Brasil en la Segunda Guerra Mundial contra Japón en 1942, las publicaciones y escuelas en japonés fueron restringidas. Y desde los años ochenta se dio el giro inverso —el fenómeno dekasegi—: nietos y bisnietos de aquellos inmigrantes regresaron a trabajar a las fábricas de un Japón que ya no reconocían como propio. La ironía final es que Brasil tiene la comunidad nikkei más grande del continente, pero es el <button type="button" class="timeline-detail-entrylink" data-id="fujimori-nace-1938">Perú —con una fracción de esa población— el que terminó dando a Latinoamérica sus dos jefes de Estado de ascendencia japonesa</button>.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si el Kasato Maru nunca hubiera llegado a Santos en 1908?",
+      answer:
+        "Sin ese primer barco, Brasil no tendría hoy la comunidad nikkei más grande fuera de Japón, ni existiría Liberdade tal como se conoce. Esa historia habría cambiado sobre todo a Brasil, no a Perú, pero la migración japonesa hacia las Américas fue un fenómeno regional: sin la ruta que el Kasato Maru abrió simbólicamente entre Japón y Latinoamérica, es más difícil imaginar la ola posterior —más pequeña, pero políticamente decisiva— que un cuarto de siglo después llevaría a los padres de Alberto Fujimori hasta Lima."
+    }
+  },
+  {
+    id: "fujimori-nace-1938",
+    year: 1938,
+    title: "1938: nace Alberto Fujimori, hijo de inmigrantes japoneses",
+    author: "Hito histórico",
+    country: "Perú",
+    region: "Lima",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 28 de julio de 1938 nace en Lima Alberto Kenya Fujimori Fujimori, hijo de Naoichi Fujimori y Mutsue Inomoto, inmigrantes japoneses llegados desde la prefectura de Kumamoto, en la isla de Kyushu, al sur de Japón. Peruano de nacimiento pero nikkei —japonés étnico— de origen, crece en una familia que conserva su lengua y sus costumbres incluso mientras él se forma como ingeniero agrónomo, profesor universitario y, más tarde, rector de la Universidad Nacional Agraria. Prácticamente desconocido fuera de esos círculos, en 1990 da la sorpresa electoral más grande de la historia peruana reciente al derrotar al célebre novelista Mario Vargas Llosa en plena crisis de hiperinflación y violencia de Sendero Luminoso. Casi noventa años después, el 28 de julio de 2026 —el mismo día exacto de su nacimiento, aunque él ya no vive para verlo— su hija Keiko asume la presidencia del Perú: un apellido que cruzó el Pacífico como carga de inmigrantes se convierte, dos generaciones después, en la casa presidencial de un país que ninguno de sus abuelos en Kumamoto pudo haber imaginado.",
+    descriptionHtml:
+      'El 28 de julio de 1938 nace en <button type="button" class="timeline-detail-geolink" data-region="Lima" data-country="Perú">Lima</button> Alberto Kenya Fujimori Fujimori, hijo de Naoichi Fujimori y Mutsue Inomoto, inmigrantes japoneses llegados desde la prefectura de <button type="button" class="timeline-detail-geolink" data-region="Kumamoto" data-country="Japón">Kumamoto</button>, en la isla de Kyushu, al sur de <button type="button" class="timeline-detail-geolink" data-country="Japón">Japón</button>. Peruano de nacimiento pero nikkei —japonés étnico— de origen, crece en una familia que conserva su lengua y sus costumbres incluso mientras él se forma como ingeniero agrónomo, profesor universitario y, más tarde, rector de la Universidad Nacional Agraria. Prácticamente desconocido fuera de esos círculos, en 1990 da la sorpresa electoral más grande de la historia peruana reciente al derrotar al célebre novelista <button type="button" class="timeline-detail-entrylink" data-id="ciudad-los-perros-vargas-llosa-1963">Mario Vargas Llosa</button> en plena crisis de hiperinflación y violencia de Sendero Luminoso. Casi noventa años después, el 28 de julio de 2026 —el mismo día exacto de su nacimiento, aunque él ya no vive para verlo— su hija <button type="button" class="timeline-detail-entrylink" data-id="keiko-fujimori-presidenta-2026">Keiko asume la presidencia del Perú</button>: un apellido que cruzó el Pacífico como carga de inmigrantes se convierte, dos generaciones después, en la casa presidencial de un país que ninguno de sus abuelos en Kumamoto pudo haber imaginado.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si los padres de Fujimori nunca hubieran emigrado desde Kumamoto al Perú?",
+      answer:
+        "Sin esa migración, no existiría el fujimorismo tal como se conoce: ni el candidato outsider que venció a Vargas Llosa en 1990, ni el autogolpe de 1992, ni la presidenta electa en 2026. Miles de familias japonesas emigraron a Perú a partir de 1899 buscando trabajo en las plantaciones de la costa; casi ninguna imaginó que, tres generaciones después, un apellido llegado desde Kyushu terminaría ocupando dos veces el Palacio de Gobierno de Lima."
+    }
+  },
+  {
+    id: "fujimori-autogolpe-1992",
+    year: 1992,
+    month: 4,
+    title: "1992: el autogolpe de Fujimori",
+    author: "Hito histórico",
+    country: "Perú",
+    region: "Lima",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "El 5 de abril de 1992, en medio de una hiperinflación descontrolada y la violencia del grupo maoísta Sendero Luminoso, el presidente Alberto Fujimori disuelve el Congreso y suspende la Constitución con respaldo militar — un autogolpe ejecutado desde dentro del propio Estado que había jurado defender. Meses después, en septiembre, la captura del líder senderista Abimael Guzmán debilita drásticamente la insurgencia. El mismo año en que 'salva' al Perú de la hiperinflación y del terrorismo es el año en que Fujimori concentra el poder absoluto — y ese mismo aparato de excepción es el que, según establecerían después los tribunales peruanos, permitió los escuadrones de la muerte responsables de Barrios Altos (1991) y La Cantuta (1992). En 2009, ya expresidente, sería condenado a 25 años de prisión por esos crímenes; murió en Lima en 2024, todavía profundamente divisivo entre quienes lo recuerdan como el salvador del país y quienes lo recuerdan como su dictador.",
+    descriptionHtml:
+      "El 5 de abril de 1992, en medio de una hiperinflación descontrolada y la violencia del grupo maoísta Sendero Luminoso, el presidente Alberto Fujimori disuelve el Congreso y suspende la Constitución con respaldo militar — un autogolpe ejecutado desde dentro del propio Estado que había jurado defender. Meses después, en septiembre, la captura del líder senderista Abimael Guzmán debilita drásticamente la insurgencia. El mismo año en que 'salva' al <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Lima\" data-country=\"Perú\">Perú</button> de la hiperinflación y del terrorismo es el año en que Fujimori concentra el poder absoluto — y ese mismo aparato de excepción es el que, según establecerían después los tribunales peruanos, permitió los escuadrones de la muerte responsables de Barrios Altos (1991) y La Cantuta (1992). En 2009, ya expresidente, sería condenado a 25 años de prisión por esos crímenes; murió en Lima en 2024, todavía profundamente divisivo entre quienes lo recuerdan como el salvador del país y quienes lo recuerdan como su dictador.",
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Fujimori no hubiera dado el autogolpe de 1992?",
+      answer:
+        "Sin la disolución del Congreso, Fujimori habría enfrentado una oposición legislativa capaz de frenar tanto sus reformas económicas como su control sobre las fuerzas armadas. Pudo haber capturado a Guzmán igual, dentro de un marco democrático intacto — pero el autogolpe es precisamente lo que le dio la impunidad estructural para que escuadrones como el que operó en Barrios Altos y La Cantuta actuaran sin control civil. Dos historias distintas: una de Fujimori el reformista, otra de Fujimori el condenado. El autogolpe es la bisagra entre ambas."
+    }
+  },
+  {
     id: "y-apenas-era-miercoles",
     year: 1993,
     title: "Y apenas era miércoles",
@@ -1813,6 +1971,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "sombra-del-viento",
     year: 2001,
+    month: 4,
     title: "La Sombra del Viento",
     author: "Carlos Ruiz Zafón",
     country: "España",
@@ -1961,6 +2120,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "diaspora-salvadorena-virginia-2024",
     year: 2024,
+    month: 10,
     title: "2024: la diáspora salvadoreña en el norte de Virginia",
     author: "Hito histórico",
     country: "Estados Unidos",
@@ -1992,6 +2152,25 @@ const TIMELINE_ENTRIES = [
         "Próspera no habría tenido el marco legal para operar como una ciudad casi independiente del Estado hondureño, y Crawfish Rock probablemente nunca habría enfrentado la presión de venta de tierras ni el corte de agua que denuncia hoy. Pero la derogación posterior de la ley, en 2022, tampoco resolvió el conflicto: solo lo trasladó a un tribunal de arbitraje internacional, mostrando que revertir una ley no siempre basta para revertir el poder que esa ley ya permitió acumular."
     }
   },
+  {
+    id: "keiko-fujimori-presidenta-2026",
+    year: 2026,
+    month: 7,
+    title: "2026: Keiko Fujimori, primera mujer elegida presidenta del Perú",
+    author: "Hito histórico",
+    country: "Perú",
+    region: "Lima",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 28 de julio de 2026 Keiko Fujimori asume la presidencia del Perú, tras ganar la elección presidencial en su cuarto intento —después de perder en 2011, 2016 y 2021— al frente de su partido, Fuerza Popular. Nacida en Lima en 1975, hija mayor de Alberto Fujimori, ya había ocupado el centro del poder tres décadas antes: entre 1994 y 2000 ejerció como Primera Dama del Perú, con apenas diecinueve años, tras la separación de sus padres, mientras su padre gobernaba el país entre la captura de Abimael Guzmán y el autogolpe de 1992. Su llegada a la presidencia la convierte en la primera mujer elegida por voto popular para el cargo en la historia peruana, y en la segunda mujer en ocuparlo. Pero ninguna elección puede separarla del apellido que la hizo conocida: llega al poder defendiendo el legado de un padre condenado por los mismos tribunales peruanos que ahora ella preside, todavía profundamente dividido entre quienes lo recuerdan como el hombre que salvó al país y quienes lo recuerdan como su dictador.",
+    descriptionHtml:
+      'El 28 de julio de 2026 Keiko Fujimori asume la presidencia del <button type="button" class="timeline-detail-geolink" data-region="Lima" data-country="Perú">Perú</button>, tras ganar la elección presidencial en su cuarto intento —después de perder en 2011, 2016 y 2021— al frente de su partido, Fuerza Popular. Nacida en Lima en 1975, hija mayor de Alberto Fujimori, ya había ocupado el centro del poder tres décadas antes: entre 1994 y 2000 ejerció como Primera Dama del Perú, con apenas diecinueve años, tras la separación de sus padres, mientras su padre gobernaba el país entre la captura de Abimael Guzmán y el <button type="button" class="timeline-detail-entrylink" data-id="fujimori-autogolpe-1992">autogolpe de 1992</button>. Su llegada a la presidencia la convierte en la primera mujer elegida por voto popular para el cargo en la historia peruana, y en la segunda mujer en ocuparlo. Pero ninguna elección puede separarla del apellido que la hizo conocida: llega al poder defendiendo el legado de un padre condenado por los mismos tribunales peruanos que ahora ella preside, todavía profundamente dividido entre quienes lo recuerdan como el hombre que salvó al país y quienes lo recuerdan como su dictador.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Keiko Fujimori hubiera ganado en su primer intento, en 2011, en vez de perder tres elecciones seguidas?",
+      answer:
+        "Habría llegado al poder apenas un año después de que su padre fuera condenado a 25 años de prisión, con la herida del régimen todavía abierta y sin el margen de tiempo que le permitió reconstruir su imagen política durante tres campañas fallidas. Las tres derrotas —2011, 2016, 2021— terminaron siendo, sin buscarlo, el proceso por el cual una parte del electorado peruano hizo las paces con el apellido Fujimori antes de finalmente votarlo de vuelta al poder en 2026."
+    }
+  },
 
   // ---- ARTE — pintores de España y Latinoamérica ----
   // Añadidos a partir del inventario de obras que aparecen en el mundo
@@ -2004,7 +2183,7 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509.
-    trackYear: 1544.88,
+    trackYear: 1545.94,
     endYear: 1614,
     title: "1541–1614: El Greco",
     author: "El Greco (Domenikos Theotokopoulos)",
@@ -2156,6 +2335,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "diego-rivera-1886",
     year: 1886,
+    month: 12,
     endYear: 1957,
     title: "1886–1957: Diego Rivera",
     author: "Diego Rivera",
@@ -2241,6 +2421,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "remedios-varo-1908",
     year: 1908,
+    month: 12,
     endYear: 1963,
     title: "1908–1963: Remedios Varo",
     author: "Remedios Varo",
@@ -2303,7 +2484,7 @@ const TIMELINE_ENTRIES = [
     // standalone point too (all 6 entries in this chain — pachacutec,
     // 1441, 1442, this one, colon-porto-santo, corsali — are now
     // individually standalone by borrowing room from nezahualcoyotl).
-    trackYear: 1445.4,
+    trackYear: 1418.56,
     title: "1478: se establece la Inquisición española",
     author: "Hito histórico",
     country: "España",
@@ -2524,6 +2705,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "argentina-abolicion-constitucion-1853",
     year: 1853,
+    month: 5,
     trackYear: 1854.1,
     title: "1853: la Constitución argentina abole la esclavitud",
     author: "Hito histórico",
@@ -2541,6 +2723,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "colombia-ley-manumision-1851",
     year: 1851,
+    month: 5,
     title: "1851: Colombia abole la esclavitud",
     author: "Hito histórico",
     country: "Colombia",
@@ -2557,6 +2740,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "ecuador-abolicion-esclavitud-1851",
     year: 1851,
+    month: 6,
     title: "1851: Ecuador abole la esclavitud",
     author: "Hito histórico",
     country: "Ecuador",
@@ -2605,6 +2789,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "venezuela-abolicion-esclavitud-1854",
     year: 1854,
+    month: 3,
     trackYear: 1856,
     title: "1854: Venezuela abole la esclavitud",
     author: "Hito histórico",
@@ -2622,6 +2807,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "peru-abolicion-esclavitud-1854",
     year: 1854,
+    month: 12,
     trackYear: 1856,
     title: "1854: Ramón Castilla abole la esclavitud en Perú",
     author: "Hito histórico",
@@ -2675,6 +2861,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "cuba-abolicion-esclavitud-1886",
     year: 1886,
+    month: 10,
     title: "1886: Cuba, la última colonia española en abolir la esclavitud",
     author: "Hito histórico",
     country: "Cuba",
@@ -2692,6 +2879,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "california-land-act-1851",
     year: 1851,
+    month: 3,
     title: "1851: la Ley de Tierras despoja por la vía legal a los californios",
     author: "Hito histórico",
     country: "Estados Unidos",
@@ -2710,6 +2898,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "selena-quintanilla-1971",
     year: 1971,
+    month: 4,
     endYear: 1995,
     title: "1971–1995: Selena Quintanilla",
     author: "Selena Quintanilla",
@@ -2748,6 +2937,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "juan-gabriel-1950",
     year: 1950,
+    month: 1,
     endYear: 2016,
     title: "1950–2016: Juan Gabriel",
     author: "Juan Gabriel",
@@ -2843,6 +3033,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "chalino-sanchez-1960",
     year: 1960,
+    month: 8,
     endYear: 1992,
     title: "1960–1992: Chalino Sánchez",
     author: "Chalino Sánchez",
@@ -2862,6 +3053,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "bad-bunny-2026",
     year: 2026,
+    month: 2,
     title: "2026: Bad Bunny y el primer halftime show mayormente en español",
     author: "Bad Bunny",
     country: "Estados Unidos",
@@ -2880,6 +3072,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "celia-cruz-1925",
     year: 1925,
+    month: 10,
     endYear: 2003,
     title: "1925–2003: Celia Cruz",
     author: "Celia Cruz",
@@ -3058,6 +3251,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "salsa-fania-nueva-york-1971",
     year: 1971,
+    month: 8,
     endYear: 1974,
     title: "1971–1974: Fania Records bautiza a la salsa",
     author: "Hito histórico",
@@ -3465,7 +3659,7 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509.
-    trackYear: 1540.03,
+    trackYear: 1541.45,
     endYear: 1835,
     title: "1535–1835: Galápagos, de Tomás de Berlanga a Charles Darwin",
     author: "Hito histórico",
