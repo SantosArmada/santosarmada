@@ -348,8 +348,23 @@
     activeIndex = idx;
 
     const NON_LATAM_COUNTRIES = ["China", "San Vicente y las Granadinas", "Portugal", "Italia"];
+    // Countries anchoring an entry in Africa get their own purple badge
+    // instead of falling through to the green "Latinoamérica" default.
+    const AFRICA_COUNTRIES = [
+      "Angola", "Argelia", "Benín", "Botsuana", "Burkina Faso", "Burundi",
+      "Camerún", "Chad", "Congo", "República del Congo",
+      "República Democrática del Congo", "Costa de Marfil", "Egipto",
+      "Eritrea", "Etiopía", "Gabón", "Gambia", "Ghana", "Guinea",
+      "Guinea-Bisáu", "Guinea Ecuatorial", "Kenia", "Lesoto", "Liberia",
+      "Libia", "Madagascar", "Malaui", "Mali", "Marruecos", "Mauricio",
+      "Mauritania", "Mozambique", "Namibia", "Níger", "Nigeria",
+      "República Centroafricana", "Ruanda", "Senegal", "Sierra Leona",
+      "Somalia", "Sudáfrica", "Sudán", "Sudán del Sur", "Tanzania", "Togo",
+      "Túnez", "Uganda", "Yibuti", "Zambia", "Zimbabue", "Esuatini"
+    ];
     const isSpain = entry.country === "España";
     const isUS = entry.country === "Estados Unidos";
+    const isAfrica = AFRICA_COUNTRIES.includes(entry.country);
     const isOtherRegion = NON_LATAM_COUNTRIES.includes(entry.country);
     const isNavegando = entry.flag === "navegando";
     const regionFlagClass = isNavegando
@@ -358,6 +373,8 @@
       ? "timeline-detail-flag-spain"
       : isUS
       ? "timeline-detail-flag-us"
+      : isAfrica
+      ? "timeline-detail-flag-africa"
       : isOtherRegion
       ? "timeline-detail-flag-other"
       : "timeline-detail-flag-latam";
@@ -367,6 +384,8 @@
       ? "España"
       : isUS
       ? "Estados Unidos"
+      : isAfrica
+      ? "África"
       : isOtherRegion
       ? entry.country
       : "Latinoamérica";

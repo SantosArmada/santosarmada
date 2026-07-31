@@ -288,10 +288,19 @@
 .timeline-entry[data-type="music"] .timeline-entry-dot { background: var(--neon-purple); }
 .timeline-entry[data-type="vision"] .timeline-entry-dot { background: var(--vision-green); }
 
-.timeline-entry:hover .timeline-entry-dot,
-.timeline-entry.is-active .timeline-entry-dot {
+.timeline-entry:hover .timeline-entry-dot {
   transform: scale(1.4);
   box-shadow: 0 0 16px 4px currentColor;
+}
+
+/* Selected marker: a yellow highlight distinct from every type-color dot,
+   so the chosen point is unmistakable at a glance instead of just glowing
+   in its own (sometimes hard-to-spot) category color. */
+.timeline-entry.is-active .timeline-entry-dot {
+  transform: scale(1.5);
+  background: #faff00;
+  border-color: #faff00;
+  box-shadow: 0 0 18px 6px rgba(250, 255, 0, 0.75), 0 0 0 3px rgba(250, 255, 0, 0.35);
 }
 
 .timeline-entry-year {
@@ -302,6 +311,11 @@
   font-size: 10px;
   color: var(--text-muted);
   white-space: nowrap;
+}
+
+.timeline-entry.is-active .timeline-entry-year {
+  color: #faff00;
+  font-weight: 700;
 }
 
 /* Glyph lane — sits above the main entries, own offset row */
@@ -351,10 +365,17 @@
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.timeline-cluster:hover .timeline-cluster-badge,
-.timeline-cluster.is-active .timeline-cluster-badge {
+.timeline-cluster:hover .timeline-cluster-badge {
   transform: scale(1.15);
   box-shadow: 0 0 16px 4px rgba(200, 169, 110, 0.5);
+}
+
+/* Selected cluster: same yellow highlight as a selected single entry. */
+.timeline-cluster.is-active .timeline-cluster-badge {
+  transform: scale(1.2);
+  background: #faff00;
+  border-color: #faff00;
+  box-shadow: 0 0 18px 6px rgba(250, 255, 0, 0.75), 0 0 0 3px rgba(250, 255, 0, 0.35);
 }
 
 /* Cluster list — renders inside the same detail panel as a single entry */
@@ -613,6 +634,11 @@
 .timeline-detail-flag-latam {
   color: var(--neon-green);
   border-color: rgba(57, 255, 106, 0.4);
+}
+
+.timeline-detail-flag-africa {
+  color: var(--neon-purple);
+  border-color: rgba(166, 77, 255, 0.4);
 }
 
 .timeline-detail-flag-spain {

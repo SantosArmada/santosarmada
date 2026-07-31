@@ -634,7 +634,10 @@ const COUNTRY_CENTER = {
     'Marruecos': { lat: 31.8, lng: -7.1 },
     'Reino Unido': { lat: 55.4, lng: -3.4 },
     'Mongolia': { lat: 46.9, lng: 103.8 },
-    'Irak': { lat: 33.0, lng: 44.0 }
+    'Irak': { lat: 33.0, lng: 44.0 },
+    'Mauritania': { lat: 20.0, lng: -10.9 },
+    'Congo': { lat: -0.4, lng: 15.8 },
+    'Angola': { lat: -11.2027, lng: 17.8739 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -874,7 +877,13 @@ const REGION_CENTER = {
     'Bagdad': { lat: 33.315, lng: 44.366 },
     'El Cairo': { lat: 30.044, lng: 31.236 },
     'Tula': { lat: 20.058, lng: -99.343 },
-    'Roma': { lat: 41.9028, lng: 12.4964 }
+    'Roma': { lat: 41.9028, lng: 12.4964 },
+    'Lagos': { lat: 37.1017, lng: -8.6754 },
+    'San Basilio de Palenque': { lat: 10.0075, lng: -75.1613 },
+    'Cabo Branco': { lat: 20.7700, lng: -17.0300 },
+    'Mbanza Kongo': { lat: -6.2667, lng: 14.2500 },
+    'Luanda': { lat: -8.8390, lng: 13.2894 },
+    'Yara': { lat: 20.2967, lng: -76.9578 }
 };
 
 let regionRippleTimeoutIds = [];

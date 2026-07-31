@@ -430,6 +430,12 @@ const TIMELINE_ENTRIES = [
   {
     id: "nezahualcoyotl",
     year: 1402,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Pulled slightly left of its real year in 2026 to lend
+    // room to the 1438/1441/1442/1478/1479/1487 chain described at
+    // inquisicion-espanola-1478 — this entry has plenty of slack toward
+    // libro-buen-amor-1330 to spare.
+    trackYear: 1384.6,
     endYear: 1472,
     title: "Nezahualcóyotl: vida y obra",
     author: "José Luis Martínez",
@@ -450,10 +456,14 @@ const TIMELINE_ENTRIES = [
     id: "pachacutec-imperio-inca-1438",
     year: 1438,
     // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. Part of the 1438/1478/1479/1487/1492/1492
+    // timeline.js. Part of the 1438/1441/1442/1478/1479/1487/1492/1492
     // chain-clustered sequence near the pre-colonial/colonial era
     // boundary — see inquisicion-espanola-1478 for the rest of the chain.
-    trackYear: 1419.9,
+    // Re-solved in 2026 when origen-trata-transatlantica-1441 and
+    // legado-trata-transatlantica-1442 were inserted into the same gap,
+    // and again to give 1441 and 1442 their own standalone points too
+    // (see nezahualcoyotl for how room was found).
+    trackYear: 1399.8,
     endYear: 1471,
     title: "1438: Pachacútec funda el Imperio Inca",
     author: "Hito histórico",
@@ -471,14 +481,67 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "origen-trata-transatlantica-1441",
+    year: 1441,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Part of the 1438/1441/1442/1478/1479/1487/1492/1492
+    // chain-clustered sequence — see inquisicion-espanola-1478 for the
+    // rest of the chain. Given its own standalone point (not clustered
+    // with legado-trata-transatlantica-1442) by borrowing extra room
+    // from nezahualcoyotl.
+    trackYear: 1415.0,
+    title: "1441: el origen de la trata transatlántica de esclavos",
+    author: "Hito histórico",
+    country: "Portugal",
+    region: "Lagos",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "En 1441, el capitán portugués Antão Gonçalves, enviado por el infante Enrique el Navegante en una expedición al mando de Nuno Tristão para explorar la costa occidental de África, decide por iniciativa propia capturar a un grupo de personas en Cabo Branco, en la costa de la actual Mauritania. En el viaje de regreso canjea a algunos de sus cautivos bereberes por diez africanos subsaharianos esclavizados, a quienes transporta hasta Lagos, Portugal — el episodio que la historiografía señala como el arranque de la trata transatlántica de esclavos. Tres años después, en 1444, una expedición al mando de Lançarote de Freitas regresa a Lagos con 235 personas esclavizadas y las vende públicamente en el muelle: la primera venta a gran escala de africanos esclavizados en suelo europeo. El papado da cobertura religiosa al negocio poco después: entre 1452 y 1455, el papa Nicolás V emite las bulas Dum Diversas y Romanus Pontifex, que autorizan a la Corona portuguesa a esclavizar de forma perpetua a los pueblos no cristianos del África subsahariana. Lo que empieza como la decisión improvisada de un solo capitán se convierte, en menos de una generación, en un sistema jurídico y comercial que, durante los siguientes cuatro siglos, trasladaría a la fuerza a unos doce millones y medio de personas africanas a través del Atlántico.",
+    descriptionHtml:
+      'En 1441, el capitán portugués Antão Gonçalves, enviado por el infante Enrique el Navegante en una expedición al mando de Nuno Tristão para explorar la costa occidental de África, decide por iniciativa propia capturar a un grupo de personas en <button type="button" class="timeline-detail-geolink" data-region="Cabo Branco" data-country="Mauritania">Cabo Branco</button>, en la costa de la actual Mauritania. En el viaje de regreso canjea a algunos de sus cautivos bereberes por diez africanos subsaharianos esclavizados, a quienes transporta hasta <button type="button" class="timeline-detail-geolink" data-region="Lagos" data-country="Portugal">Lagos</button>, Portugal — el episodio que la historiografía señala como el arranque de la trata transatlántica de esclavos. Tres años después, en 1444, una expedición al mando de Lançarote de Freitas regresa a <button type="button" class="timeline-detail-geolink" data-region="Lagos" data-country="Portugal">Lagos</button> con 235 personas esclavizadas y las vende públicamente en el muelle: la primera venta a gran escala de africanos esclavizados en suelo europeo. El papado da cobertura religiosa al negocio poco después: entre 1452 y 1455, el papa Nicolás V emite las bulas Dum Diversas y Romanus Pontifex, que autorizan a la Corona portuguesa a esclavizar de forma perpetua a los pueblos no cristianos del África subsahariana. Lo que empieza como la decisión improvisada de un solo capitán se convierte, en menos de una generación, en un sistema jurídico y comercial que, durante los siguientes cuatro siglos, trasladaría a la fuerza a unos doce millones y medio de personas africanas a través del Atlántico.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Antão Gonçalves hubiera regresado a Portugal en 1441 solo con las pieles de foca que había ido a buscar, sin capturar a nadie?",
+      answer:
+        "El infante Enrique el Navegante habría seguido financiando expediciones por la costa africana en busca de oro y rutas comerciales de cualquier modo, y tarde o temprano otro capitán portugués habría capturado a los primeros cautivos. Pero la decisión personal de Gonçalves —tomada por iniciativa propia, no por orden directa de la Corona— fue el punto de partida contingente de un sistema que, una vez sancionado por el papado en 1452, se volvió casi imposible de detener: en los siguientes cuatro siglos, cerca de doce millones y medio de personas serían embarcadas a través del Atlántico, y solo alrededor de diez millones y medio sobrevivirían la travesía."
+    }
+  },
+  {
+    id: "legado-trata-transatlantica-1442",
+    year: 1442,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Part of the 1438/1441/1442/1478/1479/1487/1492/1492
+    // chain-clustered sequence — see inquisicion-espanola-1478 for the
+    // rest of the chain. Given its own standalone point (not clustered
+    // with origen-trata-transatlantica-1441) by borrowing extra room
+    // from nezahualcoyotl.
+    trackYear: 1430.2,
+    endYear: 2026,
+    title: "1442–hoy: el legado de la trata, de San Basilio de Palenque a LaDainian Tomlinson",
+    author: "Hito histórico",
+    country: "Colombia",
+    region: "San Basilio de Palenque",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "La trata transatlántica desarraigó a unos doce millones y medio de africanos, pero también sembró, sin proponérselo, los focos de resistencia y las poblaciones que hoy definen la identidad afrolatina. Cerca de Cartagena de Indias —uno de los puertos de esclavizados más grandes de las Américas—, un grupo de africanos fugados fundó a comienzos del siglo XVII, bajo el liderazgo del rey congolés capturado Benkos Biohó (originario del Reino de Kongo), el palenque de San Basilio: una comunidad cimarrona autogobernada que en 1713 se convirtió, mediante un acuerdo de paz con la Corona española, en el primer pueblo libre reconocido de toda América. Casi cuatro siglos después, San Basilio de Palenque sigue siendo una comunidad casi exclusivamente afrodescendiente, con su propia lengua criolla, el palenquero —mezcla de español y lenguas bantúes—, reconocida por la UNESCO como Obra Maestra del Patrimonio Oral e Inmaterial de la Humanidad. Brasil, destino de cerca del cuarenta por ciento de todos los africanos esclavizados embarcados hacia América —unos cinco millones de personas entre los siglos XVI y XIX—, es hoy el país con la mayor población de ascendencia africana fuera de África: según el censo de 2022, el 55.5% de los brasileños se identifican como negros o pardos. Y en Texas, Estados Unidos, la trata dejó una huella que llegó hasta la NFL: el corredor LaDainian Tomlinson (San Diego Chargers), miembro del Salón de la Fama, es tataranieto de George, un hombre esclavizado en la plantación Tomlinson Hill que, como tantos esclavizados, heredó el apellido de la familia que lo poseía. En 2013, el corredor se reunió con Chris Tomlinson, periodista y descendiente directo de esa misma familia de dueños de esclavos, quien había pasado años investigando la historia compartida de ambas familias para su libro Tomlinson Hill. En ese encuentro, Chris le contó a LaDainian todo lo que había descubierto sobre sus antepasados — un cierre de círculo, quinientos setenta y dos años después de Cabo Branco, entre el bisnieto de un dueño de esclavos y el descendiente de uno de sus esclavizados, sentados a la misma mesa como familia.",
+    descriptionHtml:
+      'La trata transatlántica desarraigó a unos doce millones y medio de africanos, pero también sembró, sin proponérselo, los focos de resistencia y las poblaciones que hoy definen la identidad afrolatina. Cerca de Cartagena de Indias —uno de los puertos de esclavizados más grandes de las Américas—, un grupo de africanos fugados fundó a comienzos del siglo XVII, bajo el liderazgo del rey congolés capturado Benkos Biohó (originario del <button type="button" class="timeline-detail-geolink" data-country="Congo">Reino de Kongo</button>), el palenque de <button type="button" class="timeline-detail-geolink" data-region="San Basilio de Palenque" data-country="Colombia">San Basilio</button>: una comunidad cimarrona autogobernada que en 1713 se convirtió, mediante un acuerdo de paz con la Corona española, en el primer pueblo libre reconocido de toda América. Casi cuatro siglos después, <button type="button" class="timeline-detail-geolink" data-region="San Basilio de Palenque" data-country="Colombia">San Basilio de Palenque</button> sigue siendo una comunidad casi exclusivamente afrodescendiente, con su propia lengua criolla, el palenquero —mezcla de español y lenguas bantúes—, reconocida por la UNESCO como Obra Maestra del Patrimonio Oral e Inmaterial de la Humanidad. <button type="button" class="timeline-detail-geolink" data-country="Brasil">Brasil</button>, destino de cerca del cuarenta por ciento de todos los africanos esclavizados embarcados hacia América —unos cinco millones de personas entre los siglos XVI y XIX—, es hoy el país con la mayor población de ascendencia africana fuera de África: según el censo de 2022, el 55.5% de los brasileños se identifican como negros o pardos. Y en <button type="button" class="timeline-detail-geolink" data-country="Estados Unidos">Texas, Estados Unidos</button>, la trata dejó una huella que llegó hasta la NFL: el corredor LaDainian Tomlinson (<button type="button" class="timeline-detail-entrylink" data-id="portola-expedicion-san-diego-1769">San Diego Chargers</button>), miembro del Salón de la Fama, es tataranieto de George, un hombre esclavizado en la plantación Tomlinson Hill que, como tantos esclavizados, heredó el apellido de la familia que lo poseía. En 2013, el corredor se reunió con Chris Tomlinson, periodista y descendiente directo de esa misma familia de dueños de esclavos, quien había pasado años investigando la historia compartida de ambas familias para su libro Tomlinson Hill. En ese encuentro, Chris le contó a LaDainian todo lo que había descubierto sobre sus antepasados — un cierre de círculo, quinientos setenta y dos años después de Cabo Branco, entre el bisnieto de un dueño de esclavos y el descendiente de uno de sus esclavizados, sentados a la misma mesa como familia.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Benkos Biohó nunca hubiera liderado la fuga que fundó San Basilio de Palenque?",
+      answer:
+        "Los africanos esclavizados que escapaban de Cartagena en el siglo XVII habrían seguido formando palenques de todos modos —la fuga y el cimarronaje fueron una respuesta casi universal a la esclavitud en toda América—, pero sin el liderazgo y la capacidad de negociación de Biohó es poco probable que hubieran conseguido un tratado de paz reconocido por la Corona en 1713. Sin ese reconocimiento temprano, San Basilio de Palenque bien podría haber sido disuelto o reabsorbido por la fuerza, como ocurrió con tantos otros palenques del Caribe, y el palenquero —la única lengua criolla de base española y bantú que sobrevive hoy en América— probablemente se habría perdido junto con la comunidad que lo habla."
+    }
+  },
+  {
     id: "colon-porto-santo-1479",
     year: 1479,
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Part of the chain described at
     // inquisicion-espanola-1478 — keeps this standalone rather than
     // merging into the corsali-explorador-1487 marker. Re-solved in 2026
-    // as part of the wider 1479-1533 chain (see faras-cruz-del-sur-1500).
-    trackYear: 1458.9,
+    // as part of the wider 1479-1533 chain (see faras-cruz-del-sur-1500),
+    // and again later in 2026 to make room for
+    // origen-trata-transatlantica-1441 / legado-trata-transatlantica-1442.
+    trackYear: 1460.6,
     endYear: 1485,
     title: "1479: Colón se instala en Porto Santo",
     author: "Hito histórico",
@@ -564,8 +627,11 @@ const TIMELINE_ENTRIES = [
     // inquisicion-espanola-1478 — keeps this standalone rather than
     // merging into either colon-porto-santo-1479 or the 1492 pair.
     // Re-solved in 2026 as part of the wider 1479-1533 chain (see
-    // faras-cruz-del-sur-1500).
-    trackYear: 1475.2,
+    // faras-cruz-del-sur-1500), and again later in 2026 to make room for
+    // origen-trata-transatlantica-1441 / legado-trata-transatlantica-1442
+    // (this marker now sits right at the edge of the 1492 cluster's
+    // capture radius — do not nudge it any further right).
+    trackYear: 1475.8,
     endYear: 1516,
     title: "1487–1516: Andrea Corsali, el florentino que describió la Cruz del Sur desde la India",
     author: "Andrea Corsali",
@@ -632,7 +698,9 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Part of the 1479-1533 chain-clustered sequence — see
     // inquisicion-espanola-1478 for the earlier links in the same chain.
-    trackYear: 1505.9,
+    // Re-spaced in 2026 to make room for
+    // afonso-i-kongo-nzinga-mbemba-1509 inserted just before it.
+    trackYear: 1510.98,
     title: "1510: Las sergas de Esplandián inventa el nombre 'California'",
     author: "Garci Rodríguez de Montalvo",
     country: "España",
@@ -654,18 +722,19 @@ const TIMELINE_ENTRIES = [
     year: 1519,
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Part of the chain described at
-    // inquisicion-espanola-1478.
-    trackYear: 1510.5,
+    // inquisicion-espanola-1478. Re-spaced in 2026, see
+    // afonso-i-kongo-nzinga-mbemba-1509.
+    trackYear: 1520.67,
     endYear: 1522,
     title: "1519–1522: Fernando de Magallanes y la primera vuelta al mundo",
     author: "Fernando de Magallanes",
-    country: "Chile",
+    country: "España",
     region: "Estrecho de Magallanes",
     type: ICON_TYPE.HISTORY,
     description:
       "Fernando de Magallanes zarpa de Sanlúcar de Barrameda en septiembre de 1519 al mando de cinco naves —la Trinidad, la San Antonio, la Concepción, la Victoria y la Santiago—, financiado por la misma Corona española que, veintisiete años antes, había financiado a Cristóbal Colón. Como Colón, Magallanes era un navegante extranjero al servicio de España —portugués, no genovés—, y como en 1492, la búsqueda de una ruta occidental terminaría revelando algo que nadie había salido a buscar: no un atajo hacia las islas de las especias, sino la primera vuelta completa al mundo. En 1520 la expedición cruza el estrecho que hoy lleva su nombre, entre la Patagonia continental y Tierra del Fuego, la primera flota europea en navegar del Atlántico al Pacífico bordeando el extremo sur de América. Durante los meses que pasa en el hemisferio sur, el cronista veneciano Antonio Pigafetta registra en su diario la Cruz del Sur y dos manchas difusas en el cielo austral —hoy las Nubes de Magallanes—, aunque ninguna de las dos era, en realidad, un descubrimiento: Andrea Corsali ya las había descrito desde la India cuatro años antes, en 1516. Lo que la expedición de Magallanes aportó no fue la primera observación, sino la fama: un viaje que recorrió el planeta entero terminó bautizando con su nombre algo que otros ya habían visto. Magallanes muere el 27 de abril de 1521 en una batalla en Mactán, Filipinas, sin completar el viaje; es su segundo al mando, Juan Sebastián Elcano, quien trae de vuelta a España en 1522 la única nave superviviente, la Victoria, con apenas 18 de los 270 hombres que habían zarpado tres años antes — la primera vuelta al mundo, completada bajo otro nombre.",
     descriptionHtml:
-      'Fernando de Magallanes zarpa de <button type="button" class="timeline-detail-geolink" data-region="Sanlúcar de Barrameda" data-country="España">Sanlúcar de Barrameda</button> en septiembre de 1519 al mando de cinco naves —la Trinidad, la San Antonio, la Concepción, la Victoria y la Santiago—, financiado por la misma Corona española que, veintisiete años antes, había financiado a <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">Cristóbal Colón</button>. Como Colón, Magallanes era un navegante extranjero al servicio de España —portugués, no genovés—, y como en 1492, la búsqueda de una ruta occidental terminaría revelando algo que nadie había salido a buscar: no un atajo hacia las islas de las especias, sino la primera vuelta completa al mundo. En 1520 la expedición cruza el <button type="button" class="timeline-detail-geolink" data-region="Estrecho de Magallanes" data-country="Chile">estrecho que hoy lleva su nombre</button>, entre la Patagonia continental y Tierra del Fuego, la primera flota europea en navegar del Atlántico al Pacífico bordeando el extremo sur de América. Durante los meses que pasa en el hemisferio sur, el cronista veneciano Antonio Pigafetta registra en su diario la Cruz del Sur y dos manchas difusas en el cielo austral —hoy las Nubes de Magallanes—, aunque ninguna de las dos era, en realidad, un descubrimiento: <button type="button" class="timeline-detail-entrylink" data-id="corsali-explorador-1487">Andrea Corsali</button> ya las había descrito desde la India cuatro años antes, en 1516. Lo que la expedición de Magallanes aportó no fue la primera observación, sino la fama: un viaje que recorrió el planeta entero terminó bautizando con su nombre algo que otros ya habían visto. Magallanes muere el 27 de abril de 1521 en una batalla en <button type="button" class="timeline-detail-geolink" data-region="Mactán" data-country="Filipinas">Mactán, Filipinas</button>, sin completar el viaje; es su segundo al mando, Juan Sebastián Elcano, quien trae de vuelta a España en 1522 la única nave superviviente, la Victoria, con apenas 18 de los 270 hombres que habían zarpado tres años antes — la primera vuelta al mundo, completada bajo otro nombre.',
+      'Fernando de Magallanes zarpa de <button type="button" class="timeline-detail-geolink" data-region="Sanlúcar de Barrameda" data-country="España">Sanlúcar de Barrameda</button> en septiembre de 1519 al mando de cinco naves —la Trinidad, la San Antonio, la Concepción, la Victoria y la Santiago—, financiado por la misma Corona española que, veintisiete años antes, había financiado a <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">Cristóbal Colón</button>. Como Colón, Magallanes era un navegante extranjero al servicio de <button type="button" class="timeline-detail-geolink" data-country="España">España</button> —portugués, no genovés—, y como en 1492, la búsqueda de una ruta occidental terminaría revelando algo que nadie había salido a buscar: no un atajo hacia las islas de las especias, sino la primera vuelta completa al mundo. En 1520 la expedición cruza el <button type="button" class="timeline-detail-geolink" data-region="Estrecho de Magallanes" data-country="Chile">estrecho que hoy lleva su nombre</button>, entre la Patagonia continental y Tierra del Fuego, la primera flota europea en navegar del Atlántico al Pacífico bordeando el extremo sur de América. Durante los meses que pasa en el hemisferio sur, el cronista veneciano Antonio Pigafetta registra en su diario la Cruz del Sur y dos manchas difusas en el cielo austral —hoy las Nubes de Magallanes—, aunque ninguna de las dos era, en realidad, un descubrimiento: <button type="button" class="timeline-detail-entrylink" data-id="corsali-explorador-1487">Andrea Corsali</button> ya las había descrito desde la India cuatro años antes, en 1516. Lo que la expedición de Magallanes aportó no fue la primera observación, sino la fama: un viaje que recorrió el planeta entero terminó bautizando con su nombre algo que otros ya habían visto. Magallanes muere el 27 de abril de 1521 en una batalla en <button type="button" class="timeline-detail-geolink" data-region="Mactán" data-country="Filipinas">Mactán, Filipinas</button>, sin completar el viaje; es su segundo al mando, Juan Sebastián Elcano, quien trae de vuelta a España en 1522 la única nave superviviente, la Victoria, con apenas 18 de los 270 hombres que habían zarpado tres años antes — la primera vuelta al mundo, completada bajo otro nombre.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Magallanes hubiera sobrevivido para completar él mismo la vuelta al mundo?",
       answer:
@@ -678,8 +747,9 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. 1528/1531/1535/1541 chain-clustered together — also
     // part of the wider 1479-1533 chain described at
-    // inquisicion-espanola-1478.
-    trackYear: 1515.1,
+    // inquisicion-espanola-1478. Re-spaced in 2026, see
+    // afonso-i-kongo-nzinga-mbemba-1509.
+    trackYear: 1525.51,
     endYear: 1536,
     pubYear: 1542,
     title: "Naufragios",
@@ -697,7 +767,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "vision-guadalupe-1531",
     year: 1531,
-    trackYear: 1519.7,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Re-spaced in 2026, see
+    // afonso-i-kongo-nzinga-mbemba-1509.
+    trackYear: 1530.35,
     title: "1531: la aparición de la Virgen de Guadalupe",
     author: "Hito histórico",
     country: "México",
@@ -734,7 +807,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "fortun-ximenez-baja-california-1533",
     year: 1533,
-    trackYear: 1524.3,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Re-spaced in 2026, see
+    // afonso-i-kongo-nzinga-mbemba-1509.
+    trackYear: 1535.19,
     title: "1533: Fortún Ximénez toca Baja California en un motín",
     author: "Fortún Ximénez Bertandoña",
     country: "México",
@@ -753,6 +829,11 @@ const TIMELINE_ENTRIES = [
   {
     id: "cabrillo-california-1542",
     year: 1542,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Re-spaced in 2026, see
+    // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with
+    // brevisima-relacion-1542.
+    trackYear: 1549.72,
     endYear: 1543,
     title: "1542: Juan Rodríguez Cabrillo llega a la costa de California",
     author: "Juan Rodríguez Cabrillo",
@@ -772,6 +853,11 @@ const TIMELINE_ENTRIES = [
   {
     id: "brevisima-relacion-1542",
     year: 1542,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Re-spaced in 2026, see
+    // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with
+    // cabrillo-california-1542.
+    trackYear: 1549.72,
     title: "Brevísima relación de la destrucción de las Indias",
     author: "Bartolomé de las Casas",
     country: "República Dominicana",
@@ -785,8 +871,68 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "afonso-i-kongo-nzinga-mbemba-1509",
+    year: 1509,
+    // Real date (accession); nudged track position only — see trackYear
+    // comment in timeline.js. Inserted into the pre-existing, tightly
+    // packed 1492-1559 chain in its correct chronological slot (between
+    // faras-cruz-del-sur-1500 and sergas-esplandian-california-1510) by
+    // re-spacing every entry from sergas through monja-alferez-erauso-1592
+    // slightly tighter — the original ~58-track-year span from
+    // faras-cruz-del-sur-1500 to monja-alferez-erauso-1592 had just enough
+    // room for one more standalone point. See those entries' own trackYear
+    // comments for their part of this re-spacing.
+    trackYear: 1506.14,
+    endYear: 1543,
+    title: "Nzinga Mbemba",
+    author: "Nzinga Mbemba (Afonso I de Kongo)",
+    country: "Congo",
+    region: "Mbanza Kongo",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Nzinga Mbemba nace hacia 1456 en el Reino de Kongo, un extenso y sofisticado estado centroafricano que hoy correspondería a partes de Angola, la República Democrática del Congo y la República del Congo. En 1483, poco después de que el navegante portugués Diogo Cão llegara a la desembocadura del río Congo, Portugal establece relaciones diplomáticas con la corte de Mbanza Kongo, la capital del reino. En julio de 1491, Nzinga Mbemba se bautiza como cristiano y adopta el nombre de Afonso, en honor al entonces príncipe heredero de Portugal. En 1509, tras derrotar a su medio hermano Mpanzu a Kitima en una batalla decisiva por la sucesión, se convierte en el rey Afonso I. Lejos de imaginar una relación colonial, Afonso concibe una alianza cristiana entre iguales: manda construir iglesias, promueve la educación religiosa y envía a jóvenes nobles del reino a estudiar a Portugal — entre ellos a su propio hijo Henrique, quien en 1518 se convierte en el primer obispo católico del África subsahariana. Pero la alianza se resquebraja a medida que crece la demanda portuguesa de mano de obra esclavizada. A partir de 1526, Afonso escribe una serie de veinticuatro cartas al rey João III de Portugal denunciando que comerciantes portugueses secuestraban súbditos libres, nobles y hasta parientes de la propia corte real, más allá de cualquier trata legítima de cautivos de guerra que él mismo toleraba. 'Cada día los mercaderes se llevan a nuestra gente, hijos de la tierra e hijos de nuestros nobles y vasallos', escribe en una de sus cartas más citadas, advirtiendo que el reino se estaba despoblando. Le pide a João III que prohíba a sus comerciantes traer más mercancías destinadas a comprar personas, pues era su voluntad que en su reino no hubiera trata de esclavos ni salida alguna para ellos. Portugal ignora sus súplicas: el comercio continúa y se expande. Afonso muere en 1542 o 1543, todavía rey, sin haber logrado revertir la dinámica que él mismo había sido de los primeros en documentar y denunciar por escrito — casi un siglo antes de que ese mismo reino, ya desestabilizado, siguiera siendo fuente de cautivos como el propio Benkos Biohó, el rey congolés que décadas después fundaría San Basilio de Palenque.",
+    descriptionHtml:
+      'Nzinga Mbemba nace hacia 1456 en el <button type="button" class="timeline-detail-geolink" data-country="Congo">Reino de Kongo</button>, un extenso y sofisticado estado centroafricano que hoy correspondería a partes de Angola, la República Democrática del Congo y la República del Congo. En 1483, poco después de que el navegante portugués Diogo Cão llegara a la desembocadura del río Congo, Portugal establece relaciones diplomáticas con la corte de <button type="button" class="timeline-detail-geolink" data-region="Mbanza Kongo" data-country="Congo">Mbanza Kongo</button>, la capital del reino. En julio de 1491, Nzinga Mbemba se bautiza como cristiano y adopta el nombre de Afonso, en honor al entonces príncipe heredero de <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button>. En 1509, tras derrotar a su medio hermano Mpanzu a Kitima en una batalla decisiva por la sucesión, se convierte en el rey Afonso I. Lejos de imaginar una relación colonial, Afonso concibe una alianza cristiana entre iguales: manda construir iglesias, promueve la educación religiosa y envía a jóvenes nobles del reino a estudiar a Portugal — entre ellos a su propio hijo Henrique, quien en 1518 se convierte en el primer obispo católico del África subsahariana. Pero la alianza se resquebraja a medida que crece la demanda portuguesa de mano de obra esclavizada. A partir de 1526, Afonso escribe una serie de veinticuatro cartas al rey João III de Portugal denunciando que comerciantes portugueses secuestraban súbditos libres, nobles y hasta parientes de la propia corte real, más allá de cualquier trata legítima de cautivos de guerra que él mismo toleraba. \'Cada día los mercaderes se llevan a nuestra gente, hijos de la tierra e hijos de nuestros nobles y vasallos\', escribe en una de sus cartas más citadas, advirtiendo que el reino se estaba despoblando. Le pide a João III que prohíba a sus comerciantes traer más mercancías destinadas a comprar personas, pues era su voluntad que en su reino no hubiera trata de esclavos ni salida alguna para ellos. Portugal ignora sus súplicas: el comercio continúa y se expande. Afonso muere en 1542 o 1543, todavía rey, sin haber logrado revertir la dinámica que él mismo había sido de los primeros en documentar y denunciar por escrito — casi un siglo antes de que ese mismo reino, ya desestabilizado, siguiera siendo fuente de cautivos como el propio <button type="button" class="timeline-detail-entrylink" data-id="legado-trata-transatlantica-1442">Benkos Biohó, el rey congolés que décadas después fundaría San Basilio de Palenque</button>.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si el rey João III de Portugal hubiera atendido las cartas de Afonso I y detenido el comercio de esclavos en Kongo en 1526?",
+      answer:
+        "El Reino de Kongo probablemente habría conservado su soberanía y su población varias generaciones más, y la alianza cristiana que Afonso imaginó —de igual a igual, no de metrópoli a colonia— podría haber sobrevivido como modelo para otros reinos africanos. Pero la demanda de mano de obra esclavizada en las plantaciones americanas, ya en expansión, probablemente se habría desplazado hacia otras costas africanas de todos modos: las cartas de Afonso son un testimonio extraordinario, pero llegaron a una corona portuguesa para la que el comercio humano ya era demasiado rentable como para detenerlo por la súplica de un solo aliado, por cristiano que fuera."
+    }
+  },
+  {
+    id: "hatuey-cuba-1512",
+    year: 1512,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Inserted into the pre-existing, tightly packed
+    // 1500-1559 chain in its correct chronological slot (between
+    // sergas-esplandian-california-1510 and
+    // magallanes-circunnavegacion-1519) by re-spacing every entry from
+    // afonso-i-kongo-nzinga-mbemba-1509 through monja-alferez-erauso-1592
+    // slightly tighter again — see those entries' own trackYear comments
+    // for their part of this second re-spacing.
+    trackYear: 1515.83,
+    title: "1512: la ejecución de Hatuey",
+    author: "Hatuey",
+    country: "Cuba",
+    region: "Yara",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Hatuey, cacique taíno de la región de Xaragua, en La Española, escapa en 1503 de la matanza que el gobernador Nicolás de Ovando ordena contra decenas de caciques desarmados —entre ellos la cacica Anacaona—, y pasa casi una década liderando la resistencia armada contra los colonizadores españoles en la isla. En 1511, al enterarse de que Diego Velázquez de Cuéllar se prepara para invadir Cuba, cruza el paso de los Vientos en canoa junto a unos cuatrocientos seguidores para advertir a los taínos cubanos sobre lo que les espera y organizar una resistencia conjunta. Durante meses libra una guerra de guerrillas contra las fuerzas de Velázquez, hasta que es capturado y condenado a morir en la hoguera. El 2 de febrero de 1512, momentos antes de la ejecución en Yara, cerca de Bayamo, un fraile le ofrece el bautismo cristiano y la promesa del cielo. Hatuey pregunta si los españoles también van al cielo; al escuchar que sí, responde que prefiere el infierno antes que pasar la eternidad junto a gente tan cruel. El episodio, registrado décadas después por fray Bartolomé de las Casas en su Brevísima relación de la destrucción de las Indias, se convertiría en uno de los actos de resistencia indígena más citados de la conquista americana, y hoy Hatuey es honrado en Cuba como su primer héroe nacional.",
+    descriptionHtml:
+      'Hatuey, cacique taíno de la región de Xaragua, en La Española, escapa en 1503 de la matanza que el gobernador Nicolás de Ovando ordena contra decenas de caciques desarmados —entre ellos la cacica Anacaona—, y pasa casi una década liderando la resistencia armada contra los colonizadores españoles en la isla. En 1511, al enterarse de que Diego Velázquez de Cuéllar se prepara para invadir <button type="button" class="timeline-detail-geolink" data-country="Cuba">Cuba</button>, cruza el paso de los Vientos en canoa junto a unos cuatrocientos seguidores para advertir a los taínos cubanos sobre lo que les espera y organizar una resistencia conjunta. Durante meses libra una guerra de guerrillas contra las fuerzas de Velázquez, hasta que es capturado y condenado a morir en la hoguera. El 2 de febrero de 1512, momentos antes de la ejecución en <button type="button" class="timeline-detail-geolink" data-region="Yara" data-country="Cuba">Yara</button>, cerca de Bayamo, un fraile le ofrece el bautismo cristiano y la promesa del cielo. Hatuey pregunta si los españoles también van al cielo; al escuchar que sí, responde que prefiere el infierno antes que pasar la eternidad junto a gente tan cruel. El episodio, registrado décadas después por fray <button type="button" class="timeline-detail-entrylink" data-id="brevisima-relacion-1542">Bartolomé de las Casas en su Brevísima relación de la destrucción de las Indias</button>, se convertiría en uno de los actos de resistencia indígena más citados de la conquista americana, y hoy Hatuey es honrado en Cuba como su primer héroe nacional.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Bartolomé de las Casas nunca hubiera registrado por escrito las palabras de Hatuey?",
+      answer:
+        "El episodio bien pudo haberse perdido como tantos otros actos de resistencia indígena que solo sobrevivieron en la memoria oral de comunidades diezmadas por la conquista, sin cronista español dispuesto a registrarlos. La frase de Hatuey se convirtió en argumento contra la propia colonización solo porque un fraile crítico de la Corona decidió preservarla por escrito décadas después — la misma paradoja que atraviesa buena parte de lo que hoy sabemos sobre la resistencia taína: nos llega casi siempre filtrada por la pluma de sus verdugos o de sus críticos internos, rara vez por la propia voz indígena."
+    }
+  },
+  {
     id: "popol-vuh-1554",
     year: 1554,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Re-spaced in 2026, see
+    // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with lazarillo.
+    trackYear: 1554.56,
     title: "Popol Vuh",
     author: "Anónimo k'iche'",
     country: "Guatemala",
@@ -802,6 +948,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "lazarillo",
     year: 1554,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Re-spaced in 2026, see
+    // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with popol-vuh-1554.
+    trackYear: 1554.56,
     title: "Lazarillo de Tormes",
     author: "Anónimo",
     country: "España",
@@ -848,6 +998,44 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si el Inca Garcilaso hubiera crecido solo en la corte española, sin memoria directa del Perú incaico?",
       answer:
         "Los Comentarios Reales no serían la crónica mestiza que son —escrita desde ambos mundos a la vez—, sino una historia colonial más, contada enteramente desde afuera. Su valor único está en que el autor pudo reclamar como propia tanto la herencia inca como la española."
+    }
+  },
+  {
+    id: "nzinga-ndongo-matamba-1622",
+    year: 1622,
+    endYear: 1663,
+    title: "Nzinga de Ndongo y Matamba",
+    author: "Nzinga Mbande (Ana de Sousa)",
+    country: "Angola",
+    region: "Luanda",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "Nzinga Mbande nace hacia 1583 en el reino de Ndongo, en el territorio de la actual Angola, hija del ngola (rey) Kiluanji kia Samba. Para cuando llega a la edad adulta, la expansión portuguesa en Angola —impulsada por la creciente demanda de mano de obra esclavizada para las plantaciones azucareras de Brasil— presiona militar y políticamente al reino, un siglo después de que el rey Afonso I de Kongo hubiera denunciado, sin éxito, la misma dinámica en el vecino reino al norte. En 1622, su hermano el rey Ngola Mbande la envía a Luanda a negociar con el gobernador portugués João Correia de Sousa. Según la tradición, los portugueses preparan la sala con una sola silla, dejando a Nzinga de pie durante la reunión para subrayar su inferioridad frente al gobernador sentado; ella ordena entonces a uno de sus sirvientes que se ponga a cuatro patas y se sienta sobre su espalda, quedando así a la misma altura que su interlocutor. El gesto —exacto en sus detalles o no— funciona: Nzinga negocia un tratado que reconoce la soberanía de Ndongo, a cambio de su propio bautismo cristiano bajo el nombre de Ana de Sousa. En 1624, tras la muerte de su hermano en circunstancias nunca aclaradas, Nzinga asume el trono de Ndongo, y en 1631 extiende su autoridad al vecino reino de Matamba. Durante las tres décadas siguientes combina, según lo exige cada momento, la diplomacia y la guerra: negocia con Portugal, lo combate militarmente, se alía con los neerlandeses —rivales de los portugueses en la región— y ayuda a esos aliados a tomar Luanda en 1641, reubica su corte cuando la situación lo obliga, y explota cada rivalidad europea disponible para preservar la soberanía de su pueblo. La realidad, sin embargo, es más compleja que el mito de resistencia pura: el propio reino de Nzinga participa de la trata regional de cautivos, y buena parte de los prisioneros capturados en sus guerras terminan, igual que bajo cualquier otro poder de la región, en los mercados atlánticos. En 1656, ya con más de setenta años, firma finalmente la paz con Portugal, que reconoce su gobierno sobre Matamba. Muere el 17 de diciembre de 1663, y sigue siendo hoy, en Angola y más allá, un símbolo nacional de resistencia y soberanía frente al colonialismo europeo.",
+    descriptionHtml:
+      'Nzinga Mbande nace hacia 1583 en el reino de Ndongo, en el territorio de la actual <button type="button" class="timeline-detail-geolink" data-country="Angola">Angola</button>, hija del ngola (rey) Kiluanji kia Samba. Para cuando llega a la edad adulta, la expansión portuguesa en Angola —impulsada por la creciente demanda de mano de obra esclavizada para las plantaciones azucareras de Brasil— presiona militar y políticamente al reino, un siglo después de que el rey <button type="button" class="timeline-detail-entrylink" data-id="afonso-i-kongo-nzinga-mbemba-1509">Afonso I de Kongo</button> hubiera denunciado, sin éxito, la misma dinámica en el vecino reino al norte. En 1622, su hermano el rey Ngola Mbande la envía a <button type="button" class="timeline-detail-geolink" data-region="Luanda" data-country="Angola">Luanda</button> a negociar con el gobernador portugués João Correia de Sousa. Según la tradición, los portugueses preparan la sala con una sola silla, dejando a Nzinga de pie durante la reunión para subrayar su inferioridad frente al gobernador sentado; ella ordena entonces a uno de sus sirvientes que se ponga a cuatro patas y se sienta sobre su espalda, quedando así a la misma altura que su interlocutor. El gesto —exacto en sus detalles o no— funciona: Nzinga negocia un tratado que reconoce la soberanía de Ndongo, a cambio de su propio bautismo cristiano bajo el nombre de Ana de Sousa. En 1624, tras la muerte de su hermano en circunstancias nunca aclaradas, Nzinga asume el trono de Ndongo, y en 1631 extiende su autoridad al vecino reino de Matamba. Durante las tres décadas siguientes combina, según lo exige cada momento, la diplomacia y la guerra: negocia con Portugal, lo combate militarmente, se alía con los neerlandeses —rivales de los portugueses en la región— y ayuda a esos aliados a tomar <button type="button" class="timeline-detail-geolink" data-region="Luanda" data-country="Angola">Luanda</button> en 1641, reubica su corte cuando la situación lo obliga, y explota cada rivalidad europea disponible para preservar la soberanía de su pueblo. La realidad, sin embargo, es más compleja que el mito de resistencia pura: el propio reino de Nzinga participa de la trata regional de cautivos, y buena parte de los prisioneros capturados en sus guerras terminan, igual que bajo cualquier otro poder de la región, en los mercados atlánticos. En 1656, ya con más de setenta años, firma finalmente la paz con Portugal, que reconoce su gobierno sobre Matamba. Muere el 17 de diciembre de 1663, y sigue siendo hoy, en Angola y más allá, un símbolo nacional de resistencia y soberanía frente al colonialismo europeo.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Nzinga no se hubiera aliado con los neerlandeses en la toma de Luanda en 1641?",
+      answer:
+        "Sin el apoyo militar neerlandés, es poco probable que Ndongo y Matamba hubieran logrado expulsar a Portugal de su principal base angoleña, aunque fuera solo temporalmente, entre 1641 y 1648. Nzinga habría tenido que negociar desde una posición mucho más débil, probablemente aceptando términos de vasallaje más duros años antes de 1656 — y el propio imperio neerlandés, que también comerciaba con personas esclavizadas, habría encontrado en ella una aliada conveniente de todos modos, solo que en otro momento y bajo otras condiciones."
+    }
+  },
+
+  {
+    id: "el-burlador-de-sevilla-1630",
+    year: 1630,
+    title: "1630: El burlador de Sevilla y convidado de piedra",
+    author: "Tirso de Molina",
+    country: "España",
+    region: "Sevilla",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "El fraile mercedario Gabriel Téllez, bajo el seudónimo de Tirso de Molina, escribe hacia 1616-1625 y publica en 1630 El burlador de Sevilla y convidado de piedra, la primera gran versión literaria del mito de Don Juan. La obra narra las conquistas del noble Don Juan Tenorio, quien engaña y deshonra a mujeres de distintas clases sociales —la duquesa Isabela en Nápoles, la pescadora Tisbea, Doña Ana de Ulloa y la campesina Aminta—, convencido de que siempre tendrá tiempo de arrepentirse: '¡Tan largo me lo fiáis!', repite como lema. Tras matar al Comendador Don Gonzalo de Ulloa, padre de Doña Ana, Don Juan burla también su tumba, invitando a cenar a la estatua de piedra que la corona; la estatua acepta, cobra vida y arrastra a Don Juan al infierno cuando este se niega a arrepentirse, en una escena —el 'convidado de piedra'— que se volvería el núcleo de la leyenda. Escrita en plena Contrarreforma, la obra dramatiza el choque entre el libre albedrío, el honor familiar y la justicia divina que la justicia humana es incapaz de imponer. El personaje de Don Juan, transgresor carismático más que villano simple, inspiraría después a Molière (Dom Juan), Mozart (Don Giovanni), Lord Byron, Alejandro Dumas y José Zorrilla (Don Juan Tenorio), consolidándose junto a Don Quijote, Hamlet y Fausto como una de las grandes figuras de la literatura occidental.",
+    descriptionHtml:
+      'El fraile mercedario Gabriel Téllez, bajo el seudónimo de Tirso de Molina, escribe hacia 1616-1625 y publica en 1630 El burlador de <button type="button" class="timeline-detail-geolink" data-region="Sevilla" data-country="España">Sevilla</button> y convidado de piedra, la primera gran versión literaria del mito de Don Juan. La obra narra las conquistas del noble Don Juan Tenorio, quien engaña y deshonra a mujeres de distintas clases sociales —la duquesa Isabela en <button type="button" class="timeline-detail-geolink" data-region="Nápoles" data-country="Italia">Nápoles</button>, la pescadora Tisbea, Doña Ana de Ulloa y la campesina Aminta—, convencido de que siempre tendrá tiempo de arrepentirse: \'¡Tan largo me lo fiáis!\', repite como lema. Tras matar al Comendador Don Gonzalo de Ulloa, padre de Doña Ana, Don Juan burla también su tumba, invitando a cenar a la estatua de piedra que la corona; la estatua acepta, cobra vida y arrastra a Don Juan al infierno cuando este se niega a arrepentirse, en una escena —el \'convidado de piedra\'— que se volvería el núcleo de la leyenda. Escrita en plena Contrarreforma, la obra dramatiza el choque entre el libre albedrío, el honor familiar y la justicia divina que la justicia humana es incapaz de imponer. El personaje de Don Juan, transgresor carismático más que villano simple, inspiraría después a Molière (Dom Juan), Mozart (Don Giovanni), Lord Byron, Alejandro Dumas y José Zorrilla (Don Juan Tenorio), consolidándose junto a Don Quijote, Hamlet y Fausto como una de las grandes figuras de la literatura occidental.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Tirso de Molina nunca hubiera escrito El burlador de Sevilla?",
+      answer:
+        "El mito de Don Juan probablemente habría tardado generaciones en cristalizar, disperso en relatos orales de seductores y castigos divinos sin una forma teatral fija. Sin el modelo de Tirso —el desafío a la estatua, el descenso al infierno, el lema del arrepentimiento aplazado—, Molière no habría tenido un Dom Juan que adaptar en 1665, ni Mozart un libreto que musicalizar en 1787. Uno de los grandes arquetipos de la literatura occidental, a la altura de Fausto o Don Quijote, podría simplemente no existir con el nombre que hoy conocemos."
     }
   },
 
@@ -1813,7 +2001,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "el-greco-1541",
     year: 1541,
-    trackYear: 1536,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Re-spaced in 2026, see
+    // afonso-i-kongo-nzinga-mbemba-1509.
+    trackYear: 1544.88,
     endYear: 1614,
     title: "1541–1614: El Greco",
     author: "El Greco (Domenikos Theotokopoulos)",
@@ -2103,11 +2294,16 @@ const TIMELINE_ENTRIES = [
     id: "inquisicion-espanola-1478",
     year: 1478,
     // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. 1438/1478/1479/1487/1492/1492 chain-clustered across
-    // the pre-colonial/colonial era boundary — extended in 2026 to fit
-    // corsali-explorador-1487 into the same sequence without re-merging
-    // 1479 or 1487 back into a cluster.
-    trackYear: 1438.7,
+    // timeline.js. 1438/1441/1442/1478/1479/1487/1492/1492 chain-clustered
+    // across the pre-colonial/colonial era boundary — extended in 2026 to
+    // fit corsali-explorador-1487 into the same sequence without
+    // re-merging 1479 or 1487 back into a cluster. Re-solved again later
+    // in 2026 so origen-trata-transatlantica-1441 and
+    // legado-trata-transatlantica-1442 could each get their own
+    // standalone point too (all 6 entries in this chain — pachacutec,
+    // 1441, 1442, this one, colon-porto-santo, corsali — are now
+    // individually standalone by borrowing room from nezahualcoyotl).
+    trackYear: 1445.4,
     title: "1478: se establece la Inquisición española",
     author: "Hito histórico",
     country: "España",
@@ -3266,7 +3462,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "galapagos-historia-darwin-1535",
     year: 1535,
-    trackYear: 1530,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Re-spaced in 2026, see
+    // afonso-i-kongo-nzinga-mbemba-1509.
+    trackYear: 1540.03,
     endYear: 1835,
     title: "1535–1835: Galápagos, de Tomás de Berlanga a Charles Darwin",
     author: "Hito histórico",
