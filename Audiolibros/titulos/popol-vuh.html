@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audiolibros — Popol Vuh</title>
+    <link rel="stylesheet" href="popol-vuh.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
+    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
+  </a>
+  <ul class="site-nav-links">
+    <li><a href="../../essays.html">Ensayos</a></li>
+    <li><a href="../../authors.html">Authors</a></li>
+    <li><a href="../audiolibros-categories.html" class="active">Audiolibros</a></li>
+    <li><a href="../../globe.html">Space and Time</a></li>
+    <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
+    <li><a href="../../about.html">Sobre Mí</a></li>
+    <li><a href="../../cv.html">CV</a></li>
+  </ul>
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="site-mobile-menu" id="siteMobileMenu">
+  <a href="../../essays.html">Ensayos</a>
+  <a href="../../authors.html">Authors</a>
+  <a href="../audiolibros-categories.html">Audiolibros</a>
+  <a href="../../globe.html">Space and Time</a>
+  <a href="../../interpreter-z.html">Interpreter Z</a>
+  <a href="../../about.html">Sobre Mí</a>
+  <a href="../../cv.html">CV</a>
+</div>
+
+<header class="book-header">
+    <div class="book-header-text">
+        <p class="kicker">Audiolibros · Primera Ola</p>
+        <h1>Popol Vuh</h1>
+        <p class="subtitle">Anónimo · Quiché</p>
+    </div>
+
+    <div class="sun-glyph-signature" aria-hidden="true">
+        <svg viewBox="-40 -40 80 80">
+            <g class="sun-rays">
+                <polygon class="sun-ray" points="0,-38 -3,-26 3,-26"></polygon>
+                <polygon class="sun-ray" points="0,-38 -3,-26 3,-26" transform="rotate(30)"></polygon>
+                <polygon class="sun-ray" points="0,-38 -3,-26 3,-26" transform="rotate(60)"></polygon>
+                <polygon class="sun-ray" points="0,-38 -3,-26 3,-26" transform="rotate(90)"></polygon>
+                <polygon class="sun-ray" points="0,-38 -3,-26 3,-26" transform="rotate(120)"></polygon>
+                <polygon class="sun-ray" points="0,-38 -3,-26 3,-26" transform="rotate(150)"></polygon>
+                <polygon class="sun-ray" points="0,-38 -3,-26 3,-26" transform="rotate(180)"></polygon>
+                <polygon class="sun-ray" points="0,-38 -3,-26 3,-26" transform="rotate(210)"></polygon>
+                <polygon class="sun-ray" points="0,-38 -3,-26 3,-26" transform="rotate(240)"></polygon>
+                <polygon class="sun-ray" points="0,-38 -3,-26 3,-26" transform="rotate(270)"></polygon>
+                <polygon class="sun-ray" points="0,-38 -3,-26 3,-26" transform="rotate(300)"></polygon>
+                <polygon class="sun-ray" points="0,-38 -3,-26 3,-26" transform="rotate(330)"></polygon>
+            </g>
+            <circle class="sun-disc" cx="0" cy="0" r="26"></circle>
+            <path class="sun-spiral" d="M 0.0,0.0 L 0.37,0.1 L 0.66,0.38 L 0.81,0.81 L 0.76,1.33 L 0.49,1.85 L -0.01,2.29 L -0.71,2.58 L -1.55,2.63 L -2.45,2.41 L -3.32,1.88 L -4.07,1.04 L -4.58,-0.05 L -4.78,-1.34 L -4.59,-2.73 L -3.99,-4.11 L -2.97,-5.34 L -1.58,-6.3 L 0.12,-6.87 L 2.0,-6.97 L 3.94,-6.54 L 5.78,-5.56 L 7.36,-4.05 L 8.53,-2.09 L 9.16,0.21 L 9.16,2.69 L 8.47,5.17 L 7.1,7.47 L 5.1,9.4 L 2.57,10.77 L -0.33,11.45 L -3.4,11.34 L -6.43,10.39 L -9.19,8.63 L -11.45,6.12 L -13.02,3.03 L -13.74,-0.47 L -13.51,-4.13 L -12.29,-7.7 L -10.13,-10.91 L -7.13,-13.51 L -3.46,-15.27 L 0.64,-16.02 L 4.89,-15.67 L 9.0,-14.18 L 12.66,-11.62 L 15.58,-8.11 L 17.52,-3.86 L 18.31,0.84 L 17.83,5.68 L 16.06,10.32 L 13.08,14.42 L 9.06,17.66 L 4.25,19.79 L -1.06,20.59 L -6.49,19.97"></path>
+        </svg>
+    </div>
+</header>
+
+<div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<section class="player-section" id="playerSection">
+    <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
+        <svg viewBox="0 0 60 60" width="46" height="46">
+            <circle cx="30" cy="30" r="27" fill="var(--surface)" stroke="var(--gold)" stroke-width="3"/>
+            <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
+                  fill="none" stroke="var(--gold)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--gold)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="player">
+        <canvas></canvas>
+        <div class="song">
+            <div class="artist">Popol Vuh</div>
+            <div class="name">Capítulo 1</div>
+        </div>
+        <div class="playarea">
+            <div class="prevSong"></div>
+            <div class="play"></div>
+            <div class="pause"></div>
+            <div class="nextSong"></div>
+        </div>
+        <div class="soundControl"></div>
+        <div class="time">00:00</div>
+    </div>
+</section>
+
+<div class="extra-controls">
+    <div class="volume-dial" id="volumeDial">
+        <div class="volume-dial__control">
+            <div class="volume-dial__wrap">
+                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                    <span class="volume-dial__knob-label">Volumen</span>
+                </button>
+            </div>
+        </div>
+        <p class="volume-dial__caption">Volumen</p>
+    </div>
+</div>
+
+<audio id="chapterAudio" preload="auto" crossorigin="anonymous"></audio>
+<!-- ^ no src yet — add each recorded chapter file as you upload them. -->
+
+<div class="all">
+  <div class="card">
+    <div class="book">
+        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+        <img src="../../book_covers/popol-vuh.jpg" alt="Popol Vuh">
+        <div class="controls">
+            <div class="box">Escucha ahora</div>
+        </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-body">
+        <div class="break"></div>
+        <h1>SINOPSIS</h1>
+        <p>El texto sagrado de los quiché de Guatemala, transcrito en el siglo XVI a partir de tradición oral y pictórica mucho más antigua. Narra la creación del mundo por los dioses —tras varios intentos fallidos con hombres de barro y de madera— hasta llegar a los hombres de maíz, y las aventuras de los Héroes Gemelos, Hunahpú e Ixbalanqué, que descienden a Xibalbá, el inframundo, para vencer a sus señores.</p>
+
+        <div class="break"></div>
+        <h1>CAPÍTULOS</h1>
+        <p class="chapter" data-time="0">Preámbulo y la creación del mundo</p>
+        <p class="chapter" data-time="0">Los hombres de barro y de madera</p>
+        <p class="chapter" data-time="0">Hunahpú e Ixbalanqué: el nacimiento de los Héroes Gemelos</p>
+        <p class="chapter" data-time="0">El descenso a Xibalbá</p>
+        <p class="chapter" data-time="0">Los hombres de maíz</p>
+
+        <div class="break"></div>
+        <h1>RESEÑAS</h1>
+        <div>
+            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
+            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
+            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
+            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
+            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
+            <p style="display:inline; margin-left:6px;">Bueno</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+    <a href="../../index.html" aria-label="Santos Armada — inicio">
+        <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
+    </a>
+</footer>
+
+<script src="popol-vuh.js"></script>
+
+</body>
+</html>
