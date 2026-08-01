@@ -7,7 +7,7 @@
     <!-- No top Maya banner on this page — bottom banner only. -->
     <link href="vendor/fonts/el-cubo-fonts.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css?v=20">
-    <link rel="stylesheet" href="el-cubo.css?v=1">
+    <link rel="stylesheet" href="el-cubo.css?v=2">
     <link rel="stylesheet" href="el-cubo-cube.css?v=12">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
@@ -43,6 +43,16 @@
         <p class="el-cubo-title-sub">Eventos · Memorias · Vida</p>
     </div>
 </section>
+
+<!-- Scroll-down indicator -->
+<button type="button" class="el-cubo-scroll-cue" id="el-cubo-scroll-cue" aria-label="Scroll to gallery">
+    <span class="el-cubo-scroll-cue-pulse"></span>
+    <span class="el-cubo-scroll-cue-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 4v16M5 13l7 7 7-7"/>
+        </svg>
+    </span>
+</button>
 
 <script type="x-shader/x-fragment" id="elCuboShader">#version 300 es
 /*********
@@ -426,6 +436,22 @@ void main() {
         const nav = document.getElementById('nav-links');
         nav.classList.toggle('open');
     }
+</script>
+<script>
+(function () {
+    const scrollCue = document.getElementById('el-cubo-scroll-cue');
+    const galleryWrap = document.getElementById('elCuboGalleryWrap');
+
+    scrollCue.addEventListener('click', () => {
+        galleryWrap.scrollIntoView({ behavior: 'smooth' });
+    });
+
+    function updateScrollCueVisibility() {
+        scrollCue.classList.toggle('is-hidden', window.scrollY > window.innerHeight * 0.5);
+    }
+    window.addEventListener('scroll', updateScrollCueVisibility, { passive: true });
+    updateScrollCueVisibility();
+})();
 </script>
 <script src="el-cubo.js?v=2"></script>
 <script src="el-cubo-title-effect.js?v=1" defer></script>
