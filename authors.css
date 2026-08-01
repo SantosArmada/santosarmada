@@ -174,8 +174,8 @@ nav{
 }
 
 .authors-title-text {
-  font-size: clamp(2rem, 10vw, 10rem);
-  font-family: 'Arial', sans-serif;
+  font-size: clamp(3rem, 17vw, 17rem);
+  font-family: 'Cinzel', serif;
   font-weight: 900;
   white-space: nowrap;
   color: #fff;
