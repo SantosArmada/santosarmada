@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Cubo — Santos Armada</title>
+    <!-- No top Maya banner on this page — bottom banner only. -->
+    <link href="vendor/fonts/el-cubo-fonts.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20">
+    <link rel="stylesheet" href="el-cubo.css?v=1">
+    <link rel="stylesheet" href="el-cubo-cube.css?v=12">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="el-cubo-page has-site-banners">
+
+<div class="page-content">
+
+<!-- NAVIGATION -->
+<nav class="navbar">
+    <a href="/" class="nav-logo">
+        <img src="Images/logo.PNG" alt="Santos Armada" class="nav-crest">
+        <span class="nav-title">SANTOS ARMADA</span>
+    </a>
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="/space-and-time">Space and Time</a></li>
+        <li><a href="/mercadeo">Mercadeo</a></li>
+        <li><a href="/audiolibros">Audiolibros</a></li>
+        <li><a href="/interpreter-z">Interpreter Z</a></li>
+        <li><a href="/about">About</a></li>
+    </ul>
+</nav>
+
+<!-- HERO: full-viewport raymarched shader tunnel, recolored to the
+     Santos Armada amber/gold palette. EL CUBO sits dead-center over it,
+     same overlap treatment as the Authors hero, same gold-shimmer text
+     as the Space & Time title. -->
+<section class="el-cubo-hero" id="elCuboHero">
+    <canvas id="elCuboCanvas" class="el-cubo-canvas"></canvas>
+
+    <div class="el-cubo-title-container">
+        <h1 class="el-cubo-title-text"><span class="el-cubo-title-effect">EL CUBO</span></h1>
+        <p class="el-cubo-title-sub">Eventos · Memorias · Vida</p>
+    </div>
+</section>
+
+<script type="x-shader/x-fragment" id="elCuboShader">#version 300 es
+/*********
+* made by Matthias Hurrle (@atzedent)
+* recolored for Santos Armada — amber/gold palette
+*/
+precision highp float;
+out vec4 O;
+uniform float time;
+uniform vec2 resolution;
+#define FC gl_FragCoord.xy
+#define R resolution
+#define T time
+#define N normalize
+#define S smoothstep
+#define MN min(R.x,R.y)
+#define LP vec3(-2,8,-2)
+#define EDGESIZE 42e-4
+#define amberhue(a) mix(vec3(1.,.32,.04),vec3(1.,.92,.62),.5+.5*sin(a))
+vec3 cp[14];
+void initCam() {
+	const float a=2.*.96, b=2.*a;
+	cp[0] =vec3(0);
+	cp[1] =vec3(0,0,b);
+	cp[2] =vec3(a,0,b);
+	cp[3] =vec3(a,0,a);
+	cp[4] =vec3(a,-a*1.2,a);
+	cp[5] =vec3(-a,-a,a);
+	cp[6] =vec3(-a,0,a);
+	cp[7] =vec3(-a,0,0);
+	cp[8] =vec3(0);
+	cp[9] =vec3(0,0,-b);
+	cp[10]=vec3(0,a,-b);
+	cp[11]=vec3(-a,a,-b);
+	cp[12]=vec3(-a,0,-b);
+	cp[13]=vec3(-a,0,0);
+}
+vec3 catmull(vec3 a, vec3 b, vec3 c, vec3 d, float t){
+	return (((-a+b*3.-c*3.+d)*t*t*t + (a*2.- b*5.+c*4.-d)*t*t + (-a+c)*t + b*2.)*.5);
+}
+vec3 camPath(float t){
+	const int n=14;
+	const float k=float(n);
+	t=fract(t/k)*k;
+	float sn=floor(t), st=t-sn;
+	if (sn==.0) return catmull(cp[n-1], cp[0], cp[1], cp[2], st);
+	for (int i=1; i<n-2; i++) {
+		if (sn==float(i)) return catmull(cp[i-1], cp[i], cp[i+1], cp[i+2], st);
+	}
+	if (sn==k-2.) return catmull(cp[n-3], cp[n-2], cp[n-1], cp[0], st);
+	if (sn==k-1.) return catmull(cp[n-2], cp[n-1], cp[0], cp[1], st);
+	return vec3(0);
+}
+float rnd(vec3 p) {
+	p=fract(p*vec3(12.9898,78.233,156.345));
+	p+=dot(p,p+34.56);
+	return fract(p.x*p.y*p.z);
+}
+float smin(float a, float b, float k) {
+	k*=log(2.);
+	float x=b-a;
+	return a+x/(1.-exp2(x/k));
+}
+float box(vec3 p, float s) {
+	p=abs(p)-s;
+	return length(max(p,.0))+min(.0,max(max(p.x,p.y),p.z));
+}
+#define ZERO (time*.0)
+float map(vec3 p) {
+	float e=length(vec2(fract(p.z)-.5,p.y-1.))-.1;
+	p.xz=mod(p.xz+1.,2.)-1.;
+	float d=box(p,1.), f=1.;
+	for(float i=ZERO; i<5.; i++) {
+		vec3 a=mod(p*f,2.)-1., r=abs(1.-3.*abs(a));
+		f*=2.25;
+		float
+		da=max(r.x,r.y),
+		db=max(r.y,r.z),
+		dc=max(r.z,r.x);
+		d=max(d,(min(da,min(db,dc))-1.)/f);
+	}
+	return smin(d,e,1e-2)+2e-3;
+}
+vec3 norm(vec3 p) {
+	float h=1e-3; vec2 k=vec2(-1,1);
+	return N(
+		k.xyy*map(p+k.xyy*h)+
+		k.yxy*map(p+k.yxy*h)+
+		k.yyx*map(p+k.yyx*h)+
+		k.xxx*map(p+k.xxx*h)
+	);
+}
+bool march(inout vec3 p, vec3 rd, out float dd, out float edge, out float i) {
+	bool near;
+	float maxd=abs(p.y)>1.?130.:800.;
+	for (; i++<maxd;) {
+		float d=map(p);
+		if (abs(d)<1e-3) return true;
+		if (d>100.) return false;
+		if (near && d>EDGESIZE) edge=1.;
+		if (d<EDGESIZE) near=true;
+		p+=rd*d*.5;
+		dd*=d*.5;
+	}
+}
+float calcAO(vec3 p, vec3 n) {
+	float occ=.0, sca=1.;
+	for (float i=.0; i<5.; i++) {
+		float
+		h=.01+i*.05,
+		d=map(p+h*n);
+		occ+=(h-d)*sca;
+		sca*=.95;
+		if (occ>.35) break;
+	}
+	return clamp(1.-3.*occ,.0,1.);
+}
+float getao(vec3 p, vec3 n, float dist) {
+	return clamp(map(p+n*dist)/dist,.0,1.);
+}
+vec3 dir(vec2 uv, vec3 ro, vec3 t, float z) {
+	vec3 up=vec3(0,1,0),
+	f=N(t-ro),
+	r=N(cross(up,f)),
+	u=cross(f,r),
+	c=f*z,
+	i=c+uv.x*r+uv.y*u,
+	d=N(i);
+	return d;
+}
+vec3 render(vec2 uv) {
+	initCam();
+	float speed=T*.25;
+	vec3 col=vec3(0),
+	p=camPath(-speed+.5), ro=p,
+	ta=camPath(-speed),
+	rd=dir(uv,p,ta,.6);
+	float dd, i, edge;
+	if (march(p,rd,dd,edge,i)) {
+		float x=mix(.8,1.,rnd(p)), lf=S(80.,30.,length(p.z));
+		vec3 n=norm(p)*x, lp=vec3(LP.x,LP.y+lf,LP.z), l=N(lp-p);
+		float ao=calcAO(p,n), amb=.8+.2*n.y, ld=distance(lp,p),
+		ldd=distance(ro,p), dif=clamp(dot(l,n),.0,1.),
+		atten=1./(1.+ldd*.5+ldd*ldd*.25);
+		if (abs(p.y)<.992) {
+			ao*=(n.y*.5+.55);
+			col+=S(-.1,1.,amb*ao)+dif*ao*atten;
+			col+=atten*pow(clamp(dot(N(ro-p),n),.0,1.),.8);
+		} else col+=dif*ao;
+		col+=clamp(dot(-rd,l),.0,1.)*ao*atten;
+		col*=vec3(1,.62,.30)+.3*amb*ao*atten;
+		col*=tanh(ao*ao);
+		float fog=1.-clamp(dd/200.,.0,1.), eo=getao(p,n,EDGESIZE);;
+		if(eo<.9) edge=max(edge,max(1.,fog));
+		eo=getao(p,n,-EDGESIZE);
+		if(eo<.9) edge=max(edge,max(1.,fog));
+		float fres=pow(clamp(1.+dot(rd,n),.0,1.),5.);
+		col*=S(2.,.0,edge)*(1.-fres);
+		vec3 dp=abs(p-ro);
+		float ll=.3/tan(length(dp))+T;
+		float glow=.02/(0.12+0.88*(.5+.5*cos(.78*T-3.*fract(ll))));
+		dp=p.y>1.01?vec3(1):glow*vec3(1.,.66,.26);
+		col=mix(col,fres*dp,S(.5,3.,edge));
+		col=S(-.5,2.,col);
+	}
+	float k=max(.3,1.-distance(LP,ro));
+	col+=amberhue(k*k*1.57+1.5)*k*.6;
+	col=mix(col,vec3(1,.92,.78),S(.0,15.,distance(p,ro)));
+	col+=S(-1.,2.,clamp(i/300.,.0,1.))*k*vec3(1,.62,.28);
+	col=S(-.2,.8,col*1.2);
+	col=tanh(col*col*col);
+	col=sqrt(col);
+	vec2 c=FC/R;
+	c*=1.-c.yx;
+	float vig=c.x*c.y*25.;
+	vig=pow(vig,.25);
+	col*=vig;
+	col=mix(col,col*col,S(1.,-1.,clamp(vig,.0,1.)));
+	return col*vec3(1,.86,.62);
+}
+void main() {
+	vec2 uv=(FC-.5*R)/MN;
+	vec3 col=render(uv);
+	O=vec4(col,1);
+}
+</script>
+
+<!-- CUBE GALLERY: a scroll-pinned 3D cube with one panel per face, six
+     slots total (see the "only 6 things at a time" rule). Pinned via
+     position:sticky scoped to this section's own wrapper — not a global
+     scroll hijack — so the hero above and the footer below scroll
+     normally; only this stretch of the page pins while its own six
+     panels scroll past. Placeholder copy in every slot, swapped out for
+     real content one face at a time. -->
+<section class="el-cubo-cube-wrap" id="elCuboGalleryWrap">
+    <div class="el-cubo-cube-stage">
+        <div id="scene">
+            <div id="cube">
+                <div class="face" data-face="top" data-i="0">
+                    <video id="elCuboGradVideo" src="el-cubo/01-santos-grad.mp4?v=8" playsinline preload="auto"></video>
+                    <span class="face-ph">01</span>
+                </div>
+                <div class="face" data-face="front" data-i="1">
+                    <img src="el-cubo/02-virgen-de-guadalupe.jpg" alt="La Virgen de Guadalupe con las Cuatro Apariciones, Nicolás Enríquez, 1773 (The Met)" class="face-amber-tint">
+                    <span class="face-ph">02</span>
+                </div>
+                <div class="face" data-face="right" data-i="2">
+                    <img src="el-cubo/03-posada-calaveras.jpg" alt="Esqueleto masculino caminando detrás de un esqueleto femenino, José Guadalupe Posada, c. 1894 (The Met)" class="face-amber-tint">
+                    <span class="face-ph">03</span>
+                </div>
+                <div class="face" data-face="back" data-i="3">
+                    <img src="el-cubo/04-grandeza-azteca.jpg" alt="Grandeza Azteca, Jesús Helguera" class="face-amber-tint face-img-anchor-top">
+                    <span class="face-ph">04</span>
+                </div>
+                <div class="face" data-face="left" data-i="4"><span class="face-ph">05</span></div>
+                <div class="face" data-face="bottom" data-i="5"><span class="face-ph">06</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Separate sticky layer from .el-cubo-cube-stage on purpose. Both
+         pin to the same visual region (this one pulled back up with the
+         same negative-margin trick used on #scroll_container below),
+         but .el-cubo-cube-stage has z-index:0 (the cube renders BEHIND
+         the text panels, which is correct) while everything interactive
+         here needs to render ABOVE #scroll_container's z-index:1 — and
+         since sticky elements each form their own stacking context,
+         nothing inside .el-cubo-cube-stage could ever out-rank a sibling
+         no matter what z-index it was given internally. This is also
+         what was silently swallowing every click on the play button and
+         the scene dots wherever they happened to overlap a text panel. -->
+    <div class="el-cubo-cube-ui-layer">
+        <div id="hud">
+            <div id="hud_pct">000%</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="prog_fill"></div>
+            </div>
+            <div class="scene-label" id="scene_name">01</div>
+        </div>
+
+        <div id="scene_strip">
+            <a href="#s0" class="scene-dot active" aria-label="Ir a la escena 1"></a>
+            <a href="#s1" class="scene-dot" aria-label="Ir a la escena 2"></a>
+            <a href="#s2" class="scene-dot" aria-label="Ir a la escena 3"></a>
+            <a href="#s3" class="scene-dot" aria-label="Ir a la escena 4"></a>
+            <a href="#s4" class="scene-dot" aria-label="Ir a la escena 5"></a>
+            <a href="#s5" class="scene-dot" aria-label="Ir a la escena 6"></a>
+        </div>
+
+        <div id="face_caption">
+            <div id="face_caption_num">01</div>
+            <div id="face_caption_name">—</div>
+        </div>
+
+        <!-- Lives OUTSIDE #cube deliberately — Safari has known click
+             hit-testing bugs on elements inside a CSS 3D-transformed
+             (perspective + rotateX/rotateY) ancestor. This sits in the
+             flat, untransformed stage layer instead, positioned to
+             visually overlap face 0; JS shows/hides it based on
+             scroll progress. Doubles as a play/pause toggle — stays
+             available the whole time you're on face 0, not just as a
+             one-time unlock. -->
+        <button type="button" class="face-play-btn" id="elCuboGradPlayBtn" aria-label="Reproducir o pausar video">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z" /></svg>
+        </button>
+    </div>
+
+    <div id="scroll_container">
+
+        <section id="s0">
+            <div class="text-card">
+                <div class="tag">El Cubo — 01</div>
+                <h1>ESPACIO<br>UNO</h1>
+                <p class="body-text">Contenido por definir — cuéntame qué va aquí.</p>
+                <div class="cta-row">
+                    <a class="cta" href="#s1">
+                        Entrar
+                        <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5" /></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="s1">
+            <div class="text-card right">
+                <div class="h-line"></div>
+                <div class="tag">El Cubo — 02 · Nicolás Enríquez, 1773</div>
+                <h2>LA VIRGEN<br>MORENA</h2>
+                <p class="body-text">El primer relato del encuentro no se escribió en español — se contó en náhuatl, el Nican Mopohua, y solo después se tradujo. Aun lo sagrado, en esta tierra, nace traducido.</p>
+                <div class="cta-row">
+                    <a class="cta-back" href="#s0"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 6H1M6 11L1 6l5-5" /></svg>Volver</a>
+                    <a class="cta" href="#s2">Girar<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5" /></svg></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="s2">
+            <div class="text-card">
+                <div class="h-line"></div>
+                <div class="tag">El Cubo — 03 · José Guadalupe Posada, c. 1894</div>
+                <h2>EL GRAN<br>PANTEÓN</h2>
+                <p class="body-text">Posada no grabó esto para un museo — lo grabó para la calle. Cada Día de Muertos, México vendía "calaveras literarias" en hojas sueltas: versos burlones que enterraban, en broma, al político, al rico, al vecino presumido. La muerte no perdona la vanidad de nadie. Posada murió pobre y casi olvidado; treinta años después, Diego Rivera lo sentó junto a la Catrina, en el centro de su mural más famoso.</p>
+                <div class="cta-row">
+                    <a class="cta-back" href="#s1"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 6H1M6 11L1 6l5-5" /></svg>Volver</a>
+                    <a class="cta" href="#s3">Girar<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5" /></svg></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="s3">
+            <div class="text-card right">
+                <div class="h-line"></div>
+                <div class="tag">El Cubo — 04 · Jesús Helguera</div>
+                <h2>GRANDEZA<br>AZTECA</h2>
+                <p class="body-text">Esta imagen nació como publicidad — pintada para los calendarios de una tabacalera, repartidos gratis en tiendas y panaderías por toda la República. Pero la comunidad la hizo suya: en Los Ángeles y en cada barrio chicano, ese mismo azteca terminó tatuado en la piel y pintado sobre los cofres de los lowriders — un recordatorio de que no somos los extranjeros, sino los descendientes.</p>
+                <div class="cta-row">
+                    <a class="cta-back" href="#s2"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 6H1M6 11L1 6l5-5" /></svg>Volver</a>
+                    <a class="cta" href="#s4">Girar<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5" /></svg></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="s4">
+            <div class="text-card">
+                <div class="h-line"></div>
+                <div class="tag">El Cubo — 05</div>
+                <h2>ESPACIO<br>CINCO</h2>
+                <p class="body-text">Contenido por definir — cuéntame qué va aquí.</p>
+                <div class="cta-row">
+                    <a class="cta-back" href="#s3"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 6H1M6 11L1 6l5-5" /></svg>Volver</a>
+                    <a class="cta" href="#s5">Girar<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5" /></svg></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="s5">
+            <div class="text-card right">
+                <div class="h-line"></div>
+                <div class="tag">El Cubo — 06</div>
+                <h2>ESPACIO<br>SEIS</h2>
+                <p class="body-text">Contenido por definir — cuéntame qué va aquí.</p>
+                <div class="cta-row">
+                    <a class="cta-back" href="#s4"><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 6H1M6 11L1 6l5-5" /></svg>Volver</a>
+                    <a class="cta" href="#s0">Volver al inicio<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 6h10M6 1l5 5-5 5" /></svg></a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-inner">
+        <a href="/" class="footer-logo-link">
+            <img src="Images/logo.png" alt="Santos Armada" class="footer-logo">
+            <p class="footer-title">SANTOS ARMADA</p>
+        </a>
+        <p class="footer-tagline">Guardián de historias · Tejedor de mundos · Hijo de muchos sueños</p>
+        <p class="footer-links">
+    <a href="/cv">CV</a> ·
+    <a href="/about">About</a> ·
+    <a href="/contact">Contact</a>
+</p>
+        <p class="footer-copy">© 2026 Santos Armada · santosarmada@protonmail.com · All rights reserved</p>
+        <p class="footer-bottom">Una conciencia · Infinitos reinos · Sin fronteras</p>
+    </div>
+</footer>
+
+</div><!-- /.page-content -->
+
+<!-- BANNER: permanent frieze strip, fixed to the very bottom of the
+     viewport, sits below the footer and never scrolls away. -->
+<section class="site-banner site-banner-bottom">
+    <img src="Images/maya-banner.jpg" alt="Maya glyph frieze" class="site-banner-image">
+</section>
+
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById('nav-links');
+        nav.classList.toggle('open');
+    }
+</script>
+<script src="el-cubo.js?v=2"></script>
+<script src="el-cubo-title-effect.js?v=1" defer></script>
+<script src="el-cubo-cube.js?v=9" defer></script>
+</body>
+</html>

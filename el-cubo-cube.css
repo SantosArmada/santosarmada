@@ -1,0 +1,526 @@
+/* ================================
+   EL CUBO — cube gallery
+   Adapted from a scroll-hijacked single-page demo into a scroll-pinned
+   section that lives between the shader hero and the footer. Original
+   used position:fixed + a global wheel-jack to own the whole page;
+   here .el-cubo-cube-stage is position:sticky, scoped to
+   .el-cubo-cube-wrap, so only this stretch of the page pins — the hero
+   above and footer below scroll natively. Six faces, six panels,
+   permanently dark/amber (no light-mode toggle, matching the rest of
+   the site), colors pulled from style.css's --gold/--gold-light tokens
+   instead of a separate palette.
+
+   Deliberately NOT using @layer here (the original mock did) — style.css
+   sets a global `* { margin: 0 }` reset that is itself unlayered, and
+   per the CSS Cascade Layers spec any unlayered rule beats every layered
+   rule regardless of specificity. That silently ate the
+   `.text-card.right { margin-inline-start: auto }` rule below (the
+   alternating left/right layout) since it was inside a layer and the
+   reset wasn't. Plain rules + normal specificity avoids that trap.
+================================ */
+
+.el-cubo-cube-wrap {
+  --cube-font-display: "Bebas Neue", sans-serif;
+  --cube-font-mono: "DM Mono", monospace;
+  --cube-hairline: 0.0625rem;
+  --cube-ui-inset: 2rem;
+  --cube-card-border: rgba(200, 169, 110, 0.2);
+  --cube-nav-x: calc(var(--cube-ui-inset) + 0.125rem);
+  --cube-reveal-offset: 0.625rem;
+  --cube-reveal-duration: 0.5s;
+  --cube-z-ui: 10;
+}
+
+.el-cubo-cube-wrap {
+  position: relative;
+  background: var(--bg-dark);
+  font-family: var(--cube-font-mono);
+}
+
+.el-cubo-cube-stage {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Pinned to the exact same visual region as .el-cubo-cube-stage (same
+   margin-top trick, same reasoning as #scroll_container below), but
+   kept as a SEPARATE sticky element on purpose. Each position:sticky
+   element forms its own stacking context, so nothing inside
+   .el-cubo-cube-stage could ever out-rank #scroll_container's z-index:1
+   no matter what z-index it was given internally — that's what was
+   silently eating clicks on the play button and the scene dots. This
+   layer's z-index:2 sits above the text panels instead; pointer-events
+   defaults to none here too, same reasoning as #scene, so only the
+   specific interactive children (dots, play button) opt back in. */
+.el-cubo-cube-ui-layer {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  height: 100dvh;
+  margin-top: -100vh;
+  margin-top: -100dvh;
+  z-index: 2;
+  pointer-events: none;
+}
+
+#scene {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1100px;
+  pointer-events: none;
+}
+
+/* .el-cubo-cube-stage is sticky, but it's still a normal in-flow
+   sibling that reserves its own 100vh slot before this element starts —
+   without pulling this back up over that slot, s0's panel (and every
+   panel's scroll trigger point) would sit one full viewport-height
+   below wherever the cube is actually pinned, so nothing would appear
+   to line up with it until you'd already scrolled past that gap. */
+#scroll_container {
+  position: relative;
+  z-index: 1;
+  margin-top: -100vh;
+  margin-top: -100dvh;
+}
+
+#scroll_container section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 6rem calc(5rem + var(--cube-ui-inset)) 6rem 5rem;
+}
+
+#cube {
+  --s: min(74vw, 74vh, 560px);
+  width: var(--s);
+  height: var(--s);
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(90deg) rotateY(0deg);
+  will-change: transform;
+}
+
+#cube .face {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  backface-visibility: hidden;
+  background:
+    repeating-linear-gradient(0deg, rgba(200, 169, 110, 0.05) 0, rgba(200, 169, 110, 0.05) 1px, transparent 1px, transparent 48px),
+    repeating-linear-gradient(90deg, rgba(200, 169, 110, 0.05) 0, rgba(200, 169, 110, 0.05) 1px, transparent 1px, transparent 48px),
+    #14100d;
+}
+
+#cube .face img,
+#cube .face video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Redundant with #scene's inherited pointer-events:none, but explicit
+     here on purpose — Safari/WebKit has known bugs where a <video>
+     element's native gesture handling can intercept clicks regardless
+     of an inherited pointer-events value, especially near a CSS 3D
+     (perspective) context like this cube. */
+  pointer-events: none;
+}
+
+/* Face 0's video is click-to-play with its own audio (not muted like
+   the image faces) — deliberate, so the visitor actually hears it.
+   This button is a persistent play/pause toggle, not a one-time
+   unlock. Lives in .el-cubo-cube-ui-layer, NOT inside #cube — Safari
+   has known click hit-testing bugs on elements inside a CSS 3D-
+   transformed (perspective + rotateX/rotateY) ancestor, so this sits
+   outside that entirely and is just positioned to visually overlap
+   face 0. JS toggles .is-visible based on scroll progress (stays up
+   the whole time you're on face 0) and .is-playing based on video
+   state (swaps the icon, doesn't hide the button). */
+.face-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: var(--cube-z-ui);
+  width: 4.5rem;
+  height: 4.5rem;
+  border: none;
+  border-radius: 50%;
+  background: rgba(10, 8, 5, 0.6);
+  color: var(--gold-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+  opacity: 0;
+  visibility: hidden;
+  transition: background 0.2s, opacity 0.2s, visibility 0.2s;
+}
+
+.face-play-btn svg {
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.face-play-btn .icon-play {
+  margin-left: 0.2rem;
+}
+
+.face-play-btn .icon-pause {
+  display: none;
+}
+
+.face-play-btn.is-playing .icon-play {
+  display: none;
+}
+
+.face-play-btn.is-playing .icon-pause {
+  display: block;
+}
+
+.face-play-btn:hover {
+  background: rgba(10, 8, 5, 0.8);
+}
+
+.face-play-btn.is-visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* object-fit:cover crops a portrait image to fill the square face —
+   default center anchoring trims equally off the top and bottom, which
+   cuts into whatever's near the top edge of a tall image (a headdress,
+   a halo). Apply per-image when that happens. */
+#cube .face img.face-img-anchor-top {
+  object-position: 50% 12%;
+}
+
+/* Applied per-image, not per-face — lets a face's art keep its own
+   colors or get pulled toward the site's amber palette on a
+   case-by-case basis as real pieces go in. */
+#cube .face img.face-amber-tint {
+  filter: sepia(0.35) saturate(1.35) hue-rotate(-8deg) brightness(0.92) contrast(1.08);
+}
+
+#cube .face:has(img, video) .face-ph {
+  display: none;
+}
+
+.face-ph {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.75rem;
+  font-family: var(--cube-font-display);
+  font-size: clamp(2rem, 8vw, 5rem);
+  letter-spacing: 0.04em;
+  color: rgba(232, 213, 163, 0.08);
+  pointer-events: none;
+  user-select: none;
+}
+
+.face[data-face="front"]  { transform: translateZ(calc(var(--s) / 2)); }
+.face[data-face="back"]   { transform: rotateY(180deg) translateZ(calc(var(--s) / 2)); }
+.face[data-face="right"]  { transform: rotateY(90deg) translateZ(calc(var(--s) / 2)); }
+.face[data-face="left"]   { transform: rotateY(-90deg) translateZ(calc(var(--s) / 2)); }
+.face[data-face="top"]    { transform: rotateX(-90deg) translateZ(calc(var(--s) / 2)); }
+.face[data-face="bottom"] { transform: rotateX(90deg) translateZ(calc(var(--s) / 2)); }
+
+#hud {
+  position: absolute;
+  top: var(--cube-ui-inset);
+  right: var(--cube-ui-inset);
+  z-index: var(--cube-z-ui);
+  text-align: right;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+
+#hud .progress-bar {
+  width: 7.5rem;
+  height: var(--cube-hairline);
+  background: var(--text-secondary);
+  margin-block-start: 0.5rem;
+  margin-inline-start: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+#hud .progress-fill {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  width: 0%;
+  background: var(--gold);
+  transition: width 0.1s linear;
+}
+
+#hud .scene-label {
+  font-size: 0.6rem;
+  color: var(--gold);
+  margin-block-start: 0.4rem;
+}
+
+#scene_strip {
+  position: absolute;
+  left: var(--cube-nav-x);
+  top: 50%;
+  translate: -50% -50%;
+  z-index: var(--cube-z-ui);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  /* .el-cubo-cube-ui-layer defaults to pointer-events:none (same
+     opt-in pattern as #scene) — the dots are the clickable exception. */
+  pointer-events: auto;
+}
+
+.scene-dot {
+  position: relative;
+  display: block;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+  background: var(--text-secondary);
+  transition: background 0.3s, scale 0.3s;
+  cursor: pointer;
+}
+
+.scene-dot::before {
+  content: "";
+  position: absolute;
+  inset: -0.2rem;
+}
+
+.scene-dot.active {
+  background: var(--gold);
+  scale: 1.8;
+}
+
+#face_caption {
+  position: absolute;
+  bottom: var(--cube-ui-inset);
+  left: 50%;
+  translate: -50% 0;
+  z-index: var(--cube-z-ui);
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+#face_caption_num {
+  font-size: 0.58rem;
+  letter-spacing: 0.28em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-block-end: 0.15rem;
+}
+
+#face_caption_name {
+  font-family: var(--cube-font-display);
+  font-size: clamp(1.8rem, 5vw, 3.5rem);
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  opacity: 0.5;
+  line-height: 1;
+}
+
+.el-cubo-cube-wrap .text-card {
+  max-width: 23.75rem;
+  padding: 2.25rem 2rem;
+  /* A blurred backdrop-filter here is expensive to recompute every
+     scroll frame stacked over a moving 3D cube — a near-opaque solid
+     fill reads almost identically without the compositor cost. */
+  background: rgba(10, 8, 5, 0.92);
+  border-left: var(--cube-hairline) solid var(--cube-card-border);
+  overflow: hidden;
+}
+
+.el-cubo-cube-wrap .text-card.right {
+  margin-inline-start: auto;
+  border-left: none;
+  border-right: var(--cube-hairline) solid var(--cube-card-border);
+  text-align: right;
+}
+
+.el-cubo-cube-wrap .text-card.right .h-line {
+  transform-origin: right;
+  margin-inline-start: auto;
+}
+
+.el-cubo-cube-wrap .tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-block-end: 1.1rem;
+}
+
+.el-cubo-cube-wrap :where(h1, h2) {
+  font-family: var(--cube-font-display);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  line-height: 0.92;
+  color: var(--gold-light);
+}
+
+.el-cubo-cube-wrap h1 { font-size: clamp(3rem, 8vw, 6.5rem); }
+.el-cubo-cube-wrap h2 { font-size: clamp(2.2rem, 5vw, 4rem); }
+
+.el-cubo-cube-wrap .body-text {
+  font-size: 0.78rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-block-start: 1.25rem;
+}
+
+.el-cubo-cube-wrap .h-line {
+  width: 3.125rem;
+  height: var(--cube-hairline);
+  background: var(--gold);
+  margin-block-end: 1.2rem;
+  transform-origin: left;
+}
+
+.el-cubo-cube-wrap .cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.75rem;
+  margin-block-start: 1.75rem;
+}
+
+.el-cubo-cube-wrap .text-card.right .cta-row {
+  justify-content: flex-end;
+}
+
+.el-cubo-cube-wrap .cta,
+.el-cubo-cube-wrap .cta-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1.25rem;
+  font-family: var(--cube-font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.el-cubo-cube-wrap .cta {
+  border: var(--cube-hairline) solid var(--gold);
+  color: var(--gold);
+}
+
+.el-cubo-cube-wrap .cta:hover {
+  background: var(--gold);
+  color: var(--bg-dark);
+}
+
+.el-cubo-cube-wrap .cta-back {
+  border: var(--cube-hairline) solid rgba(232, 213, 163, 0.3);
+  color: var(--text-secondary);
+}
+
+.el-cubo-cube-wrap .cta-back:hover {
+  background: rgba(232, 213, 163, 0.08);
+  border-color: var(--text-secondary);
+  color: var(--text-primary);
+}
+
+.el-cubo-cube-wrap .cta svg,
+.el-cubo-cube-wrap .cta-back svg {
+  width: 0.6875rem;
+  height: 0.6875rem;
+}
+
+.el-cubo-cube-wrap :is(.tag, h1, h2, .body-text, .cta, .cta-back) {
+  opacity: 0;
+  translate: 0 var(--cube-reveal-offset);
+}
+
+.el-cubo-cube-wrap :is(h1, h2) {
+  translate: 0 1.125rem;
+  transition: opacity var(--cube-reveal-duration) ease 0.08s, translate var(--cube-reveal-duration) ease 0.08s;
+}
+
+.el-cubo-cube-wrap .tag {
+  transition: opacity var(--cube-reveal-duration) ease, translate var(--cube-reveal-duration) ease;
+}
+
+.el-cubo-cube-wrap .body-text {
+  transition: opacity var(--cube-reveal-duration) ease 0.2s, translate var(--cube-reveal-duration) ease 0.2s;
+}
+
+.el-cubo-cube-wrap :is(.cta, .cta-back) {
+  transition: opacity var(--cube-reveal-duration) ease 0.35s, translate var(--cube-reveal-duration) ease 0.35s, background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.el-cubo-cube-wrap .h-line {
+  opacity: 0;
+  scale: 0 1;
+  transition: opacity 0.4s ease, scale 0.4s ease;
+}
+
+.el-cubo-cube-wrap :is(.tag, h1, h2, .body-text, .cta, .cta-back).visible {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.el-cubo-cube-wrap .h-line.visible {
+  opacity: 1;
+  scale: 1 1;
+}
+
+@media (width <= 56.25em) {
+  #hud {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  #scene_strip {
+    display: none;
+  }
+
+  #face_caption {
+    bottom: 1rem;
+  }
+
+  .el-cubo-cube-wrap #scroll_container section {
+    min-height: 150vh;
+    align-items: flex-end;
+    padding: 0 1.5rem 3.5rem;
+  }
+
+  .el-cubo-cube-wrap #s0 {
+    min-height: 100vh;
+    align-items: center;
+    padding: 4rem 1.5rem;
+  }
+
+  .el-cubo-cube-wrap :is(.text-card, .text-card.right) {
+    max-width: 100%;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .el-cubo-cube-wrap .body-text {
+    line-height: 1.55;
+  }
+
+  .el-cubo-cube-wrap .cta-row {
+    margin-block-start: 1.25rem;
+  }
+}

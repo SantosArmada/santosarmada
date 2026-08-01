@@ -1,0 +1,90 @@
+/* ================================
+   EL CUBO — page styles
+   Eventos · Memorias · Vida
+================================ */
+
+.el-cubo-page {
+    background: var(--bg-dark);
+}
+
+/* Bottom Maya banner only on this page — no top strip, so cancel the
+   shared has-site-banners top reservation instead of leaving a blank gap. */
+body.el-cubo-page.has-site-banners {
+    padding-top: 0;
+}
+
+body.el-cubo-page.has-site-banners .navbar {
+    top: 0;
+}
+
+/* ── HERO ──
+   Full first-viewport shader tunnel with EL CUBO dead-center over it,
+   same layout mechanics as the Authors hero (absolute canvas + absolute
+   centered title container inside a 100vh section right below the
+   sticky navbar). */
+.el-cubo-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    overflow: hidden;
+    background: #000;
+}
+
+.el-cubo-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    touch-action: none;
+}
+
+.el-cubo-title-container {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    pointer-events: none;
+    z-index: 2;
+    text-align: center;
+    padding: 0 24px;
+}
+
+.el-cubo-title-text {
+    display: block;
+    font-family: "Playfair Display", serif;
+    font-weight: 400;
+    font-size: clamp(40px, 11vw, 128px);
+    letter-spacing: 0.1em;
+    color: var(--gold-light);
+    filter: drop-shadow(0 0 24px rgba(255, 157, 31, 0.55))
+            drop-shadow(0 0 56px rgba(255, 157, 31, 0.3));
+}
+
+.el-cubo-title-effect {
+    display: inline-flex;
+}
+
+.el-cubo-title-text .char {
+    display: inline-block;
+    white-space: pre;
+    will-change: transform, opacity, background;
+}
+
+.el-cubo-title-sub {
+    font-family: var(--font-title);
+    font-size: clamp(13px, 1.6vw, 17px);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .el-cubo-title-container {
+        gap: 12px;
+    }
+}
