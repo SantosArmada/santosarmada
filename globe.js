@@ -573,6 +573,7 @@ const SMALL_ISLAND_POINTS = [
         kind: 'island',
         label: 'Petra, Mallorca',
         color: '#39ff6a',
+        haloColor: 'rgba(57,255,106,0.28)',
         linkedEntryId: 'junipero-serra-nace-1713'
     },
     {
@@ -581,6 +582,7 @@ const SMALL_ISLAND_POINTS = [
         kind: 'island',
         label: 'Cabo Verde',
         color: '#ff6a00',
+        haloColor: 'rgba(255,106,0,0.28)',
         linkedEntryId: 'tordesillas-1494'
     },
     {
@@ -589,13 +591,34 @@ const SMALL_ISLAND_POINTS = [
         kind: 'island',
         label: 'Porto Santo',
         color: '#ff6a00',
+        haloColor: 'rgba(255,106,0,0.28)',
         linkedEntryId: 'colon-porto-santo-1479'
+    },
+    {
+        lat: -27.1127,
+        lng: -109.3497,
+        kind: 'island',
+        label: 'Rapa Nui (Easter Island)',
+        color: '#39ff6a',
+        haloColor: 'rgba(57,255,106,0.28)',
+        body: 'Rapa Nui, also known as Easter Island, is a Chilean island in the southeastern Pacific and the home of the monumental moai.'
     }
 ];
-const PERMANENT_GLOBE_POINTS = [POLE_POINT].concat(SMALL_ISLAND_POINTS);
+// A wider, translucent point directly beneath each solid marker creates a
+// stable neon halo without another animation loop or a pulsing/flickering
+// effect. Keep the original island data on the halo so either surface is
+// clickable and opens the same panel.
+const SMALL_ISLAND_HALO_POINTS = SMALL_ISLAND_POINTS.map(function (point) {
+    return Object.assign({}, point, {
+        kind: 'island-halo',
+        color: point.haloColor
+    });
+});
+const PERMANENT_GLOBE_POINTS = [POLE_POINT]
+    .concat(SMALL_ISLAND_HALO_POINTS, SMALL_ISLAND_POINTS);
 
 function showSmallIslandPanel(point) {
-    if (!point || point.kind !== 'island') return;
+    if (!point || (point.kind !== 'island' && point.kind !== 'island-halo')) return;
     infoPanelEl.classList.remove('is-hidden');
 
     const linked = (window.TIMELINE_ENTRIES || []).find(function (entry) {
@@ -606,22 +629,27 @@ function showSmallIslandPanel(point) {
         '<h3 class="globe-info-title">' + escapeHtmlGlobe(point.label) + '</h3>' +
         (linked
             ? '<ul class="globe-info-worklist">' + renderWorksList([linked]) + '</ul>'
-            : '<p class="globe-info-body">A small place with an outsized connection to the timeline.</p>');
+            : '<p class="globe-info-body">' + escapeHtmlGlobe(point.body || 'A small place with an outsized connection to the timeline.') + '</p>');
 }
 
 world
     .pointsData(PERMANENT_GLOBE_POINTS)
     .pointColor((d) => {
         if (d.kind === 'region') return '#D6FCFF';
-        if (d.kind === 'island') return d.color;
+        if (d.kind === 'island' || d.kind === 'island-halo') return d.color;
         return '#ffffff';
     })
     .pointRadius((d) => {
         if (d.kind === 'region') return 0.45;
-        if (d.kind === 'island') return 0.32;
+        if (d.kind === 'island-halo') return 0.72;
+        if (d.kind === 'island') return 0.4;
         return 0.3;
     })
-    .pointAltitude((d) => (d.kind === 'island' ? 0.025 : 0.02))
+    .pointAltitude((d) => {
+        if (d.kind === 'island-halo') return 0.012;
+        if (d.kind === 'island') return 0.032;
+        return 0.02;
+    })
     .pointLabel((d) => (d.kind === 'island' ? d.label : ''))
     .onPointClick(showSmallIslandPanel);
 
