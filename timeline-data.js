@@ -410,6 +410,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "libro-buen-amor-1330",
     year: 1330,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Pulled left so it, peste-negra-1338, and nezahualcoyotl
+    // (fixed by the 1438+ chain) each clear CLUSTER_GAP_PX from the next.
+    trackYear: 1313.59,
     endYear: 1343,
     title: "Libro de buen amor",
     author: "Juan Ruiz, Arcipreste de Hita",
@@ -433,8 +437,9 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Pulled slightly left of its real year in 2026 to lend
     // room to the 1438/1441/1442/1478/1479/1487 chain described at
-    // inquisicion-espanola-1478 — this entry has plenty of slack toward
-    // libro-buen-amor-1330 to spare.
+    // inquisicion-espanola-1478. Fixed here — libro-buen-amor-1330 and
+    // peste-negra-1338 were nudged further left instead to clear it,
+    // since this entry's own leftward slack toward 1330 is now used up.
     trackYear: 1344.76,
     endYear: 1472,
     title: "Nezahualcóyotl: vida y obra",
@@ -561,6 +566,10 @@ const TIMELINE_ENTRIES = [
   {
     id: "peste-negra-1338",
     year: 1338,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Sits between libro-buen-amor-1330 and nezahualcoyotl
+    // (fixed by the 1438+ chain) — spaced to clear CLUSTER_GAP_PX from both.
+    trackYear: 1329.17,
     endYear: 1353,
     title: "1338: la Peste Negra",
     author: "Hito histórico",

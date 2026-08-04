@@ -11,6 +11,7 @@ const highlightedCountries = {
     'Oman': '#4a4a52',
     'Syria': '#4a4a52',
     'Afghanistan': '#4a4a52',
+    'Kyrgyzstan': '#4a4a52',
     'Mexico': '#39ff6a',
     'Guatemala': '#39ff6a',
     'Nicaragua': '#39ff6a',
