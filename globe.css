@@ -48,17 +48,19 @@
    override below) so the canvas doesn't claim the *entire* first
    screen on mobile -- leaving a strip of plain, normally-scrollable
    background beneath it so a visitor's first swipe scrolls the page
-   instead of getting captured as a globe-rotate gesture. globe.js's
-   resize handling mirrors this exact breakpoint/height so the WebGL
-   canvas's internal render resolution always matches its CSS box
-   size (see GLOBE_MOBILE_HEIGHT_VH in globe.js). */
+   instead of getting captured as a globe-rotate gesture. globe.js
+   measures this element's actual CSS box so the WebGL canvas's internal
+   render resolution stays in sync with it. */
 #globeViz {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    height: 100dvh;
+    /* Use the stable viewport height. 100dvh changes continuously while
+       mobile browser chrome expands/collapses, which repeatedly resized
+       (and briefly cleared) the WebGL drawing buffer during a scroll. */
+    height: 100svh;
     z-index: 1;
 }
 
@@ -85,7 +87,7 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    height: 100dvh;
+    height: 100svh;
     pointer-events: none;
 }
 
@@ -93,7 +95,7 @@
     #globeViz,
     .moon-orbit-wrapper {
         height: 80vh;
-        height: 80dvh;
+        height: 80svh;
     }
 }
 

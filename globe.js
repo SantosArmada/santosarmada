@@ -419,21 +419,12 @@ if (moonMarkerEl) {
     requestAnimationFrame(orbitTick);
 }
 
-/* Mirrors the #globeViz / .moon-orbit-wrapper max-width:768px CSS
-   override in globe.css exactly (80vh there, 0.8 here) -- keeping the
-   WebGL canvas's actual render resolution in sync with its CSS box
-   size so it doesn't stretch or crop on mobile. */
-const GLOBE_MOBILE_BREAKPOINT_PX = 768;
-const GLOBE_MOBILE_HEIGHT_FRACTION = 0.8;
-
-function getGlobeHeight() {
-    return window.innerWidth <= GLOBE_MOBILE_BREAKPOINT_PX
-        ? window.innerHeight * GLOBE_MOBILE_HEIGHT_FRACTION
-        : window.innerHeight;
-}
+const globeContainerEl = document.getElementById('globeViz');
+const initialGlobeWidth = Math.max(1, Math.round(globeContainerEl.clientWidth));
+const initialGlobeHeight = Math.max(1, Math.round(globeContainerEl.clientHeight));
 
 const world = Globe()
-       (document.getElementById('globeViz'))
+       (globeContainerEl)
        .globeImageUrl('vendor/textures/earth-dark.jpg')
        .backgroundColor('rgba(0,0,0,0)')
        .showAtmosphere(true)
@@ -443,8 +434,8 @@ const world = Globe()
        .ringMaxRadius(22)
        .ringPropagationSpeed(9)
        .ringRepeatPeriod(0)
-       .width(window.innerWidth)
-       .height(getGlobeHeight());
+       .width(initialGlobeWidth)
+       .height(initialGlobeHeight);
 
 // U.S. states once claimed/governed as Spanish or Mexican territory —
 // the Mexican Cession of 1848 (CA, NV, UT, AZ, NM, CO), the Republic of
@@ -976,22 +967,39 @@ window.clearGlobeRegionBlipDelayed = function (delayMs) {
     }, delayMs);
 };
 
-// window 'resize' alone can leave this canvas's actual render resolution
-// stale relative to its CSS box -- #globeViz/.moon-orbit-wrapper are plain
-// CSS %/vh, so they always relayout on any viewport change regardless of
-// whether a 'resize' event fires, but this canvas's WebGL resolution only
-// updates inside that event handler. Same class of bug already fixed this
-// way for the Singularity orb and the About page portal canvas:
-// ResizeObserver on the actual container catches the box's real size
-// changing regardless of what triggered it, instead of depending on a
-// 'resize' event that isn't guaranteed to fire for every resize.
+// Resizing a WebGL renderer clears its drawing buffer. ResizeObserver can
+// fire more than once for one layout change (and mobile browser chrome can
+// generate a burst of viewport changes), so setting the same width/height
+// repeatedly produces a visible one-frame flash. Measure the actual CSS box,
+// coalesce notifications to one update per frame, and only touch the renderer
+// when a rounded pixel dimension really changed.
+let renderedGlobeWidth = initialGlobeWidth;
+let renderedGlobeHeight = initialGlobeHeight;
+let globeResizeFrame = null;
+
 function syncGlobeSize() {
-    world.width(window.innerWidth);
-    world.height(getGlobeHeight());
+    globeResizeFrame = null;
+    const nextWidth = Math.max(1, Math.round(globeContainerEl.clientWidth));
+    const nextHeight = Math.max(1, Math.round(globeContainerEl.clientHeight));
+
+    if (nextWidth !== renderedGlobeWidth) {
+        renderedGlobeWidth = nextWidth;
+        world.width(nextWidth);
+    }
+    if (nextHeight !== renderedGlobeHeight) {
+        renderedGlobeHeight = nextHeight;
+        world.height(nextHeight);
+    }
 }
-window.addEventListener('resize', syncGlobeSize);
+
+function scheduleGlobeResize() {
+    if (globeResizeFrame !== null) return;
+    globeResizeFrame = requestAnimationFrame(syncGlobeSize);
+}
+
+window.addEventListener('resize', scheduleGlobeResize, { passive: true });
 if ('ResizeObserver' in window) {
-    new ResizeObserver(syncGlobeSize).observe(document.getElementById('globeViz'));
+    new ResizeObserver(scheduleGlobeResize).observe(globeContainerEl);
 }
 
 const ZOOM_ZONE_WIDTH_FRACTION = 0.5;
