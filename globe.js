@@ -556,21 +556,74 @@ Promise.all([
     });
 
 /* ---------------------------------------------------------
-   North Pole marker — small dot, same neon yellow as
-   Antarctica. Longitude is meaningless exactly at the pole,
-   so 0 is as good as any.
+   Permanent small-place markers. The 110m country topology is
+   intentionally lightweight and omits islands that matter to the
+   timeline, so these raised dots keep them visible and clickable
+   without replacing the globe with a much heavier map dataset.
 
-   Shares the same pointsData layer with the region "blip" dot
-   (see focusGlobeOnRegion below), so both are tagged with a
-   `kind` field and styled per-kind via accessor functions.
+   This pointsData layer also carries the North Pole and temporary
+   region "blip" (see focusGlobeOnRegion below). The permanent points
+   must therefore be included whenever that temporary blip is reset.
    --------------------------------------------------------- */
 const POLE_POINT = { lat: 90, lng: 0, kind: 'pole' };
+const SMALL_ISLAND_POINTS = [
+    {
+        lat: 39.614,
+        lng: 3.113,
+        kind: 'island',
+        label: 'Petra, Mallorca',
+        color: '#39ff6a',
+        linkedEntryId: 'junipero-serra-nace-1713'
+    },
+    {
+        lat: 16.5388,
+        lng: -23.0418,
+        kind: 'island',
+        label: 'Cabo Verde',
+        color: '#ff6a00',
+        linkedEntryId: 'tordesillas-1494'
+    },
+    {
+        lat: 33.07,
+        lng: -16.33,
+        kind: 'island',
+        label: 'Porto Santo',
+        color: '#ff6a00',
+        linkedEntryId: 'colon-porto-santo-1479'
+    }
+];
+const PERMANENT_GLOBE_POINTS = [POLE_POINT].concat(SMALL_ISLAND_POINTS);
+
+function showSmallIslandPanel(point) {
+    if (!point || point.kind !== 'island') return;
+    infoPanelEl.classList.remove('is-hidden');
+
+    const linked = (window.TIMELINE_ENTRIES || []).find(function (entry) {
+        return entry.id === point.linkedEntryId;
+    });
+    infoContentEl.innerHTML =
+        '<p class="globe-info-label">Small Island</p>' +
+        '<h3 class="globe-info-title">' + escapeHtmlGlobe(point.label) + '</h3>' +
+        (linked
+            ? '<ul class="globe-info-worklist">' + renderWorksList([linked]) + '</ul>'
+            : '<p class="globe-info-body">A small place with an outsized connection to the timeline.</p>');
+}
 
 world
-    .pointsData([POLE_POINT])
-    .pointColor((d) => (d.kind === 'region' ? '#D6FCFF' : '#ffffff'))
-    .pointRadius((d) => (d.kind === 'region' ? 0.45 : 0.3))
-    .pointAltitude(0.02);
+    .pointsData(PERMANENT_GLOBE_POINTS)
+    .pointColor((d) => {
+        if (d.kind === 'region') return '#D6FCFF';
+        if (d.kind === 'island') return d.color;
+        return '#ffffff';
+    })
+    .pointRadius((d) => {
+        if (d.kind === 'region') return 0.45;
+        if (d.kind === 'island') return 0.32;
+        return 0.3;
+    })
+    .pointAltitude((d) => (d.kind === 'island' ? 0.025 : 0.02))
+    .pointLabel((d) => (d.kind === 'island' ? d.label : ''))
+    .onPointClick(showSmallIslandPanel);
 
 world.controls().autoRotate = true;
 world.controls().autoRotateSpeed = 0.4;
@@ -941,7 +994,9 @@ window.focusGlobeOnRegion = function (regionName, countryName) {
     // it closes (see clearGlobeRegionBlipDelayed, called from
     // timeline.js's closeDetailPanel) -- not cleared on a fixed timer
     // tied to when it first appeared.
-    world.pointsData([POLE_POINT, { lat: center.lat, lng: center.lng, kind: 'region' }]);
+    world.pointsData(PERMANENT_GLOBE_POINTS.concat([
+        { lat: center.lat, lng: center.lng, kind: 'region' }
+    ]));
 
     // Restart from the top on every call so rapid clicks between
     // different regions don't stack overlapping playback.
@@ -956,7 +1011,7 @@ window.clearGlobeRegionBlip = function () {
         clearTimeout(regionBlipClearTimeoutId);
         regionBlipClearTimeoutId = null;
     }
-    world.pointsData([POLE_POINT]);
+    world.pointsData(PERMANENT_GLOBE_POINTS);
 };
 
 // Same as clearGlobeRegionBlip, but waits delayMs first -- lets the dot
@@ -964,7 +1019,7 @@ window.clearGlobeRegionBlip = function () {
 window.clearGlobeRegionBlipDelayed = function (delayMs) {
     if (regionBlipClearTimeoutId) clearTimeout(regionBlipClearTimeoutId);
     regionBlipClearTimeoutId = setTimeout(() => {
-        world.pointsData([POLE_POINT]);
+        world.pointsData(PERMANENT_GLOBE_POINTS);
         regionBlipClearTimeoutId = null;
     }, delayMs);
 };
