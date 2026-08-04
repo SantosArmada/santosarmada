@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audiolibros — Los cuatro viajes del almirante y su testamento</title>
+    <link rel="stylesheet" href="los-cuatro-viajes-del-almirante-y-su-testamento.css">
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
+    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
+  </a>
+  <ul class="site-nav-links">
+    <li><a href="../../essays.html">Ensayos</a></li>
+    <li><a href="../../authors.html">Authors</a></li>
+    <li><a href="../audiolibros-categories.html" class="active">Audiolibros</a></li>
+    <li><a href="../../globe.html">Space and Time</a></li>
+    <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
+    <li><a href="../../about.html">Sobre Mí</a></li>
+    <li><a href="../../cv.html">CV</a></li>
+  </ul>
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="site-mobile-menu" id="siteMobileMenu">
+  <a href="../../essays.html">Ensayos</a>
+  <a href="../../authors.html">Authors</a>
+  <a href="../audiolibros-categories.html">Audiolibros</a>
+  <a href="../../globe.html">Space and Time</a>
+  <a href="../../interpreter-z.html">Interpreter Z</a>
+  <a href="../../about.html">Sobre Mí</a>
+  <a href="../../cv.html">CV</a>
+</div>
+
+<header class="book-header">
+    <div class="book-header-text">
+        <p class="kicker">Audiolibros · Segunda Ola</p>
+        <h1>Los cuatro viajes del almirante y su testamento</h1>
+        <p class="subtitle">Cristóbal Colón</p>
+    </div>
+
+    <div class="spool-signature" aria-hidden="true">
+        <svg viewBox="0 0 84 90">
+            <path class="thread-trail" d="M6,72 Q20,68 33,72 T60,72 T78,72"></path>
+            <path class="spool-body" d="M10,64 L32,56 L50,56 L76,64 Q68,79 42,81 Q16,79 10,64 Z"></path>
+            <line class="spool-cap mast" x1="40" y1="15" x2="40" y2="56"></line>
+            <path class="spool-cap sail" d="M40,19 L40,52 L63,47 Z"></path>
+            <path class="spool-wrap flag" d="M40,15 L48,18.5 L40,22 Z"></path>
+            <line class="needle-eye" x1="47" y1="36" x2="54" y2="33.5"></line>
+            <line class="needle-eye" x1="49" y1="30.5" x2="51.5" y2="39"></line>
+        </svg>
+    </div>
+</header>
+
+<div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<section class="player-section" id="playerSection">
+    <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
+        <svg viewBox="0 0 60 60" width="46" height="46">
+            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--teal)" stroke-width="3"/>
+            <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
+                  fill="none" stroke="var(--teal)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--teal)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="player">
+        <canvas></canvas>
+        <div class="song">
+            <div class="artist">Los cuatro viajes del almirante</div>
+            <div class="name">Capítulo 1</div>
+        </div>
+        <div class="playarea">
+            <div class="prevSong"></div>
+            <div class="play"></div>
+            <div class="pause"></div>
+            <div class="nextSong"></div>
+        </div>
+        <div class="soundControl"></div>
+        <div class="time">00:00</div>
+    </div>
+</section>
+
+<div class="extra-controls">
+    <div class="volume-dial" id="volumeDial">
+        <div class="volume-dial__control">
+            <div class="volume-dial__wrap">
+                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                    <span class="volume-dial__knob-label">Volumen</span>
+                </button>
+            </div>
+        </div>
+        <p class="volume-dial__caption">Volumen</p>
+    </div>
+</div>
+
+<audio id="chapterAudio" preload="auto" crossorigin="anonymous"></audio>
+<!-- ^ no src yet — add each recorded chapter file as you upload them. -->
+
+<div class="all">
+  <div class="card">
+    <div class="book">
+        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+        <img src="../../book_covers/los-cuatro-viajes.jpg" alt="Los cuatro viajes del almirante y su testamento">
+        <div class="controls">
+            <div class="box">Escucha ahora</div>
+        </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-body">
+        <div class="break"></div>
+        <h1>SINOPSIS</h1>
+        <p>Las cartas, diarios de a bordo y el testamento del propio Cristóbal Colón, documentando sus cuatro travesías atlánticas entre 1492 y 1504. Un relato de primera mano —y no poco interesado— del primer contacto con el Caribe y las negociaciones con la Corona que lo hicieron posible.</p>
+
+        <div class="break"></div>
+        <h1>CAPÍTULOS</h1>
+        <p class="chapter" data-time="0">Primer viaje: el descubrimiento</p>
+        <p class="chapter" data-time="0">Segundo viaje: la colonización</p>
+        <p class="chapter" data-time="0">Tercer viaje: el continente y la caída en desgracia</p>
+        <p class="chapter" data-time="0">Cuarto viaje: la búsqueda del paso a Asia</p>
+        <p class="chapter" data-time="0">El testamento del almirante</p>
+
+        <div class="break"></div>
+        <h1>RESEÑAS</h1>
+        <div>
+            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
+            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
+            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
+            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
+            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
+            <p style="display:inline; margin-left:6px;">Bueno</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+    <a href="../../index.html" aria-label="Santos Armada — inicio">
+        <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
+    </a>
+</footer>
+
+<script src="los-cuatro-viajes-del-almirante-y-su-testamento.js"></script>
+
+</body>
+</html>
