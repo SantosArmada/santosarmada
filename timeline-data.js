@@ -1576,8 +1576,10 @@ const TIMELINE_ENTRIES = [
     author: "Rosario Castellanos",
     authorEntryId: "rosario-castellanos-1925",
     country: "México",
+    region: "Chiapas",
     type: ICON_TYPE.LITERATURE,
     description: "Cuentos del Ciclo de Chiapas; Premio Xavier Villaurrutia.",
+    descriptionHtml: 'Cuentos del Ciclo de <button type="button" class="timeline-detail-geolink" data-region="Chiapas" data-country="México">Chiapas</button>; Premio Xavier Villaurrutia.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Rosario Castellanos hubiera escrito sobre Chiapas solo desde la perspectiva ladina, sin dar voz a personajes indígenas?",
       answer:
@@ -2099,6 +2101,8 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.HISTORY,
     description:
       "Ofelia del Carmen Santos nace en 1960 en San José Villanueva, un pequeño pueblo de El Salvador. En 1980, a los veinte años, su tía abuela Cruz —Cruzita, hermana de su abuela— la trae a Estados Unidos, y Ofelia construye desde cero una vida nueva en Los Ángeles. Trabaja durante décadas como costurera, sosteniendo con sus propias manos una vida cómoda para su hijo mientras le inculca sus valores. En su cocina perviven las pupusas, los pastelitos salvadoreños y el pan de chompipe; de ella aprendería su hijo la primera palabra de origen náhuatl que recordaría siempre: apapachar. Muere en 2023, tras una batalla contra el cáncer, como la luchadora que fue toda su vida.",
+    descriptionHtml:
+      'Ofelia del Carmen Santos nace en 1960 en <button type="button" class="timeline-detail-geolink" data-region="San José Villanueva" data-country="El Salvador">San José Villanueva</button>, un pequeño pueblo de El Salvador. En 1980, a los veinte años, su tía abuela Cruz —Cruzita, hermana de su abuela— la trae a Estados Unidos, y Ofelia construye desde cero una vida nueva en <button type="button" class="timeline-detail-geolink" data-region="Los Ángeles, California" data-country="Estados Unidos">Los Ángeles</button>. Trabaja durante décadas como costurera, sosteniendo con sus propias manos una vida cómoda para su hijo mientras le inculca sus valores. En su cocina perviven las pupusas, los pastelitos salvadoreños y el pan de chompipe; de ella aprendería su hijo la primera palabra de origen náhuatl que recordaría siempre: apapachar. Muere en 2023, tras una batalla contra el cáncer, como la luchadora que fue toda su vida.',
     anchor: true,
     personalNote:
       "Mi madre. Me lo decía siempre: \"Yo te apapacho a vos, y vos me apapachas a mí\". La mujer más trabajadora y más fuerte que he conocido — todo lo que soy, y todo este proyecto, le pertenece a ella también.",

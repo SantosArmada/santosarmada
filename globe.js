@@ -778,6 +778,7 @@ const REGION_CENTER = {
     'Gujarat': { lat: 22.2587, lng: 71.1924 },
     'Cataluña': { lat: 41.5912, lng: 1.5209 },
     'Comitán': { lat: 16.2300, lng: -92.1156 },
+    'Chiapas': { lat: 16.7569, lng: -93.1292 },
     'Tel Aviv': { lat: 32.0853, lng: 34.7818 },
     'Universidad Hebrea de Jerusalén': { lat: 31.7925, lng: 35.2442 },
     'Museo del Prado': { lat: 40.4137, lng: -3.6921 },
