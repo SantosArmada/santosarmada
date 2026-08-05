@@ -566,17 +566,20 @@ body {
 
 .bullet-flash {
     position: absolute;
-    width: 40px; height: 40px;
-    margin: -20px 0 0 -20px;
+    width: 52px; height: 52px;
+    margin: -26px 0 0 -26px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 244, 214, 0.95) 0%, rgba(255, 200, 120, 0.6) 35%, rgba(255, 200, 120, 0) 70%);
+    background:
+        radial-gradient(circle, #fffdf1 0 3%, rgba(255, 232, 170, 0.95) 4% 10%, rgba(224, 148, 65, 0.42) 25%, transparent 68%);
+    filter: blur(0.35px);
+    mix-blend-mode: screen;
     opacity: 0;
-    animation: bulletFlash 0.35s ease-out forwards;
+    animation: bulletFlash 0.26s ease-out forwards;
 }
 @keyframes bulletFlash {
     0%   { transform: scale(0.2); opacity: 0; }
-    15%  { transform: scale(1.4); opacity: 1; }
-    100% { transform: scale(1.8); opacity: 0; }
+    12%  { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(2.1); opacity: 0; }
 }
 
 .bullet-hole {
@@ -585,17 +588,73 @@ body {
     margin: -30px 0 0 -30px;
     opacity: 0;
     transform: scale(0) rotate(var(--rot, 0deg));
-    animation: bulletImpact 0.4s ease-out forwards;
+    animation: bulletImpact 0.32s cubic-bezier(.18, .78, .24, 1) forwards;
+    isolation: isolate;
+    filter: drop-shadow(1px 2px 1px rgba(15, 11, 7, 0.2));
 }
-.bullet-hole svg { display: block; width: 100%; height: 100%; overflow: visible; }
-.bullet-hole .crack { stroke: var(--ink); stroke-width: 1.4; stroke-linecap: round; opacity: 0.8; }
-.bullet-hole .core { fill: var(--ink); }
-.bullet-hole .core-rim { fill: none; stroke: #000; stroke-width: 0.6; opacity: 0.45; }
+.bullet-hole::after {
+    content: "";
+    position: absolute;
+    inset: 20%;
+    z-index: 1;
+    border-radius: 50%;
+    background:
+        radial-gradient(ellipse at 46% 45%,
+            rgba(4, 3, 2, 0.74) 0 12%,
+            rgba(39, 30, 21, 0.3) 25%,
+            rgba(60, 46, 31, 0.11) 45%,
+            transparent 70%);
+    filter: blur(2px);
+    transform: scale(1.05, 0.88);
+    mix-blend-mode: multiply;
+}
+.bullet-hole::before {
+    content: "";
+    position: absolute;
+    width: var(--crater, 14px);
+    height: calc(var(--crater, 14px) * 0.78);
+    left: 50%;
+    top: 50%;
+    z-index: 3;
+    transform: translate(-50%, -50%) skewX(var(--skew, -5deg));
+    clip-path: polygon(50% 0%, 62% 11%, 79% 5%, 86% 25%, 100% 38%, 88% 53%, 95% 72%, 72% 79%, 60% 100%, 43% 87%, 25% 96%, 18% 74%, 1% 62%, 11% 45%, 3% 27%, 24% 21%, 34% 4%);
+    background:
+        radial-gradient(ellipse at 43% 38%, #020201 0 29%, #100c09 31% 48%, transparent 51%),
+        conic-gradient(from 18deg,
+            #71644f 0 7%, #211a13 8% 17%, #ac9d80 18% 25%,
+            #2d231a 26% 43%, #887960 44% 52%, #17110d 53% 70%,
+            #b0a184 71% 79%, #271e17 80% 100%);
+    box-shadow:
+        inset 1px 1px 1px rgba(231, 218, 185, 0.54),
+        inset -2px -2px 2px rgba(0, 0, 0, 0.92),
+        0 1px 1px rgba(0, 0, 0, 0.58);
+    mix-blend-mode: multiply;
+}
+.bullet-hole svg {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%; height: 100%;
+    overflow: visible;
+    mix-blend-mode: multiply;
+}
+.bullet-defs { position: absolute; }
+.bullet-hole .fractures {
+    fill: none;
+    stroke: #241d16;
+    stroke-width: 0.78;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    opacity: 0.54;
+    filter: drop-shadow(0.4px 0.55px 0 rgba(255, 250, 225, 0.38));
+}
+.bullet-hole .fractures path:nth-child(2n) { stroke-width: 0.52; opacity: 0.68; }
+.bullet-hole .spall { fill: #5b4b38; opacity: 0.33; }
 
 @keyframes bulletImpact {
     0%   { transform: scale(0) rotate(var(--rot, 0deg)); opacity: 0; }
-    45%  { transform: scale(1.35) rotate(var(--rot, 0deg)); opacity: 1; }
-    65%  { transform: scale(0.9) rotate(var(--rot, 0deg)); opacity: 1; }
+    42%  { transform: scale(1.16) rotate(var(--rot, 0deg)); opacity: 1; }
+    68%  { transform: scale(0.96) rotate(var(--rot, 0deg)); opacity: 1; }
     100% { transform: scale(1) rotate(var(--rot, 0deg)); opacity: 1; }
 }
 
@@ -625,16 +684,16 @@ body {
 .bullet-hole--9,  .bullet-flash--9  { animation-delay: 1.99s; }
 .bullet-hole--10, .bullet-flash--10 { animation-delay: 2.06s; }
 
-.bullet-hole--1  { --rot: 12deg; }
-.bullet-hole--2  { --rot: -28deg; width: 46px; height: 46px; margin: -23px 0 0 -23px; }
-.bullet-hole--3  { --rot: 95deg; width: 70px; height: 70px; margin: -35px 0 0 -35px; }
-.bullet-hole--4  { --rot: -60deg; }
-.bullet-hole--5  { --rot: 150deg; width: 50px; height: 50px; margin: -25px 0 0 -25px; }
-.bullet-hole--6  { --rot: 210deg; }
-.bullet-hole--7  { --rot: 40deg; width: 66px; height: 66px; margin: -33px 0 0 -33px; }
-.bullet-hole--8  { --rot: -110deg; }
-.bullet-hole--9  { --rot: 75deg; width: 48px; height: 48px; margin: -24px 0 0 -24px; }
-.bullet-hole--10 { --rot: -15deg; width: 60px; height: 60px; margin: -30px 0 0 -30px; }
+.bullet-hole--1  { --rot: 12deg;  --crater: 16px; --skew: -7deg; }
+.bullet-hole--2  { --rot: -28deg; --crater: 15px; --skew: 5deg; width: 46px; height: 46px; margin: -23px 0 0 -23px; }
+.bullet-hole--3  { --rot: 95deg;  --crater: 19px; --skew: -3deg; width: 70px; height: 70px; margin: -35px 0 0 -35px; }
+.bullet-hole--4  { --rot: -60deg; --crater: 17px; --skew: 8deg; }
+.bullet-hole--5  { --rot: 150deg; --crater: 14px; --skew: -6deg; width: 50px; height: 50px; margin: -25px 0 0 -25px; }
+.bullet-hole--6  { --rot: 210deg; --crater: 18px; --skew: 4deg; }
+.bullet-hole--7  { --rot: 40deg;  --crater: 20px; --skew: -8deg; width: 66px; height: 66px; margin: -33px 0 0 -33px; }
+.bullet-hole--8  { --rot: -110deg; --crater: 16px; --skew: 7deg; }
+.bullet-hole--9  { --rot: 75deg;  --crater: 14px; --skew: -4deg; width: 48px; height: 48px; margin: -24px 0 0 -24px; }
+.bullet-hole--10 { --rot: -15deg; --crater: 18px; --skew: 6deg; width: 60px; height: 60px; margin: -30px 0 0 -30px; }
 
 @media (prefers-reduced-motion: reduce) {
     .shake-wrapper { animation: none; }
