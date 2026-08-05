@@ -39,7 +39,7 @@
         { file: "lenguas-diamante.jpg", title: "Las lenguas de diamante", slug: "las-lenguas-de-diamante" },
         { file: "los-cuatro-viajes.jpg", title: "Los cuatro viajes del almirante y su testamento", slug: "los-cuatro-viajes-del-almirante-y-su-testamento" },
         { file: "mio-cid.jpg", title: "Cantar de mio Cid", slug: "cantar-de-mio-cid" },
-        { file: "misericordia.jpg", title: "Misericordia", slug: "misericordia" },
+        { file: "misericordia.png", title: "Misericordia", slug: "misericordia" },
         { file: "monja-alferez.jpg", title: "Historia de la Monja Alférez", slug: "historia-de-la-monja-alferez" },
         { file: "naufragios.jpg", title: "Naufragios", slug: "naufragios" },
         { file: "nezahualcoyotl.jpg", title: "Nezahualcóyotl", slug: "nezahualcoyotl" },
