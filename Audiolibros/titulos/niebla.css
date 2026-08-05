@@ -578,35 +578,40 @@ body {
     width: 70vw; height: 70vw;
     top: -15vh; left: -25vw;
     opacity: 0.7;
-    animation: fogDriftA 72s ease-in-out infinite;
+    animation: fogDriftA 72s ease-in-out infinite,
+               fogAmbientFade 26s ease-out forwards;
 }
 .fog-blob--2 {
     width: 55vw; height: 55vw;
     top: 25vh; left: 55vw;
     opacity: 0.6;
-    animation: fogDriftB 88s ease-in-out infinite;
-    animation-delay: -22s;
+    animation: fogDriftB 88s ease-in-out infinite,
+               fogAmbientFade 32s ease-out forwards;
+    animation-delay: -22s, 0s;
 }
 .fog-blob--3 {
     width: 65vw; height: 65vw;
     top: 55vh; left: -15vw;
     opacity: 0.55;
-    animation: fogDriftA 100s ease-in-out infinite reverse;
-    animation-delay: -44s;
+    animation: fogDriftA 100s ease-in-out infinite reverse,
+               fogAmbientFade 36s ease-out forwards;
+    animation-delay: -44s, 0s;
 }
 .fog-blob--4 {
     width: 42vw; height: 42vw;
     top: 0vh; left: 68vw;
     opacity: 0.65;
-    animation: fogDriftB 62s ease-in-out infinite;
-    animation-delay: -12s;
+    animation: fogDriftB 62s ease-in-out infinite,
+               fogAmbientFade 24s ease-out forwards;
+    animation-delay: -12s, 0s;
 }
 .fog-blob--5 {
     width: 50vw; height: 50vw;
     top: 78vh; left: 40vw;
     opacity: 0.55;
-    animation: fogDriftA 80s ease-in-out infinite;
-    animation-delay: -60s;
+    animation: fogDriftA 80s ease-in-out infinite,
+               fogAmbientFade 34s ease-out forwards;
+    animation-delay: -60s, 0s;
 }
 
 @keyframes fogDriftA {
@@ -617,8 +622,16 @@ body {
     0%, 100% { transform: translate(0, 0) scale(1); }
     50% { transform: translate(-16vw, -6vh) scale(1.08); }
 }
+/* Ambient blobs fade from their own base opacity (declared inline
+   above) down to fully clear — no "to" partner needed since an
+   omitted 0% keyframe implicitly starts from the element's current
+   opacity. Staggered durations (26–36s) so the last wisp clears
+   unevenly instead of the whole page snapping clean at once. */
+@keyframes fogAmbientFade {
+    to { opacity: 0; }
+}
 
 @media (prefers-reduced-motion: reduce) {
-    .fog-blob { animation: none; }
+    .fog-blob { animation: none; opacity: 0; }
     .fog-intro-blob { animation: none; opacity: 0; }
 }
