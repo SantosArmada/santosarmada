@@ -526,20 +526,9 @@ body {
 }
 
 /* ---------------------------------------------------------
-   FOG LAYER — experimental, this page only. Two parts:
-
-   1. INTRO CURTAIN (.fog-intro) — three huge, dense blobs that
-      blanket the whole page white on load, then dissipate once
-      (opacity + scale, ~7-9s, ease-out, fill-mode forwards) and
-      stay gone. This is the "really foggy on start" moment.
-   2. AMBIENT DRIFT (.fog-blob) — five smaller blobs that loop
-      forever at a lower, but still clearly visible, opacity —
-      the mist that lingers after the curtain lifts.
-
-   Both are screen-blended so they read as mist over the cream
-   body and the dark card alike, without hiding anything
-   underneath. Purely decorative and non-interactive; disabled
-   for users who ask for reduced motion.
+   FOG LAYER — layered, elongated banks rather than circular
+   white blobs. The dense foreground lifts first, while lighter
+   windblown strands clear unevenly over the next half minute.
 --------------------------------------------------------- */
 .fog-layer {
     position: fixed;
@@ -547,91 +536,180 @@ body {
     z-index: 500;
     overflow: hidden;
     pointer-events: none;
+    background-color: rgba(246, 249, 249, .64);
+    animation: fogCurtainDissipate 8.5s cubic-bezier(.16,.64,.3,1) forwards;
 }
-
-.fog-intro-blob {
+.fog-layer::before {
+    content: "";
     position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.75) 45%, rgba(255, 255, 255, 0) 78%);
+    inset: -12%;
+    z-index: 2;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='720' height='480' viewBox='0 0 720 480'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.009 .025' numOctaves='3' seed='11' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.72'/%3E%3C/svg%3E");
+    background-size: 720px 480px;
+    opacity: .085;
     mix-blend-mode: screen;
-    filter: blur(20px);
-    animation: fogDissipate 8s ease-out forwards;
-}
-.fog-intro-blob--1 { width: 130vw; height: 130vw; top: -35vh; left: -35vw; animation-delay: 0s; }
-.fog-intro-blob--2 { width: 120vw; height: 120vw; top: 5vh; left: 15vw; animation-delay: 0.4s; }
-.fog-intro-blob--3 { width: 140vw; height: 140vw; top: 45vh; left: -45vw; animation-delay: 0.8s; }
-
-@keyframes fogDissipate {
-    0% { opacity: 1; transform: scale(1); }
-    100% { opacity: 0; transform: scale(1.3); }
-}
-
-.fog-blob {
-    position: absolute;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 68%);
-    mix-blend-mode: screen;
-    filter: blur(30px);
+    filter: blur(7px) contrast(1.35);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0%, #000 10%, #000 90%, transparent 100%);
+    animation: fogGrainWind 7.5s linear infinite,
+               fogTextureDissipate 32s ease-out forwards;
     will-change: transform;
 }
-.fog-blob--1 {
-    width: 70vw; height: 70vw;
-    top: -15vh; left: -25vw;
-    opacity: 0.7;
-    animation: fogDriftA 72s ease-in-out infinite,
-               fogAmbientFade 26s ease-out forwards;
-}
-.fog-blob--2 {
-    width: 55vw; height: 55vw;
-    top: 25vh; left: 55vw;
-    opacity: 0.6;
-    animation: fogDriftB 88s ease-in-out infinite,
-               fogAmbientFade 32s ease-out forwards;
-    animation-delay: -22s, 0s;
-}
-.fog-blob--3 {
-    width: 65vw; height: 65vw;
-    top: 55vh; left: -15vw;
-    opacity: 0.55;
-    animation: fogDriftA 100s ease-in-out infinite reverse,
-               fogAmbientFade 36s ease-out forwards;
-    animation-delay: -44s, 0s;
-}
-.fog-blob--4 {
-    width: 42vw; height: 42vw;
-    top: 0vh; left: 68vw;
-    opacity: 0.65;
-    animation: fogDriftB 62s ease-in-out infinite,
-               fogAmbientFade 24s ease-out forwards;
-    animation-delay: -12s, 0s;
-}
-.fog-blob--5 {
-    width: 50vw; height: 50vw;
-    top: 78vh; left: 40vw;
-    opacity: 0.55;
-    animation: fogDriftA 80s ease-in-out infinite,
-               fogAmbientFade 34s ease-out forwards;
-    animation-delay: -60s, 0s;
+.fog-layer::after {
+    content: "";
+    position: absolute;
+    inset: -18% -55%;
+    z-index: 3;
+    background:
+        radial-gradient(ellipse 32% 6% at 13% 22%, rgba(255,255,255,.62) 0 18%, transparent 70%),
+        radial-gradient(ellipse 38% 7% at 46% 38%, rgba(248,251,251,.48) 0 20%, transparent 72%),
+        radial-gradient(ellipse 28% 5% at 72% 58%, rgba(255,255,255,.54) 0 16%, transparent 68%),
+        radial-gradient(ellipse 40% 8% at 35% 78%, rgba(247,251,252,.42) 0 18%, transparent 74%);
+    filter: blur(17px);
+    opacity: .42;
+    mix-blend-mode: screen;
+    transform: skewX(-8deg);
+    animation: fogShearGust 8.8s cubic-bezier(.34,.02,.25,1) infinite,
+               fogShearDissipate 30s ease-out forwards;
+    will-change: transform, opacity;
 }
 
-@keyframes fogDriftA {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(14vw, 7vh) scale(1.12); }
+.fog-intro-blob,
+.fog-blob {
+    position: absolute;
+    width: 150vw;
+    height: 46vh;
+    border-radius: 38% 62% 44% 56%;
+    background:
+        radial-gradient(ellipse at 9% 54%, rgba(255,255,255,.76) 0 12%, rgba(255,255,255,.38) 29%, transparent 57%),
+        radial-gradient(ellipse at 31% 45%, rgba(248,251,251,.72) 0 15%, rgba(255,255,255,.3) 34%, transparent 61%),
+        radial-gradient(ellipse at 56% 58%, rgba(255,255,255,.68) 0 13%, rgba(242,247,248,.28) 35%, transparent 62%),
+        radial-gradient(ellipse at 80% 42%, rgba(250,253,253,.7) 0 14%, rgba(255,255,255,.26) 32%, transparent 60%),
+        radial-gradient(ellipse at 96% 61%, rgba(255,255,255,.64) 0 10%, transparent 48%);
+    mix-blend-mode: screen;
+    filter: blur(19px);
+    transform-origin: left center;
+    will-change: transform, opacity;
 }
-@keyframes fogDriftB {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    50% { transform: translate(-16vw, -6vh) scale(1.08); }
+.fog-intro-blob--1 {
+    --bank-opacity: .96;
+    top: -11vh; left: -28vw;
+    animation: fogWindBankA 17s linear -5s infinite,
+               fogIntroDissipate 8s ease-out forwards;
 }
-/* Ambient blobs fade from their own base opacity (declared inline
-   above) down to fully clear — no "to" partner needed since an
-   omitted 0% keyframe implicitly starts from the element's current
-   opacity. Staggered durations (26–36s) so the last wisp clears
-   unevenly instead of the whole page snapping clean at once. */
-@keyframes fogAmbientFade {
+.fog-intro-blob--2 {
+    --bank-opacity: .9;
+    top: 23vh; left: -24vw;
+    animation: fogWindBankB 20s linear -14s infinite,
+               fogIntroDissipate 8.8s ease-out .4s forwards;
+}
+.fog-intro-blob--3 {
+    --bank-opacity: .84;
+    top: 59vh; left: -36vw;
+    animation: fogWindBankA 23s linear -19s infinite,
+               fogIntroDissipate 9.6s ease-out .8s forwards;
+}
+
+.fog-blob--1 {
+    --bank-opacity: .38;
+    width: 92vw; height: 31vh;
+    top: 4vh; left: -42vw;
+    animation: fogWindWispA 9.5s linear -3s infinite,
+               fogWispDissipate 26s ease-out forwards;
+}
+.fog-blob--2 {
+    --bank-opacity: .34;
+    width: 86vw; height: 27vh;
+    top: 32vh; left: -48vw;
+    animation: fogWindWispB 12s linear -9s infinite,
+               fogWispDissipate 32s ease-out forwards;
+}
+.fog-blob--3 {
+    --bank-opacity: .32;
+    width: 105vw; height: 34vh;
+    top: 51vh; left: -55vw;
+    animation: fogWindWispA 14s linear -11s infinite,
+               fogWispDissipate 36s ease-out forwards;
+}
+.fog-blob--4 {
+    --bank-opacity: .35;
+    width: 78vw; height: 26vh;
+    top: 72vh; left: -39vw;
+    animation: fogWindWispB 10.5s linear -5.5s infinite,
+               fogWispDissipate 24s ease-out forwards;
+}
+.fog-blob--5 {
+    --bank-opacity: .29;
+    width: 94vw; height: 28vh;
+    top: 84vh; left: -51vw;
+    animation: fogWindWispA 13s linear -2s infinite,
+               fogWispDissipate 34s ease-out forwards;
+}
+
+@keyframes fogWindBankA {
+    0%   { opacity: 0; transform: translate3d(-34vw, 2vh, 0) skewX(-5deg) scale(1.04, .86); }
+    10%  { opacity: var(--bank-opacity); }
+    32%  { transform: translate3d(-5vw, 0, 0) skewX(-9deg) scale(1.12, .96); }
+    48%  { transform: translate3d(24vw, -2vh, 0) skewX(-13deg) scale(1.23, .9); }
+    76%  { opacity: var(--bank-opacity); transform: translate3d(58vw, 1vh, 0) skewX(-7deg) scale(1.08, 1.02); }
+    100% { opacity: 0; transform: translate3d(92vw, -3vh, 0) skewX(-11deg) scale(1.2, .88); }
+}
+@keyframes fogWindBankB {
+    0%   { opacity: 0; transform: translate3d(-40vw, -1vh, 0) skewX(-7deg) scale(1.1, .9); }
+    12%  { opacity: var(--bank-opacity); }
+    38%  { transform: translate3d(-2vw, 2vh, 0) skewX(-12deg) scale(1.18, 1.04); }
+    57%  { transform: translate3d(34vw, -1vh, 0) skewX(-15deg) scale(1.3, .86); }
+    80%  { opacity: var(--bank-opacity); transform: translate3d(66vw, 1vh, 0) skewX(-8deg) scale(1.12, .98); }
+    100% { opacity: 0; transform: translate3d(98vw, -2vh, 0) skewX(-13deg) scale(1.22, .9); }
+}
+@keyframes fogWindWispA {
+    0%   { opacity: 0; transform: translate3d(-30vw, 2vh, 0) skewX(-12deg) scale(1.25, .58); }
+    13%  { opacity: var(--bank-opacity); }
+    45%  { transform: translate3d(34vw, -2vh, 0) skewX(-18deg) scale(1.52, .7); }
+    78%  { opacity: var(--bank-opacity); }
+    100% { opacity: 0; transform: translate3d(112vw, 1vh, 0) skewX(-10deg) scale(1.35, .62); }
+}
+@keyframes fogWindWispB {
+    0%   { opacity: 0; transform: translate3d(-36vw, -2vh, 0) skewX(-8deg) scale(1.18, .66); }
+    15%  { opacity: var(--bank-opacity); }
+    38%  { transform: translate3d(18vw, 2vh, 0) skewX(-14deg) scale(1.38, .58); }
+    62%  { transform: translate3d(62vw, -1vh, 0) skewX(-20deg) scale(1.58, .74); }
+    82%  { opacity: var(--bank-opacity); }
+    100% { opacity: 0; transform: translate3d(118vw, 2vh, 0) skewX(-11deg) scale(1.3, .62); }
+}
+@keyframes fogGrainWind {
+    from { transform: translate3d(-8%, -1%, 0) skewX(-5deg) scale(1.05); }
+    to   { transform: translate3d(10%, 1%, 0) skewX(-9deg) scale(1.1); }
+}
+@keyframes fogShearGust {
+    0%   { opacity: .12; transform: translate3d(-22vw, 1vh, 0) skewX(-8deg) scaleX(1); }
+    22%  { opacity: .45; }
+    46%  { opacity: .28; transform: translate3d(18vw, -2vh, 0) skewX(-14deg) scaleX(1.18); }
+    63%  { opacity: .52; transform: translate3d(39vw, 1vh, 0) skewX(-18deg) scaleX(1.32); }
+    100% { opacity: .1; transform: translate3d(78vw, -1vh, 0) skewX(-9deg) scaleX(1.08); }
+}
+@keyframes fogCurtainDissipate {
+    0%   { background-color: rgba(246, 249, 249, .64); }
+    18%  { background-color: rgba(246, 249, 249, .6); }
+    55%  { background-color: rgba(246, 249, 249, .38); }
+    100% { background-color: rgba(246, 249, 249, 0); }
+}
+@keyframes fogIntroDissipate {
+    from { filter: blur(19px) opacity(1); }
+    to   { filter: blur(28px) opacity(0); }
+}
+@keyframes fogWispDissipate {
+    from { filter: blur(19px) opacity(1); }
+    to   { filter: blur(25px) opacity(0); }
+}
+@keyframes fogTextureDissipate {
     to { opacity: 0; }
+}
+@keyframes fogShearDissipate {
+    from { filter: blur(17px) opacity(1); }
+    to   { filter: blur(25px) opacity(0); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .fog-blob { animation: none; opacity: 0; }
-    .fog-intro-blob { animation: none; opacity: 0; }
+    .fog-layer { display: none; }
 }
