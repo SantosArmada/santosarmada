@@ -44,15 +44,49 @@
     </div>
 
     <div class="lute-signature" aria-hidden="true">
-        <svg viewBox="0 0 100 90">
-            <path class="lute-heart" d="M20,20 C18,16 12,16 12,21 C12,25 20,31 20,31 C20,31 28,25 28,21 C28,16 22,16 20,20 Z"></path>
-            <line class="lute-part" x1="50" y1="34" x2="60" y2="8"></line>
-            <path class="lute-part" d="M56,6 L64,4 L64,12 L56,10 Z"></path>
-            <path class="lute-part" d="M50,32 C66,32 74,44 72,56 C70,70 58,78 46,76 C34,74 26,62 28,48 C30,36 40,32 50,32 Z"></path>
-            <circle class="lute-part" cx="50" cy="54" r="6"></circle>
-            <line class="lute-string" x1="52" y1="10" x2="46" y2="75"></line>
-            <line class="lute-string" x1="56" y1="9" x2="52" y2="76"></line>
-            <line class="lute-string" x1="60" y1="8" x2="58" y2="75"></line>
+        <svg viewBox="0 0 170 110">
+            <g class="lute-instrument">
+                <path class="lute-body-print" d="M83 43 C96 52 98 67 91 82 C84 98 67 106 50 101 C34 96 26 82 30 68 C33 56 42 49 53 47 C64 45 73 47 83 43 Z"></path>
+                <path class="lute-body" d="M82 41 C96 50 99 65 92 81 C85 98 68 106 51 102 C34 98 25 84 29 69 C32 56 42 48 54 46 C64 44 73 46 82 41 Z"></path>
+
+                <path class="lute-neck" d="M76 48 L126 13 L135 22 L87 57 Z"></path>
+                <path class="lute-neck-edge" d="M82 48 L131 17"></path>
+                <path class="lute-pegbox" d="M125 13 L139 5 L151 11 L143 25 L135 22 Z"></path>
+                <path class="lute-peg-detail" d="M137 8 L145 14 M132 13 L143 19"></path>
+
+                <g class="lute-pegs">
+                    <path d="M132 9 l-5 -5 M140 8 l2 -6 M146 13 l6 -2 M142 20 l5 4"></path>
+                    <circle cx="126" cy="3.5" r="2"></circle>
+                    <circle cx="142" cy="2" r="2"></circle>
+                    <circle cx="153" cy="10.5" r="2"></circle>
+                    <circle cx="148" cy="25" r="2"></circle>
+                </g>
+
+                <g class="lute-frets">
+                    <path d="M116 20 l9 9 M108 26 l9 9 M100 32 l9 9 M92 38 l9 9"></path>
+                </g>
+
+                <g class="lute-strings">
+                    <path d="M138 12 L75 94"></path>
+                    <path d="M141 14 L80 93"></path>
+                    <path d="M144 16 L85 91"></path>
+                    <path d="M147 18 L89 88"></path>
+                </g>
+
+                <g class="lute-rosette">
+                    <circle cx="59" cy="76" r="13"></circle>
+                    <circle cx="59" cy="76" r="9"></circle>
+                    <path d="M59 63 L59 89 M46 76 L72 76 M50 67 L68 85 M68 67 L50 85"></path>
+                    <circle class="lute-rosette-center" cx="59" cy="76" r="3"></circle>
+                </g>
+                <path class="lute-bridge" d="M67 94 C74 94 81 92 87 88"></path>
+
+                <g class="lute-sticker">
+                    <path class="lute-sticker-paper" d="M68 50 C75 47 84 50 86 57 C88 64 83 71 75 72 C67 73 61 68 61 61 C60 56 63 52 68 50 Z"></path>
+                    <path class="lute-heart" d="M74 57 C72 53 66 54 66 58 C66 62 74 68 74 68 C74 68 82 61 82 57 C82 53 76 53 74 57 Z"></path>
+                    <path class="lute-sticker-curl" d="M80 69 C82 68 84 66 85 64"></path>
+                </g>
+            </g>
         </svg>
     </div>
 </header>

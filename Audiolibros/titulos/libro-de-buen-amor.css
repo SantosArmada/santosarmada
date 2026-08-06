@@ -144,31 +144,135 @@ body {
     font-style: italic;
 }
 
-/* ---------- LUTE GLYPH (the Arcipreste's instrument, with a little heart) ---------- */
+/* ---------- LUTE GLYPH — cover-inspired instrument with a pasted heart sticker ---------- */
 
 .lute-signature {
-    width: 92px;
-    height: 90px;
+    width: 170px;
+    height: 110px;
     flex-shrink: 0;
     position: relative;
 }
 .lute-signature svg { display: block; width: 100%; height: 100%; overflow: visible; }
 
-.lute-part {
-    fill: none;
+.lute-signature path,
+.lute-signature circle {
+    vector-effect: non-scaling-stroke;
+}
+
+.lute-instrument {
+    transform-origin: 83px 58px;
+    animation: luteSway 5.6s ease-in-out infinite;
+}
+
+.lute-body {
+    fill: rgba(190, 139, 46, 0.32);
     stroke: var(--teal);
-    stroke-width: 2.5;
+    stroke-width: 3;
     stroke-linejoin: round;
     stroke-linecap: round;
 }
-.lute-string {
+.lute-body-print {
+    fill: none;
+    stroke: var(--vermillion);
+    stroke-width: 1.25;
+    opacity: 0.3;
+}
+.lute-neck {
+    fill: rgba(95, 119, 115, 0.18);
     stroke: var(--teal);
-    stroke-width: 1.1;
+    stroke-width: 3;
+    stroke-linejoin: round;
+}
+.lute-neck-edge,
+.lute-peg-detail,
+.lute-frets path,
+.lute-bridge {
+    fill: none;
+    stroke: var(--teal);
+    stroke-width: 1.35;
+    stroke-linecap: round;
     opacity: 0.7;
+}
+.lute-pegbox {
+    fill: rgba(199, 68, 48, 0.16);
+    stroke: var(--teal);
+    stroke-width: 3;
+    stroke-linejoin: round;
+}
+.lute-pegs path,
+.lute-pegs circle {
+    fill: var(--teal);
+    stroke: var(--teal);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+}
+.lute-strings path {
+    fill: none;
+    stroke: var(--teal);
+    stroke-width: 0.85;
+    opacity: 0.62;
+    animation: luteStringGlint 2.8s ease-in-out infinite;
+}
+.lute-strings path:nth-child(2) { animation-delay: -0.35s; }
+.lute-strings path:nth-child(3) { animation-delay: -0.7s; }
+.lute-strings path:nth-child(4) { animation-delay: -1.05s; }
+
+.lute-rosette circle,
+.lute-rosette path {
+    fill: none;
+    stroke: var(--teal);
+    stroke-width: 1.5;
+    opacity: 0.9;
+}
+.lute-rosette .lute-rosette-center {
+    fill: var(--teal);
+    stroke: none;
+}
+
+.lute-sticker {
+    transform-origin: 74px 61px;
+    transform: rotate(-9deg);
+    animation: luteStickerPulse 3.8s ease-in-out infinite;
+}
+.lute-sticker-paper {
+    fill: #f4ead1;
+    stroke: rgba(36, 26, 16, 0.24);
+    stroke-width: 1.2;
+    filter: drop-shadow(1.5px 2px 1px rgba(36, 26, 16, 0.24));
 }
 .lute-heart {
     fill: var(--vermillion);
     stroke: none;
+}
+.lute-sticker-curl {
+    fill: none;
+    stroke: rgba(36, 26, 16, 0.34);
+    stroke-width: 1;
+    stroke-linecap: round;
+}
+
+@keyframes luteSway {
+    0%, 100% { transform: rotate(-1deg) translateY(0); }
+    48%      { transform: rotate(1.5deg) translateY(-2px); }
+    55%      { transform: rotate(1deg) translateY(-1px); }
+}
+
+@keyframes luteStickerPulse {
+    0%, 76%, 100% { transform: rotate(-9deg) scale(1); }
+    83%           { transform: rotate(-8deg) scale(1.055); }
+    90%           { transform: rotate(-9deg) scale(1); }
+    95%           { transform: rotate(-9deg) scale(1.03); }
+}
+
+@keyframes luteStringGlint {
+    0%, 100% { opacity: 0.42; }
+    50%      { opacity: 0.82; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .lute-instrument,
+    .lute-sticker,
+    .lute-strings path { animation: none; }
 }
 
 /* ---------- PLAYER ---------- */
