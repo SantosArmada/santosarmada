@@ -4,11 +4,10 @@
    sage → terracotta color gradient. Height comes from the full title
    text set in vertical writing-mode, not a fixed box. */
 (() => {
-    // slug matches its Audiolibros/titulos/<slug>.html page — same
-    // short form as the cover filenames in book_covers/. Only
-    // la-gallina-degollada's page actually exists right now; the rest
-    // are being built out over the coming weeks and will 404 until
-    // then (same pattern as the book-reviews carousel links).
+    // slug matches its Audiolibros/titulos/<slug>.html page. Most
+    // titles already have that page built; newly added covers won't
+    // until their detail page is built out (same pattern as the
+    // book-reviews carousel links) — expect 404s on those until then.
     const BOOKS = [
         { title: "Popol Vuh", rating: 3.9, slug: "popol-vuh" },
         { title: "Cantar de mio Cid", rating: 3.2, slug: "mio-cid" },
@@ -17,6 +16,10 @@
         { title: "Duelo de la Virgen", rating: 5.0, slug: "duelo-virgen" },
         { title: "Coplas por la muerte de su padre", rating: 4.5, slug: "coplas-por-la-muerte-de-su-padre" },
         { title: "El Ladrón Devoto", rating: 4.8, slug: "el-ladron-devoto" },
+        { title: "El señor de Bembibre", rating: 3.9, slug: "el-senor-de-bembibre" },
+        { title: "Peribáñez y el comendador de Ocaña", rating: 4.3, slug: "peribanez-y-el-comendador-de-ocana" },
+        { title: "El trovador", rating: 4.1, slug: "el-trovador" },
+        { title: "Fuente Ovejuna", rating: 4.7, slug: "fuente-ovejuna" },
         { title: "La Celestina", rating: 5.0, slug: "celestina" },
         { title: "Los cuatro viajes del almirante y su testamento", rating: 3.0, slug: "los-cuatro-viajes" },
         { title: "Brevísima relación de la destrucción de las Indias", rating: 4.1, slug: "brevisima" },
@@ -25,16 +28,24 @@
         { title: "Comentarios Reales de los Incas", rating: 4.6, slug: "comentarios" },
         { title: "Historia de la Monja Alférez", rating: 4.4, slug: "monja-alferez" },
         { title: "Sumario de la Natural Historia de las Indias", rating: 4.3, slug: "sumario-de-la-natural-historia-de-las-indias" },
+        { title: "Novelas ejemplares", rating: 4.8, slug: "novelas-ejemplares" },
+        { title: "El perro del hortelano", rating: 4.6, slug: "el-perro-del-hortelano" },
+        { title: "Romances", rating: 4.0, slug: "romances-de-gongora" },
         { title: "Cartas de Jamaica", rating: 3.7, slug: "cartas-de-jamaica" },
         { title: "Facundo o Civilización y Barbarie", rating: 4.6, slug: "facundo" },
         { title: "La Fontana de Oro", rating: 4.7, slug: "fontana-de-oro" },
         { title: "Martín Fierro", rating: 5.0, slug: "martin-fierro" },
         { title: "Misericordia", rating: 5.0, slug: "misericordia" },
+        { title: "Mariana Pineda", rating: 4.4, slug: "mariana-pineda" },
+        { title: "Doña Perfecta", rating: 4.6, slug: "dona-perfecta" },
+        { title: "Lucía Jerez", rating: 3.8, slug: "lucia-jerez" },
         { title: "Niebla", rating: 5.0, slug: "niebla" },
         { title: "Los de abajo", rating: 5.0, slug: "los-de-abajo" },
         { title: "Las lenguas de diamante", rating: 4.3, slug: "lenguas-diamante" },
         { title: "La flor de la playa", rating: 4.2, slug: "la-flor-de-la-playa" },
         { title: "La gallina degollada", rating: 5.0, slug: "la-gallina-degollada" },
+        { title: "Soledades, galerías y otros poemas", rating: 4.5, slug: "soledades-galerias-y-otros-poemas" },
+        { title: "Amor de don Perlimplín con Belisa en su jardín", rating: 4.2, slug: "amor-de-don-perlimplin-con-belisa-en-su-jardin" },
     ];
 
     const TERRACOTTA = [206, 140, 120];
