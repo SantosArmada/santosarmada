@@ -441,9 +441,8 @@ body {
     height: 75%;
     border-radius: 100%;
     background-image:
-        radial-gradient(100% 100% at center, #ffffff 43%, transparent 45%),
-        linear-gradient(#ffffff, #dcdcdc);
-    background-clip: padding-box, border-box;
+        radial-gradient(100% 100% at 35% 30%, #ffffff 0%, #dcdcdc 100%);
+    background-clip: border-box;
     border: 0.25em solid transparent;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
 }
