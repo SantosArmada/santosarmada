@@ -436,22 +436,46 @@ body {
 
 .volume-dial__wrap {
     position: absolute;
-    inset: 12.5%;
-    width: 75%;
-    height: 75%;
-    border-radius: 100%;
+    inset: 11.5%;
+    width: 77%;
+    height: 77%;
+    overflow: hidden;
+    isolation: isolate;
+    border-radius: 50%;
+    background-color: #89939d;
     background-image:
-        radial-gradient(100% 100% at 35% 30%, #ffffff 0%, #dcdcdc 100%);
-    background-clip: border-box;
-    border: 0.25em solid transparent;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
+        radial-gradient(circle at 34% 27%, rgba(255, 255, 255, 0.9) 0 5%, rgba(218, 225, 231, 0.46) 14%, transparent 31%),
+        radial-gradient(circle at 50% 56%, #c7cdd1 0 40%, #9da7ae 60%, #68727b 80%, #2e353c 100%);
+    border: 1px solid rgba(30, 58, 95, 0.78);
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.82),
+        inset 0 -5px 9px rgba(31, 36, 42, 0.4),
+        inset 2px 0 5px rgba(225, 232, 237, 0.28),
+        0 1px 0 rgba(255, 255, 255, 0.56),
+        0 0.55em 1em rgba(24, 28, 33, 0.34),
+        0 0 0 3px rgba(30, 58, 95, 0.1);
+}
+.volume-dial__wrap::before {
+    content: "";
+    position: absolute;
+    inset: 5px;
+    z-index: 1;
+    pointer-events: none;
+    border-radius: 50%;
+    border: 1px solid rgba(30, 58, 95, 0.24);
+    box-shadow:
+        inset 0 1px 2px rgba(246, 250, 252, 0.34),
+        0 1px 1px rgba(31, 36, 42, 0.22);
 }
 
 .volume-dial__knob {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    border-radius: 100%;
+    z-index: 2;
+    appearance: none;
+    -webkit-appearance: none;
+    border-radius: 50%;
     background-color: transparent;
     border: 0;
     padding: 0;
@@ -464,12 +488,18 @@ body {
     content: "";
     position: absolute;
     display: block;
-    top: 12%;
-    left: 46.5%;
-    width: 7%;
-    height: 7%;
+    top: 9%;
+    left: 45%;
+    width: 10%;
+    height: 10%;
     border-radius: 50%;
-    background-color: var(--dot-color);
+    background:
+        radial-gradient(circle at 36% 30%, #e87967 0 17%, var(--coral-bright) 40%, var(--coral) 68%, #541912 100%);
+    border: 1px solid rgba(230, 237, 241, 0.66);
+    box-shadow:
+        0 0 4px rgba(161, 58, 46, 0.24),
+        0 1px 2px rgba(27, 31, 35, 0.56),
+        inset 0 1px 1px rgba(255, 221, 210, 0.24);
 }
 .volume-dial__knob-label {
     position: absolute;
