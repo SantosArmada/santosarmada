@@ -20,17 +20,13 @@
         { title: "Peribáñez y el comendador de Ocaña", rating: 4.3, slug: "peribanez-y-el-comendador-de-ocana" },
         { title: "El trovador", rating: 4.1, slug: "el-trovador" },
         { title: "Fuente Ovejuna", rating: 4.7, slug: "fuente-ovejuna" },
-        { title: "Ejemplo del hombre, de su esposa infiel y del papagayo", rating: 3.6, slug: "ejemplo-del-hombre-de-su-esposa-infiel-y-del-papagayo" },
         { title: "Cuentos de Decamerón", rating: 4.4, slug: "cuentos-de-decameron" },
         { title: "Fin de loores de santos", rating: 3.3, slug: "fin-de-loores-de-santos" },
         { title: "La Celestina", rating: 5.0, slug: "la-celestina" },
-        { title: "Los cuatro viajes del almirante y su testamento", rating: 3.0, slug: "los-cuatro-viajes-del-almirante-y-su-testamento" },
-        { title: "Brevísima relación de la destrucción de las Indias", rating: 4.1, slug: "brevisima-relacion-de-la-destruccion-de-las-indias" },
         { title: "Naufragios", rating: 4.9, slug: "naufragios" },
         { title: "Lazarillo de Tormes", rating: 5.0, slug: "lazarillo-de-tormes" },
         { title: "Comentarios Reales de los Incas", rating: 4.6, slug: "comentarios-reales-de-los-incas" },
         { title: "Historia de la Monja Alférez", rating: 4.4, slug: "historia-de-la-monja-alferez" },
-        { title: "Sumario de la Natural Historia de las Indias", rating: 4.3, slug: "sumario-de-la-natural-historia-de-las-indias" },
         { title: "Novelas ejemplares", rating: 4.8, slug: "novelas-ejemplares" },
         { title: "El perro del hortelano", rating: 4.6, slug: "el-perro-del-hortelano" },
         { title: "Romances", rating: 4.0, slug: "romances-de-gongora" },
@@ -46,7 +42,6 @@
         { title: "Amar después de la muerte", rating: 4.3, slug: "amar-despues-de-la-muerte" },
         { title: "Redondillas", rating: 4.9, slug: "redondillas" },
         { title: "A la esperanza", rating: 3.8, slug: "a-la-esperanza" },
-        { title: "¿En perseguirme, Mundo, qué interesas?", rating: 4.0, slug: "en-perseguirme-mundo-que-interesas" },
         { title: "Carta atenagórica", rating: 4.2, slug: "carta-atenagorica" },
         { title: "Primer sueño", rating: 4.6, slug: "primer-sueno" },
         { title: "Respuesta a Sor Filotea", rating: 4.8, slug: "respuesta-a-sor-filotea" },
@@ -64,7 +59,6 @@
         { title: "La flor de la playa", rating: 4.2, slug: "la-flor-de-la-playa" },
         { title: "La gallina degollada", rating: 5.0, slug: "la-gallina-degollada" },
         { title: "Soledades, galerías y otros poemas", rating: 4.5, slug: "soledades-galerias-y-otros-poemas" },
-        { title: "Amor de don Perlimplín con Belisa en su jardín", rating: 4.2, slug: "amor-de-don-perlimplin-con-belisa-en-su-jardin" },
     ];
 
     const TERRACOTTA = [206, 140, 120];
