@@ -267,8 +267,17 @@ void main() {
                     <img src="el-cubo/04-grandeza-azteca.jpg" alt="Grandeza Azteca, Jesús Helguera" class="face-amber-tint face-img-anchor-top">
                     <span class="face-ph">04</span>
                 </div>
-                <div class="face" data-face="left" data-i="4"><span class="face-ph">05</span></div>
-                <div class="face" data-face="bottom" data-i="5"><span class="face-ph">06</span></div>
+                <!-- TODO: photographer/title/date attribution pending (to be
+                     filled in later) — copy for the s4 text-card panel below
+                     is waiting on that credit too. -->
+                <div class="face" data-face="left" data-i="4">
+                    <img src="el-cubo/05-tortillas.jpg" alt="Hombre tocando acordeón junto a un comal de tortillas — atribución pendiente" class="face-amber-tint">
+                    <span class="face-ph">05</span>
+                </div>
+                <div class="face" data-face="bottom" data-i="5">
+                    <video id="elCuboMamaVideo" src="el-cubo/06-mi-mama.mp4?v=1" playsinline preload="auto"></video>
+                    <span class="face-ph">06</span>
+                </div>
             </div>
         </div>
     </div>
@@ -316,6 +325,11 @@ void main() {
              available the whole time you're on face 0, not just as a
              one-time unlock. -->
         <button type="button" class="face-play-btn" id="elCuboGradPlayBtn" aria-label="Reproducir o pausar video">
+            <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
+            <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z" /></svg>
+        </button>
+
+        <button type="button" class="face-play-btn" id="elCuboMamaPlayBtn" aria-label="Reproducir o pausar video">
             <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z" /></svg>
             <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M7 5h4v14H7zM13 5h4v14h-4z" /></svg>
         </button>
@@ -455,6 +469,6 @@ void main() {
 </script>
 <script src="el-cubo.js?v=2"></script>
 <script src="el-cubo-title-effect.js?v=1" defer></script>
-<script src="el-cubo-cube.js?v=9" defer></script>
+<script src="el-cubo-cube.js?v=10" defer></script>
 </body>
 </html>

@@ -34,35 +34,45 @@
     const sections = scrollContainer ? [...scrollContainer.querySelectorAll('section')] : [];
     const dots = strip ? [...strip.querySelectorAll('.scene-dot')] : [];
 
-    // Face 0's video is click-to-play with its own audio (not
+    // Face videos are click-to-play with their own audio (not
     // muted-autoplay like the image faces) — deliberate, so the visitor
-    // actually hears it, not autoplay that might get missed or blocked.
-    // The button is a persistent play/pause toggle, not a one-time
-    // unlock, and stays available the whole time you're on face 0. It
-    // also pauses automatically if you scroll away from face 0, so it
+    // actually hears them, not autoplay that might get missed or blocked.
+    // Each button is a persistent play/pause toggle, not a one-time
+    // unlock, and stays available the whole time you're on its face. It
+    // also pauses automatically if you scroll away from that face, so it
     // never plays on to an unseen face.
-    const gradVideo = document.getElementById('elCuboGradVideo');
-    const gradPlayBtn = document.getElementById('elCuboGradPlayBtn');
-    let onFaceZero = false;
+    function initFaceVideo(videoId, btnId, faceIdx) {
+        const video = document.getElementById(videoId);
+        const btn = document.getElementById(btnId);
+        if (!video || !btn) return null;
 
-    function syncGradPlayBtn() {
-        if (!gradVideo || !gradPlayBtn) return;
-        gradPlayBtn.classList.toggle('is-visible', onFaceZero);
-        gradPlayBtn.classList.toggle('is-playing', !gradVideo.paused);
-    }
+        function sync(onFace) {
+            btn.classList.toggle('is-visible', onFace);
+            btn.classList.toggle('is-playing', !video.paused);
+        }
 
-    if (gradVideo && gradPlayBtn) {
-        gradPlayBtn.addEventListener('click', () => {
-            if (gradVideo.paused) {
-                gradVideo.play().catch(err => console.error('El Cubo: video play() failed', err));
+        btn.addEventListener('click', () => {
+            if (video.paused) {
+                video.play().catch(err => console.error('El Cubo: video play() failed', err));
             } else {
-                gradVideo.pause();
+                video.pause();
             }
         });
-        gradVideo.addEventListener('play', syncGradPlayBtn);
-        gradVideo.addEventListener('pause', syncGradPlayBtn);
-        gradVideo.addEventListener('ended', syncGradPlayBtn);
-        syncGradPlayBtn();
+        video.addEventListener('play', () => sync(lastIdx === faceIdx));
+        video.addEventListener('pause', () => sync(lastIdx === faceIdx));
+        video.addEventListener('ended', () => sync(lastIdx === faceIdx));
+
+        return {
+            faceIdx,
+            onTick(idx) {
+                const onFace = idx === faceIdx;
+                if (!onFace && !video.paused) video.pause();
+                sync(onFace);
+            },
+            pause() {
+                if (!video.paused) video.pause();
+            },
+        };
     }
 
     const easeIO = t => (t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t);
@@ -79,6 +89,12 @@
     }
 
     let lastIdx = -1;
+
+    const faceVideos = [
+        initFaceVideo('elCuboGradVideo', 'elCuboGradPlayBtn', 0),
+        initFaceVideo('elCuboMamaVideo', 'elCuboMamaPlayBtn', 5),
+    ].filter(Boolean);
+
     function updateUI(progress, idx) {
         const pct = Math.round(progress * 100);
         if (hudPct) hudPct.textContent = String(pct).padStart(3, '0') + '%';
@@ -101,13 +117,7 @@
         setCubeTransform(progress);
         updateUI(progress, idx);
 
-        onFaceZero = idx === 0;
-        if (gradVideo) {
-            if (!onFaceZero && !gradVideo.paused) {
-                gradVideo.pause();
-            }
-            syncGradPlayBtn();
-        }
+        faceVideos.forEach(fv => fv.onTick(idx));
     }
 
     // getBoundingClientRect()/style writes every frame is cheap on its
@@ -129,7 +139,7 @@
     }
     function pause() {
         running = false;
-        if (gradVideo && !gradVideo.paused) gradVideo.pause();
+        faceVideos.forEach(fv => fv.pause());
     }
 
     if ('IntersectionObserver' in window) {
