@@ -53,7 +53,7 @@
         { file: "juan-de-mairena-dos.png", title: "Juan de Mairena II", slug: "juan-de-mairena-ii" },
         { file: "juan-de-mairena.png", title: "Juan de Mairena", slug: "juan-de-mairena" },
         { file: "la-flor-de-la-playa.jpg", title: "La flor de la playa", slug: "la-flor-de-la-playa" },
-        { file: "la-gallina-degollada.jpg", title: "La gallina degollada", slug: "la-gallina-degollada" },
+        { file: "la-gallina-degollada.png", title: "La gallina degollada", slug: "la-gallina-degollada" },
         { file: "ladron-devoto.jpg", title: "El Ladrón Devoto", slug: "el-ladron-devoto" },
         { file: "lazarillo.jpg", title: "Lazarillo de Tormes", slug: "lazarillo-de-tormes" },
         { file: "lenguas-diamante.png", title: "Las lenguas de diamante", slug: "las-lenguas-de-diamante" },
