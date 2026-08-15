@@ -20,8 +20,8 @@
     // exist yet — links are wired now and will 404 until each review
     // is written and the page built.
     const BOOKS = [
-        { file: "Los-de-abajo.jpg", title: "Los de abajo", slug: "los-de-abajo" },
-        { file: "Martin-fierro.jpg", title: "Martín Fierro", slug: "martin-fierro" },
+        { file: "Los-de-abajo.png", title: "Los de abajo", slug: "los-de-abajo" },
+        { file: "Martin-fierro.png", title: "Martín Fierro", slug: "martin-fierro" },
         { file: "a-la-esperanza.png", title: "A la esperanza", slug: "a-la-esperanza" },
         { file: "al-que-leyere.png", title: "Al que leyere", slug: "al-que-leyere" },
         { file: "amar-despues-de-la-muerte.png", title: "Amar después de la muerte", slug: "amar-despues-de-la-muerte" },
@@ -41,7 +41,7 @@
         { file: "cuentos-de-decameron.png", title: "Cuentos de Decamerón", slug: "cuentos-de-decameron" },
         { file: "don-quijote.png", title: "Don Quijote", slug: "don-quijote" },
         { file: "doña-perfecta.png", title: "Doña Perfecta", slug: "dona-perfecta" },
-        { file: "duelo-virgen.jpg", title: "Duelo de la Virgen", slug: "duelo-de-la-virgen" },
+        { file: "duelo-virgen.png", title: "Duelo de la Virgen", slug: "duelo-de-la-virgen" },
         { file: "ejemplo-del-hombre.png", title: "Ejemplo del hombre, de su esposa infiel y del papagayo", slug: "ejemplo-del-hombre-de-su-esposa-infiel-y-del-papagayo" },
         { file: "el-perro-del-hortelano.png", title: "El perro del hortelano", slug: "el-perro-del-hortelano" },
         { file: "el-trovador.png", title: "El trovador", slug: "el-trovador" },
