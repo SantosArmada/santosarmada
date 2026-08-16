@@ -57,6 +57,7 @@
         { file: "ejemplo-del-hombre.webp", title: "Ejemplo del hombre, de su esposa infiel y del papagayo", slug: "ejemplo-del-hombre-de-su-esposa-infiel-y-del-papagayo" },
         { file: "ejemplo.webp", title: "Ejemplo", slug: "ejemplo" },
         { file: "el-almohadon-de-plumas.webp", title: "El almohadón de plumas", slug: "el-almohadon-de-plumas" },
+        { file: "el-burlador-de-sevilla.webp", title: "El burlador de Sevilla", slug: "el-burlador-de-sevilla" },
         { file: "el-fuerte-lazo.webp", title: "El fuerte lazo", slug: "el-fuerte-lazo" },
         { file: "el-hijo.webp", title: "El hijo", slug: "el-hijo" },
         { file: "el-mendigo.webp", title: "El mendigo", slug: "el-mendigo" },
