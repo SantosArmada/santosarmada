@@ -1,0 +1,26 @@
+# Caching headers for the Audiolibros/OLA asset pipeline.
+#
+# Why book_covers gets a short cache instead of a long/immutable one:
+# cover art is regularly replaced in place under the *same* filename
+# (see project history — same-name swaps are the normal workflow, not
+# the exception). A long max-age would leave returning visitors' own
+# browsers showing a stale cover for weeks after a swap, even though
+# Netlify's own CDN already serves the new deploy correctly. One day
+# still saves real bandwidth on repeat views within a session/day
+# without that staleness risk.
+/book_covers/*
+  Cache-Control: public, max-age=86400
+
+# Self-hosted Google Fonts files: filenames are content-hashed by
+# Google's own export, so a given filename's bytes never change.
+# Safe to cache for a full year, immutably.
+/vendor/fonts/files/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Per-book detail-page CSS/JS (includes the volume-knob files) get
+# refined occasionally during active development — a short cache
+# avoids stale-asset issues while still saving repeat-view bandwidth.
+/Audiolibros/titulos/*.css
+  Cache-Control: public, max-age=3600
+/Audiolibros/titulos/*.js
+  Cache-Control: public, max-age=3600
