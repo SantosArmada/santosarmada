@@ -471,6 +471,7 @@
       .laser-arm{ display:none; }
     }
   </style>
+  <link rel="stylesheet" href="laser-writer.css">
 </head>
 <body>
 
@@ -542,7 +543,7 @@
       <div class="laser-controls">
         <button class="laser-control" type="button" id="laserReplay">Reiniciar</button>
         <button class="laser-control" type="button" id="laserReveal">Texto completo</button>
-        <button class="laser-control" type="button" id="laserSound" aria-pressed="false">Sonido 80s: no</button>
+        <button class="laser-control" type="button" id="laserSound" aria-pressed="false">Zumbido: no</button>
       </div>
     </div>
 
@@ -777,10 +778,9 @@
     });
   </script>
 
-  <!-- The 1980s-style laser now etches the real essay text as each paragraph
-       enters the reading area. Text remains semantic, selectable and visible
-       without JavaScript; sound is strictly opt-in. -->
-  <script>
+  <!-- Non-running reference for the earlier paragraph-timed prototype.
+       The shared path-based cinematic engine is loaded immediately below. -->
+  <script type="text/plain" id="legacyViewportLaserWriter">
     (() => {
       if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
@@ -800,6 +800,7 @@
       let activeParagraph = null;
       let audioContext = null;
       let soundEngine = null;
+      let humVoice = null;
       let soundEnabled = false;
       let observer = null;
       let sequenceVersion = 0;
@@ -857,7 +858,7 @@
 
         const noiseBuffer = audioContext.createBuffer(
           1,
-          Math.ceil(audioContext.sampleRate * 0.08),
+          Math.ceil(audioContext.sampleRate * 0.5),
           audioContext.sampleRate
         );
         const noise = noiseBuffer.getChannelData(0);
@@ -877,29 +878,6 @@
         send.connect(engine.delay);
       };
 
-      const sweepVoice = ({
-        from, to, duration, volume, type = "sawtooth", when, send = 0.16, detune = 0
-      }) => {
-        const start = when ?? audioContext.currentTime;
-        const oscillator = audioContext.createOscillator();
-        const filter = audioContext.createBiquadFilter();
-        const envelope = audioContext.createGain();
-        oscillator.type = type;
-        oscillator.detune.value = detune;
-        oscillator.frequency.setValueAtTime(from, start);
-        oscillator.frequency.exponentialRampToValueAtTime(to, start + duration);
-        filter.type = "lowpass";
-        filter.frequency.setValueAtTime(4200, start);
-        filter.frequency.exponentialRampToValueAtTime(900, start + duration);
-        envelope.gain.setValueAtTime(0.0001, start);
-        envelope.gain.exponentialRampToValueAtTime(volume, start + 0.012);
-        envelope.gain.exponentialRampToValueAtTime(0.0001, start + duration);
-        oscillator.connect(filter);
-        connectVoice(filter, envelope, send);
-        oscillator.start(start);
-        oscillator.stop(start + duration + 0.02);
-      };
-
       const noiseBurst = (when, volume = 0.012) => {
         const engine = ensureSoundEngine();
         const source = audioContext.createBufferSource();
@@ -917,27 +895,79 @@
         source.stop(when + 0.06);
       };
 
-      const deploySound = () => {
+      const startHum = () => {
         if (!soundEnabled || !audioContext) return;
+        if (humVoice) return;
+        const engine = ensureSoundEngine();
         const now = audioContext.currentTime;
-        sweepVoice({ from:150, to:1180, duration:0.22, volume:0.045, type:"sawtooth", when:now, send:0.24 });
-        sweepVoice({ from:90, to:680, duration:0.18, volume:0.018, type:"square", when:now + 0.025, send:0.18, detune:-9 });
+        const carrierA = audioContext.createOscillator();
+        const carrierB = audioContext.createOscillator();
+        const overtone = audioContext.createOscillator();
+        const lfo = audioContext.createOscillator();
+        const noise = audioContext.createBufferSource();
+        const carrierBMix = audioContext.createGain();
+        const overtoneMix = audioContext.createGain();
+        const noiseMix = audioContext.createGain();
+        const filter = audioContext.createBiquadFilter();
+        const tremolo = audioContext.createGain();
+        const lfoDepth = audioContext.createGain();
+        const envelope = audioContext.createGain();
+
+        carrierA.type = "sawtooth";
+        carrierB.type = "sawtooth";
+        overtone.type = "square";
+        carrierA.frequency.setValueAtTime(74, now);
+        carrierA.frequency.exponentialRampToValueAtTime(92, now + 0.16);
+        carrierB.frequency.setValueAtTime(73.4, now);
+        carrierB.frequency.exponentialRampToValueAtTime(91.3, now + 0.18);
+        overtone.frequency.setValueAtTime(184, now);
+        carrierBMix.gain.value = 0.48;
+        overtoneMix.gain.value = 0.14;
+        noise.buffer = engine.noiseBuffer;
+        noise.loop = true;
+        noiseMix.gain.value = 0.032;
+
+        filter.type = "lowpass";
+        filter.Q.value = 2.2;
+        filter.frequency.setValueAtTime(360, now);
+        filter.frequency.exponentialRampToValueAtTime(820, now + 0.18);
+        tremolo.gain.value = 0.78;
+        lfo.type = "sine";
+        lfo.frequency.value = 7.2;
+        lfoDepth.gain.value = 0.18;
+        envelope.gain.setValueAtTime(0.0001, now);
+        envelope.gain.exponentialRampToValueAtTime(0.045, now + 0.16);
+
+        carrierA.connect(filter);
+        carrierB.connect(carrierBMix).connect(filter);
+        overtone.connect(overtoneMix).connect(filter);
+        noise.connect(noiseMix).connect(filter);
+        filter.connect(tremolo);
+        lfo.connect(lfoDepth).connect(tremolo.gain);
+        connectVoice(tremolo, envelope, 0.025);
+        [carrierA, carrierB, overtone, lfo, noise].forEach((node) => node.start(now));
+        humVoice = { envelope, nodes:[carrierA, carrierB, overtone, lfo, noise] };
       };
+
+      const stopHum = () => {
+        if (!humVoice || !audioContext) return;
+        const voice = humVoice;
+        const now = audioContext.currentTime;
+        humVoice = null;
+        voice.envelope.gain.cancelScheduledValues(now);
+        voice.envelope.gain.setValueAtTime(Math.max(0.0001, voice.envelope.gain.value), now);
+        voice.envelope.gain.exponentialRampToValueAtTime(0.0001, now + 0.16);
+        voice.nodes.forEach((node) => node.stop(now + 0.2));
+      };
+
+      const deploySound = () => startHum();
 
       const tickSound = (index) => {
-        if (!soundEnabled || !audioContext || index % 44 !== 0) return;
-        const now = audioContext.currentTime;
-        sweepVoice({ from:1450 + (index % 5) * 70, to:210, duration:0.075, volume:0.025, type:"square", when:now, send:0.2 });
-        sweepVoice({ from:760, to:175, duration:0.06, volume:0.012, type:"triangle", when:now + 0.006, send:0.12, detune:7 });
-        noiseBurst(now, 0.009);
+        if (!soundEnabled || !audioContext || index % 70 !== 0) return;
+        noiseBurst(audioContext.currentTime, 0.004);
       };
 
-      const retractionSound = () => {
-        if (!soundEnabled || !audioContext) return;
-        const now = audioContext.currentTime;
-        sweepVoice({ from:720, to:85, duration:0.2, volume:0.035, type:"sawtooth", when:now, send:0.3 });
-        sweepVoice({ from:1100, to:145, duration:0.15, volume:0.014, type:"triangle", when:now + 0.02, send:0.24, detune:-12 });
-      };
+      const retractionSound = () => stopHum();
 
       const retractArm = () => {
         clearTimeout(armRetractTimer);
@@ -970,6 +1000,16 @@
         arm.style.transform = `rotate(${Math.atan2(deltaY, deltaX)}rad)`;
       };
 
+      const isInWritingBand = (char) => {
+        const rect = char.getBoundingClientRect();
+        const navBottom = nav ? nav.getBoundingClientRect().bottom : 76;
+        const banner = document.querySelector(".essays-banner-bottom");
+        const bannerHeight = banner ? banner.getBoundingClientRect().height : 0;
+        const safeTop = navBottom + 8;
+        const safeBottom = window.innerHeight - bannerHeight - 10;
+        return rect.bottom >= safeTop && rect.top <= safeBottom;
+      };
+
       const runNext = () => {
         if (activeParagraph || !queue.length) return;
         const paragraph = queue.shift();
@@ -981,6 +1021,25 @@
         activeParagraph = paragraph;
         paragraph.classList.add("laser-active");
         const chars = [...paragraph.querySelectorAll(".laser-char")];
+        const writingChars = chars.filter(isInWritingBand);
+
+        /* On narrow screens a single paragraph can span several viewports.
+           Only trace the portion the reader can actually see; the rest is
+           made readable immediately instead of sending the beam off-screen. */
+        if (!writingChars.length) {
+          chars.forEach((char) => char.classList.add("is-etched"));
+          paragraph.classList.remove("laser-active");
+          paragraph.classList.add("laser-done");
+          activeParagraph = null;
+          setStatus(queue.length ? "writing" : "standby", queue.length ? "Secuencia en cola" : "Escritor láser // listo");
+          runNext();
+          return;
+        }
+
+        const writingSet = new Set(writingChars);
+        chars.forEach((char) => {
+          if (!writingSet.has(char)) char.classList.add("is-etched");
+        });
         const cursor = document.createElement("span");
         cursor.className = "laser-cursor";
         cursor.setAttribute("aria-hidden", "true");
@@ -988,29 +1047,13 @@
         setStatus("writing", `Grabando párrafo ${paragraphs.indexOf(paragraph) + 1} / ${paragraphs.length}`);
         deploySound();
 
-        const duration = Math.min(3100, Math.max(1700, chars.length * 3.4));
+        const duration = Math.min(2900, Math.max(1200, writingChars.length * 4.8));
         const started = performance.now();
         const runVersion = sequenceVersion;
         let lastIndex = -1;
 
-        const frame = (now) => {
-          if (runVersion !== sequenceVersion) return;
-          const progress = Math.max(0, Math.min(1, (now - started) / duration));
-          const targetIndex = Math.min(chars.length - 1, Math.floor(progress * chars.length));
-          for (let i = lastIndex + 1; i <= targetIndex; i++) {
-            const char = chars[i];
-            if (!char) continue;
-            char.classList.add("is-etched");
-            tickSound(i);
-          }
-          if (targetIndex >= 0) positionLaser(cursor, chars[targetIndex], paragraph);
-          lastIndex = targetIndex;
-
-          if (progress < 1) {
-            requestAnimationFrame(frame);
-            return;
-          }
-
+        const finishParagraph = () => {
+          chars.forEach((char) => char.classList.add("is-etched"));
           cursor.remove();
           retractionSound();
           retractArm();
@@ -1019,6 +1062,33 @@
           activeParagraph = null;
           setStatus(queue.length ? "writing" : "standby", queue.length ? "Secuencia en cola" : "Escritor láser // listo");
           runNext();
+        };
+
+        const frame = (now) => {
+          if (runVersion !== sequenceVersion) return;
+          const progress = Math.max(0, Math.min(1, (now - started) / duration));
+          const targetIndex = Math.min(writingChars.length - 1, Math.floor(progress * writingChars.length));
+          for (let i = lastIndex + 1; i <= targetIndex; i++) {
+            const char = writingChars[i];
+            if (!char) continue;
+            char.classList.add("is-etched");
+            tickSound(i);
+          }
+          const targetChar = writingChars[targetIndex];
+          if (targetChar && isInWritingBand(targetChar)) {
+            positionLaser(cursor, targetChar, paragraph);
+          } else if (targetChar) {
+            finishParagraph();
+            return;
+          }
+          lastIndex = targetIndex;
+
+          if (progress < 1) {
+            requestAnimationFrame(frame);
+            return;
+          }
+
+          finishParagraph();
         };
         requestAnimationFrame(frame);
       };
@@ -1035,13 +1105,14 @@
           entries.forEach((entry) => {
             if (entry.isIntersecting) enqueue(entry.target);
           });
-        }, { rootMargin: "0px 0px -12%", threshold:0.08 });
+        }, { rootMargin: "0px 0px -42%", threshold:0.01 });
         paragraphs.forEach((paragraph) => observer.observe(paragraph));
       };
 
       const revealAll = () => {
         sequenceVersion++;
         queue.length = 0;
+        stopHum();
         retractArm();
         paragraphs.forEach((paragraph) => {
           paragraph.querySelectorAll(".laser-char").forEach((char) => char.classList.add("is-etched"));
@@ -1056,13 +1127,20 @@
 
       const replay = () => {
         sequenceVersion++;
+        const replayVersion = sequenceVersion;
         queue.length = 0;
+        stopHum();
         retractArm();
+        observer?.disconnect();
         activeParagraph = null;
         paragraphs.forEach(prepareParagraph);
-        setStatus("standby", "Escritor láser // reiniciado");
-        observeParagraphs();
-        paragraphs[0].scrollIntoView({ behavior:"smooth", block:"center" });
+        setStatus("standby", "Escritor láser // calibrando");
+        paragraphs[0].scrollIntoView({ behavior:"auto", block:"center" });
+        requestAnimationFrame(() => {
+          if (replayVersion !== sequenceVersion) return;
+          observeParagraphs();
+          setStatus("standby", "Escritor láser // reiniciado");
+        });
       };
 
       replayBtn.addEventListener("click", replay);
@@ -1070,11 +1148,18 @@
       soundBtn.addEventListener("click", async () => {
         soundEnabled = !soundEnabled;
         soundBtn.setAttribute("aria-pressed", String(soundEnabled));
-        soundBtn.textContent = `Sonido 80s: ${soundEnabled ? "sí" : "no"}`;
+        soundBtn.textContent = `Zumbido: ${soundEnabled ? "sí" : "no"}`;
         if (soundEnabled) {
           ensureSoundEngine();
           await audioContext.resume();
-          deploySound();
+          startHum();
+          if (!activeParagraph) {
+            setTimeout(() => {
+              if (!activeParagraph) stopHum();
+            }, 520);
+          }
+        } else {
+          stopHum();
         }
       });
 
@@ -1082,6 +1167,7 @@
       observeParagraphs();
     })();
   </script>
+  <script src="laser-writer.js"></script>
 
 </body>
 </html>
