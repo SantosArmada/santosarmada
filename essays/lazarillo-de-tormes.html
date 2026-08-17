@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lazarillo de Tormes — Ensayo | Santos Armada</title>
+  <style>
+    @import url('essays-nav-arrows.css');
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    :root{
+      --green:    #00ff88;
+      --black:    #0a0a0a;
+      --white:    #ffffff;
+      --off-white:#e8e8e8;
+      --dim:      #999;
+      --essays-banner-h: 41px;
+    }
+
+    body{
+      background:var(--black);
+      color:var(--white);
+      font-family:'Arial Black', sans-serif;
+      overflow-x:hidden;
+      padding-bottom:var(--essays-banner-h);
+    }
+
+    /* ── NAV ── */
+    nav{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:100;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1.2rem 2.5rem;
+      background:rgba(10,10,10,0.92);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo-img{
+      height:48px;width:auto;display:block;
+      filter:invert(1);
+      transition:filter 0.25s ease, opacity 0.25s ease;
+    }
+    .logo-img:hover{
+      filter:invert(1) sepia(1) saturate(4) hue-rotate(90deg);
+    }
+    .nav-logo{display:flex;align-items:center;}
+
+    .nav-links{
+      display:flex;gap:2rem;list-style:none;align-items:center;
+    }
+    .nav-links a{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.72rem;font-weight:600;
+      letter-spacing:0.12em;text-transform:uppercase;
+      color:var(--off-white);text-decoration:none;
+      transition:color 0.2s;position:relative;
+    }
+    .nav-links a::after{
+      content:'';position:absolute;
+      bottom:-4px;left:0;right:0;height:1px;
+      background:var(--green);transform:scaleX(0);
+      transform-origin:left;transition:transform 0.25s ease;
+    }
+    .nav-links a:hover{color:var(--green);}
+    .nav-links a:hover::after{transform:scaleX(1);}
+    .nav-links a.active{color:var(--green);}
+    .nav-links a.active::after{transform:scaleX(1);}
+
+    .hamburger{
+      display:none;flex-direction:column;gap:5px;
+      cursor:pointer;background:none;border:none;padding:4px;
+    }
+    .hamburger span{
+      display:block;width:24px;height:2px;
+      background:var(--white);transition:all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    .mobile-menu{
+      display:none;position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:var(--black);z-index:99;
+      flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
+    }
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{
+      font-family:'Arial Black', sans-serif;
+      font-size:1.4rem;font-weight:600;
+      letter-spacing:0.15em;text-transform:uppercase;
+      color:var(--white);text-decoration:none;transition:color 0.2s;
+    }
+    .mobile-menu a:hover{color:var(--green);}
+
+    /* ── HERO ── */
+    .work-hero{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:160px 48px 60px;
+      text-align:center;
+      overflow:hidden;
+    }
+
+    .work-eyebrow{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.65rem;font-weight:600;
+      letter-spacing:0.4em;text-transform:uppercase;
+      color:var(--green);margin-bottom:1rem;
+    }
+
+    .work-title{
+      font-family:'Arial Black', sans-serif;
+      font-size:clamp(2.2rem, 6vw, 4.5rem);
+      font-weight:900;letter-spacing:0.03em;
+      text-transform:uppercase;
+      color:var(--white);line-height:1;
+      margin-bottom:1rem;
+    }
+
+    .work-byline{
+      font-family:'Arial Black', sans-serif;
+      font-size:clamp(0.85rem, 1.5vw, 1rem);
+      font-style:italic;
+      color:var(--dim);
+      letter-spacing:0.05em;
+      margin-bottom:1.5rem;
+    }
+
+    .work-divider{
+      width:56px;height:1px;
+      background:var(--green);opacity:0.5;
+      margin:0.5rem auto 2rem;
+    }
+
+    /* ── RELATED LINKS ── */
+    .work-related{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:1rem;
+      margin-top:0.5rem;
+    }
+    .related-link{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.68rem;
+      font-weight:600;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--green);
+      text-decoration:none;
+      border:1px solid var(--green);
+      border-radius:999px;
+      padding:0.7rem 1.4rem;
+      transition:background 0.25s ease, color 0.25s ease;
+      white-space:nowrap;
+    }
+    .related-link:hover{
+      background:var(--green);
+      color:var(--black);
+    }
+
+    /* ── ESSAY BODY ── */
+    .essay-section{
+      border-top:1px solid var(--green);
+      padding:4rem 2rem 2rem;
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    .essay-cover{
+      display:block;
+      width:160px;
+      margin:0 auto 3rem;
+      box-shadow:0 12px 32px rgba(0,0,0,0.6), 0 0 24px rgba(0,255,136,0.12);
+    }
+
+    .essay-title{
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:clamp(1.4rem, 3vw, 1.9rem);
+      font-weight:700;
+      color:var(--green);
+      text-align:center;
+      line-height:1.3;
+      margin-bottom:0.6rem;
+    }
+    .essay-byline{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.7rem;
+      font-weight:600;
+      letter-spacing:0.15em;
+      text-transform:uppercase;
+      color:var(--dim);
+      text-align:center;
+      margin-bottom:3rem;
+    }
+
+    /* ── LASER SCRIBE CONSOLE ──
+       The essay itself is the writing surface. The console gives the reader
+       control without introducing a second, redundant title card. */
+    .laser-console{
+      position:relative;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:0.9rem 1.25rem;
+      align-items:center;
+      margin:0 0 2.6rem;
+      padding:1rem 1.1rem;
+      border:1px solid rgba(0,255,136,0.35);
+      background:
+        linear-gradient(90deg, rgba(0,255,136,0.08), transparent 48%),
+        #070b09;
+      box-shadow:inset 0 0 24px rgba(0,255,136,0.035), 0 0 22px rgba(0,255,136,0.05);
+      overflow:hidden;
+    }
+    .laser-console::before{
+      content:'';
+      position:absolute;inset:0;
+      pointer-events:none;
+      opacity:0.22;
+      background:repeating-linear-gradient(
+        0deg,
+        transparent 0 3px,
+        rgba(0,255,136,0.09) 3px 4px
+      );
+    }
+    .laser-status{
+      position:relative;
+      display:flex;align-items:center;gap:0.65rem;
+      min-width:0;
+      font-family:'Courier New', ui-monospace, monospace;
+      font-size:0.69rem;font-weight:700;
+      letter-spacing:0.16em;text-transform:uppercase;
+      color:rgba(0,255,136,0.78);
+    }
+    .laser-status-light{
+      flex:0 0 auto;
+      width:7px;height:7px;border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 4px var(--green), 0 0 12px var(--green);
+      animation:laserStatusPulse 1.4s steps(2,end) infinite;
+    }
+    .laser-console[data-state="writing"] .laser-status-light{
+      animation-duration:0.32s;
+    }
+    .laser-controls{
+      position:relative;
+      display:flex;flex-wrap:wrap;justify-content:flex-end;gap:0.45rem;
+    }
+    .laser-control{
+      appearance:none;
+      border:1px solid rgba(0,255,136,0.45);
+      border-radius:0;
+      padding:0.52rem 0.66rem;
+      background:rgba(0,0,0,0.68);
+      color:var(--green);
+      font-family:'Arial Black', sans-serif;
+      font-size:0.54rem;font-weight:700;
+      letter-spacing:0.1em;text-transform:uppercase;
+      cursor:pointer;
+      transition:background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .laser-control:hover,
+    .laser-control:focus-visible,
+    .laser-control[aria-pressed="true"]{
+      outline:none;
+      background:var(--green);color:var(--black);
+      box-shadow:0 0 14px rgba(0,255,136,0.32);
+    }
+    @keyframes laserStatusPulse{ 50%{ opacity:0.25; } }
+
+    .essay-body{
+      font-family:'Courier New', ui-monospace, monospace;
+      font-size:0.95rem;
+      line-height:1.85;
+      letter-spacing:0.01em;
+      color:var(--green);
+    }
+    .essay-body p{
+      position:relative;
+      margin-bottom:1.4rem;
+      text-indent:2em;
+      cursor:default;
+    }
+    .essay-body p:first-of-type{
+      text-indent:0;
+    }
+    .essay-body p.as{
+      user-select:none;
+    }
+    .essay-body p.as::selection{
+      background:transparent;
+    }
+    .laser-char{
+      opacity:0.28;
+      color:rgba(0,255,136,0.72);
+      text-shadow:none;
+    }
+    .laser-char.is-etched{
+      opacity:1;
+      color:inherit;
+      text-shadow:0 0 6px rgba(0,255,136,0.26);
+    }
+    .laser-cursor{
+      position:absolute;
+      left:0;top:0;
+      z-index:4;
+      width:7px;height:7px;
+      margin:-2px 0 0 -2px;
+      border-radius:50%;
+      background:#fff;
+      box-shadow:
+        0 0 3px #fff,
+        0 0 8px var(--green),
+        0 0 20px var(--green),
+        0 0 34px rgba(0,255,136,0.7);
+      pointer-events:none;
+      will-change:transform;
+    }
+    .laser-cursor::before{
+      content:'';
+      position:absolute;
+      right:3px;top:2px;
+      width:clamp(72px, 15vw, 124px);height:2px;
+      transform:rotate(-18deg);
+      transform-origin:right center;
+      background:linear-gradient(90deg, transparent, rgba(0,255,136,0.35) 30%, #fff);
+      box-shadow:0 0 5px var(--green);
+    }
+    .laser-cursor::after{
+      content:'';
+      position:absolute;inset:-9px;
+      border:1px solid rgba(0,255,136,0.34);
+      border-radius:50%;
+      animation:laserSparks 0.38s steps(2,end) infinite;
+    }
+    @keyframes laserSparks{
+      50%{ transform:scale(1.45);opacity:0; }
+    }
+    .essay-placeholder{
+      font-family:Georgia, 'Times New Roman', serif;
+      font-style:italic;
+      color:rgba(255,255,255,0.4);
+      border-left:2px dashed rgba(0,255,136,0.35);
+      padding:1rem 0 1rem 1.5rem;
+      line-height:1.8;
+    }
+
+    .works-cited-label{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.6rem;
+      letter-spacing:0.4em;
+      text-transform:uppercase;
+      color:var(--green);
+      margin:3rem 0 1rem;
+    }
+    .works-cited{
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:0.95rem;
+      line-height:1.8;
+      color:rgba(255,255,255,0.55);
+      padding-left:2em;
+      text-indent:-2em;
+      margin-bottom:1.2rem;
+    }
+    .works-cited:last-child{
+      margin-bottom:0;
+    }
+    .essay-body em, .works-cited em{
+      font-style:italic;
+    }
+
+    /* ── FOOTER ── */
+    footer{
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:3rem 2.5rem;
+      display:flex;align-items:center;
+      justify-content:space-between;flex-wrap:wrap;gap:1rem;
+    }
+
+    /* ── MAYA BANNER (green, bottom only) ──
+       Fixed frieze strip pinned to the very bottom of the viewport,
+       below everything, never scrolls away. No top banner. */
+    .essays-banner-bottom{
+      position:fixed;
+      left:0;bottom:0;
+      width:100%;
+      height:var(--essays-banner-h);
+      z-index:200;
+      overflow:hidden;
+      background:#000;
+    }
+    .essays-banner-image{
+      width:100%;height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    @media(max-width:768px){
+      :root{ --essays-banner-h: 27px; }
+    }
+
+    .footer-logo{ display:flex;align-items:center; }
+    .footer-logo-img{ height:56px; }
+    .footer-copy{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.85rem;color:var(--dim);font-style:italic;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .nav-links{ display:none; }
+      .hamburger{ display:flex; }
+      nav{ padding:1rem 1.5rem; }
+      .work-hero{ padding:120px 24px 40px; }
+      .essay-section{ padding:3rem 1.5rem 2rem; }
+      .essay-body{ font-size:1rem; line-height:1.85; }
+      .laser-console{ grid-template-columns:1fr; }
+      .laser-controls{ justify-content:flex-start; }
+      footer{ padding:2rem 1.5rem; }
+    }
+    @media(prefers-reduced-motion:reduce){
+      .laser-console{ display:none; }
+      .laser-char{ opacity:1;color:inherit;text-shadow:none; }
+      .laser-cursor{ display:none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      <img src="../Images/SA-MAIN-LOGO.jpg" alt="Santos Armada" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="../authors.html">Authors</a></li>
+      <li><a href="../essays.html">Essays</a></li>
+      <li><a href="../globe.html">Space &amp; Time</a></li>
+      <li><a href="../audiolibros.html">Audiolibros</a></li>
+      <li><a href="../interpreter-z.html">Interpreter Z</a></li>
+      <li><a href="../cv.html">CV</a></li>
+      <li><a href="../about.html">About</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../authors.html">Authors</a>
+    <a href="../essays.html">Essays</a>
+    <a href="../globe.html">Space &amp; Time</a>
+    <a href="../audiolibros.html">Audiolibros</a>
+    <a href="../interpreter-z.html">Interpreter Z</a>
+    <a href="../cv.html">CV</a>
+    <a href="../about.html">About</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="work-hero">
+    <p class="work-eyebrow">Colonial · Evangelización</p>
+    <h1 class="work-title">Lazarillo de Tormes</h1>
+    <p class="work-byline">Anónimo · 1554</p>
+    <div class="era-page-nav" role="navigation" aria-label="Navegación">
+      <a href="colonial-evangelizacion.html" class="era-nav-arrow era-nav-prev" aria-label="Volver a Evangelización">
+        <svg width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(8.500000, 8.500000) scale(-1, 1) translate(-8.500000, -8.500000)">
+            <polygon class="arrow" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+            <polygon class="arrow-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+            <path d="M-1.48029737e-15,0.56157424 L-1.48029737e-15,16.1929159 L9.708,8.33860465 L-2.66453526e-15,0.56157424 L-1.48029737e-15,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path>
+          </g>
+        </svg>
+      </a>
+    </div>
+    <div class="work-divider"></div>
+    <div class="work-related">
+      <a href="../Audiolibros/titulos/ola-2-slug.html" class="related-link">Escuchar el Audiolibro →</a>
+      <a href="../book-reviews.html" class="related-link">Ver la Reseña →</a>
+    </div>
+  </section>
+
+  <!-- ESSAY -->
+  <section class="essay-section">
+    <img src="../book_covers/lazarillo.webp" alt="Lazarillo de Tormes" class="essay-cover">
+
+    <h2 class="essay-title">El simbolismo del agua en <em>Lazarillo de Tormes</em>: supervivencia, renovación y resignación del protagonista</h2>
+    <p class="essay-byline">Por Christian Ricardo Santos</p>
+
+    <div class="laser-console" id="laserConsole" data-state="standby" aria-label="Controles del escritor láser">
+      <p class="laser-status" aria-live="polite">
+        <span class="laser-status-light" aria-hidden="true"></span>
+        <span id="laserStatusText">Escritor láser // listo</span>
+      </p>
+      <div class="laser-controls">
+        <button class="laser-control" type="button" id="laserReplay">Reiniciar</button>
+        <button class="laser-control" type="button" id="laserReveal">Texto completo</button>
+        <button class="laser-control" type="button" id="laserSound" aria-pressed="false">Sonido: no</button>
+      </div>
+    </div>
+
+    <div class="essay-body">
+      <p>A lo largo de la historia de la literatura, el agua ha sido símbolo de vida, limpieza, transformación y, en muchos casos, también de lucha. En la novela anónima <em>Lazarillo de Tormes</em>, el agua no es solo un elemento del entorno, sino un símbolo que acompaña al protagonista desde su nacimiento hasta su aceptación final de una vida marginal. Este símbolo va evolucionando con el personaje, reflejando sus cambios físicos, emocionales y sociales. Desde el río Tormes, donde nace, las lluvias que lo mojan durante sus momentos de sufrimiento, a cuando lo encontramos compartiendo jarros de agua con su amo el escudero y hasta su trabajo como aguador, el agua aparece en momentos clave como marca de transición y de supervivencia.</p>
+
+      <p>Al inicio, el agua del río Tormes representa una fuente de vida, como se muestra en el nacimiento de Lázaro. El agua es un símbolo que desde el primer momento une su identidad con lo natural, lo cambiante y lo incierto. Luego, en el primer tratado, el símbolo se transforma cuando el ciego lo hace golpearse contra un pilar al intentar cruzar un arroyo. Allí, el agua del arroyo simboliza los obstáculos que debe superar para sobrevivir porque igual como el arroyo está a su lado físicamente, estarán desafíos provocados por la sociedad junto a la corriente que es su vida, y la lluvia que cae en esa escena actúa como una forma de purificación tras la pérdida de su inocencia. Más adelante, en el tercer tratado, cuando Lázaro por fin come y duerme con su amo el escudero, dice: “Bebimos (agua), y muy contentos nos fuimos a dormir, como la noche pasada” (78). Esta escena, aparentemente sencilla, refleja el valor del agua como símbolo de alivio temporal y consuelo, en medio del hambre y la pobreza. En el transcurso de la obra, cuando Lázaro se convierte en aguador, el agua vuelve a aparecer, pero esta vez como herramienta de trabajo. Ya no representa solo renovación, sino también resignación silenciosa, porque, aunque logra algo de estabilidad económica, su posición social no cambia mucho. Así, el agua en <em>Lazarillo de Tormes</em> está profundamente ligada a los tres árboles centrales de su vida: la supervivencia, la renovación, y la resignación, elementos que reflejan la dureza de la vida para un niño pobre en una sociedad rígida y desigual. A través del uso de este símbolo acuático, el autor anónimo construye un retrato realista pero simbólicamente poderoso de la condición humana bajo presión social y económica.</p>
+
+      <p>El nacimiento de Lázaro en el río Tormes no solo marca el inicio literal de su vida en desventaja social, sino que también tiene un profundo valor simbólico que define toda la obra. Como él mismo narra en la página 37: “Mi nacimiento fue dentro del río Tormes, por lo cual causa tomé el sobrenombre”, y entonces lo que muestra aquí es que su identidad está ligada a un elemento natural y cambiante: el río. Esta fuente de vida, que ha colocado al protagonista dentro la obra, es un componente de muchas alusiones acuáticas y para comenzar la novela picaresca representa la inestabilidad y fluidez que seguirá con Lázaro. Al igual que las aguas que nunca permanecen quietas, la vida de este estará marcada por el cambio constante. Por ejemplo, comenzando con el cambio de padre. En el primer tratado indica el autor anónimo que el padre de Lázaro, Tomé González, fue acusado y castigado de robo y muere en una batalla. El primer cambio monumental que experimenta el mozo es de perder su padre y obtener padrastro. En esta primera novela picaresca de la literatura española vemos para el protagonista cambio de amos, de lugares, y de estrategias de supervivencia. Además, como señala Souad R., otro componente es que el autor “se borró voluntariamente” para darle toda la fuerza al personaje-narrador quien con su voz en primera persona parece tener una vida propia, separada de la tradición literaria (275). Este uso del “yo” narrativo refuerza la credibilidad del relato y convierte al río no solo en símbolo de nacimiento físico, sino también en el origen de una voz narrativa que fluye con naturalidad entre lo real y lo engañoso.</p>
+
+      <p>El episodio del ciego y el arroyo es uno de los más importantes del primer tratado porque muestra el momento en que Lázaro, aún un mozo, empieza a aprender de sobrevivir con astucia en un mundo lleno de retos. En la escena, el ciego le dice al mozo que salte sobre un arroyo, pero en realidad lo hace que se golpe contra un pilar, parecido a un toro. Estos actos de maltrato y humillación hacen que se borre la inocencia infantil de Lázaro y despierta la astucia. Se puede decir que “nace de nuevo” como pícaro, porque aprende que en la vida no puede ser ingenuo. El agua del arroyo representa las pruebas y obstáculos que tiene que enfrentar para adaptarse. Además, la lluvia que cae durante la escena puede entenderse como un tipo de purificación porque es como si el sufrimiento se lavara y empezara una nueva etapa en la vida de Lázaro. Sin embargo, también se puede razonar como renovación para el protagonista que ha perdido su inocencia y ahora quiere vengarse de los malhechos que experimentó con el ciego utilizando su picardía para engañar a su primer amo y dejarlo medio muerto sin importancia. Según Julia Domínguez, este episodio ocurre en un espacio muy legible y nítido, con detalles claros que permiten al lector crear una imagen mental fuerte, como el toro de piedra, el puente y el golpe. Por eso, se siente como un momento muy real y formativo. Por último, este episodio muestra el dolor y crecimiento del aprendizaje que al mismo tiempo va fluyendo como el arroyo a lado de la escena.</p>
+
+      <p>Cuando Lázaro se convierte en aguador en el sexto tratado, empieza a cambiar su situación económica, pero no su posición social. Dice: “asenté con un capellán, el cual me puso en poder un buen asno y cuatro cántaros, y un azote, y comencé a echar agua por la ciudad”, mostrando que tiene un oficio fijo por primera vez (101). Este oficio representa una forma de purificación simbólica, no solo porque reparte agua, sino porque inicia un cambio en su vida, con más control y menos sufrimiento. Como explica Domínguez, Lázaro no describe en absoluto sus recorridos como aguador, a diferencia de los tratados anteriores, especialmente el tercero, donde narra con detalle sus experiencias con el escudero. Domínguez escribe que este momento se presenta solo como “el primer escalón que yo subí para venir a alcanzar buena vida”, es decir, como un paso practico hacia una vida más cómoda, pero sin emoción ni conexión con los espacios que recorre (275). Asimismo, lo que señala Souad R., cuando declara que, aunque el tono sigue siendo ligero, la vida de Lázaro es profundamente triste, porque su único logro es adaptarse a una sociedad injusta que no cambia (272). Su silencio sobre estos años revela que esta renovación que ha encontrado el protagonista se ha convertido en resignación, como si no importara ya contar lo que vivió, siempre y cuando pueda decir que ha “progresado”. El símbolo del agua ha sido parte de todo esto proceso, pero ahora ha alcanzado otra etapa en la mente de Lázaro. Finalmente, su renovación, entonces, no lo libera, sino que lo prepara para aceptar su lugar con silencio, usando el agua no como símbolo de esperanza, sino como herramienta de adaptación.</p>
+
+      <p>El recorrido de Lázaro a través de los tratados puede entenderse como su propia corriente de agua que fluye entra las varias luchas que experimenta, la transformación y, finalmente, la resignación. Comenzando en su nacimiento en el río Tormes, el agua lo acompaña como símbolo de su origen humilde y su constante desplazamiento. Aquel niño que comienza la historia siendo un “muerto de hambre” que aprende a sobrevivir en un mundo cruel, primero como víctima ingenua, luego como astuto pícaro. En el episodio del arroyo con el ciego, el agua representa el dolor que purifica y despierta la inteligencia. Después, como aguador, el agua parece ser signo de renovación, pero pronto revela otra verdad. El protagonista ha dejado de luchar y ha aceptado su lugar en una sociedad que nunca le ofrecerá verdadera dignidad y honra. La falta de emoción al narrar esta etapa, como analiza Julia Domínguez, muestra cómo su adaptación viene acompañada de silencio y desconexión. A fin de cuentas, el símbolo del agua atraviesa todas las etapas del personaje. Primero esperanza, luego resistencia, y finalmente aceptación. El autor anónimo logra con este recurso pintar un retrato social donde los pobres como Lázaro no escapan del río de la desigualdad, solo aprenden a flotar en él sin hundirse más.</p>
+    </div>
+
+    <p class="works-cited-label">Obra Citada</p>
+    <p class="works-cited">Domínguez, Julia. “Espacios legibles en <em>La vida del Lazarillo de Tormes</em>: valoración del mapa mental en la psicología cognitiva del pícaro”. <em>Revista de estudios hispánicos</em> (University, Ala.), vol. 45, no 2, 2011, pp. 259-284.</p>
+    <p class="works-cited">Lazarillo de Tormes. Edición de Francisco Rico, Cátedra, 2011.</p>
+    <p class="works-cited">Ragala, Souad. “Tradición literaria y realismo en <em>Lazarillo de Tormes</em>.” <em>Estudios Humanísticos. Filología</em>, no. 21, 1999, pp. 271–84, https://doi.org/10.18002/ehf.v0i21.4010.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="../index.html" class="footer-logo">
+      <img src="../Images/SA-MAIN-LOGO.jpg" alt="Santos Armada" class="logo-img footer-logo-img">
+    </a>
+    <p class="footer-copy">Una armada de conocimientos escritos</p>
+  </footer>
+
+  <!-- BANNER: green Maya frieze, fixed to the very bottom of the
+       viewport, sits below everything and never scrolls away. No top
+       banner on this page. -->
+  <section class="essays-banner-bottom">
+    <img src="../Images/maya-banner-green.jpg" alt="Maya glyph frieze" class="essays-banner-image">
+  </section>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  </script>
+
+  <!-- ASCII Glitch hover effect, adapted from Bastien Cornier's research
+       (bastiencornier.com) for the essay body text. The original traveling-
+       wave algorithm spawned a new ripple on every mousemove and mapped
+       cursor X across the whole flattened string, which reads fine for a
+       one-line link label but looked chaotic across a wrapped paragraph —
+       overlapping waves, and the "distance" math didn't know which visual
+       line the cursor was actually over. Replaced with a fixed ~2-line
+       window centered on the character truly under the cursor (via
+       caretRangeFromPoint/caretPositionFromPoint, real 2D hit-testing, not
+       X-only math): that window flickers steadily while hovering, every
+       other character stays untouched, and it stops the instant the mouse
+       leaves — restoring the paragraph's real innerHTML so nested italics
+       survive. -->
+  <script>
+    const measureCharsPerLine = (el) => {
+      const probe = document.createElement("span");
+      probe.textContent = "MMMMMMMMMM";
+      probe.style.visibility = "hidden";
+      probe.style.position = "absolute";
+      probe.style.whiteSpace = "pre";
+      const cs = getComputedStyle(el);
+      probe.style.fontFamily = cs.fontFamily;
+      probe.style.fontSize = cs.fontSize;
+      probe.style.fontWeight = cs.fontWeight;
+      probe.style.fontStyle = cs.fontStyle;
+      probe.style.letterSpacing = cs.letterSpacing;
+      el.appendChild(probe);
+      const charW = (probe.getBoundingClientRect().width || 80) / 10;
+      el.removeChild(probe);
+      return Math.max(1, Math.floor(el.clientWidth / charW));
+    };
+
+    const createASCIIShift = (el, opts = {}) => {
+      const origHTML = el.innerHTML;
+      const origTxt = el.textContent;
+      const origChars = origTxt.split("");
+      let isAnim = false;
+      let isHover = false;
+      let centerIdx = 0;
+      let animId = null;
+
+      // ~1 line of chars each side of the cursor => ~2 lines glitchy total.
+      const zoneRadius = measureCharsPerLine(el);
+
+      const cfg = {
+        chars: '.,·-─~+:;=*π""┐┌┘┴┬╗╔╝╚╬╠╣╩╦║░▒▓█▄▀▌▐■!?&#$@0123456789*',
+        preserveSpaces: true,
+        refreshMs: 90,
+        density: 0.45,
+        ...opts
+      };
+
+      // Real 2D hit-test: which flat character index sits under (x, y).
+      const findCharIndexAtPoint = (x, y) => {
+        let container = null;
+        let offset = 0;
+
+        if (document.caretRangeFromPoint) {
+          const range = document.caretRangeFromPoint(x, y);
+          if (!range) return null;
+          container = range.startContainer;
+          offset = range.startOffset;
+        } else if (document.caretPositionFromPoint) {
+          const pos = document.caretPositionFromPoint(x, y);
+          if (!pos) return null;
+          container = pos.offsetNode;
+          offset = pos.offset;
+        } else {
+          return null;
+        }
+
+        if (!el.contains(container)) return null;
+
+        let idx = 0;
+        const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+        let node;
+        while ((node = walker.nextNode())) {
+          if (node === container) return idx + offset;
+          idx += node.textContent.length;
+        }
+        return null;
+      };
+
+      const updateCenter = (e) => {
+        const idx = findCharIndexAtPoint(e.clientX, e.clientY);
+        if (idx !== null) {
+          centerIdx = Math.max(0, Math.min(idx, origChars.length - 1));
+        }
+      };
+
+      const genGlitchedTxt = (t) => {
+        const lo = Math.max(0, centerIdx - zoneRadius);
+        const hi = Math.min(origChars.length - 1, centerIdx + zoneRadius);
+        const step = Math.floor(t / cfg.refreshMs);
+
+        return origChars
+          .map((char, i) => {
+            if (cfg.preserveSpaces && char === " ") return " ";
+            if (i < lo || i > hi) return char;
+            const seed = (i * 2654435761 + step * 40503) >>> 0;
+            if (seed % 1000 / 1000 > cfg.density) return char;
+            return cfg.chars[seed % cfg.chars.length];
+          })
+          .join("");
+      };
+
+      const stop = () => {
+        if (animId) cancelAnimationFrame(animId);
+        animId = null;
+        el.innerHTML = origHTML;
+        el.classList.remove("as");
+        isAnim = false;
+      };
+
+      const loop = () => {
+        if (!isHover) { stop(); return; }
+        el.textContent = genGlitchedTxt(Date.now());
+        animId = requestAnimationFrame(loop);
+      };
+
+      const start = () => {
+        if (isAnim) return;
+        isAnim = true;
+        el.classList.add("as");
+        animId = requestAnimationFrame(loop);
+      };
+
+      const handleEnter = (e) => {
+        if (!el.classList.contains("laser-done")) return;
+        isHover = true;
+        updateCenter(e);
+        start();
+      };
+      const handleMove = (e) => {
+        if (!isHover) return;
+        updateCenter(e);
+      };
+      const handleLeave = () => {
+        isHover = false;
+      };
+
+      el.addEventListener("mouseenter", handleEnter);
+      el.addEventListener("mousemove", handleMove);
+      el.addEventListener("mouseleave", handleLeave);
+
+      return {
+        destroy: () => {
+          isHover = false;
+          stop();
+          el.removeEventListener("mouseenter", handleEnter);
+          el.removeEventListener("mousemove", handleMove);
+          el.removeEventListener("mouseleave", handleLeave);
+        }
+      };
+    };
+
+    document.querySelectorAll(".essay-body p").forEach((p) => {
+      if (p.textContent.trim()) createASCIIShift(p);
+    });
+  </script>
+
+  <!-- Laser Writer intro, by Johan Karlsson (DonKarlssonSan) — recolored
+       from the original demo's plain green to this site's --green
+       (#00ff88), and set to write the essay's title once on page load
+       instead of the demo's "Sweet!" placeholder. Algorithm unchanged. -->
+  <script type="text/plain" id="legacyLaserWriter">
+    class LWParticle {
+      constructor (x, y, size) {
+        this.speed = 0.6;
+        this.x = x;
+        this.y = y;
+        this.vx = (Math.random() - 0.5) * this.speed;
+        this.vy = (Math.random() - 0.5) * this.speed;
+        this.opacity = 1;
+        this.size = size;
+      }
+      draw (context) {
+        this.opacity -= this.speed / 200;
+        context.fillStyle = this.color();
+        context.fillRect(this.x, this.y, this.size, this.size);
+      }
+      move () {
+        this.x += this.vx;
+        this.y += this.vy + (1 - this.opacity) * this.speed;
+      }
+      color() {
+        return "rgba(0, 255, 136, " + this.opacity + ")";
+      }
+    }
+
+    class LWLaser {
+      constructor (x, y) {
+        this.x = x;
+        this.y = y;
+        this.steps = [];
+        this.particles = [];
+      }
+      drawTo(x, y, ctx) {
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(x, y);
+        ctx.stroke();
+        ctx.fillStyle = "red";
+        ctx.fillRect(x, y, 5, 5);
+      }
+      drawEnd(ctx) {
+        var p = this.steps.shift();
+        if (p !== undefined) {
+          this.drawTo(p[0], p[1], ctx);
+        } else {
+          var index = this.particles.length;
+          while (index--) {
+            var p = this.particles[index];
+            p.move();
+            if (p.opacity < 0 || p.x < 0 ||
+                p.x > this.w || p.y < 0 || p.y > this.h) {
+              this.particles.splice(index, 1);
+            } else {
+              p.draw(ctx);
+            }
+          }
+        }
+      }
+      endFrom(x0, y0) {
+        var nrOfSteps = 800;
+        var i = nrOfSteps;
+        while (i--) {
+          var x = this.x + i * (x0 - this.x) / nrOfSteps + Math.cos(i / 10) * i / 4;
+          var y = this.y + i * (y0 - this.y) / nrOfSteps + Math.sin(i / 10) * i / 4;
+          this.steps.push([x, y]);
+          if (i < 100) {
+            this.particles.push(new LWParticle(this.x, this.y, 2));
+          }
+        }
+      }
+    }
+
+    class LaserWriter {
+      constructor (canvasId, canvas2Id) {
+        var canvas = document.getElementById(canvasId);
+        var canvas2 = document.getElementById(canvas2Id);
+        this.ctx = canvas.getContext("2d");
+        this.ctx2 = canvas2.getContext("2d");
+        this.w = canvas.width = canvas2.width = 900;
+        this.h = canvas.height = canvas2.height = 500;
+        this.tick = 0;
+        this.pointsIndex = 0;
+        this.points = [];
+        this.particles = [];
+        this.size = 3;
+        this.startX = 0;
+        this.laserStart = { x: 300, y: 50 };
+        this.x = 0;
+        this.y = 0;
+      }
+      init (text, size) {
+        this.ctx.font = size + "px serif";
+        this.startX = (this.w - this.ctx.measureText(text).width * 3) * 0.5;
+        this.ctx.fillText(text, 1, 100);
+        var width = 500;
+        var height = 300;
+        var image = this.ctx.getImageData(0, 0, width, height);
+        var buffer32 = new Uint32Array(image.data.buffer);
+        for (var x = 0; x < width; x++) {
+          for (var y = 0; y < height; y++) {
+            if (buffer32[y * width + x]) {
+              this.points.push([x, y]);
+            }
+          }
+        }
+        this.ctx.clearRect(0, 0, this.w, this.h);
+        this.ctx.fillStyle = "rgba(0, 160, 86, 0.34)";
+        this.ctx2.strokeStyle = "rgba(0, 255, 136, 1)";
+        this.ctx2.lineCap = "round";
+        this.ctx2.lineWidth = 4;
+        this.laser = new LWLaser(this.laserStart.x, this.laserStart.y);
+      }
+      draw () {
+        this.ctx2.clearRect(0, 0, this.w, this.h);
+        if (this.pointsIndex < this.points.length) {
+          var p = this.points[this.pointsIndex];
+          this.x = p[0] * this.size + this.startX;
+          this.y = p[1] * this.size + 80;
+          this.drawPointAt(this.x, this.y);
+          this.laser.drawTo(this.x, this.y, this.ctx2);
+          if (this.tick % 2 === 0) {
+            var particle = new LWParticle(this.x, this.y, this.size);
+            this.particles.push(particle);
+          }
+        } else if (this.pointsIndex === this.points.length) {
+          this.laser.endFrom(this.x, this.y);
+        } else {
+          this.laser.drawEnd(this.ctx2);
+        }
+        this.drawParticles();
+        this.pointsIndex++;
+        this.tick++;
+        if (this.pointsIndex < this.points.length + 10000) {
+          if (this.tick % 3 === 0) {
+            requestAnimationFrame(() => this.draw());
+          } else {
+            this.draw();
+          }
+        }
+      }
+      drawPointAt(x, y) {
+        this.ctx.beginPath();
+        this.ctx.arc(x, y, this.size * 2, 0, Math.PI * 2, false);
+        this.ctx.fill();
+      }
+      drawParticles() {
+        var index = this.particles.length;
+        while (index--) {
+          var p = this.particles[index];
+          p.move();
+          if (p.opacity < 0 || p.x < 0 ||
+              p.x > this.w || p.y < 0 || p.y > this.h) {
+            this.particles.splice(index, 1);
+          } else {
+            p.draw(this.ctx2);
+          }
+        }
+      }
+    }
+
+    if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      var laserWriter = new LaserWriter("laserCanvas", "laserCanvas2");
+      laserWriter.init("Lazarillo de Tormes", 34);
+      laserWriter.draw();
+    }
+  </script>
+
+  <!-- The 1980s-style laser now etches the real essay text as each paragraph
+       enters the reading area. Text remains semantic, selectable and visible
+       without JavaScript; sound is strictly opt-in. -->
+  <script>
+    (() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const body = document.querySelector(".essay-body");
+      const paragraphs = [...body.querySelectorAll("p")];
+      const consoleEl = document.getElementById("laserConsole");
+      const statusEl = document.getElementById("laserStatusText");
+      const replayBtn = document.getElementById("laserReplay");
+      const revealBtn = document.getElementById("laserReveal");
+      const soundBtn = document.getElementById("laserSound");
+      const queue = [];
+      let activeParagraph = null;
+      let audioContext = null;
+      let soundEnabled = false;
+      let observer = null;
+      let sequenceVersion = 0;
+
+      const setStatus = (state, message) => {
+        consoleEl.dataset.state = state;
+        statusEl.textContent = message;
+      };
+
+      const wrapCharacters = (paragraph) => {
+        if (paragraph.querySelector(".laser-char")) return;
+        const nodes = [];
+        const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT);
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+
+        nodes.forEach((node) => {
+          const fragment = document.createDocumentFragment();
+          [...node.textContent].forEach((character) => {
+            const span = document.createElement("span");
+            span.className = "laser-char";
+            span.textContent = character;
+            fragment.appendChild(span);
+          });
+          node.replaceWith(fragment);
+        });
+      };
+
+      const prepareParagraph = (paragraph) => {
+        paragraph.querySelector(".laser-cursor")?.remove();
+        paragraph.classList.remove("laser-done", "laser-active");
+        wrapCharacters(paragraph);
+        paragraph.querySelectorAll(".laser-char").forEach((char) => {
+          char.classList.remove("is-etched");
+        });
+      };
+
+      const tickSound = (index) => {
+        if (!soundEnabled || !audioContext || index % 28 !== 0) return;
+        const now = audioContext.currentTime;
+        const oscillator = audioContext.createOscillator();
+        const gain = audioContext.createGain();
+        oscillator.type = index % 56 ? "square" : "sawtooth";
+        oscillator.frequency.setValueAtTime(720 + (index % 9) * 32, now);
+        oscillator.frequency.exponentialRampToValueAtTime(260, now + 0.035);
+        gain.gain.setValueAtTime(0.024, now);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
+        oscillator.connect(gain).connect(audioContext.destination);
+        oscillator.start(now);
+        oscillator.stop(now + 0.045);
+      };
+
+      const positionCursor = (cursor, char, paragraph) => {
+        const charRect = char.getBoundingClientRect();
+        const paragraphRect = paragraph.getBoundingClientRect();
+        cursor.style.transform = `translate(${charRect.left - paragraphRect.left + charRect.width}px, ${charRect.top - paragraphRect.top + charRect.height * 0.72}px)`;
+      };
+
+      const runNext = () => {
+        if (activeParagraph || !queue.length) return;
+        const paragraph = queue.shift();
+        if (paragraph.classList.contains("laser-done")) {
+          runNext();
+          return;
+        }
+
+        activeParagraph = paragraph;
+        paragraph.classList.add("laser-active");
+        const chars = [...paragraph.querySelectorAll(".laser-char")];
+        const cursor = document.createElement("span");
+        cursor.className = "laser-cursor";
+        cursor.setAttribute("aria-hidden", "true");
+        paragraph.appendChild(cursor);
+        setStatus("writing", `Grabando párrafo ${paragraphs.indexOf(paragraph) + 1} / ${paragraphs.length}`);
+
+        const duration = Math.min(3100, Math.max(1700, chars.length * 3.4));
+        const started = performance.now();
+        const runVersion = sequenceVersion;
+        let lastIndex = -1;
+
+        const frame = (now) => {
+          if (runVersion !== sequenceVersion) return;
+          const progress = Math.max(0, Math.min(1, (now - started) / duration));
+          const targetIndex = Math.min(chars.length - 1, Math.floor(progress * chars.length));
+          for (let i = lastIndex + 1; i <= targetIndex; i++) {
+            const char = chars[i];
+            if (!char) continue;
+            char.classList.add("is-etched");
+            tickSound(i);
+          }
+          if (targetIndex >= 0) positionCursor(cursor, chars[targetIndex], paragraph);
+          lastIndex = targetIndex;
+
+          if (progress < 1) {
+            requestAnimationFrame(frame);
+            return;
+          }
+
+          cursor.remove();
+          paragraph.classList.remove("laser-active");
+          paragraph.classList.add("laser-done");
+          activeParagraph = null;
+          setStatus(queue.length ? "writing" : "standby", queue.length ? "Secuencia en cola" : "Escritor láser // listo");
+          runNext();
+        };
+        requestAnimationFrame(frame);
+      };
+
+      const enqueue = (paragraph) => {
+        if (paragraph.classList.contains("laser-done") || paragraph === activeParagraph || queue.includes(paragraph)) return;
+        queue.push(paragraph);
+        runNext();
+      };
+
+      const observeParagraphs = () => {
+        observer?.disconnect();
+        observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) enqueue(entry.target);
+          });
+        }, { rootMargin: "0px 0px -12%", threshold:0.08 });
+        paragraphs.forEach((paragraph) => observer.observe(paragraph));
+      };
+
+      const revealAll = () => {
+        sequenceVersion++;
+        queue.length = 0;
+        paragraphs.forEach((paragraph) => {
+          paragraph.querySelectorAll(".laser-char").forEach((char) => char.classList.add("is-etched"));
+          paragraph.querySelector(".laser-cursor")?.remove();
+          paragraph.classList.remove("laser-active");
+          paragraph.classList.add("laser-done");
+        });
+        activeParagraph = null;
+        observer?.disconnect();
+        setStatus("standby", "Transmisión completa");
+      };
+
+      const replay = () => {
+        sequenceVersion++;
+        queue.length = 0;
+        activeParagraph = null;
+        paragraphs.forEach(prepareParagraph);
+        setStatus("standby", "Escritor láser // reiniciado");
+        observeParagraphs();
+        paragraphs[0].scrollIntoView({ behavior:"smooth", block:"center" });
+      };
+
+      replayBtn.addEventListener("click", replay);
+      revealBtn.addEventListener("click", revealAll);
+      soundBtn.addEventListener("click", async () => {
+        soundEnabled = !soundEnabled;
+        soundBtn.setAttribute("aria-pressed", String(soundEnabled));
+        soundBtn.textContent = `Sonido: ${soundEnabled ? "sí" : "no"}`;
+        if (soundEnabled) {
+          audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+          await audioContext.resume();
+        }
+      });
+
+      paragraphs.forEach(prepareParagraph);
+      observeParagraphs();
+    })();
+  </script>
+
+</body>
+</html>
