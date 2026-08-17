@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pensativa — Ensayo | Santos Armada</title>
+  <style>
+    @import url('essays-nav-arrows.css');
+    *{margin:0;padding:0;box-sizing:border-box;}
+
+    :root{
+      --green:    #00ff88;
+      --black:    #0a0a0a;
+      --white:    #ffffff;
+      --off-white:#e8e8e8;
+      --dim:      #999;
+      --essays-banner-h: 41px;
+    }
+
+    body{
+      background:var(--black);
+      color:var(--white);
+      font-family:'Arial Black', sans-serif;
+      overflow-x:hidden;
+      padding-bottom:var(--essays-banner-h);
+    }
+
+    /* ── NAV ── */
+    nav{
+      position:fixed;
+      top:0;left:0;right:0;
+      z-index:100;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:1.2rem 2.5rem;
+      background:rgba(10,10,10,0.92);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo-img{
+      height:48px;width:auto;display:block;
+      filter:invert(1);
+      transition:filter 0.25s ease, opacity 0.25s ease;
+    }
+    .logo-img:hover{
+      filter:invert(1) sepia(1) saturate(4) hue-rotate(90deg);
+    }
+    .nav-logo{display:flex;align-items:center;}
+
+    .nav-links{
+      display:flex;gap:2rem;list-style:none;align-items:center;
+    }
+    .nav-links a{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.72rem;font-weight:600;
+      letter-spacing:0.12em;text-transform:uppercase;
+      color:var(--off-white);text-decoration:none;
+      transition:color 0.2s;position:relative;
+    }
+    .nav-links a::after{
+      content:'';position:absolute;
+      bottom:-4px;left:0;right:0;height:1px;
+      background:var(--green);transform:scaleX(0);
+      transform-origin:left;transition:transform 0.25s ease;
+    }
+    .nav-links a:hover{color:var(--green);}
+    .nav-links a:hover::after{transform:scaleX(1);}
+    .nav-links a.active{color:var(--green);}
+    .nav-links a.active::after{transform:scaleX(1);}
+
+    .hamburger{
+      display:none;flex-direction:column;gap:5px;
+      cursor:pointer;background:none;border:none;padding:4px;
+    }
+    .hamburger span{
+      display:block;width:24px;height:2px;
+      background:var(--white);transition:all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+    .hamburger.open span:nth-child(2){opacity:0;}
+    .hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+    .mobile-menu{
+      display:none;position:fixed;
+      top:0;left:0;right:0;bottom:0;
+      background:var(--black);z-index:99;
+      flex-direction:column;align-items:center;justify-content:center;gap:2.5rem;
+    }
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{
+      font-family:'Arial Black', sans-serif;
+      font-size:1.4rem;font-weight:600;
+      letter-spacing:0.15em;text-transform:uppercase;
+      color:var(--white);text-decoration:none;transition:color 0.2s;
+    }
+    .mobile-menu a:hover{color:var(--green);}
+
+    /* ── HERO ── */
+    .work-hero{
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:160px 48px 60px;
+      text-align:center;
+      overflow:hidden;
+    }
+
+    .work-eyebrow{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.65rem;font-weight:600;
+      letter-spacing:0.4em;text-transform:uppercase;
+      color:var(--green);margin-bottom:1rem;
+    }
+
+    .work-title{
+      font-family:'Arial Black', sans-serif;
+      font-size:clamp(2.2rem, 6vw, 4.5rem);
+      font-weight:900;letter-spacing:0.03em;
+      text-transform:uppercase;
+      color:var(--white);line-height:1;
+      margin-bottom:1rem;
+    }
+
+    .work-byline{
+      font-family:'Arial Black', sans-serif;
+      font-size:clamp(0.85rem, 1.5vw, 1rem);
+      font-style:italic;
+      color:var(--dim);
+      letter-spacing:0.05em;
+      margin-bottom:1.5rem;
+    }
+
+    .work-divider{
+      width:56px;height:1px;
+      background:var(--green);opacity:0.5;
+      margin:0.5rem auto 2rem;
+    }
+
+    /* ── RELATED LINKS ── */
+    .work-related{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:1rem;
+      margin-top:0.5rem;
+    }
+    .related-link{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.68rem;
+      font-weight:600;
+      letter-spacing:0.12em;
+      text-transform:uppercase;
+      color:var(--green);
+      text-decoration:none;
+      border:1px solid var(--green);
+      border-radius:999px;
+      padding:0.7rem 1.4rem;
+      transition:background 0.25s ease, color 0.25s ease;
+      white-space:nowrap;
+    }
+    .related-link:hover{
+      background:var(--green);
+      color:var(--black);
+    }
+
+    /* ── ESSAY BODY ── */
+    .essay-section{
+      border-top:1px solid var(--green);
+      padding:4rem 2rem 2rem;
+      max-width:760px;
+      margin:0 auto;
+    }
+
+    .essay-cover{
+      display:block;
+      width:160px;
+      margin:0 auto 3rem;
+      box-shadow:0 12px 32px rgba(0,0,0,0.6), 0 0 24px rgba(0,255,136,0.12);
+    }
+
+    .essay-title{
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:clamp(1.4rem, 3vw, 1.9rem);
+      font-weight:700;
+      color:var(--green);
+      text-align:center;
+      line-height:1.3;
+      margin-bottom:0.6rem;
+    }
+    .essay-byline{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.7rem;
+      font-weight:600;
+      letter-spacing:0.15em;
+      text-transform:uppercase;
+      color:var(--dim);
+      text-align:center;
+      margin-bottom:3rem;
+    }
+
+    /* ── LASER SCRIBE CONSOLE ──
+       The essay itself is the writing surface. The console gives the reader
+       control without introducing a second, redundant title card. */
+    .laser-console{
+      position:relative;
+      display:grid;
+      grid-template-columns:minmax(0,1fr) auto;
+      gap:0.9rem 1.25rem;
+      align-items:center;
+      margin:0 0 2.6rem;
+      padding:1rem 1.1rem;
+      border:1px solid rgba(0,255,136,0.35);
+      background:
+        linear-gradient(90deg, rgba(0,255,136,0.08), transparent 48%),
+        #070b09;
+      box-shadow:inset 0 0 24px rgba(0,255,136,0.035), 0 0 22px rgba(0,255,136,0.05);
+      overflow:hidden;
+    }
+    .laser-console::before{
+      content:'';
+      position:absolute;inset:0;
+      pointer-events:none;
+      opacity:0.22;
+      background:repeating-linear-gradient(
+        0deg,
+        transparent 0 3px,
+        rgba(0,255,136,0.09) 3px 4px
+      );
+    }
+    .laser-status{
+      position:relative;
+      display:flex;align-items:center;gap:0.65rem;
+      min-width:0;
+      font-family:'Courier New', ui-monospace, monospace;
+      font-size:0.69rem;font-weight:700;
+      letter-spacing:0.16em;text-transform:uppercase;
+      color:rgba(0,255,136,0.78);
+    }
+    .laser-status-light{
+      flex:0 0 auto;
+      width:7px;height:7px;border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 4px var(--green), 0 0 12px var(--green);
+      animation:laserStatusPulse 1.4s steps(2,end) infinite;
+    }
+    .laser-console[data-state="writing"] .laser-status-light{
+      animation-duration:0.32s;
+    }
+    .laser-controls{
+      position:relative;
+      display:flex;flex-wrap:wrap;justify-content:flex-end;gap:0.45rem;
+    }
+    .laser-control{
+      appearance:none;
+      border:1px solid rgba(0,255,136,0.45);
+      border-radius:0;
+      padding:0.52rem 0.66rem;
+      background:rgba(0,0,0,0.68);
+      color:var(--green);
+      font-family:'Arial Black', sans-serif;
+      font-size:0.54rem;font-weight:700;
+      letter-spacing:0.1em;text-transform:uppercase;
+      cursor:pointer;
+      transition:background 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+    }
+    .laser-control:hover,
+    .laser-control:focus-visible,
+    .laser-control[aria-pressed="true"]{
+      outline:none;
+      background:var(--green);color:var(--black);
+      box-shadow:0 0 14px rgba(0,255,136,0.32);
+    }
+    @keyframes laserStatusPulse{ 50%{ opacity:0.25; } }
+
+    .essay-body{
+      font-family:'Courier New', ui-monospace, monospace;
+      font-size:0.95rem;
+      line-height:1.85;
+      letter-spacing:0.01em;
+      color:var(--green);
+    }
+    .essay-body p{
+      position:relative;
+      margin-bottom:1.4rem;
+      text-indent:2em;
+      cursor:default;
+    }
+    .essay-body p:first-of-type{
+      text-indent:0;
+    }
+    .essay-body p.as{
+      user-select:none;
+    }
+    .essay-body p.as::selection{
+      background:transparent;
+    }
+    .laser-char{
+      opacity:0.28;
+      color:rgba(0,255,136,0.72);
+      text-shadow:none;
+    }
+    .laser-char.is-etched{
+      opacity:1;
+      color:inherit;
+      text-shadow:0 0 6px rgba(0,255,136,0.26);
+    }
+    .laser-cursor{
+      position:absolute;
+      left:0;top:0;
+      z-index:4;
+      width:7px;height:7px;
+      margin:-2px 0 0 -2px;
+      border-radius:50%;
+      background:#fff;
+      box-shadow:
+        0 0 3px #fff,
+        0 0 8px var(--green),
+        0 0 20px var(--green),
+        0 0 34px rgba(0,255,136,0.7);
+      pointer-events:none;
+      will-change:transform;
+    }
+    .laser-cursor::before{
+      content:'';
+      position:absolute;
+      inset:-4px;
+      border:1px solid rgba(0,255,136,0.8);
+      transform:rotate(45deg);
+    }
+    .laser-cursor::after{
+      content:'';
+      position:absolute;inset:-9px;
+      border:1px solid rgba(0,255,136,0.34);
+      border-radius:50%;
+      animation:laserSparks 0.38s steps(2,end) infinite;
+    }
+    @keyframes laserSparks{
+      50%{ transform:scale(1.45);opacity:0; }
+    }
+    .laser-arm{
+      position:fixed;
+      z-index:95;
+      left:50vw;top:94px;
+      width:0;height:3px;
+      opacity:0;
+      pointer-events:none;
+      transform-origin:left center;
+      background:rgba(0,255,136,1);
+      box-shadow:
+        0 0 3px rgba(255,255,255,0.95),
+        0 0 8px rgba(0,255,136,1),
+        0 0 18px rgba(0,255,136,0.68);
+      will-change:width,transform;
+    }
+    .laser-arm::before{
+      content:'';
+      position:absolute;
+      left:-8px;top:-7px;
+      width:15px;height:15px;
+      border:2px solid rgba(0,255,136,1);
+      border-radius:50%;
+      background:#07100b;
+      box-shadow:
+        inset 0 0 5px rgba(0,255,136,0.8),
+        0 0 8px rgba(0,255,136,0.9),
+        0 0 18px rgba(0,255,136,0.45);
+    }
+    .laser-arm::after{
+      content:'';
+      position:absolute;
+      left:8px;right:0;top:7px;
+      height:1px;
+      background:rgba(0,255,136,0.34);
+      box-shadow:0 0 5px rgba(0,255,136,0.7);
+    }
+    .laser-arm.is-live{ opacity:1; }
+    .laser-arm.is-retracting{
+      width:0 !important;
+      transition:width 0.22s cubic-bezier(.6,0,.9,.4), opacity 0.12s linear 0.18s;
+      opacity:0;
+    }
+    .essay-placeholder{
+      font-family:Georgia, 'Times New Roman', serif;
+      font-style:italic;
+      color:rgba(255,255,255,0.4);
+      border-left:2px dashed rgba(0,255,136,0.35);
+      padding:1rem 0 1rem 1.5rem;
+      line-height:1.8;
+    }
+
+    .works-cited-label{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.6rem;
+      letter-spacing:0.4em;
+      text-transform:uppercase;
+      color:var(--green);
+      margin:3rem 0 1rem;
+    }
+    .works-cited{
+      font-family:Georgia, 'Times New Roman', serif;
+      font-size:0.95rem;
+      line-height:1.8;
+      color:rgba(255,255,255,0.55);
+      padding-left:2em;
+      text-indent:-2em;
+      margin-bottom:1.2rem;
+    }
+    .works-cited:last-child{
+      margin-bottom:0;
+    }
+    .essay-body em, .works-cited em{
+      font-style:italic;
+    }
+
+    /* ── FOOTER ── */
+    footer{
+      border-top:1px solid rgba(255,255,255,0.06);
+      padding:3rem 2.5rem;
+      display:flex;align-items:center;
+      justify-content:space-between;flex-wrap:wrap;gap:1rem;
+    }
+
+    /* ── MAYA BANNER (green, bottom only) ──
+       Fixed frieze strip pinned to the very bottom of the viewport,
+       below everything, never scrolls away. No top banner. */
+    .essays-banner-bottom{
+      position:fixed;
+      left:0;bottom:0;
+      width:100%;
+      height:var(--essays-banner-h);
+      z-index:200;
+      overflow:hidden;
+      background:#000;
+    }
+    .essays-banner-image{
+      width:100%;height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    @media(max-width:768px){
+      :root{ --essays-banner-h: 27px; }
+    }
+
+    .footer-logo{ display:flex;align-items:center; }
+    .footer-logo-img{ height:56px; }
+    .footer-copy{
+      font-family:'Arial Black', sans-serif;
+      font-size:0.85rem;color:var(--dim);font-style:italic;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .nav-links{ display:none; }
+      .hamburger{ display:flex; }
+      nav{ padding:1rem 1.5rem; }
+      .work-hero{ padding:120px 24px 40px; }
+      .essay-section{ padding:3rem 1.5rem 2rem; }
+      .essay-body{ font-size:1rem; line-height:1.85; }
+      .laser-console{ grid-template-columns:1fr; }
+      .laser-controls{ justify-content:flex-start; }
+      footer{ padding:2rem 1.5rem; }
+    }
+    @media(prefers-reduced-motion:reduce){
+      .laser-console{ display:none; }
+      .laser-char{ opacity:1;color:inherit;text-shadow:none; }
+      .laser-cursor{ display:none; }
+      .laser-arm{ display:none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      <img src="../Images/SA-MAIN-LOGO.jpg" alt="Santos Armada" class="logo-img">
+    </a>
+    <ul class="nav-links">
+      <li><a href="../authors.html">Authors</a></li>
+      <li><a href="../essays.html">Essays</a></li>
+      <li><a href="../globe.html">Space &amp; Time</a></li>
+      <li><a href="../audiolibros.html">Audiolibros</a></li>
+      <li><a href="../interpreter-z.html">Interpreter Z</a></li>
+      <li><a href="../cv.html">CV</a></li>
+      <li><a href="../about.html">About</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Toggle menu" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="../authors.html">Authors</a>
+    <a href="../essays.html">Essays</a>
+    <a href="../globe.html">Space &amp; Time</a>
+    <a href="../audiolibros.html">Audiolibros</a>
+    <a href="../interpreter-z.html">Interpreter Z</a>
+    <a href="../cv.html">CV</a>
+    <a href="../about.html">About</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="work-hero">
+    <p class="work-eyebrow">Revolución y Dictadura · Revolución</p>
+    <h1 class="work-title">Pensativa</h1>
+    <p class="work-byline">Jesús Goytortúa Santos · 1945</p>
+    <div class="era-page-nav" role="navigation" aria-label="Navegación">
+      <a href="revolucion-dictadura-revolucion.html" class="era-nav-arrow era-nav-prev" aria-label="Volver a Revolución">
+        <svg width="18px" height="17px" viewBox="0 0 18 17" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(8.500000, 8.500000) scale(-1, 1) translate(-8.500000, -8.500000)">
+            <polygon class="arrow" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+            <polygon class="arrow-fixed" points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596"></polygon>
+            <path d="M-1.48029737e-15,0.56157424 L-1.48029737e-15,16.1929159 L9.708,8.33860465 L-2.66453526e-15,0.56157424 L-1.48029737e-15,0.56157424 Z M1.33333333,3.30246869 L7.62533333,8.34246869 L1.33333333,13.4327013 L1.33333333,3.30246869 L1.33333333,3.30246869 Z"></path>
+          </g>
+        </svg>
+      </a>
+    </div>
+    <div class="work-divider"></div>
+    <div class="work-related">
+      <a href="../audiolibros.html" class="related-link">Escuchar el Audiolibro →</a>
+      <a href="../book-reviews.html" class="related-link">Ver la Reseña →</a>
+    </div>
+  </section>
+
+  <!-- ESSAY -->
+  <section class="essay-section">
+    <img src="../book_covers/pensativa.webp" alt="Pensativa" class="essay-cover">
+
+    <h2 class="essay-title">Las cicatrices de la Guerra Cristera en <em>Pensativa</em> de Jesús Goytortúa Santos</h2>
+    <p class="essay-byline">Por Christian Ricardo Santos</p>
+
+    <div class="laser-console" id="laserConsole" data-state="standby" aria-label="Controles del escritor láser">
+      <p class="laser-status" aria-live="polite">
+        <span class="laser-status-light" aria-hidden="true"></span>
+        <span id="laserStatusText">Escritor láser // listo</span>
+      </p>
+      <div class="laser-controls">
+        <button class="laser-control" type="button" id="laserReplay">Reiniciar</button>
+        <button class="laser-control" type="button" id="laserReveal">Texto completo</button>
+        <button class="laser-control" type="button" id="laserSound" aria-pressed="false">Sonido 80s: no</button>
+      </div>
+    </div>
+
+    <div class="essay-body">
+      <p>La literatura mexicana de la primera mitad del siglo XX se definió, en gran medida, por su diálogo con las heridas abiertas que dejó la Revolución Mexicana (1910-1920) y, posteriormente, la Guerra Cristera (1926-1929). Dentro de ese panorama de reconstrucción social y moral, <em>Pensativa</em> (1945) de Jesús Goytortúa Santos ocupa un lugar fundamental. Publicada en plena posguerra y coronada con el Premio Lanz Duret, la novela se inscribe en la tradición de la narrativa histórica mexicana, pero con una perspectiva inusual: el conflicto no se narra desde la épica política, sino desde la intimidad de los personajes y las ruinas que deja la violencia. Goytortúa, nacido en San Luis Potosí y funcionario federal, fue testigo de la compleja relación entre fe, política y modernidad en el México posrevolucionario. <em>Pensativa</em> refleja la esperanza de reconciliación y, al mismo tiempo, la imposibilidad de sanar por completo las cicatrices de un pueblo mexicano dividido. En este trabajo propongo que Goytortúa retrata la Guerra Cristera como una herida colectiva y naturalista cuyos efectos determinan el destino de los personajes, marcando sus cuerpos, su memoria y el lenguaje. Además, muestra cómo el poder se ejerce a través de advertencias, murmullos, miradas y omisiones que configuran la vida emocional del pueblo mexicano.</p>
+
+      <p>Uno de los aspectos más poderosos de <em>Pensativa</em> es la forma en que el autor convierte el entorno rural en un reflejo del trauma social. El pueblo de Santa Clara de Las Rocas, descrito como un espacio vacío, polvoriento y silencioso, funciona como una metáfora de heridas que la Guerra Cristera dejó en México. La visión de Roberto al llegar a su lugar de infancia y crecimiento desde su nuevo puesto en la capital es descrita como un polvo eterno que dentro él tenía un viento que traía un olor nostálgico y de esta manera expresa cómo la memoria permanece incrustada en la tierra misma. A ello se suma su observación de que la guerra “había herido con crueldad a mi pueblo natal” (Goytortúa 2).</p>
+
+      <p>Este enfoque se alinea con el naturalismo, corriente en la cual el ambiente determina el destino de los personajes. En la obra la devastación posguerra no solo afecta el espacio físico, sino que condiciona la conducta, la psicología y las decisiones de quienes sobrevivieron. El entorno actúa como fuerza opresiva que modela las vidas de Roberto y sus parientes, Pensativa y sus seguidores, y el resto de los quebrados y mutilados que rodean este ambiente. Las cicatrices de la región son, a la vez, cicatrices humanas.</p>
+
+      <p>Gabriela Infante, Pensativa, encarna el sufrimiento colectivo del México poscristero. Su destino está marcado por el ambiente histórico que la rodeó. Aparte de ser la mujer que enamora a Roberto, es a la vez muy respetada en el pueblo por jugar un rol nada típico de la mujer mexicana de la época. Su papel de Generala desafía las normas tradicionales, pero a la misma vez la condena socialmente. Como líder militar, en la guerra cristera, fue poderosa mientras como mujer en un pueblo herido, está atrapada por los juicios ajenos. Todos ruegan que se case y encuentre felicidad con la familia tradicional. Trágicamente, perdió su hermano Carlos en una balacera. Carlos murió mártir porque le dispararon en sus ojos inhumanamente los federales Gustavo Muñoz y su ayudante llamado “El Alacrán”, y eso enfureció más a la colectiva de los Infante encendiendo la explosión de violencia con más combustible.</p>
+
+      <p>El personaje de Basilio, quien es fiel hasta la muerte y soldado de Pensativa, muestra cómo el poder en la obra se ejerce a través de miradas y silencios. Su presencia intimidante, su desconfianza hacia Roberto y su lealtad absoluta lo vuelven guardián del pasado. Basilio lleva con él una cicatriz siempre visible de las batallas cristeras, que es un gran corte en medio de su cara que recorre desde su frente hasta sus labios. Es él quien advierte al protagonista: “Ella ha sufrido mucho y no hay que recordarle nunca el pasado. Nunca mi jefe, nunca” (Goytortúa 35). Esta frase evidencia que el silencio es arma, frontera y protección. Basilio domina sin necesidad de violencia explicita solo con su mirada. Su cicatriz y su silencio dicen más que cualquier amenaza directa.</p>
+
+      <p>Goytortúa utiliza las mini entrevistas que hace Roberto con los habitantes del rancho de Pensativa, llamado el Plan de los Tordos, para darle a los lectores detalles y perspectivas varias de gente que ha sobrevivido los horrores de la guerra religiosa. Por ejemplo, en el capítulo seis nota sobre dos criadas en particular que trabajan para Pensativa y nos informa que:</p>
+
+      <p>Mariana, la más vieja, había sufrido la amputación de la mano izquierda; Lucía la más joven, mostraba en la frente un trazo que sospeché había sido dejado por una bala” (Goytortúa 35).</p>
+
+      <p>Una imagen fotográfica que presenta Goytortúa sobresale en la narrativa cuando Roberto va en camino hacía el terreno de Pensativa. Mientras en su ruta lo trastorna ver un viejo horno de ladrillo descompuesto hecho añicos en parte y quizá dato más alarmante es que en frente del horno alineados había cinco cruces de madera que seguramente eran tumbas de personas que no sobrevivieron la Guerra Cristera. En lugar de mostrar la guerra directamente, Goytortúa presenta sus consecuencias: mutilados, casas y mecanismos abandonados, ecos de rezos apagados. Como afirma Moisés González Navarro al documentar el periodo, la violencia cristera convirtió los pueblos de Los Altos en lugares “asolados por el miedo y el silencio” (394). Esta correspondencia entre historia y ficción demuestra que el paisaje en <em>Pensativa</em> no es solo decorativo, sino simbólico.</p>
+
+      <p>Cada elemento natural parece conservar la memoria de la destrucción. En ese sentido, la geografía se convierte en una cicatriz colectiva, una extensión visible de la herida nacional que la novela explora con contención y empatía. El personaje principal, quien narra esta historia, es Roberto y es por él que desarrollamos este rompe cabeza en la obra que nos da pistas del espacio que fue convertido por la guerra religiosa. Mucho de la información que recibe Roberto viene por departe de su obsesión con tener conversaciones con su querida: Gabriela Infante, y en esta frase se ejempla una de las piezas que adquiere Roberto cuando empieza a desenrollar las pistas:</p>
+
+      <p>“Cuando terminó la guerra y me vine a esta hacienda, quise conocer a la gente que había servido a las órdenes de mi hermano y recogí a mi lado a los que no podían trabajar fácilmente, a los mutilados y a los que fuera de aquí tropezarían con enemigos implacables.” (Goytortúa 32)</p>
+
+      <p>Aquí se ejempla como la figura de Pensativa/Gabriela Infante sintetiza el sufrimiento y la resistencia del pueblo mexicano después de la guerra. Al revelarse que fue “la Generala” durante el conflicto, el personaje adquiere un doble significado. El primero es la guerrera que defendió sus creencias religiosas y el segundo es la mujer marginada por haber asumido un papel considerado impropio.</p>
+
+      <p>Interesantemente, su reclusión final en un convento de esta heroica, fuerte, hermosa, encantadora con voz sensual expresa tanto la culpa impuesta por la sociedad como el deseo de redención espiritual. Goytortúa muestra en ella cómo la violencia deja marcas invisibles, morales, emocionales y simbólicas, que persisten más allá del fin del conflicto. Engracia Loyo describe a las mujeres de la posguerra cristera como “víctimas del fanatismo y del silencio, relegadas a los márgenes de la historia oficial” (Loyo 362), y Pensativa encarna precisamente esa exclusión. A través de Gabriela, el autor propone una lectura femenina del trauma en el cual su cuerpo y su fe son las trincheras donde se libra la batalla entre la memoria y el olvido. De esta manera, la protagonista no solo representa a una mujer doliente, sino a una nación herida que busca consuelo en la introspección.</p>
+
+      <p>Además del espacio y los personajes, Goytortúa Santos utiliza el silencio y el habla popular para transmitir la profundidad del dolor colectivo. La novela está marcada por pausas, diálogos amputados y frases breves que reflejan la dificultad de hablar después de la violencia. Roberto, al preguntar qué ocurrió durante la guerra, recibe respuestas evasivas o miradas esquivas. Ese vacío verbal reproduce lo que Eimy Arriaga Vera define como una “narrativa del mutismo”, en la que “la historia se sugiere más de lo que se cuenta” (Arriaga 17). Incluso el lenguaje del pueblo, con sus dichos, rezos y giros regionales, funciona como un registro emocional de la memoria en la que cada palabra conserva el eco de la fe y del sufrimiento. La oralidad que Goytortúa reproduce con precisión es un mecanismo de supervivencia cultural y, a través de ella, los personajes intentan mantener viva una identidad que la guerra quiso borrar. El silencio, por tanto, no significa olvido, sino resistencia. Esta es la forma que el pueblo encuentra para conservar lo indecible, lo que no puede expresarse sin revivir la herida.</p>
+
+      <p>A lo largo de <em>Pensativa</em>, Jesús Goytortúa Santos transforma la violencia histórica de México en una meditación literaria sobre la memoria, el dolor y el destino humano. El naturalismo del texto muestra cómo la ambiente posguerra determina la vida y las acciones de los personajes, atrapados entre lo que fueron y lo que la historia los obligó ser. El paisaje devastado, la figura trágica de Gabriela Infante, las miradas que callan y los silencios que protegen revelan que la guerra no termina con el último disparo, sino que persiste en los cuerpos, almas y palabras. <em>Pensativa</em> es el testimonio de un país que intenta recordar sin hundirse. Da voz a quienes no pudieron contar su historia como las mujeres, los vencidos y los silenciosos. En ese gesto reside su valor eterno dentro de la narrativa mexicana lo cual es recordar que la herida, aunque no mejore, no se repita.</p>
+    </div>
+
+    <p class="works-cited-label">Obra Citada</p>
+    <p class="works-cited">Arriaga Vera, Eimy Channing. <em>El proyecto estético de Jesús Goytortúa Santos en Pensativa concebida como novela histórica y la cualidad inasible de esta novela para clasificarla como novela cristera</em>. Universidad Nacional Autónoma de México, 2008. Tesis de licenciatura.</p>
+    <p class="works-cited">González Navarro, Moisés. “Dios, Patria y Libertad.” <em>Cristeros y agraristas en Jalisco</em>. Tomo 2, El Colegio de México, 2001, pp. 393–414.</p>
+    <p class="works-cited">“Guerra a los herejes.” <em>Cristeros y agraristas en Jalisco</em>. Tomo 2, El Colegio de México, 2001, pp. 293–303.</p>
+    <p class="works-cited">Goytortúa Santos, Jesús. <em>Pensativa</em>. Editorial Porrúa, 1945.</p>
+    <p class="works-cited">Howatt, Consuelo. “Review of <em>Pensativa</em>, by Jesús Goytortúa Santos.” <em>Books Abroad</em>, vol. 21, no. 3, Summer 1947, p. 331.</p>
+    <p class="works-cited">Loyo, Engracia. “Gozos imaginados, sufrimientos reales: La vida cotidiana en la revista CROM (1925–1930).” En <em>Tradiciones y conflictos: Historias de la vida cotidiana en México e Hispanoamérica</em>, editado por Pilar Gonzalbo Aizpuru y Mílada Bazant, El Colegio de México, 2007, pp. 349–384.</p>
+    <p class="works-cited">Tatum, Terrell Louise. “Review of <em>Pensativa</em>, by Jesús Goytortúa and Donald D. Walsh.” <em>The Modern Language Journal</em>, vol. 31, no. 2, Feb. 1947, pp. 127–128.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="../index.html" class="footer-logo">
+      <img src="../Images/SA-MAIN-LOGO.jpg" alt="Santos Armada" class="logo-img footer-logo-img">
+    </a>
+    <p class="footer-copy">Una armada de conocimientos escritos</p>
+  </footer>
+
+  <!-- BANNER: green Maya frieze, fixed to the very bottom of the
+       viewport, sits below everything and never scrolls away. No top
+       banner on this page. -->
+  <section class="essays-banner-bottom">
+    <img src="../Images/maya-banner-green.jpg" alt="Maya glyph frieze" class="essays-banner-image">
+  </section>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileMenu.classList.remove('open');
+      });
+    });
+  </script>
+
+  <!-- ASCII Glitch hover effect, adapted from Bastien Cornier's research
+       (bastiencornier.com) for the essay body text. The original traveling-
+       wave algorithm spawned a new ripple on every mousemove and mapped
+       cursor X across the whole flattened string, which reads fine for a
+       one-line link label but looked chaotic across a wrapped paragraph —
+       overlapping waves, and the "distance" math didn't know which visual
+       line the cursor was actually over. Replaced with a fixed ~2-line
+       window centered on the character truly under the cursor (via
+       caretRangeFromPoint/caretPositionFromPoint, real 2D hit-testing, not
+       X-only math): that window flickers steadily while hovering, every
+       other character stays untouched, and it stops the instant the mouse
+       leaves — restoring the paragraph's real innerHTML so nested italics
+       survive. -->
+  <script>
+    const measureCharsPerLine = (el) => {
+      const probe = document.createElement("span");
+      probe.textContent = "MMMMMMMMMM";
+      probe.style.visibility = "hidden";
+      probe.style.position = "absolute";
+      probe.style.whiteSpace = "pre";
+      const cs = getComputedStyle(el);
+      probe.style.fontFamily = cs.fontFamily;
+      probe.style.fontSize = cs.fontSize;
+      probe.style.fontWeight = cs.fontWeight;
+      probe.style.fontStyle = cs.fontStyle;
+      probe.style.letterSpacing = cs.letterSpacing;
+      el.appendChild(probe);
+      const charW = (probe.getBoundingClientRect().width || 80) / 10;
+      el.removeChild(probe);
+      return Math.max(1, Math.floor(el.clientWidth / charW));
+    };
+
+    const createASCIIShift = (el, opts = {}) => {
+      const origHTML = el.innerHTML;
+      const origTxt = el.textContent;
+      const origChars = origTxt.split("");
+      let isAnim = false;
+      let isHover = false;
+      let centerIdx = 0;
+      let animId = null;
+
+      // ~1 line of chars each side of the cursor => ~2 lines glitchy total.
+      const zoneRadius = measureCharsPerLine(el);
+
+      const cfg = {
+        chars: '.,·-─~+:;=*π""┐┌┘┴┬╗╔╝╚╬╠╣╩╦║░▒▓█▄▀▌▐■!?&#$@0123456789*',
+        preserveSpaces: true,
+        refreshMs: 90,
+        density: 0.45,
+        ...opts
+      };
+
+      // Real 2D hit-test: which flat character index sits under (x, y).
+      const findCharIndexAtPoint = (x, y) => {
+        let container = null;
+        let offset = 0;
+
+        if (document.caretRangeFromPoint) {
+          const range = document.caretRangeFromPoint(x, y);
+          if (!range) return null;
+          container = range.startContainer;
+          offset = range.startOffset;
+        } else if (document.caretPositionFromPoint) {
+          const pos = document.caretPositionFromPoint(x, y);
+          if (!pos) return null;
+          container = pos.offsetNode;
+          offset = pos.offset;
+        } else {
+          return null;
+        }
+
+        if (!el.contains(container)) return null;
+
+        let idx = 0;
+        const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+        let node;
+        while ((node = walker.nextNode())) {
+          if (node === container) return idx + offset;
+          idx += node.textContent.length;
+        }
+        return null;
+      };
+
+      const updateCenter = (e) => {
+        const idx = findCharIndexAtPoint(e.clientX, e.clientY);
+        if (idx !== null) {
+          centerIdx = Math.max(0, Math.min(idx, origChars.length - 1));
+        }
+      };
+
+      const genGlitchedTxt = (t) => {
+        const lo = Math.max(0, centerIdx - zoneRadius);
+        const hi = Math.min(origChars.length - 1, centerIdx + zoneRadius);
+        const step = Math.floor(t / cfg.refreshMs);
+
+        return origChars
+          .map((char, i) => {
+            if (cfg.preserveSpaces && char === " ") return " ";
+            if (i < lo || i > hi) return char;
+            const seed = (i * 2654435761 + step * 40503) >>> 0;
+            if (seed % 1000 / 1000 > cfg.density) return char;
+            return cfg.chars[seed % cfg.chars.length];
+          })
+          .join("");
+      };
+
+      const stop = () => {
+        if (animId) cancelAnimationFrame(animId);
+        animId = null;
+        el.innerHTML = origHTML;
+        el.classList.remove("as");
+        isAnim = false;
+      };
+
+      const loop = () => {
+        if (!isHover) { stop(); return; }
+        el.textContent = genGlitchedTxt(Date.now());
+        animId = requestAnimationFrame(loop);
+      };
+
+      const start = () => {
+        if (isAnim) return;
+        isAnim = true;
+        el.classList.add("as");
+        animId = requestAnimationFrame(loop);
+      };
+
+      const handleEnter = (e) => {
+        if (!el.classList.contains("laser-done")) return;
+        isHover = true;
+        updateCenter(e);
+        start();
+      };
+      const handleMove = (e) => {
+        if (!isHover) return;
+        updateCenter(e);
+      };
+      const handleLeave = () => {
+        isHover = false;
+      };
+
+      el.addEventListener("mouseenter", handleEnter);
+      el.addEventListener("mousemove", handleMove);
+      el.addEventListener("mouseleave", handleLeave);
+
+      return {
+        destroy: () => {
+          isHover = false;
+          stop();
+          el.removeEventListener("mouseenter", handleEnter);
+          el.removeEventListener("mousemove", handleMove);
+          el.removeEventListener("mouseleave", handleLeave);
+        }
+      };
+    };
+
+    document.querySelectorAll(".essay-body p").forEach((p) => {
+      if (p.textContent.trim()) createASCIIShift(p);
+    });
+  </script>
+
+  <!-- The 1980s-style laser now etches the real essay text as each paragraph
+       enters the reading area. Text remains semantic, selectable and visible
+       without JavaScript; sound is strictly opt-in. -->
+  <script>
+    (() => {
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const body = document.querySelector(".essay-body");
+      const paragraphs = [...body.querySelectorAll("p")];
+      const consoleEl = document.getElementById("laserConsole");
+      const statusEl = document.getElementById("laserStatusText");
+      const replayBtn = document.getElementById("laserReplay");
+      const revealBtn = document.getElementById("laserReveal");
+      const soundBtn = document.getElementById("laserSound");
+      const nav = document.querySelector("nav");
+      const arm = document.createElement("span");
+      arm.className = "laser-arm";
+      arm.setAttribute("aria-hidden", "true");
+      document.body.appendChild(arm);
+      const queue = [];
+      let activeParagraph = null;
+      let audioContext = null;
+      let soundEngine = null;
+      let soundEnabled = false;
+      let observer = null;
+      let sequenceVersion = 0;
+      let armRetractTimer = null;
+
+      const setStatus = (state, message) => {
+        consoleEl.dataset.state = state;
+        statusEl.textContent = message;
+      };
+
+      const wrapCharacters = (paragraph) => {
+        if (paragraph.querySelector(".laser-char")) return;
+        const nodes = [];
+        const walker = document.createTreeWalker(paragraph, NodeFilter.SHOW_TEXT);
+        while (walker.nextNode()) nodes.push(walker.currentNode);
+
+        nodes.forEach((node) => {
+          const fragment = document.createDocumentFragment();
+          [...node.textContent].forEach((character) => {
+            const span = document.createElement("span");
+            span.className = "laser-char";
+            span.textContent = character;
+            fragment.appendChild(span);
+          });
+          node.replaceWith(fragment);
+        });
+      };
+
+      const prepareParagraph = (paragraph) => {
+        paragraph.querySelector(".laser-cursor")?.remove();
+        paragraph.classList.remove("laser-done", "laser-active");
+        wrapCharacters(paragraph);
+        paragraph.querySelectorAll(".laser-char").forEach((char) => {
+          char.classList.remove("is-etched");
+        });
+      };
+
+      const ensureSoundEngine = () => {
+        if (soundEngine) return soundEngine;
+        audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+
+        const master = audioContext.createGain();
+        const delay = audioContext.createDelay(0.3);
+        const feedback = audioContext.createGain();
+        const wet = audioContext.createGain();
+        master.gain.value = 0.42;
+        delay.delayTime.value = 0.085;
+        feedback.gain.value = 0.2;
+        wet.gain.value = 0.22;
+        delay.connect(feedback);
+        feedback.connect(delay);
+        delay.connect(wet);
+        wet.connect(master);
+        master.connect(audioContext.destination);
+
+        const noiseBuffer = audioContext.createBuffer(
+          1,
+          Math.ceil(audioContext.sampleRate * 0.08),
+          audioContext.sampleRate
+        );
+        const noise = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < noise.length; i++) noise[i] = Math.random() * 2 - 1;
+
+        soundEngine = { master, delay, noiseBuffer };
+        return soundEngine;
+      };
+
+      const connectVoice = (node, envelope, sendAmount = 0.16) => {
+        const engine = ensureSoundEngine();
+        const send = audioContext.createGain();
+        send.gain.value = sendAmount;
+        node.connect(envelope);
+        envelope.connect(engine.master);
+        envelope.connect(send);
+        send.connect(engine.delay);
+      };
+
+      const sweepVoice = ({
+        from, to, duration, volume, type = "sawtooth", when, send = 0.16, detune = 0
+      }) => {
+        const start = when ?? audioContext.currentTime;
+        const oscillator = audioContext.createOscillator();
+        const filter = audioContext.createBiquadFilter();
+        const envelope = audioContext.createGain();
+        oscillator.type = type;
+        oscillator.detune.value = detune;
+        oscillator.frequency.setValueAtTime(from, start);
+        oscillator.frequency.exponentialRampToValueAtTime(to, start + duration);
+        filter.type = "lowpass";
+        filter.frequency.setValueAtTime(4200, start);
+        filter.frequency.exponentialRampToValueAtTime(900, start + duration);
+        envelope.gain.setValueAtTime(0.0001, start);
+        envelope.gain.exponentialRampToValueAtTime(volume, start + 0.012);
+        envelope.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+        oscillator.connect(filter);
+        connectVoice(filter, envelope, send);
+        oscillator.start(start);
+        oscillator.stop(start + duration + 0.02);
+      };
+
+      const noiseBurst = (when, volume = 0.012) => {
+        const engine = ensureSoundEngine();
+        const source = audioContext.createBufferSource();
+        const filter = audioContext.createBiquadFilter();
+        const envelope = audioContext.createGain();
+        source.buffer = engine.noiseBuffer;
+        filter.type = "bandpass";
+        filter.frequency.value = 1750;
+        filter.Q.value = 3.5;
+        envelope.gain.setValueAtTime(volume, when);
+        envelope.gain.exponentialRampToValueAtTime(0.0001, when + 0.055);
+        source.connect(filter);
+        connectVoice(filter, envelope, 0.1);
+        source.start(when);
+        source.stop(when + 0.06);
+      };
+
+      const deploySound = () => {
+        if (!soundEnabled || !audioContext) return;
+        const now = audioContext.currentTime;
+        sweepVoice({ from:150, to:1180, duration:0.22, volume:0.045, type:"sawtooth", when:now, send:0.24 });
+        sweepVoice({ from:90, to:680, duration:0.18, volume:0.018, type:"square", when:now + 0.025, send:0.18, detune:-9 });
+      };
+
+      const tickSound = (index) => {
+        if (!soundEnabled || !audioContext || index % 44 !== 0) return;
+        const now = audioContext.currentTime;
+        sweepVoice({ from:1450 + (index % 5) * 70, to:210, duration:0.075, volume:0.025, type:"square", when:now, send:0.2 });
+        sweepVoice({ from:760, to:175, duration:0.06, volume:0.012, type:"triangle", when:now + 0.006, send:0.12, detune:7 });
+        noiseBurst(now, 0.009);
+      };
+
+      const retractionSound = () => {
+        if (!soundEnabled || !audioContext) return;
+        const now = audioContext.currentTime;
+        sweepVoice({ from:720, to:85, duration:0.2, volume:0.035, type:"sawtooth", when:now, send:0.3 });
+        sweepVoice({ from:1100, to:145, duration:0.15, volume:0.014, type:"triangle", when:now + 0.02, send:0.24, detune:-12 });
+      };
+
+      const retractArm = () => {
+        clearTimeout(armRetractTimer);
+        arm.classList.remove("is-live");
+        arm.classList.add("is-retracting");
+        armRetractTimer = setTimeout(() => {
+          arm.classList.remove("is-retracting");
+          arm.style.width = "0px";
+        }, 320);
+      };
+
+      const positionLaser = (cursor, char, paragraph) => {
+        const charRect = char.getBoundingClientRect();
+        const paragraphRect = paragraph.getBoundingClientRect();
+        const tipX = charRect.left + charRect.width;
+        const tipY = charRect.top + charRect.height * 0.72;
+        const navBottom = nav ? nav.getBoundingClientRect().bottom : 76;
+        const pivotX = window.innerWidth * 0.5;
+        const pivotY = Math.max(82, navBottom + 14);
+        const deltaX = tipX - pivotX;
+        const deltaY = tipY - pivotY;
+
+        cursor.style.transform = `translate(${tipX - paragraphRect.left}px, ${tipY - paragraphRect.top}px)`;
+        clearTimeout(armRetractTimer);
+        arm.classList.remove("is-retracting");
+        arm.classList.add("is-live");
+        arm.style.left = `${pivotX}px`;
+        arm.style.top = `${pivotY}px`;
+        arm.style.width = `${Math.hypot(deltaX, deltaY)}px`;
+        arm.style.transform = `rotate(${Math.atan2(deltaY, deltaX)}rad)`;
+      };
+
+      const runNext = () => {
+        if (activeParagraph || !queue.length) return;
+        const paragraph = queue.shift();
+        if (paragraph.classList.contains("laser-done")) {
+          runNext();
+          return;
+        }
+
+        activeParagraph = paragraph;
+        paragraph.classList.add("laser-active");
+        const chars = [...paragraph.querySelectorAll(".laser-char")];
+        const cursor = document.createElement("span");
+        cursor.className = "laser-cursor";
+        cursor.setAttribute("aria-hidden", "true");
+        paragraph.appendChild(cursor);
+        setStatus("writing", `Grabando párrafo ${paragraphs.indexOf(paragraph) + 1} / ${paragraphs.length}`);
+        deploySound();
+
+        const duration = Math.min(3100, Math.max(1700, chars.length * 3.4));
+        const started = performance.now();
+        const runVersion = sequenceVersion;
+        let lastIndex = -1;
+
+        const frame = (now) => {
+          if (runVersion !== sequenceVersion) return;
+          const progress = Math.max(0, Math.min(1, (now - started) / duration));
+          const targetIndex = Math.min(chars.length - 1, Math.floor(progress * chars.length));
+          for (let i = lastIndex + 1; i <= targetIndex; i++) {
+            const char = chars[i];
+            if (!char) continue;
+            char.classList.add("is-etched");
+            tickSound(i);
+          }
+          if (targetIndex >= 0) positionLaser(cursor, chars[targetIndex], paragraph);
+          lastIndex = targetIndex;
+
+          if (progress < 1) {
+            requestAnimationFrame(frame);
+            return;
+          }
+
+          cursor.remove();
+          retractionSound();
+          retractArm();
+          paragraph.classList.remove("laser-active");
+          paragraph.classList.add("laser-done");
+          activeParagraph = null;
+          setStatus(queue.length ? "writing" : "standby", queue.length ? "Secuencia en cola" : "Escritor láser // listo");
+          runNext();
+        };
+        requestAnimationFrame(frame);
+      };
+
+      const enqueue = (paragraph) => {
+        if (paragraph.classList.contains("laser-done") || paragraph === activeParagraph || queue.includes(paragraph)) return;
+        queue.push(paragraph);
+        runNext();
+      };
+
+      const observeParagraphs = () => {
+        observer?.disconnect();
+        observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) enqueue(entry.target);
+          });
+        }, { rootMargin: "0px 0px -12%", threshold:0.08 });
+        paragraphs.forEach((paragraph) => observer.observe(paragraph));
+      };
+
+      const revealAll = () => {
+        sequenceVersion++;
+        queue.length = 0;
+        retractArm();
+        paragraphs.forEach((paragraph) => {
+          paragraph.querySelectorAll(".laser-char").forEach((char) => char.classList.add("is-etched"));
+          paragraph.querySelector(".laser-cursor")?.remove();
+          paragraph.classList.remove("laser-active");
+          paragraph.classList.add("laser-done");
+        });
+        activeParagraph = null;
+        observer?.disconnect();
+        setStatus("standby", "Transmisión completa");
+      };
+
+      const replay = () => {
+        sequenceVersion++;
+        queue.length = 0;
+        retractArm();
+        activeParagraph = null;
+        paragraphs.forEach(prepareParagraph);
+        setStatus("standby", "Escritor láser // reiniciado");
+        observeParagraphs();
+        paragraphs[0].scrollIntoView({ behavior:"smooth", block:"center" });
+      };
+
+      replayBtn.addEventListener("click", replay);
+      revealBtn.addEventListener("click", revealAll);
+      soundBtn.addEventListener("click", async () => {
+        soundEnabled = !soundEnabled;
+        soundBtn.setAttribute("aria-pressed", String(soundEnabled));
+        soundBtn.textContent = `Sonido 80s: ${soundEnabled ? "sí" : "no"}`;
+        if (soundEnabled) {
+          ensureSoundEngine();
+          await audioContext.resume();
+          deploySound();
+        }
+      });
+
+      paragraphs.forEach(prepareParagraph);
+      observeParagraphs();
+    })();
+  </script>
+
+</body>
+</html>

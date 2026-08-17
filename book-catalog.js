@@ -120,7 +120,7 @@
         { file: "novelas-ejemplares.webp", title: "Novelas ejemplares", slug: "novelas-ejemplares" },
         { file: "nuestro-primer-cigarro.webp", title: "Nuestro primer cigarro", slug: "nuestro-primer-cigarro" },
         { file: "ofrenda.webp", title: "Ofrenda", slug: "ofrenda" },
-        { file: "pensativa.webp", title: "Pénsativa", slug: "pensativa" },
+        { file: "pensativa.webp", title: "Pensativa", slug: "pensativa" },
         { file: "pepita-jimenez.webp", title: "Pepita Jiménez", slug: "pepita-jimenez" },
         { file: "peribañez.webp", title: "Peribáñez y el comendador de Ocaña", slug: "peribanez-y-el-comendador-de-ocana" },
         { file: "perlimplin.webp", title: "Amor de don Perlimplín con Belisa en su jardín", slug: "amor-de-don-perlimplin-con-belisa-en-su-jardin" },
