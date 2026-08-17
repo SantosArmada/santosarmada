@@ -327,12 +327,9 @@
     .laser-cursor::before{
       content:'';
       position:absolute;
-      right:3px;top:2px;
-      width:clamp(72px, 15vw, 124px);height:2px;
-      transform:rotate(-18deg);
-      transform-origin:right center;
-      background:linear-gradient(90deg, transparent, rgba(0,255,136,0.35) 30%, #fff);
-      box-shadow:0 0 5px var(--green);
+      inset:-4px;
+      border:1px solid rgba(0,255,136,0.8);
+      transform:rotate(45deg);
     }
     .laser-cursor::after{
       content:'';
@@ -343,6 +340,48 @@
     }
     @keyframes laserSparks{
       50%{ transform:scale(1.45);opacity:0; }
+    }
+    .laser-arm{
+      position:fixed;
+      z-index:95;
+      left:50vw;top:94px;
+      width:0;height:3px;
+      opacity:0;
+      pointer-events:none;
+      transform-origin:left center;
+      background:rgba(0,255,136,1);
+      box-shadow:
+        0 0 3px rgba(255,255,255,0.95),
+        0 0 8px rgba(0,255,136,1),
+        0 0 18px rgba(0,255,136,0.68);
+      will-change:width,transform;
+    }
+    .laser-arm::before{
+      content:'';
+      position:absolute;
+      left:-8px;top:-7px;
+      width:15px;height:15px;
+      border:2px solid rgba(0,255,136,1);
+      border-radius:50%;
+      background:#07100b;
+      box-shadow:
+        inset 0 0 5px rgba(0,255,136,0.8),
+        0 0 8px rgba(0,255,136,0.9),
+        0 0 18px rgba(0,255,136,0.45);
+    }
+    .laser-arm::after{
+      content:'';
+      position:absolute;
+      left:8px;right:0;top:7px;
+      height:1px;
+      background:rgba(0,255,136,0.34);
+      box-shadow:0 0 5px rgba(0,255,136,0.7);
+    }
+    .laser-arm.is-live{ opacity:1; }
+    .laser-arm.is-retracting{
+      width:0 !important;
+      transition:width 0.22s cubic-bezier(.6,0,.9,.4), opacity 0.12s linear 0.18s;
+      opacity:0;
     }
     .essay-placeholder{
       font-family:Georgia, 'Times New Roman', serif;
@@ -429,6 +468,7 @@
       .laser-console{ display:none; }
       .laser-char{ opacity:1;color:inherit;text-shadow:none; }
       .laser-cursor{ display:none; }
+      .laser-arm{ display:none; }
     }
   </style>
 </head>
@@ -717,10 +757,8 @@
     });
   </script>
 
-  <!-- Laser Writer intro, by Johan Karlsson (DonKarlssonSan) — recolored
-       from the original demo's plain green to this site's --green
-       (#00ff88), and set to write the essay's title once on page load
-       instead of the demo's "Sweet!" placeholder. Algorithm unchanged. -->
+  <!-- Legacy canvas prototype retained as a non-running reference. The live
+       writer below applies its fixed-pivot arm directly to the essay text. -->
   <script type="text/plain" id="legacyLaserWriter">
     class LWParticle {
       constructor (x, y, size) {
@@ -902,12 +940,18 @@
       const replayBtn = document.getElementById("laserReplay");
       const revealBtn = document.getElementById("laserReveal");
       const soundBtn = document.getElementById("laserSound");
+      const nav = document.querySelector("nav");
+      const arm = document.createElement("span");
+      arm.className = "laser-arm";
+      arm.setAttribute("aria-hidden", "true");
+      document.body.appendChild(arm);
       const queue = [];
       let activeParagraph = null;
       let audioContext = null;
       let soundEnabled = false;
       let observer = null;
       let sequenceVersion = 0;
+      let armRetractTimer = null;
 
       const setStatus = (state, message) => {
         consoleEl.dataset.state = state;
@@ -956,10 +1000,35 @@
         oscillator.stop(now + 0.045);
       };
 
-      const positionCursor = (cursor, char, paragraph) => {
+      const retractArm = () => {
+        clearTimeout(armRetractTimer);
+        arm.classList.remove("is-live");
+        arm.classList.add("is-retracting");
+        armRetractTimer = setTimeout(() => {
+          arm.classList.remove("is-retracting");
+          arm.style.width = "0px";
+        }, 320);
+      };
+
+      const positionLaser = (cursor, char, paragraph) => {
         const charRect = char.getBoundingClientRect();
         const paragraphRect = paragraph.getBoundingClientRect();
-        cursor.style.transform = `translate(${charRect.left - paragraphRect.left + charRect.width}px, ${charRect.top - paragraphRect.top + charRect.height * 0.72}px)`;
+        const tipX = charRect.left + charRect.width;
+        const tipY = charRect.top + charRect.height * 0.72;
+        const navBottom = nav ? nav.getBoundingClientRect().bottom : 76;
+        const pivotX = window.innerWidth * 0.5;
+        const pivotY = Math.max(82, navBottom + 14);
+        const deltaX = tipX - pivotX;
+        const deltaY = tipY - pivotY;
+
+        cursor.style.transform = `translate(${tipX - paragraphRect.left}px, ${tipY - paragraphRect.top}px)`;
+        clearTimeout(armRetractTimer);
+        arm.classList.remove("is-retracting");
+        arm.classList.add("is-live");
+        arm.style.left = `${pivotX}px`;
+        arm.style.top = `${pivotY}px`;
+        arm.style.width = `${Math.hypot(deltaX, deltaY)}px`;
+        arm.style.transform = `rotate(${Math.atan2(deltaY, deltaX)}rad)`;
       };
 
       const runNext = () => {
@@ -994,7 +1063,7 @@
             char.classList.add("is-etched");
             tickSound(i);
           }
-          if (targetIndex >= 0) positionCursor(cursor, chars[targetIndex], paragraph);
+          if (targetIndex >= 0) positionLaser(cursor, chars[targetIndex], paragraph);
           lastIndex = targetIndex;
 
           if (progress < 1) {
@@ -1003,6 +1072,7 @@
           }
 
           cursor.remove();
+          retractArm();
           paragraph.classList.remove("laser-active");
           paragraph.classList.add("laser-done");
           activeParagraph = null;
@@ -1031,6 +1101,7 @@
       const revealAll = () => {
         sequenceVersion++;
         queue.length = 0;
+        retractArm();
         paragraphs.forEach((paragraph) => {
           paragraph.querySelectorAll(".laser-char").forEach((char) => char.classList.add("is-etched"));
           paragraph.querySelector(".laser-cursor")?.remove();
@@ -1045,6 +1116,7 @@
       const replay = () => {
         sequenceVersion++;
         queue.length = 0;
+        retractArm();
         activeParagraph = null;
         paragraphs.forEach(prepareParagraph);
         setStatus("standby", "Escritor láser // reiniciado");
