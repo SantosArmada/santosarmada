@@ -542,7 +542,7 @@
       <div class="laser-controls">
         <button class="laser-control" type="button" id="laserReplay">Reiniciar</button>
         <button class="laser-control" type="button" id="laserReveal">Texto completo</button>
-        <button class="laser-control" type="button" id="laserSound" aria-pressed="false">Sonido: no</button>
+        <button class="laser-control" type="button" id="laserSound" aria-pressed="false">Sonido 80s: no</button>
       </div>
     </div>
 
@@ -948,6 +948,7 @@
       const queue = [];
       let activeParagraph = null;
       let audioContext = null;
+      let soundEngine = null;
       let soundEnabled = false;
       let observer = null;
       let sequenceVersion = 0;
@@ -985,19 +986,106 @@
         });
       };
 
-      const tickSound = (index) => {
-        if (!soundEnabled || !audioContext || index % 28 !== 0) return;
-        const now = audioContext.currentTime;
+      const ensureSoundEngine = () => {
+        if (soundEngine) return soundEngine;
+        audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+
+        const master = audioContext.createGain();
+        const delay = audioContext.createDelay(0.3);
+        const feedback = audioContext.createGain();
+        const wet = audioContext.createGain();
+        master.gain.value = 0.42;
+        delay.delayTime.value = 0.085;
+        feedback.gain.value = 0.2;
+        wet.gain.value = 0.22;
+        delay.connect(feedback);
+        feedback.connect(delay);
+        delay.connect(wet);
+        wet.connect(master);
+        master.connect(audioContext.destination);
+
+        const noiseBuffer = audioContext.createBuffer(
+          1,
+          Math.ceil(audioContext.sampleRate * 0.08),
+          audioContext.sampleRate
+        );
+        const noise = noiseBuffer.getChannelData(0);
+        for (let i = 0; i < noise.length; i++) noise[i] = Math.random() * 2 - 1;
+
+        soundEngine = { master, delay, noiseBuffer };
+        return soundEngine;
+      };
+
+      const connectVoice = (node, envelope, sendAmount = 0.16) => {
+        const engine = ensureSoundEngine();
+        const send = audioContext.createGain();
+        send.gain.value = sendAmount;
+        node.connect(envelope);
+        envelope.connect(engine.master);
+        envelope.connect(send);
+        send.connect(engine.delay);
+      };
+
+      const sweepVoice = ({
+        from, to, duration, volume, type = "sawtooth", when, send = 0.16, detune = 0
+      }) => {
+        const start = when ?? audioContext.currentTime;
         const oscillator = audioContext.createOscillator();
-        const gain = audioContext.createGain();
-        oscillator.type = index % 56 ? "square" : "sawtooth";
-        oscillator.frequency.setValueAtTime(720 + (index % 9) * 32, now);
-        oscillator.frequency.exponentialRampToValueAtTime(260, now + 0.035);
-        gain.gain.setValueAtTime(0.024, now);
-        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.04);
-        oscillator.connect(gain).connect(audioContext.destination);
-        oscillator.start(now);
-        oscillator.stop(now + 0.045);
+        const filter = audioContext.createBiquadFilter();
+        const envelope = audioContext.createGain();
+        oscillator.type = type;
+        oscillator.detune.value = detune;
+        oscillator.frequency.setValueAtTime(from, start);
+        oscillator.frequency.exponentialRampToValueAtTime(to, start + duration);
+        filter.type = "lowpass";
+        filter.frequency.setValueAtTime(4200, start);
+        filter.frequency.exponentialRampToValueAtTime(900, start + duration);
+        envelope.gain.setValueAtTime(0.0001, start);
+        envelope.gain.exponentialRampToValueAtTime(volume, start + 0.012);
+        envelope.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+        oscillator.connect(filter);
+        connectVoice(filter, envelope, send);
+        oscillator.start(start);
+        oscillator.stop(start + duration + 0.02);
+      };
+
+      const noiseBurst = (when, volume = 0.012) => {
+        const engine = ensureSoundEngine();
+        const source = audioContext.createBufferSource();
+        const filter = audioContext.createBiquadFilter();
+        const envelope = audioContext.createGain();
+        source.buffer = engine.noiseBuffer;
+        filter.type = "bandpass";
+        filter.frequency.value = 1750;
+        filter.Q.value = 3.5;
+        envelope.gain.setValueAtTime(volume, when);
+        envelope.gain.exponentialRampToValueAtTime(0.0001, when + 0.055);
+        source.connect(filter);
+        connectVoice(filter, envelope, 0.1);
+        source.start(when);
+        source.stop(when + 0.06);
+      };
+
+      const deploySound = () => {
+        if (!soundEnabled || !audioContext) return;
+        const now = audioContext.currentTime;
+        sweepVoice({ from:150, to:1180, duration:0.22, volume:0.045, type:"sawtooth", when:now, send:0.24 });
+        sweepVoice({ from:90, to:680, duration:0.18, volume:0.018, type:"square", when:now + 0.025, send:0.18, detune:-9 });
+      };
+
+      const tickSound = (index) => {
+        if (!soundEnabled || !audioContext || index % 44 !== 0) return;
+        const now = audioContext.currentTime;
+        sweepVoice({ from:1450 + (index % 5) * 70, to:210, duration:0.075, volume:0.025, type:"square", when:now, send:0.2 });
+        sweepVoice({ from:760, to:175, duration:0.06, volume:0.012, type:"triangle", when:now + 0.006, send:0.12, detune:7 });
+        noiseBurst(now, 0.009);
+      };
+
+      const retractionSound = () => {
+        if (!soundEnabled || !audioContext) return;
+        const now = audioContext.currentTime;
+        sweepVoice({ from:720, to:85, duration:0.2, volume:0.035, type:"sawtooth", when:now, send:0.3 });
+        sweepVoice({ from:1100, to:145, duration:0.15, volume:0.014, type:"triangle", when:now + 0.02, send:0.24, detune:-12 });
       };
 
       const retractArm = () => {
@@ -1047,6 +1135,7 @@
         cursor.setAttribute("aria-hidden", "true");
         paragraph.appendChild(cursor);
         setStatus("writing", `Grabando párrafo ${paragraphs.indexOf(paragraph) + 1} / ${paragraphs.length}`);
+        deploySound();
 
         const duration = Math.min(3100, Math.max(1700, chars.length * 3.4));
         const started = performance.now();
@@ -1072,6 +1161,7 @@
           }
 
           cursor.remove();
+          retractionSound();
           retractArm();
           paragraph.classList.remove("laser-active");
           paragraph.classList.add("laser-done");
@@ -1129,10 +1219,11 @@
       soundBtn.addEventListener("click", async () => {
         soundEnabled = !soundEnabled;
         soundBtn.setAttribute("aria-pressed", String(soundEnabled));
-        soundBtn.textContent = `Sonido: ${soundEnabled ? "sí" : "no"}`;
+        soundBtn.textContent = `Sonido 80s: ${soundEnabled ? "sí" : "no"}`;
         if (soundEnabled) {
-          audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
+          ensureSoundEngine();
           await audioContext.resume();
+          deploySound();
         }
       });
 
