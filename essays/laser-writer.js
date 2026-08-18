@@ -14,9 +14,14 @@
 
   if (!essayBody || !consoleEl || !statusEl || !replayBtn || !revealBtn || !soundBtn) return;
 
-  const FRAME_ON_TWOS = 1000 / 30;
-  const MAX_LINES_PER_PASS = 7;
-  const PARTICLE_COUNT = 24;
+  const IS_WEBKIT_TOUCH = (
+    navigator.maxTouchPoints > 1 && CSS.supports("-webkit-touch-callout: none")
+  ) || new URLSearchParams(window.location.search).has("laserWebKitTouch");
+  const FRAME_ON_TWOS = 1000 / (IS_WEBKIT_TOUCH ? 24 : 30);
+  const MAX_LINES_PER_PASS = IS_WEBKIT_TOUCH ? 5 : 7;
+  const PARTICLE_COUNT = IS_WEBKIT_TOUCH ? 10 : 24;
+  const WRITING_SPEED = 2.2;
+  const MECHANICAL_SPEED = 1.55;
   const paragraphs = [...essayBody.querySelectorAll("p")].filter((p) => p.textContent.trim());
   const characterMap = new WeakMap();
 
@@ -29,6 +34,8 @@
   let audioContext = null;
   let soundEngine = null;
   let humVoice = null;
+
+  document.documentElement.classList.toggle("laser-webkit-touch", IS_WEBKIT_TOUCH);
 
   const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
   const lerp = (from, to, amount) => from + (to - from) * amount;
@@ -81,6 +88,14 @@
   };
 
   paragraphs.forEach(wrapCharacters);
+
+  /* Release completed per-glyph animations instead of retaining thousands
+     of finished animation states during a long read. */
+  essayBody.addEventListener("animationend", (event) => {
+    if (event.animationName.startsWith("laserPhosphorIgnition") && event.target.classList.contains("laser-char")) {
+      event.target.classList.remove("is-fresh");
+    }
+  });
 
   const atmosphere = document.createElement("span");
   atmosphere.className = "anime-laser-atmosphere";
@@ -299,6 +314,9 @@
     const overtone = audioContext.createOscillator();
     const lfo = audioContext.createOscillator();
     const noise = audioContext.createBufferSource();
+    const burnNoise = audioContext.createBufferSource();
+    const burnLfo = audioContext.createOscillator();
+    const burnArc = audioContext.createOscillator();
     const carrierBMix = audioContext.createGain();
     const overtoneMix = audioContext.createGain();
     const noiseMix = audioContext.createGain();
@@ -307,6 +325,13 @@
     const lfoDepth = audioContext.createGain();
     const envelope = audioContext.createGain();
     const send = audioContext.createGain();
+    const burnFilter = audioContext.createBiquadFilter();
+    const burnTremolo = audioContext.createGain();
+    const burnDepth = audioContext.createGain();
+    const burnPitchDepth = audioContext.createGain();
+    const burnArcMix = audioContext.createGain();
+    const burnEnvelope = audioContext.createGain();
+    const burnSend = audioContext.createGain();
 
     carrierA.type = "sawtooth";
     carrierB.type = "sawtooth";
@@ -321,6 +346,8 @@
     noise.buffer = engine.noiseBuffer;
     noise.loop = true;
     noiseMix.gain.value = 0.03;
+    burnNoise.buffer = engine.noiseBuffer;
+    burnNoise.loop = true;
     filter.type = "lowpass";
     filter.Q.value = 2.4;
     filter.frequency.setValueAtTime(320, now);
@@ -332,6 +359,23 @@
     envelope.gain.setValueAtTime(0.0001, now);
     envelope.gain.exponentialRampToValueAtTime(0.045, now + 0.18);
     send.gain.value = 0.025;
+    /* A continuous white-hot surface hiss plus a sustained electrical arc.
+       Slow sine modulation keeps the burn alive without creating the short,
+       repeated attacks that read as typing or mechanical impacts. */
+    burnFilter.type = "bandpass";
+    burnFilter.frequency.value = 3650;
+    burnFilter.Q.value = 0.48;
+    burnTremolo.gain.value = 0.9;
+    burnLfo.type = "sine";
+    burnLfo.frequency.value = 6.4;
+    burnDepth.gain.value = 0.075;
+    burnPitchDepth.gain.value = 24;
+    burnArc.type = "triangle";
+    burnArc.frequency.setValueAtTime(1780, now);
+    burnArc.frequency.exponentialRampToValueAtTime(2120, now + 0.55);
+    burnArcMix.gain.value = 0.038;
+    burnEnvelope.gain.value = 0.0001;
+    burnSend.gain.value = 0.018;
 
     carrierA.connect(filter);
     carrierB.connect(carrierBMix).connect(filter);
@@ -341,8 +385,27 @@
     lfo.connect(lfoDepth).connect(tremolo.gain);
     envelope.connect(engine.master);
     envelope.connect(send).connect(engine.delay);
-    [carrierA, carrierB, overtone, lfo, noise].forEach((node) => node.start(now));
-    humVoice = { envelope, nodes:[carrierA, carrierB, overtone, lfo, noise] };
+    burnNoise.connect(burnFilter).connect(burnTremolo).connect(burnEnvelope);
+    burnArc.connect(burnArcMix).connect(burnTremolo);
+    burnLfo.connect(burnDepth).connect(burnTremolo.gain);
+    burnLfo.connect(burnPitchDepth).connect(burnArc.detune);
+    burnEnvelope.connect(engine.master);
+    burnEnvelope.connect(burnSend).connect(engine.delay);
+    const nodes = [carrierA, carrierB, overtone, lfo, noise, burnNoise, burnLfo, burnArc];
+    nodes.forEach((node) => node.start(now));
+    humVoice = { envelope, burnEnvelope, nodes };
+    atmosphere.dataset.audio = "hum";
+  };
+
+  const setBurningSound = (active) => {
+    if (!humVoice || !audioContext) return;
+    const now = audioContext.currentTime;
+    const gain = humVoice.burnEnvelope.gain;
+    const target = active ? 0.038 : 0.0001;
+    gain.cancelScheduledValues(now);
+    gain.setValueAtTime(Math.max(0.0001, gain.value), now);
+    gain.exponentialRampToValueAtTime(target, now + (active ? 0.035 : 0.085));
+    atmosphere.dataset.audio = active ? "burning" : "hum";
   };
 
   const stopHum = () => {
@@ -350,6 +413,7 @@
     const voice = humVoice;
     const now = audioContext.currentTime;
     humVoice = null;
+    atmosphere.dataset.audio = "off";
     voice.envelope.gain.cancelScheduledValues(now);
     voice.envelope.gain.setValueAtTime(Math.max(0.0001, voice.envelope.gain.value), now);
     voice.envelope.gain.exponentialRampToValueAtTime(0.0001, now + 0.17);
@@ -417,6 +481,7 @@
     run.phaseSeed = Math.random();
     atmosphere.dataset.phase = phase;
     atmosphere.dataset.line = String(run.lineIndex + 1);
+    setBurningSound(phase === "write");
     if (phase === "anticipate") {
       run.lastReveal = -1;
       run.writeProgress = 0;
@@ -434,7 +499,7 @@
     hideParticles();
     setStatus("standby", "Escritor láser // listo");
     clearTimeout(scanTimer);
-    scanTimer = window.setTimeout(scanForWork, 110);
+    scanTimer = window.setTimeout(scanForWork, 70);
   };
 
   const stepAnimation = (now) => {
@@ -457,7 +522,7 @@
 
     switch (run.phase) {
       case "deploy": {
-        amount = clamp(elapsed / 280, 0, 1);
+        amount = clamp(elapsed / (280 / MECHANICAL_SPEED), 0, 1);
         tip = pointBetween(run.geometry.pivot, first, easeOutCubic(amount));
         renderHardware(tip, run.geometry, 0.58 + amount * 0.42, false, quantizedNow);
         if (amount >= 1) setPhase(run, "anticipate", quantizedNow);
@@ -465,7 +530,7 @@
       }
 
       case "anticipate": {
-        const duration = 100 + run.phaseSeed * 70;
+        const duration = (100 + run.phaseSeed * 70) / MECHANICAL_SPEED;
         amount = clamp(elapsed / duration, 0, 1);
         tip = {
           x:first.x - (1 - amount) * 5 + Math.sin(quantizedNow * 0.045) * 0.5,
@@ -480,7 +545,7 @@
       }
 
       case "write": {
-        const duration = clamp(430 + line.points.length * 7.2, 520, 1220);
+        const duration = clamp((430 + line.points.length * 7.2) / WRITING_SPEED, 240, 555);
         amount = clamp(elapsed / duration, 0, 1);
         const mechanicalProgress = easeInOutMass(amount);
         run.writeProgress = Math.max(run.writeProgress, mechanicalProgress);
@@ -507,7 +572,7 @@
       }
 
       case "overshoot": {
-        amount = clamp(elapsed / 110, 0, 1);
+        amount = clamp(elapsed / (110 / MECHANICAL_SPEED), 0, 1);
         tip = pointBetween(last, run.overshoot, easeOutCubic(amount));
         renderHardware(tip, run.geometry, 0.92, false, quantizedNow);
         if (amount >= 1) setPhase(run, "correction", quantizedNow);
@@ -515,7 +580,7 @@
       }
 
       case "correction": {
-        amount = clamp(elapsed / 145, 0, 1);
+        amount = clamp(elapsed / (145 / MECHANICAL_SPEED), 0, 1);
         const correction = easeInOutMass(amount);
         tip = pointBetween(run.overshoot, last, correction);
         tip.x += Math.sin(amount * Math.PI) * -2.4;
@@ -525,7 +590,7 @@
       }
 
       case "settle": {
-        amount = clamp(elapsed / 105, 0, 1);
+        amount = clamp(elapsed / (105 / MECHANICAL_SPEED), 0, 1);
         tip = {
           x:last.x + Math.sin(quantizedNow * 0.052) * (1 - amount) * 0.9,
           y:last.y + Math.cos(quantizedNow * 0.047) * (1 - amount) * 0.6
@@ -550,7 +615,7 @@
       }
 
       case "carriage": {
-        amount = clamp(elapsed / 300, 0, 1);
+        amount = clamp(elapsed / (300 / MECHANICAL_SPEED), 0, 1);
         const movement = easeInOutMass(amount);
         tip = quadraticPoint(run.carriageStart, run.carriageControl, run.carriageEnd, movement);
         tip.x += Math.sin(amount * Math.PI) * -5;
@@ -563,7 +628,7 @@
       }
 
       case "retract": {
-        amount = clamp(elapsed / 230, 0, 1);
+        amount = clamp(elapsed / (230 / MECHANICAL_SPEED), 0, 1);
         tip = pointBetween(run.retractStart, run.geometry.pivot, easeInCubic(amount));
         renderHardware(tip, run.geometry, 1 - amount * 0.74, true, quantizedNow);
         if (amount >= 1) {
@@ -674,6 +739,7 @@
       }
       await audioContext.resume();
       startHum();
+      setBurningSound(activeRun?.phase === "write");
       if (!activeRun) {
         window.setTimeout(() => {
           if (!activeRun) stopHum();
@@ -681,12 +747,14 @@
       }
     } else {
       stopHum();
+      /* iPad Safari keeps touch focus after a tap. Clear it so the OFF state
+         cannot retain a focus treatment that looks like an active control. */
+      soundBtn.blur();
     }
   });
 
   window.addEventListener("scroll", () => {
     if (activeRun) cancelActiveRun();
-    updatePresence();
     scheduleScan(150);
   }, { passive:true });
 

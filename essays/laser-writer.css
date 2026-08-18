@@ -5,7 +5,8 @@
 body{
   background:
     radial-gradient(circle at 50% 18%, rgba(8,28,45,0.34), transparent 36rem),
-    linear-gradient(145deg, #030508 0%, #060a12 48%, #020304 100%) fixed !important;
+    linear-gradient(145deg, #030508 0%, #060a12 48%, #020304 100%) !important;
+  background-attachment:scroll !important;
 }
 
 .essay-section{
@@ -13,11 +14,16 @@ body{
   isolation:isolate;
 }
 
+/* The opening line is part of the essay, never a display lead. Keep its
+   paragraph indent even if a page-level style tries to flatten first-of-type. */
+.essay-body > p:first-of-type{
+  text-indent:2em !important;
+}
+
 .laser-char{
   opacity:0;
   color:#66ffae;
   text-shadow:none;
-  will-change:opacity, text-shadow;
 }
 
 .laser-char.is-etched{
@@ -27,7 +33,24 @@ body{
 }
 
 .laser-char.is-fresh{
-  animation:laserPhosphorIgnition 1s steps(8,end) both;
+  animation:laserPhosphorIgnition 1s steps(8,end);
+}
+
+/* Sound is the one control whose fill communicates persistent state. Safari
+   on iPad can retain tap focus, so hover/focus must never make OFF look ON. */
+#laserSound[aria-pressed="false"],
+#laserSound[aria-pressed="false"]:hover,
+#laserSound[aria-pressed="false"]:focus,
+#laserSound[aria-pressed="false"]:focus-visible{
+  background:rgba(0,0,0,0.68);
+  color:var(--green);
+  box-shadow:none;
+}
+
+#laserSound[aria-pressed="true"]{
+  background:var(--green);
+  color:var(--black);
+  box-shadow:0 0 14px rgba(0,255,136,0.32);
 }
 
 @keyframes laserPhosphorIgnition{
@@ -59,6 +82,24 @@ body{
   }
 }
 
+@keyframes laserPhosphorIgnitionTablet{
+  0%{
+    opacity:0.55;
+    color:#fff;
+    text-shadow:0 0 3px #fff,0 0 9px rgba(0,255,136,0.82);
+  }
+  25%{
+    opacity:1;
+    color:#caffdf;
+    text-shadow:0 0 4px #00ff88,0 0 8px rgba(0,255,136,0.55);
+  }
+  100%{
+    opacity:1;
+    color:#58fca6;
+    text-shadow:0 0 3px rgba(0,255,136,0.22);
+  }
+}
+
 .anime-laser-atmosphere{
   position:fixed;
   z-index:92;
@@ -74,7 +115,9 @@ body{
       rgba(82,255,171,0.025) 3px 4px
     ),
     radial-gradient(circle at 50% 22%, rgba(0,255,136,0.035), transparent 34%);
-  mix-blend-mode:screen;
+  /* A full-viewport blend layer can exhaust mobile compositors during long
+     scrolls. The restrained scanline colors read the same without it. */
+  mix-blend-mode:normal;
 }
 
 .anime-laser-atmosphere::after{
@@ -276,6 +319,33 @@ body{
   background:#eafff4;
   box-shadow:0 0 3px #fff,0 0 7px #00ff88;
   will-change:transform,opacity;
+}
+
+/* WebKit touch devices composite every fixed/3D-transformed layer at Retina
+   resolution. Keep the cinematic design, but avoid the large blur and blend
+   passes that can exhaust the iPad WebContent process during long scrolls. */
+html.laser-webkit-touch nav{
+  -webkit-backdrop-filter:none !important;
+  backdrop-filter:none !important;
+  background:rgba(4,7,11,0.985) !important;
+}
+
+html.laser-webkit-touch .laser-char.is-fresh{
+  animation-name:laserPhosphorIgnitionTablet;
+}
+
+html.laser-webkit-touch .anime-laser-atmosphere::after{
+  animation:none !important;
+  opacity:0.16;
+}
+
+html.laser-webkit-touch .anime-laser-beam::before{
+  filter:none;
+  opacity:0.28;
+}
+
+html.laser-webkit-touch .anime-laser-particle{
+  will-change:auto;
 }
 
 @media(max-width:768px){
