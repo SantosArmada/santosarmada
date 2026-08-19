@@ -119,6 +119,20 @@
     #14100d;
 }
 
+/* Amber frame around faces 0 and 5's edges (the two video faces), per
+   request. A box-shadow on the face itself would get fully covered by
+   the video (position:absolute, inset:0, painted after the face's own
+   background) — so this lives on an ::after overlay instead, which
+   paints above the video. */
+.face[data-i="0"]::after,
+.face[data-i="5"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 0 3px var(--gold);
+  pointer-events: none;
+}
+
 #cube .face img,
 #cube .face video {
   position: absolute;
