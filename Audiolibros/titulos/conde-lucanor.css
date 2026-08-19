@@ -37,9 +37,9 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 2rem;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(50, 45, 110, 0.92);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(61, 38, 80, 0.2);
+  border-bottom: 1px solid rgba(21, 15, 26, 0.4);
 }
 .site-nav-logo { display: flex; align-items: center; }
 .site-nav-logo-img { height: 38px; width: auto; display: block; }
@@ -50,7 +50,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--card-fg);
   text-decoration: none;
   position: relative;
   transition: color 0.2s;
@@ -62,18 +62,18 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: var(--purple);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s ease;
 }
 .site-nav-links a:hover,
-.site-nav-links a.active { color: var(--purple); }
+.site-nav-links a.active { color: var(--accent); }
 .site-nav-links a:hover::after,
 .site-nav-links a.active::after { transform: scaleX(1); }
 
 .site-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-.site-hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); transition: all 0.3s ease; }
+.site-hamburger span { display: block; width: 22px; height: 2px; background: var(--card-fg); transition: all 0.3s ease; }
 .site-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .site-hamburger.open span:nth-child(2) { opacity: 0; }
 .site-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -82,7 +82,7 @@ body {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: #ffffff;
+  background: #322d6e;
   z-index: 99;
   flex-direction: column;
   align-items: center;
@@ -96,10 +96,10 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--card-fg);
   text-decoration: none;
 }
-.site-mobile-menu a:hover { color: var(--purple); }
+.site-mobile-menu a:hover { color: var(--accent); }
 
 @media (max-width: 900px) {
   .site-nav-links { display: none; }
