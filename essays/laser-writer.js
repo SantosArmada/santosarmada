@@ -18,12 +18,14 @@
     navigator.maxTouchPoints > 1 && CSS.supports("-webkit-touch-callout: none")
   ) || new URLSearchParams(window.location.search).has("laserWebKitTouch");
   const FRAME_ON_TWOS = 1000 / (IS_WEBKIT_TOUCH ? 24 : 30);
-  const MAX_LINES_PER_PASS = IS_WEBKIT_TOUCH ? 5 : 7;
-  const PARTICLE_COUNT = IS_WEBKIT_TOUCH ? 10 : 24;
+  const MAX_LINES_PER_PASS = IS_WEBKIT_TOUCH ? 4 : 7;
+  const PARTICLE_COUNT = IS_WEBKIT_TOUCH ? 6 : 24;
   const WRITING_SPEED = 2.2;
   const MECHANICAL_SPEED = 1.55;
   const paragraphs = [...essayBody.querySelectorAll("p")].filter((p) => p.textContent.trim());
   const characterMap = new WeakMap();
+  const originalMarkup = new WeakMap();
+  let lineGeometryMap = new WeakMap();
 
   let animationFrame = 0;
   let scanTimer = 0;
@@ -63,7 +65,7 @@
   };
 
   const wrapCharacters = (paragraph) => {
-    if (characterMap.has(paragraph)) return;
+    if (characterMap.has(paragraph)) return characterMap.get(paragraph);
 
     const originalText = paragraph.textContent;
     paragraph.setAttribute("aria-label", originalText);
@@ -85,9 +87,17 @@
       node.replaceWith(fragment);
     });
     characterMap.set(paragraph, characters);
+    paragraph.classList.remove("laser-pending");
+    return characters;
   };
 
-  paragraphs.forEach(wrapCharacters);
+  /* Keep the long essay as ordinary text until a paragraph actually reaches
+     the viewport. Pensativa used to create almost 10,000 spans at startup;
+     lazy preparation keeps WebKit's live DOM and layer bookkeeping small. */
+  paragraphs.forEach((paragraph) => {
+    originalMarkup.set(paragraph, paragraph.innerHTML);
+    paragraph.classList.add("laser-pending");
+  });
 
   /* Release completed per-glyph animations instead of retaining thousands
      of finished animation states during a long read. */
@@ -168,6 +178,41 @@
     atmosphere.classList.toggle("is-present", present);
     head.classList.toggle("is-present", present);
     return present;
+  };
+
+  const measureParagraphLines = (paragraph) => {
+    const cached = lineGeometryMap.get(paragraph);
+    if (cached) return cached;
+
+    const lines = [];
+    wrapCharacters(paragraph).forEach((character) => {
+      const rect = character.getBoundingClientRect();
+      const y = rect.top + window.scrollY + rect.height * 0.72;
+      let line = lines[lines.length - 1];
+      if (!line || Math.abs(line.y - y) > 3) {
+        line = { y, points:[] };
+        lines.push(line);
+      }
+      line.points.push({
+        character,
+        x:rect.left + window.scrollX + rect.width,
+        y
+      });
+    });
+    lineGeometryMap.set(paragraph, lines);
+    return lines;
+  };
+
+  const releaseParagraph = (paragraph) => {
+    const delay = IS_WEBKIT_TOUCH ? 620 : 1100;
+    window.setTimeout(() => {
+      if (!paragraph.classList.contains("laser-complete") || activeRun?.paragraph === paragraph) return;
+      paragraph.innerHTML = originalMarkup.get(paragraph);
+      paragraph.classList.remove("laser-pending");
+      paragraph.classList.add("laser-done");
+      characterMap.delete(paragraph);
+      lineGeometryMap.delete(paragraph);
+    }, delay);
   };
 
   const setHardwareActive = (active, carriage = false) => {
@@ -428,31 +473,33 @@
       const paragraph = paragraphs[paragraphIndex];
       const paragraphRect = paragraph.getBoundingClientRect();
       if (paragraphRect.bottom < geometry.safeTop || paragraphRect.top > geometry.safeBottom) continue;
+      if (paragraph.classList.contains("laser-complete")) continue;
 
-      const unwritten = characterMap.get(paragraph).filter((character) => !character.classList.contains("is-etched"));
+      const characters = wrapCharacters(paragraph);
+      const unwritten = characters.filter((character) => !character.classList.contains("is-etched"));
       if (!unwritten.length) {
         paragraph.classList.add("laser-complete");
+        releaseParagraph(paragraph);
         continue;
       }
 
-      const lines = [];
-      unwritten.forEach((character) => {
-        const rect = character.getBoundingClientRect();
-        if (rect.bottom < geometry.safeTop || rect.top > geometry.safeBottom) return;
-        const y = rect.top + rect.height * 0.72;
-        let line = lines[lines.length - 1];
-        if (!line || Math.abs(line.y - y) > 3) {
-          line = { y, points:[] };
-          lines.push(line);
-        }
-        line.points.push({
-          character,
-          x:rect.left + rect.width,
-          y
-        });
-      });
-
-      const usableLines = lines.filter((line) => line.points.length).slice(0, MAX_LINES_PER_PASS);
+      /* Glyph positions do not change while writing. Measure a paragraph once
+         in document coordinates, then only adjust by scroll offset on later
+         passes instead of forcing hundreds of layout reads every few lines. */
+      const usableLines = measureParagraphLines(paragraph).reduce((visible, line) => {
+        if (visible.length >= MAX_LINES_PER_PASS) return visible;
+        const y = line.y - window.scrollY;
+        if (y < geometry.safeTop || y > geometry.safeBottom) return visible;
+        const points = line.points
+          .filter((point) => !point.character.classList.contains("is-etched"))
+          .map((point) => ({
+            character:point.character,
+            x:point.x - window.scrollX,
+            y
+          }));
+        if (points.length) visible.push({ y, points });
+        return visible;
+      }, []);
       if (usableLines.length) return { paragraph, paragraphIndex, lines:usableLines, geometry };
     }
     return null;
@@ -492,7 +539,10 @@
     if (!activeRun) return;
     const completedParagraph = activeRun.paragraph;
     const allWritten = characterMap.get(completedParagraph).every((character) => character.classList.contains("is-etched"));
-    if (allWritten) completedParagraph.classList.add("laser-complete");
+    if (allWritten) {
+      completedParagraph.classList.add("laser-complete");
+      releaseParagraph(completedParagraph);
+    }
     activeRun = null;
     stopHum();
     setHardwareActive(false);
@@ -694,11 +744,11 @@
     cancelActiveRun("Transmisión completa");
     stopHum();
     paragraphs.forEach((paragraph) => {
-      characterMap.get(paragraph).forEach((character) => {
-        character.classList.add("is-etched");
-        character.classList.remove("is-fresh");
-      });
-      paragraph.classList.add("laser-complete");
+      paragraph.innerHTML = originalMarkup.get(paragraph);
+      paragraph.classList.remove("laser-pending");
+      paragraph.classList.add("laser-complete", "laser-done");
+      characterMap.delete(paragraph);
+      lineGeometryMap.delete(paragraph);
     });
     setHardwareActive(false);
     setStatus("standby", "Transmisión completa");
@@ -709,8 +759,11 @@
     cancelActiveRun("Escritor láser // calibrando");
     stopHum();
     paragraphs.forEach((paragraph) => {
+      paragraph.innerHTML = originalMarkup.get(paragraph);
       paragraph.classList.remove("laser-complete", "laser-done", "laser-active", "as");
-      characterMap.get(paragraph).forEach((character) => character.classList.remove("is-etched", "is-fresh"));
+      paragraph.classList.add("laser-pending");
+      characterMap.delete(paragraph);
+      lineGeometryMap.delete(paragraph);
     });
     const geometry = getViewportGeometry();
     const firstRect = paragraphs[0].getBoundingClientRect();
@@ -760,6 +813,7 @@
 
   window.addEventListener("resize", () => {
     cancelActiveRun();
+    lineGeometryMap = new WeakMap();
     scheduleScan(180);
   }, { passive:true });
 

@@ -560,17 +560,10 @@ body.has-site-banners .navbar {
     }
 }
 
-/* --- Interpreter Z card: pulsing red glow confined to wherever the
-   torn-paper Z's red pixels actually are in Images/grid/interpreter-z.jpg
-   -- without an external mask (mask-image proved unreliable to verify
-   across browsers here). Instead this layers a brightness/saturation-
-   boosted, slightly blurred copy of the SAME photo on top via
-   background-image + mix-blend-mode:screen. Screening a brightened
-   copy of black pixels over black is still black (any multiplier x 0
-   is 0), so the surrounding background is mathematically guaranteed
-   to stay untouched -- only the already-red Z gets pushed brighter,
-   with the blur giving it a soft glowing bleed right at its own
-   edges instead of a hard-edged rectangle. */
+/* --- Interpreter Z card: pulse a copy of the photo through an SVG color
+   matrix that converts neutral pixels (the white INTERPRETER lettering and
+   black background) to transparency. Only pixels whose red channel exceeds
+   green/blue survive, confining the animated glow to the torn-paper Z. */
 .interpreter-z-glow {
     position: absolute;
     inset: 0;
@@ -583,14 +576,14 @@ body.has-site-banners .navbar {
 }
 
 @keyframes interpreter-z-pulse {
-    0%, 100% { filter: brightness(1.5) saturate(1.6) blur(2px); opacity: 0.55; }
-    50%      { filter: brightness(2.8) saturate(2.2) blur(4px); opacity: 1; }
+    0%, 100% { filter: url(#interpreter-z-red-only) brightness(1.5) saturate(1.6) blur(2px); opacity: 0.55; }
+    50%      { filter: url(#interpreter-z-red-only) brightness(2.8) saturate(2.2) blur(4px); opacity: 1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .interpreter-z-glow {
         animation: none;
-        filter: brightness(2) saturate(1.8) blur(3px);
+        filter: url(#interpreter-z-red-only) brightness(2) saturate(1.8) blur(3px);
         opacity: 0.85;
     }
 }
@@ -1117,6 +1110,27 @@ a[href="/authors"]:hover img {
     background-size: 100% 100%;
     background-repeat: no-repeat;
     mix-blend-mode: screen;
+    /* The photographed fingers sit in front of the pole.  Keep the bright
+       core behind that grip instead of painting a continuous line through
+       her hand; the wider glow below still supplies believable cyan spill. */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 37%,
+        transparent 39%,
+        transparent 52%,
+        #000 54%,
+        #000 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 37%,
+        transparent 39%,
+        transparent 52%,
+        #000 54%,
+        #000 100%
+    );
     animation: authors-core-flicker 3.4s ease-in-out infinite;
 }
 
@@ -1157,6 +1171,26 @@ a[href="/authors"]:hover img {
     height: 88.58%;
     overflow: hidden;
     mix-blend-mode: screen;
+    /* Match the hot-core occlusion so neither travelling energy sweep can
+       cross over the fingers that wrap around the shaft. */
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 37%,
+        transparent 39%,
+        transparent 52%,
+        #000 54%,
+        #000 100%
+    );
+    mask-image: linear-gradient(
+        to bottom,
+        #000 0%,
+        #000 37%,
+        transparent 39%,
+        transparent 52%,
+        #000 54%,
+        #000 100%
+    );
 }
 
 .authors-pole-shimmer::before {
@@ -1200,7 +1234,9 @@ a[href="/authors"]:hover img {
 .authors-spark-1 { left: 88.3%; top: 11%;    animation-duration: 1.5s; animation-delay: 0.2s; }
 .authors-spark-2 {
     left: 87.9%; top: 44.5%; width: 13px; height: 13px;
-    animation-duration: 1.3s; animation-delay: 0s;
+    /* A flare directly over the knuckles erased the finger silhouettes and
+       made the shaft appear to pass through the hand. */
+    display: none;
 }
 .authors-spark-3 { left: 88.6%; top: 81%;    animation-duration: 1.4s; animation-delay: 0.7s; }
 
@@ -1219,10 +1255,10 @@ a[href="/authors"]:hover img {
 }
 
 @keyframes authors-core-pulse {
-    0%   { opacity: 0.75; transform: scale(1);    }
-    18%  { opacity: 1;    transform: scale(1.15); }
-    50%  { opacity: 0.85; transform: scale(1.03); }
-    100% { opacity: 0.75; transform: scale(1);    }
+    0%   { opacity: 0.2;  transform: scale(1);    }
+    18%  { opacity: 0.38; transform: scale(1.08); }
+    50%  { opacity: 0.28; transform: scale(1.03); }
+    100% { opacity: 0.2;  transform: scale(1);    }
 }
 
 @keyframes authors-shimmer-up {
@@ -1294,7 +1330,7 @@ a[href="/authors"] p {
     }
     .authors-hand-core {
         animation: none;
-        opacity: 0.85;
+        opacity: 0.28;
     }
     .authors-pole-shimmer::before {
         animation: none;

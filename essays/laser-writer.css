@@ -26,6 +26,12 @@ body{
   text-shadow:none;
 }
 
+/* Preserve the paragraph's space in the document while deferring thousands
+   of per-character spans until that paragraph reaches the viewport. */
+.essay-body p.laser-pending{
+  opacity:0;
+}
+
 .laser-char.is-etched{
   opacity:1;
   color:#58fca6;
@@ -332,16 +338,34 @@ html.laser-webkit-touch nav{
 
 html.laser-webkit-touch .laser-char.is-fresh{
   animation-name:laserPhosphorIgnitionTablet;
+  animation-duration:520ms;
+}
+
+html.laser-webkit-touch .laser-char.is-etched{
+  text-shadow:none;
+}
+
+html.laser-webkit-touch .anime-laser-atmosphere{
+  background:radial-gradient(circle at 50% 22%, rgba(0,255,136,0.025), transparent 32%);
 }
 
 html.laser-webkit-touch .anime-laser-atmosphere::after{
-  animation:none !important;
-  opacity:0.16;
+  display:none;
 }
 
 html.laser-webkit-touch .anime-laser-beam::before{
   filter:none;
   opacity:0.28;
+  animation:none;
+}
+
+html.laser-webkit-touch .anime-laser-beam::after,
+html.laser-webkit-touch .anime-laser-contact::after{
+  display:none;
+}
+
+html.laser-webkit-touch .anime-laser-contact{
+  box-shadow:0 0 3px #fff,0 0 7px #9affcb,0 0 15px rgba(0,255,136,0.78);
 }
 
 html.laser-webkit-touch .anime-laser-particle{
