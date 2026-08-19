@@ -42,18 +42,7 @@ body {
   border-bottom: 1px solid rgba(61, 38, 80, 0.3);
 }
 .site-nav-logo { display: flex; align-items: center; }
-.site-nav-logo-img {
-  height: 38px; width: 38px; display: block;
-  background-color: #00bcd4;
-  -webkit-mask-image: url(../../Images/logo.PNG);
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-image: url(../../Images/logo.PNG);
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-}
+.site-nav-logo-img { height: 38px; width: auto; display: block; }
 .site-nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; }
 .site-nav-links a {
   font-family: "Inter", sans-serif;
