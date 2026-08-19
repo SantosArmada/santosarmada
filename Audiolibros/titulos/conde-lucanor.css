@@ -431,20 +431,6 @@ body {
     background-color: var(--dot-color);
 }
 
-.volume-dial__wrap {
-    position: absolute;
-    inset: 12.5%;
-    width: 75%;
-    height: 75%;
-    border-radius: 100%;
-    background-image:
-        radial-gradient(100% 100% at center, var(--cream) 43%, transparent 45%),
-        linear-gradient(var(--cream), #d9c69a);
-    background-clip: padding-box, border-box;
-    border: 0.25em solid transparent;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.3);
-}
-
 .volume-dial__knob {
     position: absolute;
     top: 0; left: 0;
