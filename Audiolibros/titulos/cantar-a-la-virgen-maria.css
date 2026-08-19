@@ -63,13 +63,13 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: var(--accent);
+  background: var(--charcoal);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s ease;
 }
 .site-nav-links a:hover,
-.site-nav-links a.active { color: var(--accent); }
+.site-nav-links a.active { color: var(--charcoal); }
 .site-nav-links a:hover::after,
 .site-nav-links a.active::after { transform: scaleX(1); }
 
@@ -100,7 +100,7 @@ body {
   color: var(--ink);
   text-decoration: none;
 }
-.site-mobile-menu a:hover { color: var(--accent); }
+.site-mobile-menu a:hover { color: var(--charcoal); }
 
 @media (max-width: 900px) {
   .site-nav-links { display: none; }
