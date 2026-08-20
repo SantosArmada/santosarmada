@@ -38,12 +38,23 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 2rem;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 0, 0, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(161, 51, 40, 0.2);
 }
 .site-nav-logo { display: flex; align-items: center; }
-.site-nav-logo-img { height: 38px; width: auto; display: block; }
+.site-nav-logo-img {
+  height: 38px; width: 38px; display: block;
+  background-color: #ffffff;
+  -webkit-mask-image: url(../../Images/logo.PNG);
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url(../../Images/logo.PNG);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
 .site-nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; }
 .site-nav-links a {
   font-family: "Inter", sans-serif;
@@ -51,7 +62,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: #ffffff;
   text-decoration: none;
   position: relative;
   transition: color 0.2s;
@@ -74,7 +85,7 @@ body {
 .site-nav-links a.active::after { transform: scaleX(1); }
 
 .site-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-.site-hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); transition: all 0.3s ease; }
+.site-hamburger span { display: block; width: 22px; height: 2px; background: #ffffff; transition: all 0.3s ease; }
 .site-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .site-hamburger.open span:nth-child(2) { opacity: 0; }
 .site-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -83,7 +94,7 @@ body {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: #ffffff;
+  background: #000000;
   z-index: 99;
   flex-direction: column;
   align-items: center;
@@ -97,7 +108,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: #ffffff;
   text-decoration: none;
 }
 .site-mobile-menu a:hover { color: var(--red); }
