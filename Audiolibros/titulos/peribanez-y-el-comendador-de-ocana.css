@@ -289,7 +289,7 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
     letter-spacing: 2px;
-    color: var(--coral-bright);
+    color: var(--accent);
     margin: 0 0 0.75rem;
 }
 .panel p { color: var(--ink-dim); margin: 0 0 0.5rem; }
