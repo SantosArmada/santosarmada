@@ -37,7 +37,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 2rem;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(0, 144, 156, 0.92);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(15, 92, 94, 0.2);
 }
