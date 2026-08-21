@@ -9,6 +9,7 @@
     --card-dark: #170f0d;
     --red: #7f1d1d;
     --red-bright: #b8322a;
+    --blood-red: #a81714;
     --card-fg: #e8dcc0;
     --card-fg-dim: #a89b86;
     --shadow: rgba(0, 0, 0, 0.5);
@@ -24,6 +25,7 @@ body {
     color: var(--ink);
     background-color: var(--cream);
     padding-top: 72px;
+    position: relative;
 }
 
 /* ---------- NAV ---------- */
@@ -144,31 +146,93 @@ body {
     font-style: italic;
 }
 
-/* ---------- SCROLL + QUILL (de las Casas's testimony, static line art) ---------- */
+/* ---------- BLOODY HAND — extracted directly from the cover artwork ---------- */
 
-.spool-signature {
-    width: 84px;
-    height: 90px;
+.bloody-hand-signature {
+    width: 118px;
+    height: 158px;
     flex-shrink: 0;
     position: relative;
+    margin: -1.5rem 0 -1.35rem;
 }
-.spool-signature svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.bloody-hand-signature svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+/* Continuously falling drops, with no permanent vertical streaks. */
+.blood-page-drips {
+    position: absolute;
+    top: 235px;
+    right: 56px;
+    bottom: 0;
+    width: 118px;
+    z-index: 2;
+    overflow: hidden;
+    pointer-events: none;
+    mix-blend-mode: multiply;
+}
+.blood-bead {
+    --fall-x: 50%;
+    --fall-drift: 4px;
+    --fall-duration: 7s;
+    --fall-delay: 0s;
+    --rest-position: 40%;
+    position: absolute;
+    display: block;
+    top: var(--rest-position);
+    left: var(--fall-x);
+    width: 7px;
+    height: 12px;
+    border-radius: 68% 42% 62% 48%;
+    background: linear-gradient(100deg, #7b0d0c 8%, var(--blood-red) 56%, #cf3b32 100%);
+    box-shadow: 0 1px 2px rgba(69, 5, 4, 0.45);
+    opacity: 0;
+    transform: translateX(0) rotate(7deg);
+    animation: blood-drop-fall var(--fall-duration) cubic-bezier(0.45, 0.05, 0.72, 0.72) var(--fall-delay) infinite;
+}
+.blood-bead::before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 72%;
+    width: 1.5px;
+    height: 17px;
+    border-radius: 50% 50% 0 0;
+    background: linear-gradient(to top, var(--blood-red), transparent);
+    transform: translateX(-50%);
+}
+.blood-bead::after {
+    content: "";
+    position: absolute;
+    top: 18%;
+    right: 20%;
+    width: 2px;
+    height: 3px;
+    border-radius: 50%;
+    background: rgba(255, 184, 164, 0.45);
+}
+.blood-bead--one { --fall-x: 39%; --fall-drift: 5px; --fall-duration: 6.4s; --fall-delay: -1.2s; --rest-position: 14%; width: 5px; height: 9px; }
+.blood-bead--two { --fall-x: 50%; --fall-drift: -3px; --fall-duration: 8.7s; --fall-delay: -6.1s; --rest-position: 27%; }
+.blood-bead--three { --fall-x: 58%; --fall-drift: 4px; --fall-duration: 7.3s; --fall-delay: -3.8s; --rest-position: 41%; width: 6px; height: 15px; }
+.blood-bead--four { --fall-x: 47%; --fall-drift: -5px; --fall-duration: 10.2s; --fall-delay: -8.4s; --rest-position: 53%; width: 8px; height: 13px; }
+.blood-bead--five { --fall-x: 62%; --fall-drift: 3px; --fall-duration: 5.9s; --fall-delay: -4.7s; --rest-position: 65%; width: 4px; height: 8px; }
+.blood-bead--six { --fall-x: 31%; --fall-drift: 6px; --fall-duration: 9.4s; --fall-delay: -2.5s; --rest-position: 76%; width: 7px; height: 16px; }
+.blood-bead--seven { --fall-x: 53%; --fall-drift: -4px; --fall-duration: 7.8s; --fall-delay: -7.1s; --rest-position: 87%; width: 5px; height: 11px; }
+.blood-bead--eight { --fall-x: 44%; --fall-drift: 5px; --fall-duration: 11.1s; --fall-delay: -5.6s; --rest-position: 95%; width: 9px; height: 14px; }
 
-.scroll-roll,
-.quill-shaft {
-    fill: none;
-    stroke: var(--accent);
-    stroke-width: 2.2;
-    stroke-linejoin: round;
-    stroke-linecap: round;
+@keyframes blood-drop-fall {
+    0% { top: -24px; opacity: 0; transform: translateX(0) scaleY(0.75) rotate(5deg); }
+    3% { opacity: 0.9; }
+    48% { transform: translateX(var(--fall-drift)) scaleY(1.08) rotate(8deg); }
+    96% { opacity: 0.9; }
+    100% { top: calc(100% + 24px); opacity: 0; transform: translateX(0) scaleY(1.25) rotate(11deg); }
 }
-.quill-feather {
-    fill: var(--accent);
-    stroke: none;
-}
-.ink-drop {
-    fill: var(--red-bright);
-    stroke: none;
+
+@media (prefers-reduced-motion: reduce) {
+    .blood-bead { animation: none; }
+    .blood-bead { opacity: 0.68; }
 }
 
 /* ---------- PLAYER ---------- */
@@ -264,6 +328,7 @@ body {
     display: flex;
     gap: 3rem;
     flex-wrap: wrap;
+    z-index: 1;
 }
 
 .book { position: relative; flex: 0 0 260px; }
@@ -550,10 +615,15 @@ body {
 @media (max-width: 900px) {
     .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
     .book-header { padding: 2rem; }
-    .spool-signature {
-        width: 60px;
-        height: 66px;
-        flex-basis: 100%;
-        margin: 0.5rem auto 0;
+    .bloody-hand-signature {
+        width: 88px;
+        height: 120px;
+        flex: 0 0 88px;
+        margin: 0.65rem 0 -0.4rem auto;
+    }
+    .blood-page-drips {
+        top: 525px;
+        right: 32px;
+        width: 88px;
     }
 }
