@@ -54,7 +54,7 @@
         { file: "dobla-el-dos-de-nov.webp", title: "Dobla el dos de noviembre", slug: "dobla-el-dos-de-noviembre" },
         { file: "don-quijote.webp", title: "Don Quijote", slug: "don-quijote" },
         { file: "doña-perfecta.webp", title: "Doña Perfecta", slug: "dona-perfecta" },
-        { file: "duelo-virgen.webp", title: "Duelo de la Virgen", slug: "duelo-de-la-virgen" },
+        { file: "duelo-virgen.webp?v=2", title: "Duelo de la Virgen", slug: "duelo-de-la-virgen" },
         { file: "ejemplo-del-hombre.webp", title: "Ejemplo del hombre, de su esposa infiel y del papagayo", slug: "ejemplo-del-hombre-de-su-esposa-infiel-y-del-papagayo" },
         { file: "ejemplo.webp", title: "Ejemplo", slug: "ejemplo" },
         { file: "el-almohadon-de-plumas.webp", title: "El almohadón de plumas", slug: "el-almohadon-de-plumas" },
