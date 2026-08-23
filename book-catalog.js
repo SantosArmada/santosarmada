@@ -115,7 +115,7 @@
         { file: "monja-alferez.webp", title: "Historia de la Monja Alférez", slug: "historia-de-la-monja-alferez" },
         { file: "natural-historia-de-indias.webp", title: "Sumario de la Natural Historia de las Indias", slug: "sumario-de-la-natural-historia-de-las-indias" },
         { file: "naufragios.webp", title: "Naufragios", slug: "naufragios" },
-        { file: "nezahualcoyotl.webp", title: "Nezahualcóyotl", slug: "nezahualcoyotl" },
+        { file: "nezahualcoyotl.webp?v=2", title: "Nezahualcóyotl", slug: "nezahualcoyotl" },
         { file: "niebla.webp", title: "Niebla", slug: "niebla" },
         { file: "novelas-ejemplares.webp", title: "Novelas ejemplares", slug: "novelas-ejemplares" },
         { file: "nuestro-primer-cigarro.webp", title: "Nuestro primer cigarro", slug: "nuestro-primer-cigarro" },
