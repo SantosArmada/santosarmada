@@ -155,6 +155,111 @@ body {
     font-style: italic;
 }
 
+.florence-flag-sticker {
+    flex: 0 0 auto;
+    width: clamp(145px, 16vw, 205px);
+    margin: -1.75rem 0 -1.5rem;
+    transform: rotate(2deg);
+    filter: saturate(1.04);
+}
+
+.florence-flag-sticker svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.flag-pole {
+    transform-box: fill-box;
+    transform-origin: 50% 92%;
+    animation: decameron-pole-sway 4.8s ease-in-out infinite;
+}
+
+.florence-banner {
+    transform-box: fill-box;
+    transform-origin: 2% 50%;
+    animation: decameron-flag-wave 3.35s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+.flag-cloth {
+    fill: url(#decameronCloth);
+    stroke: #21150e;
+    stroke-width: 5;
+    stroke-linejoin: round;
+}
+
+.flag-fold {
+    fill: none;
+    stroke: rgba(72, 48, 31, 0.18);
+    stroke-width: 7;
+    stroke-linecap: round;
+    animation: decameron-fold 3.35s ease-in-out infinite;
+}
+
+.flag-fold--two { animation-delay: -0.6s; }
+.flag-fold--three { animation-delay: -1.2s; }
+
+.florence-giglio {
+    fill: #c23f2e;
+    stroke: #6f160e;
+    stroke-width: 2.2;
+    stroke-linejoin: round;
+    transform-box: fill-box;
+    transform-origin: center;
+    animation: decameron-giglio-breathe 3.35s ease-in-out infinite;
+}
+
+.florence-giglio path:last-child {
+    stroke-width: 3.5;
+    stroke-linecap: round;
+}
+
+.flag-stitch {
+    fill: none;
+    stroke: rgba(91, 62, 38, 0.32);
+    stroke-width: 1.5;
+    stroke-dasharray: 3 5;
+}
+
+.flag-ties {
+    fill: #dc9a38;
+    stroke: #24150c;
+    stroke-width: 3;
+    stroke-linecap: round;
+    transform-box: fill-box;
+    transform-origin: top center;
+    animation: decameron-ties 2.1s ease-in-out infinite;
+}
+
+@keyframes decameron-flag-wave {
+    0%, 100% { transform: rotate(-0.4deg) skewY(-0.8deg) scaleX(0.985) translateY(0); }
+    22% { transform: rotate(0.25deg) skewY(1.8deg) scaleX(1.015) translateY(-1px); }
+    48% { transform: rotate(-0.2deg) skewY(-2.1deg) scaleX(0.96) translateY(1.5px); }
+    73% { transform: rotate(0.3deg) skewY(1.25deg) scaleX(1.005) translateY(-0.5px); }
+}
+
+@keyframes decameron-fold {
+    0%, 100% { opacity: 0.35; transform: translateX(-2px); }
+    48% { opacity: 0.85; transform: translateX(5px); }
+}
+
+@keyframes decameron-giglio-breathe {
+    0%, 100% { transform: skewY(0deg) scaleX(1); }
+    30% { transform: skewY(1.6deg) scaleX(1.025); }
+    60% { transform: skewY(-2deg) scaleX(0.96); }
+}
+
+@keyframes decameron-pole-sway {
+    0%, 100% { transform: rotate(-0.5deg); }
+    50% { transform: rotate(1.2deg); }
+}
+
+@keyframes decameron-ties {
+    0%, 100% { transform: skewX(-2deg) rotate(0deg); }
+    50% { transform: skewX(8deg) rotate(1.5deg); }
+}
+
 /* ---------- PLAYER ---------- */
 
 .player-section {
@@ -562,4 +667,18 @@ body {
 @media (max-width: 900px) {
     .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
     .book-header { padding: 2rem; }
+    .florence-flag-sticker {
+        width: 132px;
+        margin: -1rem 0 -1rem auto;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .flag-pole,
+    .florence-banner,
+    .flag-fold,
+    .florence-giglio,
+    .flag-ties {
+        animation: none;
+    }
 }
