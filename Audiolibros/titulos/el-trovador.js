@@ -43,8 +43,8 @@ var Framer = {
         var dy2 = parseInt(this.scene.cy + y2);
 
         var gradient = this.context.createLinearGradient(dx1, dy1, dx2, dy2);
-        gradient.addColorStop(0, '#B8B3A6');
-        gradient.addColorStop(0.6, '#B8B3A6');
+        gradient.addColorStop(0, '#57524A');
+        gradient.addColorStop(0.6, '#57524A');
         gradient.addColorStop(1, '#ECDFC0');
         this.context.beginPath();
         this.context.strokeStyle = gradient;
@@ -61,7 +61,7 @@ var Framer = {
     drawEdging: function () {
         this.context.save();
         this.context.beginPath();
-        this.context.strokeStyle = 'rgba(184, 179, 166, 0.5)';
+        this.context.strokeStyle = 'rgba(87, 82, 74, 0.5)';
         this.context.lineWidth = 1;
 
         var offset = Tracker.lineWidth / 2;
@@ -198,7 +198,7 @@ var Tracker = {
 
     drawArc: function () {
         this.context.save();
-        this.context.strokeStyle = 'rgba(184, 179, 166, 0.8)';
+        this.context.strokeStyle = 'rgba(87, 82, 74, 0.8)';
         this.context.beginPath();
         this.context.lineWidth = this.lineWidth;
 
@@ -270,7 +270,7 @@ var Scene = {
     canvasConfigure: function () {
         this.canvas = document.querySelector('canvas');
         this.context = this.canvas.getContext('2d');
-        this.context.strokeStyle = '#B8B3A6';
+        this.context.strokeStyle = '#57524A';
         this.calculateSize();
     },
 
@@ -409,7 +409,7 @@ var Controls = {
     drawPic: function () {
         this.context.save();
         this.context.beginPath();
-        this.context.fillStyle = 'rgba(184, 179, 166, 0.9)';
+        this.context.fillStyle = 'rgba(87, 82, 74, 0.9)';
         this.context.lineWidth = 1;
         var x = Tracker.r / Math.sqrt(Math.pow(Math.tan(Tracker.angle), 2) + 1);
         var y = Math.sqrt(Tracker.r * Tracker.r - x * x);
