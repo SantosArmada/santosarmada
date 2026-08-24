@@ -106,6 +106,7 @@
         { file: "los-motivos-del-lobo.webp", title: "Los motivos del lobo", slug: "los-motivos-del-lobo" },
         { file: "luces-de-bohemia.webp", title: "Luces de bohemia", slug: "luces-de-bohemia" },
         { file: "lucia-jerez.webp", title: "Lucía Jerez", slug: "lucia-jerez" },
+        { file: "marco-polo.webp", title: "El libro de Marco Polo", slug: "marco-polo" },
         { file: "mariana-pineda.webp", title: "Mariana Pineda", slug: "mariana-pineda" },
         { file: "mas-alla.webp", title: "Más allá", slug: "mas-alla" },
         { file: "mi-religion.webp", title: "Mi religión", slug: "mi-religion" },
