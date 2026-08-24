@@ -293,6 +293,15 @@ body {
     margin: 0 0 0.75rem;
 }
 .panel p { color: var(--card-fg-dim); margin: 0 0 0.5rem; }
+.panel p .inline-link {
+    color: var(--coral);
+    text-decoration: underline;
+    text-decoration-color: rgba(74, 122, 133, 0.4);
+    text-underline-offset: 2px;
+    transition: color 0.15s;
+}
+.panel p .inline-link:hover { color: var(--coral-bright); }
+
 
 .break {
     background: var(--coral-bright) no-repeat scroll center;
