@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Los cuatro viajes del almirante y su testamento</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="los-cuatro-viajes-del-almirante-y-su-testamento.css">
+    <link rel="stylesheet" href="los-cuatro-viajes-del-almirante-y-su-testamento.css?v=voyage-medallion">
 </head>
 <body>
 
@@ -44,15 +44,36 @@
         <p class="subtitle">Cristóbal Colón</p>
     </div>
 
-    <div class="spool-signature" aria-hidden="true">
-        <svg viewBox="0 0 84 90">
-            <path class="thread-trail" d="M6,72 Q20,68 33,72 T60,72 T78,72"></path>
-            <path class="spool-body" d="M10,64 L32,56 L50,56 L76,64 Q68,79 42,81 Q16,79 10,64 Z"></path>
-            <line class="spool-cap mast" x1="40" y1="15" x2="40" y2="56"></line>
-            <path class="spool-cap sail" d="M40,19 L40,52 L63,47 Z"></path>
-            <path class="spool-wrap flag" d="M40,15 L48,18.5 L40,22 Z"></path>
-            <line class="needle-eye" x1="47" y1="36" x2="54" y2="33.5"></line>
-            <line class="needle-eye" x1="49" y1="30.5" x2="51.5" y2="39"></line>
+    <div class="voyage-medallion" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+            <defs>
+                <clipPath id="voyageCoverCrop">
+                    <circle cx="100" cy="91" r="76"/>
+                </clipPath>
+                <radialGradient id="voyageRingGlow" cx="42%" cy="35%" r="70%">
+                    <stop offset="0" stop-color="#f5e9ca"/>
+                    <stop offset="1" stop-color="#bda477"/>
+                </radialGradient>
+                <filter id="voyageMedallionShadow" x="-25%" y="-25%" width="150%" height="155%">
+                    <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#071a1e" flood-opacity="0.38"/>
+                </filter>
+            </defs>
+
+            <g filter="url(#voyageMedallionShadow)">
+                <circle class="voyage-medallion__back" cx="100" cy="91" r="82"/>
+                <image class="voyage-medallion__cover" href="../../book_covers/los-cuatro-viajes.webp"
+                       x="0" y="0" width="200" height="300.67" clip-path="url(#voyageCoverCrop)"/>
+                <circle class="voyage-medallion__inner-ring" cx="100" cy="91" r="77"/>
+                <circle class="voyage-medallion__outer-ring" cx="100" cy="91" r="86"/>
+            </g>
+
+            <path class="voyage-compass-point voyage-compass-point--north" d="M100 0 L105 12 L100 9 L95 12 Z"/>
+            <path class="voyage-compass-point" d="M191 91 L179 96 L182 91 L179 86 Z"/>
+            <path class="voyage-compass-point" d="M100 182 L95 170 L100 173 L105 170 Z"/>
+            <path class="voyage-compass-point" d="M9 91 L21 86 L18 91 L21 96 Z"/>
+
+            <path class="voyage-wave voyage-wave--one" d="M35 181 Q51 175 67 181 T99 181 T131 181 T165 181"/>
+            <path class="voyage-wave voyage-wave--two" d="M48 190 Q61 185 74 190 T100 190 T126 190 T152 190"/>
         </svg>
     </div>
 </header>
