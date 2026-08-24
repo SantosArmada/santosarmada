@@ -11,7 +11,7 @@
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
-    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
+    <span role="img" aria-label="Santos Armada" class="site-nav-logo-img"></span>
   </a>
   <ul class="site-nav-links">
     <li><a href="../../essays.html">Ensayos</a></li>
@@ -42,6 +42,41 @@
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Por beber una copa de oro</h1>
         <p class="subtitle">Ricardo Palma</p>
+    </div>
+
+    <div class="wine-cup-signature" aria-hidden="true">
+        <svg viewBox="0 0 120 150">
+            <defs>
+                <clipPath id="wineCupInterior" clipPathUnits="userSpaceOnUse">
+                    <path d="M30,19 L30,50 C30,63 43,71 60,71 C77,71 90,63 90,50 L90,19 Z"/>
+                </clipPath>
+            </defs>
+
+            <g clip-path="url(#wineCupInterior)">
+                <rect x="18" y="19" width="84" height="55" class="wine-cup-base-fill"/>
+                <path class="wine-cup-wave-back"
+                      d="M-20,40 C-10,35 0,45 10,38 C20,31 30,48 40,36 C50,24 60,44 70,34 C80,24 90,42 100,32 C110,22 120,40 130,34 L140,36 L140,90 L-20,90 Z">
+                    <animateTransform attributeName="transform" type="translate" dur="6.2s" calcMode="spline"
+                        values="0 0; 34 4; 0 0" keyTimes="0; 0.5; 1"
+                        keySplines="0.42,0,0.58,1; 0.42,0,0.58,1" repeatCount="indefinite" />
+                </path>
+                <path class="wine-cup-wave-mid"
+                      d="M-20,43 C-12,37 -2,49 8,40 C18,31 26,47 36,38 C46,29 54,45 64,36 C74,27 82,43 92,34 C102,25 110,41 120,36 C126,33 132,38 140,36 L140,90 L-20,90 Z">
+                    <animateTransform attributeName="transform" type="translate" dur="4.9s" calcMode="spline"
+                        values="0 0; -30 3; 0 0" keyTimes="0; 0.5; 1"
+                        keySplines="0.42,0,0.58,1; 0.42,0,0.58,1" repeatCount="indefinite" />
+                </path>
+                <path class="wine-cup-wave-front"
+                      d="M-20,46 C-14,41 -6,50 2,44 C10,38 16,49 24,43 C32,37 38,48 46,42 C54,36 60,47 68,41 C76,35 82,46 90,41 C98,36 104,45 112,41 C118,38 124,42 140,40 L140,90 L-20,90 Z">
+                    <animateTransform attributeName="transform" type="translate" dur="3.9s" calcMode="spline"
+                        values="0 0; 40 2; 0 0" keyTimes="0; 0.5; 1"
+                        keySplines="0.42,0,0.58,1; 0.42,0,0.58,1" repeatCount="indefinite" />
+                </path>
+            </g>
+
+            <path class="wine-cup-outline"
+                  d="M24,16 L96,16 M28,18 L28,50 C28,65 42,74 60,74 C78,74 92,65 92,50 L92,18 M57,74 L57,107 M63,74 L63,107 M39,113 L81,113 C81,109 71,106 60,106 C49,106 39,109 39,113 Z"/>
+        </svg>
     </div>
 </header>
 
