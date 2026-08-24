@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — La Celestina</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="la-celestina.css">
+    <link rel="stylesheet" href="la-celestina.css?v=celestina-thread-emblem">
 </head>
 <body>
 
@@ -44,16 +44,33 @@
         <p class="subtitle">Fernando de Rojas</p>
     </div>
 
-    <div class="spool-signature" aria-hidden="true">
-        <svg viewBox="0 0 84 90">
-            <ellipse class="spool-cap" cx="42" cy="18" rx="20" ry="6"></ellipse>
-            <path class="spool-body" d="M22,18 C22,29 22,39 22,50 L62,50 C62,39 62,29 62,18 Z"></path>
-            <path class="spool-wrap" d="M24,26 Q42,21 60,26"></path>
-            <path class="spool-wrap" d="M23,34 Q42,29 61,34"></path>
-            <path class="spool-wrap" d="M23,42 Q42,37 61,42"></path>
-            <ellipse class="spool-cap" cx="42" cy="50" rx="20" ry="6"></ellipse>
-            <path class="thread-trail" d="M58,49 C74,56 68,70 54,72 C44,73 49,80 38,82"></path>
-            <circle class="needle-eye" cx="38" cy="82" r="2"></circle>
+    <div class="celestina-emblem" aria-hidden="true">
+        <svg viewBox="0 0 200 210">
+            <defs>
+                <path id="celestinaArch" d="M38 174 V82 C38 42 62 18 100 18 C138 18 162 42 162 82 V174 Z"/>
+                <clipPath id="celestinaArchCrop"><use href="#celestinaArch"/></clipPath>
+                <linearGradient id="celestinaFrame" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#d0b17b"/>
+                    <stop offset="0.45" stop-color="#7f643e"/>
+                    <stop offset="1" stop-color="#e0c491"/>
+                </linearGradient>
+                <filter id="celestinaShadow" x="-30%" y="-25%" width="160%" height="165%">
+                    <feDropShadow dx="0" dy="5" stdDeviation="4" flood-color="#17070a" flood-opacity="0.42"/>
+                </filter>
+            </defs>
+
+            <g filter="url(#celestinaShadow)">
+                <use href="#celestinaArch" class="celestina-emblem__back"/>
+                <image class="celestina-emblem__cover" href="../../book_covers/celestina.webp"
+                       x="-100" y="-160" width="300" height="451" clip-path="url(#celestinaArchCrop)"/>
+                <use href="#celestinaArch" class="celestina-emblem__frame"/>
+                <path class="celestina-emblem__sill" d="M32 174 H168 L158 185 H42 Z"/>
+            </g>
+
+            <path class="celestina-thread" pathLength="100"
+                  d="M19 157 C11 126 48 111 34 79 C20 47 51 8 96 16 C144 24 183 58 170 101 C158 140 182 169 151 190 C122 209 83 181 55 193 C39 200 23 188 19 157 Z"/>
+            <circle class="celestina-thread-knot" r="4"/>
+            <path class="celestina-charm" d="M100 190 L107 198 L100 206 L93 198 Z"/>
         </svg>
     </div>
 </header>

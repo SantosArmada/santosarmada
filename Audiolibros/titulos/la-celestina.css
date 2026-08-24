@@ -144,42 +144,80 @@ body {
     font-style: italic;
 }
 
-/* ---------- THREAD SPOOL (Celestina's red thread, pulling the lovers together) ---------- */
+/* ---------- CELESTINA EMBLEM — cover vignette bound by animated thread ---------- */
 
-.spool-signature {
-    width: 84px;
-    height: 90px;
+.celestina-emblem {
+    width: 118px;
+    height: 124px;
     flex-shrink: 0;
     position: relative;
+    margin: -1rem 0 -0.85rem;
 }
-.spool-signature svg { display: block; width: 100%; height: 100%; overflow: visible; }
-
-.spool-cap {
-    fill: var(--brass);
+.celestina-emblem svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+.celestina-emblem__back {
+    fill: var(--wine-dark);
     stroke: var(--ink);
-    stroke-width: 1.2;
+    stroke-width: 5;
 }
-.spool-body {
-    fill: var(--wine);
-    stroke: var(--ink);
-    stroke-width: 1.2;
+.celestina-emblem__frame {
+    fill: none;
+    stroke: url(#celestinaFrame);
+    stroke-width: 7;
+    stroke-linejoin: round;
 }
-.spool-wrap {
+.celestina-emblem__sill {
+    fill: url(#celestinaFrame);
     stroke: var(--wine-dark);
-    stroke-width: 1;
-    opacity: 0.6;
-    fill: none;
+    stroke-width: 2.5;
+    stroke-linejoin: round;
 }
-.thread-trail {
+.celestina-thread {
     fill: none;
-    stroke: var(--wine);
-    stroke-width: 2;
+    stroke: var(--wine-bright);
+    stroke-width: 3;
     stroke-linecap: round;
+    stroke-dasharray: 72 28;
+    filter: drop-shadow(0 1px 1px rgba(28, 10, 13, 0.45));
+    animation: celestina-thread-wind 6.5s linear infinite;
 }
-.needle-eye {
-    fill: none;
-    stroke: var(--ink);
-    stroke-width: 1.2;
+.celestina-thread-knot {
+    fill: var(--brass-bright);
+    stroke: var(--wine-dark);
+    stroke-width: 2;
+    offset-path: path("M19 157 C11 126 48 111 34 79 C20 47 51 8 96 16 C144 24 183 58 170 101 C158 140 182 169 151 190 C122 209 83 181 55 193 C39 200 23 188 19 157 Z");
+    animation: celestina-knot-travel 6.5s linear infinite;
+}
+.celestina-charm {
+    fill: var(--wine);
+    stroke: var(--brass-bright);
+    stroke-width: 2;
+    transform-origin: 100px 190px;
+    animation: celestina-charm-sway 3s ease-in-out infinite;
+}
+
+@keyframes celestina-thread-wind {
+    to { stroke-dashoffset: -100; }
+}
+
+@keyframes celestina-knot-travel {
+    from { offset-distance: 0%; }
+    to { offset-distance: 100%; }
+}
+
+@keyframes celestina-charm-sway {
+    0%, 100% { transform: rotate(-4deg); }
+    50% { transform: rotate(4deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .celestina-thread,
+    .celestina-thread-knot,
+    .celestina-charm { animation: none; }
 }
 
 /* ---------- PLAYER ---------- */
@@ -561,10 +599,10 @@ body {
 @media (max-width: 900px) {
     .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
     .book-header { padding: 2rem; }
-    .spool-signature {
-        width: 60px;
-        height: 66px;
-        flex-basis: 100%;
-        margin: 0.5rem auto 0;
+    .celestina-emblem {
+        width: 94px;
+        height: 100px;
+        flex: 0 0 94px;
+        margin: 0.75rem auto -0.1rem;
     }
 }
