@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Brevísima relación de la destrucción de las Indias</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="brevisima-relacion-de-la-destruccion-de-las-indias.css?v=cover-hand-drops-only">
+    <link rel="stylesheet" href="brevisima-relacion-de-la-destruccion-de-las-indias.css?v=cover-hand-only">
 </head>
 <body>
 
@@ -47,6 +47,10 @@
     <div class="bloody-hand-signature" aria-hidden="true">
         <svg viewBox="0 0 620 800" preserveAspectRatio="xMidYMid meet">
             <defs>
+                <clipPath id="coverHandOnly" clipPathUnits="userSpaceOnUse">
+                    <rect x="0" y="0" width="900" height="1120"/>
+                    <rect x="0" y="1120" width="470" height="233"/>
+                </clipPath>
                 <filter id="extractCoverHand" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
                     <feColorMatrix in="SourceGraphic" type="matrix"
                         values="0 0 0 0 1
@@ -57,7 +61,8 @@
                     <feComposite in="bloodColor" in2="redMask" operator="in"/>
                 </filter>
             </defs>
-            <image href="../../book_covers/brevisima.webp" x="0" y="0" width="900" height="1353" filter="url(#extractCoverHand)"/>
+            <image href="../../book_covers/brevisima.webp" x="0" y="0" width="900" height="1353"
+                clip-path="url(#coverHandOnly)" filter="url(#extractCoverHand)"/>
         </svg>
     </div>
 </header>
