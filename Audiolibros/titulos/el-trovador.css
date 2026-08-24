@@ -260,7 +260,7 @@ body {
 
 .controls .box {
     margin-top: 10px;
-    background-color: var(--coral);
+    background-color: #e9e9ed;
     color: var(--ink);
     text-align: center;
     padding: 0.6rem 0;
@@ -272,7 +272,7 @@ body {
     font-weight: 600;
     transition: background 0.2s;
 }
-.controls .box:hover { background-color: var(--coral-bright); }
+.controls .box:hover { background-color: #d4d4da; }
 
 .panel {
     flex: 1 1 320px;
