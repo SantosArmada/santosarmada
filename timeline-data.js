@@ -702,6 +702,26 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "muerte-lorenzo-medici-1492",
+    year: 1492,
+    month: 4,
+    trackYear: 1492.1,
+    title: "1492: muere Lorenzo de Médici, 'el Magnífico'",
+    author: "Hito histórico",
+    country: "Italia",
+    region: "Florencia",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 9 de abril de 1492 muere en Florencia Lorenzo de Médici, conocido como 'el Magnífico', quien durante más de veintidós años gobernó la ciudad —oficialmente una república— como su señor de facto: mecenas generoso de artistas, poetas y filósofos, y a la vez gobernante tan astuto como implacable a la hora de controlar a sus rivales. De sus dos hijos varones, el mayor, Piero, lo sucede al frente de Florencia, pero en apenas dos años logra desmoronar la oligarquía familiar que su padre y su abuelo habían construido con tanto cuidado: en 1494, tras capitular sin resistencia ante la invasión francesa de Carlos VIII, es expulsado de la ciudad y los Médici pierden el poder. El segundo hijo, Giovanni, corre mejor suerte institucional: en 1513 es elegido papa con el nombre de León X y gobierna la Iglesia hasta su muerte en 1521, pero es precisamente bajo su pontificado que estalla la Reforma protestante —en 1517 Martín Lutero clava sus noventa y cinco tesis en la puerta de la iglesia del castillo de Wittenberg, iniciando el cisma que dividiría para siempre a la cristiandad occidental—. El propio modelo de gobierno que Lorenzo había ejercido sobre Florencia, sumado años después al de César Borgia en su sangrienta campaña por dominar el norte de Italia, inspiraría a otro florentino, Nicolás Maquiavelo, a escribir en 1513 El Príncipe.",
+    descriptionHtml:
+      'El 9 de abril de 1492 muere en <button type="button" class="timeline-detail-geolink" data-region="Florencia" data-country="Italia">Florencia</button> Lorenzo de Médici, conocido como \'el Magnífico\', quien durante más de veintidós años gobernó la ciudad —oficialmente una república— como su señor de facto: mecenas generoso de artistas, poetas y filósofos, y a la vez gobernante tan astuto como implacable a la hora de controlar a sus rivales. De sus dos hijos varones, el mayor, Piero, lo sucede al frente de Florencia, pero en apenas dos años logra desmoronar la oligarquía familiar que su padre y su abuelo habían construido con tanto cuidado: en 1494, tras capitular sin resistencia ante la invasión francesa de Carlos VIII, es expulsado de la ciudad y los Médici pierden el poder. El segundo hijo, Giovanni, corre mejor suerte institucional: en 1513 es elegido papa con el nombre de León X y gobierna la Iglesia hasta su muerte en 1521, pero es precisamente bajo su pontificado que estalla la Reforma protestante —en 1517 Martín Lutero clava sus noventa y cinco tesis en la puerta de la iglesia del castillo de <button type="button" class="timeline-detail-geolink" data-region="Wittenberg" data-country="Alemania">Wittenberg</button>, iniciando el cisma que dividiría para siempre a la cristiandad occidental—. El propio modelo de gobierno que Lorenzo había ejercido sobre Florencia, sumado años después al de César Borgia en su sangrienta campaña por dominar el norte de Italia, inspiraría a otro florentino, Nicolás Maquiavelo, a escribir en 1513 <button type="button" class="timeline-detail-entrylink" data-id="maquiavelo-principe-1513">El Príncipe</button>.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Lorenzo el Magnífico hubiera vivido veinte años más?",
+      answer:
+        "Piero probablemente nunca habría heredado un poder que no supo conservar, y Florencia habría evitado la humillante capitulación ante Carlos VIII de Francia en 1494 que terminó expulsando a los Médici de la ciudad. Pero esa misma estabilidad habría privado a Nicolás Maquiavelo del ejemplo de fracaso que, junto al ascenso y caída de César Borgia, terminó dándole forma a El Príncipe: un tratado nacido, en buena medida, de observar de cerca cómo se pierde el poder, no solo cómo se conserva."
+    }
+  },
+  {
     id: "tordesillas-1494",
     year: 1494,
     // Real date; nudged track position only — see trackYear comment in
@@ -832,8 +852,9 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Part of the chain described at
     // inquisicion-espanola-1478. Re-spaced in 2026, see
-    // afonso-i-kongo-nzinga-mbemba-1509.
-    trackYear: 1523.51,
+    // afonso-i-kongo-nzinga-mbemba-1509. Re-spaced again to make room for
+    // maquiavelo-principe-1513, see that entry's trackYear comment.
+    trackYear: 1527.1,
     endYear: 1522,
     title: "1519–1522: Fernando de Magallanes y la primera vuelta al mundo",
     author: "Fernando de Magallanes",
@@ -857,8 +878,9 @@ const TIMELINE_ENTRIES = [
     // timeline.js. 1528/1531/1535/1541 chain-clustered together — also
     // part of the wider 1479-1533 chain described at
     // inquisicion-espanola-1478. Re-spaced in 2026, see
-    // afonso-i-kongo-nzinga-mbemba-1509.
-    trackYear: 1527.99,
+    // afonso-i-kongo-nzinga-mbemba-1509. Re-spaced again to make room for
+    // maquiavelo-principe-1513, see that entry's trackYear comment.
+    trackYear: 1531.13,
     endYear: 1536,
     pubYear: 1542,
     title: "Naufragios",
@@ -878,8 +900,9 @@ const TIMELINE_ENTRIES = [
     year: 1531,
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
-    // afonso-i-kongo-nzinga-mbemba-1509.
-    trackYear: 1532.48,
+    // afonso-i-kongo-nzinga-mbemba-1509. Re-spaced again to make room for
+    // maquiavelo-principe-1513, see that entry's trackYear comment.
+    trackYear: 1535.17,
     title: "1531: la aparición de la Virgen de Guadalupe",
     author: "Hito histórico",
     country: "México",
@@ -918,8 +941,9 @@ const TIMELINE_ENTRIES = [
     year: 1533,
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
-    // afonso-i-kongo-nzinga-mbemba-1509.
-    trackYear: 1536.97,
+    // afonso-i-kongo-nzinga-mbemba-1509. Re-spaced again to make room for
+    // maquiavelo-principe-1513, see that entry's trackYear comment.
+    trackYear: 1539.21,
     title: "1533: Fortún Ximénez toca Baja California en un motín",
     author: "Fortún Ximénez Bertandoña",
     country: "México",
@@ -941,8 +965,9 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with
-    // brevisima-relacion-1542.
-    trackYear: 1550.43,
+    // brevisima-relacion-1542. Re-spaced again to make room for
+    // maquiavelo-principe-1513, see that entry's trackYear comment.
+    trackYear: 1551.32,
     endYear: 1543,
     title: "1542: Juan Rodríguez Cabrillo llega a la costa de California",
     author: "Juan Rodríguez Cabrillo",
@@ -965,8 +990,9 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with
-    // cabrillo-california-1542.
-    trackYear: 1550.43,
+    // cabrillo-california-1542. Re-spaced again to make room for
+    // maquiavelo-principe-1513, see that entry's trackYear comment.
+    trackYear: 1551.32,
     title: "Brevísima relación de la destrucción de las Indias",
     author: "Bartolomé de las Casas",
     country: "República Dominicana",
@@ -1036,12 +1062,43 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "maquiavelo-principe-1513",
+    year: 1513,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Inserted into the pre-existing, tightly packed
+    // 1492-1592 chain in its correct chronological slot (between
+    // hatuey-cuba-1512 and magallanes-circunnavegacion-1519) by
+    // re-spacing every entry from magallanes-circunnavegacion-1519
+    // through popol-vuh-1554/lazarillo slightly tighter, keeping both
+    // hatuey-cuba-1512 and the fixed right anchor
+    // monja-alferez-erauso-1592 untouched. See those entries' own
+    // trackYear comments for their part of this re-spacing.
+    trackYear: 1523.06,
+    pubYear: 1532,
+    title: "El Príncipe",
+    author: "Nicolás Maquiavelo",
+    country: "Italia",
+    region: "Florencia",
+    type: ICON_TYPE.LITERATURE,
+    description:
+      "En 1513, recién apartado del poder y encarcelado brevemente tras el regreso de los Médici a Florencia ese mismo año, el diplomático y funcionario florentino Nicolás Maquiavelo escribe El Príncipe, un breve tratado de teoría política que rompe con la tradición medieval de los 'espejos de príncipes' —manuales que enseñaban a gobernar según la virtud cristiana— para describir el poder tal como realmente se ejerce: con amoralidad calculada, engaño, violencia selectiva y el interés propio disfrazado de razón de Estado. Maquiavelo toma como modelo el gobierno que Lorenzo de Médici había ejercido sobre Florencia durante más de dos décadas, y sobre todo la despiadada campaña de César Borgia por dominar el norte de Italia entre 1499 y 1503, a quien había observado de cerca como enviado diplomático de la república florentina. Dedica la obra, sin éxito, a Lorenzo di Piero de Médici —nieto del Magnífico— con la esperanza de recuperar un puesto en el nuevo gobierno mediceo. El Príncipe circula primero en manuscrito y no se publica hasta 1532, cinco años después de la muerte de su autor; se convertiría en uno de los textos fundacionales de la ciencia política moderna, y su propio nombre daría origen al adjetivo 'maquiavélico'.",
+    descriptionHtml:
+      'En 1513, recién apartado del poder y encarcelado brevemente tras el regreso de los Médici a <button type="button" class="timeline-detail-geolink" data-region="Florencia" data-country="Italia">Florencia</button> ese mismo año, el diplomático y funcionario florentino Nicolás Maquiavelo escribe El Príncipe, un breve tratado de teoría política que rompe con la tradición medieval de los \'espejos de príncipes\' —manuales que enseñaban a gobernar según la virtud cristiana— para describir el poder tal como realmente se ejerce: con amoralidad calculada, engaño, violencia selectiva y el interés propio disfrazado de razón de Estado. Maquiavelo toma como modelo el gobierno que <button type="button" class="timeline-detail-entrylink" data-id="muerte-lorenzo-medici-1492">Lorenzo de Médici</button> había ejercido sobre Florencia durante más de dos décadas, y sobre todo la despiadada campaña de César Borgia por dominar el norte de Italia entre 1499 y 1503, a quien había observado de cerca como enviado diplomático de la república florentina. Dedica la obra, sin éxito, a Lorenzo di Piero de Médici —nieto del Magnífico— con la esperanza de recuperar un puesto en el nuevo gobierno mediceo. El Príncipe circula primero en manuscrito y no se publica hasta 1532, cinco años después de la muerte de su autor; se convertiría en uno de los textos fundacionales de la ciencia política moderna, y su propio nombre daría origen al adjetivo \'maquiavélico\'.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si los Médici nunca hubieran apartado a Maquiavelo del poder en 1512?",
+      answer:
+        "Maquiavelo probablemente habría seguido su carrera como diplomático y funcionario de la república florentina, sin el tiempo forzado ni la necesidad de congraciarse con el nuevo régimen que lo llevaron a escribir El Príncipe. Uno de los textos más influyentes de la teoría política occidental —y el origen mismo de la palabra 'maquiavélico'— nació, en buena medida, del intento fallido de un funcionario caído en desgracia por recuperar su puesto."
+    }
+  },
+  {
     id: "popol-vuh-1554",
     year: 1554,
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with lazarillo.
-    trackYear: 1554.91,
+    // Re-spaced again to make room for maquiavelo-principe-1513, see that
+    // entry's trackYear comment.
+    trackYear: 1555.36,
     title: "Popol Vuh",
     author: "Anónimo k'iche'",
     country: "Guatemala",
@@ -1060,7 +1117,9 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with popol-vuh-1554.
-    trackYear: 1554.91,
+    // Re-spaced again to make room for maquiavelo-principe-1513, see that
+    // entry's trackYear comment.
+    trackYear: 1555.36,
     title: "Lazarillo de Tormes",
     author: "Anónimo",
     country: "España",
@@ -2195,8 +2254,9 @@ const TIMELINE_ENTRIES = [
     year: 1541,
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
-    // afonso-i-kongo-nzinga-mbemba-1509.
-    trackYear: 1545.94,
+    // afonso-i-kongo-nzinga-mbemba-1509. Re-spaced again to make room for
+    // maquiavelo-principe-1513, see that entry's trackYear comment.
+    trackYear: 1547.29,
     endYear: 1614,
     title: "1541–1614: El Greco",
     author: "El Greco (Domenikos Theotokopoulos)",
@@ -3671,8 +3731,9 @@ const TIMELINE_ENTRIES = [
     year: 1535,
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Re-spaced in 2026, see
-    // afonso-i-kongo-nzinga-mbemba-1509.
-    trackYear: 1541.45,
+    // afonso-i-kongo-nzinga-mbemba-1509. Re-spaced again to make room for
+    // maquiavelo-principe-1513, see that entry's trackYear comment.
+    trackYear: 1543.25,
     endYear: 1835,
     title: "1535–1835: Galápagos, de Tomás de Berlanga a Charles Darwin",
     author: "Hito histórico",
