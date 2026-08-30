@@ -722,6 +722,27 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "atentado-fernando-aragon-1492",
+    year: 1492,
+    month: 12,
+    trackYear: 1492.1,
+    title: "1492: atentado contra el rey Fernando de Aragón en Barcelona",
+    author: "Hito histórico",
+    country: "España",
+    region: "Barcelona",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    description:
+      "El 7 de diciembre de 1492, mientras el rey Fernando de Aragón bajaba las escalinatas de mármol del Palacio de Justicia de Barcelona, un hombre se abalanzó sobre él por la espalda y le asestó un tajo de espada en el cuello y el hombro. Solo la pesada cadena de oro que llevaba al cuello como símbolo de su cargo real le impidió ser decapitado; aun así, quedó gravemente herido, cayó sobre los escalones en un charco de su propia sangre y, según los cronistas de la época, gritó: '¡Socorro, Santa María! ¡Traición! ¡Traición!'. El agresor, un campesino catalán llamado Juan de Cañamás, fue capturado de inmediato, torturado, ahorcado y después quemado en la hoguera. Fernando sobrevivió y se recuperó por completo en los meses siguientes, pero el atentado ocurrió apenas cuatro meses después de que él mismo, junto a la reina Isabel de Castilla, hubiera aprobado y financiado el primer viaje de Cristóbal Colón hacia las Indias: de haber muerto ese día en Barcelona, la empresa americana recién iniciada habría quedado, desde su primer año, sin uno de los dos monarcas que la hicieron posible.",
+    descriptionHtml:
+      'El 7 de diciembre de 1492, mientras el rey Fernando de Aragón bajaba las escalinatas de mármol del Palacio de Justicia de <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button>, un hombre se abalanzó sobre él por la espalda y le asestó un tajo de espada en el cuello y el hombro. Solo la pesada cadena de oro que llevaba al cuello como símbolo de su cargo real le impidió ser decapitado; aun así, quedó gravemente herido, cayó sobre los escalones en un charco de su propia sangre y, según los cronistas de la época, gritó: \'¡Socorro, Santa María! ¡Traición! ¡Traición!\'. El agresor, un campesino catalán llamado Juan de Cañamás, fue capturado de inmediato, torturado, ahorcado y después quemado en la hoguera. Fernando sobrevivió y se recuperó por completo en los meses siguientes, pero el atentado ocurrió apenas cuatro meses después de que él mismo, junto a la reina Isabel de Castilla, hubiera aprobado y financiado el <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">primer viaje de Cristóbal Colón</button> hacia las Indias: de haber muerto ese día en Barcelona, la empresa americana recién iniciada habría quedado, desde su primer año, sin uno de los dos monarcas que la hicieron posible.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Juan de Cañamás hubiera logrado matar al rey Fernando en 1492?",
+      answer:
+        "La Corona de Aragón habría entrado en una crisis sucesoria apenas meses después de la unión efectiva con Castilla y del primer viaje de Colón, con Isabel gobernando sola un proyecto americano que todavía dependía del respaldo político y financiero de ambos reinos. Es imposible saber si la empresa de Indias habría sobrevivido intacta a la muerte repentina de uno de sus dos patrocinadores originales en su primer año de existencia."
+    }
+  },
+  {
     id: "tordesillas-1494",
     year: 1494,
     // Real date; nudged track position only — see trackYear comment in
