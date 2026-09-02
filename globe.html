@@ -88,8 +88,23 @@
     // gone — hide the cue. Scroll back up past that same point (the panel's
     // top is visible again) and it reappears. Symmetric on purpose so
     // there's no lag/dead zone in either direction.
+    //
+    // The panel itself gets display:none (its own "is-hidden" class) when
+    // the user closes the timeline's detail popup — see closeDetailPanel()
+    // in timeline.js. A hidden element's getBoundingClientRect().top is
+    // always 0, which used to permanently satisfy panelTop <= 0 and leave
+    // the cue stuck hidden no matter how far back up the page you scrolled.
+    // Cache the panel's document-relative top while it's actually visible
+    // and reuse that against the live scroll position while it's hidden,
+    // so the cue's visibility stays correct either way.
+    let cachedDocTop = null;
     function updateScrollCueVisibility() {
-        const panelTop = butterflyPanel.getBoundingClientRect().top;
+        if (!butterflyPanel.classList.contains('is-hidden')) {
+            cachedDocTop = butterflyPanel.getBoundingClientRect().top + window.scrollY;
+        }
+        const panelTop = cachedDocTop === null
+            ? butterflyPanel.getBoundingClientRect().top
+            : cachedDocTop - window.scrollY;
         scrollCue.classList.toggle('is-hidden', panelTop <= 0);
     }
     window.addEventListener('scroll', updateScrollCueVisibility, { passive: true });
