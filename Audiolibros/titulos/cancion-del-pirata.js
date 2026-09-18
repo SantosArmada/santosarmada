@@ -43,9 +43,9 @@ var Framer = {
         var dy2 = parseInt(this.scene.cy + y2);
 
         var gradient = this.context.createLinearGradient(dx1, dy1, dx2, dy2);
-        gradient.addColorStop(0, '#1A3F6E');
-        gradient.addColorStop(0.6, '#1A3F6E');
-        gradient.addColorStop(1, '#ECDFC0');
+        gradient.addColorStop(0, '#f1cb40');
+        gradient.addColorStop(0.6, '#f1cb40');
+        gradient.addColorStop(1, '#489bbc');
         this.context.beginPath();
         this.context.strokeStyle = gradient;
         this.context.lineWidth = 2;
@@ -61,7 +61,7 @@ var Framer = {
     drawEdging: function () {
         this.context.save();
         this.context.beginPath();
-        this.context.strokeStyle = 'rgba(26, 63, 110, 0.5)';
+        this.context.strokeStyle = 'rgba(241, 203, 64, 0.5)';
         this.context.lineWidth = 1;
 
         var offset = Tracker.lineWidth / 2;
@@ -147,45 +147,31 @@ var Tracker = {
 
     initHandlers: function () {
         var that = this;
-
-        this.scene.canvas.addEventListener('mousedown', function (e) {
-            if (that.isInsideOfSmallCircle(e) || that.isOusideOfBigCircle(e)) { return; }
-            that.prevAngle = that.angle;
+        function point(e) {
+            var rect = that.scene.canvas.getBoundingClientRect();
+            return { x: (e.clientX - rect.left) * that.scene.width / rect.width - that.scene.cx,
+                     y: (e.clientY - rect.top) * that.scene.height / rect.height - that.scene.cy };
+        }
+        function seek(e) {
+            var p = point(e);
+            that.angle = (Math.atan2(p.y, p.x) + 2 * Math.PI) % (2 * Math.PI);
+            Player.seek(that.angle / (2 * Math.PI) * Player.audio.duration);
+            if (!that.scene.inProcess()) { that.scene.render(); }
+        }
+        this.scene.canvas.addEventListener('pointerdown', function (e) {
+            if (!PlayerPower.on || !Number.isFinite(Player.audio.duration)) { return; }
+            var p = point(e), distance = Math.hypot(p.x, p.y);
+            if (distance < that.scene.radius - 3 * that.innerDelta || distance > that.scene.radius + 15) { return; }
             that.pressButton = true;
-            that.stopAnimation();
-            that.calculateAngle(e, true);
+            that.scene.canvas.setPointerCapture(e.pointerId);
+            seek(e);
         });
-
-        window.addEventListener('mouseup', function () {
-            if (!that.pressButton) { return; }
-            var id = setInterval(function () {
-                if (!that.animatedInProgress) {
-                    that.pressButton = false;
-                    if (Player.audio && Player.audio.duration) {
-                        Player.audio.currentTime = that.angle / (2 * Math.PI) * Player.audio.duration;
-                    }
-                    clearInterval(id);
-                }
-            }, 100);
+        this.scene.canvas.addEventListener('pointermove', function (e) {
+            if (that.pressButton) { seek(e); }
         });
-
-        window.addEventListener('mousemove', function (e) {
-            if (that.animatedInProgress) { return; }
-            if (that.pressButton && that.scene.inProcess()) {
-                that.calculateAngle(e);
-            }
+        ['pointerup', 'pointercancel'].forEach(function (event) {
+            that.scene.canvas.addEventListener(event, function () { that.pressButton = false; });
         });
-    },
-
-    isInsideOfSmallCircle: function (e) {
-        var x = Math.abs(e.pageX - this.scene.cx - this.scene.coord.left);
-        var y = Math.abs(e.pageY - this.scene.cy - this.scene.coord.top);
-        return Math.sqrt(x * x + y * y) < this.scene.radius - 3 * this.innerDelta;
-    },
-
-    isOusideOfBigCircle: function (e) {
-        return Math.abs(e.pageX - this.scene.cx - this.scene.coord.left) > this.scene.radius ||
-            Math.abs(e.pageY - this.scene.cy - this.scene.coord.top) > this.scene.radius;
     },
 
     draw: function () {
@@ -198,7 +184,7 @@ var Tracker = {
 
     drawArc: function () {
         this.context.save();
-        this.context.strokeStyle = 'rgba(26, 63, 110, 0.8)';
+        this.context.strokeStyle = 'rgba(241, 203, 64, 0.8)';
         this.context.beginPath();
         this.context.lineWidth = this.lineWidth;
 
@@ -264,13 +250,13 @@ var Scene = {
         Framer.init(this);
         Tracker.init(this);
         Controls.init(this);
-        this.startRender();
+        this.render();
     },
 
     canvasConfigure: function () {
         this.canvas = document.querySelector('canvas');
         this.context = this.canvas.getContext('2d');
-        this.context.strokeStyle = '#1A3F6E';
+        this.context.strokeStyle = '#f1cb40';
         this.calculateSize();
     },
 
@@ -308,6 +294,7 @@ var Scene = {
     clear: function () { this.context.clearRect(0, 0, this.width, this.height); },
 
     draw: function () {
+        if (Player.analyser) { Player.analyser.getByteFrequencyData(Framer.frequencyData); }
         Framer.draw();
         Tracker.draw();
         Controls.draw();
@@ -341,18 +328,17 @@ var Controls = {
     initPlayButton: function () {
         var that = this;
         this.playButton = document.querySelector('.play');
-        this.playButton.addEventListener('mouseup', function () {
+        this.playButton.addEventListener('click', function () {
             that.playButton.style.display = 'none';
             that.pauseButton.style.display = 'inline-block';
             Player.play();
-            that.playing = true;
         });
     },
 
     initPauseButton: function () {
         var that = this;
         this.pauseButton = document.querySelector('.pause');
-        this.pauseButton.addEventListener('mouseup', function () {
+        this.pauseButton.addEventListener('click', function () {
             that.playButton.style.display = 'inline-block';
             that.pauseButton.style.display = 'none';
             Player.pause();
@@ -363,7 +349,7 @@ var Controls = {
     initSoundButton: function () {
         var that = this;
         this.soundButton = document.querySelector('.soundControl');
-        this.soundButton.addEventListener('mouseup', function () {
+        this.soundButton.addEventListener('click', function () {
             if (that.soundButton.classList.contains('disable')) {
                 Player.unmute();
             } else {
@@ -375,7 +361,7 @@ var Controls = {
     initPrevSongButton: function () {
         var that = this;
         this.prevSongButton = document.querySelector('.prevSong');
-        this.prevSongButton.addEventListener('mouseup', function () {
+        this.prevSongButton.addEventListener('click', function () {
             Chapters.prev();
             that.playing && Player.play();
         });
@@ -384,7 +370,7 @@ var Controls = {
     initNextSongButton: function () {
         var that = this;
         this.nextSongButton = document.querySelector('.nextSong');
-        this.nextSongButton.addEventListener('mouseup', function () {
+        this.nextSongButton.addEventListener('click', function () {
             Chapters.next();
             that.playing && Player.play();
         });
@@ -407,9 +393,10 @@ var Controls = {
     draw: function () { this.drawPic(); },
 
     drawPic: function () {
+        if (!Number.isFinite(Tracker.r)) { return; }
         this.context.save();
         this.context.beginPath();
-        this.context.fillStyle = 'rgba(26, 63, 110, 0.9)';
+        this.context.fillStyle = 'rgba(241, 203, 64, 0.9)';
         this.context.lineWidth = 1;
         var x = Tracker.r / Math.sqrt(Math.pow(Math.tan(Tracker.angle), 2) + 1);
         var y = Math.sqrt(Tracker.r * Tracker.r - x * x);
@@ -451,18 +438,10 @@ var Player = {
             this.analyser.fftSize = 2048;
             this.gainNode = this.context.createGain();
 
-            this.javascriptNode = this.context.createScriptProcessor(2048, 1, 1);
-            this.javascriptNode.connect(this.context.destination);
-            this.analyser.connect(this.javascriptNode);
-
             this.source.connect(this.gainNode);
             this.gainNode.connect(this.analyser);
-            this.gainNode.connect(this.context.destination);
-
-            this.javascriptNode.onaudioprocess = function () {
-                Framer.frequencyData = new Uint8Array(Player.analyser.frequencyBinCount);
-                Player.analyser.getByteFrequencyData(Framer.frequencyData);
-            };
+            this.analyser.connect(this.context.destination);
+            Framer.frequencyData = new Uint8Array(this.analyser.frequencyBinCount);
         } catch (e) {
             /* Visualizer bars just won't react to frequency data; playback still works. */
         }
@@ -472,12 +451,29 @@ var Player = {
     },
 
     play: function () {
-        this.context && this.context.resume && this.context.resume();
-        this.audio.play();
+        var that = this;
+        if (!PlayerPower.on) { this.updateState(false); return; }
+        if (!this.audio.currentSrc && !this.audio.getAttribute('src') && !this.audio.querySelector('source[src]')) {
+            document.getElementById('audioStatus').textContent = 'Grabación próximamente · Explora la ruta de escucha';
+            this.updateState(false); return;
+        }
+        if (this.context && this.context.state === 'suspended') { this.context.resume().catch(function () {}); }
+        var result = this.audio.play();
+        if (result) { result.catch(function () {
+            that.updateState(false);
+            document.getElementById('audioStatus').textContent = 'No se pudo iniciar el audio. Inténtalo de nuevo.';
+        }); }
     },
 
+    updateState: function (playing) {
+        Controls.playing = playing;
+        document.querySelector('.play').style.display = playing ? 'none' : 'inline-flex';
+        document.querySelector('.pause').style.display = playing ? 'inline-flex' : 'none';
+        if (playing && !Scene.inProcess()) { Scene.startRender(); }
+        if (!playing) { Scene.stopRender(); Scene.render(); }
+    },
     pause: function () {
-        this.audio.pause();
+        this.audio.pause(); this.updateState(false);
     },
 
     mute: function () {
@@ -494,13 +490,14 @@ var Player = {
     setVolume: function (v) {
         v = Math.max(0, Math.min(1, v));
         if (this.gainNode) { this.gainNode.gain.value = v; }
+        if (!this.gainNode) { this.audio.volume = v; }
         this.audio.muted = (v <= 0);
         var soundBtn = document.querySelector('.soundControl');
-        if (soundBtn) { soundBtn.classList.toggle('disable', v <= 0); }
+        if (soundBtn) { soundBtn.classList.toggle('disable', v <= 0); soundBtn.setAttribute('aria-pressed', String(v <= 0)); soundBtn.setAttribute('aria-label', v <= 0 ? 'Activar sonido' : 'Silenciar'); }
     },
 
     seek: function (seconds) {
-        this.audio.currentTime = seconds;
+        if (Number.isFinite(this.audio.duration)) { this.audio.currentTime = seconds; }
     }
 };
 
@@ -557,6 +554,7 @@ var VolumeDial = {
     render: function () {
         var angle = this.angleFromVol(this.vol);
         this.knob.style.transform = 'rotate(' + angle + 'deg)';
+        this.knob.setAttribute('aria-valuenow', Math.round(this.vol * 100));
         var tick = this.vol * this.ticks;
         this.dots.forEach(function (d, i) {
             d.classList.toggle('volume-dial__dot--filled', i < tick - 0.5);
@@ -623,10 +621,10 @@ var PlayerPower = {
         this.btn.setAttribute('aria-pressed', on ? 'true' : 'false');
 
         var playerEl = document.querySelector('.player');
-        if (playerEl) { playerEl.classList.toggle('powered-off', !on); }
+        if (playerEl) { playerEl.classList.toggle('powered-off', !on); playerEl.inert = !on; }
 
         var dial = document.getElementById('volumeDial');
-        if (dial) { dial.classList.toggle('powered-off', !on); }
+        if (dial) { dial.classList.toggle('powered-off', !on); dial.inert = !on; }
 
         if (!on) {
             Player.pause();
@@ -665,10 +663,7 @@ var Chapters = {
         var time = parseFloat(el.getAttribute('data-time') || '0');
         Player.seek(time);
         Player.play();
-        document.querySelector('.play').style.display = 'none';
-        document.querySelector('.pause').style.display = 'inline-block';
-        Controls.playing = true;
-        document.querySelector('.song .name').textContent = el.textContent;
+        document.querySelector('.song .name').textContent = el.dataset.title || el.textContent.trim();
         this.highlight(this.index);
     },
 
@@ -678,6 +673,7 @@ var Chapters = {
     highlight: function (i) {
         this.list.forEach(function (el, idx) {
             el.classList.toggle('active', idx === i);
+            if (idx === i) { el.setAttribute('aria-current', 'true'); } else { el.removeAttribute('aria-current'); }
         });
     }
 };
@@ -698,7 +694,7 @@ function initPanelToggle() {
 
 /* "ESCUCHA AHORA" ribbon under the cover jumps down to the player */
 function initListenNowRibbon() {
-    var box = document.querySelector('.controls .box');
+    var box = document.querySelector('.listen-ribbon');
     var playerSection = document.querySelector('.player-section');
     if (!box || !playerSection) { return; }
     box.addEventListener('click', function () {
@@ -731,17 +727,18 @@ function initProgressScroll() {
 function initMobileNav() {
     var hamburger = document.getElementById('siteHamburger');
     var menu = document.getElementById('siteMobileMenu');
-    if (!hamburger || !menu) { return; }
-    hamburger.addEventListener('click', function () {
-        hamburger.classList.toggle('open');
-        menu.classList.toggle('open');
+    function setOpen(open) {
+        hamburger.classList.toggle('open', open); menu.classList.toggle('open', open);
+        hamburger.setAttribute('aria-expanded', String(open));
+        hamburger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+        menu.inert = !open;
+    }
+    hamburger.addEventListener('click', function () { setOpen(!menu.classList.contains('open')); });
+    menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setOpen(false); }); });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && menu.classList.contains('open')) { setOpen(false); hamburger.focus(); }
     });
-    menu.querySelectorAll('a').forEach(function (a) {
-        a.addEventListener('click', function () {
-            hamburger.classList.remove('open');
-            menu.classList.remove('open');
-        });
-    });
+    window.addEventListener('resize', function () { if (window.innerWidth > 1000) { setOpen(false); } });
 }
 
 document.addEventListener('DOMContentLoaded', function () {
@@ -753,4 +750,18 @@ document.addEventListener('DOMContentLoaded', function () {
     initListenNowRibbon();
     initProgressScroll();
     initMobileNav();
+    Chapters.highlight(0);
+    Player.audio.addEventListener('playing', function () {
+        Player.updateState(true); document.getElementById('audioStatus').textContent = 'Reproduciendo';
+    });
+    ['pause', 'ended', 'error'].forEach(function (event) {
+        Player.audio.addEventListener(event, function () {
+            Player.updateState(false);
+            if (Player.audio.currentSrc) { document.getElementById('audioStatus').textContent = event === 'ended' ? 'Escucha terminada' : event === 'error' ? 'Audio no disponible' : 'En pausa'; }
+        });
+    });
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden) { Scene.stopRender(); }
+        else if (!Player.audio.paused && !Scene.inProcess()) { Scene.startRender(); }
+    });
 });

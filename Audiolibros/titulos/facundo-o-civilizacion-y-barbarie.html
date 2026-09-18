@@ -1,142 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Audiolibros — Facundo o Civilización y Barbarie</title>
-    <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="facundo-o-civilizacion-y-barbarie.css">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Facundo o Civilización y Barbarie · Audiolibros — Santos Armada</title>
+<meta name="description" content="El territorio, el poder y la violencia. Una obra que convirtió la vida de un caudillo en la disputa por el destino de un país.">
+<link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
+<link rel="stylesheet" href="audiolibro-edition.css?v=1"><link rel="stylesheet" href="facundo-o-civilizacion-y-barbarie.css?v=3">
 </head>
-<body>
-
-<nav class="site-nav">
-  <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
-    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
-  </a>
-  <ul class="site-nav-links">
-    <li><a href="../../essays.html">Ensayos</a></li>
-    <li><a href="../../authors.html">Authors</a></li>
-    <li><a href="../audiolibros-categories.html" class="active">Audiolibros</a></li>
-    <li><a href="../../globe.html">Space and Time</a></li>
-    <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
-    <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
-  </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
-    <span></span><span></span><span></span>
-  </button>
+<body class="edition facundo">
+<a class="skip-link" href="#main">Saltar al contenido</a>
+<nav class="site-nav" aria-label="Navegación principal">
+<a class="site-nav-logo" href="../../index.html"><img src="../../Images/logo.PNG" alt=""><span>SANTOS ARMADA<small>LITERATURA · VOZ · MEMORIA</small></span></a>
+<ul class="site-nav-links"><li><a href="../../essays.html">Ensayos</a></li><li><a href="../../authors.html">Authors</a></li><li><a href="../audiolibros-categories.html" aria-current="page">Audiolibros</a></li><li><a href="../../globe.html">Space and Time</a></li><li><a href="../../about.html">Sobre mí</a></li></ul>
+<button class="site-hamburger" id="siteHamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false"><span></span><span></span></button>
 </nav>
-
-<div class="site-mobile-menu" id="siteMobileMenu">
-  <a href="../../essays.html">Ensayos</a>
-  <a href="../../authors.html">Authors</a>
-  <a href="../audiolibros-categories.html">Audiolibros</a>
-  <a href="../../globe.html">Space and Time</a>
-  <a href="../../interpreter-z.html">Interpreter Z</a>
-  <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
-</div>
-
+<div class="site-mobile-menu" id="siteMobileMenu" inert><a href="../../essays.html">Ensayos</a><a href="../../authors.html">Authors</a><a href="../audiolibros-categories.html">Audiolibros</a><a href="../../globe.html">Space and Time</a><a href="../../interpreter-z.html">Interpreter Z</a><a href="../../about.html">Sobre mí</a></div>
+<main id="main">
 <header class="book-header">
-    <div class="book-header-text">
-        <p class="kicker">Audiolibros · Tercera Ola</p>
-        <h1>Facundo o Civilización y Barbarie</h1>
-        <p class="subtitle">Domingo Faustino Sarmiento</p>
-    </div>
+<div class="hero-top"><a href="ola-3-slug.html">← Tercera ola</a><span>LA BIBLIOTECA SONORA</span><span class="edition-number">VOL. III / 08</span></div>
+<div class="hero-layout"><div class="hero-copy"><p class="kicker">Ensayo · Literatura argentina</p><h1>FACUNDO</h1><p class="author">Domingo Faustino Sarmiento</p><div class="hero-rule"></div><h2 class="hero-intro">Civilización<br><em>y barbarie.</em></h2><p class="hero-dek">El territorio, el poder y la violencia. Una obra que convirtió la vida de un caudillo en la disputa por el destino de un país.</p><div class="hero-actions"><a class="primary-link" href="#escuchar">Explorar el audiolibro <span aria-hidden="true">↓</span></a><span class="hero-rating"><strong>4.6</strong> / 5<small>QUETZALES</small></span></div></div>
+<figure class="hero-art"><div class="art-orbit" aria-hidden="true"></div><div class="cover-mat"><img src="../../book_covers/facundo.webp" alt="Portada de Facundo o Civilización y Barbarie" width="900" height="1275" fetchpriority="high" decoding="async"></div><figcaption><span>UN HOMBRE. DOS FUERZAS. UNA NACIÓN.</span><span>1845</span></figcaption></figure></div>
+<div class="hero-bottom"><span>UNA OBRA PARA ESCUCHAR CON OTROS OJOS</span><a href="#sobre">Descubrir la obra <span aria-hidden="true">↘</span></a></div>
 </header>
-
-<div class="progress-scroll"><div class="progress-fill"></div></div>
-
-<section class="player-section" id="playerSection">
-    <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
-        <svg viewBox="0 0 60 60" width="46" height="46">
-            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--accent)" stroke-width="3"/>
-            <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
-                  fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
-            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
-        </svg>
-    </button>
-    <div class="player">
-        <canvas></canvas>
-        <div class="song">
-            <div class="artist">Facundo o Civilización y Barbarie</div>
-            <div class="name">Capítulo 1</div>
-        </div>
-        <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
-        </div>
-        <div class="soundControl"></div>
-        <div class="time">00:00</div>
-    </div>
-</section>
-
-<div class="extra-controls">
-    <div class="volume-dial" id="volumeDial">
-        <div class="volume-dial__control">
-            <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
-                    <span class="volume-dial__knob-label">Volumen</span>
-                </button>
-            </div>
-        </div>
-        <p class="volume-dial__caption">Volumen</p>
-    </div>
-</div>
-
-<audio id="chapterAudio" preload="auto" crossorigin="anonymous"></audio>
-<!-- ^ no src yet — add each recorded chapter file as you upload them. -->
-
-<div class="all">
-  <div class="card">
-    <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
-            <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-        </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/facundo.webp" alt="Facundo o Civilización y Barbarie">
-        <div class="controls">
-            <div class="box">Escucha ahora</div>
-        </div>
-    </div>
-
-    <div class="panel">
-      <div class="panel-body">
-        <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Domingo Faustino Sarmiento escribió este ensayo de 1845 durante su propio exilio en Chile, usando la biografía del caudillo riojano Juan Facundo Quiroga como pretexto para diagnosticar los males de la Argentina bajo la dictadura de Juan Manuel de Rosas. Contrapone la barbarie rural del gaucho y el caudillismo con la civilización europeizante de las ciudades, en un texto fundacional del pensamiento latinoamericano cuya dicotomía se sigue debatiendo casi dos siglos después.</p>
-
-        <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El desierto y la barbarie del gaucho</p>
-        <p class="chapter" data-time="0">Biografía de Facundo Quiroga</p>
-        <p class="chapter" data-time="0">El caudillismo y la Argentina rural</p>
-        <p class="chapter" data-time="0">Rosas y la dictadura</p>
-        <p class="chapter" data-time="0">Civilización europeizante frente a barbarie</p>
-
-        <div class="break"></div>
-        <h1>RESEÑAS</h1>
-        <div>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <p style="display:inline; margin-left:6px;">Excelente</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<footer class="site-footer">
-    <a href="../../index.html" aria-label="Santos Armada — inicio">
-        <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
-    </a>
-</footer>
-
-<script src="facundo-o-civilizacion-y-barbarie.js"></script>
-
-</body>
-</html>
+<section class="editorial" id="sobre" aria-labelledby="about-title"><div class="section-index"><span>01 / LA OBRA</span><span>Anatomía de una nación</span></div><div class="editorial-grid"><h2 id="about-title">El hombre.<br>La pampa.<br><em>La disputa.</em></h2><div class="editorial-copy"><p>Desde el exilio, Domingo Faustino Sarmiento convierte la vida del caudillo Juan Facundo Quiroga en una explicación feroz de la Argentina. Biografía, ensayo político y literatura se mezclan para enfrentar dos fuerzas que, según él, disputan el porvenir del país.</p><p>La ciudad letrada, la pampa, el gaucho, el caudillo y la violencia forman un mapa tan influyente como problemático. Su oposición entre civilización y barbarie todavía obliga a discutir quién define el progreso y quién queda fuera de él.</p><div class="motifs"><span>Territorio</span><span>Poder</span><span>Identidad</span></div></div><blockquote>«El mal que aqueja a la República Argentina es la extensión.»<cite>Domingo Faustino Sarmiento</cite></blockquote></div></section>
+<section class="listening" id="escuchar" aria-labelledby="listen-title"><div class="section-index"><span>02 / LA ESCUCHA</span><span>Una voz. Tu propio ritmo.</span></div><div class="listening-grid"><div class="player-column"><p class="eyebrow">BIBLIOTECA SONORA</p><h2 id="listen-title">La obra,<br><em>en voz alta.</em></h2><p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p><section class="player-section" id="playerSection" aria-label="Reproductor de Facundo o Civilización y Barbarie"><button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v9m-5-7a9 9 0 1 0 10 0"/></svg></button><div class="player"><canvas aria-hidden="true"></canvas><div class="song"><div class="artist">Facundo</div><div class="name">El desierto y la barbarie del gaucho</div></div><div class="playarea"><button class="prevSong" aria-label="Capítulo anterior"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5v14m13-14L8 12l11 7Z"/></svg></button><button class="play" aria-label="Reproducir"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7Z"/></svg></button><button class="pause" aria-label="Pausar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg></button><button class="nextSong" aria-label="Capítulo siguiente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 5v14M5 5l11 7-11 7Z"/></svg></button></div><div class="player-bottom"><button class="soundControl" aria-label="Silenciar" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h4l5-4v14l-5-4H3Zm13-1a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></svg></button><span class="time">00:00</span></div></div></section><div class="extra-controls"><div class="volume-dial" id="volumeDial"><div class="volume-dial__control"><div class="volume-dial__wrap"><button type="button" class="volume-dial__knob" role="slider" aria-label="Volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span class="volume-dial__knob-label">Volumen</span></button></div></div><p class="volume-dial__caption">VOLUMEN</p></div><p class="player-note">La grabación estará disponible aquí.<br>Mientras tanto, descubre la ruta de la obra.</p></div><audio id="chapterAudio" preload="metadata" crossorigin="anonymous"></audio></div><div class="chapters-column"><div class="chapter-heading"><h3>Ruta de escucha</h3><span>05 PARTES</span></div><p class="chapter-intro">Un recorrido temático por la obra.</p><ol class="chapter-list"><li><button class="chapter active" type="button" data-time="0" data-title="El desierto y la barbarie del gaucho"><span class="chapter-number">01</span><span class="chapter-copy"><strong>El desierto y la barbarie del gaucho</strong><small>Territorio y carácter</small></span><span class="chapter-arrow" aria-hidden="true">↗</span></button></li><li><button class="chapter" type="button" data-time="0" data-title="Biografía de Facundo Quiroga"><span class="chapter-number">02</span><span class="chapter-copy"><strong>Biografía de Facundo Quiroga</strong><small>El Tigre de los Llanos</small></span><span class="chapter-arrow" aria-hidden="true">↗</span></button></li><li><button class="chapter" type="button" data-time="0" data-title="El caudillismo y la Argentina rural"><span class="chapter-number">03</span><span class="chapter-copy"><strong>El caudillismo y la Argentina rural</strong><small>Poder y violencia</small></span><span class="chapter-arrow" aria-hidden="true">↗</span></button></li><li><button class="chapter" type="button" data-time="0" data-title="Rosas y la dictadura"><span class="chapter-number">04</span><span class="chapter-copy"><strong>Rosas y la dictadura</strong><small>La sombra sobre Buenos Aires</small></span><span class="chapter-arrow" aria-hidden="true">↗</span></button></li><li><button class="chapter" type="button" data-time="0" data-title="Civilización frente a barbarie"><span class="chapter-number">05</span><span class="chapter-copy"><strong>Civilización frente a barbarie</strong><small>La disputa que permanece</small></span><span class="chapter-arrow" aria-hidden="true">↗</span></button></li></ol><div class="collection-note"><span>TERCERA OLA</span><p>Voces que cambiaron<br>la manera de mirar el mundo.</p><a href="ola-3-slug.html">Explorar la colección <span aria-hidden="true">↗</span></a></div></div></div></section>
+<a class="next-book" href="el-rayo-de-luna.html"><span>CONTINÚA EN LA BIBLIOTECA</span><strong>El rayo de luna</strong><span class="next-arrow" aria-hidden="true">↗</span></a>
+</main><footer class="site-footer"><a href="../../index.html">SANTOS ARMADA</a><span>LITERATURA PARA ESCUCHAR.</span><div><a href="../../interpreter-z.html">Interpreter Z</a><a href="../audiolibros-categories.html">Biblioteca ↑</a></div></footer>
+<script src="facundo-o-civilizacion-y-barbarie.js?v=3"></script>
+</body></html>
