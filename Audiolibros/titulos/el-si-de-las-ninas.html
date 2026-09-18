@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — El sí de las niñas</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="el-si-de-las-ninas.css">
+    <link rel="stylesheet" href="el-si-de-las-ninas.css?v=2">
 </head>
 <body>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
     <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
+    <span class="site-nav-wordmark">SANTOS ARMADA</span>
   </a>
   <ul class="site-nav-links">
     <li><a href="../../essays.html">Ensayos</a></li>
@@ -39,104 +40,127 @@
 
 <header class="book-header">
     <div class="book-header-text">
-        <p class="kicker">Audiolibros · Tercera Ola</p>
-        <h1>El sí de las niñas</h1>
-        <p class="subtitle">Leandro Fernández de Moratín</p>
+        <p class="kicker">Audiolibros · Tercera Ola · Teatro</p>
+        <h1>El sí<br><span>de las niñas</span></h1>
+        <p class="subtitle">Leandro Fernández de Moratín · 1806</p>
+    </div>
+    <div class="fan-emblem" aria-hidden="true">
+        <svg viewBox="0 0 180 150" role="presentation">
+            <path class="fan-leaf fan-leaf--red" d="M88 126 18 54A98 98 0 0 1 56 29Z"/>
+            <path class="fan-leaf" d="M88 126 56 29A102 102 0 0 1 90 22Z"/>
+            <path class="fan-leaf fan-leaf--red" d="M88 126 90 22A102 102 0 0 1 124 30Z"/>
+            <path class="fan-leaf" d="M88 126 124 30A98 98 0 0 1 160 56Z"/>
+            <path class="fan-rib" d="M88 126 18 54M88 126 56 29M88 126 90 22M88 126 124 30M88 126 160 56"/>
+            <path class="fan-edge" d="M18 54A98 98 0 0 1 160 56"/>
+            <circle class="fan-pin" cx="88" cy="126" r="8"/>
+        </svg>
+        <p>Comedia en tres actos</p>
     </div>
 </header>
 
-<div class="progress-scroll"><div class="progress-fill"></div></div>
+<div class="progress-scroll" aria-hidden="true"><div class="progress-fill"></div></div>
 
-<section class="player-section" id="playerSection">
-    <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
-        <svg viewBox="0 0 60 60" width="46" height="46">
-            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--accent)" stroke-width="3"/>
-            <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
-                  fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
-            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
-        </svg>
-    </button>
-    <div class="player">
-        <canvas></canvas>
-        <div class="song">
-            <div class="artist">El sí de las niñas</div>
-            <div class="name">Capítulo 1</div>
-        </div>
-        <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
-        </div>
-        <div class="soundControl"></div>
-        <div class="time">00:00</div>
-    </div>
-</section>
+<main>
+  <section class="player-intro">
+      <p class="eyebrow">La función comienza</p>
+      <h2>Escucha la obra</h2>
+      <p>Una comedia contra el consentimiento impuesto y a favor de una voz verdaderamente libre.</p>
+  </section>
 
-<div class="extra-controls">
-    <div class="volume-dial" id="volumeDial">
-        <div class="volume-dial__control">
-            <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
-                    <span class="volume-dial__knob-label">Volumen</span>
-                </button>
-            </div>
-        </div>
-        <p class="volume-dial__caption">Volumen</p>
-    </div>
-</div>
+  <section class="player-section" id="playerSection" aria-label="Reproductor de audiolibro">
+      <div class="player-stage-frame" aria-hidden="true"></div>
+      <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
+          <svg viewBox="0 0 60 60" width="46" height="46" aria-hidden="true">
+              <circle cx="30" cy="30" r="27"/>
+              <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"/>
+              <line x1="30" y1="14" x2="30" y2="31"/>
+          </svg>
+      </button>
+      <div class="player">
+          <canvas></canvas>
+          <div class="song">
+              <div class="artist">El sí de las niñas</div>
+              <div class="name">Acto primero</div>
+          </div>
+          <div class="playarea">
+              <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+              <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+              <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+              <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
+          </div>
+          <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+          <div class="time">00:00</div>
+      </div>
+  </section>
 
-<audio id="chapterAudio" preload="auto" crossorigin="anonymous"></audio>
-<!-- ^ no src yet — add each recorded chapter file as you upload them. -->
+  <div class="extra-controls">
+      <div class="volume-dial" id="volumeDial">
+          <div class="volume-dial__control">
+              <div class="volume-dial__wrap">
+                  <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                      <span class="volume-dial__knob-label">Volumen</span>
+                  </button>
+              </div>
+          </div>
+          <p class="volume-dial__caption">Volumen</p>
+      </div>
+  </div>
 
-<div class="all">
-  <div class="card">
-    <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
-            <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
-        </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/el-si-de-las-niñas.webp" alt="El sí de las niñas">
-        <div class="controls">
-            <div class="box">Escucha ahora</div>
-        </div>
-    </div>
+  <audio id="chapterAudio" preload="metadata" crossorigin="anonymous"></audio>
 
-    <div class="panel">
-      <div class="panel-body">
-        <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Comedia neoclásica de 1806 en la que Leandro Fernández de Moratín denuncia los matrimonios concertados entre jóvenes y hombres mucho mayores: doña Francisca, de dieciséis años, es prometida a don Diego, de cincuenta y nueve, mientras en secreto ama a su sobrino don Carlos. Escrita para defender el "sí" libre de las mujeres frente a la presión familiar y conventual, fue una de las obras más representadas y polémicas del teatro español de su tiempo.</p>
+  <section class="edition" aria-labelledby="edition-title">
+      <div class="cover-column">
+          <div class="cover-frame">
+              <img fetchpriority="high" decoding="async" src="../../book_covers/el-si-de-las-niñas.webp" alt="Portada de El sí de las niñas">
+              <button class="x" type="button" aria-label="Mostrar u ocultar información">×</button>
+          </div>
+          <button class="listen-ribbon box" type="button">Escucha ahora</button>
+          <div class="rating-stamp" aria-label="Calificación: 4.8 de 5">
+              <strong>4.8</strong><span>/5</span>
+              <small>QUETZALES</small>
+          </div>
+      </div>
 
-        <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El matrimonio concertado</p>
-        <p class="chapter" data-time="0">El amor secreto por don Carlos</p>
-        <p class="chapter" data-time="0">La presión familiar y conventual</p>
-        <p class="chapter" data-time="0">El derecho al "sí" libre</p>
-        <p class="chapter" data-time="0">La obra más polémica de su tiempo</p>
+      <div class="panel">
+        <div class="panel-body">
+          <p class="act-number">I</p>
+          <p class="section-label">Argumento</p>
+          <h2 id="edition-title">El derecho a decir<br>sí — o no</h2>
+          <p class="lead">En una posada de Alcalá de Henares, una muchacha educada para obedecer descubre que callar también puede ser una forma de mentira.</p>
+          <p>Doña Francisca, de dieciséis años, ha sido prometida por su madre a don Diego, un hombre de cincuenta y nueve. Ella ama en secreto a don Carlos, sin saber que es sobrino de su futuro esposo. Moratín convierte el enredo en una defensa lúcida de la educación, la libertad afectiva y el consentimiento de las mujeres frente a la autoridad familiar.</p>
 
-        <div class="break"></div>
-        <h1>RESEÑAS</h1>
-        <div>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <p style="display:inline; margin-left:6px;">Bueno</p>
+          <div class="rule"><span>◆</span></div>
+          <p class="section-label">Actos y escenas</p>
+          <ol class="chapter-list">
+              <li class="chapter active" data-time="0"><span>01</span><strong>Acto primero</strong><small>La obediencia aprendida</small></li>
+              <li class="chapter" data-time="0"><span>02</span><strong>Acto segundo</strong><small>El secreto de Paquita y don Carlos</small></li>
+              <li class="chapter" data-time="0"><span>03</span><strong>Acto tercero</strong><small>La carta y la verdad</small></li>
+              <li class="chapter" data-time="0"><span>04</span><strong>Desenlace</strong><small>El consentimiento recuperado</small></li>
+          </ol>
+
+          <div class="rule"><span>◆</span></div>
+          <div class="review-block">
+              <div>
+                  <p class="section-label">Reseña</p>
+                  <p class="review-copy">Una comedia precisa, moderna y radicalmente humana.</p>
+              </div>
+              <div class="feather-rating" aria-label="4.8 de 5 plumas de quetzal">
+                  <span>4.8/5</span>
+                  <img src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal">
+              </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+  </section>
+</main>
 
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
+    <p>FIN DE LA FUNCIÓN · SANTOS ARMADA</p>
 </footer>
 
-<script src="el-si-de-las-ninas.js"></script>
-
+<script src="el-si-de-las-ninas.js?v=2"></script>
 </body>
 </html>
