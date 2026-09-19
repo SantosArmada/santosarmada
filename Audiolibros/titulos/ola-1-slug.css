@@ -1,13 +1,13 @@
 @import url('ola-nav-arrows.css');
 
 :root {
-    --audio-blue: #6F98EC;
-    --audio-blue-dark: #4a74cc;
-    --audio-blue-pale: #eaf1fc;
-    --wave-gray: #E9EDF5;
-    --ink: #0d0d0d;
-    --paper: #ffffff;
-    --card-shadow: rgba(15, 20, 40, 0.15);
+    --audio-blue: #315fa8;
+    --audio-blue-dark: #173b76;
+    --audio-blue-pale: #e7eef8;
+    --wave-gray: #dce8f6;
+    --ink: #152a47;
+    --paper: #fffdf8;
+    --card-shadow: rgba(18, 42, 76, 0.16);
     --ola-nav-h: 72px;
     --ola-banner-h: 41px;
 }
@@ -22,7 +22,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 2rem;
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 253, 248, 0.94);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
@@ -114,7 +114,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: #ffffff;
+  background: var(--paper);
   z-index: 99;
   flex-direction: column;
   align-items: center;
@@ -144,7 +144,7 @@
 
 body {
     margin: 0;
-    background-color: var(--audio-blue-pale);
+    background: #f3f0e8;
     font-family: 'Poppins', sans-serif;
     color: var(--ink);
     padding-top: calc(var(--ola-nav-h) + var(--ola-banner-h));
@@ -157,9 +157,10 @@ body {
     display: flex;
     align-items: center;
     gap: 2rem;
-    padding: 2.5rem 3rem;
-    background-color: var(--wave-gray);
-    border-bottom: 6px solid var(--audio-blue-dark);
+    min-height: 280px;
+    padding: 3.5rem max(3rem, calc((100vw - 1240px) / 2));
+    background: linear-gradient(130deg, #112f60 0%, #245597 58%, #5e89c3 100%);
+    border-bottom: 5px solid #b39158;
     position: relative;
     overflow: hidden;
 }
@@ -174,18 +175,18 @@ body {
 }
 
 .wave-layer-back {
-    fill: #AFC6F2;
-    opacity: 0.35;
+    fill: #8eb2dc;
+    opacity: 0.22;
 }
 
 .wave-layer-mid {
-    fill: #7FA3ED;
-    opacity: 0.55;
+    fill: #a8c5e6;
+    opacity: 0.2;
 }
 
 .wave-layer-front {
-    fill: var(--audio-blue);
-    opacity: 0.9;
+    fill: #76a0d0;
+    opacity: 0.26;
 }
 
 .header-logo-link {
@@ -204,7 +205,7 @@ body {
     letter-spacing: 3px;
     text-transform: uppercase;
     font-size: 0.75rem;
-    color: #000000;
+    color: #e7d7b8;
     font-weight: 600;
 }
 
@@ -216,7 +217,7 @@ body {
 .header-title {
     margin: 0.25rem 0;
     font-family: 'Playfair Display', serif;
-    font-size: 2.75rem;
+    font-size: clamp(2.8rem, 5vw, 5rem);
     font-weight: 700;
     color: #ffffff;
     text-shadow: 0 2px 6px rgba(0,0,0,0.15);
@@ -226,23 +227,25 @@ body {
     margin: 0;
     font-size: 0.95rem;
     color: #ffffff;
-    opacity: 0.85;
+    opacity: 0.94;
     text-shadow: 0 1px 3px rgba(0,0,0,0.12);
 }
 
 /* ---------- ERA DESCRIPTION ---------- */
 
 .era-description {
-    max-width: 700px;
-    margin: 2rem auto 0;
-    padding: 0 2rem;
+    max-width: 920px;
+    margin: 2.5rem auto 0;
+    padding: 0 2rem 1.5rem;
     text-align: center;
+    border-bottom: 1px solid rgba(49, 95, 168, 0.22);
 }
 
 .era-description p {
-    font-size: 1rem;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
     line-height: 1.6;
-    color: #444;
+    color: var(--ink);
     font-style: italic;
 }
 
@@ -253,8 +256,10 @@ body {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 1.5rem;
-    padding: 3rem;
+    gap: 2rem;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
     overflow: hidden;
 }
 
@@ -269,7 +274,7 @@ body {
     background-repeat: repeat;
     background-position: top left;
     background-size: 640px auto;
-    opacity: 0.12;
+    opacity: 0.045;
     pointer-events: none;
     z-index: 0;
 }
@@ -281,18 +286,25 @@ body {
 .book {
     width: 260px;
     background-color: var(--paper);
-    border: 2px solid var(--audio-blue);
-    border-radius: 6px;
-    box-shadow: 0 6px 14px var(--card-shadow);
+    border: 1px solid #c5d4e8;
+    border-radius: 10px;
+    box-shadow: 0 10px 26px var(--card-shadow);
     position: relative;
     overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.book:hover,
+.book:focus-within {
+    transform: translateY(-4px);
+    box-shadow: 0 17px 34px rgba(18, 42, 76, 0.22);
 }
 
 .book-placeholder {
     width: 100%;
     height: 360px;
     background-color: var(--audio-blue-pale);
-    border-bottom: 3px solid var(--audio-blue);
+    border-bottom: 3px solid #b39158;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -317,7 +329,7 @@ body {
     background-color: var(--audio-blue);
     color: #ffffff;
     text-align: center;
-    padding: 0.65rem 0;
+    padding: 0.8rem 0;
     font-size: 0.72rem;
     font-weight: 700;
     letter-spacing: 1.5px;
@@ -331,12 +343,20 @@ body {
     background-color: var(--audio-blue-dark);
 }
 
+.listen-btn:focus-visible,
+.book-placeholder:focus-visible,
+.review:focus-visible,
+.site-hamburger:focus-visible {
+    outline: 3px solid #bb9250;
+    outline-offset: -3px;
+}
+
 .book-info {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0.75rem 1rem 1rem;
-    background-color: var(--audio-blue-pale);
+    background-color: var(--paper);
 }
 
 .book-info h3 {
@@ -365,7 +385,7 @@ body {
     font-weight: 600;
     font-size: 0.85rem;
     text-decoration: none;
-    background-color: #000000;
+    background-color: var(--audio-blue-dark);
     border: 1px solid var(--audio-blue);
 }
 
@@ -420,7 +440,7 @@ body {
 }
 
 .review {
-    background-color: var(--audio-blue-dark);
+    background-color: #173b76;
     color: #ffffff;
     padding: 1.5rem;
     position: absolute;
@@ -454,7 +474,31 @@ body {
 .titulos-footer {
     text-align: center;
     padding: 2rem;
-    background-color: var(--audio-blue);
+    background-color: #173b76;
+}
+
+@media (max-width: 768px) {
+    .titulos-header {
+        min-height: 230px;
+        padding: 2.5rem 1.5rem;
+        gap: 1rem;
+    }
+    .header-logo { height: 48px; }
+    #tapestry { gap: 1.25rem; padding: 2rem 1rem 4rem; }
+}
+
+@media (max-width: 560px) {
+    .site-nav { padding: 0.9rem 1rem; }
+    .site-nav-title { font-size: 0.85rem; }
+    .titulos-header { align-items: flex-start; }
+    .header-title { font-size: 2.6rem; }
+    .book { width: min(100%, 320px); }
+    .book-placeholder, .review { height: 390px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .wave-bg animateTransform { display: none; }
+    .book, .review { transition: none; }
 }
 
 .footer-link {

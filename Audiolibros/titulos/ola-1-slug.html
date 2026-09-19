@@ -21,7 +21,7 @@
     <li><a href="../../museos.html">Museos</a></li>
     <li><a href="../audiolibros-categories.html" class="active">Audiolibros</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -357,11 +357,13 @@ const siteMobileMenu = document.getElementById('siteMobileMenu');
 siteHamburger.addEventListener('click', () => {
   siteHamburger.classList.toggle('open');
   siteMobileMenu.classList.toggle('open');
+  siteHamburger.setAttribute('aria-expanded', siteMobileMenu.classList.contains('open'));
 });
 siteMobileMenu.querySelectorAll('a').forEach(a => {
   a.addEventListener('click', () => {
     siteHamburger.classList.remove('open');
     siteMobileMenu.classList.remove('open');
+    siteHamburger.setAttribute('aria-expanded', 'false');
   });
 });
 
@@ -370,9 +372,31 @@ siteMobileMenu.querySelectorAll('a').forEach(a => {
 // hover-based) so it works the same on touch and mouse — the
 // "ESCUCHAR AHORA" button is the only real link off a card.
 document.querySelectorAll('.book').forEach(book => {
-  book.querySelectorAll('.book-placeholder, .review').forEach(flipZone => {
-    flipZone.addEventListener('click', () => {
-      book.classList.toggle('is-open');
+  const cover = book.querySelector('.book-placeholder');
+  const review = book.querySelector('.review');
+  const title = book.querySelector('.book-info h3').textContent.trim();
+  cover.setAttribute('role', 'button');
+  cover.setAttribute('tabindex', '0');
+  cover.setAttribute('aria-label', `Leer resumen de ${title}`);
+  review.setAttribute('role', 'button');
+  review.setAttribute('tabindex', '-1');
+  review.setAttribute('aria-label', `Cerrar resumen de ${title}`);
+  review.setAttribute('aria-hidden', 'true');
+  const flip = () => {
+    const open = book.classList.toggle('is-open');
+    cover.setAttribute('tabindex', open ? '-1' : '0');
+    cover.setAttribute('aria-hidden', open ? 'true' : 'false');
+    review.setAttribute('tabindex', open ? '0' : '-1');
+    review.setAttribute('aria-hidden', open ? 'false' : 'true');
+    (open ? review : cover).focus();
+  };
+  [cover, review].forEach(zone => {
+    zone.addEventListener('click', flip);
+    zone.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        flip();
+      }
     });
   });
 });
