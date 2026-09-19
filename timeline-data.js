@@ -297,6 +297,30 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "batalla-hastings-conquista-normanda-1066",
+    year: 1066,
+    month: 10,
+    day: 14,
+    // Real date; nudged track position only so this point remains selectable
+    // beside the long-running Ocho Venado entry that begins in 1063.
+    trackYear: 1038,
+    title: "14 de octubre de 1066: la batalla de Hastings transforma Inglaterra",
+    author: "Hito histórico",
+    country: "Reino Unido",
+    region: "Battle, Inglaterra",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "Tras derrotar a los invasores noruegos en Stamford Bridge, Harold Godwinson obliga a su ejército agotado a recorrer unos 380 kilómetros hacia el sur para enfrentar a Guillermo, duque de Normandía. El 14 de octubre de 1066, cerca de Hastings, los ingleses forman un sólido muro de escudos sobre la cresta después llamada Senlac Hill y resisten durante casi todo el día. Los arqueros y la caballería normandos, junto con retiradas fingidas que atraen a parte de los defensores fuera de formación, terminan por quebrar la línea. Harold muere en el combate; el célebre relato según el cual una flecha le atravesó el ojo, inspirado por una escena ambigua del Tapiz de Bayeux, sigue siendo discutido. La victoria permite a Guillermo avanzar hacia Londres y ser coronado Guillermo I en la Abadía de Westminster el día de Navidad. La conquista continúa durante años: la Devastación del Norte de 1069–1070 arrasa tierras y agrava una hambruna, mientras la aristocracia anglosajona es sustituida por señores normandos. El Domesday Book de 1086 registra tierras, recursos y obligaciones fiscales del reino. El francés normando se convierte en lengua de la corte, el gobierno, el derecho y gran parte de la Iglesia, mientras el inglés permanece entre la mayoría de la población; su convivencia incorpora miles de palabras francesas y ayuda a transformar el inglés antiguo en inglés medio. La nueva jerarquía territorial refuerza el orden feudal, castillos de piedra y grandes iglesias románicas —como la Torre de Londres y la catedral de Durham— materializan el poder normando, e Inglaterra queda vinculada durante siglos a la política territorial de Francia, una relación que contribuirá al trasfondo de conflictos como la Guerra de los Cien Años.",
+    descriptionHtml:
+      'Tras derrotar a los invasores noruegos en <button type="button" class="timeline-detail-geolink" data-region="Stamford Bridge" data-country="Reino Unido">Stamford Bridge</button>, Harold Godwinson obliga a su ejército agotado a recorrer unos 380 kilómetros hacia el sur para enfrentar a Guillermo, duque de <button type="button" class="timeline-detail-geolink" data-region="Normandía" data-country="Francia">Normandía</button>. El 14 de octubre de 1066, cerca de <button type="button" class="timeline-detail-geolink" data-region="Battle, Inglaterra" data-country="Reino Unido">Hastings</button>, los ingleses forman un sólido muro de escudos sobre la cresta después llamada Senlac Hill y resisten durante casi todo el día. Los arqueros y la caballería normandos, junto con retiradas fingidas que atraen a parte de los defensores fuera de formación, terminan por quebrar la línea. Harold muere en el combate; el célebre relato según el cual una flecha le atravesó el ojo, inspirado por una escena ambigua del Tapiz de Bayeux, sigue siendo discutido. La victoria permite a Guillermo avanzar hacia <button type="button" class="timeline-detail-geolink" data-region="Londres" data-country="Reino Unido">Londres</button> y ser coronado Guillermo I en la <button type="button" class="timeline-detail-geolink" data-region="Abadía de Westminster" data-country="Reino Unido">Abadía de Westminster</button> el día de Navidad. La conquista continúa durante años: la Devastación del Norte de 1069–1070 arrasa tierras y agrava una hambruna, mientras la aristocracia anglosajona es sustituida por señores normandos. El Domesday Book de 1086 registra tierras, recursos y obligaciones fiscales del reino. El francés normando se convierte en lengua de la corte, el gobierno, el derecho y gran parte de la Iglesia, mientras el inglés permanece entre la mayoría de la población; su convivencia incorpora miles de palabras francesas y ayuda a transformar el inglés antiguo en inglés medio. La nueva jerarquía territorial refuerza el orden feudal, castillos de piedra y grandes iglesias románicas —como la <button type="button" class="timeline-detail-geolink" data-region="Torre de Londres" data-country="Reino Unido">Torre de Londres</button> y la <button type="button" class="timeline-detail-geolink" data-region="Catedral de Durham" data-country="Reino Unido">catedral de Durham</button>— materializan el poder normando, e Inglaterra queda vinculada durante siglos a la política territorial de Francia, una relación que contribuirá al trasfondo de conflictos como la Guerra de los Cien Años.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Harold hubiera descansado a su ejército y esperado refuerzos antes de enfrentar a Guillermo?",
+      answer:
+        "Una victoria inglesa habría podido conservar por más tiempo a la aristocracia anglosajona y limitar la transformación política impuesta por los normandos. El inglés habría seguido evolucionando, pero con una influencia francesa menos intensa; la red de castillos, la redistribución de tierras y la implicación de Inglaterra en las disputas territoriales francesas también habrían seguido caminos muy distintos."
+    }
+  },
+  {
     id: "toma-toledo-1085",
     year: 1085,
     title: "1085: Alfonso VI conquista Toledo",
