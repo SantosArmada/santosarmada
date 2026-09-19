@@ -2211,6 +2211,26 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "frida-kahlo-el-sueno-subasta-2025",
+    year: 2025,
+    month: 11,
+    title: "2025: El sueño de Frida Kahlo rompe tres récords",
+    author: "Frida Kahlo",
+    authorEntryId: "frida-kahlo-1907",
+    country: "Estados Unidos",
+    region: "Nueva York",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 20 de noviembre de 2025, El sueño (La cama), autorretrato que Frida Kahlo pintó en 1940, se vende en Sotheby's de Nueva York por 47 millones de dólares al golpe de martillo y 54.66 millones con la prima del comprador. La pintura —un óleo sobre lienzo de 74 por 98 centímetros en el que Kahlo duerme en su cama con dosel mientras un esqueleto de tamaño natural yace sobre ella— era la pieza principal de Exquisite Corpus, una subasta de más de ochenta obras surrealistas procedentes de una colección privada anónima. La puja abre en 22 millones y termina, unos cuatro minutos después, en manos de un comprador telefónico cuya identidad no se divulga. El resultado supera los 34.9 millones pagados en 2021 por Diego y yo y establece tres marcas de subasta: la obra más cara de Kahlo, la obra latinoamericana más cara y la obra de una mujer artista más cara, por encima de los 44.4 millones alcanzados por Jimson Weed/White Flower No. 1 de Georgia O'Keeffe en 2014. El sueño había pasado por la misma casa de subastas el 9 de mayo de 1980 por apenas 51,000 dólares: cuarenta y cinco años después, su precio final es más de mil veces mayor. Su venta internacional fue posible porque pertenecía a una colección privada fuera de México; las obras de Kahlo conservadas en México forman parte de un monumento artístico nacional y no pueden exportarse de manera permanente.",
+    descriptionHtml:
+      'El 20 de noviembre de 2025, <em>El sueño (La cama)</em>, autorretrato que <button type="button" class="timeline-detail-entrylink" data-id="frida-kahlo-1907">Frida Kahlo</button> pintó en 1940, se vende en Sotheby\'s de <button type="button" class="timeline-detail-geolink" data-region="Nueva York" data-country="Estados Unidos">Nueva York</button> por 47 millones de dólares al golpe de martillo y 54.66 millones con la prima del comprador. La pintura —un óleo sobre lienzo de 74 por 98 centímetros en el que Kahlo duerme en su cama con dosel mientras un esqueleto de tamaño natural yace sobre ella— era la pieza principal de <em>Exquisite Corpus</em>, una subasta de más de ochenta obras surrealistas procedentes de una colección privada anónima. La puja abre en 22 millones y termina, unos cuatro minutos después, en manos de un comprador telefónico cuya identidad no se divulga. El resultado supera los 34.9 millones pagados en 2021 por <em>Diego y yo</em> y establece tres marcas de subasta: la obra más cara de Kahlo, la obra latinoamericana más cara y la obra de una mujer artista más cara, por encima de los 44.4 millones alcanzados por <em>Jimson Weed/White Flower No. 1</em> de Georgia O\'Keeffe en 2014. <em>El sueño</em> había pasado por la misma casa de subastas el 9 de mayo de 1980 por apenas 51,000 dólares: cuarenta y cinco años después, su precio final es más de mil veces mayor. Su venta internacional fue posible porque pertenecía a una colección privada fuera de <button type="button" class="timeline-detail-geolink" data-country="México">México</button>; las obras de Kahlo conservadas en México forman parte de un monumento artístico nacional y no pueden exportarse de manera permanente.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si El sueño hubiera permanecido en México después de su venta de 1980?",
+      answer:
+        "Probablemente no habría podido protagonizar una subasta internacional como la de 2025. La protección de la obra de Frida Kahlo como monumento artístico nacional restringe la exportación permanente de las piezas conservadas en México; que El sueño ya perteneciera a una colección privada en el extranjero permitió que reapareciera en Nueva York y que el mercado mundial fijara ese precio récord."
+    }
+  },
+  {
     id: "diaspora-salvadorena-virginia-2024",
     year: 2024,
     month: 10,
