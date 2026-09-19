@@ -1270,6 +1270,26 @@ const TIMELINE_ENTRIES = [
   },
 
   {
+    id: "roggeveen-rapa-nui-moai-1722",
+    year: 1722,
+    month: 4,
+    day: 5,
+    title: "5 de abril de 1722: el primer encuentro europeo con Rapa Nui y los moai",
+    author: "Jacob Roggeveen",
+    country: "Chile",
+    region: "Rapa Nui (Easter Island)",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Mucho antes de que apareciera en un mapa europeo, navegantes polinesios habían encontrado y poblado Rapa Nui, probablemente entre los años 1000 y 1200. En aislamiento extremo —a unos 3,500 kilómetros de la costa continental de Chile— desarrollaron una sociedad organizada alrededor de linajes ancestrales y comenzaron a tallar moai hacia el siglo XII. Casi todos fueron esculpidos en la toba volcánica de la cantera de Rano Raraku, trasladados a plataformas funerarias llamadas ahu y orientados hacia las comunidades a las que protegían; la producción continuó hasta aproximadamente el siglo XVI. El 5 de abril de 1722, Domingo de Pascua, la expedición neerlandesa de Jacob Roggeveen —los barcos Arend, Thienhoven y Afrikaansche Galei, con más de 220 tripulantes— avista la isla mientras busca el continente mítico Terra Australis. Roggeveen la bautiza Paasch Eyland, Isla de Pascua, y su tripulación se convierte en el primer grupo europeo conocido que contempla los moai. El encuentro no fue un descubrimiento humano de una tierra vacía, sino el final de al menos cinco siglos de aislamiento rapanui; los primeros contactos en tierra, días después, terminan con habitantes muertos por disparos neerlandeses. En 1770, Felipe González de Haedo reclama la isla para la Corona española bajo el nombre de Isla de San Carlos. James Cook llega en 1774 y documenta una sociedad transformada y numerosos monumentos deteriorados o derribados. La investigación arqueológica sistemática llegaría mucho después: expediciones del siglo XX, incluida la de Thor Heyerdahl en la década de 1950, y el trabajo posterior de arqueólogos rapanui como Sergio Rapu estudian las canteras, excavan las estatuas y reconstruyen cómo fueron talladas, transportadas y erigidas. Roggeveen no descubrió a los moai para quienes los habían creado; registró el momento en que Europa los vio por primera vez.",
+    descriptionHtml:
+      'Mucho antes de que apareciera en un mapa europeo, navegantes polinesios habían encontrado y poblado <button type="button" class="timeline-detail-geolink" data-region="Rapa Nui (Easter Island)" data-country="Chile">Rapa Nui</button>, probablemente entre los años 1000 y 1200. En aislamiento extremo —a unos 3,500 kilómetros de la costa continental de <button type="button" class="timeline-detail-geolink" data-country="Chile">Chile</button>— desarrollaron una sociedad organizada alrededor de linajes ancestrales y comenzaron a tallar moai hacia el siglo XII. Casi todos fueron esculpidos en la toba volcánica de la cantera de <button type="button" class="timeline-detail-geolink" data-region="Rano Raraku, Rapa Nui" data-country="Chile">Rano Raraku</button>, trasladados a plataformas funerarias llamadas <em>ahu</em> y orientados hacia las comunidades a las que protegían; la producción continuó hasta aproximadamente el siglo XVI. El 5 de abril de 1722, Domingo de Pascua, la expedición neerlandesa de Jacob Roggeveen —los barcos <em>Arend</em>, <em>Thienhoven</em> y <em>Afrikaansche Galei</em>, con más de 220 tripulantes— avista la isla mientras busca el continente mítico Terra Australis. Roggeveen la bautiza <em>Paasch Eyland</em>, Isla de Pascua, y su tripulación se convierte en el primer grupo europeo conocido que contempla los moai. El encuentro no fue un descubrimiento humano de una tierra vacía, sino el final de al menos cinco siglos de aislamiento rapanui; los primeros contactos en tierra, días después, terminan con habitantes muertos por disparos neerlandeses. En 1770, Felipe González de Haedo reclama la isla para la Corona española bajo el nombre de Isla de San Carlos. James Cook llega en 1774 y documenta una sociedad transformada y numerosos monumentos deteriorados o derribados. La investigación arqueológica sistemática llegaría mucho después: expediciones del siglo XX, incluida la de Thor Heyerdahl en la década de 1950, y el trabajo posterior de arqueólogos rapanui como Sergio Rapu estudian las canteras, excavan las estatuas y reconstruyen cómo fueron talladas, transportadas y erigidas. Roggeveen no descubrió a los moai para quienes los habían creado; registró el momento en que Europa los vio por primera vez.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si la expedición de Roggeveen hubiera pasado de largo frente a Rapa Nui el 5 de abril de 1722?",
+      answer:
+        "La isla probablemente habría permanecido fuera de los mapas europeos hasta la expedición española de Felipe González de Haedo en 1770, conservando casi medio siglo más de aislamiento. Los moai no habrían dejado de existir ni de pertenecer a la memoria rapanui, pero su primera descripción europea habría sido española y la isla quizá habría entrado en la cartografía occidental como San Carlos, no como Isla de Pascua."
+    }
+  },
+  {
     id: "portola-expedicion-san-diego-1769",
     year: 1769,
     title: "1769: la expedición Portolá funda la primera misión de Alta California",
