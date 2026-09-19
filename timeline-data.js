@@ -800,11 +800,11 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
-    id: "colegio-santa-maria-jesus-universidad-sevilla-1498",
-    year: 1498,
-    trackYear: 1498,
+    id: "colegio-santa-maria-jesus-universidad-sevilla-1502",
+    year: 1502,
+    trackYear: 1502,
     endYear: 1551,
-    title: "1498–1551: de Maese Rodrigo a la Universidad de Sevilla",
+    title: "1502–1551: de Maese Rodrigo a la Universidad de Sevilla",
     author: "Rodrigo Fernández de Santaella",
     country: "España",
     region: "Sevilla",
