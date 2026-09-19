@@ -2272,6 +2272,29 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "crisis-fronteriza-ceuta-2026",
+    year: 2026,
+    month: 7,
+    day: 30,
+    title: "30 de julio de 2026: la crisis fronteriza de Ceuta",
+    author: "Hito histórico",
+    country: "España",
+    region: "Ceuta",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 30 de julio de 2026, decenas de miles de personas —en su mayoría jóvenes marroquíes— entran irregularmente desde Marruecos en Ceuta por tierra y por mar, muchas nadando alrededor del espigón del Tarajal. Las primeras cifras españolas hablan de unas 50,000 entradas y el gobierno ceutí calcula 60,000; estimaciones oficiales posteriores elevan a unas 72,000 las personas que cruzaron durante el 30 y el 31 de julio, frente a solo 3,000 entradas en Ceuta y Melilla durante el resto del año hasta entonces. La llegada desborda una ciudad de unos 85,000 habitantes y sus centros para menores no acompañados. Juan Jesús Vivas, presidente de Ceuta, pide una emergencia nacional; Madrid moviliza al Ejército, refuerza la Policía y la Guardia Civil y comienza a levantar una barrera flotante. Llamamientos difundidos por redes sociales habían presentado falsamente una sentencia del Tribunal Supremo como si la frontera marítima estuviera abierta: el fallo impedía las devoluciones sumarias de quienes llegaran por mar, pero no anulaba el procedimiento ordinario de retorno. En el lado marroquí, fuerzas de seguridad y migrantes se enfrentan en Fnideq y Bni Nsar, mientras también se producen intentos de entrada en Melilla. En septiembre, el gobierno español informa que más de 63,000 personas —más del noventa por ciento— habían regresado a Marruecos en las primeras 72 horas. La Organización Internacional para las Migraciones contabiliza al menos 97 muertos en el lado español durante el 30 y el 31 de julio y advierte que la cifra real puede ser mayor. La crisis, mucho más grande que la entrada de 2021, provoca controles fronterizos entre Italia y España, acusaciones sobre el papel de Marruecos que Rabat niega y una disputa europea sobre la política migratoria española.",
+    descriptionHtml:
+      'El 30 de julio de 2026, decenas de miles de personas —en su mayoría jóvenes marroquíes— entran irregularmente desde <button type="button" class="timeline-detail-geolink" data-country="Marruecos">Marruecos</button> en <button type="button" class="timeline-detail-geolink" data-region="Ceuta" data-country="España">Ceuta</button> por tierra y por mar, muchas nadando alrededor del espigón del Tarajal. Las primeras cifras españolas hablan de unas 50,000 entradas y el gobierno ceutí calcula 60,000; estimaciones oficiales posteriores elevan a unas 72,000 las personas que cruzaron durante el 30 y el 31 de julio, frente a solo 3,000 entradas en Ceuta y Melilla durante el resto del año hasta entonces. La llegada desborda una ciudad de unos 85,000 habitantes y sus centros para menores no acompañados. Juan Jesús Vivas, presidente de Ceuta, pide una emergencia nacional; Madrid moviliza al Ejército, refuerza la Policía y la Guardia Civil y comienza a levantar una barrera flotante. Llamamientos difundidos por redes sociales habían presentado falsamente una sentencia del Tribunal Supremo como si la frontera marítima estuviera abierta: el fallo impedía las devoluciones sumarias de quienes llegaran por mar, pero no anulaba el procedimiento ordinario de retorno. En el lado marroquí, fuerzas de seguridad y migrantes se enfrentan en <button type="button" class="timeline-detail-geolink" data-region="Fnideq" data-country="Marruecos">Fnideq</button> y <button type="button" class="timeline-detail-geolink" data-region="Bni Nsar" data-country="Marruecos">Bni Nsar</button>, mientras también se producen intentos de entrada en <button type="button" class="timeline-detail-geolink" data-region="Melilla" data-country="España">Melilla</button>. En septiembre, el gobierno español informa que más de 63,000 personas —más del noventa por ciento— habían regresado a Marruecos en las primeras 72 horas. La Organización Internacional para las Migraciones contabiliza al menos 97 muertos en el lado español durante el 30 y el 31 de julio y advierte que la cifra real puede ser mayor. La crisis, mucho más grande que la entrada de 2021, provoca controles fronterizos entre <button type="button" class="timeline-detail-geolink" data-country="Italia">Italia</button> y España, acusaciones sobre el papel de Marruecos que Rabat niega y una disputa europea sobre la política migratoria española.',
+    sensitive: true,
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si los llamamientos en redes sociales no hubieran tergiversado la sentencia del Tribunal Supremo sobre las llegadas por mar?",
+      answer:
+        "La presión estacional sobre Ceuta habría continuado, pero miles de personas no habrían recibido el mensaje falso de que nadar alrededor del espigón garantizaba la entrada o impedía toda devolución. La sentencia solo exigía un procedimiento formal para quienes llegaban por mar; convertir esa diferencia jurídica en la idea de una frontera abierta ayudó a transformar un aumento gradual de cruces en una movilización masiva y mortal."
+    }
+  },
+  {
     id: "prospera-crawfish-rock-2026",
     year: 2026,
     title: "2026: Próspera y la resistencia garífuna en Roatán",
