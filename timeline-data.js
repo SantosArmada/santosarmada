@@ -802,12 +802,14 @@ const TIMELINE_ENTRIES = [
   {
     id: "colegio-santa-maria-jesus-universidad-sevilla-1498",
     year: 1498,
+    trackYear: 1498,
     endYear: 1551,
     title: "1498–1551: de Maese Rodrigo a la Universidad de Sevilla",
     author: "Rodrigo Fernández de Santaella",
     country: "España",
     region: "Sevilla",
     flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.HISTORY,
     description:
       "En junio de 1498, los cabildos municipal y eclesiástico de Sevilla forman una comisión para estudiar la creación de un Estudio General en la ciudad. Entre sus miembros está el canónigo Rodrigo Fernández de Santaella, nacido en Carmona en 1444 y conocido como Maese Rodrigo, quien decide impulsar y financiar un colegio propio. Los Reyes Católicos conceden a Sevilla, mediante la Real Provisión del 22 de enero de 1502, la facultad de fundar un Estudio General con cátedras de teología, cánones, leyes, medicina y artes liberales. Mientras el Ayuntamiento deja esa licencia sin ejecutar, Santaella inicia en 1503 la construcción de su institución cerca de la Puerta de Jerez. El 12 de julio de 1505, el papa Julio II emite la bula que autoriza el Colegio de Santa María de Jesús a enseñar artes, lógica, filosofía, teología y derecho canónico y civil; una nueva bula de 1508 incorpora medicina y acerca su régimen al de la Universidad de Salamanca. Maese Rodrigo muere en 1509 sin ver concluido el proyecto: el colegio comienza a recibir estudiantes en 1516 y sus obras terminan hacia 1520. El paso decisivo llega en 1551, cuando el Concejo sevillano transfiere al colegio la Real Provisión de 1502. La facultad de conferir grados tanto a colegiales como a estudiantes externos convierte al antiguo colegio en el Colegio-Universidad de Santa María de Jesús, llamado también Universidad de Maese Rodrigo: el origen institucional de la actual Universidad de Sevilla.",
