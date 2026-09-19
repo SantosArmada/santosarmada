@@ -1,12 +1,13 @@
 
 :root {
-    --bg: #0c0a08;
-    --surface: #18140f;
-    --fg: #ece2c4;
-    --fg-dim: #a89b7c;
-    --gold: #c9a24b;
-    --gold-bright: #e0be6f;
-    --gold-dark: #8a6e3c;
+    --bg: #120e0a;
+    --surface: #21180f;
+    --fg: #ead3a8;
+    --fg-dim: #bba47c;
+    --gold: #c59b5d;
+    --gold-bright: #ebc88c;
+    --gold-dark: #806039;
+    --clay: #a6422b;
     --shadow: rgba(0, 0, 0, 0.6);
 }
 
@@ -34,7 +35,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 2rem;
-  background: rgba(12, 10, 8, 0.92);
+  background: rgba(18, 14, 10, 0.94);
   backdrop-filter: blur(8px);
   border-bottom: 1px solid rgba(201, 162, 75, 0.25);
 }
@@ -111,8 +112,8 @@ body {
     justify-content: space-between;
     gap: 2rem;
     padding: 2.75rem 3.5rem;
-    background-color: var(--bg);
-    border-bottom: 6px solid var(--gold);
+    background: radial-gradient(circle at 82% 25%, rgba(166, 66, 43, 0.32), transparent 35%), var(--bg);
+    border-bottom: 6px solid var(--clay);
     flex-wrap: wrap;
 }
 
@@ -155,7 +156,7 @@ body {
     animation: sunRaysSpin 46s linear infinite;
 }
 .sun-ray {
-    fill: var(--gold);
+    fill: var(--clay);
     opacity: 0.9;
 }
 
@@ -267,7 +268,7 @@ body {
     background-color: var(--surface);
     color: var(--fg);
     box-shadow: 0 12px 50px var(--shadow);
-    border: 1px solid rgba(201, 162, 75, 0.4);
+    border: 1px solid rgba(197, 155, 93, 0.55);
     width: 88%;
     max-width: 1100px;
     margin: 3rem auto 4rem;
@@ -335,7 +336,7 @@ body {
 .panel p { color: var(--fg-dim); margin: 0 0 0.5rem; }
 
 .break {
-    background: var(--gold) no-repeat scroll center;
+    background: var(--clay) no-repeat scroll center;
     width: 5em;
     height: .3em;
     margin: 1.75rem 0 1rem;
@@ -351,6 +352,12 @@ body {
 }
 .chapter:hover { color: var(--fg); }
 .chapter.active { color: var(--gold); font-weight: 600; }
+.chapter:focus-visible,
+.controls .box:focus-visible,
+.site-hamburger:focus-visible {
+    outline: 2px solid var(--gold-bright);
+    outline-offset: 3px;
+}
 
 .feather-icon {
     height: 34px;
@@ -417,7 +424,7 @@ body {
     position: absolute;
     top: 0; left: 0; width: 100%;
     height: 0%;
-    background: var(--gold);
+    background: var(--clay);
     border-radius: 3px 3px 0 0;
 }
 .progress-fill::after {
@@ -427,7 +434,7 @@ body {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
     width: 11px; height: 11px;
-    background: var(--gold);
+    background: var(--clay);
     border-radius: 0 50% 50% 50%;
 }
 

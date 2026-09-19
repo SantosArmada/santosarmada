@@ -43,9 +43,9 @@ var Framer = {
         var dy2 = parseInt(this.scene.cy + y2);
 
         var gradient = this.context.createLinearGradient(dx1, dy1, dx2, dy2);
-        gradient.addColorStop(0, '#C23B2E');
+        gradient.addColorStop(0, '#E59226');
         gradient.addColorStop(0.6, '#C23B2E');
-        gradient.addColorStop(1, '#ECDFC0');
+        gradient.addColorStop(1, '#12595C');
         this.context.beginPath();
         this.context.strokeStyle = gradient;
         this.context.lineWidth = 2;
@@ -198,7 +198,7 @@ var Tracker = {
 
     drawArc: function () {
         this.context.save();
-        this.context.strokeStyle = 'rgba(194, 59, 46, 0.8)';
+        this.context.strokeStyle = 'rgba(229, 146, 38, 0.9)';
         this.context.beginPath();
         this.context.lineWidth = this.lineWidth;
 

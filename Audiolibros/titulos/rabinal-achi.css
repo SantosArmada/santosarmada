@@ -7,6 +7,7 @@
     --purple: #0f5c5e;
     --accent: #c23b2e;
     --accent-bright: #e0523f;
+    --ochre: #e59226;
     --card-dark: #12595c;
     --card-fg: #e8dcc0;
     --card-fg-dim: #9db3ae;
@@ -82,7 +83,7 @@ body {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: #ffffff;
+  background: var(--card-dark);
   z-index: 99;
   flex-direction: column;
   align-items: center;
@@ -96,10 +97,10 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--ink);
+  color: var(--card-fg);
   text-decoration: none;
 }
-.site-mobile-menu a:hover { color: var(--purple); }
+.site-mobile-menu a:hover { color: var(--ochre); }
 
 @media (max-width: 900px) {
   .site-nav-links { display: none; }
@@ -114,8 +115,8 @@ body {
     justify-content: space-between;
     gap: 2rem;
     padding: 2.75rem 3.5rem;
-    background-color: var(--card-dark);
-    border-bottom: 4px solid var(--accent);
+    background: linear-gradient(110deg, #12595c 0%, #12595c 64%, #aa6a1e 100%);
+    border-bottom: 4px solid var(--ochre);
     flex-wrap: wrap;
 }
 
@@ -375,7 +376,7 @@ body {
     position: absolute;
     top: 0; left: 0; width: 100%;
     height: 0%;
-    background: var(--accent);
+    background: var(--ochre);
     border-radius: 3px 3px 0 0;
 }
 .progress-fill::after {
@@ -385,7 +386,7 @@ body {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
     width: 11px; height: 11px;
-    background: var(--accent);
+    background: var(--ochre);
     border-radius: 0 50% 50% 50%;
 }
 
