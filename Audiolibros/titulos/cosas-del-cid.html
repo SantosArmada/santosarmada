@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -105,7 +105,8 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Rubén Darío recupera y embellece las leyendas del Cid Campeador con la prosa modernista que lo hizo célebre, deteniéndose no en las batallas sino en los gestos: la piedad hacia un leproso, la humildad de un guerrero que se sabe instrumento de algo más grande. Publicado en 1905, es tanto homenaje a la épica medieval castellana como ejercicio de estilo, un puente entre el romancero antiguo y la sensibilidad de fin de siglo.</p>
+        <p>En este poema, Rubén Darío reelabora una leyenda cidiana a partir de la versión de Jules Barbey d’Aurevilly: Rodrigo, sin dinero para dar limosna, se quita el guantelete y ofrece su mano a un mendigo enfermo. Más tarde recibe una rosa y un laurel. El gesto de compasión desplaza las hazañas bélicas al centro moral del retrato. «Cosas del Cid» se incorporó a la segunda edición de <em>Prosas profanas y otros poemas</em> (París, 1901).</p>
+        <p class="source-note">Contexto textual: <a href="https://www.cervantesvirtual.com/obra-visor/ruben-dario-o-el-proceso-creativo-de-prosas-profanas/html/9e4ef8b2-a0f7-11e1-b1fb-00163ebf5e63_2.html">Biblioteca Virtual Miguel de Cervantes</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
