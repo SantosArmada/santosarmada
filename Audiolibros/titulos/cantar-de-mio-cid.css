@@ -167,15 +167,11 @@ body {
     stroke-width: 1.5;
     stroke-linejoin: round;
 }
-.pennant-flag {
-    transform-origin: 62px 10px;
-    animation: pennantWave 2.6s ease-in-out infinite;
-}
-
-@keyframes pennantWave {
-    0%   { transform: skewY(-5deg) scaleX(1); }
-    50%  { transform: skewY(6deg) scaleX(0.96); }
-    100% { transform: skewY(-5deg) scaleX(1); }
+.pennant-seam {
+    fill: none;
+    stroke: var(--gold-bright);
+    stroke-width: 0.9;
+    opacity: 0.75;
 }
 
 /* ---------- PLAYER ---------- */
@@ -198,6 +194,8 @@ body {
     left: 50%;
     top: 50%;
 }
+
+.player canvas { touch-action: none; }
 
 .player .playarea {
     position: absolute;
@@ -584,7 +582,13 @@ body {
 .player { transition: opacity 0.3s, filter 0.3s; }
 
 @media (max-width: 900px) {
-    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
+    .player-section { height: 459px; margin: 1.5rem auto; }
+    .player {
+        top: 0;
+        margin-top: 0;
+        transform: scale(0.62);
+        transform-origin: top center;
+    }
     .book-header { padding: 2rem; }
     .pennant-signature {
         width: 64px;
@@ -592,4 +596,18 @@ body {
         flex-basis: 100%;
         margin: 0.5rem auto 0;
     }
+}
+
+@media (max-width: 540px) {
+    .player-section { height: 370px; }
+    .player { transform: scale(0.5); }
+    .book-header { padding: 1.75rem 1.25rem; }
+    .book-header-text h1 { font-size: clamp(2rem, 8vw, 2.75rem); }
+    .card { width: calc(100% - 2rem); padding: 1.5rem; gap: 1.75rem; }
+    .book { flex-basis: min(100%, 260px); }
+}
+
+@media (max-width: 360px) {
+    .player-section { height: 311px; }
+    .player { transform: scale(0.42); }
 }

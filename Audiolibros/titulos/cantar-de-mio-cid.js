@@ -148,15 +148,17 @@ var Tracker = {
     initHandlers: function () {
         var that = this;
 
-        this.scene.canvas.addEventListener('mousedown', function (e) {
+        this.scene.canvas.addEventListener('pointerdown', function (e) {
             if (that.isInsideOfSmallCircle(e) || that.isOusideOfBigCircle(e)) { return; }
+            e.preventDefault();
+            that.scene.canvas.setPointerCapture(e.pointerId);
             that.prevAngle = that.angle;
             that.pressButton = true;
             that.stopAnimation();
             that.calculateAngle(e, true);
         });
 
-        window.addEventListener('mouseup', function () {
+        var finishSeek = function () {
             if (!that.pressButton) { return; }
             var id = setInterval(function () {
                 if (!that.animatedInProgress) {
@@ -167,9 +169,11 @@ var Tracker = {
                     clearInterval(id);
                 }
             }, 100);
-        });
+        };
+        window.addEventListener('pointerup', finishSeek);
+        window.addEventListener('pointercancel', finishSeek);
 
-        window.addEventListener('mousemove', function (e) {
+        window.addEventListener('pointermove', function (e) {
             if (that.animatedInProgress) { return; }
             if (that.pressButton && that.scene.inProcess()) {
                 that.calculateAngle(e);
@@ -177,15 +181,25 @@ var Tracker = {
         });
     },
 
+    pointerPosition: function (e) {
+        var rect = this.scene.canvas.getBoundingClientRect();
+        return {
+            x: (e.clientX - rect.left) * this.scene.width / rect.width,
+            y: (e.clientY - rect.top) * this.scene.height / rect.height
+        };
+    },
+
     isInsideOfSmallCircle: function (e) {
-        var x = Math.abs(e.pageX - this.scene.cx - this.scene.coord.left);
-        var y = Math.abs(e.pageY - this.scene.cy - this.scene.coord.top);
+        var point = this.pointerPosition(e);
+        var x = Math.abs(point.x - this.scene.cx);
+        var y = Math.abs(point.y - this.scene.cy);
         return Math.sqrt(x * x + y * y) < this.scene.radius - 3 * this.innerDelta;
     },
 
     isOusideOfBigCircle: function (e) {
-        return Math.abs(e.pageX - this.scene.cx - this.scene.coord.left) > this.scene.radius ||
-            Math.abs(e.pageY - this.scene.cy - this.scene.coord.top) > this.scene.radius;
+        var point = this.pointerPosition(e);
+        return Math.abs(point.x - this.scene.cx) > this.scene.radius ||
+            Math.abs(point.y - this.scene.cy) > this.scene.radius;
     },
 
     draw: function () {
@@ -214,10 +228,11 @@ var Tracker = {
 
     calculateAngle: function (e, animatedInProgress) {
         this.animatedInProgress = animatedInProgress;
-        this.mx = e.pageX;
-        this.my = e.pageY;
-        this.angle = Math.atan((this.my - this.scene.cy - this.scene.coord.top) / (this.mx - this.scene.cx - this.scene.coord.left));
-        if (this.mx < this.scene.cx + this.scene.coord.left) { this.angle = Math.PI + this.angle; }
+        var point = this.pointerPosition(e);
+        this.mx = point.x;
+        this.my = point.y;
+        this.angle = Math.atan((this.my - this.scene.cy) / (this.mx - this.scene.cx));
+        if (this.mx < this.scene.cx) { this.angle = Math.PI + this.angle; }
         if (this.angle < 0) { this.angle += 2 * Math.PI; }
         if (animatedInProgress) {
             this.startAnimation();
@@ -735,12 +750,22 @@ function initMobileNav() {
     hamburger.addEventListener('click', function () {
         hamburger.classList.toggle('open');
         menu.classList.toggle('open');
+        hamburger.setAttribute('aria-expanded', menu.classList.contains('open'));
     });
     menu.querySelectorAll('a').forEach(function (a) {
         a.addEventListener('click', function () {
             hamburger.classList.remove('open');
             menu.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
         });
+    });
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && menu.classList.contains('open')) {
+            hamburger.classList.remove('open');
+            menu.classList.remove('open');
+            hamburger.setAttribute('aria-expanded', 'false');
+            hamburger.focus();
+        }
     });
 }
 
