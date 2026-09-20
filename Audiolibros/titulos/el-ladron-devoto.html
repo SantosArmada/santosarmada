@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -105,7 +105,8 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Uno de los veinticinco Milagros de Nuestra Señora de Gonzalo de Berceo, primer poeta de nombre conocido en lengua castellana. Narra la historia de un ladrón devoto de la Virgen que, pese a su vida de crímenes, es sostenido milagrosamente por ella durante tres días en la horca, salvándolo de la muerte como recompensa por su fe, para que pueda arrepentirse y enmendar su vida.</p>
+        <p>En el sexto de los <em>Milagros de Nuestra Señora</em>, Gonzalo de Berceo presenta a un ladrón que, pese a sus hurtos, mantiene su devoción a la Virgen. Condenado a la horca, permanece vivo durante tres días porque ella lo sostiene; cuando intentan rematarlo, su intervención vuelve a protegerlo. El relato explora la tensión medieval entre castigo, misericordia y devoción mariana.</p>
+        <p class="source-note">Texto y tradición: <a href="https://www.cervantesvirtual.com/portales/manuel_alvar/obra/milagros-de-nuestra-senora--0/">Biblioteca Virtual Miguel de Cervantes</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
@@ -113,7 +114,7 @@
         <p class="chapter" data-time="0">La captura y la condena</p>
         <p class="chapter" data-time="0">La horca</p>
         <p class="chapter" data-time="0">El milagro: la Virgen lo sostiene</p>
-        <p class="chapter" data-time="0">El arrepentimiento y la salvación</p>
+        <p class="chapter" data-time="0">La segunda intervención y la salvación</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
