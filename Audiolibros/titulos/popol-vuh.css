@@ -141,48 +141,51 @@ body {
     font-style: italic;
 }
 
-/* ---------- SUN GLYPH (carved stone disc, echoes the cover art) ---------- */
-
-.sun-glyph-signature {
-    width: 92px;
-    height: 92px;
+/* Editorial engraving: the two maize colors named in the creation account. */
+.maize-signature {
+    width: 164px;
+    margin: 0;
     flex-shrink: 0;
-    position: relative;
+    text-align: center;
+    color: var(--fg-dim);
 }
-.sun-glyph-signature svg { display: block; width: 100%; height: 100%; }
-
-.sun-rays {
-    transform-origin: 0px 0px;
-    animation: sunRaysSpin 46s linear infinite;
+.maize-signature svg { display: block; width: 100%; height: auto; }
+.maize-signature figcaption {
+    margin-top: 0.15rem;
+    font-size: 0.56rem;
+    line-height: 1.4;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
 }
-.sun-ray {
-    fill: var(--clay);
-    opacity: 0.9;
-}
-
-.sun-disc {
-    fill: var(--surface);
-    stroke: var(--gold);
-    stroke-width: 2;
-}
-
-.sun-spiral {
+.maize-frame,
+.maize-base {
     fill: none;
-    stroke: var(--gold);
-    stroke-width: 2.4;
+    stroke: var(--gold-dark);
+    stroke-width: 1.1;
+}
+.maize-husk {
+    fill: none;
+    stroke: var(--clay);
+    stroke-width: 1.5;
     stroke-linecap: round;
-    transform-origin: 0px 0px;
-    animation: sunSpiralSpin 70s linear infinite reverse;
 }
-
-@keyframes sunRaysSpin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+.maize-cob { stroke-width: 1.5; }
+.maize-ear--white .maize-cob {
+    fill: #e8d8b7;
+    stroke: var(--gold-dark);
 }
-@keyframes sunSpiralSpin {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+.maize-ear--yellow .maize-cob {
+    fill: var(--gold);
+    stroke: var(--gold-bright);
 }
+.maize-kernels {
+    fill: none;
+    stroke: var(--gold-dark);
+    stroke-width: 1.1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+.maize-ear--yellow .maize-kernels { stroke: var(--surface); }
 
 /* ---------- PLAYER ---------- */
 
@@ -571,9 +574,8 @@ body {
 @media (max-width: 900px) {
     .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
     .book-header { padding: 2rem; }
-    .sun-glyph-signature {
-        width: 64px;
-        height: 64px;
+    .maize-signature {
+        width: 128px;
         flex-basis: 100%;
         margin: 0.5rem auto 0;
     }
