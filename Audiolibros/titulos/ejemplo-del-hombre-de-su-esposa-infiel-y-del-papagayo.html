@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -105,13 +105,14 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Cuento perteneciente al ciclo oriental de Sendebar o Libro de los engaños e los asayamientos de las mugeres, traducido al castellano en 1253 por encargo del infante Fadrique. Narra cómo un mercader deja un papagayo vigilando a su esposa durante un viaje; el ave le informa cada noche de sus infidelidades, hasta que ella lo engaña simulando una tormenta para desacreditar sus denuncias. Fábula ejemplar sobre el engaño femenino, típica de la literatura sapiencial medieval de origen oriental.</p>
+        <p>Este relato pertenece al <em>Sendebar</em>, colección de cuentos orientales traducida del árabe al castellano en 1253 por encargo del infante Fadrique. Un hombre deja a un papagayo como testigo de la conducta de su esposa; cuando el ave denuncia sus encuentros, ella y su criada simulan una noche de tormenta para desacreditarlo. Insertado en el debate judicial que estructura la obra, el cuento no ofrece una lección neutral: es una pieza retórica con la que un consejero intenta demostrar al rey la supuesta astucia engañosa de las mujeres.</p>
+        <p class="source-note">Contexto y traducción: <a href="https://scholarsbank.uoregon.edu/items/7194f1e6-ee74-46c8-9568-c2bfefd7d224">Open Iberia/América, University of Oregon Libraries</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
         <p class="chapter" data-time="0">El mercader parte de viaje y deja al papagayo vigilando</p>
         <p class="chapter" data-time="0">La esposa recibe a su amante</p>
-        <p class="chapter" data-time="0">El papagayo cuenta cada noche lo que ha visto</p>
+        <p class="chapter" data-time="0">El papagayo revela lo que ha visto</p>
         <p class="chapter" data-time="0">La esposa engaña al ave simulando una tormenta</p>
         <p class="chapter" data-time="0">El regreso del mercader y el destino del papagayo</p>
 

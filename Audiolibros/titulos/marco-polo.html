@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,7 +41,7 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Primera Ola</p>
         <h1>El libro de Marco Polo</h1>
-        <p class="subtitle">Rodrigo Fernández de Santaella</p>
+        <p class="subtitle">Marco Polo · traducción de Rodrigo Fernández de Santaella</p>
     </div>
 </header>
 
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -105,7 +105,8 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Traducción castellana de 1503, obra de Rodrigo Fernández de Santaella, del relato de viajes de Marco Polo (1254–1324), el mercader veneciano que recorrió Asia entre 1271 y 1295 y sirvió en la corte del gran kan Kublai Kan. El libro narra las maravillas que Polo dice haber visto en Catay, la India y otras "partes orientales" —ciudades fabulosas, riquezas, costumbres exóticas—, y fue durante siglos una de las principales fuentes europeas sobre Asia.</p>
+        <p>Esta primera versión castellana del relato de Marco Polo, traducida por Rodrigo Fernández de Santaella, se imprimió en Sevilla el 28 de mayo de 1503. Reúne descripciones de Armenia, Persia, Arabia, India y la Tartaria bajo el dominio del gran kan, combinando itinerarios, administración, comercio y noticias de tierras presentadas al lector europeo como maravillosas. La edición añadió una introducción cosmográfica de Santaella y convirtió un texto medieval de circulación manuscrita en un impreso ligado a la nueva geografía sevillana del siglo XVI.</p>
+        <p class="source-note">Edición de 1503: <a href="https://www.cervantesvirtual.com/obra/el-libro-del-famoso-marco-paulo-veneciano-de-las-cosas-marauillosas-que-vido-en-las-partes-orientales-conuiene-saber-en-las-indias-armenia-arabia-persia-tartaria-e-del-poderio-929912/">Biblioteca Virtual Miguel de Cervantes, ejemplar de la Universidad de Salamanca</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
