@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -82,11 +82,6 @@
                 </g>
                 <path class="lute-bridge" d="M67 94 C74 94 81 92 87 88"></path>
 
-                <g class="lute-sticker">
-                    <path class="lute-sticker-paper" d="M68 50 C75 47 84 50 86 57 C88 64 83 71 75 72 C67 73 61 68 61 61 C60 56 63 52 68 50 Z"></path>
-                    <path class="lute-heart" d="M74 57 C72 53 66 54 66 58 C66 62 74 68 74 68 C74 68 82 61 82 57 C82 53 76 53 74 57 Z"></path>
-                    <path class="lute-sticker-curl" d="M80 69 C82 68 84 66 85 64"></path>
-                </g>
             </g>
         </svg>
     </div>
@@ -110,12 +105,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -152,7 +147,8 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Obra inclasificable del siglo XIV en la que Juan Ruiz, Arcipreste de Hita, mezcla autobiografía, fábulas, exempla morales y episodios amorosos cómicos, narrados por un yo poético cuyas aventuras oscilan entre el "loco amor" y el "buen amor". Trotaconventos, la alcahueta que guía al narrador, se convertiría en antecedente directo de la picaresca española.</p>
+        <p>Compuesto en el siglo XIV y transmitido en versiones asociadas a 1330 y 1343, el <em>Libro de buen amor</em> reúne relato seudoautobiográfico, fábulas, sermón paródico, debate, plegaria y canción. Su voz narrativa ensaya sin resolver la tensión entre el “buen amor” y el deseo mundano, invitando al lector a interpretar un texto deliberadamente ambiguo. La mediadora Trotaconventos, mezcla de astucia, oficio urbano y comicidad, anticipa sobre todo la figura de Celestina.</p>
+        <p class="source-note">Tradición manuscrita: <a href="https://cvc.cervantes.es/literatura/arcipreste_hita/05/hidalgo.htm">Centro Virtual Cervantes</a>; edición digital del <a href="https://www.cervantesvirtual.com/portales/doxa/obra/el-libro-de-buen-amor--0/">Códice de Salamanca</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>

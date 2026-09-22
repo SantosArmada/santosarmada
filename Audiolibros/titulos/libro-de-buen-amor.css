@@ -156,7 +156,7 @@ body {
     font-style: italic;
 }
 
-/* ---------- LUTE GLYPH — cover-inspired instrument with a pasted heart sticker ---------- */
+/* ---------- LUTE GLYPH — static, cover-inspired musical marginalia ---------- */
 
 .lute-signature {
     width: 170px;
@@ -169,11 +169,6 @@ body {
 .lute-signature path,
 .lute-signature circle {
     vector-effect: non-scaling-stroke;
-}
-
-.lute-instrument {
-    transform-origin: 83px 58px;
-    animation: luteSway 5.6s ease-in-out infinite;
 }
 
 .lute-body {
@@ -223,11 +218,7 @@ body {
     stroke: var(--teal);
     stroke-width: 0.85;
     opacity: 0.62;
-    animation: luteStringGlint 2.8s ease-in-out infinite;
 }
-.lute-strings path:nth-child(2) { animation-delay: -0.35s; }
-.lute-strings path:nth-child(3) { animation-delay: -0.7s; }
-.lute-strings path:nth-child(4) { animation-delay: -1.05s; }
 
 .lute-rosette circle,
 .lute-rosette path {
@@ -239,52 +230,6 @@ body {
 .lute-rosette .lute-rosette-center {
     fill: var(--teal);
     stroke: none;
-}
-
-.lute-sticker {
-    transform-origin: 74px 61px;
-    transform: rotate(-9deg);
-    animation: luteStickerPulse 3.8s ease-in-out infinite;
-}
-.lute-sticker-paper {
-    fill: #f4ead1;
-    stroke: rgba(36, 26, 16, 0.24);
-    stroke-width: 1.2;
-    filter: drop-shadow(1.5px 2px 1px rgba(36, 26, 16, 0.24));
-}
-.lute-heart {
-    fill: var(--vermillion);
-    stroke: none;
-}
-.lute-sticker-curl {
-    fill: none;
-    stroke: rgba(36, 26, 16, 0.34);
-    stroke-width: 1;
-    stroke-linecap: round;
-}
-
-@keyframes luteSway {
-    0%, 100% { transform: rotate(-1deg) translateY(0); }
-    48%      { transform: rotate(1.5deg) translateY(-2px); }
-    55%      { transform: rotate(1deg) translateY(-1px); }
-}
-
-@keyframes luteStickerPulse {
-    0%, 76%, 100% { transform: rotate(-9deg) scale(1); }
-    83%           { transform: rotate(-8deg) scale(1.055); }
-    90%           { transform: rotate(-9deg) scale(1); }
-    95%           { transform: rotate(-9deg) scale(1.03); }
-}
-
-@keyframes luteStringGlint {
-    0%, 100% { opacity: 0.42; }
-    50%      { opacity: 0.82; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .lute-instrument,
-    .lute-sticker,
-    .lute-strings path { animation: none; }
 }
 
 /* ---------- PLAYER ---------- */
@@ -306,6 +251,13 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
+}
+.player canvas { touch-action: none; }
+.player [role="button"]:focus-visible,
+.site-hamburger:focus-visible,
+.power-btn:focus-visible {
+    outline: 3px solid var(--vermillion-bright);
+    outline-offset: 4px;
 }
 
 .player .playarea {
@@ -436,6 +388,14 @@ body {
     margin: 0 0 0.75rem;
 }
 .panel p { color: var(--card-fg-dim); margin: 0 0 0.5rem; }
+.panel .source-note {
+    margin-top: 0.9rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(199, 68, 48, 0.42);
+    font-size: 0.78rem;
+}
+.source-note a { color: var(--vermillion-bright); text-underline-offset: 0.18em; }
+.source-note a:focus-visible { outline: 2px solid var(--vermillion-bright); outline-offset: 3px; }
 
 .break {
     background: var(--vermillion-bright) no-repeat scroll center;
@@ -692,7 +652,13 @@ body {
 .player { transition: opacity 0.3s, filter 0.3s; }
 
 @media (max-width: 900px) {
-    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
+    .player-section { height: 459px; margin: 1.5rem auto; }
+    .player {
+        top: 0;
+        margin-top: 0;
+        transform: scale(0.62);
+        transform-origin: top center;
+    }
     .book-header { padding: 2rem; }
     .lute-signature {
         width: 68px;
@@ -700,4 +666,18 @@ body {
         flex-basis: 100%;
         margin: 0.5rem auto 0;
     }
+}
+
+@media (max-width: 540px) {
+    .player-section { height: 370px; }
+    .player { transform: scale(0.5); }
+    .book-header { padding: 1.75rem 1.25rem; }
+    .book-header-text h1 { font-size: clamp(2rem, 8vw, 2.75rem); }
+    .card { width: calc(100% - 2rem); padding: 1.5rem; gap: 1.75rem; }
+    .book { flex-basis: min(100%, 260px); }
+}
+
+@media (max-width: 360px) {
+    .player-section { height: 311px; }
+    .player { transform: scale(0.42); }
 }
