@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -105,7 +105,8 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Don Juan Manuel, sobrino de Alfonso X el Sabio y uno de los nobles más poderosos de su tiempo, compiló hacia 1335 esta colección de cincuenta y un cuentos didácticos que el consejero Patronio narra al joven Conde Lucanor para orientarlo ante sus dilemas. Relatos como el de Don Illán y el deán de Santiago, o el mozo que se casó con una mujer brava, convirtieron esta obra en la primera gran colección de prosa narrativa original en castellano.</p>
+        <p>Concluido en 1335, <em>El Conde Lucanor</em> organiza su enseñanza en cinco partes. La primera —la más célebre— reúne cincuenta y un <em>exempla</em>: el conde plantea un problema de gobierno, honra o conducta; Patronio responde con un relato; y don Juan Manuel condensa el consejo en versos finales. Las partes posteriores sustituyen progresivamente el cuento por sentencias y reflexión doctrinal. Al advertir sobre los errores introducidos por los copistas, el autor afirma además un control poco común sobre la transmisión y autoridad de su propia obra.</p>
+        <p class="source-note">Texto y manuscrito: <a href="https://www.cervantesvirtual.com/obra/el-conde-lucanor-manuscrito--0/">Biblioteca Virtual Miguel de Cervantes y Biblioteca Nacional de España</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
@@ -113,7 +114,7 @@
         <p class="chapter" data-time="0">Don Illán y el deán de Santiago</p>
         <p class="chapter" data-time="0">El mozo que se casó con una mujer brava</p>
         <p class="chapter" data-time="0">Los engaños y las apariencias</p>
-        <p class="chapter" data-time="0">Las moralejas de Patronio</p>
+        <p class="chapter" data-time="0">Sentencias, doctrina y autoridad del texto</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
