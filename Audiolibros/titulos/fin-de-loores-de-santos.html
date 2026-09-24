@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -105,15 +105,16 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Poema devocional de Fernán Pérez de Guzmán, cronista e historiador castellano del siglo XV, que cierra su serie de "loores" dedicados a los santos con una reflexión final sobre la santidad como modelo de vida cristiana. Representativo del gusto de la nobleza letrada del Cuatrocientos por la poesía moral y religiosa recogida en cancioneros.</p>
+        <p>Compuesto no más tarde del 1 de marzo de 1452, <em>Fin de loores de santos</em> concluye el grupo de himnos que Fernán Pérez de Guzmán dedicó a santos y santas. Su primera estrofa recuerda cómo Bonifacio reunió la celebración de muchos santos en una sola fiesta; el poeta adopta ese gesto para cerrar sus alabanzas con un breve loor colectivo. Mártires, confesores y vírgenes aparecen entre flores, lirios, calandrias y ruiseñores: una comunidad celeste expresada mediante imágenes naturales y canto. Más que un tratado abstracto sobre la virtud, el poema funciona como pieza de clausura dentro de una arquitectura devocional transmitida por cancioneros manuscritos.</p>
+        <p class="source-note">Texto y posición en el ciclo: <a href="https://www.cervantesvirtual.com/obra-visor/cancionero-de-onate-castaneda-hh1/html/">Biblioteca Virtual Miguel de Cervantes, <em>Cancionero de Oñate-Castañeda</em></a>. Datación y testimonios: <a href="https://philobiblon.upf.edu/xtf/servlet/org.cdlib.xtf.dynaXML.DynaXML?gobk=http%3A%2F%2Fphilobiblon.upf.edu%2Fxtf%2Fservlet%2Forg.cdlib.xtf.crossQuery.CrossQuery%3Frmode%3Dphilobeta%26everyone%3Dcancionero+de+baena%26creator%3D%26title%3D%26incipit%3D%26explicit%3D%26assocname%3D%26daterange%3D%26placeofcomposition%3D%26subject%3D%26text-join%3Dand%26browseout%3Dwork%26sort%3Dmoniker&amp;source=%2Funified%2FDisplay%2F2699BETA.MsEd.xml&amp;style=MsEd.xsl">PhiloBiblon/BETA</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Invocación y propósito del loor final</p>
-        <p class="chapter" data-time="0">Los santos como espejo de virtud cristiana</p>
-        <p class="chapter" data-time="0">El desprecio de las glorias mundanas</p>
-        <p class="chapter" data-time="0">La santidad como camino de salvación</p>
-        <p class="chapter" data-time="0">Cierre y despedida del cancionero de loores</p>
+        <p class="chapter" data-time="0">Bonifacio y la fiesta de todos los santos</p>
+        <p class="chapter" data-time="0">El fin colectivo de los loores</p>
+        <p class="chapter" data-time="0">Mártires, confesores y vírgenes</p>
+        <p class="chapter" data-time="0">Flores, lirios, calandrias y ruiseñores</p>
+        <p class="chapter" data-time="0">El canto perpetuo de alabanza</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
