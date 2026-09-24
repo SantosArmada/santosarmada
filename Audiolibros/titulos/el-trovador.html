@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -105,7 +105,8 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Antonio García Gutiérrez ambienta este drama romántico en la Aragón del siglo XV, durante las guerras civiles entre los partidarios del Conde de Urgel y la casa de Trastámara. Manrico, el trovador del título, y el Conde de Luna se disputan el amor de Leonor sin saber que están unidos por un secreto de sangre que una gitana, Azucena, guarda desde la infancia de ambos. La obra que en 1836 marcó el triunfo del Romanticismo en los escenarios españoles, y que después inspiraría el Il Trovatore de Verdi.</p>
+        <p>Estrenado en el Teatro del Príncipe de Madrid en 1836, este drama caballeresco en cinco jornadas confirmó el triunfo del Romanticismo en la escena española. García Gutiérrez sitúa la acción en el Aragón del siglo XV: Manrique y el conde de Luna rivalizan por Leonor mientras Azucena custodia una historia de persecución, maternidad y venganza que desordena sus identidades. La intriga no usa el pasado como reconstrucción documental, sino como máquina trágica: guerra civil, diferencia social y memoria familiar convierten el amor en fatalidad. Su potencia teatral llegó después a la ópera de Verdi, <em>Il trovatore</em>, estrenada en 1853.</p>
+        <p class="source-note">Contexto y recepción: <a href="https://www.teatro.es/efemerides/antonio-garcia-gutierrez-el-primero-en-ser-aclamado">Centro de Documentación de las Artes Escénicas y de la Música</a>. Adaptación operística: <a href="https://www.metopera.org/discover/education/educator-guides-archive/trovatore/">Metropolitan Opera</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
