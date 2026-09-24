@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -105,13 +105,14 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Cantar devocional de Pedro López de Ayala, canciller mayor de Castilla y una de las figuras letradas más influyentes del siglo XIV, incluido dentro de su extenso Rimado de Palacio. En estrofas de arte mayor dirigidas a la Virgen, el canciller alterna la súplica personal por su alma con la reflexión moral sobre la corrupción de la corte que también domina el resto de la obra. Ejemplo de la poesía religiosa cortesana que floreció en la Castilla de Pedro I y Enrique II.</p>
+        <p>Esta selección mariana pertenece al conjunto poético conocido como <em>Rimado de Palacio</em>, reunido por Pero López de Ayala a lo largo de décadas y llevado a su compilación final hacia 1403–1407. La invocación a la Virgen comparte espacio con confesión personal, examen de conciencia, crítica de la corte y reflexión sobre el gobierno cristiano. Esa convivencia entre plegaria y experiencia política revela la arquitectura del libro: la reforma del reino comienza por el juicio moral que el canciller dirige contra sí mismo.</p>
+        <p class="source-note">Historia textual y datación: <a href="https://www.rae.es/sites/default/files/hojear_rimado_de_palacio.pdf">Real Academia Española, edición del <em>Rimado de Palacio</em></a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
         <p class="chapter" data-time="0">La súplica del canciller</p>
         <p class="chapter" data-time="0">La invocación a la Virgen</p>
-        <p class="chapter" data-time="0">La corrupción de la corte</p>
+        <p class="chapter" data-time="0">La conciencia ante la corte</p>
         <p class="chapter" data-time="0">El examen de la propia alma</p>
         <p class="chapter" data-time="0">La esperanza de la gracia</p>
 
