@@ -175,6 +175,7 @@ body {
     left: 50%;
     top: 50%;
 }
+.player canvas { touch-action: none; }
 
 .player .playarea {
     position: absolute;
@@ -304,6 +305,15 @@ body {
     margin: 0 0 0.75rem;
 }
 .panel p { color: var(--card-fg-dim); margin: 0 0 0.5rem; }
+.panel .source-note {
+    margin-top: 1rem;
+    padding-left: 0.85rem;
+    border-left: 2px solid var(--accent);
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+.panel .source-note a { color: var(--accent-bright); }
+.panel .source-note a:hover { color: #fff0b0; }
 
 .break {
     background: var(--coral-bright) no-repeat scroll center;
@@ -560,7 +570,37 @@ body {
 }
 .player { transition: opacity 0.3s, filter 0.3s; }
 
+.site-hamburger:focus-visible,
+.player [role="button"]:focus-visible,
+.power-btn:focus-visible,
+.volume-dial__knob:focus-visible,
+.controls .box:focus-visible,
+.x:focus-visible {
+    outline: 3px solid var(--accent-bright);
+    outline-offset: 4px;
+}
+
 @media (max-width: 900px) {
-    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
+    .player-section { height: 459px; margin: 1.5rem auto; }
+    .player {
+        top: 0;
+        margin-top: 0;
+        transform: scale(0.62);
+        transform-origin: top center;
+    }
     .book-header { padding: 2rem; }
+}
+
+@media (max-width: 540px) {
+    .player-section { height: 370px; }
+    .player { transform: scale(0.5); }
+    .book-header { padding: 1.75rem 1.25rem; }
+    .book-header-text h1 { font-size: clamp(2rem, 8vw, 2.75rem); }
+    .card { width: calc(100% - 2rem); padding: 1.5rem; gap: 1.75rem; }
+    .book { flex-basis: min(100%, 260px); }
+}
+
+@media (max-width: 360px) {
+    .player-section { height: 311px; }
+    .player { transform: scale(0.42); }
 }
