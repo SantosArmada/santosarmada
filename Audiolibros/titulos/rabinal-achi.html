@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -105,15 +105,16 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Drama dancístico de la tradición maya achí, transmitido oralmente durante generaciones antes de ser transcrito en el siglo XIX por el abate Charles Étienne Brasseur de Bourbourg a partir de la memoria del anciano Bartolo Sis. Narra el juicio y ejecución ritual de Cawek, guerrero k'iche' capturado por los guerreros de Rabinal tras años de guerra entre ambos señoríos. Única obra teatral prehispánica de las Américas que ha sobrevivido casi íntegra, hoy reconocida por la UNESCO como Patrimonio Oral e Intangible de la Humanidad.</p>
+        <p><em>Rabinal Achí</em> es un drama dinástico maya desarrollado en el siglo XV y sostenido hasta el presente por la comunidad achí de Rabinal. Sus cuatro actos articulan palabra, música, danza y máscaras alrededor del conflicto entre dos entidades políticas: Rabinaleb’ y K’iche’. El príncipe K’iche’ Achí es capturado y juzgado por intentar llevarse a los hijos de Rabinaleb’, una transgresión de la ley maya. La representación no es solamente memoria de una guerra: durante la fiesta de San Pablo, cada 25 de enero, las cofradías activan una relación entre territorio, autoridad, vivos y <em>rajawales</em> ancestrales. Proclamada por la UNESCO en 2005 e inscrita en 2008, la tradición continúa viva y también expuesta a la folclorización que amenaza su transmisión.</p>
+        <p class="source-note">Historia, personajes y práctica comunitaria: <a href="https://ich.unesco.org/es/RL/rabinal-achi-dance-drama-tradition-00144">UNESCO, La tradición del teatro bailado Rabinal Achí</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La captura de Cawek</p>
-        <p class="chapter" data-time="0">El juicio ante los guerreros de Rabinal</p>
-        <p class="chapter" data-time="0">La danza y el desafío ritual</p>
-        <p class="chapter" data-time="0">Las últimas palabras de Cawek</p>
-        <p class="chapter" data-time="0">La ejecución y el legado del drama</p>
+        <p class="chapter" data-time="0">Rabinal Achí y K’iche’ Achí</p>
+        <p class="chapter" data-time="0">La fortaleza de Kajyub’</p>
+        <p class="chapter" data-time="0">El juicio ante Job’Toj</p>
+        <p class="chapter" data-time="0">Trece águilas y trece jaguares</p>
+        <p class="chapter" data-time="0">Máscaras, danza y memoria ancestral</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
