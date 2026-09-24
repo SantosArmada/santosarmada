@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,7 +92,7 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/coplas.webp" alt="Coplas por la muerte de su padre">
@@ -105,15 +105,16 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Elegía de Jorge Manrique escrita hacia 1477 tras la muerte de su padre, don Rodrigo Manrique, maestre de la Orden de Santiago. Con la estrofa de pie quebrado que la hizo célebre, medita sobre la fugacidad de la vida, la fortuna y la belleza terrenal frente a la muerte igualadora, y encuentra consuelo en la fama que sobrevive a los virtuosos. Una de las cumbres de la poesía castellana medieval.</p>
+        <p>Compuestas entre la muerte de Rodrigo Manrique en 1476 y la de Jorge Manrique en 1479, estas coplas convierten un duelo familiar en una meditación de alcance colectivo. Su pie quebrado interrumpe el fluir del octosílabo con versos breves: una cadencia de avance y caída que acompasa el pensamiento sobre el tiempo, la fortuna y la muerte igualadora. El poema parte de la condición mortal compartida, recorre la pregunta del <em>ubi sunt</em> —¿dónde quedaron el poder, la juventud y la fiesta?— y sólo entonces nombra al padre, el maestre don Rodrigo, cuya fama ejemplar conduce al diálogo final con la Muerte. Vida terrena, memoria pública y vida eterna forman así tres horizontes distintos ante la pérdida.</p>
+        <p class="source-note">Nota de contexto: cronología y estructura contrastadas con la <a href="https://www.cervantesvirtual.com/obra-visor/los-poetas-mayores-del-xv-santillana-mena-manrique/html/b0373b52-c0eb-11e1-b1fb-00163ebf5e63_10.html" target="_blank" rel="noopener noreferrer">Biblioteca Virtual Miguel de Cervantes</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La fugacidad de la vida terrenal</p>
-        <p class="chapter" data-time="0">Fortuna, belleza y juventud</p>
-        <p class="chapter" data-time="0">Las tres vidas: la terrenal, la de la fama y la eterna</p>
-        <p class="chapter" data-time="0">Ejemplos de grandes hombres vencidos por la muerte</p>
-        <p class="chapter" data-time="0">La muerte de don Rodrigo Manrique</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">I–XIII · Tiempo, fortuna y vida terrenal</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">XIV–XXIV · «Ubi sunt»: poder, juventud y corte</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">XXV–XXXII · Elogio del maestre don Rodrigo</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">XXXIII–XXXVII · La Muerte llega a la villa</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">XXXVIII–XL · Las tres vidas y el tránsito final</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
