@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,7 +41,7 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>A Colón</h1>
-        <p class="subtitle">Rubén Darío</p>
+        <p class="subtitle">Rubén Darío · 1892</p>
     </div>
 </header>
 
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,7 +92,7 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/a-colon.webp" alt="A Colón">
@@ -105,15 +105,16 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Rubén Darío escribió esta oda en 1892, con motivo del cuarto centenario del primer viaje de Colón, para reprocharle directamente al almirante el estado de la América que su llegada desencadenó: repúblicas convulsas, caudillos, indígenas explotados y una independencia traicionada por sus propios herederos. Lejos de la celebración oficial del centenario, Darío convierte el poema en una de las primeras grandes acusaciones literarias contra el legado colonial y sus consecuencias.</p>
+        <p>Escrito en 1892, durante las celebraciones del cuarto centenario, <em>A Colón</em> invierte el homenaje oficial. Darío apostrofa al almirante como destinatario de una amarga rendición de cuentas: la «india virgen y hermosa» de su imaginación aparece convertida en una América enferma de guerras, caudillismo, desigualdad y violencia. El poema enlaza la conquista con las repúblicas decimonónicas sin absolver a sus élites; contrapone a Cristo y Barrabás, recuerda a Cuauhtémoc, Moctezuma y Atahualpa, y presenta la independencia como promesa todavía incumplida. Más que una historia completa del continente, es una intervención modernista en la disputa por su memoria que obliga a mirar el costo humano oculto por la retórica triunfal del centenario.</p>
+        <p class="source-note">Nota de contexto: manuscrito y atribución consultados en la <a href="https://www.cervantesvirtual.com/portales/hemeroteca/obra/poema-de-ruben-dario-1/" target="_blank" rel="noopener noreferrer">Biblioteca Virtual Miguel de Cervantes</a>; contexto crítico contrastado con el estudio de la <a href="https://www.rae.es/sites/default/files/Jorge_Eduardo_Arellano._Ruben_Dario_lirico_perdurable_de_nuestra_lengua.pdf" target="_blank" rel="noopener noreferrer">Real Academia Española</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El reproche al almirante</p>
-        <p class="chapter" data-time="0">Repúblicas convulsas y caudillos</p>
-        <p class="chapter" data-time="0">Los indígenas explotados</p>
-        <p class="chapter" data-time="0">La independencia traicionada</p>
-        <p class="chapter" data-time="0">La acusación contra el legado colonial</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">«¡Desgraciado almirante!» · La inversión del homenaje</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">La América convulsa del siglo XIX</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Cuauhtémoc, Moctezuma y Atahualpa</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Cristo, Barrabás y las «panteras» del poder</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">El centenario como duelo y acusación</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
