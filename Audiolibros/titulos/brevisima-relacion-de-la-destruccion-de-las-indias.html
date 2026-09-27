@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,7 +41,7 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Brevísima relación de la destrucción de las Indias</h1>
-        <p class="subtitle">Bartolomé de las Casas</p>
+        <p class="subtitle">Bartolomé de las Casas · Sevilla, 1552</p>
     </div>
 
     <div class="bloody-hand-signature" aria-hidden="true">
@@ -92,12 +92,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -121,7 +121,7 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/brevisima.webp" alt="Brevísima relación de la destrucción de las Indias">
@@ -134,15 +134,16 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Denuncia testimonial de Bartolomé de las Casas contra las atrocidades cometidas por los colonizadores españoles en el Caribe y el continente, escrita en 1542 como petición directa a la Corona para reformar el trato a los pueblos indígenas. Un texto tan influyente como controvertido en la formación de la Leyenda Negra española.</p>
+        <p>Compuesta a partir de materiales presentados en 1542 y publicada en Sevilla en 1552, la <em>Brevísima relación</em> dirige su prólogo al príncipe Felipe para exigir que la Corona detenga la violencia de la conquista. Las Casas organiza el alegato geográficamente: de La Española, Cuba y Jamaica a Nueva España, Guatemala, Venezuela, Perú y el Nuevo Reino de Granada. Su prosa acumula escenas de matanza, esclavización, despojo y despoblación para demostrar que quienes se proclamaban cristianos destruían tanto a los pueblos indígenas como la legitimidad moral y jurídica del imperio. No es una crónica desapasionada ni pretende serlo: es una intervención polémica, construida para mover la conciencia del poder. Su posterior apropiación en disputas europeas sobre España forma parte de la historia de su recepción, pero no sustituye su propósito inmediato ni el régimen colonial que denuncia.</p>
+        <p class="source-note">Nota textual: edición de 1552, destinatario y organización cotejados con la <a href="https://www.cervantesvirtual.com/obra-visor/brevsima-relacin-de-la-destruccin-de-las-indias-0/html/?indice=1" target="_blank" rel="noopener noreferrer">Biblioteca Virtual Miguel de Cervantes</a> y la edición crítica de la <a href="https://www.rae.es/sites/default/files/hojear_brevisima_relacion_de_la_destruicion_de_las_indias.pdf" target="_blank" rel="noopener noreferrer">Real Academia Española</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Prólogo: la petición al rey</p>
-        <p class="chapter" data-time="0">La isla Española</p>
-        <p class="chapter" data-time="0">Cuba y las islas de San Juan y Jamaica</p>
-        <p class="chapter" data-time="0">Tierra Firme y Nueva España</p>
-        <p class="chapter" data-time="0">Conclusión: el clamor por la justicia</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Argumento y prólogo al príncipe Felipe</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">La Española, San Juan, Jamaica y Cuba</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Tierra Firme, Nicaragua y Nueva España</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Guatemala, Yucatán, Venezuela y Florida</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Perú, Nuevo Reino de Granada y epílogo</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>

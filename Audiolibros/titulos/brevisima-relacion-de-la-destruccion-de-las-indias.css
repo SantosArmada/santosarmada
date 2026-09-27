@@ -161,7 +161,8 @@ body {
     height: 100%;
     overflow: visible;
 }
-/* Continuously falling drops, with no permanent vertical streaks. */
+
+/* The cover's hand extends into a page-length memorial field of falling blood. */
 .blood-page-drips {
     position: absolute;
     top: 235px;
@@ -231,10 +232,8 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .blood-bead { animation: none; }
-    .blood-bead { opacity: 0.68; }
+    .blood-bead { animation: none; opacity: 0.68; }
 }
-
 /* ---------- PLAYER ---------- */
 
 .player-section {
@@ -254,6 +253,18 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
+}
+.player canvas { touch-action: none; }
+
+.playarea [role="button"]:focus-visible,
+.soundControl:focus-visible,
+.x:focus-visible,
+.chapter:focus-visible,
+.power-btn:focus-visible,
+.volume-dial__knob:focus-visible,
+.site-hamburger:focus-visible {
+    outline: 3px solid var(--cream);
+    outline-offset: 5px;
 }
 
 .player .playarea {
@@ -385,6 +396,15 @@ body {
     margin: 0 0 0.75rem;
 }
 .panel p { color: var(--card-fg-dim); margin: 0 0 0.5rem; }
+.panel .source-note {
+    margin-top: 1.25rem;
+    padding-left: 1rem;
+    border-left: 2px solid var(--red-bright);
+    font-size: 0.78rem;
+    line-height: 1.55;
+}
+.source-note a { color: var(--card-fg); text-underline-offset: 3px; }
+.source-note a:hover { color: #fff1cf; }
 
 .break {
     background: var(--red-bright) no-repeat scroll center;
@@ -613,7 +633,8 @@ body {
 .player { transition: opacity 0.3s, filter 0.3s; }
 
 @media (max-width: 900px) {
-    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
+    .player-section { height: 459px; margin: 1.5rem auto; }
+    .player { top: 0; margin-top: 0; transform: scale(0.62); transform-origin: top center; }
     .book-header { padding: 2rem; }
     .bloody-hand-signature {
         width: 88px;
@@ -626,4 +647,25 @@ body {
         right: 32px;
         width: 88px;
     }
+}
+
+@media (max-width: 540px) {
+    body { padding-top: 66px; }
+    .site-nav { padding: 0.8rem 1rem; }
+    .site-nav-logo-img { height: 34px; }
+    .book-header { padding: 1.6rem 1.25rem; }
+    .book-header-text h1 { font-size: clamp(1.7rem, 8.7vw, 2.45rem); line-height: 1.06; }
+    .bloody-hand-signature { width: 82px; height: 110px; flex-basis: 82px; margin: 0 auto; }
+    .player-section { height: 370px; margin-bottom: 0; }
+    .player { transform: scale(0.5); }
+    .power-btn { top: 4px; right: 10px; }
+    .card { width: calc(100% - 1.5rem); padding: 1.5rem 1.15rem 2rem; gap: 2rem; margin-top: 2rem; }
+    .book { flex: 0 1 240px; margin: 0 auto; }
+    .panel { flex-basis: 100%; font-size: 15px; }
+    .progress-scroll { right: 6px; width: 4px; }
+}
+
+@media (max-width: 360px) {
+    .player-section { height: 311px; }
+    .player { transform: scale(0.42); }
 }
