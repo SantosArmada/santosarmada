@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,7 +41,7 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Historia antigua de México</h1>
-        <p class="subtitle">Francisco Javier Clavijero</p>
+        <p class="subtitle">Francisco Javier Clavijero · Cesena, 1780–1781</p>
     </div>
 </header>
 
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,12 +92,12 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/historia-antigua-de-mexico.webp" alt="Historia antigua de México">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
@@ -105,15 +105,17 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>El jesuita mexicano Francisco Javier Clavijero escribió esta historia en 1780 durante su exilio en Italia, tras la expulsión de la Compañía de Jesús de los territorios españoles. Reconstruye la civilización mexica desde sus orígenes hasta la caída de Tenochtitlan, documentando su calendario, religión, ciencias y organización social, y dedica sus últimos libros a refutar a los naturalistas europeos que negaban la capacidad intelectual de los pueblos americanos. Una de las primeras defensas eruditas del legado indígena escrita por un criollo americano.</p>
+        <p>Desde el exilio italiano, Francisco Javier Clavijero reunió crónicas, manuscritos y testimonios pictográficos para reconstruir el pasado de México. Publicada en italiano como <em>Storia antica del Messico</em> en Cesena entre 1780 y 1781, la obra articula diez libros de historia con disertaciones sobre la tierra, los animales y los habitantes de México. Su estudio de las instituciones, los conocimientos y la vida religiosa indígena interviene en una disputa europea sobre América: quién puede describirla y qué testimonios merecen autoridad.</p>
+        <p>La defensa erudita del pasado indígena se formula aquí desde la perspectiva de un jesuita criollo. Leer sus fuentes y sus argumentos permite reconocer tanto la fuerza de esa reivindicación como la distancia entre la voz del historiador y las sociedades que reconstruye.</p>
+        <p class="source-note">Primera edición y estructura de la obra: <a href="https://bibliografia200y500.iib.unam.mx/index.php/la-conquista-de-mexico-500/57-storia-antica-del-messico" target="_blank" rel="noopener noreferrer">Instituto de Investigaciones Bibliográficas, UNAM</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Los orígenes de la civilización mexica</p>
-        <p class="chapter" data-time="0">Calendario, religión y ciencias</p>
-        <p class="chapter" data-time="0">Organización social del imperio</p>
-        <p class="chapter" data-time="0">La caída de Tenochtitlan</p>
-        <p class="chapter" data-time="0">En defensa del legado indígena</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Los orígenes de la civilización mexica</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Calendario, religión y ciencias</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Organización social del imperio</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">La caída de Tenochtitlan</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">En defensa del legado indígena</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
