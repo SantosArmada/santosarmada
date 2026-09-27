@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,8 +41,50 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Naufragios</h1>
-        <p class="subtitle">Álvar Núñez Cabeza de Vaca</p>
+        <p class="subtitle">Álvar Núñez Cabeza de Vaca · Primera edición, 1542</p>
     </div>
+    <!-- Evocation of a Portuguese nau around 1500, not a reconstruction of Narváez's fleet. -->
+    <svg class="wreck-emblem" viewBox="0 0 360 270" aria-hidden="true">
+        <defs>
+            <linearGradient id="nau-timber" x2="0" y2="1"><stop stop-color="#bd864c"/><stop offset=".45" stop-color="#75502e"/><stop offset="1" stop-color="#302b25"/></linearGradient>
+            <linearGradient id="nau-canvas"><stop stop-color="#9b8661"/><stop offset=".3" stop-color="#f3e4bf"/><stop offset=".7" stop-color="#ddc99d"/><stop offset="1" stop-color="#ad9165"/></linearGradient>
+            <linearGradient id="nau-bronze" x2="0" y2="1"><stop stop-color="#d2b77b"/><stop offset=".45" stop-color="#797247"/><stop offset="1" stop-color="#262d27"/></linearGradient>
+        </defs>
+        <circle cx="203" cy="116" r="96" fill="#ddb04c" opacity=".09"/>
+        <g class="wreck-hull" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Standing rigging, three masts and a projecting bowsprit. -->
+            <g fill="none" stroke="#a79a79" stroke-width=".9" opacity=".8">
+                <path d="M158 27L64 203M158 27L284 201M249 66L324 191M249 66L164 207M87 95L42 191M158 58L111 209M158 58L188 209M249 96L223 201M249 96L275 199"/>
+            </g>
+            <path d="M157 210L158 24M247 203L250 61M83 201L86 87M277 192L339 145" fill="none" stroke="#b48c54" stroke-width="4"/>
+            <!-- Lateen mizzen, broad main course and fore course. -->
+            <path d="M40 95L112 171Q79 163 51 179Q57 136 40 95Z" fill="url(#nau-canvas)" stroke="#8c7855"/>
+            <path d="M109 81Q160 88 205 77Q193 124 207 171Q159 157 106 177Q119 125 109 81Z" fill="url(#nau-canvas)" stroke="#8c7855"/>
+            <path d="M132 42Q157 46 184 39L190 72Q159 66 129 78Z" fill="url(#nau-canvas)" stroke="#8c7855"/>
+            <path d="M214 109Q249 115 284 104Q271 140 288 174Q250 163 211 180Q224 142 214 109Z" fill="url(#nau-canvas)" stroke="#8c7855"/>
+            <g fill="none" stroke="#9b845d" stroke-width=".8" opacity=".6">
+                <path d="M125 88Q133 127 121 170M142 89Q148 128 140 165M160 88L159 163M177 86Q169 126 179 166M194 83Q181 125 195 169M229 113Q239 144 226 173M248 115L249 167M267 111Q257 142 272 171M143 46L141 73M170 44L176 69"/>
+            </g>
+            <path d="M151 108L163 108L163 124L180 124L180 136L163 136L163 153L151 153L151 136L135 136L135 124L151 124Z" fill="#9b382c"/>
+            <path d="M155 111L159 111L159 128L177 128L177 132L159 132L159 150L155 150L155 132L138 132L138 128L155 128Z" fill="#efdbb4"/>
+            <g fill="none" stroke="#604d36" stroke-width="3"><path d="M103 82L209 77M126 43L188 39M209 110L288 104M39 94L116 174"/></g>
+            <path d="M158 23Q170 16 191 23L183 28Q171 23 158 29" fill="#a94030"/>
+            <path d="M148 78L167 77L172 68L145 69Z" fill="#75502e" stroke="#d0ad70"/>
+            <!-- High sterncastle, lower waist and compact forecastle. -->
+            <path d="M39 172L88 175L95 201L253 197L269 178L308 175L294 219Q275 244 170 247Q89 247 59 225Z" fill="url(#nau-timber)" stroke="#d3ac70" stroke-width="1.5"/>
+            <path d="M37 170L89 173L91 182L40 180ZM267 178L309 175L307 183L263 187Z" fill="#674a31" stroke="#d3ac70"/>
+            <g fill="none" stroke="#d1a56a" stroke-width="1" opacity=".8"><path d="M46 190L92 191M50 198L94 200M54 210Q174 225 299 206M57 219Q176 234 294 217M68 230Q173 242 278 231"/></g>
+            <g stroke="#312e26" stroke-width="4"><path d="M68 183L84 237M91 204L105 242M121 207L129 244M155 209L158 245M191 207L189 245M225 205L218 241M258 197L247 236M284 184L274 228"/></g>
+            <g fill="#16252b" stroke="#bb975e"><path d="M49 181H59V190H49ZM66 182H76V191H66ZM276 186H285V194H276Z"/></g>
+            <!-- A small bronze gun projects from the near-side waist. -->
+            <path d="M190 204L205 202L207 215L191 217Z" fill="#111f24" stroke="#c5a06b"/>
+            <path d="M196 207L226 198L229 204L198 214Z" fill="url(#nau-bronze)" stroke="#242c27" stroke-width="1.2"/>
+            <ellipse cx="228" cy="201" rx="3" ry="4.5" transform="rotate(-18 228 201)" fill="#162320" stroke="#b4a16a" stroke-width="1.2"/>
+            <path d="M215 201L218 207M204 204L206 211" stroke="#c7ad73" stroke-width="1.4"/>
+            <g fill="none" stroke="#c3b490" stroke-width=".85"><path d="M155 80L119 204M155 80L127 205M155 80L136 206M155 80L145 207M134 150L152 150M131 160L151 160M128 171L149 171M125 183L148 183M122 194L147 194M246 113L230 197M246 113L240 197M235 164L243 164M233 175L242 175M231 186L241 186"/></g>
+        </g>
+        <g fill="none" stroke="#83b6be" stroke-linecap="round"><path d="M30 246Q60 237 84 247M93 250Q125 244 153 251M182 251Q220 243 250 249M262 243Q291 232 325 239" stroke-width="2"/><path d="M54 257L108 258M142 260L213 258M259 253L305 248" opacity=".45"/></g>
+    </svg>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
@@ -63,12 +105,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,12 +134,12 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/naufragios.webp" alt="Naufragios">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
@@ -105,15 +147,17 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Álvar Núñez Cabeza de Vaca narra el desastre de la expedición de Pánfilo de Narváez y los ocho años que pasó vagando desnudo y cautivo por las costas y desiertos de lo que hoy es Florida, Texas y el norte de México, sobreviviendo como esclavo, comerciante y curandero entre los pueblos indígenas antes de reencontrar a los suyos en 1536. Publicada en 1542, es tan crónica de supervivencia como confesión de un hombre transformado por el contacto con un mundo que España apenas comenzaba a comprender.</p>
+        <p>El fracaso de la expedición de Pánfilo de Narváez transforma una empresa de conquista en una lucha por sobrevivir. Cabeza de Vaca relata hambre, cautiverio, intercambios y curaciones durante su recorrido por tierras norteamericanas, hasta el encuentro con otros españoles en 1536. Los pueblos indígenas no son un fondo del viaje: sus alimentos, conocimientos y redes de relación hacen posible la supervivencia de los forasteros.</p>
+        <p>La experiencia llega al lector a través de una voz que selecciona, interpreta y justifica sus actos. El relato permite estudiar tanto esas relaciones de dependencia como la construcción de la autoridad del narrador. Su primera edición apareció en Zamora en 1542; la edición de Valladolid de 1555 lo reunió con los <em>Comentarios</em>.</p>
+        <p class="source-note">Texto de consulta: <a href="https://www.cervantesvirtual.com/obra/naufragios--0/" target="_blank" rel="noopener noreferrer">Biblioteca Virtual Miguel de Cervantes</a>, edición digital basada en Valladolid, 1555.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El naufragio de la expedición</p>
-        <p class="chapter" data-time="0">Esclavo entre los pueblos de la costa</p>
-        <p class="chapter" data-time="0">Comerciante y curandero</p>
-        <p class="chapter" data-time="0">La travesía hacia el poniente</p>
-        <p class="chapter" data-time="0">El reencuentro con los suyos</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">El naufragio de la expedición</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Esclavo entre los pueblos de la costa</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Comerciante y curandero</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">La travesía hacia el poniente</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">El reencuentro con los suyos</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
