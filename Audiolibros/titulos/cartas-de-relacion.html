@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -74,12 +74,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Relación anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Relación siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar el sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -103,12 +103,12 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24" role="button" tabindex="0" aria-label="Ocultar o mostrar la ficha del libro">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/conquista-de-mexico.webp" alt="Cartas de Relación">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0">Escucha ahora</div>
         </div>
     </div>
 
@@ -116,15 +116,17 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Las cinco cartas que Hernán Cortés envió al emperador Carlos V entre 1519 y 1526, narrando en primera persona la caída de Tenochtitlan y la conquista del imperio azteca. Un relato tan fascinante como interesado: el propio conquistador construyendo, carta a carta, la versión de los hechos que quería que la Corona creyera.</p>
+        <p>Escritas para Carlos V entre 1519 y 1526, estas relaciones no son una crónica neutral: Hernán Cortés narra la invasión, sus alianzas indígenas, el sitio de Mexico-Tenochtitlan y la formación del orden colonial mientras justifica ante la Corona su ruptura con Diego Velázquez y reclama autoridad sobre lo conquistado. La primera relación cortesiana se perdió; la carta del cabildo de la Villa Rica de la Vera Cruz, enviada en 1519, ocupa tradicionalmente su lugar.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Primera carta: la fundación de Veracruz</p>
-        <p class="chapter" data-time="0">Segunda carta: la caída de Tenochtitlan</p>
-        <p class="chapter" data-time="0">Tercera carta: la conquista consolidada</p>
-        <p class="chapter" data-time="0">Cuarta carta: rebeliones y expediciones</p>
-        <p class="chapter" data-time="0">Quinta carta: las Hibueras</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Carta del cabildo de Veracruz, 1519 · suplencia de la relación perdida</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Segunda relación, 1520 · alianzas, Moctezuma y retirada de Tenochtitlan</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Tercera relación, 1522 · sitio y caída de Mexico-Tenochtitlan</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Cuarta relación, 1524 · gobierno, expansión y recursos</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Quinta relación, 1526 · expedición a las Hibueras</p>
+
+        <p class="source-note"><span>Nota histórica.</span> La identificación de la carta de Veracruz como sustituta de la primera relación perdida, así como la historia editorial de las cinco relaciones, sigue la ficha de la <a href="https://www.bne.es/es/colecciones/hispanoamerica/carta-relacio-ebiada-su-s-majestad" target="_blank" rel="noopener noreferrer">Biblioteca Nacional de España</a>.</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
