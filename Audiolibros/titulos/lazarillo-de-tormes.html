@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,8 +41,24 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Lazarillo de Tormes</h1>
-        <p class="subtitle">Anónimo</p>
+        <p class="subtitle">Anónimo · Ediciones conservadas desde 1554</p>
     </div>
+    <svg class="tormes-emblem" viewBox="0 0 240 165" aria-hidden="true">
+        <path d="M79 124V83C79 4 216 4 216 83V124" fill="none" stroke="#65704c" stroke-width="15"/>
+        <path d="M101 124V86C101 32 194 32 194 86V124" fill="none" stroke="#c09039" stroke-width="14"/>
+        <path d="M122 124V89C122 61 173 61 173 89V124" fill="#a7492c"/>
+        <g fill="#454b38" stroke="#30382b" stroke-width="1">
+            <path d="M29 108V61H54V108M24 61L42 48L59 61Z"/>
+            <path d="M11 105V86L25 79L37 86V105M53 105V86L69 77L87 86V105"/>
+            <path d="M10 106H228V137H208V129C208 106 174 106 174 129V137H152V129C152 106 118 106 118 129V137H96V129C96 106 62 106 62 129V137H40V129C40 112 17 112 17 129V137H10Z"/>
+        </g>
+        <path d="M36 68H41V80H36M45 68H49V80H45" fill="#d3bc83"/>
+        <path d="M13 103H228M25 111H214" stroke="#b8a77b" stroke-width="1"/>
+        <g class="tormes-water" fill="none" stroke="#66745a" stroke-linecap="round">
+            <path d="M17 143H51M68 141H112M128 146H165M184 141H220M30 151H76M100 155H148M169 152H204" stroke-width="2"/>
+            <path d="M41 159H61M82 148H95M155 160H187" opacity=".5"/>
+        </g>
+    </svg>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
@@ -63,12 +79,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,12 +108,12 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/lazarillo.webp" alt="Lazarillo de Tormes">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
@@ -105,15 +121,19 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Novela picaresca anónima de 1554 que sigue a un niño pobre al servicio de una serie de amos —un ciego mendigo, un cura avaro, un escudero venido a menos— en una sátira mordaz de la hipocresía social del Siglo de Oro. Fundacional por su voz confesional en primera persona, irónica de principio a fin.</p>
+        <p>Lázaro cuenta su vida a «Vuestra Merced» para explicar un caso que compromete su honra. Desde la infancia junto al Tormes hasta su oficio de pregonero en Toledo, el hambre organiza su aprendizaje: servir a un ciego, a un clérigo o a un escudero significa descubrir las distancias entre la apariencia y el sustento, entre la autoridad moral y la conducta.</p>
+        <p>La ironía nace también de quien recuerda. El adulto que presenta su ascenso social deja al lector la tarea de reconocer sus concesiones y silencios. Esta ficción autobiográfica anónima, fundamental para la tradición picaresca, se conserva en cuatro ediciones de 1554; su autoría sigue sin establecerse de forma concluyente.</p>
+        <p class="source-note">Historia editorial y ejemplares: <a href="https://www.bne.es/es/blog/blog-bne/post-22" target="_blank" rel="noopener noreferrer">Biblioteca Nacional de España</a>. Las ediciones conocidas más antiguas son de 1554.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Tratado primero: el ciego</p>
-        <p class="chapter" data-time="0">Tratado segundo: el clérigo avaro</p>
-        <p class="chapter" data-time="0">Tratado tercero: el escudero</p>
-        <p class="chapter" data-time="0">Tratados cuarto al sexto: nuevos amos</p>
-        <p class="chapter" data-time="0">Tratado séptimo: pregonero real</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Tratado primero: el ciego</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Tratado segundo: el clérigo avaro</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Tratado tercero: el escudero</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Tratado cuarto: el fraile de la Merced</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Tratado quinto: el buldero</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Tratado sexto: el capellán</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Tratado séptimo: pregonero real</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
