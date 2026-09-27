@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,7 +41,7 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Sumario de la Natural Historia de las Indias</h1>
-        <p class="subtitle">Gonzalo Fernández de Oviedo</p>
+        <p class="subtitle">Gonzalo Fernández de Oviedo · Toledo, 1526</p>
     </div>
 </header>
 
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,7 +92,7 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/natural-historia-de-indias.webp" alt="Sumario de la Natural Historia de las Indias">
@@ -105,15 +105,16 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Gonzalo Fernández de Oviedo escribió este resumen en 1526 como adelanto de su monumental Historia general y natural de las Indias, encargada por Carlos V. Basado en años de servicio como funcionario colonial en el Caribe y Centroamérica, describe con ojo de testigo la flora, fauna, geografía y costumbres del Nuevo Mundo —la piña, el huracán, la canoa, la hamaca— introduciendo a los lectores europeos palabras y realidades hasta entonces desconocidas.</p>
+        <p>Publicado en Toledo en 1526, el <em>Sumario</em> organiza para un lector cortesano un mundo natural que Oviedo conoció durante sus servicios coloniales. Describe navegación, geografía, cultivos, árboles, animales, alimentos y prácticas humanas; sus xilografías y comparaciones intentan volver inteligibles realidades americanas para la imprenta europea. Esa atención empírica produjo observaciones decisivas sobre especies y técnicas, pero nunca fue inocente: nombrar, clasificar y medir también convertía territorios y saberes indígenas en información administrable por el imperio. El libro anuncia una obra más extensa, aunque no debe confundirse con un simple borrador de la posterior <em>Historia general y natural de las Indias</em>. Leerlo exige sostener ambas dimensiones a la vez: documento temprano de historia natural y artefacto del orden colonial.</p>
+        <p class="source-note">Nota bibliográfica: edición, materialidad y relación con la obra posterior contrastadas con la <a href="https://www.bne.es/es/colecciones/hispanoamerica/ouiedo-natural-hystoria-indias" target="_blank" rel="noopener noreferrer">Biblioteca Nacional de España</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El viaje y la llegada a las Indias</p>
-        <p class="chapter" data-time="0">Geografía y cartografía del Nuevo Mundo</p>
-        <p class="chapter" data-time="0">Flora: plantas y frutos desconocidos en Europa</p>
-        <p class="chapter" data-time="0">Fauna: animales de tierra, mar y aire</p>
-        <p class="chapter" data-time="0">Costumbres de los pueblos indígenas</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Navegación, islas y Tierra Firme</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Agricultura, alimentos y plantas útiles</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Árboles, frutos y saberes de cultivo</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Animales de tierra, agua y aire</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Cuerpos, costumbres y mirada colonial</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
@@ -123,7 +124,7 @@
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <p style="display:inline; margin-left:6px;">Bueno</p>
+            <p style="display:inline; margin-left:6px;">Excelente</p>
         </div>
       </div>
     </div>

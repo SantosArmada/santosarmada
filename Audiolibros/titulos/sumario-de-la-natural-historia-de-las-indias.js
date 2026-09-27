@@ -148,15 +148,16 @@ var Tracker = {
     initHandlers: function () {
         var that = this;
 
-        this.scene.canvas.addEventListener('mousedown', function (e) {
+        this.scene.canvas.addEventListener('pointerdown', function (e) {
             if (that.isInsideOfSmallCircle(e) || that.isOusideOfBigCircle(e)) { return; }
+            e.preventDefault(); that.scene.canvas.setPointerCapture(e.pointerId);
             that.prevAngle = that.angle;
             that.pressButton = true;
             that.stopAnimation();
             that.calculateAngle(e, true);
         });
 
-        window.addEventListener('mouseup', function () {
+        function finishSeek() {
             if (!that.pressButton) { return; }
             var id = setInterval(function () {
                 if (!that.animatedInProgress) {
@@ -167,9 +168,11 @@ var Tracker = {
                     clearInterval(id);
                 }
             }, 100);
-        });
+        }
+        this.scene.canvas.addEventListener('pointerup', finishSeek);
+        this.scene.canvas.addEventListener('pointercancel', finishSeek);
 
-        window.addEventListener('mousemove', function (e) {
+        this.scene.canvas.addEventListener('pointermove', function (e) {
             if (that.animatedInProgress) { return; }
             if (that.pressButton && that.scene.inProcess()) {
                 that.calculateAngle(e);
@@ -177,20 +180,20 @@ var Tracker = {
         });
     },
 
+    pointerPosition: function (e) { var r = this.scene.canvas.getBoundingClientRect(); return { x: (e.clientX-r.left)*(this.scene.canvas.width/r.width), y: (e.clientY-r.top)*(this.scene.canvas.height/r.height) }; },
+
     isInsideOfSmallCircle: function (e) {
-        var x = Math.abs(e.pageX - this.scene.cx - this.scene.coord.left);
-        var y = Math.abs(e.pageY - this.scene.cy - this.scene.coord.top);
+        var p = this.pointerPosition(e); var x = Math.abs(p.x-this.scene.cx); var y = Math.abs(p.y-this.scene.cy);
         return Math.sqrt(x * x + y * y) < this.scene.radius - 3 * this.innerDelta;
     },
 
     isOusideOfBigCircle: function (e) {
-        return Math.abs(e.pageX - this.scene.cx - this.scene.coord.left) > this.scene.radius ||
-            Math.abs(e.pageY - this.scene.cy - this.scene.coord.top) > this.scene.radius;
+        var p = this.pointerPosition(e); return Math.abs(p.x-this.scene.cx)>this.scene.radius || Math.abs(p.y-this.scene.cy)>this.scene.radius;
     },
 
     draw: function () {
-        if (!Player.audio || !Player.audio.duration || isNaN(Player.audio.duration)) { return; }
-        if (!this.pressButton) {
+        var hasTrack = Player.audio && Player.audio.duration && !isNaN(Player.audio.duration);
+        if (hasTrack && !this.pressButton) {
             this.angle = (Player.audio.currentTime / Player.audio.duration) * 2 * Math.PI || 0;
         }
         this.drawArc();
@@ -203,6 +206,9 @@ var Tracker = {
         this.context.lineWidth = this.lineWidth;
 
         this.r = this.scene.radius - (this.innerDelta + this.lineWidth / 2);
+        this.context.strokeStyle = 'rgba(92, 114, 101, 0.22)';
+        this.context.arc(this.scene.radius+this.scene.padding, this.scene.radius+this.scene.padding, this.r, 0, Math.PI*2, false); this.context.stroke();
+        this.context.beginPath(); this.context.strokeStyle = 'rgba(92, 114, 101, 0.8)';
         this.context.arc(
             this.scene.radius + this.scene.padding,
             this.scene.radius + this.scene.padding,
@@ -214,10 +220,9 @@ var Tracker = {
 
     calculateAngle: function (e, animatedInProgress) {
         this.animatedInProgress = animatedInProgress;
-        this.mx = e.pageX;
-        this.my = e.pageY;
-        this.angle = Math.atan((this.my - this.scene.cy - this.scene.coord.top) / (this.mx - this.scene.cx - this.scene.coord.left));
-        if (this.mx < this.scene.cx + this.scene.coord.left) { this.angle = Math.PI + this.angle; }
+        var p = this.pointerPosition(e); this.mx=p.x; this.my=p.y;
+        this.angle = Math.atan((this.my-this.scene.cy)/(this.mx-this.scene.cx));
+        if (this.mx < this.scene.cx) { this.angle = Math.PI + this.angle; }
         if (this.angle < 0) { this.angle += 2 * Math.PI; }
         if (animatedInProgress) {
             this.startAnimation();
@@ -337,11 +342,12 @@ var Controls = {
         this.initNextSongButton();
         this.initTimeHandler();
     },
+    bindAction: function (el, fn) { el.addEventListener('click', fn); el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();fn();} }); },
 
     initPlayButton: function () {
         var that = this;
         this.playButton = document.querySelector('.play');
-        this.playButton.addEventListener('mouseup', function () {
+        this.bindAction(this.playButton, function () {
             that.playButton.style.display = 'none';
             that.pauseButton.style.display = 'inline-block';
             Player.play();
@@ -352,7 +358,7 @@ var Controls = {
     initPauseButton: function () {
         var that = this;
         this.pauseButton = document.querySelector('.pause');
-        this.pauseButton.addEventListener('mouseup', function () {
+        this.bindAction(this.pauseButton, function () {
             that.playButton.style.display = 'inline-block';
             that.pauseButton.style.display = 'none';
             Player.pause();
@@ -363,7 +369,7 @@ var Controls = {
     initSoundButton: function () {
         var that = this;
         this.soundButton = document.querySelector('.soundControl');
-        this.soundButton.addEventListener('mouseup', function () {
+        this.bindAction(this.soundButton, function () {
             if (that.soundButton.classList.contains('disable')) {
                 Player.unmute();
             } else {
@@ -375,7 +381,7 @@ var Controls = {
     initPrevSongButton: function () {
         var that = this;
         this.prevSongButton = document.querySelector('.prevSong');
-        this.prevSongButton.addEventListener('mouseup', function () {
+        this.bindAction(this.prevSongButton, function () {
             Chapters.prev();
             that.playing && Player.play();
         });
@@ -384,7 +390,7 @@ var Controls = {
     initNextSongButton: function () {
         var that = this;
         this.nextSongButton = document.querySelector('.nextSong');
-        this.nextSongButton.addEventListener('mouseup', function () {
+        this.bindAction(this.nextSongButton, function () {
             Chapters.next();
             that.playing && Player.play();
         });
@@ -655,6 +661,7 @@ var Chapters = {
             el.addEventListener('click', function () {
                 that.goTo(i);
             });
+            el.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){e.preventDefault();that.goTo(i);} });
         });
     },
 
@@ -691,9 +698,12 @@ function initPanelToggle() {
     var closeBtn = document.querySelector('.x');
     var panel = document.querySelector('.panel');
     if (!closeBtn || !panel) { return; }
-    closeBtn.addEventListener('click', function () {
+    function togglePanel() {
         panel.classList.toggle('collapsed');
-    });
+        closeBtn.setAttribute('aria-label',panel.classList.contains('collapsed')?'Mostrar información':'Ocultar información');
+    }
+    closeBtn.addEventListener('click',togglePanel);
+    closeBtn.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();togglePanel();}});
 }
 
 /* "ESCUCHA AHORA" ribbon under the cover jumps down to the player */
@@ -732,16 +742,14 @@ function initMobileNav() {
     var hamburger = document.getElementById('siteHamburger');
     var menu = document.getElementById('siteMobileMenu');
     if (!hamburger || !menu) { return; }
-    hamburger.addEventListener('click', function () {
-        hamburger.classList.toggle('open');
-        menu.classList.toggle('open');
-    });
+    function setOpen(open){hamburger.classList.toggle('open',open);menu.classList.toggle('open',open);hamburger.setAttribute('aria-expanded',open?'true':'false');hamburger.setAttribute('aria-label',open?'Cerrar menú':'Abrir menú');}
+    hamburger.addEventListener('click',function(){setOpen(!menu.classList.contains('open'));});
     menu.querySelectorAll('a').forEach(function (a) {
         a.addEventListener('click', function () {
-            hamburger.classList.remove('open');
-            menu.classList.remove('open');
+            setOpen(false);
         });
     });
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&menu.classList.contains('open')){setOpen(false);hamburger.focus();}});
 }
 
 document.addEventListener('DOMContentLoaded', function () {
