@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,7 +41,7 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Los cuatro viajes del almirante y su testamento</h1>
-        <p class="subtitle">Cristóbal Colón</p>
+        <p class="subtitle">Cristóbal Colón · Archivo de viajes, 1492–1506</p>
     </div>
 
     <div class="voyage-medallion" aria-hidden="true">
@@ -96,12 +96,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -125,7 +125,7 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/los-cuatro-viajes.webp" alt="Los cuatro viajes del almirante y su testamento">
@@ -138,15 +138,16 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Las cartas, diarios de a bordo y el testamento del propio Cristóbal Colón, documentando sus cuatro travesías atlánticas entre 1492 y 1504. Un relato de primera mano —y no poco interesado— del primer contacto con el Caribe y las negociaciones con la Corona que lo hicieron posible.</p>
+        <p>Este volumen no conserva cuatro diarios intactos. Los originales se perdieron y cada viaje llega por una vía documental distinta: el primero mediante una relación compendiada asociada a fray Bartolomé de las Casas; el segundo, por un memorial transmitido a la Corona; el tercero y el cuarto, por cartas del almirante. Junto al testamento y su ratificación de 1506, el conjunto permite seguir no sólo una ruta atlántica, sino la transformación de un proyecto de navegación en empresa de colonización, gobierno y herencia. Sus páginas registran observación náutica y geográfica, pero también apropiación territorial, búsqueda de riqueza, violencia contra comunidades indígenas y la insistente defensa de títulos y privilegios. Leerlas como archivo compuesto —mediado, incompleto e interesado— permite distinguir el acontecimiento histórico de la voz con que Colón procuró fijar su significado.</p>
+        <p class="source-note">Nota documental: transmisión y pérdida de los diarios originales contrastadas con la <a href="https://bne.es/es/colecciones/hispanoamerica/viajes-cristobal-colon" target="_blank" rel="noopener noreferrer">Biblioteca Nacional de España</a>; organización de los textos cotejada con la <a href="https://www.cervantesvirtual.com/obra-visor/los-cuatro-viajes-del-almirante-y-su-testamento--0/html/" target="_blank" rel="noopener noreferrer">Biblioteca Virtual Miguel de Cervantes</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Primer viaje: el descubrimiento</p>
-        <p class="chapter" data-time="0">Segundo viaje: la colonización</p>
-        <p class="chapter" data-time="0">Tercer viaje: el continente y la caída en desgracia</p>
-        <p class="chapter" data-time="0">Cuarto viaje: la búsqueda del paso a Asia</p>
-        <p class="chapter" data-time="0">El testamento del almirante</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Primer viaje, 1492–1493 · Relación compendiada</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Segundo viaje, 1493–1496 · Memorial a la Corona</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Tercer viaje, 1498–1500 · Carta a los monarcas</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Cuarto viaje, 1502–1504 · Carta desde Jamaica</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Testamento y ratificación, 1498–1506</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
@@ -156,7 +157,7 @@
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <p style="display:inline; margin-left:6px;">Bueno</p>
+            <p style="display:inline; margin-left:6px;">Excelente</p>
         </div>
       </div>
     </div>
