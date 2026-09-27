@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,7 +41,7 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>La Celestina</h1>
-        <p class="subtitle">Fernando de Rojas</p>
+        <p class="subtitle">Fernando de Rojas · Comedia y Tragicomedia</p>
     </div>
 
     <div class="celestina-emblem" aria-hidden="true">
@@ -93,12 +93,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -122,7 +122,7 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/celestina.webp" alt="La Celestina">
@@ -135,15 +135,16 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Tragicomedia dialogada de finales del siglo XV que sigue la obsesión amorosa de Calisto por Melibea, orquestada por Celestina, la vieja alcahueta que da nombre a la obra. Puente entre el mundo medieval y el renacentista, célebre por su realismo psicológico y su desenlace trágico y moralizante.</p>
+        <p>Conocida hoy por el nombre de su mediadora, la obra circuló primero como <em>Comedia de Calisto y Melibea</em>, en dieciséis actos, y después como <em>Tragicomedia</em>, ampliada a veintiuno. Su propia historia editorial conserva una autoría problemática: Fernando de Rojas declara haber continuado un primer acto ajeno, y la crítica todavía discute cómo leer esa afirmación. En escena, el deseo de Calisto moviliza una red de criados, amantes, recompensas y resentimientos que Celestina sabe convertir en transacción. Melibea no es únicamente objeto de una intriga; su voz transforma el conflicto y conduce la obra hacia una cadena de muertes culminada por el lamento de Pleberio. El diálogo no ofrece una moraleja simple: hace convivir retórica cortesana, saber urbano, codicia, placer y duelo en un mundo donde las palabras persuaden, compran y destruyen.</p>
+        <p class="source-note">Nota textual: historia de las redacciones y problema de autoría contrastados con la <a href="https://www.bne.es/es/agenda-eventos-actividades/cicloclasicos14-sesion2" target="_blank" rel="noopener noreferrer">Biblioteca Nacional de España</a> y la edición de la <a href="https://www.rae.es/sites/default/files/hojear_la_celestina.pdf" target="_blank" rel="noopener noreferrer">Real Academia Española</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Calisto y su obsesión por Melibea</p>
-        <p class="chapter" data-time="0">Celestina entra en escena</p>
-        <p class="chapter" data-time="0">El hechizo y la seducción de Melibea</p>
-        <p class="chapter" data-time="0">El amor consumado y sus consecuencias</p>
-        <p class="chapter" data-time="0">La tragedia final</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">El encuentro de Calisto y Melibea</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Celestina: mediación, conjuro y contrato</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Criados, amantes y la cadena de la codicia</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">La voz y el deseo de Melibea</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Muertes y planto de Pleberio</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
