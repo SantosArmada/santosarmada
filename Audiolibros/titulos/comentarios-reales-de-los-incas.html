@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,8 +41,18 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Comentarios Reales de los Incas</h1>
-        <p class="subtitle">Inca Garcilaso de la Vega</p>
+        <p class="subtitle">Inca Garcilaso de la Vega · Primera parte, Lisboa, 1609</p>
     </div>
+    <svg class="andes-emblem" viewBox="0 0 200 170" aria-hidden="true">
+        <defs><linearGradient id="andes-copper"><stop stop-color="#d79560"/><stop offset=".5" stop-color="#6e362a"/><stop offset="1" stop-color="#ca7750"/></linearGradient></defs>
+        <g fill="none" stroke="url(#andes-copper)" stroke-linejoin="miter">
+            <path d="M21 151L43 19L159 10L184 151Z" stroke-width="8"/>
+            <path d="M44 147L60 43L144 37L162 147Z" stroke-width="6"/>
+            <path d="M65 143L77 66L129 63L142 143Z" stroke-width="4"/>
+            <path d="M85 140L91 91L116 89L122 140Z" stroke-width="3"/>
+        </g>
+        <path d="M21 157H184M44 164H161" stroke="#a8c9b6" stroke-width="1" opacity=".45"/>
+    </svg>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
@@ -63,12 +73,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,12 +102,12 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/comentarios.webp" alt="Comentarios Reales de los Incas">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
@@ -105,15 +115,17 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Escrita por el hijo de un conquistador español y una princesa inca, esta crónica de 1609 entreteje la historia oral y la mitología incaicas con el relato de la conquista del Perú. Una de las primeras grandes obras de autoría mestiza, escrita desde ambos mundos a la vez.</p>
+        <p>Publicada en Lisboa en 1609, la primera parte de los <em>Comentarios Reales</em> reconstruye los orígenes, el gobierno, las creencias y las prácticas del mundo inca. Garcilaso convierte la memoria familiar y su conocimiento del quechua en argumentos de autoridad: explicar una palabra, discutir una traducción o corregir a otro cronista son también maneras de disputar quién puede contar esa historia.</p>
+        <p>Su escritura articula herencia inca, formación cristiana y cultura letrada europea. Es una reconstrucción situada del pasado, cuya defensa de los incas exige atender tanto a las memorias que conserva como a las jerarquías que reproduce. La narración de la conquista y las guerras civiles corresponde a la continuación póstuma, publicada en 1617 como <em>Historia general del Perú</em>.</p>
+        <p class="source-note">Referencia bibliográfica: <a href="https://libroselectronicos.cervantes.es/resources/60468e2d345b650001be1e7d?l=es" target="_blank" rel="noopener noreferrer">Instituto Cervantes: primera parte, Lisboa, 1609</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El origen mítico de los incas</p>
-        <p class="chapter" data-time="0">La organización del imperio</p>
-        <p class="chapter" data-time="0">Costumbres y religión incaica</p>
-        <p class="chapter" data-time="0">La llegada de los españoles</p>
-        <p class="chapter" data-time="0">La caída del Tahuantinsuyo</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">El origen mítico de los incas</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">La organización del imperio</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Costumbres y religión incaica</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Lengua, memoria y autoridad del narrador</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Agricultura, conocimientos y vida cotidiana</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
