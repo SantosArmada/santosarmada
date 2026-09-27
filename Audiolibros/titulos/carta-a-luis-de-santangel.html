@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -43,6 +43,12 @@
         <h1>Carta a Luis de Santángel</h1>
         <p class="subtitle">Cristóbal Colón — 1493</p>
     </div>
+    <aside class="dispatch-mark" aria-label="Ficha documental">
+        <span class="dispatch-mark__eyebrow">Relación impresa</span>
+        <strong>15 · II / 14 · III · 1493</strong>
+        <span>Atlántico · Lisboa · Barcelona</span>
+        <i aria-hidden="true">LS</i>
+    </aside>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
@@ -63,12 +69,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,7 +98,7 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/carta-a-luis-de-santangel.webp" alt="Carta a Luis de Santángel">
@@ -105,15 +111,16 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>La carta que Cristóbal Colón envió en 1493 al escribano real Luis de Santángel anunciando el "descubrimiento" de tierras en las Indias tras su primer viaje. Impresa y difundida por toda Europa casi de inmediato, es el primer relato público del encuentro con el Nuevo Mundo y el documento que encendió el imaginario europeo sobre América.</p>
+        <p>Fechada el 15 de febrero de 1493 durante el regreso del primer viaje y acompañada por un post scriptum fechado en Lisboa el 14 de marzo, la carta dirigida a Luis de Santángel no es una crónica neutral: es un informe de éxito y una pieza de persuasión. Colón enumera islas, fertilidad y oro; renombra territorios habitados, afirma haber tomado posesión de ellos para los monarcas y representa a sus pobladores desde las expectativas políticas, religiosas y comerciales de la Corona. Su rápida impresión en Barcelona y traducción al latín convirtió una experiencia atlántica todavía incierta en noticia europea y ayudó a reunir apoyo para otra expedición. Leída hoy, la carta permite estudiar a la vez la circulación temprana de la imprenta y el lenguaje con que la expansión imperial empezó a convertir personas y territorios en objetos de descripción, apropiación y promesa.</p>
+        <p class="source-note">Nota documental: fecha, transmisión impresa y propósito contrastados con la <a href="https://datos.bne.es/resource/XX2089793" target="_blank" rel="noopener noreferrer">Biblioteca Nacional de España</a> y la <a href="https://www.loc.gov/resource/rbc0001.2012incun31077/" target="_blank" rel="noopener noreferrer">Library of Congress</a>.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La travesía y el avistamiento de tierra</p>
-        <p class="chapter" data-time="0">La Española: gentes, costumbres y riquezas</p>
-        <p class="chapter" data-time="0">Descripción de las islas y sus fértiles tierras</p>
-        <p class="chapter" data-time="0">El fuerte de la Navidad y el regreso a España</p>
-        <p class="chapter" data-time="0">Petición a los Reyes Católicos por el favor recibido</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">La «gran victoria» y la toma de posesión</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Nombrar las islas: Guanahaní, Juana y La Española</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Paisaje, oro y promesa de abundancia</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">La representación de los pueblos insulares</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">La Navidad y el argumento para un segundo viaje</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
@@ -123,7 +130,7 @@
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <p style="display:inline; margin-left:6px;">Bueno</p>
+            <p style="display:inline; margin-left:6px;">Excelente</p>
         </div>
       </div>
     </div>
