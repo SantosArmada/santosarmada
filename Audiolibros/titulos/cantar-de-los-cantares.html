@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,7 +41,7 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Cantar de los cantares</h1>
-        <p class="subtitle">Fray Luis de León</p>
+        <p class="subtitle">Texto bíblico · Traducción y comentario de Fray Luis de León</p>
     </div>
 </header>
 
@@ -63,12 +63,12 @@
             <div class="name">Capítulo 1</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,12 +92,12 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/cantar-de-los-cantares.webp" alt="Cantar de los cantares">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
@@ -105,15 +105,20 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Fray Luis de León tradujo el Cantar de los Cantares bíblico al castellano hacia 1561 para consuelo espiritual de su prima, sor Isabel de Osorio, sin intención de publicarlo. La traducción, junto con su comentario en prosa, fue uno de los cargos que la Inquisición usó contra él en el proceso que lo llevó a prisión en 1572; el texto no se imprimió hasta 1798, más de dos siglos después de su muerte. Su versión conserva la sensualidad del diálogo nupcial original, entendido tradicionalmente como alegoría del amor entre Dios y el alma.</p>
+        <p>Voces que se buscan, jardines, perfumes y cuerpos: el <em>Cantar de los cantares</em> despliega el deseo en un lenguaje de imágenes y llamadas. La versión castellana de Fray Luis de León acerca al lector esa intensidad verbal y la acompaña de una explicación atenta a las palabras y comparaciones del texto.</p>
+        <p>El diálogo amoroso admite una lectura literal y una larga tradición de interpretaciones espirituales. Escucharlo exige conservar esa tensión, sin borrar su sensualidad ni reducirlo a una sola alegoría. Fray Luis interviene como traductor y comentarista de un libro bíblico tradicionalmente vinculado a Salomón; no es su autor original.</p>
+        <p class="source-note">Edición histórica de consulta: <a href="https://www.cervantesvirtual.com/portales/fray_luis_de_leon/obras_cantar/" target="_blank" rel="noopener noreferrer"><em>Traducción literal y declaración del libro de los cantares de Salomón</em>, Salamanca, 1798</a>, conservada en reproducción digital por la Biblioteca Virtual Miguel de Cervantes.</p>
 
         <div class="break"></div>
         <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El diálogo nupcial</p>
-        <p class="chapter" data-time="0">La sensualidad del amor sagrado</p>
-        <p class="chapter" data-time="0">Alegoría del alma y lo divino</p>
-        <p class="chapter" data-time="0">La traducción y el proceso inquisitorial</p>
-        <p class="chapter" data-time="0">El texto oculto durante dos siglos</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Capítulo I</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Capítulo II</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Capítulo III</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Capítulo IV</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Capítulo V</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Capítulo VI</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Capítulo VII</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Capítulo VIII</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
