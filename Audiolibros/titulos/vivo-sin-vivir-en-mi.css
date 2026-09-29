@@ -534,6 +534,41 @@ body {
 .player { transition: opacity 0.3s, filter 0.3s; }
 
 @media (max-width: 900px) {
-    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
+    .player-section { height: 459px; margin: 1.5rem auto; }
+    .player { top: 0; margin-top: 0; transform: scale(.62); transform-origin: top center; }
     .book-header { padding: 2rem; }
 }
+
+.book-header { position: relative; background: #f0e2d1; border-bottom-color: #8e3027; padding-right: 230px; }
+.book-header-text h1 { color: #8e3027; }
+.teresa-dove { position: absolute; top: 50%; right: 2rem; width: 185px; transform: translateY(-50%); pointer-events: none; }
+.teresa-dove svg { display: block; width: 100%; height: auto; overflow: visible; }
+.dove-flight { animation: dove-hover 5s ease-in-out infinite; }
+.dove-wing-left { transform-origin: 105px 99px; animation: dove-left 2.8s ease-in-out infinite; }
+.dove-wing-right { transform-origin: 122px 99px; animation: dove-right 2.8s ease-in-out infinite; }
+.dove-eye { transform-box: fill-box; transform-origin: center; animation: dove-blink 8s linear infinite; }
+.dove-glow { animation: dove-radiance 5s ease-in-out infinite; }
+@keyframes dove-hover { 0%,100% { transform: translateY(2px); } 50% { transform: translateY(-4px); } }
+@keyframes dove-left { 0%,100% { transform: rotate(-7deg); } 50% { transform: rotate(10deg) scaleY(.93); } }
+@keyframes dove-right { 0%,100% { transform: rotate(7deg); } 50% { transform: rotate(-10deg) scaleY(.93); } }
+@keyframes dove-blink { 0%,46%,49%,100% { transform: scaleY(1); } 47%,48% { transform: scaleY(.12); } }
+@keyframes dove-radiance { 0%,100% { opacity: .6; } 50% { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .teresa-dove svg * { animation: none; } }
+.panel h1 { color: #dc9c85; }
+.player canvas { touch-action: none; }
+.panel .source-note { margin: 1.25rem 0; padding-top: 1rem; border-top: 1px solid #8e5141; font-size: .8rem; line-height: 1.65; }
+.source-note a { color: #e5c4a7; text-underline-offset: 3px; }
+[role="button"]:focus-visible, button:focus-visible { outline: 3px solid #dc9c85; outline-offset: 4px; }
+@media (max-width: 540px) {
+    .book-header { padding: 1.6rem 1.25rem; }
+    .book-header-text h1 { font-size: clamp(1.8rem, 8.8vw, 2.5rem); line-height: 1.1; }
+    .book-header { display: block; }
+    .teresa-dove { position: relative; top: auto; right: auto; transform: none; width: 125px; margin: .5rem 0 0 auto; }
+    .player-section { height: 370px; }
+    .player { transform: scale(.5); }
+    .card { width: calc(100% - 1.5rem); padding: 1.5rem 1rem; gap: 2rem; }
+    .book { flex: 0 1 250px; margin: 0 auto; }
+    .panel { flex-basis: 100%; }
+    .progress-scroll { right: 6px; }
+}
+@media (max-width: 360px) { .player-section { height: 311px; } .player { transform: scale(.42); } }

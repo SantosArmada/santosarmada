@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -43,6 +43,32 @@
         <h1>Vivo sin vivir en mí</h1>
         <p class="subtitle">Santa Teresa de Jesús — siglo XVI</p>
     </div>
+    <div class="teresa-dove" aria-hidden="true">
+        <svg viewBox="0 0 220 180">
+            <defs>
+                <radialGradient id="teresa-glow"><stop stop-color="#f7d98e" stop-opacity=".65"/><stop offset="1" stop-color="#f7d98e" stop-opacity="0"/></radialGradient>
+                <linearGradient id="teresa-feathers" x2=".4" y2="1"><stop stop-color="#fffdf4"/><stop offset=".55" stop-color="#f0e8d5"/><stop offset="1" stop-color="#b6a994"/></linearGradient>
+                <radialGradient id="teresa-breast" cx="35%" cy="25%"><stop stop-color="#fffef8"/><stop offset=".6" stop-color="#f2e9d6"/><stop offset="1" stop-color="#bdb19b"/></radialGradient>
+            </defs>
+            <circle class="dove-glow" cx="111" cy="85" r="76" fill="url(#teresa-glow)"/>
+            <circle cx="111" cy="85" r="60" fill="none" stroke="#ad7352" stroke-width=".7" opacity=".3"/>
+            <g class="dove-flight" stroke-linejoin="round">
+                <path d="M108 110L93 146Q99 150 105 140Q105 155 112 155Q118 153 118 141Q124 153 130 147L120 110Z" fill="url(#teresa-feathers)" stroke="#baad98" stroke-width=".8"/>
+                <g class="dove-wing-left">
+                    <path d="M105 94C89 69 57 56 27 24C23 41 35 58 50 68C35 60 23 49 16 43C18 60 36 76 54 82C35 77 24 70 20 68C24 85 44 95 62 97C48 97 36 92 32 92C42 109 74 112 105 104Z" fill="url(#teresa-feathers)" stroke="#baad98" stroke-width="1"/>
+                    <path d="M98 96Q68 80 36 39M91 100Q58 90 30 59M79 102Q55 100 34 84" fill="none" stroke="#b7aa94" stroke-width="1" opacity=".75"/>
+                </g>
+                <g class="dove-wing-right">
+                    <path d="M121 94C139 67 167 53 194 21C199 38 186 58 172 68C186 61 198 49 204 42C205 59 186 77 168 83C184 80 198 72 201 68C199 85 179 97 161 99C176 98 185 95 190 92C178 109 148 113 120 104Z" fill="url(#teresa-feathers)" stroke="#baad98" stroke-width="1"/>
+                    <path d="M128 97Q159 78 187 36M137 101Q171 86 195 58M149 104Q173 99 188 84" fill="none" stroke="#b7aa94" stroke-width="1" opacity=".75"/>
+                </g>
+                <path d="M96 77C92 62 98 49 110 48C122 48 127 59 124 71C127 80 137 89 134 107C132 121 121 133 110 129C97 124 91 107 96 93C99 85 99 82 96 77Z" fill="url(#teresa-breast)" stroke="#b9ac95" stroke-width=".8"/>
+                <path d="M99 67L86 73L99 75Z" fill="#bf874f"/>
+                <g class="dove-eye"><ellipse cx="105" cy="65" rx="3.2" ry="4" fill="#352b29"/><circle cx="104" cy="63.5" r="1.1" fill="#fff"/></g>
+                <path d="M103 82Q113 89 123 84M101 105Q109 118 120 115" fill="none" stroke="#fffdf4" stroke-width="2" stroke-linecap="round" opacity=".75"/>
+            </g>
+        </svg>
+    </div>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
@@ -60,15 +86,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Vivo sin vivir en mí</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Poema completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,12 +118,12 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/vivo-sin-vivir-en-mi.webp" alt="Vivo sin vivir en mí">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
@@ -105,15 +131,13 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Una de las glosas místicas más célebres de Santa Teresa de Jesús, construida sobre el estribillo "que muero porque no muero". Expresa la paradoja central de la experiencia mística carmelita: el alma que, unida a Dios en el éxtasis, vive angustiada por seguir atada a un cuerpo mortal que la separa de la unión definitiva.</p>
+        <p>La voz de Teresa convierte la espera en paradoja: vivir significa anhelar una plenitud que la vida presente todavía no alcanza. El estribillo vuelve sobre esa tensión y enlaza imágenes de cautiverio, libertad y amor divino. La repetición sostiene el ritmo de una glosa que pide ser escuchada como un movimiento continuo.</p>
+        <p>La página reúne la versión teresiana de <em>Vivo sin vivir en mí</em>. San Juan de la Cruz también desarrolló una glosa sobre esta letrilla; compartir el comienzo no convierte ambos poemas en un mismo texto. Aquí, las oposiciones entre vida y muerte pertenecen al lenguaje de la unión mística y a su elaboración poética.</p>
+        <p class="source-note">Texto de referencia: <a href="https://www.cervantesvirtual.com/obra-visor/antologia-0/html/ae56337a-b7fe-4f04-90c7-9d005c5f21a7_3.html" target="_blank" rel="noopener noreferrer">poesía de Teresa de Jesús en la Biblioteca Virtual Miguel de Cervantes</a>.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El estribillo: vivo sin vivir en mí</p>
-        <p class="chapter" data-time="0">La vida como destierro del alma</p>
-        <p class="chapter" data-time="0">La ausencia de Dios como muerte en vida</p>
-        <p class="chapter" data-time="0">El anhelo de la unión mística</p>
-        <p class="chapter" data-time="0">Que muero porque no muero</p>
+        <h1>LECTURA</h1>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Vivo sin vivir en mí · Poema completo</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
