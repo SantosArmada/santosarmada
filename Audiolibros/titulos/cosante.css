@@ -521,6 +521,47 @@ body {
 .player { transition: opacity 0.3s, filter 0.3s; }
 
 @media (max-width: 900px) {
-    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
+    .player-section { height: 459px; margin: 1.5rem auto; }
+    .player { top: 0; margin-top: 0; transform: scale(.62); transform-origin: top center; }
     .book-header { padding: 2rem; }
 }
+
+.book-header { background: #14769a; border-bottom-color: #172f34; }
+.book-header-text { flex: 1 1 320px; min-width: 0; }
+.book-header-text h1, .book-header-text .kicker, .book-header-text .subtitle { color: #f1e3be; }
+.cosante-garden { position: relative; isolation: isolate; overflow: hidden; background: #ecdfc0; padding: 1rem 0 3rem; }
+.cosante-tree { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: block; width: min(100%, 840px); height: auto; pointer-events: none; z-index: -1; opacity: .82; }
+.cosante-garden .player-section { z-index: 1; }
+.cosante-garden .player::before { content: ""; position: absolute; inset: 110px; border-radius: 50%; background: radial-gradient(ellipse at 50% 48%, #ecdfc0f5 12%, #ecdfc0db 31%, #ecdfc086 48%, #ecdfc030 61%, #ecdfc000 74%); pointer-events: none; }
+.cosante-garden .player canvas { position: relative; }
+.cosante-bough { transform-origin: 280px 503px; animation: cosante-breeze 8s ease-in-out infinite; }
+.cosante-petal { animation: cosante-petal-fall var(--duration) linear var(--delay) infinite; opacity: 0; }
+.petal-toggle { position: absolute; right: 1.25rem; bottom: 1rem; border: 1px solid #eee1bf80; border-radius: 3px; background: #102a2c; color: #f1e5c9; font: inherit; font-size: .75rem; padding: .65rem .9rem; cursor: pointer; z-index: 1; }
+.cosante-garden.motion-paused .cosante-petal, .cosante-garden.motion-paused .cosante-bough { animation-play-state: paused; }
+@keyframes cosante-petal-fall {
+    0% { opacity: 0; transform: translate(0, 0) rotate(0deg); }
+    8% { opacity: .85; }
+    22% { transform: translate(calc(var(--drift) * .65), calc(var(--fall) * .18)) rotate(55deg) scaleX(.45); }
+    47% { transform: translate(calc(var(--drift) * -.4), calc(var(--fall) * .43)) rotate(140deg) scaleX(1); }
+    70% { transform: translate(calc(var(--drift) * .8), calc(var(--fall) * .7)) rotate(235deg) scaleX(.35); }
+    85% { opacity: .65; }
+    100% { opacity: 0; transform: translate(var(--drift), var(--fall)) rotate(320deg) scaleX(.8); }
+}
+@keyframes cosante-breeze { 0%,100% { transform: rotate(-1deg); } 50% { transform: rotate(1deg); } }
+@media (prefers-reduced-motion: reduce) { .cosante-bough, .cosante-petal { animation: none; } .petal-toggle { display: none; } }
+.player canvas { touch-action: none; }
+.panel .source-note { margin: 1.25rem 0; padding-top: 1rem; border-top: 1px solid #877347; font-size: .8rem; line-height: 1.65; }
+.source-note a { color: var(--coral-bright); text-underline-offset: 3px; }
+[role="button"]:focus-visible, button:focus-visible { outline: 3px solid #c9a24c; outline-offset: 4px; }
+@media (max-width: 540px) {
+    .book-header { padding: 1.6rem 1.25rem; gap: 1rem; }
+    .book-header-text h1 { font-size: 2.5rem; }
+    .cosante-garden { padding: .5rem 0 3.25rem; }
+    .player-section { height: 370px; }
+    .player { transform: scale(.5); }
+    .card { width: calc(100% - 1.5rem); padding: 1.5rem 1rem; gap: 2rem; }
+    .book { flex: 0 1 250px; margin: 0 auto; }
+    .panel { flex-basis: 100%; }
+    .progress-scroll { right: 6px; }
+}
+@media (max-width: 360px) { .player-section { height: 311px; } .player { transform: scale(.42); } }

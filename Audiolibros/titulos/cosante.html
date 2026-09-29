@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,10 +41,93 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Cosante</h1>
-        <p class="subtitle">Diego Hurtado de Mendoza — siglo XVI</p>
+        <p class="subtitle">Diego Hurtado de Mendoza · Lírica medieval castellana</p>
     </div>
 </header>
+<section class="cosante-garden" aria-label="Árbol del amor en flor">
+    <button class="petal-toggle" type="button" aria-pressed="false">Pausar pétalos</button>
+    <svg class="cosante-tree" viewBox="0 0 560 540" aria-hidden="true">
+        <defs>
+            <g id="cosante-leaf"><path d="M0 0Q-12-9-8-24Q5-23 8-10Z" fill="#102a2c"/><path d="M0 0L-3-19M-2-9L-6-13" fill="none" stroke="#73918a" stroke-width=".6"/></g>
+            <g id="cosante-bloom">
+                <path d="M-2-3C-17-7-14-22-7-20L-3-17C1-25 10-21 9-14L5-5C17-18 25-8 18-3L13 0C26 4 19 17 12 13L5 8C9 23-5 25-7 16L-7 9C-22 19-26 4-17 1L-10 0C-24-9-12-17-7-10Z" fill="#f1e5c9" stroke="#c7c5aa" stroke-width=".55"/>
+                <path d="M-2-5L-6-15M5-3L14-7M5 4L14 9M-1 6L-1 16M-5 3L-15 8" fill="none" stroke="#b0b39f" stroke-width=".65"/>
+                <g stroke="#193330" stroke-width=".8"><path d="M0 0L-5-7M0 0L3-9M0 0L8-4M0 0L7 6M0 0L-2 9M0 0L-8 3"/></g>
+                <g fill="#193330"><circle r="2.4"/><circle cx="-5" cy="-7" r="1.2"/><circle cx="3" cy="-9" r="1"/><circle cx="8" cy="-4" r="1.3"/><circle cx="7" cy="6" r="1"/><circle cx="-2" cy="9" r="1.2"/><circle cx="-8" cy="3" r="1"/></g>
+            </g>
+        </defs>
+        <ellipse cx="280" cy="506" rx="158" ry="10" fill="#092c39" opacity=".18"/>
+        <g class="cosante-bough">
+            <path d="M207 503C245 481 257 450 258 410L250 344C231 296 188 268 150 236C209 258 258 289 276 328C276 278 286 237 306 207C293 264 297 300 291 333C330 296 367 286 402 271C359 303 319 319 297 365C287 419 298 469 335 501L302 491L281 510L265 492L228 511Z" fill="#102a2c"/>
+            <g fill="none" stroke="#102a2c" stroke-linecap="round">
+                <path d="M259 359Q236 260 156 153M274 324Q228 221 207 72M285 304Q310 191 344 103M296 350Q360 271 426 157M254 328Q169 290 80 219M285 286Q270 171 253 59" stroke-width="9"/>
+                <g stroke-width="2.2"><path d="M174.39999999999998 290.2Q102 194 88 151M88 165L67 140M93 179L116 157"/><path d="M191.45 282Q133 153 119 110M119 124L98 99M124 138L147 116"/><path d="M214.55 276.6Q175 126 161 83M161 97L140 72M166 111L189 89"/><path d="M239.85 274.4Q221 115 207 72M207 86L186 61M212 100L235 78"/><path d="M265.15 271.8Q267 102 253 59M253 73L232 48M258 87L281 65"/><path d="M291 275.2Q314 119 300 76M300 90L279 65M305 104L328 82"/><path d="M315.2 280.6Q358 146 344 103M344 117L323 92M349 131L372 109"/><path d="M339.4 285Q402 168 388 125M388 139L367 114M393 153L416 131"/><path d="M360.3 291.4Q440 200 426 157M426 171L405 146M431 185L454 163"/><path d="M382.85 298.4Q481 235 467 192M467 206L446 181M472 220L495 198"/><path d="M342.7 299.2Q408 239 394 196M394 210L373 185M399 224L422 202"/><path d="M319.05 291.6Q365 201 351 158M351 172L330 147M356 186L379 164"/><path d="M292.65 286Q317 173 303 130M303 144L282 119M308 158L331 136"/><path d="M268.45 283Q273 158 259 115M259 129L238 104M264 143L287 121"/><path d="M240.95 286.2Q223 174 209 131M209 145L188 120M214 159L237 137"/><path d="M215.64999999999998 290.6Q177 196 163 153M163 167L142 142M168 181L191 159"/><path d="M195.85 298.6Q141 236 127 193M127 207L106 182M132 221L155 199"/><path d="M170 303.8Q94 262 80 219M80 233L59 208M85 247L108 225"/><path d="M225.55 302.8Q195 257 181 214M181 228L160 203M186 242L209 220"/><path d="M248.1 297Q236 228 222 185M222 199L201 174M227 213L250 191"/><path d="M272.85 295.4Q281 220 267 177M267 191L246 166M272 205L295 183"/><path d="M294.85 301.8Q321 252 307 209M307 223L286 198M312 237L335 215"/><path d="M316.3 305.6Q360 271 346 228M346 242L325 217M351 256L374 234"/><path d="M346 308.2Q414 284 400 241M400 255L379 230M405 269L428 247"/><path d="M370.75 311.8Q459 302 445 259M445 273L424 248M450 287L473 265"/><path d="M206.3 310.2Q160 294 146 251M146 265L125 240M151 279L174 257"/><path d="M233.8 313Q210 308 196 265M196 279L175 254M201 293L224 271"/><path d="M260.2 309.2Q258 289 244 246M244 260L223 235M249 274L272 252"/><path d="M280.55 314.4Q295 315 281 272M281 286L260 261M286 300L309 278"/><path d="M304.75 316.4Q339 325 325 282M325 296L304 271M330 310L353 288"/><path d="M183.2 312.6Q118 306 104 263M104 277L83 252M109 291L132 269"/><path d="M329.5 315Q384 318 370 275M370 289L349 264M375 303L398 281"/><path d="M251.95 320.6Q243 346 229 303M229 317L208 292M234 331L257 309"/></g>
+            </g>
+            <g fill="none" stroke="#8b9c88" stroke-width="1.3" opacity=".65"><path d="M251 486Q279 436 270 377T235 300M284 480Q272 419 285 363M291 346Q326 309 357 296M265 354L243 314M273 435L280 398M264 463L270 440M261 320L234 273M292 290L307 240"/><path d="M268 400Q255 385 264 373Q280 383 268 400Z"/></g>
+            <g transform="translate(81 143) rotate(-50) scale(0.378)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(119 106) rotate(-13) scale(0.506)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(168 83) rotate(24) scale(0.653)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(200 76) rotate(-39) scale(0.817)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(253 51) rotate(-2) scale(0.659)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(307 72) rotate(35) scale(0.427)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(337 103) rotate(-28) scale(0.564)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(388 129) rotate(9) scale(0.720)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(433 149) rotate(46) scale(0.589)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(460 188) rotate(-17) scale(0.744)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(394 196) rotate(20) scale(0.476)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(358 162) rotate(-43) scale(0.622)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(296 122) rotate(-6) scale(0.518)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(259 111) rotate(31) scale(0.665)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(216 131) rotate(-32) scale(0.830)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(156 157) rotate(5) scale(0.525)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(127 185) rotate(42) scale(0.448)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(87 215) rotate(-21) scale(0.586)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(174 214) rotate(16) scale(0.741)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(222 189) rotate(-47) scale(0.915)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(274 169) rotate(-10) scale(0.378)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(300 205) rotate(27) scale(0.506)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(346 228) rotate(-36) scale(0.653)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(407 245) rotate(1) scale(0.817)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(438 251) rotate(38) scale(0.659)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(146 247) rotate(-25) scale(0.427)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(203 265) rotate(12) scale(0.564)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(237 250) rotate(49) scale(0.720)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(281 264) rotate(-14) scale(0.589)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(332 278) rotate(23) scale(0.744)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(97 263) rotate(-40) scale(0.476)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(370 279) rotate(-3) scale(0.622)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
+<g transform="translate(236 295) rotate(34) scale(0.518)"><use href="#cosante-leaf" transform="translate(-17 9) rotate(-65)"/><use href="#cosante-leaf" transform="translate(12 -8) rotate(42)"/><use href="#cosante-leaf" transform="translate(22 16) rotate(110)"/><use href="#cosante-bloom"/><use href="#cosante-bloom" transform="translate(-24 -17) scale(.5) rotate(30)"/><use href="#cosante-bloom" transform="translate(25 16) scale(.4)"/><ellipse cx="22" cy="-19" rx="3" ry="5" fill="#e5d9bd"/></g>
 
+        </g>
+        <g fill="none" stroke="#0c2424" stroke-linecap="round" opacity=".8">
+            <path d="M250 477Q263 449 261 422M279 489Q290 468 284 447M262 405L259 369M283 426Q280 396 289 379M251 355L239 328M240 310L221 284" stroke-width="2"/>
+            <path d="M255 474L259 455M269 481L270 465M279 456L277 442M268 414L269 402M277 384L279 373M259 351L252 337M246 318L237 304M292 345L310 326M304 337L314 330" stroke-width=".8"/>
+            <path d="M275 453C259 442 265 426 273 429C283 433 285 448 275 453ZM271 445Q267 435 273 435" stroke-width="1.2"/>
+        </g>
+        <g class="cosante-petals"><g transform="translate(88 151)"><g class="cosante-petal" style="--fall:359px;--drift:-15px;--duration:13s;--delay:-0.00s"><path d="M0 0C-7-8 5-14 7-7C11-4 7 3 0 0Z" fill="#d8caa7"/></g></g>
+
+
+<g transform="translate(307 209)"><g class="cosante-petal" style="--fall:301px;--drift:51px;--duration:16s;--delay:-5.19s"><path d="M0 0C-7-8 5-14 7-7C11-4 7 3 0 0Z" fill="#d8caa7"/></g></g>
+
+
+<g transform="translate(467 192)"><g class="cosante-petal" style="--fall:318px;--drift:-27px;--duration:13s;--delay:-10.38s"><path d="M0 0C-7-8 5-14 7-7C11-4 7 3 0 0Z" fill="#d8caa7"/></g></g>
+
+
+<g transform="translate(104 263)"><g class="cosante-petal" style="--fall:247px;--drift:63px;--duration:16s;--delay:-15.57s"><path d="M0 0C-7-8 5-14 7-7C11-4 7 3 0 0Z" fill="#d8caa7"/></g></g>
+
+
+<g transform="translate(181 214)"><g class="cosante-petal" style="--fall:296px;--drift:-39px;--duration:13s;--delay:-20.76s"><path d="M0 0C-7-8 5-14 7-7C11-4 7 3 0 0Z" fill="#d8caa7"/></g></g>
+
+
+<g transform="translate(344 103)"><g class="cosante-petal" style="--fall:407px;--drift:15px;--duration:16s;--delay:-25.95s"><path d="M0 0C-7-8 5-14 7-7C11-4 7 3 0 0Z" fill="#d8caa7"/></g></g>
+
+
+<g transform="translate(244 246)"><g class="cosante-petal" style="--fall:264px;--drift:-51px;--duration:13s;--delay:-31.14s"><path d="M0 0C-7-8 5-14 7-7C11-4 7 3 0 0Z" fill="#d8caa7"/></g></g>
+
+
+<g transform="translate(163 153)"><g class="cosante-petal" style="--fall:357px;--drift:27px;--duration:16s;--delay:-36.33s"><path d="M0 0C-7-8 5-14 7-7C11-4 7 3 0 0Z" fill="#d8caa7"/></g></g>
+</g>
+    </svg>
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
 <section class="player-section" id="playerSection">
@@ -60,17 +143,19 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Cosante</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Poema completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
+</section>
+
 </section>
 
 <div class="extra-controls">
@@ -92,12 +177,12 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/cosante.webp" alt="Cosante">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
@@ -105,15 +190,13 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Poema lírico de Diego Hurtado de Mendoza, diplomático, humanista e historiador del siglo XVI, compuesto en la antigua forma del cosante o cossante —de origen galaico-medieval, con paralelismo y estribillo—, que el autor revive dentro del gusto renacentista por recuperar formas poéticas tradicionales. Ejemplo de la versatilidad de un autor mejor conocido por su Guerra de Granada.</p>
+        <p>El árbol del amor reúne la imagen vegetal, la voz lírica y el movimiento de la canción. La repetición no detiene el poema: sus versos se responden y se enlazan, mientras el estribillo devuelve la escucha a un mismo centro. El paralelismo y el encadenamiento permiten percibir la composición como una forma destinada a la voz y vinculada a la danza.</p>
+        <p>Este cosante se atribuye a Diego Hurtado de Mendoza, padre del marqués de Santillana. Pertenece a la lírica medieval castellana y no debe confundirse con la obra del diplomático e historiador homónimo del siglo XVI.</p>
+        <p class="source-note">Atribución y forma poética: Eugenio Asensio, <a href="https://www.cervantesvirtual.com/research/poetica-y-realidad-en-el-cancionero-peninsular-de-la-edad-media/e5bdb764-a030-11e1-b1fb-00163ebf5e63.pdf" target="_blank" rel="noopener noreferrer"><em>Poética y realidad en el Cancionero peninsular de la Edad Media</em></a>, estudio del cosaute y del árbol del amor.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Primer verso paralelístico y estribillo</p>
-        <p class="chapter" data-time="0">Segundo verso paralelístico y estribillo</p>
-        <p class="chapter" data-time="0">Variación y eco de la imagen central</p>
-        <p class="chapter" data-time="0">Cierre del paralelismo</p>
-        <p class="chapter" data-time="0">Estribillo final</p>
+        <h1>LECTURA</h1>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Cosante · Poema completo</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>
