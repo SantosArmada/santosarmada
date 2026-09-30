@@ -534,6 +534,77 @@ body {
 .player { transition: opacity 0.3s, filter 0.3s; }
 
 @media (max-width: 900px) {
-    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
+    .player-section { height: 459px; margin: 1.5rem auto; }
+    .player { top: 0; margin-top: 0; transform: scale(.62); transform-origin: top center; }
     .book-header { padding: 2rem; }
 }
+
+/* The poster's violet dusk, weathered masonry, and ember red. */
+.book-header { background: radial-gradient(ellipse at 88% 85%, #8d6c73 0, transparent 48%), #514451; border-bottom-color: #b99b72; }
+.book-header-text { flex: 1 1 420px; min-width: 0; }
+.book-header-text h1 { max-width: 720px; color: #f0ddba; line-height: 1.15; }
+.book-header-text .kicker, .book-header-text .subtitle { color: #e1c9b0; }
+.book-header-text .subtitle { margin-top: 1rem; }
+.alpujarra-scene { width: 330px; max-width: 100%; height: auto; margin-left: auto; flex-shrink: 0; border: 1px solid #a48c7159; border-radius: 5px; box-shadow: 0 16px 35px #16172066; overflow: hidden; }
+.siege-cloud { animation: siege-cloud 24s ease-in-out infinite alternate; }
+.siege-smoke { animation: siege-smoke 10s ease-in-out infinite; transform-origin: 150px 170px; }
+.siege-fire { animation: siege-fire 2.3s ease-in-out infinite; transform-origin: 150px 177px; }
+.siege-banner { animation: siege-banner 3.5s ease-in-out infinite; transform-origin: 161px 60px; }
+.siege-embers--near { animation-delay: -3.5s !important; }
+.flame-tongue, .flame-heart { transform-origin: 0 0; animation: living-flame 2.9s ease-in-out infinite; animation-delay: var(--fire-delay, 0s); }
+.flame-tongue--two { animation-name: living-flame-cross; animation-duration: 2.1s; opacity: .7; }
+.flame-tongue--three { animation-duration: 3.7s; opacity: .65; }
+.flame-heart { animation-duration: 1.8s; }
+.fire-bloom { animation: fire-bloom 4.1s ease-in-out infinite; animation-delay: var(--fire-delay, 0s); }
+@keyframes living-flame { 0%,100% { transform: skewX(-5deg) scale(.92, .88); } 23% { transform: skewX(4deg) scale(.8, 1.08); } 57% { transform: skewX(-8deg) scale(1.03, .95); } 79% { transform: skewX(2deg) scale(.88, 1.14); } }
+@keyframes living-flame-cross { 0%,100% { transform: skewX(7deg) scale(.9, 1.1); } 38% { transform: skewX(-6deg) scale(1.1, .8); } 71% { transform: skewX(10deg) scale(.8, 1); } }
+@keyframes fire-bloom { 0%,100% { opacity: .6; } 37% { opacity: .95; } 65% { opacity: .75; } }
+.war-smoke { animation: war-smoke 12s ease-in-out infinite alternate; transform-origin: 150px 170px; }
+.war-ash { animation: siege-embers 5.8s ease-out infinite; }
+.war-impact { --impact-delay: -2s; }
+.war-impact--west { --impact-delay: -8s; }
+.war-impact-glow, .war-impact-burst, .war-impact-dust, .war-fragments { opacity: 0; animation: war-impact 14s ease-out infinite; animation-delay: var(--impact-delay); }
+.war-impact-dust { animation-name: war-dust; }
+.war-fragments { animation-name: war-fragments; }
+@keyframes war-fire { 0%,100% { opacity: .8; transform: scaleY(.88); } 40% { opacity: 1; transform: scaleY(1.07); } 65% { opacity: .85; transform: scaleY(.95); } }
+@keyframes war-smoke { from { transform: skewX(-3deg); opacity: .65; } to { transform: skewX(7deg) translateY(-5px); opacity: .9; } }
+@keyframes war-impact { 0%,12%,27%,100% { opacity: 0; transform: scale(.4); } 17% { opacity: .95; transform: scale(1); } 23% { opacity: .3; transform: scale(1.15); } }
+@keyframes war-dust { 0%,16%,66%,100% { opacity: 0; } 23% { opacity: .8; transform: translate(0,0) scale(.8); } 65% { opacity: 0; transform: translate(-24px,-32px) scale(2); } }
+@keyframes war-fragments { 0%,15%,36%,100% { opacity: 0; } 19% { opacity: 1; transform: scale(.5); } 28% { opacity: 1; transform: translate(0,-14px) scale(2.5) rotate(20deg); } 35% { opacity: 0; transform: translate(0,18px) scale(3) rotate(40deg); } }
+.breach-light, .breach-flame, .breach-dust, .breach-scar, .breach-debris { opacity: 0; animation-duration: 16s; animation-iteration-count: infinite; transform-origin: 106px 174px; }
+.breach-light { animation-name: breach-light; }
+.breach-flame { animation-name: breach-flame; }
+.breach-dust { animation-name: breach-dust; }
+.breach-scar { animation-name: breach-scar; }
+.breach-debris { animation-name: breach-debris; }
+@keyframes breach-light { 0%,18%,55%,100% { opacity: 0; } 23% { opacity: 1; } 35% { opacity: .6; } }
+@keyframes breach-flame { 0%,18%,46%,100% { opacity: 0; transform: scale(.3); } 24% { opacity: 1; transform: scale(1.2); } 34% { opacity: .7; transform: scale(.85); } }
+@keyframes breach-dust { 0%,22%,85%,100% { opacity: 0; transform: translate(0,0) scale(.5); } 30% { opacity: .8; transform: translate(-2px,-5px) scale(1); } 55% { opacity: .45; transform: translate(-15px,-27px) scale(1.45); } 84% { opacity: 0; transform: translate(-32px,-45px) scale(1.8); } }
+@keyframes breach-scar { 0%,20%,100% { opacity: 0; } 25%,75% { opacity: 1; } 95% { opacity: 0; } }
+@keyframes breach-debris { 0%,21%,43%,100% { opacity: 0; transform: translate(0,0) rotate(0deg); } 24% { opacity: 1; } 32% { opacity: 1; transform: translate(var(--dx),var(--dy)) rotate(var(--spin)); } 42% { opacity: 0; transform: translate(var(--dx),24px) rotate(var(--spin)); } }
+@keyframes siege-cloud { from { transform: translateX(-12px); } to { transform: translateX(10px); } }
+@keyframes siege-smoke { 0%,100% { opacity: .12; transform: skewX(0deg) translateY(2px); } 50% { opacity: .3; transform: skewX(7deg) translateY(-8px); } }
+@keyframes siege-fire { 0%,100% { opacity: .6; transform: scaleY(.8); } 33% { opacity: 1; transform: scaleY(1.1); } 70% { opacity: .8; transform: scaleY(.92); } }
+@keyframes siege-banner { 0%,100% { transform: skewY(-4deg) scaleX(.9); } 50% { transform: skewY(5deg) scaleX(1); } }
+.siege-glow { animation: siege-glow 6s ease-in-out infinite; }
+.siege-embers { animation: siege-embers 7s ease-out infinite; }
+@keyframes siege-glow { 0%,100% { opacity: .5; } 50% { opacity: 1; } }
+@keyframes siege-embers { 0% { opacity: 0; transform: translate(0, 8px); } 25% { opacity: .85; } 100% { opacity: 0; transform: translate(-12px, -25px); } }
+@media (prefers-reduced-motion: reduce) { .alpujarra-scene * { animation: none !important; } }
+.card { background: #29242b; border: 1px solid #79616a; }
+.panel .source-note { margin: 1.25rem 0; padding-top: 1rem; border-top: 1px solid #79616a; font-size: .8rem; line-height: 1.7; }
+.source-note a { color: #e1bf8d; text-underline-offset: 3px; }
+.player canvas { touch-action: none; }
+[role="button"]:focus-visible, button:focus-visible { outline: 3px solid #e1bf8d; outline-offset: 4px; }
+@media (max-width: 540px) {
+    .book-header { padding: 1.6rem 1.25rem; gap: 1rem; }
+    .book-header-text h1 { font-size: 2.4rem; }
+    .alpujarra-scene { width: 280px; }
+    .player-section { height: 370px; }
+    .player { transform: scale(.5); }
+    .card { width: calc(100% - 1.5rem); padding: 1.5rem 1rem; gap: 2rem; }
+    .book { flex: 0 1 250px; margin: 0 auto; }
+    .panel { flex-basis: 100%; }
+    .progress-scroll { right: 6px; }
+}
+@media (max-width: 360px) { .player-section { height: 311px; } .player { transform: scale(.42); } }
