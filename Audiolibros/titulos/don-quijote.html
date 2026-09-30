@@ -43,6 +43,27 @@
         <h1>Don Quijote</h1>
         <p class="subtitle">Miguel de Cervantes — 1605 y 1615</p>
     </div>
+    <svg class="quijote-mill" viewBox="0 0 280 245" aria-hidden="true">
+      <defs>
+        <linearGradient id="mill-plaster"><stop stop-color="#a38b61"/><stop offset=".32" stop-color="#efdfb5"/><stop offset=".7" stop-color="#ddc797"/><stop offset="1" stop-color="#99815b"/></linearGradient>
+        <pattern id="mill-lattice" width="7" height="8" patternUnits="userSpaceOnUse"><path d="M0 0h7v8H0Z" fill="#d8be8a" fill-opacity=".45" stroke="#604f37" stroke-width=".65"/></pattern>
+        <g id="mill-sail"><path d="M-2 0V-91" stroke="#463f32" stroke-width="3"/><path d="M-2-35h17v-56H-2Z" fill="url(#mill-lattice)" stroke="#604f37" stroke-width="1.2"/><path d="m0-37 13-51" stroke="#80613b" stroke-width=".8"/></g>
+      </defs>
+      <circle cx="164" cy="91" r="67" fill="#cb732d" opacity=".85"/>
+      <path d="M13 204q43-22 83-10t83-5q52-16 88 12v23H13Z" fill="#a38a60" opacity=".3"/>
+      <path d="M86 209q13-62 16-107h66q4 56 17 107-49 15-99 0Z" fill="url(#mill-plaster)" stroke="#8d7958"/>
+      <path d="m96 107 39-52 39 52Z" fill="#293e50" stroke="#1e2f41"/>
+      <g fill="none" stroke="#71818a" stroke-width=".65"><path d="m135 61-24 43m24-43-8 43m8-43 9 43m-9-43 25 43"/></g>
+      <path d="M126 213v-33q10-16 19 0v34Z" fill="#4a4034" stroke="#89724b" stroke-width="2"/>
+      <path d="M130 180v31m5-35v37m5-34v33m-13-22h17m-17 13h17" stroke="#9f8457" stroke-width=".8"/>
+      <path d="M128 141v-17q7-10 14 0v17Z" fill="#354047" stroke="#b19b70" stroke-width="2"/>
+      <g fill="none" stroke="#9b855f" stroke-width=".8" opacity=".7"><path d="m105 147 10 1-2 6 8 3m34-9 6 4-3 8m-58 25h13m-10 3h7m45-16 11 1m-4 4h7m-73 24 7-2 6 3m50-2 9 1"/></g>
+      <path d="M102 109q30 8 65 0" fill="none" stroke="#f4e5c0" stroke-width="2"/>
+      <g transform="translate(135 105)"><g class="quijote-sails"><use href="#mill-sail"/><use href="#mill-sail" transform="rotate(90)"/><use href="#mill-sail" transform="rotate(180)"/><use href="#mill-sail" transform="rotate(270)"/></g><circle r="7" fill="#785d38" stroke="#d8b778" stroke-width="2"/><circle r="2" fill="#303536"/></g>
+      <path d="M134 216q-20 5-11 9t-20 12" fill="none" stroke="#c2a476" stroke-width="3"/>
+      <g stroke="#737149" stroke-width="1" fill="none"><path d="m51 218-4-13m4 9 6-8m150 14 4-14m-2 8 6-5m25 10-2-9"/></g>
+      <g fill="#8c7955"><path d="m67 222 7-5 12 4-1 3Zm110 4 10-6 9 5Z"/></g>
+    </svg>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
@@ -60,15 +81,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Don Quijote</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Primera parte · 1605</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Parte anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Parte siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,12 +113,12 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/don-quijote.webp" alt="Don Quijote">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0">Escucha ahora</div>
         </div>
     </div>
 
@@ -108,12 +129,10 @@
         <p>La obra maestra de Miguel de Cervantes, publicada en dos partes —1605 y 1615—, narra las salidas de Alonso Quijano, un hidalgo manchego que enloquece de tanto leer libros de caballerías y se lanza al camino como el caballero andante Don Quijote, acompañado de su escudero Sancho Panza. La segunda parte, escrita tras la aparición de un Quijote apócrifo, alcanza una modernidad asombrosa: los propios personajes saben que ya son famosos por sus aventuras impresas. Fundacional para la novela moderna, es la obra más traducida y editada de la lengua española después de la Biblia.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Alonso Quijano enloquece y se lanza como caballero andante (1605)</p>
-        <p class="chapter" data-time="0">Sancho Panza, los molinos de viento y las primeras aventuras</p>
-        <p class="chapter" data-time="0">El regreso a casa y la quema de los libros de caballerías</p>
-        <p class="chapter" data-time="0">La segunda salida: el Quijote apócrifo y los Duques (1615)</p>
-        <p class="chapter" data-time="0">El gobierno de Sancho, la derrota final y la muerte de Alonso Quijano</p>
+        <p class="source-note"><a href="https://cvc.cervantes.es/literatura/clasicos/quijote/indice.htm" target="_blank" rel="noopener noreferrer">Texto e índice · Centro Virtual Cervantes</a>. Primera parte: 1605; segunda parte: 1615. La navegación por capítulos se incorporará con las grabaciones.</p>
+        <h1>LECTURA POR PARTES</h1>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Primera parte · 1605</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Segunda parte · 1615</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>

@@ -521,6 +521,33 @@ body {
 .player { transition: opacity 0.3s, filter 0.3s; }
 
 @media (max-width: 900px) {
-    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
+    .player-section { height: 459px; margin: 1.5rem auto; }
+    .player { top: 0; margin-top: 0; transform: scale(.62); transform-origin: top center; }
     .book-header { padding: 2rem; }
 }
+.book-header { background: radial-gradient(ellipse at 85% 45%, #f2dfb4, transparent 60%), #dec597; border-bottom-color: #cd792e; }
+.book-header-text { flex: 1 1 400px; min-width: 0; }
+.book-header-text h1 { color: #24406b; line-height: 1.15; }
+.book-header-text .kicker { color: #82451e; }
+.book-header-text .subtitle { color: #564b3a; margin-top: 1rem; }
+.quijote-mill { width: 285px; max-width: 100%; height: auto; margin-left: auto; }
+.quijote-sails { transform-origin: 0 0; animation: quijote-wind 32s linear infinite; }
+@keyframes quijote-wind { from { transform: rotate(20deg); } to { transform: rotate(380deg); } }
+@media (prefers-reduced-motion: reduce) { .quijote-sails { animation: none; transform: rotate(20deg); } }
+.card { background: #222c37; border: 1px solid #a0865c; }
+.panel .source-note { border-top: 1px solid #a0865c; padding-top: 1rem; font-size: .8rem; line-height: 1.7; }
+.source-note a { color: #edc48a; text-underline-offset: 3px; }
+.player canvas { touch-action: none; }
+[role="button"]:focus-visible, button:focus-visible { outline: 3px solid #d1a565; outline-offset: 4px; }
+@media (max-width: 540px) {
+    .book-header { padding: 1.6rem 1.25rem; gap: 1rem; }
+    .book-header-text h1 { font-size: 2.4rem; }
+    .quijote-mill { width: 220px; }
+    .player-section { height: 370px; }
+    .player { transform: scale(.5); }
+    .card { width: calc(100% - 1.5rem); padding: 1.5rem 1rem; gap: 2rem; }
+    .book { flex: 0 1 250px; margin: 0 auto; }
+    .panel { flex-basis: 100%; }
+    .progress-scroll { right: 6px; }
+}
+@media (max-width: 360px) { .player-section { height: 311px; } .player { transform: scale(.42); } }
