@@ -41,8 +41,32 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>La gloria de don Ramiro</h1>
-        <p class="subtitle">Enrique Larreta</p>
+        <p class="subtitle">Enrique Larreta · 1908</p>
     </div>
+    <svg class="ramiro-emblem" viewBox="0 0 250 230" aria-hidden="true">
+      <defs>
+        <linearGradient id="ramiro-steel"><stop stop-color="#44484b"/><stop offset=".46" stop-color="#e7e3cb"/><stop offset=".5" stop-color="#8d9391"/><stop offset="1" stop-color="#30383c"/></linearGradient>
+        <linearGradient id="ramiro-gold"><stop stop-color="#6e481f"/><stop offset=".5" stop-color="#d3b564"/><stop offset="1" stop-color="#765025"/></linearGradient>
+        <linearGradient id="ramiro-cloth"><stop stop-color="#551d24"/><stop offset=".5" stop-color="#a23932"/><stop offset="1" stop-color="#461b24"/></linearGradient>
+      </defs>
+      <g fill="none" stroke="#8c7647" opacity=".3"><circle cx="127" cy="112" r="88"/><circle cx="127" cy="112" r="83"/><path d="M24 112h24m158 0h24M127 11v22m0 162v23"/></g>
+      <path class="ramiro-drape" d="M97 66q29-13 52 1l28 116-23-6-11 18-19-12-17 9-14-13-18 4Z" fill="url(#ramiro-cloth)" stroke="#67312b"/>
+      <g fill="none" stroke="#d4915b" stroke-width=".7" opacity=".55"><path d="m101 75-13 99 10-5 11 13m35-107 20 94-12-3-9 18M110 79l-3 86m34-84 7 78"/></g>
+      <path d="M121 81h12l-2 112-4 21-5-21Z" fill="url(#ramiro-steel)" stroke="#44433d" stroke-width=".7"/>
+      <path d="M127 89v114" stroke="#f4eacb" stroke-width=".8"/>
+      <g fill="url(#ramiro-gold)" stroke="#624d2a" stroke-width=".8">
+        <path d="M95 77q32 10 64 0l6 5-3 5q-35-7-70 0l-3-5Z"/>
+        <path d="M121 43h12v33h-12Z"/>
+        <path d="M119 32q8-10 16 0l-2 10h-12Z"/>
+        <ellipse cx="127" cy="82" rx="8" ry="6"/>
+      </g>
+      <g stroke="#3d3024" stroke-width="1.7"><path d="m122 46 10 4m-10 2 10 4m-10 2 10 4m-10 2 10 4m-10 2 10 4"/></g>
+      <g fill="none" stroke="#e6cd8a" stroke-width=".6"><path d="M95 81q14-3 23 0m18 0q13-3 23 0m-37-48 5-4 5 4-5 4Z"/><circle cx="127" cy="82" r="3"/></g>
+      <path d="M153 72q29 0 30 27t-23 42" fill="none" stroke="#b09253" stroke-width="1" stroke-dasharray="1.5 2"/>
+      <g fill="#6c452a" stroke="#bd9c5c" stroke-width=".6"><circle cx="179" cy="114" r="2"/><circle cx="175" cy="124" r="2"/><circle cx="168" cy="134" r="2"/><path d="M157 140h5v6h5v4h-5v10h-5v-10h-5v-4h5Z"/></g>
+      <path class="ramiro-glint" d="m127 115 1.5 7 5 1-5 1-1.5 7-1.5-7-5-1 5-1Z" fill="#fff5cc"/>
+      <path d="M71 216q56 8 113 0" fill="none" stroke="#8c7647" opacity=".3"/>
+    </svg>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
@@ -60,15 +84,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">La gloria de don Ramiro</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Primera parte</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Parte anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Parte siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,12 +116,12 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/la-gloria-de-don-ramiro.webp" alt="La gloria de don Ramiro">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0">Escucha ahora</div>
         </div>
     </div>
 
@@ -105,15 +129,15 @@
       <div class="panel-body">
         <div class="break"></div>
         <h1>SINOPSIS</h1>
-        <p>Novela histórica del argentino Enrique Larreta, publicada en 1908 pero ambientada en la Ávila del reinado de Felipe II, donde el joven hidalgo Ramiro de Alcocer se debate entre el amor terrenal, la fe católica y la llamada de las armas, hasta enrolarse en la expedición a Berbería que terminaría en el desastre de los Gelves. Con su prosa arcaizante y suntuosa, Larreta reconstruye el fanatismo religioso y la decadencia imperial española del Siglo de Oro desde la distancia de un modernista americano.</p>
+        <p>Publicada en 1908, esta novela histórica de Enrique Larreta recrea la España de Felipe II desde la sensibilidad del modernismo hispanoamericano. En Ávila, Ramiro crece entre las exigencias del linaje, la devoción religiosa y el deseo de gloria. Su búsqueda enfrenta la ambición, el amor y la conciencia en una prosa de intensa elaboración visual y sonora.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El joven hidalgo de Ávila</p>
-        <p class="chapter" data-time="0">Entre el amor terrenal y la fe</p>
-        <p class="chapter" data-time="0">La llamada de las armas</p>
-        <p class="chapter" data-time="0">La expedición a Berbería</p>
-        <p class="chapter" data-time="0">El desastre de los Gelves</p>
+        <p class="source-note">Texto de consulta: <a href="https://www.gutenberg.org/files/29920/29920-h/29920-h.htm" target="_blank" rel="noopener noreferrer">edición de 1911, corregida por el autor</a>. Primera publicación: 1908. Los puntos de audio se incorporarán con la grabación.</p>
+        <h1>LECTURA POR PARTES</h1>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Primera parte</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Segunda parte</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Tercera parte</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Epílogo</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>

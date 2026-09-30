@@ -550,6 +550,33 @@ body {
 .player { transition: opacity 0.3s, filter 0.3s; }
 
 @media (max-width: 900px) {
-    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
+    .player-section { height: 459px; margin: 1.5rem auto; }
+    .player { top: 0; margin-top: 0; transform: scale(.62); transform-origin: top center; }
     .book-header { padding: 2rem; }
 }
+.book-header { background: radial-gradient(ellipse at 85% 50%, #f2dfaa, transparent 55%), #dfc889; border-bottom-color: #8f2027; }
+.book-header-text { flex: 1 1 400px; min-width: 0; }
+.book-header-text h1 { color: #242a2d; line-height: 1.15; }
+.book-header-text .kicker { color: #81272a; }
+.book-header-text .subtitle { color: #57432f; margin-top: 1rem; }
+.ramiro-emblem { width: 250px; max-width: 100%; height: auto; margin-left: auto; }
+.ramiro-glint { animation: ramiro-glint 9s ease-in-out infinite; }
+@keyframes ramiro-glint { 0%,35%,100% { opacity: 0; } 50% { opacity: .85; } 65% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .ramiro-glint { animation: none; opacity: .4; } }
+.card { border: 1px solid #92733f; background: #232425; }
+.panel .source-note { border-top: 1px solid #92733f; padding-top: 1rem; font-size: .8rem; line-height: 1.7; }
+.source-note a { color: #e4c785; text-underline-offset: 3px; }
+.player canvas { touch-action: none; }
+[role="button"]:focus-visible, button:focus-visible { outline: 3px solid #c99c48; outline-offset: 4px; }
+@media (max-width: 540px) {
+    .book-header { padding: 1.6rem 1.25rem; gap: 1rem; }
+    .book-header-text h1 { font-size: 2.4rem; }
+    .ramiro-emblem { width: 190px; }
+    .player-section { height: 370px; }
+    .player { transform: scale(.5); }
+    .card { width: calc(100% - 1.5rem); padding: 1.5rem 1rem; gap: 2rem; }
+    .book { flex: 0 1 250px; margin: 0 auto; }
+    .panel { flex-basis: 100%; }
+    .progress-scroll { right: 6px; }
+}
+@media (max-width: 360px) { .player-section { height: 311px; } .player { transform: scale(.42); } }
