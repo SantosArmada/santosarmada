@@ -41,8 +41,35 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Tres cosas me tienen preso</h1>
-        <p class="subtitle">Baltasar del Alcázar</p>
+        <p class="subtitle">Baltasar del Alcázar · Poesía del Siglo de Oro</p>
     </div>
+    <svg class="alcazar-still-life" viewBox="0 0 260 220" aria-hidden="true">
+      <defs>
+        <linearGradient id="alcazar-pot"><stop stop-color="#ae8f60"/><stop offset=".35" stop-color="#f1dfb3"/><stop offset=".7" stop-color="#d8bd89"/><stop offset="1" stop-color="#8e7049"/></linearGradient>
+        <linearGradient id="alcazar-aubergine"><stop stop-color="#201e30"/><stop offset=".45" stop-color="#664454"/><stop offset=".7" stop-color="#33273c"/><stop offset="1" stop-color="#1c2630"/></linearGradient>
+        <radialGradient id="alcazar-plate"><stop stop-color="#ecdbac"/><stop offset=".8" stop-color="#b59864"/><stop offset="1" stop-color="#e3c994"/></radialGradient>
+      </defs>
+      <ellipse cx="136" cy="192" rx="106" ry="11" fill="#182d28" opacity=".25"/>
+      <path d="M157 90q47-14 48 21t-39 27" fill="none" stroke="#ac8f60" stroke-width="12"/>
+      <path d="M158 90q41-9 42 20t-33 23" fill="none" stroke="#e1c99b" stroke-width="5"/>
+      <path d="M115 66q16 6 43 0l-4 22q-1 10 9 28 20 39-4 55-27 17-55-2-19-18 1-54 9-16 9-29l-16-18Z" fill="url(#alcazar-pot)" stroke="#89764e" stroke-width="1.2"/>
+      <ellipse cx="134" cy="67" rx="24" ry="7" fill="#685a3d" stroke="#e4cfa0" stroke-width="3"/>
+      <path d="M114 78q19 7 40 0M102 147q30 15 65 0M108 159q24 10 52 0" fill="none" stroke="#526c70" stroke-width="2"/>
+      <g fill="none" stroke="#526c70" stroke-width="1.3"><path d="M134 145v-43m0 28q-21-2-17-15 12 1 17 15m0-9q18-3 15-14-12 1-15 14m0 19q19 1 21-10-14-3-21 10"/><path d="m134 106-5-7 5-5 5 5Z"/></g>
+      <ellipse cx="99" cy="179" rx="70" ry="18" fill="url(#alcazar-plate)" stroke="#dec592" stroke-width="2"/>
+      <ellipse cx="99" cy="176" rx="61" ry="12" fill="none" stroke="#526c70" stroke-width="1.5"/>
+      <path d="M49 170q-5-18 18-26 17-6 32 1 24 10 14 24-10 14-40 12-18-2-24-11Z" fill="url(#alcazar-aubergine)" stroke="#242b2c"/>
+      <path d="m97 145 10-5 6 3 9-4-3 6 8 4-12 3-4 7-5-9-9 1Z" fill="#5c7042" stroke="#3e5230"/>
+      <path d="m114 145 7-10" stroke="#71854b" stroke-width="3"/>
+      <path d="M58 159q16-12 33-7" fill="none" stroke="#aa8494" stroke-width="2" opacity=".5"/>
+      <path d="m128 168 33-17 21 17-38 7Z" fill="#f0dca0" stroke="#a7864d"/>
+      <path d="m144 175 38-7v14l-38 8Z" fill="#cda963" stroke="#a7864d"/>
+      <path d="m128 168 16 7v15l-16-9Z" fill="#e3c483"/>
+      <g fill="#ad8e52" opacity=".7"><ellipse cx="151" cy="167" rx="3" ry="1.6"/><ellipse cx="165" cy="164" rx="2" ry="1.3"/><circle cx="155" cy="180" r="2"/><circle cx="174" cy="177" r="1.5"/></g>
+      <g class="alcazar-steam" fill="none" stroke="#eee0bb" stroke-width="1.4" stroke-linecap="round"><path d="M78 132q-9-9 0-17t0-18"/><path d="M92 128q-7-8 0-15t0-16"/></g>
+      <path d="M22 44q36-18 70-14" fill="none" stroke="#81915e" stroke-width="2"/>
+      <g fill="#71824d" stroke="#9ca670" stroke-width=".6"><path d="M36 39q-15-18-22-9 3 14 22 9Zm13-5q2-22 15-19 3 12-15 19Zm14-3q-5 21 11 20 10-12-11-20Zm16-1q5-17 18-12-1 11-18 12Z"/></g>
+    </svg>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
@@ -60,15 +87,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Tres cosas me tienen preso</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Poema completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,12 +119,12 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/tres-cosas-me-tienen-preso.webp" alt="Tres cosas me tienen preso">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0">Escucha ahora</div>
         </div>
     </div>
 
@@ -108,12 +135,9 @@
         <p>Epigrama del poeta sevillano Baltasar del Alcázar, maestro del ingenio ligero y epicúreo del Siglo de Oro, que confiesa sentirse cautivo de tres placeres: Inés, el jamón y las berenjenas con queso. Con el humor desenfadado y el gusto gastronómico característicos de su poesía, Alcázar convierte una lista de apetitos cotidianos en uno de los poemas más recordados y citados del costumbrismo humorístico español.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El amor por Inés</p>
-        <p class="chapter" data-time="0">El elogio del jamón</p>
-        <p class="chapter" data-time="0">Las berenjenas con queso</p>
-        <p class="chapter" data-time="0">El ingenio epicúreo sevillano</p>
-        <p class="chapter" data-time="0">El costumbrismo humorístico</p>
+        <p class="source-note">El poema reúne a Inés, el jamón y las berenjenas con queso. <a href="https://milan.cervantes.es/imagenes/selecci%C3%B3n%20poes%C3%ADa%20gastron%C3%B3mica.pdf" target="_blank" rel="noopener noreferrer">Selección de poesía gastronómica · Instituto Cervantes</a>.</p>
+        <h1>LECTURA</h1>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Tres cosas me tienen preso · Poema completo</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>

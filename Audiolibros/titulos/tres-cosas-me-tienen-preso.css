@@ -563,6 +563,33 @@ body {
 .player { transition: opacity 0.3s, filter 0.3s; }
 
 @media (max-width: 900px) {
-    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
+    .player-section { height: 459px; margin: 1.5rem auto; }
+    .player { top: 0; margin-top: 0; transform: scale(.62); transform-origin: top center; }
     .book-header { padding: 2rem; }
 }
+.book-header { background: radial-gradient(ellipse at 88% 35%, #667653, transparent 60%), #344b3e; border-bottom-color: #bda16b; }
+.book-header-text { flex: 1 1 400px; min-width: 0; }
+.book-header-text h1 { color: #f1e2bd; line-height: 1.15; }
+.book-header-text .kicker, .book-header-text .subtitle { color: #dfcda1; }
+.book-header-text .subtitle { margin-top: 1rem; }
+.alcazar-still-life { width: 270px; max-width: 100%; height: auto; margin-left: auto; }
+.alcazar-steam { animation: alcazar-steam 7s ease-in-out infinite; }
+@keyframes alcazar-steam { 0%,100% { opacity: .15; transform: translateY(3px); } 50% { opacity: .6; transform: translate(2px,-5px); } }
+@media (prefers-reduced-motion: reduce) { .alcazar-steam { animation: none; opacity: .3; } }
+.card { background: #232b24; border: 1px solid #8e845d; }
+.panel .source-note { border-top: 1px solid #8e845d; padding-top: 1rem; font-size: .8rem; line-height: 1.7; }
+.source-note a { color: #e4c785; text-underline-offset: 3px; }
+.player canvas { touch-action: none; }
+[role="button"]:focus-visible, button:focus-visible { outline: 3px solid #c99c48; outline-offset: 4px; }
+@media (max-width: 540px) {
+    .book-header { padding: 1.6rem 1.25rem; gap: 1rem; }
+    .book-header-text h1 { font-size: 2.4rem; }
+    .alcazar-still-life { width: 210px; }
+    .player-section { height: 370px; }
+    .player { transform: scale(.5); }
+    .card { width: calc(100% - 1.5rem); padding: 1.5rem 1rem; gap: 2rem; }
+    .book { flex: 0 1 250px; margin: 0 auto; }
+    .panel { flex-basis: 100%; }
+    .progress-scroll { right: 6px; }
+}
+@media (max-width: 360px) { .player-section { height: 311px; } .player { transform: scale(.42); } }
