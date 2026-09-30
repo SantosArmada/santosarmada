@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,8 +41,56 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Cuento X</h1>
-        <p class="subtitle">Juan de Timoneda — 1567</p>
+        <p class="subtitle">Juan de Timoneda · El Patrañuelo · Valencia, 1567</p>
     </div>
+    <svg class="patrana-scene" viewBox="0 0 260 235" aria-hidden="true">
+        <defs>
+            <linearGradient id="patrana-arch" x2="1" y2="1"><stop stop-color="#dbbd83"/><stop offset=".45" stop-color="#a08862"/><stop offset="1" stop-color="#5b5949"/></linearGradient>
+            <linearGradient id="patrana-wood"><stop stop-color="#412b23"/><stop offset=".5" stop-color="#845438"/><stop offset="1" stop-color="#382b24"/></linearGradient>
+            <radialGradient id="patrana-interior" cx=".67" cy=".7" r=".8"><stop stop-color="#b97734"/><stop offset=".48" stop-color="#51372a"/><stop offset="1" stop-color="#13292d"/></radialGradient>
+            <radialGradient id="patrana-candle-glow"><stop stop-color="#ffd48a" stop-opacity=".75"/><stop offset="1" stop-color="#ffd48a" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="195" cy="42" r="27" fill="#e8d5a2" opacity=".85"/>
+        <path d="M175 38Q195 28 229 35M185 48Q211 42 238 46" fill="none" stroke="#77989b" stroke-width="3" opacity=".35"/>
+        <!-- An illuminated window, with thick stone reveals and opened shutters. -->
+        <path d="M64 180V78C64 9 189 9 189 78V180Z" fill="url(#patrana-arch)" stroke="#302e29" stroke-width="2"/>
+        <path d="M79 175V80C79 28 173 28 173 80V175Z" fill="#292c27" stroke="#e0c38d" stroke-width="1"/>
+        <path d="M85 172V82C85 40 167 40 167 82V172Z" fill="url(#patrana-interior)"/>
+        <g fill="none" stroke="#5b5543" stroke-width="1.2">
+            <path d="M65 86H78M65 113H78M65 140H78M174 86H188M174 113H188M174 140H188M70 56L83 64M88 32L97 47M118 24L119 40M149 26L144 42M175 43L163 55"/>
+        </g>
+        <path d="M86 164L164 150V173H86Z" fill="#261f1b" opacity=".55"/>
+        <g class="patrana-candlelight">
+            <circle cx="144" cy="127" r="34" fill="url(#patrana-candle-glow)"/>
+            <path d="M140 142V120L147 119V142Z" fill="#ead3a0"/>
+            <path d="M138 143H150L153 147H135Z" fill="#ba945a"/>
+            <path class="patrana-flame" d="M144 120C136 117 140 109 145 104C143 111 152 114 144 120Z" fill="#ffcf6d"/>
+            <path d="M144 118Q141 116 144 112Q147 116 144 118Z" fill="#fff4cd"/>
+        </g>
+        <g stroke="#b18b54" stroke-width="1" stroke-linejoin="round">
+            <path d="M79 87L39 69V175L79 182Z" fill="url(#patrana-wood)"/>
+            <path d="M174 88L215 68V174L174 183Z" fill="url(#patrana-wood)"/>
+            <path d="M46 81L71 92V169L46 164ZM183 94L207 82V163L183 170Z" fill="none"/>
+        </g>
+        <g fill="none" stroke="#261f1c" stroke-width="1.3" opacity=".8">
+            <path d="M54 87V163M63 91V166M190 93V166M199 88V163M49 115L69 122M49 143L69 148M185 121L205 113M185 149L205 143"/>
+            <path d="M57 129Q50 123 55 117Q62 125 57 129M196 137Q190 128 195 124Q201 132 196 137"/>
+        </g>
+        <g fill="#252d29" stroke="#bc9f68" stroke-width=".6">
+            <path d="M40 98L75 111V116L40 105ZM40 152L75 158V163L40 159ZM177 111L214 96V103L177 117ZM177 158L214 151V158L177 164Z"/>
+        </g>
+        <g fill="#d0b17b"><circle cx="46" cy="103" r="1.3"/><circle cx="69" cy="112" r="1.3"/><circle cx="184" cy="112" r="1.3"/><circle cx="207" cy="102" r="1.3"/></g>
+        <path d="M61 177H191L202 188L55 188Z" fill="#c9aa73" stroke="#5a513d"/>
+        <path d="M55 188H202V196H55Z" fill="#73634b"/>
+        <path d="M65 191H190" stroke="#d2b680" opacity=".55"/>
+        <path d="M103 165Q110 158 115 171L125 183" fill="none" stroke="#c4a477" stroke-width="3"/>
+        <g class="patrana-escape-rope" fill="none" stroke-linecap="round">
+            <path d="M125 183Q134 202 125 229" stroke="#322c22" stroke-width="5"/>
+            <path d="M125 183Q134 202 125 229" stroke="#c4a477" stroke-width="3"/>
+            <path d="M129 190L125 192M131 198L127 200M131 207L127 209M129 216L125 218M127 225L123 227" stroke="#715438" stroke-width="1"/>
+        </g>
+        <path d="M61 202L109 206M151 204L191 202" stroke="#79928c" opacity=".3" stroke-linecap="round"/>
+    </svg>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
@@ -60,15 +108,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Cuento X</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Relato completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,12 +140,12 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img fetchpriority="high" decoding="async" src="../../book_covers/cuento-x.webp" alt="Cuento X">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
@@ -108,12 +156,9 @@
         <p>Uno de los veintidós relatos de El Patrañuelo (1567) de Juan de Timoneda, colección de "patrañas" o cuentos breves de entretenimiento adaptados de fuentes italianas y clásicas —entre ellas el propio <a href="cuentos-de-decameron.html" class="inline-link">Boccaccio</a>— al gusto español. Timoneda fue clave en la difusión de la narrativa breve europea en la España del Siglo de Oro.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Presentación de los personajes y el engaño inicial</p>
-        <p class="chapter" data-time="0">El enredo se complica</p>
-        <p class="chapter" data-time="0">Astucia e ingenio ante el desengaño</p>
-        <p class="chapter" data-time="0">El desenlace de la patraña</p>
-        <p class="chapter" data-time="0">Moraleja final del cuento</p>
+        <p class="source-note">Texto de consulta: <a href="https://www.cervantesvirtual.com/obra/el-patranuelo--0/" target="_blank" rel="noopener noreferrer"><em>El Patrañuelo</em>, Biblioteca Virtual Miguel de Cervantes</a>, edición digital basada en Valencia, Joan Mey, 1567.</p>
+        <h1>LECTURA</h1>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Patraña décima · Relato completo</p>
 
         <div class="break"></div>
         <h1>RESEÑAS</h1>

@@ -542,6 +542,36 @@ body {
 .player { transition: opacity 0.3s, filter 0.3s; }
 
 @media (max-width: 900px) {
-    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
+    .player-section { height: 459px; margin: 1.5rem auto; }
+    .player { top: 0; margin-top: 0; transform: scale(.62); transform-origin: top center; }
     .book-header { padding: 2rem; }
 }
+
+.book-header { background: #102f36; border-bottom-color: #c9a961; }
+.book-header-text { flex: 1 1 350px; min-width: 0; }
+.book-header-text h1 { color: #f0dab3; }
+.book-header-text .subtitle, .book-header-text .kicker { color: #dcc393; }
+.patrana-scene { width: 245px; max-width: 100%; height: auto; margin-left: auto; flex-shrink: 0; }
+.patrana-escape-rope { transform-origin: 125px 183px; animation: patrana-rope-sway 7s ease-in-out infinite; }
+.patrana-candlelight { animation: patrana-candle-glimmer 5.3s ease-in-out infinite; }
+.patrana-flame { transform-origin: 144px 120px; animation: patrana-flame-dance 2.7s ease-in-out infinite; }
+@keyframes patrana-rope-sway { 0%,100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }
+@keyframes patrana-candle-glimmer { 0%,100% { opacity: .82; } 32% { opacity: 1; } 48% { opacity: .9; } 72% { opacity: .97; } }
+@keyframes patrana-flame-dance { 0%,100% { transform: rotate(-3deg) scaleY(.96); } 35% { transform: rotate(4deg) scaleY(1.05); } 68% { transform: rotate(-1deg) scaleY(1); } }
+@media (prefers-reduced-motion: reduce) { .patrana-escape-rope, .patrana-candlelight, .patrana-flame { animation: none; } }
+.player canvas { touch-action: none; }
+.panel .source-note { margin: 1.25rem 0; padding-top: 1rem; border-top: 1px solid #917542; font-size: .8rem; line-height: 1.65; }
+.source-note a { color: #ddc383; text-underline-offset: 3px; }
+[role="button"]:focus-visible, button:focus-visible { outline: 3px solid #ddc383; outline-offset: 4px; }
+@media (max-width: 540px) {
+    .book-header { padding: 1.6rem 1.25rem; gap: 1rem; }
+    .book-header-text h1 { font-size: 2.5rem; }
+    .patrana-scene { width: 185px; }
+    .player-section { height: 370px; }
+    .player { transform: scale(.5); }
+    .card { width: calc(100% - 1.5rem); padding: 1.5rem 1rem; gap: 2rem; }
+    .book { flex: 0 1 250px; margin: 0 auto; }
+    .panel { flex-basis: 100%; }
+    .progress-scroll { right: 6px; }
+}
+@media (max-width: 360px) { .player-section { height: 311px; } .player { transform: scale(.42); } }
