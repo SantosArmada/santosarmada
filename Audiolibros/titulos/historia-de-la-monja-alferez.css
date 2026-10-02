@@ -521,6 +521,36 @@ body {
 .player { transition: opacity 0.3s, filter 0.3s; }
 
 @media (max-width: 900px) {
-    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
+    .player-section { height: 459px; margin: 1.5rem auto; }
+    .player { top: 0; margin-top: 0; transform: scale(.62); transform-origin: top center; }
     .book-header { padding: 2rem; }
 }
+.book-header { background: radial-gradient(ellipse at 86% 45%, #d8ceb6, transparent 58%), #ddd4bf; border-bottom-color: #9a772e; }
+.book-header-text { flex: 1 1 430px; min-width: 0; }
+.book-header-text h1 { color: #111819; line-height: 1.12; }
+.book-header-text .kicker { color: #80621f; }
+.book-header-text .subtitle { color: #544d40; margin-top: 1rem; max-width: 680px; }
+.erauso-vignette { width: 300px; max-width: 100%; height: auto; margin-left: auto; flex-shrink: 0; }
+.erauso-route { animation: erauso-route 10s ease-in-out infinite; }
+.erauso-painted-medallion { filter: drop-shadow(0 10px 10px rgba(22, 16, 8, .35)); }
+.erauso-candlelight { animation: erauso-candle 7s ease-in-out infinite; }
+@keyframes erauso-route { 0%,100% { opacity: .35; } 50% { opacity: 1; } }
+@keyframes erauso-candle { 0%,100% { opacity: .1; } 35% { opacity: .22; } 62% { opacity: .15; } 80% { opacity: .25; } }
+@media (prefers-reduced-motion: reduce) { .erauso-route, .erauso-candlelight { animation: none; } .erauso-route { opacity: .7; } }
+.card { background: #171d1d; border: 1px solid #83734f; }
+.panel .source-note { border-top: 1px solid #83734f; padding-top: 1rem; font-size: .8rem; line-height: 1.7; }
+.source-note a { color: #dfbd76; text-underline-offset: 3px; }
+.player canvas { touch-action: none; }
+[role="button"]:focus-visible, button:focus-visible { outline: 3px solid #c59a3d; outline-offset: 4px; }
+@media (max-width: 540px) {
+    .book-header { padding: 1.6rem 1.25rem; gap: 1rem; }
+    .book-header-text h1 { font-size: 2.3rem; }
+    .erauso-vignette { width: 230px; }
+    .player-section { height: 370px; }
+    .player { transform: scale(.5); }
+    .card { width: calc(100% - 1.5rem); padding: 1.5rem 1rem; gap: 2rem; }
+    .book { flex: 0 1 250px; margin: 0 auto; }
+    .panel { flex-basis: 100%; }
+    .progress-scroll { right: 6px; }
+}
+@media (max-width: 360px) { .player-section { height: 311px; } .player { transform: scale(.42); } }
