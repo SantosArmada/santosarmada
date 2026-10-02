@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,14 +40,24 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>El burlador de Sevilla</h1>
-        <p class="subtitle">Tirso de Molina</p>
+        <h1>El burlador<br>de <em>Sevilla</em></h1>
+        <p class="work-completion">y convidado de piedra</p>
+        <p class="subtitle">Atribuido a Tirso de Molina <span>·</span> 1630</p>
+        <p class="hero-premise">Deseo. Engaño. Consecuencia.</p>
+        <p class="hero-description">El poder de seducir. La costumbre de mentir.<br>La certeza de que toda deuda encuentra su hora.</p>
+        <a class="hero-listen" href="#playerSection">Entrar en la obra <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="burlador-art">
+        <img src="../assets/burlador-reckoning.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación pictórica de Don Juan ante el Comendador de piedra, entre terciopelo carmesí y sombras de un salón sevillano.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>El convidado de piedra</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
-<section class="player-section" id="playerSection">
+<div class="listening-heading"><span>La voz y la escena</span><p>Escuchar la obra</p></div>
+<section class="player-section" id="playerSection" aria-label="Reproductor del audiolibro">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
         <svg viewBox="0 0 60 60" width="46" height="46">
             <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--accent)" stroke-width="3"/>
@@ -60,15 +70,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">El burlador de Sevilla</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Jornada primera</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Jornada anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Jornada siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +102,33 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/el-burlador-de-sevilla.webp" alt="El burlador de Sevilla">
+        <img loading="lazy" decoding="async" src="../../book_covers/el-burlador-de-sevilla.webp" alt="El burlador de Sevilla">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Tirso de Molina da vida hacia 1630 al personaje que definiría un arquetipo: don Juan Tenorio, un noble sevillano que seduce y traiciona a mujeres de toda condición sin temer castigo divino ni humano, confiando en que siempre tendrá tiempo de arrepentirse antes de morir. Cuando burla y mata al padre de una de sus víctimas, la estatua funeraria del Comendador cobra vida para arrastrarlo, ya sin tiempo para el arrepentimiento, hasta las llamas del infierno. La obra fundacional del mito de don Juan, origen de todas sus reencarnaciones posteriores en la literatura europea.</p>
+        <h2>El privilegio y su sombra</h2>
+        <p>Don Juan Tenorio atraviesa Nápoles, Tarragona y Sevilla burlando a Isabela, Tisbea, doña Ana y Aminta mediante suplantaciones, promesas falsas y privilegio nobiliario. Su estribillo —«¡Qué largo me lo fiáis!»— convierte el aplazamiento del castigo en forma de vida. Después de matar a don Gonzalo de Ulloa, don Juan se mofa de su sepulcro e invita a cenar a la estatua del Comendador; el convidado de piedra regresa para exigir la reciprocidad de la visita y cerrar el tiempo del arrepentimiento.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Las burlas de don Juan Tenorio</p>
-        <p class="chapter" data-time="0">La confianza en el arrepentimiento tardío</p>
-        <p class="chapter" data-time="0">La muerte del Comendador</p>
-        <p class="chapter" data-time="0">La estatua que cobra vida</p>
-        <p class="chapter" data-time="0">El descenso a las llamas</p>
+        <p class="reading-note">El deseo se vuelve abuso cuando el poder presume impunidad. La palabra prometida, el honor y la justicia atraviesan una obra cuya pregunta sigue abierta: ¿quién paga el precio de la libertad de don Juan?</p>
+        <p class="source-note">Edición más antigua conocida: 1630. La atribución tradicional a Tirso de Molina continúa siendo objeto de debate. Texto de consulta: <a href="https://www.cervantesvirtual.com/obra-visor/el-burlador-de-sevilla-0/html/" target="_blank" rel="noopener noreferrer">Biblioteca Virtual Miguel de Cervantes</a>.</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Tres jornadas</h2>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Jornada primera · Nápoles, Tarragona y las primeras burlas</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Jornada segunda · Sevilla y la muerte del Comendador</p>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Jornada tercera · El convidado de piedra</p>
+
+        <div class="break"></div>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
