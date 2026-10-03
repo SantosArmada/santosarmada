@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -41,11 +41,22 @@
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
         <h1>Redondillas</h1>
-        <p class="subtitle">Sor Juana Inés de la Cruz — 1689</p>
+        <p class="work-completion"><em>Hombres necios que acusáis</em></p>
+        <p class="subtitle">Sor Juana Inés de la Cruz · Nueva España · Siglo XVII</p>
+        <p class="hero-premise">La razón devuelve la mirada.</p>
+        <p class="hero-description">Deseo y censura frente al mismo espejo.<br>La agudeza de Sor Juana vuelve la acusación<br>contra quien la pronuncia.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="redondillas-art">
+        <img src="../assets/redondillas-reason-and-mirror.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación artística de Sor Juana ante su escritorio, con libros, pluma y un espejo, entre sombras carmesí.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Ingenio · Contradicción · Libertad</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading"><span>Poesía barroca · Lectura íntegra</span><p>Una voz que exige razones.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +71,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Redondillas</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Poema completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +103,30 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/redondillas.webp" alt="Redondillas">
+        <img loading="lazy" decoding="async" src="../../book_covers/redondillas.webp" alt="Redondillas">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el poema">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>El poema más citado de Sor Juana Inés de la Cruz, célebre por su verso inicial "Hombres necios que acusáis". En cuartetas de arte menor, la monja jerónima novohispana desmonta con ironía implacable la doble moral masculina que exige virtud a las mujeres mientras las persigue con deseo.</p>
+        <h2>El juicio puesto en evidencia</h2>
+        <p>En estas redondillas, Sor Juana interpela a los hombres que censuran en las mujeres aquello que ellos mismos provocan. El deseo exige una respuesta y después la condena: ni el rechazo ni la aceptación permiten escapar a la acusación.</p>
+        <p class="reading-note">No es la mujer quien debe resolver la contradicción de quien la juzga.</p>
+        <p>Diecisiete estrofas de cuatro versos octosílabos, con rima consonante abrazada, sostienen una argumentación de precisión barroca. Preguntas, antítesis y el espejo empañado por su propio dueño desmontan la doble moral. La musicalidad no suaviza la crítica: le da filo.</p>
+        <p class="source-note">Texto de referencia: <a href="https://bucarest.cervantes.es/imagenes/file/biblioteca/sor%20juana_01_hombres%20necios.pdf">Instituto Cervantes, «Redondillas»</a>, tomado de <em>Poesía lírica</em> (Cátedra, 1996, pp. 222–224). Se presenta como un poema completo, sin capítulos añadidos. La cabecera es una interpretación artística contemporánea, no un retrato histórico autenticado.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Hombres necios que acusáis</p>
-        <p class="chapter" data-time="0">La doble moral: culpar y provocar</p>
-        <p class="chapter" data-time="0">Comparaciones e ironías contra el hombre</p>
-        <p class="chapter" data-time="0">Quién peca más: la que ruega o el que ruega</p>
-        <p class="chapter" data-time="0">Cierre: diablo, carne y mundo</p>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Redondillas · Poema completo</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
