@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,12 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>A la esperanza</h1>
-        <p class="subtitle">Sor Juana Inés de la Cruz — 1689</p>
+        <h1>A la<br><em>esperanza</em></h1>
+        <p class="subtitle">Sor Juana Inés de la Cruz · Soneto · Siglo XVII</p>
+        <p class="hero-premise">No todo lo que promete ilumina.</p>
+        <p class="hero-description">El deseo tiñe el mundo de lo que espera.<br>La voz del poema elige mirar sin ese cristal.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el soneto <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="esperanza-art">
+        <img src="../assets/esperanza-green-glass.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación artística: anteojos de vidrio verde sobre un libro abierto, una vela y un horizonte marino entre sombras violetas.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Ilusión · Desengaño · Lucidez</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading"><span>Poesía barroca · Lectura íntegra</span><p>Entre lo imaginado y lo tangible.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +70,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">A la esperanza</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Soneto completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +102,30 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/a-la-esperanza.webp" alt="A la esperanza">
+        <img loading="lazy" decoding="async" src="../../book_covers/a-la-esperanza.webp" alt="A la esperanza">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el soneto">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Soneto de Sor Juana Inés de la Cruz que personifica la Esperanza como una "verde ilusión" engañosa, alimento de quien vive de promesas incumplidas. Meditación breve y desengañada sobre el deseo y la ilusión, propia del pesimismo barroco de la época.</p>
+        <h2>El color de lo que deseamos</h2>
+        <p>El soneto que comienza «Verde embeleso de la vida humana» interpela a la esperanza como una promesa seductora e incierta. Sus paradojas reúnen juventud y vejez, riqueza y vacío, el presente de unos y el mañana de otros.</p>
+        <p class="reading-note">La lucidez comienza cuando el deseo deja de decidir lo que vemos.</p>
+        <p>En los tercetos, los anteojos verdes convierten el anhelo en una forma de mirar: todo adquiere el color de lo esperado. Frente a esa ilusión, la voz poética afirma una certeza tangible. El desengaño barroco aparece aquí como una elección de juicio, no solo como una renuncia.</p>
+        <p class="source-note">Texto de referencia: <a href="https://college.holycross.edu/faculty/cstone/span312/sorjuanapoemas.html">selección de poemas de Sor Juana, College of the Holy Cross</a>, soneto 12. La lectura corresponde a un único poema de catorce versos. La cabecera es una interpretación simbólica de sus imágenes, no una reconstrucción del escritorio de la autora.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Verde embeleso de la vida humana</p>
-        <p class="chapter" data-time="0">¿Quién fue que inventó mentiras tan hermosas?</p>
-        <p class="chapter" data-time="0">El dulce engaño en que vive el corazón</p>
-        <p class="chapter" data-time="0">No quiero ya dorados sueños</p>
-        <p class="chapter" data-time="0">Solamente lo que toco veo</p>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">A la esperanza · Soneto completo</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
