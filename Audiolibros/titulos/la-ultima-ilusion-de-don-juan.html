@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,13 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>La última ilusión de Don Juan</h1>
-        <p class="subtitle">Emilia Pardo Bazán</p>
+        <h1>La última ilusión<br>de <em>Don Juan</em></h1>
+        <p class="subtitle">Emilia Pardo Bazán · 1893</p>
+        <p class="hero-premise">Una carta. Un refugio. Un desengaño.</p>
+        <p class="hero-description">La ilusión de ser amado para siempre.<br>La libertad de quien deja de esperar.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el relato <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="burlador-art">
+        <img src="../assets/ultima-ilusion-letters.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación pictórica de las cartas de Estrella sobre un escritorio, junto a una lámpara y una chimenea.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>La correspondencia y el desengaño</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
+<div class="listening-heading"><span>Cuentos de amor</span><p>Escuchar el relato</p></div>
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
         <svg viewBox="0 0 60 60" width="46" height="46">
@@ -60,15 +69,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">La última ilusión de Don Juan</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Relato completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +101,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/la-ultima-ilusion-de-don-juan.webp" alt="La última ilusión de Don Juan">
+        <img loading="lazy" decoding="async" src="../../book_covers/la-ultima-ilusion-de-don-juan.webp" alt="La última ilusión de Don Juan">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Emilia Pardo Bazán imagina en 1893 al mítico Don Juan Tenorio ya envejecido, todavía persiguiendo un último amor desde el balcón de una mujer que lo observa con una mezcla de compasión y desdén. Aunque escrito en el siglo XIX, el relato mantiene al personaje en su propia España áurea de capa y espada, la misma en la que Tirso de Molina lo hizo nacer, para desmontar con ironía feminista el mito seductor mostrándole la vejez y el ridículo que la leyenda nunca le permite.</p>
+        <h2>La devoción que cree eterna</h2>
+        <p>Don Juan encuentra en las cartas de su prima Estrella un refugio afectivo que cree ajeno a sus aventuras. Durante años conserva esa imagen ideal sin volver a verla. El anuncio de que ella va a casarse rompe la ilusión de una entrega incondicional. Pardo Bazán desplaza así el conflicto hacia el corazón del seductor: aquello que él llama amor exige que otra persona permanezca inmóvil para sostener su sueño.</p>
+        <p class="source-note">Publicado en <em>El Imparcial</em> el 18 de diciembre de 1893; recogido en <em>Cuentos de amor</em>. <a href="https://cervantesvirtual.com/obra/cuentos-de-amor--0/" target="_blank" rel="noopener noreferrer">Edición de consulta · Biblioteca Virtual Miguel de Cervantes</a>.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Don Juan, ya envejecido</p>
-        <p class="chapter" data-time="0">El último amor bajo el balcón</p>
-        <p class="chapter" data-time="0">La mirada de compasión y desdén</p>
-        <p class="chapter" data-time="0">La ironía feminista del mito</p>
-        <p class="chapter" data-time="0">La vejez que la leyenda no permite</p>
+        <h2>Lectura</h2>
+        <p class="chapter" role="button" tabindex="0" data-time="0">La última ilusión de Don Juan · Relato completo</p>
+        <p class="related-reading">Otra mirada al personaje: <a href="el-burlador-de-sevilla.html">El burlador de Sevilla y convidado de piedra →</a></p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
