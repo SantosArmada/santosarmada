@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,13 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Segadores, afuera, afuera</h1>
-        <p class="subtitle">Tirso de Molina — siglo XVII</p>
+        <h1>Segadores,<br><em>afuera, afuera</em></h1>
+        <p class="subtitle">Tirso de Molina · <em>La mejor espigadera</em> · siglo XVII</p>
+        <p class="hero-premise">La cosecha del deseo.</p>
+        <p class="hero-description">Entre el trigo y el canto,<br>la palabra busca unas manos.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="harvest-art">
+        <img src="../assets/segadores-harvest.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación pictórica de una espigadora con un haz de trigo, entre campos dorados y trabajadores de la siega.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>La espigadora y la mies</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
+<div class="listening-heading"><span>Lírica en el teatro</span><p>Escuchar el poema</p></div>
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
         <svg viewBox="0 0 60 60" width="46" height="46">
@@ -60,15 +69,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Segadores, afuera, afuera</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Poema completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +101,28 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/segadores-afuera-afuera.webp" alt="Segadores, afuera, afuera">
+        <img loading="lazy" decoding="async" src="../../book_covers/segadores-afuera-afuera.webp" alt="Segadores, afuera, afuera">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Villancico de siega incluido en una de las comedias de Tirso de Molina, de la tradición de canciones de trabajo agrícola que los dramaturgos del Siglo de Oro insertaban en sus obras para ambientar escenas populares. Su estribillo imita el pregón real de las cuadrillas de segadores llamando a despejar el campo.</p>
+        <h2>El deseo entre las espigas</h2>
+        <p>El estribillo pide a los segadores que dejen pasar a la espigadora. A partir de esa entrada, la canción convierte el mundo de la cosecha en lenguaje amoroso: quien canta quisiera ser espiga, harina y pan para llegar a sus manos; después imagina los granos transformados en perlas que adornarían sus dedos. La repetición y el juego de imágenes unen la gracia de la canción tradicional con la sensualidad del requiebro.</p>
+        <p class="source-note">Canción de <em>La mejor espigadera</em>, jornada III. La antología consultada la sitúa en III, 8. <a href="https://www.biblioteca-antologica.org/es/wp-content/uploads/2019/08/TIRSO-Poes%C3%ADa-tipo-tradicional.pdf" target="_blank" rel="noopener noreferrer">Texto de consulta · <em>Poesía de tipo tradicional</em>, n.º 5 (PDF)</a>.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El pregón: segadores, afuera, afuera</p>
-        <p class="chapter" data-time="0">La cuadrilla entra al campo</p>
-        <p class="chapter" data-time="0">El ritmo del trabajo colectivo</p>
-        <p class="chapter" data-time="0">Copla de siega</p>
-        <p class="chapter" data-time="0">Estribillo final</p>
+        <h2>Lectura</h2>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Segadores, afuera, afuera · Poema completo</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
