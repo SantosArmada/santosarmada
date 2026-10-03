@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,13 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Al que leyere</h1>
-        <p class="subtitle">María de Zayas y Sotomayor — 1637</p>
+        <h1>Al que<br><em>leyere</em></h1>
+        <p class="subtitle">María de Zayas y Sotomayor · 1637</p>
+        <p class="hero-premise">El derecho a saber.<br>La autoridad de escribir.</p>
+        <p class="hero-description">Una autora toma la palabra<br>y pone en cuestión los límites impuestos.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el prólogo <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="author-art">
+        <img src="../assets/zayas-writing-room.webp" width="1536" height="1024" fetchpriority="high" alt="Escena imaginada de una escritora del siglo XVII ante sus libros y manuscritos; no es un retrato documentado de María de Zayas.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>La palabra propia · interpretación artística</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
+<div class="listening-heading"><span>Novelas amorosas y ejemplares</span><p>Escuchar el prólogo</p></div>
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
         <svg viewBox="0 0 60 60" width="46" height="46">
@@ -60,15 +69,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Al que leyere</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Prólogo completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +101,28 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/al-que-leyere.webp" alt="Al que leyere">
+        <img loading="lazy" decoding="async" src="../../book_covers/al-que-leyere.webp" alt="Al que leyere">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>El prólogo con el que María de Zayas y Sotomayor abre sus Novelas amorosas y ejemplares (1637), dirigido directamente "al que leyere". En él reivindica con firmeza el derecho de las mujeres al estudio y la escritura, anticipando el tono defensivo y polémico que recorrería toda su obra narrativa.</p>
+        <h2>Una autora ante sus lectores</h2>
+        <p>María de Zayas abre sus <em>Novelas amorosas y ejemplares</em> con una intervención directa en la discusión sobre el saber de las mujeres. Su argumento desplaza la supuesta inferioridad intelectual hacia las condiciones de educación: sin libros ni maestros, el talento carece de las mismas oportunidades para desarrollarse. El prólogo presenta así la escritura como ejercicio de capacidad y como afirmación de autoridad ante quienes cuestionan que una mujer publique.</p>
+        <p class="source-note"><em>Al que leyere</em>, prólogo de <em>Novelas amorosas y ejemplares</em> (1637). <a href="https://cervantesvirtual.com/portales/maria_de_zayas_y_sotomayor/" target="_blank" rel="noopener noreferrer">Referencia · Portal María de Zayas, Biblioteca Virtual Miguel de Cervantes</a>.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Dirección al lector</p>
-        <p class="chapter" data-time="0">La defensa del entendimiento de las mujeres</p>
-        <p class="chapter" data-time="0">Réplica a quienes niegan a las mujeres el estudio</p>
-        <p class="chapter" data-time="0">Propósito de las Novelas amorosas y ejemplares</p>
-        <p class="chapter" data-time="0">Cierre del prólogo</p>
+        <h2>Lectura</h2>
+        <p class="chapter" role="button" tabindex="0" data-time="0">Al que leyere · Prólogo completo</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
