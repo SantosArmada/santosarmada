@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,47 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Por beber una copa de oro</h1>
-        <p class="subtitle">Ricardo Palma</p>
+        <h1>Por beber<br>una <em>copa de oro</em></h1>
+        <p class="subtitle">Ricardo Palma · Tradiciones peruanas</p>
+        <p class="hero-premise">El oro, el barro y la sed.</p>
+        <p class="hero-description">Una copa abre la distancia entre quienes mandan<br>y quienes pagan tributo. La leyenda guarda la herida.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el relato <span aria-hidden="true">↓</span></a>
     </div>
-
-    <div class="wine-cup-signature" aria-hidden="true">
-        <svg viewBox="0 0 120 150">
-            <defs>
-                <clipPath id="wineCupInterior" clipPathUnits="userSpaceOnUse">
-                    <path d="M30,19 L30,50 C30,63 43,71 60,71 C77,71 90,63 90,50 L90,19 Z"/>
-                </clipPath>
-            </defs>
-
-            <g clip-path="url(#wineCupInterior)">
-                <rect x="18" y="19" width="84" height="55" class="wine-cup-base-fill"/>
-                <path class="wine-cup-wave-back"
-                      d="M-20,40 C-10,35 0,45 10,38 C20,31 30,48 40,36 C50,24 60,44 70,34 C80,24 90,42 100,32 C110,22 120,40 130,34 L140,36 L140,90 L-20,90 Z">
-                    <animateTransform attributeName="transform" type="translate" dur="6.2s" calcMode="spline"
-                        values="0 0; 34 4; 0 0" keyTimes="0; 0.5; 1"
-                        keySplines="0.42,0,0.58,1; 0.42,0,0.58,1" repeatCount="indefinite" />
-                </path>
-                <path class="wine-cup-wave-mid"
-                      d="M-20,43 C-12,37 -2,49 8,40 C18,31 26,47 36,38 C46,29 54,45 64,36 C74,27 82,43 92,34 C102,25 110,41 120,36 C126,33 132,38 140,36 L140,90 L-20,90 Z">
-                    <animateTransform attributeName="transform" type="translate" dur="4.9s" calcMode="spline"
-                        values="0 0; -30 3; 0 0" keyTimes="0; 0.5; 1"
-                        keySplines="0.42,0,0.58,1; 0.42,0,0.58,1" repeatCount="indefinite" />
-                </path>
-                <path class="wine-cup-wave-front"
-                      d="M-20,46 C-14,41 -6,50 2,44 C10,38 16,49 24,43 C32,37 38,48 46,42 C54,36 60,47 68,41 C76,35 82,46 90,41 C98,36 104,45 112,41 C118,38 124,42 140,40 L140,90 L-20,90 Z">
-                    <animateTransform attributeName="transform" type="translate" dur="3.9s" calcMode="spline"
-                        values="0 0; 40 2; 0 0" keyTimes="0; 0.5; 1"
-                        keySplines="0.42,0,0.58,1; 0.42,0,0.58,1" repeatCount="indefinite" />
-                </path>
-            </g>
-
-            <path class="wine-cup-outline"
-                  d="M24,16 L96,16 M28,18 L28,50 C28,65 42,74 60,74 C78,74 92,65 92,50 L92,18 M57,74 L57,107 M63,74 L63,107 M39,113 L81,113 C81,109 71,106 60,106 C49,106 39,109 39,113 Z"/>
-        </svg>
-    </div>
+    <figure class="tintay-art">
+        <img src="../assets/tintay-gold-and-clay.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación artística: un cáliz de oro y una vasija de barro rota ante un paisaje andino al amanecer.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Oro · Barro · Memoria</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading"><span>Tradición peruana · Lectura íntegra</span><p>La memoria no tiene un solo brillo.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -95,15 +70,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Por beber una copa de oro</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Relato completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -127,31 +102,30 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/por-beber-una-copa-de-oro.webp" alt="Por beber una copa de oro">
+        <img loading="lazy" decoding="async" src="../../book_covers/por-beber-una-copa-de-oro.webp" alt="Por beber una copa de oro">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el relato">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Una de las Tradiciones peruanas de Ricardo Palma, ambientada en el Lima virreinal, donde la vanidad de beber en copa de oro desencadena una anécdota de honor, codicia y castigo colonial contada con la ironía y el gusto por el dato histórico curioso que definen el género que Palma inventó. Como el resto de sus tradiciones, mezcla archivo colonial y leyenda oral limeña en un relato breve, ágil y moralizante a la vez.</p>
+        <h2>Oro, tributo y leyenda</h2>
+        <p>Palma sitúa esta tradición en Tintay, en los Andes, en 1613. El regreso del cacique tras entregar los tributos al Cuzco enciende una protesta: las copas de oro de los antepasados se contraponen al barro del presente. La multitud irrumpe en los templos y toma los cálices; una maldición precede a la desaparición del agua.</p>
+        <p class="reading-note">La copa no es solo un lujo: concentra una disputa por la dignidad y por lo arrebatado.</p>
+        <p>El relato enlaza dominación colonial, violencia y castigo religioso. Conviene escuchar también la voz que lo cuenta: la explicación sobrenatural pertenece a la tradición literaria, no a una comprobación histórica de sus sucesos.</p>
+        <p class="source-note">1613 corresponde al tiempo del relato, no a su publicación. El narrador mira hacia Tintay desde 1880. Texto de referencia: <a href="https://www.gutenberg.org/cache/epub/21282/pg21282-images.html">Tradiciones peruanas, de Ricardo Palma</a>. La imagen de cabecera es una interpretación artística, no una reconstrucción documental.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La vanidad de la copa de oro</p>
-        <p class="chapter" data-time="0">El honor limeño en juego</p>
-        <p class="chapter" data-time="0">La codicia virreinal</p>
-        <p class="chapter" data-time="0">El castigo colonial</p>
-        <p class="chapter" data-time="0">Archivo y leyenda oral</p>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Por beber una copa de oro · Relato completo</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
