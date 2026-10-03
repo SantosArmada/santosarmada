@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,13 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>A un jilguero</h1>
-        <p class="subtitle">Juan Pérez de Montalbán — 1632</p>
+        <h1>A un<br><em>jilguero</em></h1>
+        <p class="subtitle">Juan Pérez de Montalbán · Soneto</p>
+        <p class="hero-premise">La belleza de una voz.<br>La fragilidad de una vida.</p>
+        <p class="hero-description">El canto llena el silencio.<br>También revela dónde vive quien canta.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el soneto <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="bird-art">
+        <img src="../assets/jilguero-amber-song.webp" width="1536" height="1024" fetchpriority="high" alt="Jilguero de rostro rojo y alas negras y doradas, cantando sobre una rama entre luz ámbar y sombras azules.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>El instante del canto</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
+<div class="listening-heading"><span>La voz del poema</span><p>Escuchar el soneto</p></div>
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
         <svg viewBox="0 0 60 60" width="46" height="46">
@@ -60,15 +69,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">A un jilguero</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Soneto completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +101,28 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/un-jilguero.webp" alt="A un jilguero">
+        <img loading="lazy" decoding="async" src="../../book_covers/un-jilguero.webp" alt="A un jilguero">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Poema de Juan Pérez de Montalbán, discípulo de Lope de Vega, dedicado al canto del jilguero como símbolo de la libertad y la belleza natural frente al cautiverio. Ejemplo del gusto barroco por la poesía descriptiva de aves y naturaleza, género cultivado por buena parte del círculo lopista.</p>
+        <h2>El canto que lo descubre</h2>
+        <p>El jilguero canta al amanecer, pero su propia voz permite al cazador encontrarlo. El soneto transforma los colores y la música del ave en una reflexión sobre la inseguridad de la vida: aquello que expresa su vitalidad acaba exponiéndola al peligro. La delicadeza del retrato inicial desemboca en una paradoja de belleza y muerte.</p>
+        <p class="source-note">El soneto que comienza «Cítara de carmín, que amaneciste» aparece tras la narración de <em>Al cabo de los mil años</em>, acompañado de la explicación del episodio del cazador. <a href="https://www.biblioteca-antologica.org/es/wp-content/uploads/2019/07/P%C3%89REZ-DE-MONTALB%C3%81N-Al-cabo-de-los-mil-a%C3%B1os.pdf" target="_blank" rel="noopener noreferrer">Texto de consulta · Biblioteca Antológica (PDF)</a>.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Retrato del jilguero</p>
-        <p class="chapter" data-time="0">El canto como símbolo de libertad</p>
-        <p class="chapter" data-time="0">La belleza natural frente al cautiverio</p>
-        <p class="chapter" data-time="0">Reflexión del poeta ante el ave</p>
-        <p class="chapter" data-time="0">Cierre del poema</p>
+        <h2>Lectura</h2>
+        <p class="chapter" role="button" tabindex="0" data-time="0">A un jilguero · Soneto completo</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
