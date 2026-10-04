@@ -1,0 +1,7 @@
+# El sí de las niñas: the unspoken letter
+
+Generated with the built-in image-generation tool. Symbolic theatrical interpretation, not a documented stage reconstruction.
+
+## Full prompt
+
+Use case: historical-scene. Landscape 1536x1024 museum-quality neoclassical oil painting for El si de las ninas by Leandro Fernandez de Moratin. Symbolic editorial scene, not a documented stage reconstruction. A quiet modest Spanish inn interior around 1806, walnut table in foreground RIGHT two thirds holding an exquisitely detailed partly opened ivory silk folding fan with carved wooden ribs, a folded handwritten letter (no readable text), a small brass candleholder. Two empty period wooden chairs subtly suggest an unresolved conversation. Background tall shuttered window with first light of dawn and glimpse of terracotta roofs of Alcala de Henares, restrained vermilion curtain along right side. Deep russet and warm near-black shadow, glowing ivory fan, antique brass, red-orange curtain matching theatrical poster. Realistic wood grain, letter fibers, intricate fan floral ornament, fine linen curtains, delicately painted candlelight. Composition main fan and letter at x=70%, window x=80%; LEFT 35 percent deep near-black warm shadow with no objects for title. Cinematic old-master refinement, emotional suspense without melodrama, the possibility of speaking freely. No people, no wedding, no palace, no modern objects, no text, no cartoon, no fantasy. Keep whole fan within frame and prominent enough for mobile cropping.
