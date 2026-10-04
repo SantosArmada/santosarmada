@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,12 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Tercera Ola</p>
-        <h1>En el Teocalli de Cholula</h1>
-        <p class="subtitle">José María Heredia</p>
+        <h1><span class="title-prelude">En el</span>Teocalli<br><em>de Cholula</em></h1>
+        <p class="subtitle">José María Heredia · Poesía</p>
+        <p class="hero-premise">La piedra recuerda. El cielo permanece.</p>
+        <p class="hero-description">Un valle se apaga bajo la luz del crepúsculo. <br>Entre volcanes, ruinas y memoria, <br>el poema pregunta qué resiste al tiempo.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="cholula-art">
+        <img src="../assets/cholula-stone-and-sky.webp" width="1536" height="1024" fetchpriority="high" alt="Paisaje artístico inspirado en el poema: piedra volcánica y un amplio valle bajo volcanes nevados, nubes cobrizas y sombras azul verdoso.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Paisaje · Memoria · Tiempo</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading"><span>Poesía · Lectura íntegra</span><p>La voz ante la inmensidad.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +70,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">En el Teocalli de Cholula</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Poema completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +102,31 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/en-el-teocalli-de-cholula.webp" alt="En el Teocalli de Cholula">
+        <img loading="lazy" decoding="async" src="../../book_covers/en-el-teocalli-de-cholula.webp" alt="En el Teocalli de Cholula">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el poema">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>El poeta cubano José María Heredia contempla desde la pirámide de Cholula la puesta de sol y medita sobre la caída del imperio azteca, comparando la grandeza perdida de México antiguo con su propio anhelo de libertad para Cuba y América Latina. Escrita en 1820 durante su exilio mexicano, esta oda romántica funde paisaje, ruina e ideología independentista en uno de los poemas fundacionales del romanticismo hispanoamericano.</p>
+        <h2>El paisaje se vuelve pregunta</h2>
+        <p>Sentado sobre la pirámide de Cholula, el yo poético contempla el valle al caer la tarde. La luz dorada da paso a la luna y a la sombra del volcán: la amplitud del paisaje conduce a una meditación sobre el tiempo, la ruina y la fragilidad del poder.</p>
+        <p class="reading-note">Ni la grandeza de los pueblos ni la del volcán queda fuera de la pregunta por lo perecedero.</p>
+        <p>Después llega el sueño del pasado. La evocación de los antiguos gobernantes desemboca en una condena de la tiranía y de la violencia ritual. Esa visión pertenece a la perspectiva moral del poema: no debe confundirse con una descripción arqueológica neutral de las sociedades mesoamericanas.</p>
+        <p class="source-note">El texto lleva la fecha «Diciembre de 1820»; la edición de <em>Poesías</em> de 1832 recoge la obra bajo este título. Referencias: <a href="https://es.wikisource.org/wiki/En_el_Teocalli_de_Cholula">texto del poema</a> y <a href="https://bibliografia200y500.iib.unam.mx/images/proyecto/conquista/55_conq_jose_maria_heredia.pdf">edición histórica presentada por la UNAM</a>. La imagen de cabecera interpreta su paisaje; no reconstruye un recinto ceremonial ni una vista histórica exacta.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La puesta de sol sobre Cholula</p>
-        <p class="chapter" data-time="0">La meditación sobre el imperio caído</p>
-        <p class="chapter" data-time="0">La grandeza perdida de México antiguo</p>
-        <p class="chapter" data-time="0">El anhelo de libertad para Cuba</p>
-        <p class="chapter" data-time="0">Paisaje, ruina e ideología</p>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">En el teocalli de Cholula · Poema completo</p>
+        <p class="reading-guide">Claves de escucha: crepúsculo, noche, tiempo y visión del pasado. Son orientaciones de lectura, no capítulos originales.</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
