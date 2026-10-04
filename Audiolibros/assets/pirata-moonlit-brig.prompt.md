@@ -1,0 +1,7 @@
+# Pirata — Moonlit brig
+
+Generated with the built-in image generation tool. Literary interpretation, not a reconstruction of an identified vessel.
+
+Use case: historical-scene
+Asset type: 1536x1024 landscape hero artwork for Jose de Espronceda's Cancion del pirata literary audiobook.
+Primary request: a breathtaking, finely detailed two-masted square-rigged wooden brig sailing across a moonlit sea, inspired by the poem's velero bergantin. Three-quarter broadside view, entire two-masted vessel in the RIGHT two-thirds, taut ivory sails with realistic canvas seams, intricate coherent rigging, dark timber hull, small gunports and a restrained warm lantern at stern. Both masts fully visible with breathing room above; elegant seaworthy proportions, no fantasy galleon. Rich cobalt and Prussian blue sea with luminous silver-blue wave crests, distant hazy suggestion of Istanbul domes and minarets low on horizon, large clouds opening to moonlight. Left third darker ocean and sky to accommodate website text. Museum-quality Romantic marine oil painting with cinematic realism, intricate shipbuilding and water texture, dignified and powerful, no cartoon pirate, no human closeup. Palette: deep maritime blue, ivory canvas, moonlit silver and restrained antique gold. A literary interpretation, not an archaeological reconstruction. No text, logos, watermark, border, modern vessels, exaggerated skull ornaments, battle explosions.
