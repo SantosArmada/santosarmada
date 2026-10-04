@@ -524,3 +524,128 @@ body {
     .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
     .book-header { padding: 2rem; }
 }
+
+/* ---------- JAMAICA: A CONTINENT FROM EXILE ---------- */
+:root { --cream: #f0e0bd; --ink: #211710; --charcoal: #120e0d; --accent: #d17858; --accent-bright: #eeaa7b; --coral: #aa8950; --coral-bright: #dec18b; --card-fg: #f0e0c5; --card-fg-dim: #c7b7a0; }
+html { scroll-behavior: smooth; }
+body { background: radial-gradient(ellipse at 50% 40%, #301815 0, #180f0d 40%, #0c190f 80%); }
+.site-nav { background: rgba(21,14,12,.96); border-bottom: 1px solid #685138; }
+.site-nav-links a, .site-nav-links a.active, .site-nav-links a:hover { color: #ebd6b0; }
+.site-nav-links a::after { background: #d6ab67; }
+.site-nav-logo-img { filter: brightness(0) invert(.85) sepia(.5); }
+.site-hamburger span { background: #e1c795; }
+.site-mobile-menu { background: #1d1210; }
+.site-mobile-menu a, .site-mobile-menu a:hover { color: #ead5b3; }
+.book-header { position: relative; display: grid; grid-template-columns: .9fr 1.1fr; gap: 0; min-height: 650px; padding: 0; background: #0c190f; border-bottom: 1px solid #795435; isolation: isolate; }
+.book-header-text { padding: 5rem 0 5rem clamp(1.5rem,5vw,6rem); position: relative; z-index: 2; min-width: 0; }
+.book-header-text .kicker { color: #d4b181; font-size: .65rem; letter-spacing: .24em; }
+.book-header-text h1 { font-size: clamp(3.2rem,5.8vw,6.5rem); line-height: 1.02; font-weight: 500; letter-spacing: -.045em; color: #f2e1c0; margin: 1.7rem 0 .65rem; }
+.book-header-text h1 em { color: #dcad76; font-weight: 400; }
+.work-completion { font-family: 'Playfair Display',serif; font-size: clamp(1.15rem,2vw,1.7rem); color: #cebb9b; margin: 0 0 1.4rem; }
+.book-header-text .subtitle { color: #bba58b; font-size: .8rem; font-style: normal; }
+.subtitle span { padding: 0 .4em; }
+.hero-premise { color: #ebc28f; font-family: 'Playfair Display',serif; font-size: 1.4rem; margin: 2.5rem 0 .7rem; }
+.hero-description { color: #c6b29a; font-size: .85rem; line-height: 1.9; margin: 0; }
+.hero-listen { display: inline-flex; gap: 2rem; align-items: center; margin-top: 2rem; padding: .85rem 0; border-bottom: 1px solid #b38954; color: #f0dbb6; text-transform: uppercase; letter-spacing: .17em; text-decoration: none; font-size: .65rem; }
+.hero-listen:hover { color: #fff2d6; border-color: #fff2d6; }
+.jamaica-art { position: absolute; inset: 0 0 0 29%; margin: 0; overflow: hidden; z-index: 0; }
+.jamaica-art img { width: 100%; height: 100%; object-fit: cover; object-position: 65% center; }
+.jamaica-art::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg,#0c190f 0%,rgba(12,25,15,.9) 8%,transparent 39%),linear-gradient(0deg,#0c190f,transparent 20%); }
+.jamaica-art figcaption { position: absolute; z-index: 2; bottom: 1.5rem; right: 2rem; color: #d4b181; font-size: .6rem; letter-spacing: .22em; text-transform: uppercase; }
+.stage-light { position: absolute; inset: 0; background: radial-gradient(ellipse at 87% 57%,rgba(235,158,67,.16),transparent 50%); mix-blend-mode: screen; animation: candle-breath 7s ease-in-out infinite; pointer-events: none; }
+@keyframes candle-breath { 0%,100% { opacity: .25; } 45% { opacity: .9; } 60% { opacity: .55; } 75% { opacity: .75; } }
+.listening-heading { text-align: center; padding: 3.5rem 1rem 0; }
+.listening-heading span { font-size: .62rem; text-transform: uppercase; letter-spacing: .26em; color: #be9870; }
+.listening-heading p { font-family: 'Playfair Display',serif; color: #ead6b2; font-size: 1.7rem; margin: .7rem 0 0; }
+.player-section { margin: -3rem auto -3rem; scroll-margin-top: 85px; }
+.player canvas { touch-action: none; }
+.player .song { color: #e0b98b; }
+.player .song .artist { font-family: 'Playfair Display',serif; font-size: 24px; }
+.player .song .name { color: #c6a383; font-size: 14px; }
+.player .time { color: #d4af85; }
+.player .playarea .play, .player .playarea .pause, .player .playarea .prevSong, .player .playarea .nextSong, .player .soundControl { filter: brightness(1.65) saturate(.65); }
+.power-btn { top: 90px; right: 70px; }
+.volume-dial__caption { color: #c5aa81; opacity: 1; }
+.volume-dial__dot::before { background-color: #574336; }
+.volume-dial__dot--filled::before { background-color: #d4ac6e; }
+.extra-controls { margin: -1rem auto 3rem; }
+.card { max-width: 1160px; width: calc(100% - 5rem); background: linear-gradient(125deg,#231714,#17110e); border: 1px solid #59422e; border-radius: 0; padding: clamp(1.5rem,4vw,4rem); gap: 4rem; box-shadow: 0 24px 80px #090706; }
+.book { flex-basis: 270px; }
+.book img { border-radius: 0; }
+.controls .box { background: #9c763f; color: #140d09; border-radius: 0; padding: 1rem .5rem; }
+.panel { font-size: 15px; line-height: 1.85; }
+.panel h2 { font-family: 'Playfair Display',serif; font-weight: 500; font-size: 1.7rem; line-height: 1.2; color: #ead2a9; margin: 0 0 1rem; }
+.panel p { color: #d2bfaa; }
+.break { width: 2.5rem; height: 1px; background: #ae8550; margin: 2rem 0 1.5rem; }
+.panel .reading-note { font-family: 'Playfair Display',serif; font-size: 1.2rem; line-height: 1.65; color: #e3c391; }
+.panel .source-note { border-top: 1px solid #59422e; padding-top: 1rem; margin-top: 1.4rem; font-size: .75rem; color: #b9a48e; }
+.source-note a { color: #e0bd83; text-underline-offset: 3px; }
+.chapter { border-bottom: 1px solid #513b29; padding: .9rem .5rem; }
+.chapter:hover, .chapter.active { color: #f3d7a0; background: #382019; }
+.site-footer { background: #100c0a; border-top: 1px solid #4e3827; }
+.progress-scroll { width: 3px; z-index: 90; }
+[role="button"]:focus-visible, button:focus-visible, a:focus-visible { outline: 2px solid #efd19b; outline-offset: 5px; }
+@media (min-width: 1500px) { .book-header { min-height: 740px; } }
+@media (max-width: 900px) {
+ .book-header { min-height: 580px; }
+ .book-header-text { padding: 3.5rem 0 3.5rem 2rem; }
+ .book-header-text h1 { font-size: clamp(3rem,6.5vw,4.5rem); }
+ .jamaica-art { left: 20%; opacity: .8; }
+ .jamaica-art::after { background: linear-gradient(90deg,#0c190f,rgba(12,25,15,.65) 30%,transparent 70%),linear-gradient(0deg,#0c190f,transparent 30%); }
+ .hero-description { max-width: 300px; }
+ .player-section { transform: none; height: 459px; margin: -1rem auto; }
+ .player { top: 0; margin-top: 0; transform: scale(.62); transform-origin: top center; }
+ .power-btn { top: 25px; right: max(1rem,calc(50% - 225px)); }
+ .card { width: calc(100% - 2.5rem); gap: 2.5rem; }
+}
+@media (max-width: 600px) {
+ .book-header { display: flex; flex-direction: column; min-height: 0; }
+ .book-header-text { width: 100%; padding: 2.5rem 1.5rem 1.5rem; }
+ .book-header-text h1 { font-size: clamp(3.25rem,14vw,4.7rem); margin-top: 1.3rem; }
+ .book-header-text .subtitle { font-size: .73rem; }
+ .hero-premise { margin-top: 1.7rem; font-size: 1.25rem; }
+ .hero-description { font-size: .8rem; max-width: none; }
+ .hero-listen { margin-top: 1rem; }
+ .jamaica-art { position: relative; inset: auto; width: 100%; height: 340px; opacity: 1; }
+ .jamaica-art img { object-position: 70% center; }
+ .jamaica-art::after { background: linear-gradient(0deg,#0c190f,transparent 20%,transparent 80%,#0c190f); }
+ .jamaica-art figcaption { right: 1.5rem; bottom: 1rem; font-size: .55rem; }
+ .listening-heading { padding-top: 2.5rem; }
+ .player-section { height: 370px; margin: 0 auto; }
+ .player { transform: scale(.5); }
+ .power-btn { top: 12px; right: 16px; }
+ .power-btn svg { width: 38px; height: 38px; }
+ .card { width: calc(100% - 1.5rem); padding: 1.5rem; }
+ .book { flex: 0 1 260px; margin: 0 auto; }
+ .panel { flex-basis: 100%; min-width: 0; }
+ .panel h2 { font-size: 1.55rem; }
+ .progress-scroll { right: 4px; }
+}
+@media (max-width: 360px) { .player-section { height: 311px; } .player { transform: scale(.42); } .book-header-text { padding-inline: 1.2rem; } }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .stage-light { animation: none; } }
+/* Emerald shadows, golden parchment and sealing red from the cover. */
+:root { --cream:#eee2be; --ink:#1b2a17; --accent:#dcc069; --accent-bright:#f0dda3; --coral:#a74029; --coral-bright:#d5734d; --card-fg:#e4e5ce; --card-fg-dim:#bdc6a7; }
+body { background:radial-gradient(ellipse at 50% 40%,#28452a 0,#172e1b 45%,#0c190f 85%); }
+.site-nav { background:rgba(12,25,15,.97); border-color:#4d6338; }
+.site-mobile-menu { background:#1a301e; }
+.book-header { border-color:#70804a; }
+.book-header-text h1 { font-size:clamp(3.1rem,6vw,6.5rem); }
+.book-header-text h1 em { color:#dfc16a; }
+.hero-premise { color:#e9dba9; }
+.hero-description,.book-header-text .subtitle { color:#c0cba9; }
+.card { background:linear-gradient(125deg,#2b4228,#182d1b); border-color:#526b3c; }
+.controls .box { background:#c6a64e; color:#162212; }
+.panel p { color:#d4ddc3; }
+.panel h2,.panel .reading-note { color:#e6dfb8; }
+.panel .source-note { color:#b8c5a3; border-color:#526b3c; }
+.source-note a { color:#e3cc84; }
+.panel .reading-guide { font-size:.8rem; color:#bdcba9; line-height:1.85; }
+.chapter:hover,.chapter.active { background:#3b5630; }
+.player .song { color:#eee1b4; }
+.player .song .name,.player .time { color:#cbd1ac; }
+.volume-dial__caption { color:#cbd1ac; }
+.volume-dial__dot::before { background:#4c653c; }
+.volume-dial__dot--filled::before { background:#dcc069; }
+.site-footer { background:#0a150d; border-color:#3b5230; }
+@media(max-width:900px) { .hero-description br { display:none; } }
+@media(max-width:600px) { .book-header-text h1 { font-size:clamp(2.7rem,12vw,4.4rem); } .jamaica-art img { object-position:78% center; } .listening-heading p { font-size:1.4rem; } }
