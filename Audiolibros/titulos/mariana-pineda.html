@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,12 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Tercera Ola</p>
-        <h1>Mariana Pineda</h1>
-        <p class="subtitle">Federico García Lorca</p>
+        <h1>Mariana<br><em>Pineda</em></h1>
+        <p class="subtitle">Federico García Lorca · Teatro</p>
+        <p class="hero-premise">Un hilo entre el amor y la libertad.</p>
+        <p class="hero-description">En la intimidad de una casa granadina, <br>el bordado se convierte en peligro. <br>Y una voz se niega a ceder ante el poder.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="mariana-art">
+        <img src="../assets/mariana-thread-and-liberty.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación artística del universo escénico de Mariana Pineda: bastidor, seda clara e hilo rojo junto a una ventana en penumbra, con rosas y membrillos al fondo.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Amor · Silencio · Libertad</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading"><span>Romance popular en tres estampas</span><p>La dignidad de una voz que no cede.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +70,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Mariana Pineda</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Prólogo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +102,34 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/mariana-pineda.webp" alt="Mariana Pineda">
+        <img loading="lazy" decoding="async" src="../../book_covers/mariana-pineda.webp" alt="Mariana Pineda">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Federico García Lorca lleva a escena en 1927 la historia real de Mariana Pineda, ejecutada en Granada en 1831 por orden del rey absolutista Fernando VII tras encontrarse en su poder una bandera liberal bordada por ella misma. Convertida por Lorca en un romance trágico entre el amor y la libertad, Mariana debe decidir si delata a los conspiradores que ama para salvar su vida o guarda silencio y se convierte en mártir. Un drama en verso que hermana el costumbrismo andaluz de Lorca con la memoria histórica del liberalismo español del siglo XIX.</p>
+        <h2>La intimidad frente al poder</h2>
+        <p>Una bandera bordada en secreto enlaza la vida doméstica con la conspiración liberal. En la Granada de Lorca, Mariana espera a Pedro de Sotomayor mientras la amenaza de Pedrosa invade el espacio de sus afectos. El amor, el miedo y la libertad dejan de ser ideas separadas.</p>
+        <p class="reading-note">Lo que comienza como espera amorosa se convierte en una decisión sobre la propia dignidad.</p>
+        <p>La obra abre con un romance cantado y avanza en tres estampas. Las canciones, los silencios y los objetos cotidianos sostienen la tensión tanto como la acción: el hilo del bordado vuelve visible una intimidad expuesta a la vigilancia y al chantaje.</p>
+        <p class="source-note">Estrenada el 24 de junio de 1927 en el Teatro Goya de Barcelona, con Margarita Xirgu. La Mariana histórica fue ejecutada en Granada en 1831; el drama reelabora su memoria mediante la poesía y la leyenda, y no equivale a una biografía documental. Referencias: <a href="https://www.universolorca.com/en/obra-literaria/mariana-pineda/">Universo Lorca</a> y <a href="https://www.rinconcastellano.com/biblio/sigloxx_27/lorca_mpineda_i.html">texto dramático</a>. La cabecera interpreta sus motivos escénicos; no reproduce una bandera histórica conservada.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Mariana borda la bandera liberal</p>
-        <p class="chapter" data-time="0">El amor por Pedro de Sotomayor</p>
-        <p class="chapter" data-time="0">La sospecha del comisario Pedrosa</p>
-        <p class="chapter" data-time="0">La huida de Pedro y la soledad de Mariana</p>
-        <p class="chapter" data-time="0">El martirio: la libertad sin cadena</p>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Prólogo</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Estampa primera</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Estampa segunda</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Estampa tercera</p>
+        <p class="reading-guide">Se conserva la estructura de la obra: prólogo y tres estampas. Grabaciones pendientes de incorporación.</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
