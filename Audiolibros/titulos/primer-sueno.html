@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,12 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Primer sueño</h1>
-        <p class="subtitle">Sor Juana Inés de la Cruz — 1692</p>
+        <h1>Primer<br><em>sueño</em></h1>
+        <p class="subtitle">Sor Juana Inés de la Cruz · Primera publicación: 1692</p>
+        <p class="hero-premise">La noche no detiene al pensamiento.</p>
+        <p class="hero-description">Mientras el cuerpo descansa, el alma intenta<br>abarcar lo inmenso. El amanecer devuelve<br>al mundo una conciencia despierta.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="sueno-art">
+        <img src="../assets/sueno-night-and-awakening.webp" width="1536" height="1024" fetchpriority="high" alt="Paisaje alegórico: una cumbre se eleva sobre nubes nocturnas hacia las estrellas; flores marfil y tela verde acompañan el primer resplandor del alba.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Noche · Conocimiento · Despertar</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading"><span>Silva filosófica · 975 versos</span><p>El deseo de conocer no duerme.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +70,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Primer sueño</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Poema completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +102,31 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/primer-sueño.webp" alt="Primer sueño">
+        <img loading="lazy" decoding="async" src="../../book_covers/primer-sueño.webp" alt="Primer sueño">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el poema">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>El poema filosófico más ambicioso de Sor Juana Inés de la Cruz, en el que el alma, liberada del cuerpo dormido, asciende a contemplar el universo entero en busca de conocimiento absoluto, hasta ser vencida por sus propios límites y despertar con la salida del sol. Silva de más de novecientos versos que sitúa a Sor Juana entre los grandes poetas del Barroco hispánico junto a Góngora.</p>
+        <h2>Una noche para intentar lo inmenso</h2>
+        <p>La noche suspende la actividad del mundo. Mientras el cuerpo duerme, el alma emprende una búsqueda que aspira a comprender la totalidad. La grandeza del universo rebasa esa mirada: el poema explora tanto el impulso de conocer como las dificultades de hacerlo.</p>
+        <p class="reading-note">El límite del entendimiento no borra la dignidad de la búsqueda.</p>
+        <p>Publicado en 1692, <em>Primero sueño</em> —aquí presentado como <em>Primer sueño</em>— despliega 975 versos en forma de silva. Su lenguaje entrelaza imágenes naturales, mitología y saberes del cuerpo. El regreso de la luz cierra el recorrido nocturno y devuelve la voz a la vigilia.</p>
+        <p class="source-note">Contexto y datos de publicación: <a href="https://repositorio.unam.mx/contenidos/ficha/primero-sueno-5059605">UNAM, <em>Primero sueño</em></a>. Sobre su relación con Góngora: <a href="https://www.cervantesvirtual.com/obra-visor/soledad-de-gngora-y-sueo-de-sor-juana-0/html/010ffb42-82b2-11df-acc7-002185ce6064_2.html">Elías L. Rivers, Biblioteca Virtual Miguel de Cervantes</a>. El paisaje de cabecera es una interpretación alegórica contemporánea.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La noche y el sueño del cuerpo</p>
-        <p class="chapter" data-time="0">El alma se libera y asciende</p>
-        <p class="chapter" data-time="0">La contemplación del universo entero</p>
-        <p class="chapter" data-time="0">El vértigo ante los límites del entendimiento</p>
-        <p class="chapter" data-time="0">El despertar con la salida del sol</p>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Primer sueño · Poema completo</p>
+        <p class="reading-guide">Para orientarse en la escucha: la noche y el reposo del cuerpo; la búsqueda del alma; los límites del conocimiento; el retorno del día. Son momentos de lectura, no capítulos originales.</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
