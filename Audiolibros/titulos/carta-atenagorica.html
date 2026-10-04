@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,12 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Carta atenagórica</h1>
-        <p class="subtitle">Sor Juana Inés de la Cruz — 1690</p>
+        <h1>Carta<br><em>atenagórica</em></h1>
+        <p class="subtitle">Sor Juana Inés de la Cruz · Publicada en 1690</p>
+        <p class="hero-premise">La autoridad también se argumenta.</p>
+        <p class="hero-description">Una lectura crítica de las finezas de Cristo. <br>Del rigor del manuscrito a la exposición <br>pública de una controversia.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la carta <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="carta-art">
+        <img src="../assets/atenagorica-manuscript-and-press.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación artística de un taller de imprenta antiguo: manuscrito, tipos metálicos y prensa de madera entre luz turquesa y sombras.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Lectura · Argumento · Controversia</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading"><span>Prosa teológica · Lectura íntegra</span><p>Escuchar la precisión de una objeción.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +70,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Carta atenagórica</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Carta completa</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +102,31 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/carta-atenagorica.webp" alt="Carta atenagórica">
+        <img loading="lazy" decoding="async" src="../../book_covers/carta-atenagorica.webp" alt="Carta atenagórica">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la carta">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Crítica teológica de Sor Juana Inés de la Cruz a un sermón del jesuita portugués Antonio Vieira, publicada sin su consentimiento en 1690 por el obispo de Puebla bajo el título de Carta atenagórica. Su erudición y el atrevimiento de una monja al refutar a un predicador reconocido desataron la controversia que la llevaría, un año después, a escribir su célebre <a href="respuesta-a-sor-filotea.html" class="inline-link">Respuesta a Sor Filotea</a>.</p>
+        <h2>Discutir desde el conocimiento</h2>
+        <p>En esta crítica al <em>Sermón del Mandato</em> del jesuita portugués António Vieira, Sor Juana examina las finezas de Cristo: las demostraciones de su amor. Revisa argumentos, contrasta autoridades y defiende posiciones de san Agustín, santo Tomás y san Juan Crisóstomo frente a la propuesta del predicador.</p>
+        <p class="reading-note">La erudición no adorna la discrepancia: la sostiene.</p>
+        <p>El texto apareció en 1690 por iniciativa del obispo de Puebla, Manuel Fernández de Santa Cruz. Su circulación forma parte de la polémica que precede a la <a href="respuesta-a-sor-filotea.html" class="inline-link">Respuesta a Sor Filotea</a> de 1691. Las circunstancias de publicación y el alcance de la intervención del obispo han sido objeto de debate crítico.</p>
+        <p class="source-note">Contexto: <a href="https://www.cervantesvirtual.com/obra-visor/las-razones-de-sor-juana-ins-de-la-cruz-0/html/d16b750e-571e-482d-9486-477816dfc441_5.html">«Las razones de Sor Juana Inés de la Cruz»</a> y <a href="https://www.cervantesvirtual.com/obra-visor/poner-riquezas-en-mi-entendimiento-sor-juana-ines-de-la-cruz-y-sor-teresa-de-cartagena-888801/html/fd0c4963-e6bd-4daa-bec0-b37aeb4ee3a8_2.html">«Poner riquezas en mi entendimiento»</a>, Biblioteca Virtual Miguel de Cervantes. El taller de la cabecera es una interpretación artística, no una reconstrucción de la imprenta original.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El sermón del Padre Vieira y sus finezas de Cristo</p>
-        <p class="chapter" data-time="0">La refutación teológica de Sor Juana</p>
-        <p class="chapter" data-time="0">Erudición y argumento contra un predicador consagrado</p>
-        <p class="chapter" data-time="0">La publicación sin consentimiento por el obispo de Puebla</p>
-        <p class="chapter" data-time="0">El estallido de la controversia</p>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Carta atenagórica · Lectura completa</p>
+        <p class="reading-guide">Una clave de escucha: distinguir la tesis de Vieira, las objeciones de Sor Juana y su propia propuesta sobre el amor divino. Esta orientación no añade capítulos al texto.</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
