@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,12 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Respuesta a Sor Filotea</h1>
-        <p class="subtitle">Sor Juana Inés de la Cruz — 1691</p>
+        <h1>Respuesta<br>a <em>Sor Filotea</em></h1>
+        <p class="subtitle">Sor Juana Inés de la Cruz · Carta fechada en 1691</p>
+        <p class="hero-premise">Una vida puesta en palabras.</p>
+        <p class="hero-description">La memoria de una vocación se vuelve argumento. <br>Entre la cortesía y la firmeza, Sor Juana <br>defiende su deseo de saber.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la respuesta <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="filotea-art">
+        <img src="../assets/filotea-the-courage-to-answer.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación contemporánea de Sor Juana escribiendo una carta, con el rostro y las manos iluminados entre sombras de tinta y tonos marfil.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Memoria · Estudio · Voz propia</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading"><span>Autobiografía intelectual · Lectura íntegra</span><p>El derecho a una voz propia.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +70,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Respuesta a Sor Filotea</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Carta completa</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +102,31 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/respuesta-a-sor-filotea.webp" alt="Respuesta a Sor Filotea">
+        <img loading="lazy" decoding="async" src="../../book_covers/respuesta-a-sor-filotea.webp" alt="Respuesta a Sor Filotea">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la respuesta">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>La defensa autobiográfica que Sor Juana Inés de la Cruz escribió en 1691 en respuesta a la carta del obispo de Puebla —firmada bajo el seudónimo de "Sor Filotea"— que la instaba a abandonar el estudio profano por la vida religiosa. En ella narra su vocación intelectual desde la infancia y defiende, con argumentos teológicos y personales, el derecho de las mujeres al saber.</p>
+        <h2>La memoria como defensa</h2>
+        <p>Fechada el 1 de marzo de 1691, esta carta responde a las observaciones del obispo de Puebla, Manuel Fernández de Santa Cruz, quien había escrito bajo el nombre de Sor Filotea. Tras la polémica de la <a href="carta-atenagorica.html" class="inline-link">Carta atenagórica</a>, Sor Juana convierte el relato de su formación en una defensa de su vida intelectual.</p>
+        <p class="reading-note">Contar cómo se aprende es también explicar por qué no se puede dejar de aprender.</p>
+        <p>La curiosidad de la infancia, el estudio y los obstáculos al conocimiento articulan una argumentación que une experiencia personal y autoridades religiosas. La cortesía epistolar convive con una firme reivindicación del saber de las mujeres: conviene escuchar tanto lo que afirma como la forma cuidadosa en que lo hace.</p>
+        <p class="source-note">Fecha y destinatario: <a href="https://historicas.unam.mx/publicaciones/publicadigital/libros/775/sorjuana_ante.html">UNAM, <em>Sor Juana ante la muerte</em>, documentación</a>. Texto de referencia: <a href="https://cervantesvirtual.com/obra-visor/obras-escogidas--0/html/">Biblioteca Virtual Miguel de Cervantes, <em>Obras escogidas</em></a>. 1691 corresponde a la fecha de la carta. La cabecera es una interpretación artística, no un retrato histórico autenticado.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La carta del obispo bajo el nombre de Sor Filotea</p>
-        <p class="chapter" data-time="0">La vocación intelectual desde la infancia</p>
-        <p class="chapter" data-time="0">El estudio como camino hacia Dios</p>
-        <p class="chapter" data-time="0">La defensa del derecho de las mujeres al saber</p>
-        <p class="chapter" data-time="0">Cierre: humildad y firmeza ante la Iglesia</p>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Respuesta a Sor Filotea · Carta completa</p>
+        <p class="reading-guide">Claves de escucha: memoria de la infancia, vocación de estudio, argumentos sobre la educación de las mujeres y relación con la autoridad. Son orientaciones de lectura, no capítulos originales.</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
