@@ -1,0 +1,7 @@
+# Facundo — Land and power
+
+Generated with the built-in image generation tool. Literary landscape interpretation, not a documentary reconstruction.
+
+Use case: historical-scene
+Asset type: scholarly audiobook website landscape hero, 1536x1024, for Facundo by Domingo Faustino Sarmiento.
+Primary request: an immense nineteenth-century Argentine plain beneath a dramatic burnt-orange dusk sky, richly detailed grasses and earth foreground. On the RIGHT side, three small distant mounted travelers wearing simple ponchos on a dusty track, seen from behind, realistic early nineteenth-century rural Argentine clothing and tack, not North American cowboys. A modest low whitewashed settlement and bell tower on far horizon, land and sky dominating the image. No portrait of Facundo, no obvious split good/evil symbolism, no battle or caricature. Museum-quality realist landscape oil painting, cinematic atmospheric depth, intricate wind-swept grasses, russet soil, charcoal storm clouds with copper sunset rimlight. Palette derived from the book cover: vivid burnt orange, deep near-black umber, aged parchment highlights and subtle oxblood. Wide composition; landscape focus on right two-thirds; left darker spacious horizon for website title overlay. An evocative literary interpretation, not a documentary reconstruction of a specific place or episode. No text, logos, watermark, borders, flags, modern roads or power lines.
