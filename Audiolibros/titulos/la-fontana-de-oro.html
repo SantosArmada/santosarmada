@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,12 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Tercera Ola</p>
-        <h1>La Fontana de Oro</h1>
-        <p class="subtitle">Benito Pérez Galdós</p>
+        <h1><span class="title-prelude">La</span>Fontana<br><em>de Oro</em></h1>
+        <p class="subtitle">Benito Pérez Galdós · Novela</p>
+        <p class="hero-premise">Un café. Una ciudad. La libertad en disputa.</p>
+        <p class="hero-description">Entre mesas, tribunas y calles de Madrid, <br>la palabra promete transformar el mundo. <br>Pero también puede servir a la intriga.</p>
+        <a class="hero-listen" href="#playerSection">Explorar la novela <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="fontana-art">
+        <img src="../assets/fontana-cafe-and-conspiracy.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación artística de un café madrileño de comienzos del siglo XIX: mesa con café, papeles y una vela, bajo luz dorada y sombras verde azulado.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Madrid · Palabra · Poder</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading"><span>Novela · Madrid, 1821</span><p>La ciudad toma la palabra.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +70,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">La Fontana de Oro</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Capítulo I</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +102,76 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/fontana-de-oro.webp" alt="La Fontana de Oro">
+        <img loading="lazy" decoding="async" src="../../book_covers/fontana-de-oro.webp" alt="La Fontana de Oro">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Explorar la novela">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Primera novela de Benito Pérez Galdós, ambientada en el Madrid turbulento del Trienio Liberal (1820–1823), donde un joven recién llegado a la capital se ve arrastrado a las intrigas políticas y románticas que giran en torno al café homónimo, foco de agitación liberal contra el absolutismo fernandino. Entre conspiraciones, delaciones y un amor imposible, Galdós inaugura aquí el pulso histórico-social que definiría toda su obra posterior.</p>
+        <h2>La política entra en la vida</h2>
+        <p>Madrid, 1821. El café que da nombre a la novela es un lugar de encuentro y agitación: allí la elocuencia alimenta esperanzas, rivalidades y maniobras políticas. La ciudad entera participa en esa circulación de voces, desde los clubes hasta los comercios y las casas.</p>
+        <p class="reading-note">La libertad no solo se proclama en una tribuna: también se pone a prueba en las relaciones privadas.</p>
+        <p>La historia de Lázaro y Clara se cruza con un mundo de vigilancia, autoridad y conspiración. El narrador observa tanto el entusiasmo liberal como sus excesos y vulnerabilidades: importa quién habla, quién escucha y quién utiliza la palabra para dirigir a los demás.</p>
+        <p class="source-note">El prólogo, fechado en diciembre de 1870, relaciona las tensiones de 1820–1823 con el presente del escritor; el capítulo inicial sitúa la narración en 1821. Son tiempos distintos: el de la historia y el de su escritura. Texto e índice: <a href="https://www.cervantesvirtual.com/obra-visor/la-fontana-de-oro--0/html/ff4141b8-82b1-11df-acc7-002185ce6064_2.html">Biblioteca Virtual Miguel de Cervantes</a>. La cabecera es una interpretación artística, no una reconstrucción documental del café.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Lázaro llega a Madrid</p>
-        <p class="chapter" data-time="0">La Fontana de Oro: café y agitación liberal</p>
-        <p class="chapter" data-time="0">Conspiraciones y delaciones</p>
-        <p class="chapter" data-time="0">Un amor imposible</p>
-        <p class="chapter" data-time="0">El pulso entre liberales y absolutistas</p>
+        <h2>La lectura</h2>
+        <p class="reading-guide">43 capítulos según el <a href="https://www.cervantesvirtual.com/obra-visor/la-fontana-de-oro--0/html/?indice=1">índice de la edición de referencia</a>. Grabaciones pendientes de incorporación; los controles permiten seleccionar el capítulo.</p>
+        <details class="chapter-index">
+          <summary>Explorar los 43 capítulos</summary>
+          <p class="chapter" data-time="0" role="button" tabindex="0">I · La Carrera de San Jerónimo en 1821</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">II · El club patriótico</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">III · Un lance patriótico y sus consecuencias</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">IV · Coletilla</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">V · La compañera de Coletilla</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">VI · El sobrino de Coletilla</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">VII · La voz interior</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">VIII · Hoy llega</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">IX · Los primeros pasos</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">X · La primera batalla</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XI · La tragedia de los Gracos</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XII · La batalla de Platerías</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XIII · No llega el esperado. Llegada de un importuno</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XIV · La determinación</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XV · Las tres ruinas</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XVI · El siglo decimoctavo</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XVII · El sueño del liberal</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XVIII · Diálogo entre ayer y hoy</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XIX · El abate</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XX · Bozmediano</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXI · ¡Libre!</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXII · El «vía-crucis» de Lázaro</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXIII · La Inquisición</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXIV · Rosa mística</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXV · Virgo Prudentísima</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXVI · Los disidentes de la Fontana</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXVII · Se queda sola</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXVIII · El ridículo</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXIX · Las horas fatales</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXX · Virgo Fidelis</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXXI · La reunión misteriosa</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXXII · La Fontanilla</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXXIII · Las arpías se ponen tristes</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXXIV · El complot. Triunfo de Lázaro</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXXV · El bonete del Nuncio</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXXVI · Aclaraciones</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXXVII · El «via-crucis» de Clara</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXXVIII · Continuación del «via-crucis»</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XXXIX · Un momento de calma</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XL · El gran atentado</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XLI · Fernando el Deseado</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XLII · Virgo Potens</p>
+          <p class="chapter" data-time="0" role="button" tabindex="0">XLIII · Conclusión</p>
+        </details>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
