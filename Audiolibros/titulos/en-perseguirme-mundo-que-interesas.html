@@ -22,7 +22,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -40,12 +40,22 @@
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>¿En perseguirme, Mundo, qué interesas?</h1>
-        <p class="subtitle">Sor Juana Inés de la Cruz — 1689</p>
+        <h1>¿En perseguirme,<br><em>Mundo,</em><br>qué interesas?</h1>
+        <p class="subtitle">Sor Juana Inés de la Cruz · Soneto · Siglo XVII</p>
+        <p class="hero-premise">La riqueza de pensar.</p>
+        <p class="hero-description">Frente al prestigio, la belleza y la posesión,<br>una voz reclama el derecho a cultivar<br>su entendimiento.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el soneto <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="mundo-art">
+        <img src="../assets/mundo-intellectual-riches.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación simbólica: una esfera armilar de latón y libros iluminados frente a un cielo azul nocturno; un joyero queda en la penumbra.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Entendimiento · Riqueza · Libertad</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading"><span>Poesía barroca · Lectura íntegra</span><p>Lo que vale una vida del pensamiento.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +70,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">¿En perseguirme, Mundo, qué interesas?</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Soneto completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -92,31 +102,30 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/en-perseguirme-mundo.webp" alt="¿En perseguirme, Mundo, qué interesas?">
+        <img loading="lazy" decoding="async" src="../../book_covers/en-perseguirme-mundo.webp" alt="¿En perseguirme, Mundo, qué interesas?">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el soneto">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Soneto de Sor Juana Inés de la Cruz en el que la voz poética se defiende del "Mundo" que la persigue por dedicarse al estudio en vez de a las riquezas materiales, declarando que prefiere "poner riquezas en mi entendimiento / que no mi entendimiento en las riquezas". Una de sus declaraciones más directas en defensa de la vida intelectual femenina.</p>
+        <h2>Una defensa del entendimiento</h2>
+        <p>Sor Juana dirige su pregunta a un Mundo personificado: ¿por qué hostigar a quien busca cultivar la inteligencia? La voz poética contrapone la riqueza interior a la acumulación de bienes y la belleza del pensamiento a una hermosura que el tiempo vence.</p>
+        <p class="reading-note">No renunciar al mundo por ignorarlo, sino decidir qué merece nuestra vida.</p>
+        <p>El argumento avanza mediante inversiones de palabras: entendimiento y bellezas, entendimiento y riquezas, vida y vanidades intercambian su lugar. Esa precisión verbal transforma el soneto en una defensa de prioridades propias frente a las exigencias externas.</p>
+        <p class="source-note">Texto de referencia: <a href="https://cervantesvirtual.com/obra-visor/obras-escogidas--0/html/c7822235-3f49-4a31-9ea3-485840a7c278_2.html">Biblioteca Virtual Miguel de Cervantes, <em>Obras escogidas</em>, soneto II</a>. Una lectura completa de catorce versos, sin capítulos añadidos. La esfera y el estudio de la cabecera son una interpretación visual de la vida intelectual, no objetos descritos en el poema.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">¿En perseguirme, Mundo, qué interesas?</p>
-        <p class="chapter" data-time="0">No estudio por saber más, sino por ignorar menos</p>
-        <p class="chapter" data-time="0">Consumir vanidades de la vida</p>
-        <p class="chapter" data-time="0">Poner riquezas en el entendimiento</p>
-        <p class="chapter" data-time="0">Cultivar mi alma</p>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">¿En perseguirme, Mundo, qué interesas? · Soneto completo</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
