@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="dona-perfecta.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -22,7 +23,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -37,15 +38,26 @@
   <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Tercera Ola</p>
-        <h1>Doña Perfecta</h1>
-        <p class="subtitle">Benito Pérez Galdós</p>
+        <h1>Doña<br><em>Perfecta</em></h1>
+        <p class="subtitle">Benito Pérez Galdós · Publicada en 1876</p>
+        <p class="hero-premise">La virtud también puede ser una máscara.</p>
+        <p class="hero-description">Una casa recibe al forastero. <br>Una ciudad juzga sus palabras. <br>La cortesía se convierte en cerco.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la novela <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="perfecta-art">
+        <img src="../assets/perfecta-mirror.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación artística de una mujer vestida de oscuro junto a un espejo, en un salón de madera iluminado por una ventana.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Apariencia · Poder · Discordia</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading" id="escuchar"><span>Novela · Treinta y tres capítulos</span><p>La discordia detrás de las formas.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +72,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Doña Perfecta</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Capítulo I</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -89,34 +101,67 @@
 <audio id="chapterAudio" preload="auto" crossorigin="anonymous"></audio>
 <!-- ^ no src yet — add each recorded chapter file as you upload them. -->
 
-<div class="all">
+<div class="all" id="sobre">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/doña-perfecta.webp" alt="Doña Perfecta">
+        <img loading="lazy" decoding="async" src="../../book_covers/doña-perfecta.webp" alt="Doña Perfecta">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la novela">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Benito Pérez Galdós enfrenta a Pepe Rey, un joven ingeniero de ideas liberales, con su tía Doña Perfecta, matriarca de la ficticia y ferozmente tradicionalista Orbajosa, en la España de la Restauración de la década de 1870. Lo que empieza como un acuerdo matrimonial entre primos se convierte en una guerra silenciosa entre el progreso científico y el poder clerical y caciquil de la provincia. Una de las primeras y más feroces "novelas de tesis" de Galdós sobre el choque entre la España que quería modernizarse y la que se resistía a hacerlo.</p>
+        <h2>La hospitalidad y el cerco</h2>
+        <p>Pepe Rey llega a Orbajosa para conocer a Rosario, su prima y futura esposa. La acogida de doña Perfecta parece asegurar una unión familiar; sin embargo, las conversaciones con don Inocencio y las reacciones del pueblo convierten cada diferencia en una prueba contra el recién llegado.</p>
+        <p class="reading-note">El conflicto no entra por la fuerza: empieza en la sobremesa, en la insinuación y en el nombre que se da al otro.</p>
+        <p>Galdós hace crecer la desavenencia hasta volverla discordia y guerra. El afecto familiar, el prestigio religioso y los intereses particulares se entrelazan en una red de poder. La ironía obliga a mirar la distancia entre las palabras respetables y los actos que pretenden justificar.</p>
+        <p class="source-note">Publicada en 1876. <a href="https://cervantesvirtual.com/obra/dona-perfecta-novela-original--0/">Ficha de la edición original</a> y <a href="https://www.cervantesvirtual.com/obra-visor/dona-perfecta-novela-original--0/html/">texto e índice</a>, Biblioteca Virtual Miguel de Cervantes. Orbajosa es una ciudad ficticia; el salón superior es una interpretación artística, no una localización documentada.</p>
+        <div class="break"></div>
+        <h2>La lectura</h2>
+        <p class="reading-guide">Los 33 capítulos de la novela, conservados en su orden original. Desplaza la lista para recorrerlos. Grabaciones pendientes de incorporación.</p>
+        <div class="chapter-list" role="region" aria-label="Capítulos de Doña Perfecta" tabindex="0">
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo I</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo II</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo III</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo IV</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo V</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo VI</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo VII</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo VIII</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo IX</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo X</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XI</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XII</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XIII</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XIV</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XV</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XVI</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XVII</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XVIII</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XIX</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XX</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXI</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXII</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXIII</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXIV</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXV</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXVI</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXVII</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXVIII</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXIX</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXX</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXXI</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXXII</p>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Capítulo XXXIII</p>
+        </div>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La llegada de Pepe Rey a Orbajosa</p>
-        <p class="chapter" data-time="0">El compromiso con Rosario</p>
-        <p class="chapter" data-time="0">La guerra silenciosa de Doña Perfecta y el clero</p>
-        <p class="chapter" data-time="0">Caballuco y la conspiración del pueblo</p>
-        <p class="chapter" data-time="0">El desenlace trágico</p>
-
-        <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -130,6 +175,8 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="ola-3-slug.html">← Tercera Ola</a><a href="del-rumor-cadencioso-de-la-onda.html">Continuar con Del rumor cadencioso de la onda →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
