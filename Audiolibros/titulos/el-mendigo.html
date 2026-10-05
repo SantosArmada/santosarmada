@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="el-mendigo.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -22,7 +23,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -37,15 +38,26 @@
   <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Tercera Ola</p>
-        <h1>El mendigo</h1>
-        <p class="subtitle">José de Espronceda</p>
+        <h1>El<br><em>mendigo</em></h1>
+        <p class="subtitle">José de Espronceda · Publicado en 1835</p>
+        <p class="hero-premise">Una voz que no pide permiso.</p>
+        <p class="hero-description">Entre el umbral y la intemperie. <br>La pobreza toma la palabra <br>y devuelve al lujo su propia imagen.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="mendigo-art">
+        <img src="../assets/mendigo-street.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación artística de un hombre con capa gastada y bastón ante un portal de piedra, en una calle española imaginada del siglo XIX.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Umbral · Ironía · Intemperie</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading" id="escuchar"><span>Poesía · Lectura íntegra</span><p>El mundo desde sus márgenes.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +72,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">El mendigo</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Poema completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -89,47 +101,42 @@
 <audio id="chapterAudio" preload="auto" crossorigin="anonymous"></audio>
 <!-- ^ no src yet — add each recorded chapter file as you upload them. -->
 
-<div class="all">
+<div class="all" id="sobre">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/el-mendigo.webp" alt="El mendigo">
+        <img loading="lazy" decoding="async" src="../../book_covers/el-mendigo.webp" alt="El mendigo">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el poema">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>En este poema de Espronceda, un mendigo despojado de todo —techo, propiedad, nombre— proclama su libertad como la única riqueza que nadie puede arrebatarle, mendigando por las calles de Madrid sin súbdito ni vasallaje a ningún poder. Compañero de "<a href="cancion-del-pirata.html" class="inline-link">Canción del pirata</a>" en su culto romántico a la libertad radical, convierte la miseria material en soberanía moral absoluta.</p>
+        <h2>La intemperie toma la palabra</h2>
+        <p>El hablante se proclama dueño del mundo, aunque depende de la limosna. Atraviesa palacios y cabañas, recibe alimento y convierte la caridad en una obligación de quienes poseen. Su canto invierte, con ironía, la relación entre dependencia y poder.</p>
+        <p class="reading-note">Sus harapos interrumpen la fiesta: el gozo y el padecimiento comparten la misma calle.</p>
+        <p>No es una figura de inocencia idealizada. Presume de no agradecer y de incomodar al poderoso. El estribillo y los versos de distinta extensión sostienen esa voz desafiante; al final, el hospital y la sepultura dejan oír la fragilidad que acompaña su proclamación de libertad.</p>
+        <p class="source-note">Publicado en 1835 en la <em>Revista Española</em>. Contexto de publicación: <a href="https://www.fuesp.com/wp-content/uploads/cilh-12-165-173.pdf">estudio sobre Meléndez y Espronceda</a>. <a href="https://es.wikisource.org/wiki/El_mendigo_(Espronceda)">Texto del poema</a>. La escena superior es una interpretación artística, no un lugar documentado ni un retrato del autor.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El mendigo despojado de todo</p>
-        <p class="chapter" data-time="0">La libertad como única riqueza</p>
-        <p class="chapter" data-time="0">Las calles de Madrid</p>
-        <p class="chapter" data-time="0">Sin súbdito ni vasallaje</p>
-        <p class="chapter" data-time="0">La soberanía moral absoluta</p>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">El mendigo · Poema completo</p>
+        <p class="reading-guide">Claves de escucha: el estribillo, la caridad, la sátira del lujo y la tensión entre libertad y dependencia. Son orientaciones temáticas, no divisiones originales. Grabación pendiente de incorporación.</p>
 
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
-        <div>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <p style="display:inline; margin-left:6px;">Bueno</p>
-        </div>
+        <h2>Reseñas</h2>
+        <p>Bueno</p>
       </div>
     </div>
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="ola-3-slug.html">← Tercera Ola</a><a href="facundo-o-civilizacion-y-barbarie.html">Continuar con Facundo →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
