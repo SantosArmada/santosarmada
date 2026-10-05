@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="lo-fatal.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -22,7 +23,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -37,15 +38,26 @@
   <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>Lo fatal</h1>
-        <p class="subtitle">Rubén Darío</p>
+        <h1>Lo <em>fatal</em></h1>
+        <p class="subtitle">Rubén Darío · Cantos de vida y esperanza · 1905</p>
+        <p class="hero-premise">El peso de saberse vivo.</p>
+        <p class="hero-description">El árbol siente apenas. <br>La piedra no conoce el miedo. <br>La conciencia pregunta sin encontrar descanso.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="lo-fatal-art">
+        <img src="../assets/lo-fatal-piedra-y-conciencia.webp" width="1536" height="1024" fetchpriority="high" alt="Composición simbólica en sepia: un rostro esculpido en piedra, un árbol vivo y un camino que desaparece entre la bruma.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Piedra · Vida · Conciencia</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading" id="escuchar"><span>Modernismo · Trece versos</span><p>Una pregunta que permanece.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +72,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Lo fatal</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Poema completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -89,34 +101,33 @@
 <audio id="chapterAudio" preload="auto" crossorigin="anonymous"></audio>
 <!-- ^ no src yet — add each recorded chapter file as you upload them. -->
 
-<div class="all">
+<div class="all" id="sobre">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/lo-fatal.webp" alt="Lo fatal">
+        <img loading="lazy" decoding="async" src="../../book_covers/lo-fatal.webp" alt="Lo fatal">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el poema">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Uno de los poemas más citados de Rubén Darío, cierre de Cantos de vida y esperanza (1905), en el que la voz poética envidia al árbol y a la piedra por no tener la conciencia dolorosa de existir, de saber que se vive y se ha de morir sin certeza de nada más allá. Cima del pesimismo existencial del modernismo hispanoamericano, condensado en apenas catorce versos.</p>
+        <h2>La conciencia y su intemperie</h2>
+        <p>El poema comienza envidiando al árbol y a la piedra. Lo que habitualmente parece una carencia —sentir menos, no saber— se convierte aquí en alivio frente al dolor de la conciencia. La voz no ofrece una explicación del mundo: enumera el temor, el deseo y la incertidumbre de estar en él.</p>
+        <p class="reading-note">La piedra no necesita una respuesta. Quien habla no puede dejar de buscarla.</p>
+        <p>La repetición de «y» acumula inquietudes sin resolverlas. La atracción de la carne y la espera de la tumba se enfrentan mediante imágenes vegetales; después, los dos versos finales se acortan y dejan la voz ante su origen y su destino desconocidos. Proponemos escuchar ese cambio de extensión como un quiebre de la respiración, no como una conclusión tranquilizadora.</p>
+        <p class="source-note">Cierra <em>Cantos de vida y esperanza</em> (1905), en «Otros poemas», XLI, con dedicatoria a René Pérez. Consta de 13 versos. <a href="https://www.cervantesvirtual.com/obra-visor/cantos-de-vida-y-esperanza/html/fee156ea-82b1-11df-acc7-002185ce6064_2.html">Texto y edición · Biblioteca Virtual Miguel de Cervantes</a>. La imagen superior es una composición simbólica; el rostro esculpido no representa a Darío ni una pieza arqueológica identificada.</p>
+        <div class="break"></div>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Poema completo</p>
+        <p class="reading-guide">Una lectura continua. Claves de escucha: el contraste inicial, la acumulación de «y» y el acortamiento de los versos finales. Grabación pendiente de incorporación.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La envidia del árbol y la piedra</p>
-        <p class="chapter" data-time="0">La conciencia dolorosa de existir</p>
-        <p class="chapter" data-time="0">Saber que se vive y se ha de morir</p>
-        <p class="chapter" data-time="0">La certeza ausente</p>
-        <p class="chapter" data-time="0">El pesimismo existencial modernista</p>
-
-        <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -130,6 +141,8 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="ola-4-slug.html">← Cuarta Ola</a><a href="thanatos.html">Continuar con Thánatos →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
