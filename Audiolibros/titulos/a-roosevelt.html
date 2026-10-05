@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="a-roosevelt.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -22,7 +23,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -37,15 +38,26 @@
   <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>A Roosevelt</h1>
-        <p class="subtitle">Rubén Darío</p>
+        <h1>A<br><em>Roosevelt</em></h1>
+        <p class="subtitle">Rubén Darío · 1904 · En libro, 1905</p>
+        <p class="hero-premise">Una voz frente al poder.</p>
+        <p class="hero-description">La fuerza no decide el porvenir. <br>La memoria de América responde. <br>La poesía toma la palabra.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="a-roosevelt-art">
+        <img src="../assets/roosevelt-palabra-y-poder.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación simbólica de una mesa de escritura frente al mar, con papel, pluma y un buque de vapor distante.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Palabra · Memoria · Soberanía</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading" id="escuchar"><span>Modernismo · Poesía y poder</span><p>El peso de una palabra: no.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +72,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">A Roosevelt</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Poema completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -89,34 +101,33 @@
 <audio id="chapterAudio" preload="auto" crossorigin="anonymous"></audio>
 <!-- ^ no src yet — add each recorded chapter file as you upload them. -->
 
-<div class="all">
+<div class="all" id="sobre">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/a-roosevelt.webp" alt="A Roosevelt">
+        <img loading="lazy" decoding="async" src="../../book_covers/a-roosevelt.webp" alt="A Roosevelt">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el poema">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Rubén Darío se dirige en 1904 directamente al presidente estadounidense Theodore Roosevelt para advertirle que, pese al poderío militar y económico de su país, América Latina conserva un alma, una lengua y una civilización que ningún imperio puede reducir. Escrito en respuesta al intervencionismo de Estados Unidos en Panamá y el Caribe, se convirtió en el poema fundacional de la denuncia antiimperialista en la poesía latinoamericana.</p>
+        <h2>La palabra disputa el porvenir</h2>
+        <p>Darío se dirige a Theodore Roosevelt como encarnación del poder estadounidense. Reconoce su fuerza, pero rechaza que la conquista sea sinónimo de progreso. El «No» aislado interrumpe la expansión del discurso: una palabra breve enfrenta la lógica de las armas.</p>
+        <p class="reading-note">Una América con memoria no acepta ser narrada únicamente por quien pretende dominarla.</p>
+        <p>El poema convoca a Netzahualcóyotl, Moctezuma y el Inca junto con referencias clásicas, españolas y cristianas. Esa alianza sostiene su respuesta antiimperialista, pero también abre una pregunta: ¿qué diferencias quedan dentro de una América presentada como una sola voz? Leer su resistencia exige escuchar tanto su potencia como las tensiones de esa identidad.</p>
+        <p class="source-note">Publicado en <em>Helios</em> en 1904 y recogido en <em>Cantos de vida y esperanza</em> en 1905. <a href="https://press.rebus.community/aalh/chapter/introduccion/">Contexto de publicación · Antología abierta de literatura hispana</a>. <a href="https://www.cervantesvirtual.com/obra-visor/cantos-de-vida-y-esperanza/html/fee156ea-82b1-11df-acc7-002185ce6064_2.html">Texto y edición de 1905 · Biblioteca Virtual Miguel de Cervantes</a>. La imagen superior es una composición simbólica; no representa el escritorio de Darío ni un episodio naval documentado.</p>
+        <div class="break"></div>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Poema completo</p>
+        <p class="reading-guide">Una lectura continua. Claves de escucha: la interpelación al presidente, la pausa del «No» y la enumeración de las memorias de América. Grabación pendiente de incorporación.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La advertencia al presidente</p>
-        <p class="chapter" data-time="0">El poderío militar y económico</p>
-        <p class="chapter" data-time="0">El alma de América Latina</p>
-        <p class="chapter" data-time="0">El intervencionismo en Panamá y el Caribe</p>
-        <p class="chapter" data-time="0">La denuncia antiimperialista</p>
-
-        <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -130,6 +141,8 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="ola-4-slug.html">← Cuarta Ola</a><a href="caracol.html">Continuar con Caracol →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
