@@ -43,8 +43,8 @@ var Framer = {
         var dy2 = parseInt(this.scene.cy + y2);
 
         var gradient = this.context.createLinearGradient(dx1, dy1, dx2, dy2);
-        gradient.addColorStop(0, '#8A2418');
-        gradient.addColorStop(0.6, '#8A2418');
+        gradient.addColorStop(0, '#D5B267');
+        gradient.addColorStop(0.6, '#D5B267');
         gradient.addColorStop(1, '#ECDFC0');
         this.context.beginPath();
         this.context.strokeStyle = gradient;
@@ -61,7 +61,7 @@ var Framer = {
     drawEdging: function () {
         this.context.save();
         this.context.beginPath();
-        this.context.strokeStyle = 'rgba(138, 36, 24, 0.5)';
+        this.context.strokeStyle = 'rgba(213, 178, 103, 0.5)';
         this.context.lineWidth = 1;
 
         var offset = Tracker.lineWidth / 2;
@@ -148,15 +148,17 @@ var Tracker = {
     initHandlers: function () {
         var that = this;
 
-        this.scene.canvas.addEventListener('mousedown', function (e) {
+        this.scene.canvas.addEventListener('pointerdown', function (e) {
             if (that.isInsideOfSmallCircle(e) || that.isOusideOfBigCircle(e)) { return; }
+            e.preventDefault();
+            that.scene.canvas.setPointerCapture(e.pointerId);
             that.prevAngle = that.angle;
             that.pressButton = true;
             that.stopAnimation();
             that.calculateAngle(e, true);
         });
 
-        window.addEventListener('mouseup', function () {
+        function finishSeek() {
             if (!that.pressButton) { return; }
             var id = setInterval(function () {
                 if (!that.animatedInProgress) {
@@ -167,9 +169,11 @@ var Tracker = {
                     clearInterval(id);
                 }
             }, 100);
-        });
+        }
+        this.scene.canvas.addEventListener('pointerup', finishSeek);
+        this.scene.canvas.addEventListener('pointercancel', finishSeek);
 
-        window.addEventListener('mousemove', function (e) {
+        this.scene.canvas.addEventListener('pointermove', function (e) {
             if (that.animatedInProgress) { return; }
             if (that.pressButton && that.scene.inProcess()) {
                 that.calculateAngle(e);
@@ -177,20 +181,30 @@ var Tracker = {
         });
     },
 
+    pointerPosition: function (e) {
+        var rect = this.scene.canvas.getBoundingClientRect();
+        return {
+            x: (e.clientX - rect.left) * (this.scene.canvas.width / rect.width),
+            y: (e.clientY - rect.top) * (this.scene.canvas.height / rect.height)
+        };
+    },
+
     isInsideOfSmallCircle: function (e) {
-        var x = Math.abs(e.pageX - this.scene.cx - this.scene.coord.left);
-        var y = Math.abs(e.pageY - this.scene.cy - this.scene.coord.top);
+        var point = this.pointerPosition(e);
+        var x = Math.abs(point.x - this.scene.cx);
+        var y = Math.abs(point.y - this.scene.cy);
         return Math.sqrt(x * x + y * y) < this.scene.radius - 3 * this.innerDelta;
     },
 
     isOusideOfBigCircle: function (e) {
-        return Math.abs(e.pageX - this.scene.cx - this.scene.coord.left) > this.scene.radius ||
-            Math.abs(e.pageY - this.scene.cy - this.scene.coord.top) > this.scene.radius;
+        var point = this.pointerPosition(e);
+        return Math.abs(point.x - this.scene.cx) > this.scene.radius ||
+            Math.abs(point.y - this.scene.cy) > this.scene.radius;
     },
 
     draw: function () {
-        if (!Player.audio || !Player.audio.duration || isNaN(Player.audio.duration)) { return; }
-        if (!this.pressButton) {
+        var hasTrack = Player.audio && Player.audio.duration && !isNaN(Player.audio.duration);
+        if (hasTrack && !this.pressButton) {
             this.angle = (Player.audio.currentTime / Player.audio.duration) * 2 * Math.PI || 0;
         }
         this.drawArc();
@@ -198,11 +212,19 @@ var Tracker = {
 
     drawArc: function () {
         this.context.save();
-        this.context.strokeStyle = 'rgba(138, 36, 24, 0.8)';
         this.context.beginPath();
         this.context.lineWidth = this.lineWidth;
 
         this.r = this.scene.radius - (this.innerDelta + this.lineWidth / 2);
+        this.context.strokeStyle = 'rgba(213, 178, 103, 0.3)';
+        this.context.arc(
+            this.scene.radius + this.scene.padding,
+            this.scene.radius + this.scene.padding,
+            this.r, 0, Math.PI * 2, false
+        );
+        this.context.stroke();
+        this.context.beginPath();
+        this.context.strokeStyle = 'rgba(213, 178, 103, 0.8)';
         this.context.arc(
             this.scene.radius + this.scene.padding,
             this.scene.radius + this.scene.padding,
@@ -214,10 +236,11 @@ var Tracker = {
 
     calculateAngle: function (e, animatedInProgress) {
         this.animatedInProgress = animatedInProgress;
-        this.mx = e.pageX;
-        this.my = e.pageY;
-        this.angle = Math.atan((this.my - this.scene.cy - this.scene.coord.top) / (this.mx - this.scene.cx - this.scene.coord.left));
-        if (this.mx < this.scene.cx + this.scene.coord.left) { this.angle = Math.PI + this.angle; }
+        var point = this.pointerPosition(e);
+        this.mx = point.x;
+        this.my = point.y;
+        this.angle = Math.atan((this.my - this.scene.cy) / (this.mx - this.scene.cx));
+        if (this.mx < this.scene.cx) { this.angle = Math.PI + this.angle; }
         if (this.angle < 0) { this.angle += 2 * Math.PI; }
         if (animatedInProgress) {
             this.startAnimation();
@@ -270,7 +293,7 @@ var Scene = {
     canvasConfigure: function () {
         this.canvas = document.querySelector('canvas');
         this.context = this.canvas.getContext('2d');
-        this.context.strokeStyle = '#8A2418';
+        this.context.strokeStyle = '#D5B267';
         this.calculateSize();
     },
 
@@ -338,10 +361,20 @@ var Controls = {
         this.initTimeHandler();
     },
 
+    bindAction: function (element, action) {
+        element.addEventListener('click', action);
+        element.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                action();
+            }
+        });
+    },
+
     initPlayButton: function () {
         var that = this;
         this.playButton = document.querySelector('.play');
-        this.playButton.addEventListener('mouseup', function () {
+        this.bindAction(this.playButton, function () {
             that.playButton.style.display = 'none';
             that.pauseButton.style.display = 'inline-block';
             Player.play();
@@ -352,7 +385,7 @@ var Controls = {
     initPauseButton: function () {
         var that = this;
         this.pauseButton = document.querySelector('.pause');
-        this.pauseButton.addEventListener('mouseup', function () {
+        this.bindAction(this.pauseButton, function () {
             that.playButton.style.display = 'inline-block';
             that.pauseButton.style.display = 'none';
             Player.pause();
@@ -363,7 +396,7 @@ var Controls = {
     initSoundButton: function () {
         var that = this;
         this.soundButton = document.querySelector('.soundControl');
-        this.soundButton.addEventListener('mouseup', function () {
+        this.bindAction(this.soundButton, function () {
             if (that.soundButton.classList.contains('disable')) {
                 Player.unmute();
             } else {
@@ -375,7 +408,7 @@ var Controls = {
     initPrevSongButton: function () {
         var that = this;
         this.prevSongButton = document.querySelector('.prevSong');
-        this.prevSongButton.addEventListener('mouseup', function () {
+        this.bindAction(this.prevSongButton, function () {
             Chapters.prev();
             that.playing && Player.play();
         });
@@ -384,7 +417,7 @@ var Controls = {
     initNextSongButton: function () {
         var that = this;
         this.nextSongButton = document.querySelector('.nextSong');
-        this.nextSongButton.addEventListener('mouseup', function () {
+        this.bindAction(this.nextSongButton, function () {
             Chapters.next();
             that.playing && Player.play();
         });
@@ -409,7 +442,7 @@ var Controls = {
     drawPic: function () {
         this.context.save();
         this.context.beginPath();
-        this.context.fillStyle = 'rgba(138, 36, 24, 0.9)';
+        this.context.fillStyle = 'rgba(213, 178, 103, 0.9)';
         this.context.lineWidth = 1;
         var x = Tracker.r / Math.sqrt(Math.pow(Math.tan(Tracker.angle), 2) + 1);
         var y = Math.sqrt(Tracker.r * Tracker.r - x * x);
@@ -472,8 +505,20 @@ var Player = {
     },
 
     play: function () {
-        this.context && this.context.resume && this.context.resume();
-        this.audio.play();
+        function resetTransport() {
+            Controls.playing = false;
+            document.querySelector('.play').style.display = 'inline-block';
+            document.querySelector('.pause').style.display = 'none';
+        }
+        if (!PlayerPower.on || !(this.audio.currentSrc || this.audio.getAttribute('src') || this.audio.querySelector('source[src]'))) {
+            Promise.resolve().then(resetTransport);
+            return;
+        }
+        if (this.context && this.context.resume) {
+            this.context.resume().catch(function () {});
+        }
+        var playback = this.audio.play();
+        if (playback && playback.catch) { playback.catch(resetTransport); }
     },
 
     pause: function () {
@@ -655,6 +700,12 @@ var Chapters = {
             el.addEventListener('click', function () {
                 that.goTo(i);
             });
+            el.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    that.goTo(i);
+                }
+            });
         });
     },
 
@@ -691,8 +742,13 @@ function initPanelToggle() {
     var closeBtn = document.querySelector('.x');
     var panel = document.querySelector('.panel');
     if (!closeBtn || !panel) { return; }
-    closeBtn.addEventListener('click', function () {
+    function togglePanel() {
         panel.classList.toggle('collapsed');
+        closeBtn.setAttribute('aria-label', panel.classList.contains('collapsed') ? 'Mostrar la ficha del libro' : 'Ocultar la ficha del libro');
+    }
+    closeBtn.addEventListener('click', togglePanel);
+    closeBtn.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePanel(); }
     });
 }
 
@@ -701,8 +757,12 @@ function initListenNowRibbon() {
     var box = document.querySelector('.controls .box');
     var playerSection = document.querySelector('.player-section');
     if (!box || !playerSection) { return; }
-    box.addEventListener('click', function () {
+    function focusPlayer() {
         playerSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    box.addEventListener('click', focusPlayer);
+    box.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); focusPlayer(); }
     });
 }
 
@@ -732,15 +792,23 @@ function initMobileNav() {
     var hamburger = document.getElementById('siteHamburger');
     var menu = document.getElementById('siteMobileMenu');
     if (!hamburger || !menu) { return; }
-    hamburger.addEventListener('click', function () {
-        hamburger.classList.toggle('open');
-        menu.classList.toggle('open');
-    });
+    function setOpen(open) {
+        hamburger.classList.toggle('open', open);
+        menu.classList.toggle('open', open);
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        hamburger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    }
+    hamburger.addEventListener('click', function () { setOpen(!menu.classList.contains('open')); });
     menu.querySelectorAll('a').forEach(function (a) {
         a.addEventListener('click', function () {
-            hamburger.classList.remove('open');
-            menu.classList.remove('open');
+            setOpen(false);
         });
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && menu.classList.contains('open')) {
+            setOpen(false);
+            hamburger.focus();
+        }
     });
 }
 
