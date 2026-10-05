@@ -1,0 +1,5 @@
+# Caracol — Mar y corazón
+
+Built-in image generation. A poetic interpretation, not an archaeological artifact or a reconstruction of an object owned by Darío.
+
+Use case: illustration-story. Asset type: literary website hero, landscape 1536x1024. Create an exquisite museum-quality realist oil painting inspired by Rubén Darío's sonnet Caracol. A single magnificent golden marine conch shell lies on pale wet sand beside the sea, central-right in composition, with an organically heart-suggestive coral-pink aperture and tiny lustrous pearl accents tucked into its ridges. Natural believable shell anatomy, no literal human heart. Intricate amber-gold ridges, nacre, fine sand grains, transparent water and delicate ivory foam surrounding the shell. Behind it deep peacock-blue waves and a softly luminous ivory horizon. Golden dawn light with coral reflected within the shell, painterly realism, close tactile detail, quiet mythic beauty without fantasy characters. Leave open pale sand and mist on left for website typography. Palette: aged ivory, ocean blue, warm coral, antique gold, tiny muted olive accents. No text, watermark, people, ships, faces, or cartoon styling.
