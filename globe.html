@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Globo — Santos Armada</title>
     <link href="vendor/fonts/globe-fonts.css" rel="stylesheet">
-    <link rel="stylesheet" href="globe.css?v=8">
+    <link rel="stylesheet" href="globe.css?v=9">
     <link rel="stylesheet" href="timeline.css?v=12">
     <link rel="stylesheet" href="space-time-clock.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -152,6 +152,42 @@
         <p class="footer-copy">© 2026 Santos Armada · santosarmada@protonmail.com · All rights reserved</p>
     </div>
 </footer>
+
+<button class="time-return" id="timeReturn" type="button" aria-label="Volver al inicio de Space & Time" aria-hidden="true" tabindex="-1">
+    <span class="time-return-dial" aria-hidden="true">
+        <span class="time-return-hand time-return-hand-hour"></span>
+        <span class="time-return-hand time-return-hand-minute"></span>
+        <span class="time-return-arrow">↑</span>
+    </span>
+    <span class="time-return-copy">
+        <span>Volver</span>
+        <strong>al origen</strong>
+    </span>
+</button>
+
+<script>
+(function () {
+    const returnButton = document.getElementById('timeReturn');
+    const opening = document.getElementById('spaceTimeTitleBand');
+    if (!returnButton || !opening) return;
+
+    const setVisible = (visible) => {
+        returnButton.classList.toggle('is-visible', visible);
+        returnButton.setAttribute('aria-hidden', String(!visible));
+        returnButton.tabIndex = visible ? 0 : -1;
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+        setVisible(!entry.isIntersecting);
+    }, { threshold: 0 });
+
+    observer.observe(opening);
+    returnButton.addEventListener('click', () => {
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    });
+})();
+</script>
 
 <!-- BANNER: amber/gold Maya frieze, fixed to the very bottom of the
      viewport, sits below everything and never scrolls away. No top
