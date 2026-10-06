@@ -376,8 +376,11 @@ if (moonMarkerEl) {
     let angle = 0;
     let lastFrameTime = null;
     let lastIsBehind = null;
+    let orbitFrameId = null;
+    let orbitInView = false;
 
     function orbitTick(now) {
+        orbitFrameId = null;
         if (lastFrameTime === null) lastFrameTime = now;
         const dtSeconds = (now - lastFrameTime) / 1000;
         lastFrameTime = now;
@@ -414,10 +417,33 @@ if (moonMarkerEl) {
             'translate(-50%, -50%) translate(' + x.toFixed(1) + 'px, ' + y.toFixed(1) + 'px) scale(' + depthScale.toFixed(3) + ')';
         moonMarkerEl.style.opacity = depthOpacity.toFixed(3);
 
-        requestAnimationFrame(orbitTick);
+        if (orbitInView && !document.hidden) {
+            orbitFrameId = requestAnimationFrame(orbitTick);
+        }
     }
 
-    requestAnimationFrame(orbitTick);
+    function syncOrbitActivity() {
+        const shouldRun = orbitInView && !document.hidden;
+        if (shouldRun && orbitFrameId === null) {
+            lastFrameTime = null;
+            orbitFrameId = requestAnimationFrame(orbitTick);
+        } else if (!shouldRun && orbitFrameId !== null) {
+            cancelAnimationFrame(orbitFrameId);
+            orbitFrameId = null;
+        }
+    }
+
+    const globeStage = document.getElementById('globeStage');
+    if (globeStage && 'IntersectionObserver' in window) {
+        new IntersectionObserver((entries) => {
+            orbitInView = entries[0].isIntersecting;
+            syncOrbitActivity();
+        }, { rootMargin: '120px 0px' }).observe(globeStage);
+    } else {
+        orbitInView = true;
+    }
+    document.addEventListener('visibilitychange', syncOrbitActivity);
+    syncOrbitActivity();
 }
 
 const globeContainerEl = document.getElementById('globeViz');
@@ -426,7 +452,7 @@ const initialGlobeHeight = Math.max(1, Math.round(globeContainerEl.clientHeight)
 
 const world = Globe()
        (globeContainerEl)
-       .globeImageUrl('vendor/textures/earth-dark.jpg')
+       .globeImageUrl('vendor/textures/earth-dark.webp?v=1')
        .backgroundColor('rgba(0,0,0,0)')
        .showAtmosphere(true)
        .atmosphereColor('#4da6ff')
@@ -475,8 +501,8 @@ const US_FRENCH_HERITAGE_COLOR = '#ff9ecf';
 const US_DIASPORA_STATES = new Set(['Virginia']);
 
 Promise.all([
-    fetch('vendor/textures/countries-110m.json').then(res => res.json()),
-    fetch('vendor/textures/us-states-10m.json').then(res => res.json())
+    fetch('vendor/textures/countries-110m.json?v=1').then(res => res.json()),
+    fetch('vendor/textures/us-states-10m.json?v=1').then(res => res.json())
 ])
     .then(([countryTopology, stateTopology]) => {
         const countries = topojson.feature(countryTopology, countryTopology.objects.countries);
@@ -487,9 +513,6 @@ Promise.all([
             US_DIASPORA_STATES.has(f.properties.name)
         );
         const combinedFeatures = countries.features.concat(heritageStates);
-
-        const matched = countries.features.filter(f => highlightedCountries[f.properties.name]);
-        console.log('Matched:', matched.length, 'of', Object.keys(highlightedCountries).length);
 
         world
             .polygonsData(combinedFeatures)
@@ -978,7 +1001,8 @@ const REGION_CENTER = {
 let regionRippleTimeoutIds = [];
 let regionBlipClearTimeoutId = null;
 let activeRegionCenter = null;
-const regionBlipSound = new Audio('sounds/positive-blip-effect.wav');
+const regionBlipSound = new Audio('sounds/positive-blip-effect.mp3?v=1');
+regionBlipSound.preload = 'none';
 
 // How long after the first ring each follow-up ripple fires. Staggered
 // well before the ~2.4s single-ring animation (ringMaxRadius /
@@ -1131,3 +1155,34 @@ globeEl.addEventListener(
     },
     { capture: true, passive: true }
 );
+
+/* Suspend the WebGL render loop whenever the globe is offscreen or the
+   document is hidden. This removes the largest source of background CPU/GPU
+   work while visitors read or rapidly scroll the timeline above it. */
+let globeInView = false;
+function syncGlobeAnimation() {
+    if (globeInView && !document.hidden) {
+        world.resumeAnimation();
+    } else {
+        world.pauseAnimation();
+    }
+}
+
+const globeStageEl = document.getElementById('globeStage');
+if (globeStageEl && 'IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+        globeInView = entries[0].isIntersecting;
+        syncGlobeAnimation();
+    }, { rootMargin: '120px 0px' }).observe(globeStageEl);
+} else {
+    globeInView = true;
+}
+document.addEventListener('visibilitychange', syncGlobeAnimation);
+syncGlobeAnimation();
+
+/* A timeline point may be selected before the lazily loaded globe exists.
+   Apply that last requested focus once WebGL is ready. */
+if (typeof window.__consumePendingGlobeFocus === 'function') {
+    const pendingFocus = window.__consumePendingGlobeFocus();
+    if (pendingFocus) window.focusGlobeOnRegion(pendingFocus[0], pendingFocus[1]);
+}

@@ -24,3 +24,33 @@
   Cache-Control: public, max-age=3600
 /Audiolibros/titulos/*.js
   Cache-Control: public, max-age=3600
+
+# Space & Time uses explicit query-string versions for files that change.
+# Long browser caching cuts repeat bandwidth while each version bump still
+# fetches the newly deployed asset immediately.
+/globe.css
+  Cache-Control: public, max-age=31536000, immutable
+/globe.js
+  Cache-Control: public, max-age=31536000, immutable
+/timeline.css
+  Cache-Control: public, max-age=31536000, immutable
+/timeline.js
+  Cache-Control: public, max-age=31536000, immutable
+/timeline-data.js
+  Cache-Control: public, max-age=31536000, immutable
+/space-time-clock.css
+  Cache-Control: public, max-age=31536000, immutable
+/space-time-clock.js
+  Cache-Control: public, max-age=31536000, immutable
+/space-time-title-effect.js
+  Cache-Control: public, max-age=31536000, immutable
+/Images/space-time-*.webp
+  Cache-Control: public, max-age=31536000, immutable
+/vendor/textures/earth-dark.webp
+  Cache-Control: public, max-age=31536000, immutable
+/vendor/textures/*.json
+  Cache-Control: public, max-age=31536000, immutable
+/vendor/globe/*.js
+  Cache-Control: public, max-age=31536000, immutable
+/sounds/positive-blip-effect.mp3
+  Cache-Control: public, max-age=31536000, immutable

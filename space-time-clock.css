@@ -53,6 +53,10 @@
     animation: stc-spin-reverse 70s linear infinite;
 }
 
+.space-time-clock-section.is-paused .stc-ring {
+    animation-play-state: paused;
+}
+
 @keyframes stc-spin {
     from { transform: rotate(0deg); }
     to   { transform: rotate(360deg); }

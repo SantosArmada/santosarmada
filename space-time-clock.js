@@ -86,17 +86,48 @@
             secondHand.style.transform = 'rotate(' + secDeg + 'deg)';
         }
 
-        if (reduceMotion) {
-            // still a functional clock — just update once a second
-            // instead of animating every frame.
+        var clockSection = document.querySelector('.space-time-clock-section');
+        var clockInView = false;
+        var frameId = null;
+        var intervalId = null;
+
+        function frameLoop() {
+            frameId = null;
+            if (!clockInView || document.hidden) return;
             paint();
-            setInterval(paint, 1000);
-        } else {
-            (function loop() {
-                paint();
-                requestAnimationFrame(loop);
-            })();
+            frameId = requestAnimationFrame(frameLoop);
         }
+
+        function syncClockActivity() {
+            var shouldRun = clockInView && !document.hidden;
+            if (clockSection) clockSection.classList.toggle('is-paused', !shouldRun);
+
+            if (!shouldRun) {
+                if (frameId !== null) cancelAnimationFrame(frameId);
+                if (intervalId !== null) clearInterval(intervalId);
+                frameId = null;
+                intervalId = null;
+                return;
+            }
+
+            paint();
+            if (reduceMotion) {
+                if (intervalId === null) intervalId = setInterval(paint, 1000);
+            } else if (frameId === null) {
+                frameId = requestAnimationFrame(frameLoop);
+            }
+        }
+
+        if (clockSection && 'IntersectionObserver' in window) {
+            new IntersectionObserver(function (entries) {
+                clockInView = entries[0].isIntersecting;
+                syncClockActivity();
+            }, { rootMargin: '100px 0px' }).observe(clockSection);
+        } else {
+            clockInView = true;
+        }
+        document.addEventListener('visibilitychange', syncClockActivity);
+        syncClockActivity();
     }
 
     if (document.readyState === 'loading') {

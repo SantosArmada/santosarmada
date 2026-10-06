@@ -25,9 +25,27 @@ function grad(el, css) {
 }
 // ─── Loop & run ───────────────────────────────────────────────────────────────
 let _raf = null
+let _tick = null
+let _isVisible = true
+function frame() {
+  _raf = null
+  if (!_isVisible || document.hidden || !_tick) return
+  _tick()
+  _raf = requestAnimationFrame(frame)
+}
+function syncLoop() {
+  const shouldRun = _isVisible && !document.hidden
+  if (shouldRun && _raf === null && _tick) _raf = requestAnimationFrame(frame)
+  if (!shouldRun && _raf !== null) {
+    cancelAnimationFrame(_raf)
+    _raf = null
+  }
+}
 function loop(tick) {
-  cancelAnimationFrame(_raf)
-  ;(function frame() { tick(); _raf = requestAnimationFrame(frame) })()
+  if (_raf !== null) cancelAnimationFrame(_raf)
+  _raf = null
+  _tick = tick
+  syncLoop()
 }
 function run(fn) { fn(); }
 // ─── Easing ───────────────────────────────────────────────────────────────────
@@ -62,4 +80,13 @@ function sunrise() {
     })
   })
 }
-if (TEXT_EL) run(sunrise)
+if (TEXT_EL) {
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(entries => {
+      _isVisible = entries[0].isIntersecting
+      syncLoop()
+    }).observe(TEXT_EL)
+  }
+  document.addEventListener('visibilitychange', syncLoop)
+  run(sunrise)
+}

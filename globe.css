@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Playfair Display';
-  src: url('/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+  src: url('vendor/fonts/files/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xQ.woff2') format('woff2');
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
@@ -596,6 +596,9 @@
 @media (max-width: 768px) {
     .navbar {
         padding: 14px 16px;
+        background: rgba(4, 6, 10, 0.97);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
     }
 
     .globe-info-panel {
