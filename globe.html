@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Globo — Santos Armada</title>
     <link href="vendor/fonts/globe-fonts.css" rel="stylesheet">
-    <link rel="stylesheet" href="globe.css?v=9">
+    <link rel="stylesheet" href="globe.css?v=10">
     <link rel="stylesheet" href="timeline.css?v=12">
     <link rel="stylesheet" href="space-time-clock.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -74,6 +74,17 @@
             <p class="globe-info-body">Cada país iluminado conecta con autores, obras e historia ligados a ese lugar.</p>
         </div>
     </div>
+
+    <button class="time-edge-return time-edge-return-left" type="button" aria-label="Mantén el cursor aquí para volver al inicio">
+        <span class="time-edge-chevrons" aria-hidden="true">⌃<br>⌃<br>⌃</span>
+        <span class="time-edge-label">Corriente del tiempo</span>
+        <span class="time-edge-charge" aria-hidden="true"></span>
+    </button>
+    <button class="time-edge-return time-edge-return-right" type="button" aria-label="Mantén el cursor aquí para volver al inicio">
+        <span class="time-edge-chevrons" aria-hidden="true">⌃<br>⌃<br>⌃</span>
+        <span class="time-edge-label">Corriente del tiempo</span>
+        <span class="time-edge-charge" aria-hidden="true"></span>
+    </button>
 </section>
 
 
@@ -169,6 +180,7 @@
 (function () {
     const returnButton = document.getElementById('timeReturn');
     const globeStage = document.getElementById('globeStage');
+    const edgeReturns = Array.from(document.querySelectorAll('.time-edge-return'));
     if (!returnButton || !globeStage) return;
 
     const setVisible = (visible) => {
@@ -181,10 +193,32 @@
         setVisible(entry.isIntersecting);
     }, { threshold: 0.12 });
 
-    observer.observe(globeStage);
-    returnButton.addEventListener('click', () => {
+    const returnToOrigin = () => {
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    };
+
+    observer.observe(globeStage);
+    returnButton.addEventListener('click', returnToOrigin);
+
+    edgeReturns.forEach((edge) => {
+        let hoverTimer = null;
+
+        const cancelReturn = () => {
+            window.clearTimeout(hoverTimer);
+            hoverTimer = null;
+            edge.classList.remove('is-charging');
+        };
+
+        edge.addEventListener('pointerenter', () => {
+            if (window.matchMedia('(pointer: coarse)').matches) return;
+            cancelReturn();
+            edge.classList.add('is-charging');
+            hoverTimer = window.setTimeout(returnToOrigin, 1100);
+        });
+        edge.addEventListener('pointerleave', cancelReturn);
+        edge.addEventListener('blur', cancelReturn);
+        edge.addEventListener('click', returnToOrigin);
     });
 })();
 </script>
