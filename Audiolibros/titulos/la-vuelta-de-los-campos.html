@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="la-vuelta-de-los-campos.css">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -22,7 +23,7 @@
     <li><a href="../../about.html">Sobre Mí</a></li>
     <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -37,15 +38,26 @@
   <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>La vuelta de los campos</h1>
-        <p class="subtitle">Julio Herrera y Reissig</p>
+        <h1>La vuelta<br>de los <em>campos</em></h1>
+        <p class="subtitle">Julio Herrera y Reissig · Publicación documentada: 1905</p>
+        <p class="hero-premise">La tarde transforma el regreso.</p>
+        <p class="hero-description">Las faenas terminan bajo una luz de oro. <br>El paisaje cambia de voz. <br>Los caminos traen de vuelta a los labriegos.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="campos-art">
+        <img src="../assets/campos-regreso-al-atardecer.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación artística de labriegos que regresan por un camino polvoriento entre campos verdes y montañas al atardecer.">
+        <span class="stage-light" aria-hidden="true"></span>
+        <figcaption>Faena · Crepúsculo · Regreso</figcaption>
+    </figure>
 </header>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<div class="listening-heading" id="escuchar"><span>Modernismo · Un soneto</span><p>El regreso tiene su propia música.</p></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
@@ -60,15 +72,15 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">La vuelta de los campos</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Poema completo</div>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -89,34 +101,33 @@
 <audio id="chapterAudio" preload="auto" crossorigin="anonymous"></audio>
 <!-- ^ no src yet — add each recorded chapter file as you upload them. -->
 
-<div class="all">
+<div class="all" id="sobre">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/la-vuelta-de-los-campos.webp" alt="La vuelta de los campos">
+        <img loading="lazy" decoding="async" src="../../book_covers/la-vuelta-de-los-campos.webp" alt="La vuelta de los campos">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el poema">Escucha ahora</div>
         </div>
     </div>
 
     <div class="panel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>El uruguayo Julio Herrera y Reissig, figura central del modernismo rioplatense, celebra en este poema de mediados de la década de 1900 el regreso a la vida sencilla y auténtica del campo, lejos del artificio urbano. Su lenguaje sensorial y su musicalidad exuberante son característicos de la etapa de madurez del poeta, escrita en gran parte desde la reclusión de su propia enfermedad.</p>
+        <h2>La luz después de la faena</h2>
+        <p>El soneto abre con una tarde que recompensa el trabajo con oro. En los umbrales, las mujeres cosen o trenzan sus cabellos; otras pasan con cántaros. El regreso de los labriegos aparece al final, preparado por una sucesión de gestos, colores y sonidos que acompasan el cierre del día.</p>
+        <p class="reading-note">No es un regreso al campo: es la vuelta de quienes han trabajado en él.</p>
+        <p>La referencia a Arcadia sitúa la escena en una tradición pastoral. Pero el paisaje no queda inmóvil: el silencio se interrumpe, los lagos pierden claridad y las cumbres se vuelven quiméricas. Proponemos leer esa transformación como el trabajo de la imaginación sobre lo cotidiano, no como una descripción transparente de un lugar real.</p>
+        <p class="source-note">Publicación documentada en <em>El Diario Español</em>, Buenos Aires, 2 de abril de 1905, dentro de «Las manzanas de Amarillys»: <a href="https://catalogoarchivoliterario.bibna.gub.uy/index.php/informationobject/browse?collection=520&amp;creators=651&amp;languages=es&amp;media=print&amp;page=6&amp;sf_culture=es&amp;sort=referenceCode&amp;sortDir=asc&amp;topLod=0&amp;view=table">Biblioteca Nacional de Uruguay · registro I398</a>. Esta referencia no establece por sí sola la primera publicación. <a href="https://oei.int/wp-content/uploads/2019/03/iberoamerica-lee-poesia-iberlectura-oei-cuadernillo-para-web.pdf">Texto · Iberoamérica lee poesía, OEI, p. 67</a>. La imagen superior interpreta el paisaje del poema; no reconstruye una localidad identificada.</p>
+        <div class="break"></div>
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Poema completo</p>
+        <p class="reading-guide">Una lectura continua del soneto. Claves de escucha: el oro de la tarde, la alternancia de silencio y sonido, y el regreso que cierra la escena. Grabación pendiente de incorporación.</p>
 
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El regreso a la vida sencilla</p>
-        <p class="chapter" data-time="0">Lejos del artificio urbano</p>
-        <p class="chapter" data-time="0">El lenguaje sensorial</p>
-        <p class="chapter" data-time="0">La musicalidad exuberante</p>
-        <p class="chapter" data-time="0">La reclusión y la madurez poética</p>
-
-        <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Reseñas</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -130,6 +141,8 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="ola-4-slug.html">← Cuarta Ola</a><a href="mira-el-paisaje-inmensidad-abajo.html">Continuar con Mira el paisaje, inmensidad abajo →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
