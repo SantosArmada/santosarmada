@@ -754,7 +754,7 @@
 }
 
 /* ---------- RETURN TO THE ORIGIN ----------
-   A small time-reversal control replaces the generic scroll-up arrow.
+   A small time-reversal control shown only while the globe is in view.
    The dial runs counterclockwise while the control is visible. */
 .time-return {
     position: fixed;

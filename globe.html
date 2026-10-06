@@ -168,8 +168,8 @@
 <script>
 (function () {
     const returnButton = document.getElementById('timeReturn');
-    const opening = document.getElementById('spaceTimeTitleBand');
-    if (!returnButton || !opening) return;
+    const globeStage = document.getElementById('globeStage');
+    if (!returnButton || !globeStage) return;
 
     const setVisible = (visible) => {
         returnButton.classList.toggle('is-visible', visible);
@@ -178,10 +178,10 @@
     };
 
     const observer = new IntersectionObserver(([entry]) => {
-        setVisible(!entry.isIntersecting);
-    }, { threshold: 0 });
+        setVisible(entry.isIntersecting);
+    }, { threshold: 0.12 });
 
-    observer.observe(opening);
+    observer.observe(globeStage);
     returnButton.addEventListener('click', () => {
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
