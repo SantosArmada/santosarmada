@@ -878,19 +878,27 @@
 /* The globe's edges act as discoverable "currents of time." A deliberate
    hover fills the gold rail, then returns the visitor to the page origin. */
 .time-edge-return {
-    position: absolute;
-    top: 14%;
-    bottom: 14%;
-    z-index: 12;
-    width: 64px;
+    position: fixed;
+    top: 22%;
+    bottom: calc(22% + var(--space-time-banner-h));
+    z-index: 185;
+    width: 78px;
     padding: 0;
-    color: rgba(232, 213, 163, 0.5);
+    color: rgba(232, 213, 163, 0.88);
     background: linear-gradient(90deg, rgba(200, 169, 110, 0.08), transparent);
     border: 0;
     cursor: n-resize;
-    opacity: 0.48;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
     overflow: hidden;
     transition: opacity 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.time-edge-return.is-globe-visible {
+    opacity: 0.82;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .time-edge-return-left {
@@ -923,11 +931,12 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    font-size: 17px;
-    line-height: 0.62;
+    font-size: 24px;
+    line-height: 0.54;
     letter-spacing: 0;
     transform: translate(-50%, -50%);
-    animation: time-edge-drift 1.8s ease-in-out infinite;
+    filter: drop-shadow(0 0 8px rgba(232, 213, 163, 0.65));
+    animation: time-edge-drift 1.45s ease-in-out infinite;
 }
 
 .time-edge-label {
@@ -937,16 +946,16 @@
     width: max-content;
     color: var(--gold-light);
     font-family: Georgia, serif;
-    font-size: 9px;
+    font-size: 10px;
     letter-spacing: 0.16em;
     text-transform: uppercase;
-    opacity: 0;
-    transform: translate(-50%, -50%) rotate(-90deg) translateY(-18px);
+    opacity: 0.68;
+    transform: translate(-50%, -50%) rotate(-90deg) translateY(-24px);
     transition: opacity 0.2s ease, transform 0.25s ease;
 }
 
 .time-edge-return-right .time-edge-label {
-    transform: translate(-50%, -50%) rotate(90deg) translateY(-18px);
+    transform: translate(-50%, -50%) rotate(90deg) translateY(-24px);
 }
 
 .time-edge-return:hover .time-edge-label,

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Globo — Santos Armada</title>
     <link href="vendor/fonts/globe-fonts.css" rel="stylesheet">
-    <link rel="stylesheet" href="globe.css?v=10">
+    <link rel="stylesheet" href="globe.css?v=11">
     <link rel="stylesheet" href="timeline.css?v=12">
     <link rel="stylesheet" href="space-time-clock.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -187,11 +187,15 @@
         returnButton.classList.toggle('is-visible', visible);
         returnButton.setAttribute('aria-hidden', String(!visible));
         returnButton.tabIndex = visible ? 0 : -1;
+        edgeReturns.forEach((edge) => {
+            edge.classList.toggle('is-globe-visible', visible);
+            edge.tabIndex = visible ? 0 : -1;
+        });
     };
 
     const observer = new IntersectionObserver(([entry]) => {
-        setVisible(entry.isIntersecting);
-    }, { threshold: 0.12 });
+        setVisible(entry.isIntersecting && entry.intersectionRatio >= 0.25);
+    }, { threshold: [0, 0.25] });
 
     const returnToOrigin = () => {
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
