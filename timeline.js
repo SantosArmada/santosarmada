@@ -573,7 +573,7 @@
     activeIndex = -1;
     clearActiveMarkers();
     if (typeof window.clearGlobeRegionBlipDelayed === "function") {
-      window.clearGlobeRegionBlipDelayed(3000);
+      window.clearGlobeRegionBlipDelayed(10000);
     }
   }
 
