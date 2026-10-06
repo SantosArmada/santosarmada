@@ -977,6 +977,7 @@ const REGION_CENTER = {
 
 let regionRippleTimeoutIds = [];
 let regionBlipClearTimeoutId = null;
+let activeRegionCenter = null;
 const regionBlipSound = new Audio('sounds/positive-blip-effect.wav');
 
 // How long after the first ring each follow-up ripple fires. Staggered
@@ -991,6 +992,7 @@ window.focusGlobeOnRegion = function (regionName, countryName) {
     // country-level centroid for entries with no region-specific entry.
     const center = REGION_CENTER[regionName] || COUNTRY_CENTER[countryName];
     if (!center) return false;
+    activeRegionCenter = center;
     world.controls().autoRotate = false;
     world.pointOfView({ lat: center.lat, lng: center.lng, altitude: 1.7 }, 1200);
 
@@ -1035,18 +1037,41 @@ window.focusGlobeOnRegion = function (regionName, countryName) {
 };
 
 window.clearGlobeRegionBlip = function () {
+    regionRippleTimeoutIds.forEach(clearTimeout);
+    regionRippleTimeoutIds = [];
     if (regionBlipClearTimeoutId) {
         clearTimeout(regionBlipClearTimeoutId);
         regionBlipClearTimeoutId = null;
     }
+    activeRegionCenter = null;
+    world.ringsData([]);
     world.pointsData(PERMANENT_GLOBE_POINTS);
 };
 
-// Same as clearGlobeRegionBlip, but waits delayMs first -- lets the dot
-// linger a moment after the card closes instead of vanishing instantly.
+// Keep both the center dot and a continuing cascade of radar rings alive
+// for delayMs after the card closes, then clear the complete effect at once.
 window.clearGlobeRegionBlipDelayed = function (delayMs) {
     if (regionBlipClearTimeoutId) clearTimeout(regionBlipClearTimeoutId);
+    regionRippleTimeoutIds.forEach(clearTimeout);
+    regionRippleTimeoutIds = [];
+
+    if (activeRegionCenter) {
+        const center = activeRegionCenter;
+        world.ringsData([{ lat: center.lat, lng: center.lng }]);
+        for (let elapsed = REGION_RIPPLE_STAGGER_MS; elapsed < delayMs; elapsed += REGION_RIPPLE_STAGGER_MS) {
+            regionRippleTimeoutIds.push(
+                setTimeout(() => {
+                    world.ringsData([{ lat: center.lat, lng: center.lng }]);
+                }, elapsed)
+            );
+        }
+    }
+
     regionBlipClearTimeoutId = setTimeout(() => {
+        regionRippleTimeoutIds.forEach(clearTimeout);
+        regionRippleTimeoutIds = [];
+        activeRegionCenter = null;
+        world.ringsData([]);
         world.pointsData(PERMANENT_GLOBE_POINTS);
         regionBlipClearTimeoutId = null;
     }, delayMs);
