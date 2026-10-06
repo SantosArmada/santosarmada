@@ -7,20 +7,54 @@
   position: relative;
   width: 100%;
   background: #04060a;
-  padding: 80px 0 120px;
-  margin-top: 100vh;
+  padding: 24px 0 80px;
   overflow: hidden;
+}
+
+.timeline-intro {
+  width: min(760px, calc(100% - 40px));
+  margin: 0 auto 34px;
+  text-align: center;
+}
+
+.timeline-intro-kicker {
+  margin: 0 0 9px;
+  color: var(--gold);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.timeline-intro h2 {
+  margin: 0 0 12px;
+  color: var(--text-main);
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(28px, 4vw, 46px);
+  font-weight: 500;
+}
+
+.timeline-intro p:last-child {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 15px;
+  line-height: 1.7;
 }
 
 /* ---- Sticky bar: header + era-nav + filters ---- */
 .timeline-sticky-bar {
   position: sticky;
-  top: 0;
+  top: 73px;
   z-index: 15;
   background: var(--panel-bg);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   border-bottom: 1px solid rgba(200, 169, 110, 0.25);
+}
+
+@media (max-width: 768px) {
+  .timeline-sticky-bar {
+    top: 64px;
+  }
 }
 
 .timeline-header {

@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>El Globo — Santos Armada</title>
     <link href="vendor/fonts/globe-fonts.css" rel="stylesheet">
-    <link rel="stylesheet" href="globe.css?v=7">
-    <link rel="stylesheet" href="timeline.css?v=11">
+    <link rel="stylesheet" href="globe.css?v=8">
+    <link rel="stylesheet" href="timeline.css?v=12">
     <link rel="stylesheet" href="space-time-clock.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
 
@@ -30,39 +30,51 @@
 
 <div class="space-time-title-band" id="spaceTimeTitleBand">
     <h1 class="space-time-title-text"><span class="space-time-title-effect">SPACE &amp; TIME</span></h1>
+    <p class="space-time-title-deck">Literatura e historia, trazadas a través del tiempo y el espacio.</p>
 </div>
 
-<div class="globe-watermark">
-    <img src="Images/logo.PNG" alt="" class="globe-watermark-img">
-</div>
-
-<div id="globeViz"></div>
-
-<div class="moon-orbit-wrapper" aria-hidden="false">
-    <button type="button" class="moon" id="moonMarker" aria-label="La Luna"></button>
-</div>
-
-<!-- Scroll-down indicator -->
-<button type="button" class="globe-scroll-cue" id="globe-scroll-cue" aria-label="Scroll to timeline">
-    <span class="globe-scroll-cue-pulse"></span>
-    <span class="globe-scroll-cue-circle">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 4v16M5 13l7 7 7-7"/>
-        </svg>
-    </span>
-</button>
-
-<section class="timeline-section">
+<section class="timeline-section" aria-labelledby="timelineSectionTitle">
+    <div class="timeline-intro">
+        <p class="timeline-intro-kicker">Primero · El tiempo</p>
+        <h2 id="timelineSectionTitle">Recorre la historia</h2>
+        <p>Desliza la línea de tiempo y selecciona cualquier punto para descubrir la obra, la persona o el acontecimiento detrás de su fecha.</p>
+    </div>
     <div id="timelineMount"></div>
 </section>
-<div class="globe-info-panel" id="infoPanel">
-    <button class="globe-info-close" id="globeInfoClose" type="button" aria-label="Cerrar">&times;</button>
-    <div class="globe-info-content" id="globeInfoContent">
-        <p class="globe-info-label">Click a country</p>
-        <h3 class="globe-info-title">Explore the Armada's Map</h3>
-        <p class="globe-info-body">Each glowing country connects to authors, works, and history tied to that place.</p>
+
+<section class="globe-guide" aria-labelledby="globeGuideTitle">
+    <div class="globe-guide-copy">
+        <p class="globe-guide-kicker">Después · El espacio</p>
+        <h2 id="globeGuideTitle">Explora el mundo</h2>
+        <p>Gira el globo, inclínalo y selecciona un país iluminado para ver las obras, los autores y los momentos históricos vinculados con ese lugar.</p>
     </div>
-</div>
+    <ul class="globe-guide-actions" aria-label="Instrucciones del globo">
+        <li><span class="globe-guide-icon" aria-hidden="true">↻</span><span><strong>Arrastra</strong> para girar e inclinar</span></li>
+        <li><span class="globe-guide-icon" aria-hidden="true">◎</span><span><strong>Selecciona</strong> un país iluminado</span></li>
+        <li><span class="globe-guide-icon" aria-hidden="true">☾</span><span><strong>Atrapa la luna</strong> para descubrir una obra escondida</span></li>
+    </ul>
+</section>
+
+<section class="globe-stage" id="globeStage" aria-label="Globo terráqueo interactivo">
+    <div class="globe-watermark">
+        <img src="Images/logo.PNG" alt="" class="globe-watermark-img">
+    </div>
+
+    <div id="globeViz"></div>
+
+    <div class="moon-orbit-wrapper" aria-hidden="false">
+        <button type="button" class="moon" id="moonMarker" aria-label="La Luna: descubrir El rayo de luna"></button>
+    </div>
+
+    <div class="globe-info-panel" id="infoPanel">
+        <button class="globe-info-close" id="globeInfoClose" type="button" aria-label="Cerrar">&times;</button>
+        <div class="globe-info-content" id="globeInfoContent">
+            <p class="globe-info-label">Selecciona un país</p>
+            <h3 class="globe-info-title">Explora el mapa de la Armada</h3>
+            <p class="globe-info-body">Cada país iluminado conecta con autores, obras e historia ligados a ese lugar.</p>
+        </div>
+    </div>
+</section>
 
 
 <script src="vendor/globe/globe.gl.min.js"></script>
@@ -72,45 +84,6 @@
 <script src="timeline-data.js?v=78"></script>
 <script src="timeline.js?v=15"></script>
 <script src="space-time-clock.js" defer></script>
-<script>
-(function () {
-    const scrollCue = document.getElementById('globe-scroll-cue');
-    const timelineSection = document.querySelector('.timeline-section');
-    const butterflyPanel = document.getElementById('timelineButterfly');
-
-    scrollCue.addEventListener('click', () => {
-        timelineSection.scrollIntoView({ behavior: 'smooth' });
-    });
-
-    // Single threshold, keyed off the butterfly-effect panel's TOP edge
-    // (not its bottom): the moment the panel starts sliding out of view —
-    // while it's still partially on screen, not only once it's fully
-    // gone — hide the cue. Scroll back up past that same point (the panel's
-    // top is visible again) and it reappears. Symmetric on purpose so
-    // there's no lag/dead zone in either direction.
-    //
-    // The panel itself gets display:none (its own "is-hidden" class) when
-    // the user closes the timeline's detail popup — see closeDetailPanel()
-    // in timeline.js. A hidden element's getBoundingClientRect().top is
-    // always 0, which used to permanently satisfy panelTop <= 0 and leave
-    // the cue stuck hidden no matter how far back up the page you scrolled.
-    // Cache the panel's document-relative top while it's actually visible
-    // and reuse that against the live scroll position while it's hidden,
-    // so the cue's visibility stays correct either way.
-    let cachedDocTop = null;
-    function updateScrollCueVisibility() {
-        if (!butterflyPanel.classList.contains('is-hidden')) {
-            cachedDocTop = butterflyPanel.getBoundingClientRect().top + window.scrollY;
-        }
-        const panelTop = cachedDocTop === null
-            ? butterflyPanel.getBoundingClientRect().top
-            : cachedDocTop - window.scrollY;
-        scrollCue.classList.toggle('is-hidden', panelTop <= 0);
-    }
-    window.addEventListener('scroll', updateScrollCueVisibility, { passive: true });
-    updateScrollCueVisibility();
-})();
-</script>
 <script>
     function toggleMenu() {
         const nav = document.getElementById('nav-links');
