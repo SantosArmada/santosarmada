@@ -1585,6 +1585,34 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "federica-hannover-1917",
+    year: 1917,
+    month: 4,
+    day: 18,
+    // Real date; separated visually from Quiroga's 1917 marker.
+    trackYear: 1916,
+    title: "18 de abril de 1917: nace Federica de Hannover",
+    author: "Federica de Hannover",
+    country: "Alemania",
+    region: "Blankenburg",
+    type: ICON_TYPE.ROYAL,
+    description:
+      "Federica de Hannover nació el 18 de abril de 1917 en Blankenburg, Alemania, hija de Ernesto Augusto y Viktoria Luise de Prusia. Se casó con el príncipe Pablo de Grecia en 1938 y fue reina de Grecia entre 1947 y 1964. Figura influyente y polarizadora, fue criticada por intervenir en política; su afiliación juvenil a la Liga de Muchachas Alemanas también la persiguió. Tras el golpe militar de 1967, la familia partió al exilio. Murió en Madrid en 1981. Favoreció la unión de Sofía con Juan Carlos.",
+    descriptionHtml:
+      'Federica de <button type="button" class="timeline-detail-geolink" data-region="Hannover" data-country="Alemania">Hannover</button> nació el 18 de abril de 1917 en <button type="button" class="timeline-detail-geolink" data-region="Blankenburg" data-country="Alemania">Blankenburg</button>, <button type="button" class="timeline-detail-geolink" data-country="Alemania">Alemania</button>, hija de Ernesto Augusto y Viktoria Luise de <button type="button" class="timeline-detail-geolink" data-region="Prusia" data-country="Alemania">Prusia</button>. Se casó con el príncipe Pablo de <button type="button" class="timeline-detail-geolink" data-country="Grecia">Grecia</button> en 1938 y fue reina de <button type="button" class="timeline-detail-geolink" data-country="Grecia">Grecia</button> entre 1947 y 1964. Figura influyente y polarizadora, fue criticada por intervenir en política; su afiliación juvenil a la Liga de Muchachas Alemanas también la persiguió. Tras el golpe militar de 1967, la familia partió al exilio. Murió en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> en 1981. Favoreció la unión de Sofía con Juan Carlos.',
+    lineage: [
+      { name: "Viktoria Luise de Prusia", relation: "madre de", entryId: "viktoria-luise-prusia-1892" },
+      { name: "Federica de Hannover", relation: "madre de", entryId: "federica-hannover-1917" },
+      { name: "Sofía de Grecia", relation: "madre de" },
+      { name: "Felipe VI", relation: "rey de España" }
+    ],
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Federica no hubiera favorecido la unión de Sofía y Juan Carlos?",
+      answer:
+        "La familia real española contemporánea tendría otra genealogía: Felipe VI no reuniría en su ascendencia las casas de Borbón, Glücksburg, Hannover y Hohenzollern. El vínculo entre la monarquía española y las dinastías griega, danesa y alemana habría seguido un camino distinto."
+    }
+  },
+  {
     id: "gallina-degollada-quiroga-1917",
     year: 1917,
     title: "La gallina degollada",
@@ -2562,8 +2590,8 @@ const TIMELINE_ENTRIES = [
     descriptionHtml:
       'Viktoria Luise de <button type="button" class="timeline-detail-geolink" data-region="Prusia" data-country="Alemania">Prusia</button> nació el 13 de septiembre de 1892 en el <button type="button" class="timeline-detail-geolink" data-region="Palacio de Mármol" data-country="Alemania">Palacio de Mármol</button> de <button type="button" class="timeline-detail-geolink" data-region="Potsdam" data-country="Alemania">Potsdam</button>, única hija de Guillermo II entre siete hermanos. Su boda <button type="button" class="timeline-detail-geolink" data-region="Berlín" data-country="Alemania">berlinesa</button> de 1913 con Ernesto Augusto reunió a Jorge V y Nicolás II poco antes de la Primera Guerra Mundial. Su hija Federica fue reina de <button type="button" class="timeline-detail-geolink" data-country="Grecia">Grecia</button>; su nieta Sofía se casó con Juan Carlos I de <button type="button" class="timeline-detail-geolink" data-country="España">España</button>, y su bisnieto Felipe VI reina en <button type="button" class="timeline-detail-geolink" data-country="España">España</button>. Su hermano August Wilhelm ingresó en el Partido Nazi y las SA.',
     lineage: [
-      { name: "Viktoria Luise de Prusia", relation: "madre de" },
-      { name: "Federica de Hannover", relation: "madre de" },
+      { name: "Viktoria Luise de Prusia", relation: "madre de", entryId: "viktoria-luise-prusia-1892" },
+      { name: "Federica de Hannover", relation: "madre de", entryId: "federica-hannover-1917" },
       { name: "Sofía de Grecia", relation: "madre de" },
       { name: "Felipe VI", relation: "rey de España" }
     ],

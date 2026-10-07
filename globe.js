@@ -789,6 +789,8 @@ const REGION_CENTER = {
     'San José Villanueva': { lat: 13.56, lng: -89.26 },
     'Zaragoza': { lat: 41.65, lng: -0.88 },
     'Prusia': { lat: 52.52, lng: 13.40 },
+    'Hannover': { lat: 52.37, lng: 9.74 },
+    'Blankenburg': { lat: 51.79, lng: 10.96 },
     'Palacio de Mármol': { lat: 52.41, lng: 13.07 },
     'Potsdam': { lat: 52.39, lng: 13.06 },
     'Berlín': { lat: 52.52, lng: 13.40 },

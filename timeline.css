@@ -368,6 +368,10 @@
   font-family: 'Playfair Display', Georgia, serif;
 }
 
+button.timeline-detail-lineage-name {
+  text-align: left;
+}
+
 .timeline-detail-lineage-relation {
   color: var(--text-muted);
   font-size: 11px;

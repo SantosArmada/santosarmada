@@ -429,7 +429,9 @@
            <ol class="timeline-detail-lineage-list">
              ${entry.lineage.map((person) => `
                <li>
-                 <span class="timeline-detail-lineage-name">${escapeHtml(person.name)}</span>
+                 ${person.entryId
+                   ? `<button type="button" class="timeline-detail-lineage-name timeline-detail-entrylink" data-id="${escapeHtml(person.entryId)}">${escapeHtml(person.name)}</button>`
+                   : `<span class="timeline-detail-lineage-name">${escapeHtml(person.name)}</span>`}
                  <span class="timeline-detail-lineage-relation">${escapeHtml(person.relation)}</span>
                </li>`).join("")}
            </ol>
