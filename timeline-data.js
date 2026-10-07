@@ -1603,7 +1603,7 @@ const TIMELINE_ENTRIES = [
     lineage: [
       { name: "Viktoria Luise de Prusia", relation: "madre de", entryId: "viktoria-luise-prusia-1892" },
       { name: "Federica de Hannover", relation: "madre de", entryId: "federica-hannover-1917" },
-      { name: "Sofía de Grecia", relation: "madre de" },
+      { name: "Sofía de Grecia", relation: "madre de", entryId: "sofia-grecia-1938" },
       { name: "Felipe VI", relation: "rey de España" }
     ],
     butterfly: {
@@ -2013,6 +2013,34 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si el Kasato Maru nunca hubiera llegado a Santos en 1908?",
       answer:
         "Sin ese primer barco, Brasil no tendría hoy la comunidad nikkei más grande fuera de Japón, ni existiría Liberdade tal como se conoce. Esa historia habría cambiado sobre todo a Brasil, no a Perú, pero la migración japonesa hacia las Américas fue un fenómeno regional: sin la ruta que el Kasato Maru abrió simbólicamente entre Japón y Latinoamérica, es más difícil imaginar la ola posterior —más pequeña, pero políticamente decisiva— que un cuarto de siglo después llevaría a los padres de Alberto Fujimori hasta Lima."
+    }
+  },
+  {
+    id: "sofia-grecia-1938",
+    year: 1938,
+    month: 11,
+    day: 2,
+    // Real date; separated visually from Fujimori's 1938 marker.
+    trackYear: 1936,
+    title: "2 de noviembre de 1938: nace Sofía de Grecia",
+    author: "Sofía de Grecia",
+    country: "Grecia",
+    region: "Atenas",
+    type: ICON_TYPE.ROYAL,
+    description:
+      "Sofía de Grecia nació el 2 de noviembre de 1938 en Atenas. Estudió puericultura, música y arqueología, y compitió en vela. Adoptó el catolicismo para casarse con Juan Carlos el 14 de mayo de 1962. Reina de España entre 1975 y 2014, fue madre de Elena, Cristina y Felipe y mantuvo un perfil discreto durante la transición democrática y las controversias de su esposo. El Museo Reina Sofía, que alberga el Guernica de Picasso, lleva su nombre. Su fundación impulsa la investigación y atención del alzhéimer. Ambos descendían de la reina Victoria del Reino Unido.",
+    descriptionHtml:
+      'Sofía de <button type="button" class="timeline-detail-geolink" data-country="Grecia">Grecia</button> nació el 2 de noviembre de 1938 en <button type="button" class="timeline-detail-geolink" data-region="Atenas" data-country="Grecia">Atenas</button>. Estudió puericultura, música y arqueología, y compitió en vela. Adoptó el catolicismo para casarse con Juan Carlos el 14 de mayo de 1962. Reina de <button type="button" class="timeline-detail-geolink" data-country="España">España</button> entre 1975 y 2014, fue madre de Elena, Cristina y Felipe y mantuvo un perfil discreto durante la transición democrática y las controversias de su esposo. El <button type="button" class="timeline-detail-geolink" data-region="Museo Reina Sofía" data-country="España">Museo Reina Sofía</button>, que alberga el Guernica de <button type="button" class="timeline-detail-entrylink" data-id="picasso-1881">Picasso</button>, lleva su nombre. Su fundación impulsa la investigación y atención del alzhéimer. Ambos descendían de la reina Victoria del <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Reino Unido</button>.',
+    lineage: [
+      { name: "Viktoria Luise de Prusia", relation: "madre de", entryId: "viktoria-luise-prusia-1892" },
+      { name: "Federica de Hannover", relation: "madre de", entryId: "federica-hannover-1917" },
+      { name: "Sofía de Grecia", relation: "madre de", entryId: "sofia-grecia-1938" },
+      { name: "Felipe VI", relation: "rey de España" }
+    ],
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Sofía nunca se hubiera casado con Juan Carlos?",
+      answer:
+        "Felipe VI no reuniría las ramas de Borbón y Glücksburg que hoy convergen en la Corona española. Además, dos instituciones asociadas a su trayectoria —el Museo Reina Sofía y la Fundación Reina Sofía— tendrían otra identidad y quizá otro desarrollo."
     }
   },
   {
@@ -2592,7 +2620,7 @@ const TIMELINE_ENTRIES = [
     lineage: [
       { name: "Viktoria Luise de Prusia", relation: "madre de", entryId: "viktoria-luise-prusia-1892" },
       { name: "Federica de Hannover", relation: "madre de", entryId: "federica-hannover-1917" },
-      { name: "Sofía de Grecia", relation: "madre de" },
+      { name: "Sofía de Grecia", relation: "madre de", entryId: "sofia-grecia-1938" },
       { name: "Felipe VI", relation: "rey de España" }
     ],
     butterfly: {
