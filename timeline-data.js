@@ -99,9 +99,9 @@ const ICON_TYPE = {
    year: integer, used for proportional positioning
    endYear (optional): for works that reference a historical
      event predating their publication (e.g. Oficio de tinieblas)
-   Editorial limit for new detail descriptions: 550 characters,
-     counting spaces and punctuation. Keep the complete thought within
-     the limit; do not truncate it in the interface.
+   Editorial limit for new detail descriptions: 95 words maximum.
+     Keep the complete thought within the limit; do not truncate it
+     in the interface.
    --------------------------------------------------------- */
 const TIMELINE_ENTRIES = [
 
