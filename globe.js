@@ -793,6 +793,8 @@ const REGION_CENTER = {
     'Hannover': { lat: 52.37, lng: 9.74 },
     'Blankenburg': { lat: 51.79, lng: 10.96 },
     'Atenas': { lat: 37.98, lng: 23.73 },
+    'Georgetown': { lat: 38.91, lng: -77.07 },
+    'Dos Sicilias': { lat: 40.85, lng: 14.27 },
     'Palacio de Mármol': { lat: 52.41, lng: 13.07 },
     'Potsdam': { lat: 52.39, lng: 13.06 },
     'Berlín': { lat: 52.52, lng: 13.40 },

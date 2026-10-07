@@ -1604,7 +1604,7 @@ const TIMELINE_ENTRIES = [
       { name: "Viktoria Luise de Prusia", relation: "madre de", entryId: "viktoria-luise-prusia-1892" },
       { name: "Federica de Hannover", relation: "madre de", entryId: "federica-hannover-1917" },
       { name: "Sofía de Grecia", relation: "madre de", entryId: "sofia-grecia-1938" },
-      { name: "Felipe VI", relation: "rey de España" }
+      { name: "Felipe VI", relation: "rey de España", entryId: "felipe-vi-1968" }
     ],
     butterfly: {
       prompt: "¿Qué hubiera pasado si Federica no hubiera favorecido la unión de Sofía y Juan Carlos?",
@@ -1901,6 +1901,34 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "felipe-vi-1968",
+    year: 1968,
+    month: 1,
+    day: 30,
+    // Real date; separated visually from the Tlatelolco 1968 marker.
+    trackYear: 1966,
+    title: "30 de enero de 1968: nace Felipe VI",
+    author: "Felipe VI",
+    country: "España",
+    region: "Madrid",
+    type: ICON_TYPE.ROYAL,
+    description:
+      "Felipe VI nació el 30 de enero de 1968 en Madrid. Estudió en Canadá, Derecho en Madrid y Relaciones Internacionales en Georgetown. Abanderado y regatista en Barcelona 1992, se casó con Letizia Ortiz; sus hijas son Leonor, heredera al trono, y Sofía. Fue proclamado rey el 19 de junio de 2014. Su discurso sobre Cataluña en 2017 marcó su reinado. En 2020 renunció a la herencia de Juan Carlos y retiró la asignación a su padre. Su abuela paterna lo vinculaba a los Borbón-Dos Sicilias; sus lazos portugueses proceden de enlaces dinásticos ibéricos anteriores.",
+    descriptionHtml:
+      'Felipe VI nació el 30 de enero de 1968 en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>. Estudió en <button type="button" class="timeline-detail-geolink" data-country="Canadá">Canadá</button>, Derecho en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> y Relaciones Internacionales en <button type="button" class="timeline-detail-geolink" data-region="Georgetown" data-country="Estados Unidos">Georgetown</button>. Abanderado y regatista en <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button> 1992, se casó con Letizia Ortiz; sus hijas son Leonor, heredera al trono, y Sofía. Fue proclamado rey el 19 de junio de 2014. Su discurso sobre <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">Cataluña</button> en 2017 marcó su reinado. En 2020 renunció a la herencia de Juan Carlos y retiró la asignación a su padre. Su abuela paterna lo vinculaba a los <button type="button" class="timeline-detail-geolink" data-region="Dos Sicilias" data-country="Italia">Borbón-Dos Sicilias</button>; sus lazos <button type="button" class="timeline-detail-geolink" data-country="Portugal">portugueses</button> proceden de enlaces dinásticos ibéricos anteriores.',
+    lineage: [
+      { name: "Viktoria Luise de Prusia", relation: "madre de", entryId: "viktoria-luise-prusia-1892" },
+      { name: "Federica de Hannover", relation: "madre de", entryId: "federica-hannover-1917" },
+      { name: "Sofía de Grecia", relation: "madre de", entryId: "sofia-grecia-1938" },
+      { name: "Felipe VI", relation: "rey de España", entryId: "felipe-vi-1968" }
+    ],
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Juan Carlos no hubiera abdicado en 2014?",
+      answer:
+        "La renovación generacional de la Corona española se habría retrasado mientras crecían las controversias alrededor de Juan Carlos. Felipe habría afrontado más tarde la crisis territorial catalana y la tarea de separar institucionalmente su reinado de las finanzas de su padre."
+    }
+  },
+  {
     id: "tlatelolco-masacre-1968",
     year: 1968,
     title: "2 de octubre de 1968: la masacre de Tlatelolco",
@@ -2035,7 +2063,7 @@ const TIMELINE_ENTRIES = [
       { name: "Viktoria Luise de Prusia", relation: "madre de", entryId: "viktoria-luise-prusia-1892" },
       { name: "Federica de Hannover", relation: "madre de", entryId: "federica-hannover-1917" },
       { name: "Sofía de Grecia", relation: "madre de", entryId: "sofia-grecia-1938" },
-      { name: "Felipe VI", relation: "rey de España" }
+      { name: "Felipe VI", relation: "rey de España", entryId: "felipe-vi-1968" }
     ],
     butterfly: {
       prompt: "¿Qué hubiera pasado si Sofía nunca se hubiera casado con Juan Carlos?",
@@ -2621,7 +2649,7 @@ const TIMELINE_ENTRIES = [
       { name: "Viktoria Luise de Prusia", relation: "madre de", entryId: "viktoria-luise-prusia-1892" },
       { name: "Federica de Hannover", relation: "madre de", entryId: "federica-hannover-1917" },
       { name: "Sofía de Grecia", relation: "madre de", entryId: "sofia-grecia-1938" },
-      { name: "Felipe VI", relation: "rey de España" }
+      { name: "Felipe VI", relation: "rey de España", entryId: "felipe-vi-1968" }
     ],
     butterfly: {
       prompt: "¿Qué hubiera pasado si la línea de Viktoria Luise nunca hubiera llegado a la Corona española?",
