@@ -1905,8 +1905,6 @@ const TIMELINE_ENTRIES = [
     year: 1968,
     month: 1,
     day: 30,
-    // Real date; separated visually from the Tlatelolco 1968 marker.
-    trackYear: 1966,
     title: "30 de enero de 1968: nace Felipe VI",
     author: "Felipe VI",
     country: "España",
