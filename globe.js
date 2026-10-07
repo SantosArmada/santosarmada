@@ -241,7 +241,8 @@ const GLOBE_TO_TIMELINE_COUNTRY = {
     'Jamaica': 'Jamaica',
     'Japan': 'Japón',
     'China': 'China',
-    'Turkey': 'Turquía'
+    'Turkey': 'Turquía',
+    'South Korea': 'Corea del Sur'
 };
 
 function escapeHtmlGlobe(str) {
@@ -741,7 +742,8 @@ const COUNTRY_CENTER = {
     'Kirguistán': { lat: 41.20, lng: 74.77 },
     'Ucrania': { lat: 48.38, lng: 31.17 },
     'Alemania': { lat: 51.17, lng: 10.45 },
-    'Grecia': { lat: 39.07, lng: 21.82 }
+    'Grecia': { lat: 39.07, lng: 21.82 },
+    'Corea del Sur': { lat: 36.50, lng: 127.90 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -793,6 +795,9 @@ const REGION_CENTER = {
     'Hannover': { lat: 52.37, lng: 9.74 },
     'Blankenburg': { lat: 51.79, lng: 10.96 },
     'Atenas': { lat: 37.98, lng: 23.73 },
+    'Colina 420 (Wontong-ni)': { lat: 38.15, lng: 127.30 },
+    'Colton, California': { lat: 34.07, lng: -117.31 },
+    'Washington, D.C.': { lat: 38.90, lng: -77.04 },
     'Georgetown': { lat: 38.91, lng: -77.07 },
     'Dos Sicilias': { lat: 40.85, lng: 14.27 },
     'Palacio de Mármol': { lat: 52.41, lng: 13.07 },

@@ -3217,6 +3217,27 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "rodolfo-rudy-hernandez-colina-420-1951",
+    year: 1951,
+    month: 5,
+    day: 31,
+    title: "31 de mayo de 1951: la carga de Rudy Hernández",
+    author: "Rodolfo «Rudy» Hernández",
+    country: "Corea del Sur",
+    region: "Colina 420 (Wontong-ni)",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 31 de mayo de 1951, el cabo Rodolfo “Rudy” Hernández defendía la colina 420, cerca de Wontong-ni, Corea del Sur. Herido y con el fusil inutilizado, fijó la bayoneta y cargó solo contra una fuerza superior. Mató a seis soldados antes de caer inconsciente por heridas de granada, bala y bayoneta; su ataque frenó el avance y permitió recuperar la posición. Nacido en Colton, California, hijo de inmigrantes mexicanos, sobrevivió: un médico advirtió que movía un dedo cuando iban a embolsarlo. Harry S. Truman le entregó la Medalla de Honor en Washington en 1952.",
+    descriptionHtml:
+      'El 31 de mayo de 1951, el cabo Rodolfo “Rudy” Hernández defendía la <button type="button" class="timeline-detail-geolink" data-region="Colina 420 (Wontong-ni)" data-country="Corea del Sur">colina 420</button>, cerca de <button type="button" class="timeline-detail-geolink" data-region="Colina 420 (Wontong-ni)" data-country="Corea del Sur">Wontong-ni</button>, <button type="button" class="timeline-detail-geolink" data-country="Corea del Sur">Corea del Sur</button>. Herido y con el fusil inutilizado, fijó la bayoneta y cargó solo contra una fuerza superior. Mató a seis soldados antes de caer inconsciente por heridas de granada, bala y bayoneta; su ataque frenó el avance y permitió recuperar la posición. Nacido en <button type="button" class="timeline-detail-geolink" data-region="Colton, California" data-country="Estados Unidos">Colton, California</button>, hijo de inmigrantes <button type="button" class="timeline-detail-geolink" data-country="México">mexicanos</button>, sobrevivió: un médico advirtió que movía un dedo cuando iban a embolsarlo. Harry S. Truman le entregó la Medalla de Honor en <button type="button" class="timeline-detail-geolink" data-region="Washington, D.C." data-country="Estados Unidos">Washington</button> en 1952.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Hernández hubiera obedecido la retirada tras atascarse su fusil?",
+      answer:
+        "Probablemente habría evitado las heridas que casi lo mataron, pero su unidad habría perdido los segundos decisivos para reagruparse y contraatacar. Su carga individual transformó un arma inutilizada en una pausa táctica que permitió recuperar la colina 420."
+    }
+  },
+  {
     id: "california-land-act-1851",
     year: 1851,
     month: 3,
