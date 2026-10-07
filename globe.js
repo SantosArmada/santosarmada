@@ -771,6 +771,8 @@ const REGION_CENTER = {
     'Los Ángeles, California': { lat: 34.05, lng: -118.24 },
     'Madrid': { lat: 40.42, lng: -3.70 },
     'Museo Reina Sofía': { lat: 40.41, lng: -3.69 },
+    'Museo Lázaro Galdiano': { lat: 40.44, lng: -3.69 },
+    'El Capricho': { lat: 40.46, lng: -3.60 },
     'Málaga': { lat: 36.72, lng: -4.42 },
     'Roatán': { lat: 16.32, lng: -86.53 },
     'Salamanca': { lat: 40.97, lng: -5.66 },

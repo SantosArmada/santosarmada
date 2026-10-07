@@ -2608,6 +2608,26 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "goya-aquelarre-1798",
+    year: 1798,
+    title: "1798: Goya pinta El aquelarre",
+    author: "Francisco de Goya",
+    authorEntryId: "goya-1746",
+    country: "España",
+    region: "Museo Lázaro Galdiano",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Hacia 1798, Francisco de Goya pintó El aquelarre para los duques de Osuna y su finca El Capricho. Bajo una luna creciente, un gran macho cabrío preside una reunión nocturna mientras varias mujeres le ofrecen niños. Parte de una serie de seis escenas de brujería, la obra combina terror y sátira ilustrada: ridiculiza la superstición y el poder que se alimenta del miedo colectivo. Hoy pertenece al Museo Lázaro Galdiano de Madrid. Tiempo de silencio, de Luis Martín-Santos, retomaría el aquelarre goyesco mediante la posterior versión de las Pinturas negras, conservada en el Prado.",
+    descriptionHtml:
+      'Hacia 1798, <button type="button" class="timeline-detail-entrylink" data-id="goya-1746">Francisco de Goya</button> pintó <em>El aquelarre</em> para los duques de Osuna y su finca <button type="button" class="timeline-detail-geolink" data-region="El Capricho" data-country="España">El Capricho</button>. Bajo una luna creciente, un gran macho cabrío preside una reunión nocturna mientras varias mujeres le ofrecen niños. Parte de una serie de seis escenas de brujería, la obra combina terror y sátira ilustrada: ridiculiza la superstición y el poder que se alimenta del miedo colectivo. Hoy pertenece al <button type="button" class="timeline-detail-geolink" data-region="Museo Lázaro Galdiano" data-country="España">Museo Lázaro Galdiano</button> de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>. <em>Tiempo de silencio</em>, de Luis Martín-Santos, retomaría el aquelarre goyesco mediante la posterior versión de las Pinturas negras, conservada en el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Prado</button>.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Goya hubiera tratado el aquelarre como fantasía decorativa y no como sátira?",
+      answer:
+        "La escena conservaría su oscuridad, pero perdería la ambivalencia que la hace duradera: el espectador ya no tendría que decidir si teme al macho cabrío o si reconoce en él una burla del poder, la superstición y la obediencia colectiva."
+    }
+  },
+  {
     id: "miro-1893",
     year: 1893,
     endYear: 1983,
