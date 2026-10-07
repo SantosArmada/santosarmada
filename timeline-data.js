@@ -2600,7 +2600,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Nacido en Málaga, cofundador del cubismo junto a Braque y una de las figuras más influyentes del arte del siglo XX. Guernica (1937) sigue siendo el retrato más citado del horror de la guerra civil española y del bombardeo a civiles en la era moderna.",
     descriptionHtml:
-      'Nacido en <button type="button" class="timeline-detail-geolink" data-region="Málaga" data-country="España">Málaga</button>, cofundador del cubismo junto a Braque y una de las figuras más influyentes del arte del siglo XX. Guernica (1937) sigue siendo el retrato más citado del horror de la guerra civil española y del bombardeo a civiles en la era moderna.',
+      'Nacido en <button type="button" class="timeline-detail-geolink" data-region="Málaga" data-country="España">Málaga</button>, cofundador del cubismo junto a Braque y una de las figuras más influyentes del arte del siglo XX. <button type="button" class="timeline-detail-geolink" data-region="Guernica" data-country="España">Guernica</button> (1937) sigue siendo el retrato más citado del horror de la guerra civil española y del bombardeo a civiles en la era moderna.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Picasso nunca hubiera pintado Guernica?",
       answer:
