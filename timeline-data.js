@@ -99,6 +99,10 @@ const ICON_TYPE = {
    year: integer, used for proportional positioning
    endYear (optional): for works that reference a historical
      event predating their publication (e.g. Oficio de tinieblas)
+   Editorial limit for new detail descriptions: 73 words
+     (55% of the 133.6-word average across the 198 entries audited
+     on 2026-10-06). Keep the complete thought within the limit;
+     do not truncate it in the interface.
    --------------------------------------------------------- */
 const TIMELINE_ENTRIES = [
 
@@ -570,7 +574,7 @@ const TIMELINE_ENTRIES = [
     // as part of the wider 1479-1533 chain (see faras-cruz-del-sur-1500),
     // and again later in 2026 to make room for
     // origen-trata-transatlantica-1441 / legado-trata-transatlantica-1442.
-    trackYear: 1433.32,
+    trackYear: 1448.08,
     endYear: 1485,
     title: "1479: Colón se instala en Porto Santo",
     author: "Hito histórico",
@@ -636,6 +640,30 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "matrimonio-isabel-fernando-1469",
+    year: 1469,
+    month: 10,
+    day: 19,
+    // Real date; the display position is spread across the crowded
+    // 1453–1492 chain so this remains a standalone point.
+    trackYear: 1418.56,
+    title: "19 de octubre de 1469: Isabel y Fernando se casan en Valladolid",
+    author: "Isabel I de Castilla y Fernando II de Aragón",
+    country: "España",
+    region: "Palacio de los Vivero",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 19 de octubre de 1469, Isabel de Castilla y Fernando de Aragón se casan en la Sala Rica del Palacio de los Vivero, en Valladolid, durante una sucesión castellana todavía disputada. La unión no fusionó de inmediato Castilla y Aragón: cada corona conservó sus leyes e instituciones. Sin embargo, creó la alianza dinástica desde la que ambos gobernarían, conquistarían Granada y financiarían el primer viaje de Cristóbal Colón en 1492.",
+    descriptionHtml:
+      'El 19 de octubre de 1469, Isabel de Castilla y Fernando de Aragón se casan en la Sala Rica del <button type="button" class="timeline-detail-geolink" data-region="Palacio de los Vivero" data-country="España">Palacio de los Vivero</button>, en Valladolid, durante una sucesión castellana todavía disputada. La unión no fusionó de inmediato Castilla y Aragón: cada corona conservó sus leyes e instituciones. Sin embargo, creó la alianza dinástica desde la que ambos gobernarían, conquistarían Granada y financiarían el <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">primer viaje de Cristóbal Colón en 1492</button>.',
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si Isabel y Fernando no se hubieran casado?",
+      answer:
+        "Castilla y Aragón habrían seguido caminos dinásticos separados. Sin aquella alianza, la conquista de Granada, el patrocinio de Colón y la expansión mediterránea de Aragón habrían dependido de coronas con prioridades distintas; la monarquía compuesta que más tarde gobernó gran parte del mundo hispano quizá nunca habría tomado la misma forma."
+    }
+  },
+  {
     id: "colon-joao-ii-1484",
     year: 1484,
     // Real date; nudged track position only — see trackYear comment in
@@ -644,7 +672,7 @@ const TIMELINE_ENTRIES = [
     // rest of the chain. Re-spaced across the board (including
     // nezahualcoyotl) to fit this entry between colon-porto-santo-1479 and
     // corsali-explorador-1487 without re-breaking any of them.
-    trackYear: 1448.08,
+    trackYear: 1462.84,
     endYear: 1485,
     title: "1484: João II de Portugal rechaza a Colón",
     author: "Hito histórico",
@@ -805,7 +833,7 @@ const TIMELINE_ENTRIES = [
     // origen-trata-transatlantica-1441 / legado-trata-transatlantica-1442
     // (this marker now sits right at the edge of the 1492 cluster's
     // capture radius — do not nudge it any further right).
-    trackYear: 1462.84,
+    trackYear: 1477.6,
     endYear: 1516,
     title: "1487–1516: Andrea Corsali, el florentino que describió la Cruz del Sur desde la India",
     author: "Andrea Corsali",
@@ -2678,16 +2706,17 @@ const TIMELINE_ENTRIES = [
     id: "inquisicion-espanola-1478",
     year: 1478,
     // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. 1438/1441/1442/1478/1479/1487/1492/1492 chain-clustered
+    // timeline.js. 1438/1441/1442/1453/1469/1478/1479/1484/1487/1492 chain-clustered
     // across the pre-colonial/colonial era boundary — extended in 2026 to
     // fit corsali-explorador-1487 into the same sequence without
     // re-merging 1479 or 1487 back into a cluster. Re-solved again later
     // in 2026 so origen-trata-transatlantica-1441 and
     // legado-trata-transatlantica-1442 could each get their own
-    // standalone point too (all 6 entries in this chain — pachacutec,
-    // 1441, 1442, this one, colon-porto-santo, corsali — are now
+    // standalone point too (the entries in this chain — Pachacútec,
+    // 1441, 1442, 1453, the 1469 marriage, this one, Porto Santo,
+    // João II and Corsali — are now
     // individually standalone by borrowing room from nezahualcoyotl).
-    trackYear: 1418.56,
+    trackYear: 1433.32,
     title: "1478: se establece la Inquisición española",
     author: "Hito histórico",
     country: "España",

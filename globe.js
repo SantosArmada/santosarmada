@@ -783,6 +783,7 @@ const REGION_CENTER = {
     'Valencia': { lat: 39.47, lng: -0.38 },
     'San José Villanueva': { lat: 13.56, lng: -89.26 },
     'Zaragoza': { lat: 41.65, lng: -0.88 },
+    'Palacio de los Vivero': { lat: 41.6608, lng: -4.7253 },
     'Porto Santo': { lat: 33.07, lng: -16.33 },
     'San Diego': { lat: 32.72, lng: -117.16 },
     'Navidad': { lat: 19.13, lng: -104.68 },
