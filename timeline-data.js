@@ -2046,8 +2046,6 @@ const TIMELINE_ENTRIES = [
     year: 1938,
     month: 11,
     day: 2,
-    // Real date; separated visually from Fujimori's 1938 marker.
-    trackYear: 1936,
     title: "2 de noviembre de 1938: nace Sofía de Grecia",
     author: "Sofía de Grecia",
     country: "Grecia",
