@@ -126,6 +126,7 @@
             <button type="button" class="timeline-filter-chip is-active" data-type="conflict">Conflicto</button>
             <button type="button" class="timeline-filter-chip is-active" data-type="music">Música</button>
             <button type="button" class="timeline-filter-chip is-active" data-type="vision">Visión</button>
+            <button type="button" class="timeline-filter-chip is-active" data-type="royal">Linaje real</button>
           </div>
           <select class="timeline-filter-country" id="timelineFilterCountry" aria-label="Filtrar por país">
             <option value="">Todos los países</option>
@@ -347,7 +348,7 @@
 
     activeIndex = idx;
 
-    const NON_LATAM_COUNTRIES = ["China", "San Vicente y las Granadinas", "Portugal", "Italia", "Turquía"];
+    const NON_LATAM_COUNTRIES = ["Alemania", "China", "Grecia", "San Vicente y las Granadinas", "Portugal", "Italia", "Turquía"];
     // Countries anchoring an entry in Africa get their own purple badge
     // instead of falling through to the green "Latinoamérica" default.
     const AFRICA_COUNTRIES = [
@@ -422,6 +423,19 @@
          </div>`
       : "";
 
+    const lineageHtml = Array.isArray(entry.lineage) && entry.lineage.length
+      ? `<section class="timeline-detail-lineage" aria-labelledby="timelineLineageTitle">
+           <p class="timeline-detail-lineage-label" id="timelineLineageTitle">Linaje hacia la Corona española</p>
+           <ol class="timeline-detail-lineage-list">
+             ${entry.lineage.map((person) => `
+               <li>
+                 <span class="timeline-detail-lineage-name">${escapeHtml(person.name)}</span>
+                 <span class="timeline-detail-lineage-relation">${escapeHtml(person.relation)}</span>
+               </li>`).join("")}
+           </ol>
+         </section>`
+      : "";
+
     // Long, fact-dense entries can grow the fixed-position panel taller
     // than the viewport, pushing the top-right close button off-screen.
     // A second close button at the end of the content gives the reader
@@ -440,6 +454,7 @@
           : escapeHtml(entry.author)
       }</p>
       <p class="timeline-detail-body">${entry.descriptionHtml || escapeHtml(entry.description)}</p>
+      ${lineageHtml}
       ${flagHtml}
       ${personalNoteHtml}
       ${bottomCloseHtml}
@@ -746,8 +761,10 @@
   }
 
   filterTypeButtons.forEach((btn) => {
+    btn.setAttribute("aria-pressed", "true");
     btn.addEventListener("click", () => {
       btn.classList.toggle("is-active");
+      btn.setAttribute("aria-pressed", String(btn.classList.contains("is-active")));
       applyFilters();
     });
   });

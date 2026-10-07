@@ -91,7 +91,8 @@ const ICON_TYPE = {
   CONFLICT: "conflict",     // crossed lines — neon-pink
   HISTORY: "history",       // circle / monument — neon-blue
   MUSIC: "music",           // eighth note — neon-purple
-  VISION: "vision"          // builders/architects/engineers — Essays-page green
+  VISION: "vision",         // builders/architects/engineers — Essays-page green
+  ROYAL: "royal"            // Spanish royal bloodline — rose
 };
 
 /* ---------------------------------------------------------
@@ -2542,6 +2543,34 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si Joan Miró hubiera seguido la senda realista de sus primeros años de formación?",
       answer:
         "El vocabulario de estrellas, lunas y formas biomórficas que define su obra madura —a medio camino entre el surrealismo y una abstracción deliberadamente infantil— nunca habría existido. Miró tuvo que abandonar deliberadamente el realismo para encontrar la firma visual que lo volvió inconfundible."
+    }
+  },
+  {
+    id: "viktoria-luise-prusia-1892",
+    year: 1892,
+    month: 9,
+    day: 13,
+    // Real date; separated visually from Miró's 1893 marker.
+    trackYear: 1890,
+    title: "13 de septiembre de 1892: nace Viktoria Luise de Prusia",
+    author: "Viktoria Luise de Prusia",
+    country: "Alemania",
+    region: "Palacio de Mármol",
+    type: ICON_TYPE.ROYAL,
+    description:
+      "Viktoria Luise de Prusia nació el 13 de septiembre de 1892 en el Palacio de Mármol de Potsdam, única hija de Guillermo II entre siete hermanos. Su boda berlinesa de 1913 con Ernesto Augusto reunió a Jorge V y Nicolás II poco antes de la Primera Guerra Mundial. Su hija Federica fue reina de Grecia; su nieta Sofía se casó con Juan Carlos I de España, y su bisnieto Felipe VI reina en España. Su hermano August Wilhelm ingresó en el Partido Nazi y las SA.",
+    descriptionHtml:
+      'Viktoria Luise de <button type="button" class="timeline-detail-geolink" data-region="Prusia" data-country="Alemania">Prusia</button> nació el 13 de septiembre de 1892 en el <button type="button" class="timeline-detail-geolink" data-region="Palacio de Mármol" data-country="Alemania">Palacio de Mármol</button> de <button type="button" class="timeline-detail-geolink" data-region="Potsdam" data-country="Alemania">Potsdam</button>, única hija de Guillermo II entre siete hermanos. Su boda <button type="button" class="timeline-detail-geolink" data-region="Berlín" data-country="Alemania">berlinesa</button> de 1913 con Ernesto Augusto reunió a Jorge V y Nicolás II poco antes de la Primera Guerra Mundial. Su hija Federica fue reina de <button type="button" class="timeline-detail-geolink" data-country="Grecia">Grecia</button>; su nieta Sofía se casó con Juan Carlos I de <button type="button" class="timeline-detail-geolink" data-country="España">España</button>, y su bisnieto Felipe VI reina en <button type="button" class="timeline-detail-geolink" data-country="España">España</button>. Su hermano August Wilhelm ingresó en el Partido Nazi y las SA.',
+    lineage: [
+      { name: "Viktoria Luise de Prusia", relation: "madre de" },
+      { name: "Federica de Hannover", relation: "madre de" },
+      { name: "Sofía de Grecia", relation: "madre de" },
+      { name: "Felipe VI", relation: "rey de España" }
+    ],
+    butterfly: {
+      prompt: "¿Qué hubiera pasado si la línea de Viktoria Luise nunca hubiera llegado a la Corona española?",
+      answer:
+        "Sin el matrimonio de su nieta Sofía con Juan Carlos, Felipe VI no existiría como heredero de ambas ramas. La monarquía española contemporánea tendría otra composición familiar y habría perdido su vínculo directo con las casas de Hohenzollern, Hannover y Glücksburg."
     }
   },
   {

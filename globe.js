@@ -739,7 +739,9 @@ const COUNTRY_CENTER = {
     'Turquía': { lat: 38.9637, lng: 35.2433 },
     'Cabo Verde': { lat: 16.5388, lng: -23.0418 },
     'Kirguistán': { lat: 41.20, lng: 74.77 },
-    'Ucrania': { lat: 48.38, lng: 31.17 }
+    'Ucrania': { lat: 48.38, lng: 31.17 },
+    'Alemania': { lat: 51.17, lng: 10.45 },
+    'Grecia': { lat: 39.07, lng: 21.82 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -786,6 +788,10 @@ const REGION_CENTER = {
     'Aragón': { lat: 41.65, lng: -0.89 },
     'San José Villanueva': { lat: 13.56, lng: -89.26 },
     'Zaragoza': { lat: 41.65, lng: -0.88 },
+    'Prusia': { lat: 52.52, lng: 13.40 },
+    'Palacio de Mármol': { lat: 52.41, lng: 13.07 },
+    'Potsdam': { lat: 52.39, lng: 13.06 },
+    'Berlín': { lat: 52.52, lng: 13.40 },
     'Palacio de los Vivero': { lat: 41.6608, lng: -4.7253 },
     'Porto Santo': { lat: 33.07, lng: -16.33 },
     'San Diego': { lat: 32.72, lng: -117.16 },
