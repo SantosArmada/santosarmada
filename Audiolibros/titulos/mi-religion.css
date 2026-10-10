@@ -553,3 +553,121 @@ body {
     .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
     .book-header { padding: 2rem; }
 }
+
+/* Mi religión: the cover's turquoise, charcoal engraving and ivory paper. */
+:root {
+    --cream: #efe8d7; --ink: #092b34; --charcoal: #08242d;
+    --accent: #70d3de; --accent-bright: #a9edf0;
+    --coral: #bdd0c8; --coral-bright: #efe8d7;
+    --card-fg: #efe8d7; --card-fg-dim: #bad0d2;
+}
+html { scroll-behavior: smooth; }
+body { background: radial-gradient(ellipse at 50% 40%, #124554, #08242d 72%); color: var(--cream); }
+.site-nav-logo-img { filter: brightness(0) invert(.9) sepia(.2); }
+.site-nav { background: #08242df5; border-color: #387481; }
+.site-nav-links a, .site-nav-links a:hover, .site-nav-links a.active,
+.site-mobile-menu a, .site-mobile-menu a:hover { color: var(--cream); }
+.site-nav-links a::after, .site-hamburger span { background: var(--accent); }
+.site-mobile-menu, .site-footer { background: #08242d; }
+.book-header { position: relative; display: grid; grid-template-columns: 42% 58%; gap: 0; padding: 0; min-height: 670px; overflow: hidden; background: #072b35; border-bottom: 1px solid #387481; }
+.book-header-text { position: relative; z-index: 2; padding: 4.5rem 0 4.5rem clamp(1.5rem, 5vw, 5rem); }
+.book-header-text .kicker { color: #88dbe2; font-size: .66rem; letter-spacing: .22em; }
+.essay-label { font-size: .66rem; letter-spacing: .13em; color: #c4d8d7; margin: 2.6rem 0 1rem; }
+.book-header-text h1 { font-size: clamp(4.5rem, 7.6vw, 8rem); line-height: .97; font-weight: 500; letter-spacing: -.04em; color: var(--cream); }
+.book-header-text h1 em { color: #80dce5; font-weight: 400; }
+.hero-premise { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2vw, 1.6rem); margin: 2rem 0 .8rem; }
+.hero-description { font-size: .8rem; line-height: 1.9; color: #c4d8d7; }
+.hero-listen { display: inline-flex; gap: 2rem; align-items: center; margin-top: 1.7rem; padding: .9rem 0; border-bottom: 1px solid #70d3de; text-transform: uppercase; font-size: .65rem; letter-spacing: .18em; text-decoration: none; color: var(--cream); }
+.religion-art { position: absolute; inset: 0 0 0 24%; margin: 0; }
+.religion-art img { width: 100%; height: 100%; object-fit: cover; object-position: 65% center; }
+.religion-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,#072b35 0%,#072b35bb 20%,transparent 58%),linear-gradient(0deg,#072b3588,transparent 35%); }
+.religion-art figcaption { position: absolute; z-index: 1; right: 2rem; bottom: 1.5rem; font-family: 'Playfair Display',serif; color: var(--cream); font-style: italic; font-size: .8rem; }
+.listening-heading { text-align: center; padding: 3.5rem 1.25rem 0; }
+.listening-heading span { font-size: .65rem; letter-spacing: .26em; text-transform: uppercase; color: var(--accent); }
+.listening-heading p { font-family: 'Playfair Display',serif; font-size: clamp(1.3rem, 3vw, 1.8rem); margin: .75rem 0 0; }
+.player-section { margin: -2rem auto -2rem; scroll-margin-top: 90px; }
+.player canvas { touch-action: none; }
+.player .song { color: var(--cream); }
+.player .song .artist { font-family: 'Playfair Display',serif; font-size: 26px; }
+.player .song .name { color: #bad0d2; font-size: 16px; }
+.player .audio-status { margin: .5rem 0 0; font-size: 16px; color: #bad0d2; }
+.player .playarea .play, .player .playarea .pause, .player .playarea .prevSong,
+.player .playarea .nextSong, .player .soundControl { filter: brightness(1.55) saturate(.65); }
+.power-btn { top: 85px; right: 65px; }
+.extra-controls { margin: 0 auto 3rem; }
+.volume-dial__caption { color: #bad0d2; opacity: 1; }
+.volume-dial__dot::before { background: #3c6269; }
+.volume-dial__dot--filled::before { background: #70d3de; }
+.volume-dial__knob { filter: hue-rotate(135deg) saturate(.55); }
+.card { max-width: 1160px; width: calc(100% - 4rem); padding: clamp(1.5rem,4vw,3.5rem); gap: 3rem; border: 1px solid #39717b; border-radius: 0; background: linear-gradient(120deg,#123b45,#0a2a34); }
+.book { flex: 0 0 260px; }
+.book img, .controls .box { border-radius: 0; }
+.controls .box { background: #70d3de; color: #092b34; padding: .9rem .3rem; }
+.panel { min-width: 0; font-size: 16px; line-height: 1.85; }
+.panel h2 { font-family: 'Playfair Display',serif; font-size: 1.7rem; font-weight: 500; line-height: 1.2; color: var(--cream); margin: 0 0 1rem; }
+.panel p { color: #d2e0de; margin-bottom: 1rem; }
+.panel .reading-note { font-family: 'Playfair Display',serif; font-size: 1.25rem; color: #8adce3; border-left: 2px solid #70d3de; padding-left: 1rem; margin: 1.5rem 0; }
+.panel .source-note, .panel .reading-guide { font-size: .8rem; color: #bad0d2; }
+.panel .source-note { border-top: 1px solid #39717b; padding-top: 1rem; margin-top: 1.5rem; }
+.source-note a, .collection-links a { color: #92e2e7; text-underline-offset: 4px; }
+.break { height: 1px; width: 3rem; background: #70d3de; margin: 2rem 0 1.5rem; }
+.chapter { padding: .9rem .5rem; border-bottom: 1px solid #39717b; }
+.chapter:hover, .chapter.active { background: #194955; color: #a9edf0; }
+.collection-links { max-width: 1160px; margin: 2rem auto 3.5rem; padding: 0 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem; font-size: .8rem; }
+.site-footer { border-top: 1px solid #39717b; }
+.progress-scroll { width: 3px; right: 5px; z-index: 90; }
+.skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; padding: 1rem; background: var(--cream); color: var(--ink); }
+.skip-link:focus { top: 1rem; }
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #a9edf0; outline-offset: 5px; }
+@media(max-width:900px) {
+    .book-header { padding: 0; min-height: 620px; }
+    .book-header-text { padding-left: 2rem; }
+    .book-header-text h1 { font-size: clamp(4rem,9vw,6rem); }
+    .hero-description br { display: none; }
+    .player-section { transform: none; height: 459px; margin: 0 auto; }
+    .player { top: 0; margin-top: 0; transform: scale(.62); transform-origin: top center; }
+    .power-btn { top: 20px; right: max(1rem,calc(50% - 225px)); }
+    .card { width: calc(100% - 2.5rem); gap: 2rem; }
+}
+@media(max-width:600px) {
+    html, body { overflow-x: hidden; }
+    .site-nav { padding-inline: 1rem; }
+    .site-nav-logo-img { height: 32px; }
+    .book-header { display: flex; flex-direction: column; min-height: 0; align-items: stretch; }
+    .book-header-text { padding: 2.5rem 1.5rem 1.75rem; }
+    .essay-label { margin-top: 1.75rem; font-size: .6rem; }
+    .book-header-text h1 { font-size: clamp(4.5rem,18vw,6rem); }
+    .hero-premise { margin-top: 1.5rem; }
+    .hero-description { max-width: 24rem; }
+    .hero-listen { margin-top: .75rem; }
+    .religion-art { position: relative; inset: auto; height: 320px; width: 100%; }
+    .religion-art img { object-position: 75% center; }
+    .religion-art::after { background: linear-gradient(0deg,#072b3588,transparent 35%,transparent 80%,#072b35); }
+    .religion-art figcaption { right: 1rem; bottom: 1rem; font-size: .75rem; }
+    .listening-heading { padding-top: 2.5rem; }
+    .player-section { height: 370px; }
+    .player { transform: scale(.5); }
+    .power-btn { top: 12px; right: 1rem; }
+    .power-btn svg { width: 38px; height: 38px; }
+    .extra-controls { margin: .25rem auto 2.5rem; }
+    .card { width: calc(100% - 1.5rem); padding: 1.25rem; }
+    .book { flex-basis: min(260px,100%); margin: 0 auto; }
+    .panel { flex-basis: 100%; font-size: .95rem; line-height: 1.8; }
+    .panel h2 { font-size: 1.5rem; }
+}
+@media(max-width:360px) {
+    .player-section { height: 322px; }
+    .player { transform: scale(.43); }
+    .card { width: calc(100% - 1rem); padding: 1rem; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+.power-btn[aria-pressed="true"] svg path,
+.power-btn[aria-pressed="true"] svg line { stroke: #092b34; }
+.volume-dial__wrap {
+    background: radial-gradient(circle at 34% 27%,#3e91a0 0%,transparent 35%),radial-gradient(circle at 50% 56%,#175c6a 0 40%,#0d3c47 65%,#051e27 100%);
+    border-color: #70d3de;
+    box-shadow: inset 0 1px 2px #9de3e780,inset 0 -5px 9px #00131dbb,0 .55em 1em #0008,0 0 0 3px #70d3de22;
+}
+.volume-dial__wrap::before { border-color: #70d3de55; box-shadow: inset 0 1px 2px #70d3de33; }
+.volume-dial__knob { filter: none; }
+.volume-dial__knob::before { background: #efe8d7; border-color: #a9edf0; box-shadow: 0 0 5px #70d3de66; }
