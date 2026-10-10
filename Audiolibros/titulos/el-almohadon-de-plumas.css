@@ -790,3 +790,11 @@ body { background:radial-gradient(ellipse at 50% 40%,#243b4d,#101d29 85%); }
     .player { transform: scale(.43); }
     .card { width: calc(100% - 1rem); padding: 1rem; }
 }
+
+/* Keep recording availability visible beside the transport. */
+.player .audio-status {
+    margin: .55rem 0 0;
+    color: #cdd7da;
+    font-size: 16px;
+    line-height: 1.4;
+}

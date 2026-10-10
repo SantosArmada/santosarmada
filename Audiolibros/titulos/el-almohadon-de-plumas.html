@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — El almohadón de plumas</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="el-almohadon-de-plumas.css">
+    <link rel="stylesheet" href="el-almohadon-de-plumas.css?v=20261010">
 </head>
 <body>
 <a class="skip-link" href="#main">Saltar al contenido</a>
@@ -21,7 +21,6 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
   <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -35,7 +34,6 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
 <main id="main">
@@ -78,6 +76,7 @@
         <div class="song">
             <div class="artist">El almohadón de plumas</div>
             <div class="name">Cuento completo</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
             <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
@@ -94,7 +93,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -109,7 +108,7 @@
 <div class="all" id="sobre">
   <div class="card">
     <div class="book">
-        <svg class="x" role="button" tabindex="0" aria-label="Cerrar portada" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
         <img loading="lazy" decoding="async" src="../../book_covers/el-almohadon-de-plumas.webp" alt="El almohadón de plumas">
@@ -118,7 +117,7 @@
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
         <h2>La casa que no protege</h2>
@@ -132,14 +131,14 @@
         <p class="reading-guide">Una lectura continua. Grabación pendiente de incorporación. La escena visual funciona de forma independiente y puede detenerse sin afectar al reproductor.</p>
 
         <div class="break"></div>
-        <h2>Reseñas</h2>
+        <h2>Mi valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
-            <p style="display:inline; margin-left:6px;">Excelente</p>
+            <p style="display:inline; margin-left:6px;">5/5 · Me encanta este cuento.</p>
         </div>
       </div>
     </div>
@@ -157,7 +156,7 @@
 <div id="creatureStage" aria-hidden="true"><canvas id="creatureCanvas"></canvas></div>
 <button id="creatureStop" type="button" hidden>Detener escena <span aria-hidden="true">×</span></button>
 <button id="creatureBite" type="button" hidden>Provocar mordida</button>
-<script src="el-almohadon-de-plumas.js"></script>
+<script src="el-almohadon-de-plumas.js?v=20261010"></script>
 <script src="almohadon-creature.js"></script>
 
 </body>

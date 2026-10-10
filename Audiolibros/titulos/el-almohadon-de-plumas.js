@@ -315,7 +315,7 @@ var Scene = {
         window.onresize = function () {
             that.canvasConfigure();
             Framer.configure();
-            that.render();
+            if (!that.inProcess()) { that.render(); }
         };
     },
 
@@ -474,6 +474,14 @@ var Player = {
 
     init: function () {
         this.audio = document.getElementById('chapterAudio');
+        this.audio.addEventListener('ended', function () {
+            Controls.playing = false;
+            document.querySelector('.play').style.display = 'inline-block';
+            document.querySelector('.pause').style.display = 'none';
+        });
+        this.audio.addEventListener('loadedmetadata', function () {
+            document.getElementById('audioStatus').textContent = '';
+        });
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
         try {
@@ -511,6 +519,7 @@ var Player = {
             document.querySelector('.pause').style.display = 'none';
         }
         if (!PlayerPower.on || !(this.audio.currentSrc || this.audio.getAttribute('src') || this.audio.querySelector('source[src]'))) {
+            document.getElementById('audioStatus').textContent = PlayerPower.on ? 'Grabación próximamente' : 'Reproductor apagado';
             Promise.resolve().then(resetTransport);
             return;
         }
@@ -518,7 +527,12 @@ var Player = {
             this.context.resume().catch(function () {});
         }
         var playback = this.audio.play();
-        if (playback && playback.catch) { playback.catch(resetTransport); }
+        if (playback && playback.catch) {
+            playback.catch(function () {
+                resetTransport();
+                document.getElementById('audioStatus').textContent = 'No se pudo reproducir. Inténtalo de nuevo.';
+            });
+        }
     },
 
     pause: function () {
@@ -539,9 +553,13 @@ var Player = {
     setVolume: function (v) {
         v = Math.max(0, Math.min(1, v));
         if (this.gainNode) { this.gainNode.gain.value = v; }
+        else { this.audio.volume = v; }
         this.audio.muted = (v <= 0);
         var soundBtn = document.querySelector('.soundControl');
-        if (soundBtn) { soundBtn.classList.toggle('disable', v <= 0); }
+        if (soundBtn) {
+            soundBtn.classList.toggle('disable', v <= 0);
+            soundBtn.setAttribute('aria-label', v <= 0 ? 'Activar sonido' : 'Silenciar sonido');
+        }
     },
 
     seek: function (seconds) {
@@ -602,6 +620,8 @@ var VolumeDial = {
     render: function () {
         var angle = this.angleFromVol(this.vol);
         this.knob.style.transform = 'rotate(' + angle + 'deg)';
+        this.knob.setAttribute('aria-valuenow', Math.round(this.vol * 100));
+        this.knob.setAttribute('aria-valuetext', Math.round(this.vol * 100) + ' %');
         var tick = this.vol * this.ticks;
         this.dots.forEach(function (d, i) {
             d.classList.toggle('volume-dial__dot--filled', i < tick - 0.5);
@@ -668,10 +688,16 @@ var PlayerPower = {
         this.btn.setAttribute('aria-pressed', on ? 'true' : 'false');
 
         var playerEl = document.querySelector('.player');
-        if (playerEl) { playerEl.classList.toggle('powered-off', !on); }
+        if (playerEl) {
+            playerEl.classList.toggle('powered-off', !on);
+            playerEl.inert = !on;
+        }
 
         var dial = document.getElementById('volumeDial');
-        if (dial) { dial.classList.toggle('powered-off', !on); }
+        if (dial) {
+            dial.classList.toggle('powered-off', !on);
+            dial.inert = !on;
+        }
 
         if (!on) {
             Player.pause();
@@ -750,6 +776,7 @@ function initPanelToggle() {
     if (!closeBtn || !panel) { return; }
     function togglePanel() {
         panel.classList.toggle('collapsed');
+        closeBtn.setAttribute('aria-expanded', String(!panel.classList.contains('collapsed')));
         closeBtn.setAttribute('aria-label', panel.classList.contains('collapsed') ? 'Mostrar la ficha del libro' : 'Ocultar la ficha del libro');
     }
     closeBtn.addEventListener('click', togglePanel);
