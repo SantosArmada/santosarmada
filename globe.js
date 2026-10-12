@@ -789,6 +789,7 @@ const REGION_CENTER = {
     'Soria': { lat: 41.76, lng: -2.47 },
     'Sucre': { lat: -19.03, lng: -65.26 },
     'Tepatitlán, Jalisco': { lat: 20.82, lng: -102.73 },
+    'Tixtla, Guerrero': { lat: 17.57, lng: -99.40 },
     'Tlatelolco, Ciudad de México': { lat: 19.44, lng: -99.14 },
     'Wuhan': { lat: 30.59, lng: 114.31 },
     'Bahía de San Francisco': { lat: 37.78, lng: -122.42 },

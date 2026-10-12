@@ -93,7 +93,8 @@ const ICON_TYPE = {
   MUSIC: "music",           // eighth note — neon-purple
   VISION: "vision",         // builders/architects/engineers — Essays-page green
   ROYAL: "royal",           // Spanish royal bloodline — rose
-  ECHO: "echo"               // cross-time structures of violence — muted crimson
+  ECHO: "echo",              // cross-time structures of violence — muted crimson
+  ESOTERIC: "esoteric"       // documented esoteric, initiatory, and Masonic networks — emerald
 };
 
 /* ---------------------------------------------------------
@@ -4107,6 +4108,29 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si la UNESCO y la UICN nunca hubieran enviado a Eibl-Eibesfeldt a Galápagos en 1957?",
       answer:
         "El archipiélago habría seguido expuesto, sin control alguno, a la caza de tortugas, la introducción de especies invasoras y la colonización agrícola que ya avanzaba sobre varias islas en los años cincuenta. La ventana que separó el centenario de Darwin en 1959 de un archipiélago todavía intacto pudo haberse cerrado sin que nadie con autoridad científica internacional estuviera ahí para documentarlo y dar la alarma a tiempo."
+    }
+  },
+  {
+    id: "ignacio-manuel-altamirano-masoneria-1878",
+    year: 1878,
+    month: 1,
+    day: 11,
+    title: "11 de enero de 1878: Altamirano, gran maestro masón",
+    author: "Ignacio Manuel Altamirano",
+    country: "México",
+    region: "Ciudad de México",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ESOTERIC],
+    description:
+      "El 11 de enero de 1878, Ignacio Manuel Altamirano fue elegido gran maestro de la Gran Logia Valle de México. Escritor indígena nacido en Tixtla, combatiente liberal, maestro y autor de Clemencia y El Zarco, había fundado la revista El Renacimiento. En 1879 reunió miembros de treinta y nueve logias, creó el Supremo Consejo del Gran Oriente de los Estados Unidos Mexicanos y se proclamó inspector general del grado 33. Su pertenencia masónica está documentada; no existe evidencia de que integrara los Illuminati históricos de Baviera. Esta etiqueta agrupa redes iniciáticas verificables, no teorías conspirativas.",
+    descriptionHtml:
+      'El 11 de enero de 1878, en la <button type="button" class="timeline-detail-geolink" data-region="Ciudad de México" data-country="México">Ciudad de México</button>, Ignacio Manuel Altamirano fue elegido gran maestro de la Gran Logia Valle de México. Escritor indígena nacido en <button type="button" class="timeline-detail-geolink" data-region="Tixtla, Guerrero" data-country="México">Tixtla</button>, combatiente liberal, maestro y autor de <em>Clemencia</em> y <em>El Zarco</em>, había fundado la revista <em>El Renacimiento</em>. En 1879 reunió miembros de treinta y nueve logias, creó el Supremo Consejo del Gran Oriente de los Estados Unidos Mexicanos y se proclamó inspector general del grado 33. Su pertenencia masónica está documentada; no existe evidencia de que integrara los Illuminati históricos de Baviera. Esta etiqueta agrupa redes iniciáticas verificables, no teorías conspirativas.',
+    esotericNote:
+      "Esotérico funciona como una ruta editorial para estudiar corrientes masónicas, iniciáticas y esotéricas documentadas. La etiqueta no afirma por sí sola pertenencia a sociedades secretas específicas ni valida relatos conspirativos.",
+    butterfly: {
+      prompt: "¿Qué habría cambiado si Altamirano hubiera limitado su proyecto liberal a la literatura y evitado las redes masónicas?",
+      answer:
+        "Habría conservado su influencia como escritor y educador, pero habría perdido una estructura nacional de sociabilidad política. Las logias conectaban a intelectuales, militares y funcionarios en un México donde las instituciones republicanas todavía estaban consolidándose."
     }
   },
   {

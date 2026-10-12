@@ -185,6 +185,12 @@
   background: rgba(185, 74, 85, 0.09);
 }
 
+.timeline-filter-chip[data-type="esoteric"].is-active {
+  color: #72d6a1;
+  border-color: #4ca678;
+  background: rgba(76, 166, 120, 0.09);
+}
+
 .timeline-filter-country {
   font-size: 11px;
   color: var(--text-main);
@@ -336,6 +342,29 @@
 .timeline-entry[data-type="music"] .timeline-entry-dot { background: var(--neon-purple); }
 .timeline-entry[data-type="vision"] .timeline-entry-dot { background: var(--vision-green); }
 .timeline-entry[data-type="royal"] .timeline-entry-dot { background: var(--royal-rose); }
+
+.timeline-detail-esoteric {
+  margin: 18px 0 4px;
+  padding: 14px;
+  border: 1px solid rgba(76, 166, 120, 0.42);
+  border-radius: 12px;
+  background: rgba(27, 83, 55, 0.12);
+}
+
+.timeline-detail-esoteric-label {
+  margin: 0 0 8px;
+  color: #72d6a1;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.timeline-detail-esoteric-text {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
 
 .timeline-detail-echo {
   margin: 18px 0 4px;

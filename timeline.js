@@ -128,6 +128,7 @@
             <button type="button" class="timeline-filter-chip is-active" data-type="vision">Visión</button>
             <button type="button" class="timeline-filter-chip is-active" data-type="royal">Linaje real</button>
             <button type="button" class="timeline-filter-chip is-active" data-type="echo">Ecos brutales</button>
+            <button type="button" class="timeline-filter-chip is-active" data-type="esoteric" aria-label="Filtrar corrientes esotéricas, masónicas e iniciáticas documentadas">Esotérico</button>
           </div>
           <select class="timeline-filter-country" id="timelineFilterCountry" aria-label="Filtrar por país">
             <option value="">Todos los países</option>
@@ -439,6 +440,13 @@
          </section>`
       : "";
 
+    const esotericHtml = entry.esotericNote
+      ? `<section class="timeline-detail-esoteric" aria-labelledby="timelineEsotericTitle" role="note">
+           <p class="timeline-detail-esoteric-label" id="timelineEsotericTitle">Esotérico · criterio histórico</p>
+           <p class="timeline-detail-esoteric-text">${escapeHtml(entry.esotericNote)}</p>
+         </section>`
+      : "";
+
     const echoHtml = entry.echo
       ? `<section class="timeline-detail-echo" aria-labelledby="timelineEchoTitle" role="note">
            <p class="timeline-detail-echo-warning">Advertencia de contenido · violencia contra menores y separación familiar</p>
@@ -470,6 +478,7 @@
       }</p>
       <p class="timeline-detail-body">${entry.descriptionHtml || escapeHtml(entry.description)}</p>
       ${echoHtml}
+      ${esotericHtml}
       ${lineageHtml}
       ${flagHtml}
       ${personalNoteHtml}
