@@ -8,7 +8,7 @@ var Framer = {
     loadingAngle: 0,
 
     init: function (scene) {
-        this.canvas = document.querySelector('canvas');
+        this.canvas = document.querySelector('.player canvas');
         this.scene = scene;
         this.context = scene.context;
         this.configure();
@@ -291,7 +291,7 @@ var Scene = {
     },
 
     canvasConfigure: function () {
-        this.canvas = document.querySelector('canvas');
+        this.canvas = document.querySelector('.player canvas');
         this.context = this.canvas.getContext('2d');
         this.context.strokeStyle = '#D9A638';
         this.calculateSize();
@@ -855,3 +855,72 @@ document.addEventListener('DOMContentLoaded', function () {
     initProgressScroll();
     initMobileNav();
 });
+
+/* A continuous plume anchored to the bowl in the original 1536 × 1024 art.
+   Mapping duplicates object-fit: cover / object-position: right center. */
+(function initPipeSmoke() {
+    var canvas = document.querySelector('.pipe-smoke');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    var art = canvas.parentElement;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var visible = false, frame = 0, previous = 0, time = 4;
+    var width = 0, height = 0, ratio = 1;
+    // A small soft sprite keeps the per-frame work light on mobile.
+    var mist = document.createElement('canvas');
+    mist.width = mist.height = 64;
+    var brush = mist.getContext('2d');
+    var gradient = brush.createRadialGradient(32, 32, 0, 32, 32, 32);
+    gradient.addColorStop(0, 'rgba(218,224,212,.52)');
+    gradient.addColorStop(.35, 'rgba(201,215,207,.25)');
+    gradient.addColorStop(1, 'rgba(179,203,197,0)');
+    brush.fillStyle = gradient;
+    brush.fillRect(0, 0, 64, 64);
+    function resize() {
+        var bounds = art.getBoundingClientRect();
+        width = bounds.width; height = bounds.height;
+        ratio = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.round(width * ratio);
+        canvas.height = Math.round(height * ratio);
+    }
+    function draw(now) {
+        frame = 0;
+        time += previous ? Math.min((now - previous) / 1000, .05) : 0;
+        previous = now;
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+        ctx.clearRect(0, 0, width, height);
+        var scale = Math.max(width / 1536, height / 1024);
+        ctx.translate(width - 1536 * scale, (height - 1024 * scale) / 2);
+        ctx.scale(scale, scale);
+        // Overlapping filaments rise slowly, curl, widen and disappear.
+        // Each parcel retains its birth phase, avoiding synchronized swaying.
+        for (var i = 0; i < 110; i++) {
+            var age = (time + i * 7 / 110) % 7;
+            var birth = time - age + i * .73;
+            var rise = age * 32;
+            var spread = age * age * .9;
+            var x = 1294 + Math.sin(age * 1.6 + birth * .6) * age * 3.4
+                - age * 4 + Math.sin(birth * 2.1) * spread;
+            var y = 750 - rise;
+            var radius = 3 + age * 3.2;
+            ctx.globalAlpha = .55 * Math.min(age / .35, 1) * Math.pow(1 - age / 7, 1.5);
+            ctx.drawImage(mist, x - radius, y - radius * 1.7, radius * 2, radius * 3.4);
+        }
+        ctx.globalAlpha = 1;
+        frame = requestAnimationFrame(draw);
+    }
+    function sync() {
+        var running = visible && !document.hidden && !reduced.matches;
+        if (running && !frame) { previous = 0; frame = requestAnimationFrame(draw); }
+        if (!running && frame) { cancelAnimationFrame(frame); frame = 0; previous = 0; }
+        if (reduced.matches) ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+    new ResizeObserver(resize).observe(art);
+    new IntersectionObserver(function (entries) {
+        visible = entries[0].isIntersecting; sync();
+    }).observe(art);
+    document.addEventListener('visibilitychange', sync);
+    reduced.addEventListener('change', sync);
+    resize();
+})();
