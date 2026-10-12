@@ -4154,6 +4154,28 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "reyna-angelica-marroquin-1969",
+    year: 1969,
+    month: 1,
+    endYear: 1999,
+    title: "1969–1999: Reyna Angélica Marroquín y el barril sellado",
+    author: "Reyna Angélica Marroquín",
+    country: "Estados Unidos",
+    region: "Jericho, Nueva York",
+    type: ICON_TYPE.CONFLICT,
+    sensitive: true,
+    descriptionWordLimit: 120,
+    description:
+      "En enero de 1969 desapareció Reyna Angélica Marroquín, inmigrante salvadoreña de 27 años, embarazada casi a término, que trabajaba en Melrose Plastics, una fábrica de flores artificiales de Manhattan. El 2 de septiembre de 1999 encontraron sus restos dentro de un barril sellado bajo una casa de Jericho; la autopsia determinó que había muerto por golpes en la cabeza que había pertenecido al copropietario de la empresa, Howard Elkins. Una libreta deteriorada permitió identificarla; un tallo plástico, tinte y bolitas de poliestireno conectaron el barril con la fábrica. Interrogado en Boca Ratón, Elkins negó saber del barril y murió por suicidio al día siguiente. El ADN confirmó que era el padre del feto. Fue considerado sospechoso principal, pero nunca acusado.",
+    descriptionHtml:
+      'En enero de 1969 desapareció Reyna Angélica Marroquín, inmigrante de <button type="button" class="timeline-detail-geolink" data-country="El Salvador">El Salvador</button> de 27 años, embarazada casi a término, que trabajaba en <button type="button" class="timeline-detail-geolink" data-region="Melrose Plastics, Manhattan" data-country="Estados Unidos">Melrose Plastics</button>, una fábrica de flores artificiales de Manhattan. El 2 de septiembre de 1999 encontraron sus restos dentro de un barril sellado bajo una casa de <button type="button" class="timeline-detail-geolink" data-region="Jericho, Nueva York" data-country="Estados Unidos">Jericho</button>; la autopsia determinó que había muerto por golpes en la cabeza que había pertenecido al copropietario de la empresa, Howard Elkins. Una libreta deteriorada permitió identificarla; un tallo plástico, tinte y bolitas de poliestireno conectaron el barril con la fábrica. Interrogado en <button type="button" class="timeline-detail-geolink" data-region="Boca Ratón, Florida" data-country="Estados Unidos">Boca Ratón</button>, Elkins negó saber del barril y murió por suicidio al día siguiente. El ADN confirmó que era el padre del feto. Fue considerado sospechoso principal, pero nunca acusado.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si la libreta de Reyna no hubiera conservado datos legibles después de treinta años?",
+      answer:
+        "Probablemente habría permanecido sin nombre durante mucho más tiempo. Su identificación muestra cómo objetos personales mínimos pueden devolver identidad e historia a una víctima, incluso cuando el tiempo, el desplazamiento migratorio y el ocultamiento borraron casi todas las demás huellas."
+    }
+  },
+  {
     id: "menchaca-orozco-compton-2021",
     year: 2021,
     month: 11,
