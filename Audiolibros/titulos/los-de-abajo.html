@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Los de abajo</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="los-de-abajo.css">
+    <link rel="stylesheet" href="los-de-abajo.css?v=20261012-impact-smoke">
 </head>
 <body>
-
 <div class="bullet-layer" aria-hidden="true">
     <span class="bullet-flash bullet-flash--1"></span>
     <span class="bullet-flash bullet-flash--2"></span>
@@ -21,6 +20,16 @@
     <span class="bullet-flash bullet-flash--9"></span>
     <span class="bullet-flash bullet-flash--10"></span>
 
+    <span class="impact-smoke impact-smoke--1"></span>
+<span class="impact-smoke impact-smoke--2"></span>
+<span class="impact-smoke impact-smoke--3"></span>
+<span class="impact-smoke impact-smoke--4"></span>
+<span class="impact-smoke impact-smoke--5"></span>
+<span class="impact-smoke impact-smoke--6"></span>
+<span class="impact-smoke impact-smoke--7"></span>
+<span class="impact-smoke impact-smoke--8"></span>
+<span class="impact-smoke impact-smoke--9"></span>
+<span class="impact-smoke impact-smoke--10"></span>
     <svg class="bullet-defs" width="0" height="0" focusable="false">
         <defs>
             <symbol id="impact-a" viewBox="0 0 80 80">
@@ -65,6 +74,9 @@
     <div class="bullet-hole bullet-hole--10"><svg viewBox="0 0 80 80"><use href="#impact-b"/></svg></div>
 </div>
 
+
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
     <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
@@ -76,9 +88,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -90,18 +101,27 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
-<div class="shake-wrapper">
-
+<main id="main" class="shake-wrapper">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>Los de abajo</h1>
-        <p class="subtitle">Mariano Azuela</p>
+        <p class="poetry-label">Mariano Azuela · Novela · 1915</p>
+        <h1>Los de<br><em>abajo</em></h1>
+        <p class="hero-premise">La revolución también deja heridas.</p>
+        <p class="hero-description">La sierra, la tropa y el vértigo de seguir luchando.<br> Un país en armas, visto desde quienes lo atraviesan.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la novela <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="abajo-art"><img src="../assets/abajo-sierra-en-armas.webp" width="1536" height="1024" fetchpriority="high" alt="Una partida de revolucionarios recorre una sierra mexicana entre polvo y luz de atardecer."><figcaption>Los caminos de la sierra</figcaption></figure>
 </header>
+<div class="ambience-controls">
+  <label><input type="checkbox" id="ricochetSound"> Revólver y rebotes</label>
+  <button type="button" id="replayRicochets" disabled>Repetir efecto</button>
+  <audio id="ricochetAudio" controls preload="none" hidden src="../assets/abajo-revolver-tiros-espaciados.wav" aria-label="Revólver y rebotes"></audio>
+  <span id="ricochetStatus" role="status">Sonido desactivado</span>
+</div>
+<div class="listening-heading"><span>Novela · Mariano Azuela</span><p>Las voces de una revolución en marcha.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -118,15 +138,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Los de abajo</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Primera parte</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -135,7 +156,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -150,31 +171,32 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/Los-de-abajo.webp" alt="Los de abajo">
+        <img loading="lazy" decoding="async" src="../../book_covers/Los-de-abajo-mariano.webp" alt="Los de abajo">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la novela">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Mariano Azuela escribió esta novela de 1915 casi al mismo tiempo que vivía la Revolución mexicana como médico de tropa, y se nota: sigue a Demetrio Macías, un campesino arrastrado a la lucha armada, a través del caos, el idealismo desgastado y la violencia cíclica de un movimiento que devora a los suyos. Considerada la primera gran novela de la Revolución, retrata sin heroísmo ni sentimentalismo lo que significa luchar por una causa que ya no se entiende del todo.</p>
-
+        <h2>La lucha y su desgaste</h2>
+        <p>Demetrio Macías abandona su casa cuando la violencia de los federales alcanza a su familia. En la sierra reúne a otros hombres perseguidos y se convierte en jefe de una partida. La lucha abre un camino de ascenso, pero también expone a sus compañeros al saqueo, la ambición y el desconcierto.</p>
+        <p class="reading-note">Seguir avanzando no siempre significa saber hacia dónde.</p>
+        <p>Azuela observa la Revolución desde una tropa en movimiento. Las distintas voces, entre ellas la de Luis Cervantes, disputan el sentido de la causa y muestran la distancia entre las palabras y los actos. La fraternidad convive con la crueldad; el paisaje permanece mientras cambian las alianzas y se desgastan las certezas.</p>
+        <p>La escucha destaca los diálogos breves y el contraste entre la quietud de la sierra y la irrupción de la violencia. Los silencios también pesan: muchas decisiones se toman sin que los personajes puedan explicar del todo qué los impulsa.</p>
+        <p class="source-note">Texto y división en tres partes consultados en <a href="https://www.cch.unam.mx/sites/default/files/Los_de_abajo.pdf">UNAM · CCH, <em>Los de abajo</em></a>. Ilustración interpretativa.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Demetrio Macías se une a la lucha</p>
-        <p class="chapter" data-time="0">El ascenso del movimiento revolucionario</p>
-        <p class="chapter" data-time="0">Camaradas y desilusión</p>
-        <p class="chapter" data-time="0">La violencia cíclica</p>
-        <p class="chapter" data-time="0">El regreso al cañón de Juchipila</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Primera parte</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">Segunda parte</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">Tercera parte</p>
+        <p class="reading-guide">Grabaciones próximamente. La navegación sigue las tres partes de la novela.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -188,15 +210,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="niebla.html">← Niebla</a><a href="ola-4-slug.html">Cuarta Ola</a><a href="hortus-conclusus.html">Hortus conclusus →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-</div>
-
-<script src="los-de-abajo.js"></script>
+<script src="los-de-abajo.js?v=20261012-impact-smoke"></script>
 
 </body>
 </html>
