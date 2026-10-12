@@ -771,6 +771,7 @@ const REGION_CENTER = {
     'Los Ángeles, California': { lat: 34.05, lng: -118.24 },
     'Condado de Los Ángeles': { lat: 34.05, lng: -118.24 },
     'Bullis Road y Pine Avenue, Compton': { lat: 33.91, lng: -118.19 },
+    'Casa Bernal, Fullerton': { lat: 33.87, lng: -117.92 },
     'Nueva Orleans': { lat: 29.95, lng: -90.07 },
     'Luisiana': { lat: 31.00, lng: -92.00 },
     'La Española': { lat: 19.00, lng: -70.70 },

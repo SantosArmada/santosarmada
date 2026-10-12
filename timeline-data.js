@@ -4134,6 +4134,26 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "doss-v-bernal-fullerton-1943",
+    year: 1943,
+    month: 9,
+    day: 21,
+    title: "21 de septiembre de 1943: Doss v. Bernal",
+    author: "Alex y Esther Bernal",
+    country: "Estados Unidos",
+    region: "Casa Bernal, Fullerton",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 21 de septiembre de 1943, el juez Albert F. Ross falló a favor de Alex y Esther Bernal, una familia mexicoamericana demandada por vecinos que pretendían expulsarla de su casa en Fullerton mediante un pacto inmobiliario de 1923 que excluía a “mexicanos” y personas no blancas. Tras un juicio de cuatro días, Ross consideró discriminatoria e inconstitucional su aplicación. El 15 de noviembre reafirmó la decisión. Doss v. Bernal fue una victoria temprana contra la segregación residencial, cinco años antes de que la Corte Suprema declarara inaplicables los pactos raciales en Shelley v. Kraemer.",
+    descriptionHtml:
+      'El 21 de septiembre de 1943, el juez Albert F. Ross falló a favor de Alex y Esther Bernal, una familia mexicoamericana demandada por vecinos que pretendían expulsarla de su casa en <button type="button" class="timeline-detail-geolink" data-region="Casa Bernal, Fullerton" data-country="Estados Unidos">Fullerton</button> mediante un pacto inmobiliario de 1923 que excluía a “mexicanos” y personas no blancas. Tras un juicio de cuatro días, Ross consideró discriminatoria e inconstitucional su aplicación. El 15 de noviembre reafirmó la decisión. <em>Doss v. Bernal</em> fue una victoria temprana contra la segregación residencial, cinco años antes de que la <button type="button" class="timeline-detail-geolink" data-region="Washington, D.C." data-country="Estados Unidos">Corte Suprema</button> declarara inaplicables los pactos raciales en <em>Shelley v. Kraemer</em>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si los Bernal hubieran abandonado su casa en vez de enfrentar el pacto racial ante los tribunales?",
+      answer:
+        "El pacto habría seguido operando sin oposición en Sunnyside y una de las primeras victorias judiciales mexicoamericanas contra la segregación residencial habría desaparecido. Su resistencia también ayudó a formar los argumentos y la experiencia legal que reaparecerían en otras luchas por los derechos civiles."
+    }
+  },
+  {
     id: "menchaca-orozco-compton-2021",
     year: 2021,
     month: 11,
