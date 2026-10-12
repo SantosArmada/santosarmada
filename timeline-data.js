@@ -4110,6 +4110,27 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "menchaca-orozco-compton-2021",
+    year: 2021,
+    month: 11,
+    day: 14,
+    title: "14 de noviembre de 2021: doble homicidio en Compton",
+    author: "Javier Carachure Menchaca y Juan Antonio Orozco",
+    country: "Estados Unidos",
+    region: "Bullis Road y Pine Avenue, Compton",
+    type: ICON_TYPE.HISTORY,
+    sensitive: true,
+    description:
+      "El 14 de noviembre de 2021, hacia las 12:58 a. m., Javier Carachure Menchaca, de 19 años, y Juan Antonio Orozco, de 22, fueron asesinados a tiros mientras estaban dentro de un vehículo durante una toma callejera en el cruce de Bullis Road y Pine Avenue, en Compton. Entre cien y trescientas personas presenciaron el evento, pero ninguna información condujo a identificar a los responsables. Años después, el caso continúa abierto. El condado de Los Ángeles ofrece una recompensa de 60,000 dólares por información que permita detener y condenar a los culpables.",
+    descriptionHtml:
+      'El 14 de noviembre de 2021, hacia las 12:58 a. m., Javier Carachure Menchaca, de 19 años, y Juan Antonio Orozco, de 22, fueron asesinados a tiros mientras estaban dentro de un vehículo durante una toma callejera en el cruce de <button type="button" class="timeline-detail-geolink" data-region="Bullis Road y Pine Avenue, Compton" data-country="Estados Unidos">Bullis Road y Pine Avenue, en Compton</button>. Entre cien y trescientas personas presenciaron el evento, pero ninguna información condujo a identificar a los responsables. Años después, el caso continúa abierto. El <button type="button" class="timeline-detail-geolink" data-region="Condado de Los Ángeles" data-country="Estados Unidos">condado de Los Ángeles</button> ofrece una recompensa de 60,000 dólares por información que permita detener y condenar a los culpables.',
+    butterfly: {
+      prompt: "¿Qué habría cambiado si una sola persona entre los numerosos testigos hubiera aportado una pista decisiva?",
+      answer:
+        "No puede saberse si una declaración habría resuelto el caso, pero el silencio colectivo dejó a dos familias sin respuestas y muestra cómo el miedo, la desconfianza o la indiferencia pueden impedir que una comunidad transforme lo presenciado en justicia."
+    }
+  },
+  {
     id: "paola-clouatre-ice-2025",
     year: 2025,
     month: 5,
