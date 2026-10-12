@@ -92,7 +92,8 @@ const ICON_TYPE = {
   HISTORY: "history",       // circle / monument — neon-blue
   MUSIC: "music",           // eighth note — neon-purple
   VISION: "vision",         // builders/architects/engineers — Essays-page green
-  ROYAL: "royal"            // Spanish royal bloodline — rose
+  ROYAL: "royal",           // Spanish royal bloodline — rose
+  ECHO: "echo"               // cross-time structures of violence — muted crimson
 };
 
 /* ---------------------------------------------------------
@@ -1091,9 +1092,21 @@ const TIMELINE_ENTRIES = [
     title: "Brevísima relación de la destrucción de las Indias",
     author: "Bartolomé de las Casas",
     country: "República Dominicana",
+    region: "La Española",
     type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.ECHO],
+    sensitive: true,
     description:
-      "Denuncia testimonial de Bartolomé de las Casas contra las atrocidades cometidas por los colonizadores españoles en el Caribe y el continente, escrita en 1542 como petición directa a la Corona para reformar el trato a los pueblos indígenas. Un texto tan influyente como controvertido en la formación de la Leyenda Negra española.",
+      "Escrita en 1542 y publicada en 1552, la Brevísima relación de la destrucción de las Indias denuncia las atrocidades de la conquista. Bartolomé de las Casas relata que colonizadores arrancaban criaturas lactantes de sus madres y les golpeaban la cabeza contra las peñas. Su testimonio buscaba obligar a la Corona española a reformar el trato de los pueblos indígenas, aunque después también alimentó la Leyenda Negra. Este episodio abre un eco brutal sobre autoridades que convierten la separación entre madres racializadas y sus hijos en instrumento de dominio.",
+    descriptionHtml:
+      'Escrita en 1542 y publicada en 1552, la <em>Brevísima relación de la destrucción de las Indias</em> denuncia las atrocidades de la conquista. Bartolomé de las Casas relata que colonizadores en <button type="button" class="timeline-detail-geolink" data-region="La Española" data-country="República Dominicana">La Española</button> arrancaban criaturas lactantes de sus madres y les golpeaban la cabeza contra las peñas. Su testimonio buscaba obligar a la <button type="button" class="timeline-detail-geolink" data-country="España">Corona española</button> a reformar el trato de los pueblos indígenas, aunque después también alimentó la Leyenda Negra. Este episodio abre un eco brutal sobre autoridades que convierten la separación entre madres racializadas y sus hijos en instrumento de dominio.',
+    echo: {
+      title: "La separación forzada de madres e hijos",
+      pairedEntryId: "paola-clouatre-ice-2025",
+      role: "origen",
+      comparison:
+        "No son hechos históricamente equivalentes. Comparten una lógica de poder: una autoridad se atribuye el derecho de romper por la fuerza el vínculo entre una madre racializada y su criatura."
+    },
     butterfly: {
       prompt: "¿Qué hubiera pasado si Bartolomé de las Casas nunca hubiera escrito su denuncia?",
       answer:
@@ -4095,7 +4108,36 @@ const TIMELINE_ENTRIES = [
       answer:
         "El archipiélago habría seguido expuesto, sin control alguno, a la caza de tortugas, la introducción de especies invasoras y la colonización agrícola que ya avanzaba sobre varias islas en los años cincuenta. La ventana que separó el centenario de Darwin en 1959 de un archipiélago todavía intacto pudo haberse cerrado sin que nadie con autoridad científica internacional estuviera ahí para documentarlo y dar la alarma a tiempo."
     }
-  }
+  },
+  {
+    id: "paola-clouatre-ice-2025",
+    year: 2025,
+    month: 5,
+    day: 27,
+    title: "27 de mayo de 2025: ICE separa a Paola Clouatre de sus hijos",
+    author: "Paola Clouatre",
+    country: "Estados Unidos",
+    region: "Nueva Orleans",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ECHO],
+    sensitive: true,
+    description:
+      "El 27 de mayo de 2025, agentes de ICE detuvieron en Nueva Orleans a Paola Clouatre, mexicana de 25 años, durante una cita para obtener residencia permanente. Fue separada de su hija estadounidense de tres meses, todavía lactante, y de su hijo de casi dos años. Permaneció dos meses en un centro migratorio de Luisiana; su esposo viajaba ocho horas para que pudiera amamantar durante visitas semanales. Un juez suspendió su deportación y fue liberada en julio. El caso documenta cómo la detención migratoria puede romper físicamente el vínculo entre madre e hijos.",
+    descriptionHtml:
+      'El 27 de mayo de 2025, agentes de ICE detuvieron en <button type="button" class="timeline-detail-geolink" data-region="Nueva Orleans" data-country="Estados Unidos">Nueva Orleans</button> a Paola Clouatre, <button type="button" class="timeline-detail-geolink" data-country="México">mexicana</button> de 25 años, durante una cita para obtener residencia permanente. Fue separada de su hija <button type="button" class="timeline-detail-geolink" data-country="Estados Unidos">estadounidense</button> de tres meses, todavía lactante, y de su hijo de casi dos años. Permaneció dos meses en un centro migratorio de <button type="button" class="timeline-detail-geolink" data-region="Luisiana" data-country="Estados Unidos">Luisiana</button>; su esposo viajaba ocho horas para que pudiera amamantar durante visitas semanales. Un juez suspendió su deportación y fue liberada en julio. El caso documenta cómo la detención migratoria puede romper físicamente el vínculo entre madre e hijos.',
+    echo: {
+      title: "La separación forzada de madres e hijos",
+      pairedEntryId: "brevisima-relacion-1542",
+      role: "resonancia",
+      comparison:
+        "No son hechos históricamente equivalentes. Comparten una lógica de poder: una autoridad se atribuye el derecho de romper por la fuerza el vínculo entre una madre racializada y su criatura."
+    },
+    butterfly: {
+      prompt: "¿Qué cambia cuando dos separaciones entre madres e hijos, distantes casi cinco siglos, se leen juntas?",
+      answer:
+        "La comparación no borra sus contextos ni equipara sus escalas. Permite reconocer una estructura que reaparece: el poder institucional usando la separación familiar contra personas racializadas, y el testimonio público intentando impedir que esa violencia quede normalizada o en silencio."
+    }
+}
 ];
 
 /* Sort chronologically once, at load time, so the engine never has to re-sort */

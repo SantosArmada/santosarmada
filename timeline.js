@@ -127,6 +127,7 @@
             <button type="button" class="timeline-filter-chip is-active" data-type="music">Música</button>
             <button type="button" class="timeline-filter-chip is-active" data-type="vision">Visión</button>
             <button type="button" class="timeline-filter-chip is-active" data-type="royal">Linaje real</button>
+            <button type="button" class="timeline-filter-chip is-active" data-type="echo">Ecos brutales</button>
           </div>
           <select class="timeline-filter-country" id="timelineFilterCountry" aria-label="Filtrar por país">
             <option value="">Todos los países</option>
@@ -438,6 +439,18 @@
          </section>`
       : "";
 
+    const echoHtml = entry.echo
+      ? `<section class="timeline-detail-echo" aria-labelledby="timelineEchoTitle" role="note">
+           <p class="timeline-detail-echo-warning">Advertencia de contenido · violencia contra menores y separación familiar</p>
+           <p class="timeline-detail-echo-label" id="timelineEchoTitle">Eco brutal · ${escapeHtml(entry.echo.title)}</p>
+           <p class="timeline-detail-echo-principle">Los ecos brutales no declaran que dos hechos sean iguales. Revelan cómo ciertas estructuras de poder, deshumanización y violencia sobreviven, cambian de forma y vuelven a herir a través del tiempo.</p>
+           <p class="timeline-detail-echo-comparison">${escapeHtml(entry.echo.comparison)}</p>
+           <button type="button" class="timeline-detail-echo-link timeline-detail-entrylink" data-id="${escapeHtml(entry.echo.pairedEntryId)}">
+             ${entry.echo.role === "resonancia" ? "Regresar al origen del eco" : "Seguir el eco brutal"} →
+           </button>
+         </section>`
+      : "";
+
     // Long, fact-dense entries can grow the fixed-position panel taller
     // than the viewport, pushing the top-right close button off-screen.
     // A second close button at the end of the content gives the reader
@@ -456,6 +469,7 @@
           : escapeHtml(entry.author)
       }</p>
       <p class="timeline-detail-body">${entry.descriptionHtml || escapeHtml(entry.description)}</p>
+      ${echoHtml}
       ${lineageHtml}
       ${flagHtml}
       ${personalNoteHtml}
