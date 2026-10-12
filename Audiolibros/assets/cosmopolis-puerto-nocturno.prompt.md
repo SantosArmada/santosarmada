@@ -1,0 +1,5 @@
+# La gran cosmópolis — hero artwork
+
+Generated with the built-in image_gen tool.
+
+Create a richly detailed cinematic literary website hero, wide landscape 1536x1024. Interpret Rubén Darío's poem La gran cosmópolis: imposing early twentieth-century New York harbor seen from a dark waterfront, towering masonry skyscrapers and a slender ornate crowned tower on the RIGHT half, small steamship with restrained coal smoke, cold rippled water, one tiny solitary figure in an old coat on a pier to suggest human vulnerability below immense wealth. Architectural detail, wet stone, soft haze, dignified period atmosphere. Strong black and acid chartreuse green duotone inspired by an engraved vintage metropolis poster, luminous pale green windows and sharp green rim light, rich shadow detail, no modern glass towers. Static theatrical searchlight beams in mist. Keep LEFT third very dark and simple for webpage heading overlay. Main skyline on right must survive mobile crop. Fine film grain and etched texture, sophisticated cinematic realism, no cartoon, no text or lettering, no watermark. This is interpretive artwork, not a historical documentary.
