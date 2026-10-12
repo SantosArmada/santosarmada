@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Niebla</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="niebla.css">
+    <link rel="stylesheet" href="niebla.css?v=20261012-original-fog">
 </head>
 <body>
 
@@ -19,6 +19,7 @@
     <span class="fog-intro-blob fog-intro-blob--2"></span>
     <span class="fog-intro-blob fog-intro-blob--3"></span>
 </div>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -31,9 +32,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -45,16 +45,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
+        <p class="poetry-label">Miguel de Unamuno · Nivola · 1914</p>
         <h1>Niebla</h1>
-        <p class="subtitle">Miguel de Unamuno</p>
+        <p class="hero-premise">¿Quién decide la vida que vivimos?</p>
+        <p class="hero-description">Un hombre busca un rumbo entre el amor y la duda.<br> Su historia empieza a discutir con quien la escribe.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="niebla-art"><img src="../assets/niebla-calle-entre-dos-mundos.webp" width="1536" height="1024" fetchpriority="high" alt="Un hombre de espaldas ante una calle española que se pierde entre niebla y torres lejanas."><figcaption>Entre la vida y la ficción</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Nivola · Miguel de Unamuno</span><p>Una voz que empieza a dudar de su propia historia.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -71,15 +76,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Niebla</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Prólogo</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -88,7 +94,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -103,31 +109,65 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/niebla.webp" alt="Niebla">
+        <img loading="lazy" decoding="async" src="../../book_covers/niebla.webp" alt="Niebla">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Miguel de Unamuno bautizó esta obra de 1914 como "nivola" para liberarla de las reglas de la novela tradicional: Augusto Pérez, un hombre atrapado en una crisis amorosa y existencial, termina viajando a Salamanca para confrontar cara a cara al propio Unamuno, su autor, y exigirle explicaciones sobre el libre albedrío que se le niega como personaje. Un ejercicio temprano y radical de metaficción que convierte la pregunta por la libertad humana en literatura pura.</p>
-
+        <h2>La vida puesta en duda</h2>
+        <p>Augusto Pérez sale de casa sin saber qué camino tomar. Su encuentro con Eugenia parece ofrecerle una dirección, pero el amor multiplica las preguntas que ya lo acompañaban. Conversaciones, proyectos y vacilaciones convierten lo cotidiano en una indagación sobre el deseo y la identidad.</p>
+        <p class="reading-note">La duda alcanza incluso a quien cuenta la historia.</p>
+        <p>Unamuno llama «nivola» a esta obra y desestabiliza la frontera entre autor y personaje. El prólogo de Víctor Goti y las intervenciones del propio escritor hacen que la autoridad del relato nunca resulte del todo segura. El humor y la angustia conviven en una discusión sobre la libertad, la existencia y el sentido de vivir.</p>
+        <p>En la escucha, los diálogos permiten seguir cómo cada interlocutor modifica las certezas de Augusto. Conviene atender también a sus soliloquios: el pensamiento avanza, se contradice y vuelve sobre sus propias palabras.</p>
+        <p class="source-note">Publicado en 1914. Texto e índice consultados en <a href="https://www.gutenberg.org/files/49836/49836-h/49836-h.htm">Project Gutenberg · <em>Niebla (Nivola)</em></a>. Ilustración interpretativa.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Augusto Pérez y la crisis amorosa</p>
-        <p class="chapter" data-time="0">El engaño de Eugenia</p>
-        <p class="chapter" data-time="0">La crisis existencial</p>
-        <p class="chapter" data-time="0">El viaje a Salamanca</p>
-        <p class="chapter" data-time="0">El encuentro con Unamuno</p>
-
+        <h2>La lectura</h2>
+        <p class="reading-guide">Grabaciones próximamente. Prólogo, post-prólogo, treinta y tres capítulos y epílogo, siguiendo la estructura del texto.</p>
+        <div class="chapter-grid"><button class="chapter" type="button" data-time="0">Prólogo</button>
+<button class="chapter" type="button" data-time="0">Post-prólogo</button>
+<button class="chapter" type="button" data-time="0">Capítulo I</button>
+<button class="chapter" type="button" data-time="0">Capítulo II</button>
+<button class="chapter" type="button" data-time="0">Capítulo III</button>
+<button class="chapter" type="button" data-time="0">Capítulo IV</button>
+<button class="chapter" type="button" data-time="0">Capítulo V</button>
+<button class="chapter" type="button" data-time="0">Capítulo VI</button>
+<button class="chapter" type="button" data-time="0">Capítulo VII</button>
+<button class="chapter" type="button" data-time="0">Capítulo VIII</button>
+<button class="chapter" type="button" data-time="0">Capítulo IX</button>
+<button class="chapter" type="button" data-time="0">Capítulo X</button>
+<button class="chapter" type="button" data-time="0">Capítulo XI</button>
+<button class="chapter" type="button" data-time="0">Capítulo XII</button>
+<button class="chapter" type="button" data-time="0">Capítulo XIII</button>
+<button class="chapter" type="button" data-time="0">Capítulo XIV</button>
+<button class="chapter" type="button" data-time="0">Capítulo XV</button>
+<button class="chapter" type="button" data-time="0">Capítulo XVI</button>
+<button class="chapter" type="button" data-time="0">Capítulo XVII</button>
+<button class="chapter" type="button" data-time="0">Capítulo XVIII</button>
+<button class="chapter" type="button" data-time="0">Capítulo XIX</button>
+<button class="chapter" type="button" data-time="0">Capítulo XX</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXI</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXII</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXIII</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXIV</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXV</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXVI</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXVII</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXVIII</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXIX</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXX</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXXI</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXXII</button>
+<button class="chapter" type="button" data-time="0">Capítulo XXXIII</button>
+<button class="chapter" type="button" data-time="0">Epílogo</button></div>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -141,13 +181,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="la-gran-cosmopolis.html">← La gran cosmópolis</a><a href="ola-4-slug.html">Cuarta Ola</a><a href="los-de-abajo.html">Los de abajo →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="niebla.js"></script>
+<script src="niebla.js?v=20261012-original-fog"></script>
 
 </body>
 </html>
