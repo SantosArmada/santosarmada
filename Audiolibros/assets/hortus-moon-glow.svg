@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1536" height="1024" viewBox="0 0 1536 1024">
+<defs>
+ <radialGradient id="halo"><stop stop-color="#fff2bf" stop-opacity=".48"/><stop offset=".35" stop-color="#eddca3" stop-opacity=".24"/><stop offset="1" stop-color="#eed8a0" stop-opacity="0"/></radialGradient>
+ <filter id="bloom" x="-100%" y="-100%" width="300%" height="300%"><feGaussianBlur stdDeviation="5"/></filter>
+</defs>
+<ellipse cx="759" cy="123" rx="83" ry="85" fill="url(#halo)"/>
+<path d="M768 89 C796 120 785 151 739 150 C772 145 784 117 768 89Z" fill="#fff0bc" opacity=".75" filter="url(#bloom)"/>
+</svg>
