@@ -1,0 +1,3 @@
+Generated with built-in imagegen.
+
+Wide 1536x1024 literary film still: overgrown Rioplatense country-house garden circa 1900, late afternoon, cane grove, citrus and fig trees, amber light and petrol-teal shadows, muted brick-red plaster house. Two young siblings seen from behind on the right, in modest period linen clothes, looking into a secret passage. An unused handmade cane pipe on a weathered ledge. Left half quiet foliage for text. Childhood conspiracy and hidden danger beneath golden nostalgia. Rich natural detail, restrained grain, mustard ochre, parchment, teal and brick-red palette. No lettering, modern props, or visible smoking. Static artwork.
