@@ -774,6 +774,8 @@ const REGION_CENTER = {
     'Nueva Orleans': { lat: 29.95, lng: -90.07 },
     'Luisiana': { lat: 31.00, lng: -92.00 },
     'La Española': { lat: 19.00, lng: -70.70 },
+    'El Villar, Chuquisaca': { lat: -19.62858, lng: -64.31104 },
+    'La Laguna, Chuquisaca': { lat: -19.30760, lng: -64.30401 },
     'Madrid': { lat: 40.42, lng: -3.70 },
     'Museo Reina Sofía': { lat: 40.41, lng: -3.69 },
     'Museo Lázaro Galdiano': { lat: 40.44, lng: -3.69 },

@@ -1419,22 +1419,22 @@ const TIMELINE_ENTRIES = [
   {
     id: "juana-azurduy-1816",
     year: 1816,
-    // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. 1815 and 1816 were only 24px apart, just under the
-    // 34px cluster threshold.
-    trackYear: 1817,
-    endYear: 1862,
-    title: "1816: Juana Azurduy, la teniente coronela",
-    author: "Hito histórico",
+    month: 3,
+    day: 3,
+    title: "3 de marzo de 1816: Juana Azurduy vence en El Villar",
+    author: "Juana Azurduy",
     country: "Bolivia",
-    region: "Sucre",
+    region: "El Villar, Chuquisaca",
     type: ICON_TYPE.CONFLICT,
+    sensitive: true,
     description:
-      "Juana Azurduy nace el 12 de julio de 1780 en Chuquisaca —hoy Sucre—, mestiza en un sistema colonial que no tenía lugar para ella: ni suficientemente española ni suficientemente indígena. Criada entre trabajadores indígenas de la hacienda familiar, aprende quechua, aymara, a montar y a disparar antes de ser expulsada, a los 17 años, del convento donde la habían internado. En 1805 se casa con Manuel Ascencio Padilla; cuando estalla la guerra de independencia del Alto Perú en 1809, ambos toman las armas al frente de los 'Batallones Leales', una guerrilla indígena y mestiza que llegaría a sumar miles de combatientes. Juana combate vestida de militar y dirige cargas de caballería: en agosto de 1814 gana la batalla de Cerro Carretas embarazada de nueve meses, y da a luz poco después; en 1815 recupera un estandarte español en Pintatora; en marzo de 1816, en Villar, captura otro con sus propias manos —hazaña que le vale el ascenso a teniente coronel de manos del general Manuel Belgrano, quien le regala su propia espada—. Semanas después, tropas realistas capturan y decapitan a su esposo, exhibiendo su cabeza en una pica. Herida y de nuevo embarazada, Juana recupera el cuerpo y sigue combatiendo: de sus cinco hijos, solo Luisa sobrevive a la guerra. En 1825, ya independiente Bolivia, Simón Bolívar la visita, la encuentra en la miseria y declara que el país debería llevar su apellido, no el suyo. Muere en la pobreza en 1862; en 2009 Argentina la asciende póstumamente a generala, y en 2015 una estatua suya reemplaza la de Colombo (Colón) en Buenos Aires.",
+      "El 3 de marzo de 1816, en El Villar, Juana Azurduy dirigió una fuerza de mujeres, jinetes e indígenas que derrotó a las tropas realistas, capturó su bandera y recuperó armas. La victoria contribuyó a su nombramiento como teniente coronela; Manuel Belgrano le entregó simbólicamente su sable. Meses después fue herida en La Laguna y perdió allí a su esposo, Manuel Ascencio Padilla, pero continuó combatiendo. La tradición también cuenta que, durante un combate de 1815, abandonó brevemente la lucha para dar a luz y regresó después; este episodio legendario carece de documentación contemporánea concluyente.",
+    descriptionHtml:
+      'El 3 de marzo de 1816, en <button type="button" class="timeline-detail-geolink" data-region="El Villar, Chuquisaca" data-country="Bolivia">El Villar</button>, Juana Azurduy dirigió una fuerza de mujeres, jinetes e indígenas que derrotó a las tropas realistas, capturó su bandera y recuperó armas. La victoria contribuyó a su nombramiento como teniente coronela; Manuel Belgrano le entregó simbólicamente su sable. Meses después fue herida en <button type="button" class="timeline-detail-geolink" data-region="La Laguna, Chuquisaca" data-country="Bolivia">La Laguna</button> y perdió allí a su esposo, Manuel Ascencio Padilla, pero continuó combatiendo. La tradición también cuenta que, durante un combate de 1815, abandonó brevemente la lucha para dar a luz y regresó después; este episodio legendario carece de documentación contemporánea concluyente.',
     butterfly: {
-      prompt: "¿Qué hubiera pasado si Juana Azurduy se hubiera retirado de la guerra tras la decapitación de su esposo en 1816?",
+      prompt: "¿Qué habría cambiado si Juana Azurduy hubiera abandonado la lucha tras la muerte de Manuel Ascencio Padilla?",
       answer:
-        "Nadie se lo hubiera reprochado —viuda, herida y embarazada, ya había perdido más de lo que cualquier ejército debería pedirle a una sola persona—. Pero de haberlo hecho, la independencia del Alto Perú habría perdido a una de sus comandantes más temidas en los años decisivos que siguieron, y la historia no tendría la prueba viviente que Bolívar necesitaba, años después, para admitir en voz alta que el país llevaba el nombre equivocado."
+        "Su retirada habría sido comprensible, pero la resistencia del Alto Perú habría perdido a una comandante capaz de movilizar a combatientes indígenas, mestizos y mujeres. Su permanencia convirtió una tragedia personal en continuidad política y militar."
     }
   },
   {
