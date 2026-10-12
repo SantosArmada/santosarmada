@@ -510,3 +510,5 @@ body {
         --ola-banner-h: 27px;
     }
 }
+/* Match the approved Los de abajo detail-page poster treatment. */
+img[src$="Los-de-abajo-mariano.webp"] { filter: saturate(.58); }
