@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — El fuerte lazo</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="el-fuerte-lazo.css">
+    <link rel="stylesheet" href="el-fuerte-lazo.css?v=20261013-ambar">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>El fuerte lazo</h1>
-        <p class="subtitle">Juana de Ibarbourou</p>
+        <p class="poetry-label">Juana de Ibarbourou · Poema · 1919</p>
+        <h1>El fuerte<br><em>lazo</em></h1>
+        <p class="hero-premise">La entrega y su sombra.</p>
+        <p class="hero-description">Acacia, lirio, manantial y llama.<br> El amor se ofrece y reclama su propio poder.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="lazo-art"><img src="../assets/lazo-umbral-de-ambar.webp" width="1536" height="1024" fetchpriority="high" alt="Una pareja se abraza en un umbral de piedra ámbar, junto a un lirio y una vela."><figcaption>Un abrazo entre la luz y la sombra</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Poema · Juana de Ibarbourou</span><p>Escuchar la tensión dentro de la entrega.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -60,15 +65,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">El fuerte lazo</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -77,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -92,31 +98,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/el-fuerte-lazo.webp" alt="El fuerte lazo">
+        <img loading="lazy" decoding="async" src="../../book_covers/el-fuerte-lazo.webp" alt="El fuerte lazo">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el poema">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Poema de amor de Juana de Ibarbourou, publicado en 1919, que celebra un vínculo amoroso tan intenso que ni la distancia ni el tiempo logran deshacer. Con la sensualidad y la seguridad emocional características de su primera etapa poética, Ibarbourou describe el amor no como fragilidad sino como fuerza que ata y sostiene.</p>
-
+        <h2>La fuerza de un vínculo</h2>
+        <p>La voz poética se ofrece como acacia, lirio, manantial y falena. Esas transformaciones enlazan el crecimiento y la belleza con imágenes de corte, sed y captura. La entrega amorosa se expresa con una intensidad que hace inseparables el deseo y el daño.</p>
+        <p class="reading-note">Quien se entrega también intenta sujetar.</p>
+        <p>El final altera la relación de fuerzas: el sufrimiento imaginado aspira a volver más suyo al amado. La lectura invita a seguir ese movimiento entre vulnerabilidad y posesión. Las pausas de los versos breves hacen que cada ofrecimiento llegue como una exigencia.</p>
+        <p class="source-note">Poema de <em>Las lenguas de diamante</em> (1919). Texto de referencia: <a href="https://www.poeticous.com/juana-de-ibarbourou/el-fuerte-lazo?locale=es">«El fuerte lazo», de Juana de Ibarbourou</a>. Ilustración interpretativa inspirada en la portada y en las imágenes del lirio y la falena.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El vínculo amoroso</p>
-        <p class="chapter" data-time="0">Ni la distancia ni el tiempo</p>
-        <p class="chapter" data-time="0">La sensualidad de la voz</p>
-        <p class="chapter" data-time="0">La seguridad emocional</p>
-        <p class="chapter" data-time="0">El amor como fuerza</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. El poema se ofrecerá como una lectura continua, sin divisiones añadidas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -130,13 +134,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="lo-que-soy-para-ti.html">← Lo que soy para ti</a><a href="ola-4-slug.html">Cuarta Ola</a><a href="los-heraldos-negros.html">Los heraldos negros →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="el-fuerte-lazo.js"></script>
+<script src="el-fuerte-lazo.js?v=20261013-ambar"></script>
 
 </body>
 </html>
