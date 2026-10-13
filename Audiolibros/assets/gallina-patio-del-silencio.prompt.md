@@ -1,0 +1,5 @@
+# La gallina degollada — patio del silencio
+
+Generated with the built-in image tool. Interpretive courtyard illustration.
+
+Create a landscape 1536x1024 literary hero illustration for Horacio Quiroga's La gallina degollada. High-end expressionist woodcut and screenprinted horror poster, saturated vermilion red sky and wall, ink black shadows, bone ivory highlights, coarse handmade paper texture. An EMPTY early twentieth century domestic dirt courtyard: a long empty wooden bench parallel to a high brick boundary wall, a dark kitchen doorway at far right, one small ivory feather on the ground. Low late afternoon sun casts impossibly long fence shadows. Oppressive domestic stillness, dread conveyed through architecture and absence. Main scene concentrated in right two-thirds, left third almost black red negative space for HTML typography. No people, no animal bodies, no gore, no lettering, no logo. Sophisticated angular printmaking, not cartoon and not photorealistic. Bold dramatic contrast matching red-black-ivory cover.

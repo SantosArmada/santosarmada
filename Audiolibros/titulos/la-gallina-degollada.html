@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Audiolibros — La Gallina Degollada</title>
+    <title>Audiolibros — La gallina degollada</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="la-gallina-degollada.css">
-    <link rel="icon" href="../../Images/favicon-gallina.ico">
+    <link rel="stylesheet" href="la-gallina-degollada.css?v=20261012-patio">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -21,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -35,16 +34,19 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>La Gallina Degollada</h1>
-        <p class="subtitle">Horacio Quiroga</p>
+        <p class="poetry-label">Horacio Quiroga · Cuento · 1917</p>
+        <h1>La gallina<br><em>degollada</em></h1>
+        <p class="hero-premise">El horror comienza en casa.</p>
+        <p class="hero-description">Un patio, un muro, una familia dividida.<br> La luz de la tarde ya no promete refugio.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el cuento <span aria-hidden="true">↓</span></a>
     </div>
-
+    <figure class="gallina-art"><img src="../assets/gallina-patio-del-silencio.webp" width="1536" height="1024" fetchpriority="high" alt="Un banco vacío y un muro de ladrillos bajo una luz roja, junto a una puerta oscura."><figcaption>El patio del silencio</figcaption></figure>
     <div class="chicken-signature" aria-hidden="true">
         <div class="chick-align">
             <div class="chick-circle">
@@ -71,31 +73,33 @@
         </div>
     </div>
 </header>
+<div class="listening-heading"><span>Cuento · Horacio Quiroga</span><p>Escuchar cómo se quiebra lo cotidiano.</p></div>
 
-<div class="blood-scroll"><div class="blood-fill"></div></div>
+<div class="progress-scroll"><div class="progress-fill"></div></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
         <svg viewBox="0 0 60 60" width="46" height="46">
-            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--red)" stroke-width="3"/>
+            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--accent)" stroke-width="3"/>
             <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
-                  fill="none" stroke="var(--red)" stroke-width="4" stroke-linecap="round"/>
-            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--red)" stroke-width="4" stroke-linecap="round"/>
+                  fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
         </svg>
     </button>
     <div class="player">
         <canvas></canvas>
         <div class="song">
-            <div class="artist">La Gallina Degollada</div>
-            <div class="name">Capítulo 1</div>
+            <div class="artist">La gallina degollada</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -104,7 +108,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -119,31 +123,30 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/la-gallina-degollada.webp" alt="La Gallina Degollada">
+        <img loading="lazy" decoding="async" src="../../book_covers/la-gallina-degollada.webp" alt="La gallina degollada">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el cuento">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>[Sinopsis pendiente — se agrega próximamente.]</p>
-
+        <h2>La casa que deja de cuidar</h2>
+        <p>Mazzini y Berta viven entre la angustia por sus cuatro hijos mayores y los reproches que erosionan su matrimonio. Con el nacimiento de Bertita, vuelcan en ella su atención mientras los hermanos quedan relegados al patio. Un acto doméstico presenciado por los niños prepara el desenlace.</p>
+        <p class="reading-note">El patio no está lejos de la familia: está fuera de su cuidado.</p>
+        <p>La repetición del banco, el muro y la luz del atardecer organiza la tensión. Quiroga hace que los gestos cotidianos regresen con un sentido cada vez más inquietante; la violencia final se anuncia en una convivencia marcada por el abandono y la hostilidad.</p>
+        <p>La voz narrativa emplea un vocabulario deshumanizador para representar la discapacidad. Leerlo críticamente permite atender tanto a la construcción del horror como a la mirada que lo sostiene. En la escucha, los diálogos del matrimonio rompen la quietud del patio y exponen el desgaste de los vínculos.</p>
+        <p class="source-note">Incluido en <em>Cuentos de amor de locura y de muerte</em> (1917). <a href="https://ciudadseva.com/texto/la-gallina-degollada/">Texto consultado · Ciudad Seva</a>. Ilustración interpretativa.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Capítulo 1</p>
-        <p class="chapter" data-time="0">Capítulo 2</p>
-        <p class="chapter" data-time="0">Capítulo 3</p>
-        <p class="chapter" data-time="0">Capítulo 4</p>
-        <p class="chapter" data-time="0">Capítulo 5</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. El cuento se ofrecerá como una lectura continua, sin divisiones añadidas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -157,13 +160,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="la-ultima-fada.html">← La última fada</a><a href="ola-4-slug.html">Cuarta Ola</a><a href="el-permisionario.html">El permisionario →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="la-gallina-degollada.js"></script>
+<script src="la-gallina-degollada.js?v=20261012-patio"></script>
 
 </body>
 </html>
