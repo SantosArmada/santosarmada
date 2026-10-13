@@ -713,168 +713,97 @@ a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline: 
 .book-header-text h1 em { font-style: normal; font-weight: 900; }
 .gallina-art { left: 22%; }
 .card { border-top: 3px solid #da3828; }
-/* headless chicken (circle-based) — simple flat shapes read fine at small size */
-.chicken-signature {
-    width: 150px;
-    height: 78px;
-    position: relative;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-
-.chick-align {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 500px;
-    height: 260px;
-    transform: scale(0.3);
-    transform-origin: top left;
-}
-
-.chick-circle {
-    position: absolute;
-    border-radius: 50%;
-    background-image: radial-gradient(circle at 30% 30%, #ffffff, var(--cream));
-}
-
-/* head */
-.chick-circle:nth-of-type(1) {
-    width: 46px;
-    height: 46px;
-    z-index: 5;
-    animation: chickHeadRoll 4s linear infinite;
-}
-.chick-circle:nth-of-type(1)::before {
-    content: "";
-    position: absolute;
-    top: -10px; left: 14px;
-    width: 16px; height: 12px;
-    background: var(--red);
-    border-radius: 50% 50% 50% 0 / 60% 60% 40% 40%;
-    transform: rotate(-15deg);
-    z-index: 4;
-}
-.chick-circle:nth-of-type(1)::after {
-    content: "";
-    position: absolute;
-    top: 32px; left: 34px;
-    width: 7px; height: 11px;
-    background: var(--red);
-    border-radius: 0 0 50% 50%;
-    z-index: 4;
-}
-
-/* wing */
-.chick-circle:nth-of-type(2) {
-    width: 55px; height: 55px;
-    top: 150px; left: 150px;
-    z-index: 2;
-    border-radius: 60% 40% 50% 50%;
-    animation: chickPanic 0.22s ease-in-out infinite;
-}
-
-/* body */
-.chick-circle:nth-of-type(3) {
-    width: 110px; height: 110px;
-    top: 130px; left: 55px;
-    z-index: 1;
-    animation: chickPanic 0.25s ease-in-out infinite reverse;
-}
-.chick-circle:nth-of-type(3)::before {
-    content: "";
-    position: absolute;
-    top: -6px; left: 40px;
-    width: 26px; height: 16px;
-    background: var(--red-dark);
-    border-radius: 50% 50% 40% 40%;
-    z-index: 0;
-}
-
-/* eye — hide all coals, show one */
-.chick-coal { display: none; }
-.chick-coal:nth-of-type(4) {
-    display: block;
-    position: absolute;
-    width: 5px; height: 5px;
-    background: var(--ink);
-    border-radius: 50%;
-    top: 16px; left: 12px;
-    z-index: 6;
-}
-
-/* beak */
-#chickCarrot {
-    position: absolute;
-    top: 16px; left: 38px;
-    width: 0; height: 0;
-    border-top: 5px solid transparent;
-    border-bottom: 5px solid transparent;
-    border-left: 14px solid var(--red);
-    z-index: 6;
-}
-.chick-carrot-c {
-    position: absolute;
-    top: -3px; left: 12px;
-    width: 6px; height: 6px;
-    background: var(--red);
-    border-radius: 50%;
-}
-
-/* legs */
-.chick-left-branch {
-    position: absolute;
-    top: 88px; left: -55px;
-    width: 4px; height: 26px;
-    background: var(--red);
-    border-radius: 2px;
-    transform: rotate(-10deg);
-    z-index: 3;
-}
-.chick-right-branch {
-    position: absolute;
-    top: 88px; left: -25px;
-    width: 4px; height: 26px;
-    background: var(--red);
-    border-radius: 2px;
-    transform: rotate(10deg);
-    z-index: 3;
-}
-.chick-extra-l {
-    position: absolute;
-    bottom: -4px; left: -5px;
-    width: 12px; height: 3px;
-    background: var(--red);
-    border-radius: 2px;
-    transform: rotate(-10deg);
-}
-.chick-extra-r {
-    position: absolute;
-    bottom: -4px; left: -5px;
-    width: 12px; height: 3px;
-    background: var(--red);
-    border-radius: 2px;
-    transform: rotate(10deg);
-}
-
+/* Layered rendered sprites retain the original four-second rolling-head motif. */
+.chicken-signature { position: absolute; z-index: 2; bottom: 1rem; left: 3%; width: 325px; height: 176px; pointer-events: none; }
+.chick-align { position: relative; width: 500px; height: 270px; transform: scale(.65); transform-origin: top left; }
+.chick-render-body { position: absolute; left: 0; top: 65px; width: 280px; height: auto; filter: drop-shadow(3px 6px 3px #100705aa); transform-origin: 52% 85%; animation: chickPanic .25s ease-in-out infinite; }
+.chick-render-head { position: absolute; left: 170px; top: 45px; width: 66px; height: 66px; object-fit: contain; transform-origin: center; filter: drop-shadow(2px 4px 2px #17090588); animation: chickHeadRoll 4s linear infinite; }
+.chick-ground-shadow { position: absolute; left: 59px; top: 230px; width: 164px; height: 18px; border-radius: 50%; background: radial-gradient(ellipse,#090403bb,transparent 70%); filter: blur(3px); }
+.chick-head-shadow { position: absolute; left: 170px; top: 236px; width: 60px; height: 10px; border-radius: 50%; background: #10060580; filter: blur(4px); animation: chickShadowRoll 4s linear infinite; }
 @keyframes chickHeadRoll {
-    0%   { top: 40px; left: 70px; transform: rotate(0deg); }
-    20%  { top: 120px; left: 130px; transform: rotate(200deg); }
-    40%  { top: 40px;  left: 190px; transform: rotate(400deg); }
-    60%  { top: 130px; left: 250px; transform: rotate(560deg); }
-    80%  { top: 70px;  left: 310px; transform: rotate(680deg); }
-    100% { top: 40px;  left: 70px;  transform: rotate(720deg); }
+  0%, 8% { transform: translate(0,0) rotate(0deg); opacity: 1; }
+  25% { transform: translate(60px,130px) rotate(200deg); }
+  42% { transform: translate(120px,45px) rotate(400deg); }
+  60% { transform: translate(180px,135px) rotate(560deg); }
+  78% { transform: translate(235px,95px) rotate(680deg); opacity: 1; }
+  90% { transform: translate(265px,135px) rotate(760deg); opacity: 0; }
+  91% { transform: translate(0,0) rotate(0deg); opacity: 0; }
+  100% { transform: translate(0,0) rotate(0deg); opacity: 1; }
+}
+@keyframes chickShadowRoll {
+  0%,8% { transform: translateX(0) scale(.6); opacity: .3; }
+  25% { transform: translateX(60px) scale(1); opacity: .8; }
+  42% { transform: translateX(120px) scale(.65); opacity: .35; }
+  60% { transform: translateX(180px) scale(1); opacity: .8; }
+  78% { transform: translateX(235px) scale(.8); opacity: .5; }
+  90% { transform: translateX(265px); opacity: 0; }
+  91%,100% { transform: translateX(0) scale(.6); opacity: 0; }
 }
 @keyframes chickPanic {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    25%      { transform: translate(-2px, -1px) rotate(-2deg); }
-    50%      { transform: translate(2px, 2px) rotate(1.5deg); }
-    75%      { transform: translate(-1px, 1px) rotate(-1.5deg); }
+  0%,100% { transform: translate(0,0) rotate(0deg); }
+  25% { transform: translate(-2px,-2px) rotate(-1.5deg); }
+  50% { transform: translate(2px,1px) rotate(1deg); }
+  75% { transform: translate(-1px,0) rotate(-1deg); }
 }
-
-
-.chicken-signature { position: absolute; z-index: 2; bottom: 1.5rem; left: 4%; }
-@media(max-width:600px) { .book-header-text h1 { font-size: 12.5vw; } .gallina-art { left: auto; } .chicken-signature { bottom: 1.25rem; left: 1rem; } }
+@media(max-width:600px) {
+ .book-header-text h1 { font-size: 12.5vw; }
+ .gallina-art { left: auto; }
+ .chicken-signature { left: .5rem; bottom: 1.5rem; width: 260px; height: 141px; }
+ .chick-align { transform: scale(.52); }
+ .gallina-art figcaption { bottom: .35rem; }
+}
 @media(prefers-reduced-motion:reduce) { .chicken-signature * { animation: none !important; } }
 body { background: #211414; }
 .site-nav, .site-mobile-menu { background: #191414; }
+
+/* Limited-animation crimson spurts share the four-second head cycle. */
+.chick-blood { position: absolute; inset: 0; width: 500px; height: 270px; overflow: visible; pointer-events: none; }
+.chick-spurt { fill: #ec1427; stroke: #700b18; stroke-width: 2; stroke-linejoin: round; transform-origin: 0 0; opacity: 0; animation: chickBloodSpurt 4s steps(2,end) infinite; }
+.chick-spurt--two { animation-delay: .24s; }
+.chick-spurt--three { animation-delay: .51s; }
+.blood-highlight { fill: none; stroke: #ff6855; stroke-width: 2.5; }
+.chick-blood-drop { fill: #f12332; stroke: #780b18; stroke-width: 1.5; opacity: 0; animation: chickBloodDrop 4s linear infinite; }
+.drop-one { --dx: 35px; --dy: -65px; --end-x: 66px; --end-y: 110px; }
+.drop-two { --dx: -22px; --dy: -76px; --end-x: -35px; --end-y: 118px; animation-delay: .19s; }
+.drop-three { --dx: 58px; --dy: -42px; --end-x: 99px; --end-y: 113px; animation-delay: .37s; }
+.drop-four { --dx: 11px; --dy: -88px; --end-x: 26px; --end-y: 114px; animation-delay: .58s; }
+@keyframes chickBloodSpurt {
+  0%,9% { opacity: 0; transform: scale(.25,.1); }
+  10% { opacity: 1; transform: scale(.7,.5); }
+  14% { opacity: 1; transform: scale(1,1); }
+  18% { opacity: 1; transform: scale(.7,.68); }
+  22% { opacity: 0; transform: scale(.35,.15); }
+  28% { opacity: 0; transform: scale(.3,.1); }
+  30% { opacity: 1; transform: scale(.65,.7); }
+  34% { opacity: 1; transform: scale(.85,.9); }
+  39%,100% { opacity: 0; transform: scale(.2,.1); }
+}
+@keyframes chickBloodDrop {
+  0%,12% { opacity: 0; transform: translate(0,0) scale(.3); }
+  14% { opacity: 1; transform: translate(0,-8px) scale(.8); animation-timing-function: ease-out; }
+  26% { opacity: 1; transform: translate(var(--dx),var(--dy)) rotate(30deg); animation-timing-function: ease-in; }
+  48% { opacity: 1; transform: translate(var(--end-x),var(--end-y)) rotate(145deg); }
+  50%,100% { opacity: 0; transform: translate(var(--end-x),var(--end-y)) scale(1.7,.25); }
+}
+@media(prefers-reduced-motion:reduce) { .chick-blood { display: none; } }
+
+/* Anime accent: a single cutting glint and sharp, tapered crimson jets. */
+.chick-impact-slash { fill: #fff2d5; opacity: 0; transform-origin: 0 0; animation: chickImpactSlash 4s steps(1,end) infinite; }
+.chick-anime-streaks { fill: #fa1230; stroke: #750019; stroke-width: 1; opacity: 0; transform-origin: 0 0; animation: chickAnimeJets 4s steps(3,end) infinite; }
+.chick-spurt { fill: #d80026; stroke: #610016; stroke-width: 1.2; }
+.blood-highlight { stroke: #ff4259; stroke-width: 1.4; }
+@keyframes chickImpactSlash {
+  0%,8% { opacity: 0; transform: scaleX(.3); }
+  9%,10% { opacity: 1; transform: scaleX(1.3); }
+  12%,100% { opacity: 0; transform: scaleX(1.8); }
+}
+@keyframes chickAnimeJets {
+  0%,10% { opacity: 0; transform: scale(.5,.15); }
+  12% { opacity: 1; transform: scale(.8,.75); }
+  16% { opacity: 1; transform: scale(1,1); }
+  21% { opacity: .8; transform: scale(1.08,.9); }
+  26%,29% { opacity: 0; transform: scale(.4,.2); }
+  31% { opacity: 1; transform: scale(.7,.7); }
+  36% { opacity: .8; transform: scale(.9,.85); }
+  42%,100% { opacity: 0; transform: scale(.6,.4); }
+}
