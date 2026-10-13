@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Lo que soy para ti</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="lo-que-soy-para-ti.css">
+    <link rel="stylesheet" href="lo-que-soy-para-ti.css?v=20261013-fuente">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>Lo que soy para ti</h1>
-        <p class="subtitle">Juana de Ibarbourou</p>
+        <p class="poetry-label">Juana de Ibarbourou · Poema · 1919</p>
+        <h1>Lo que soy<br><em>para ti</em></h1>
+        <p class="hero-premise">Un alma, todas sus formas.</p>
+        <p class="hero-description">Cierva, estrella, fuente y flor.<br> El amor se nombra a través de la naturaleza.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="soy-art"><img src="../assets/soy-fuente-y-flor.webp" width="1536" height="1024" fetchpriority="high" alt="Una mujer de cabello cobrizo sostiene una flor junto a una fuente, entre reflejos turquesa y luz cálida."><figcaption>El agua y la flor de una entrega</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Poema · Juana de Ibarbourou</span><p>Escuchar las formas de una entrega.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -60,15 +65,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Lo que soy para ti</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -77,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -92,31 +98,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/lo-que-soy-para-ti.webp" alt="Lo que soy para ti">
+        <img loading="lazy" decoding="async" src="../../book_covers/lo-que-soy-para-ti.webp" alt="Lo que soy para ti">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el poema">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Poema de Juana de Ibarbourou, también de 1919, en el que la voz poética enumera sin pudor lo que es y lo que ofrece al amado —cuerpo, entrega, naturaleza propia— en un tono de afirmación sensual poco común en la poesía femenina de su época. Parte del mismo impulso liberador que hizo de <a href="las-lenguas-de-diamante.html" class="inline-link">Las lenguas de diamante</a> un libro fundacional.</p>
-
+        <h2>Decirse en otras formas</h2>
+        <p>La voz poética se presenta mediante una sucesión de figuras: la cierva, el can, la estrella, la fuente y la flor. Cada imagen propone una manera de estar cerca del ser amado, desde la compañía hasta el resplandor y la dulzura.</p>
+        <p class="reading-note">La identidad se despliega en aquello que ofrece.</p>
+        <p>Los nombres aislados y los versos breves marcan pausas que conviene escuchar. La enumeración termina reuniendo esas formas en una declaración íntima. Entre la afirmación del yo y su entrega al otro, el poema concentra su intensidad en muy pocas palabras.</p>
+        <p class="source-note">Poema de <em>Las lenguas de diamante</em> (1919). Texto de referencia: <a href="https://www.poeticous.com/juana-de-ibarbourou/lo-que-soy-para-ti?locale=es">«Lo que soy para ti», de Juana de Ibarbourou</a>. Ilustración interpretativa inspirada en la fuente y la flor del poema.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La enumeración sin pudor</p>
-        <p class="chapter" data-time="0">El cuerpo y la entrega</p>
-        <p class="chapter" data-time="0">La naturaleza propia</p>
-        <p class="chapter" data-time="0">La afirmación sensual</p>
-        <p class="chapter" data-time="0">El impulso liberador</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. El poema se ofrecerá como una lectura continua, sin divisiones añadidas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -130,13 +134,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="la-espera.html">← La espera</a><a href="ola-4-slug.html">Cuarta Ola</a><a href="el-fuerte-lazo.html">El fuerte lazo →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="lo-que-soy-para-ti.js"></script>
+<script src="lo-que-soy-para-ti.js?v=20261013-fuente"></script>
 
 </body>
 </html>
