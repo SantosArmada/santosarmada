@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — La última fada</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="la-ultima-fada.css">
+    <link rel="stylesheet" href="la-ultima-fada.css?v=20261012-fairies">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>La última fada</h1>
-        <p class="subtitle">Emilia Pardo Bazán</p>
+        <p class="poetry-label">Emilia Pardo Bazán · Novela corta · 1916</p>
+        <h1>La última<br><em>fada</em></h1>
+        <p class="hero-premise">El último fulgor del encantamiento.</p>
+        <p class="hero-description">Una promesa bajo el espino en flor.<br> Un caballero entre el amor, la fe y la magia.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la novela <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="fada-art"><img src="../assets/fada-espino-de-bibiana.webp" width="1536" height="1024" fetchpriority="high" alt="Bibiana junto a un espino en flor, ante la costa y las piedras de una Bretaña legendaria."><figcaption>Bajo el espino de Bibiana</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Novela corta · Emilia Pardo Bazán</span><p>Entrar en una Bretaña de leyenda.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -60,15 +65,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">La última fada</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">I</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -77,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -92,31 +98,37 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/la-ultima-fada.webp" alt="La última fada">
+        <img loading="lazy" decoding="async" src="../../book_covers/la-ultima-fada.webp" alt="La última fada">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la novela">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Cuento de Emilia Pardo Bazán publicado en 1916, que retoma el imaginario del hada de la tradición gallega —el "fada"— como figura en extinción frente al avance de la modernidad y la razón. Con su habitual mirada entre lo fantástico y lo social, Pardo Bazán convierte a la última hada en una elegía por un mundo de creencias populares que el siglo XX empezaba a borrar.</p>
-
+        <h2>La promesa de las fadas</h2>
+        <p>Tras la muerte de Tristán e Iseo, las fadas de Bretaña acuerdan proteger a su hijo, Isayo de Leonís. Bibiana guía al joven hacia la caballería, mientras el ermitaño Angriote desea para él una vida religiosa. El muchacho busca su origen y una gloria que todavía desconoce.</p>
+        <p class="reading-note">El encantamiento protege, pero también compromete.</p>
+        <p>Pardo Bazán reúne el bosque de Merlín, los linajes artúricos y la devoción cristiana en una aventura atravesada por el deseo. La voz narrativa introduce ironía en el mundo caballeresco: junto a la solemnidad de las proezas aparecen el hambre, las dudas y las necesidades del viaje.</p>
+        <p>En la escucha, el contraste entre los consejos del ermitaño y las promesas de Bibiana revela dos destinos posibles. Las pausas permiten que el espino, las ruinas y los rosales conserven su inquietante presencia.</p>
+        <p class="source-note">Texto y navegación en ocho secciones consultados en <a href="https://www.textos.info/emilia-pardo-bazan/la-ultima-fada/ebook">textos.info · La última fada</a>. Publicación de 1916 documentada en <a href="https://es.wikisource.org/wiki/La_%C3%BAltima_fada">Wikisource</a>. Ilustración interpretativa.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El hada de la tradición gallega</p>
-        <p class="chapter" data-time="0">Una figura en extinción</p>
-        <p class="chapter" data-time="0">El avance de la modernidad y la razón</p>
-        <p class="chapter" data-time="0">Entre lo fantástico y lo social</p>
-        <p class="chapter" data-time="0">Una elegía por las creencias populares</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">I</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">II</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">III</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">IV</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">V</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">VI</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">VII</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">VIII</p>
+        <p class="reading-guide">Grabaciones próximamente. La navegación sigue las ocho secciones de la edición consultada.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -130,13 +142,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="hortus-conclusus.html">← Hortus conclusus</a><a href="ola-4-slug.html">Cuarta Ola</a><a href="la-gallina-degollada.html">La gallina degollada →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="la-ultima-fada.js"></script>
+<script src="la-ultima-fada.js?v=20261012-fairies"></script>
 
 </body>
 </html>

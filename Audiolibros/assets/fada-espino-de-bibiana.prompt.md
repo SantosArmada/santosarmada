@@ -1,0 +1,5 @@
+# La última fada — Bibiana y el espino
+
+Generated with the built-in image tool. Interpretive illustration grounded in the opening of the novella.
+
+Landscape 1536x1024 dignified cinematic literary hero art for La última fada by Emilia Pardo Bazán. Arthurian Brittany, melancholy enchantment. Right half of frame an adult sorceress Bibiana with long golden hair, white flowing medieval druidess robe, small golden sickle at belt, standing beside an ancient enormous flowering hawthorn. She is human-sized, no wings. White and pale rose blossoms illuminate her face. Distant coastal standing stones and dark sea, pale ice-blue twilight with rich plum violet shadows and muted magenta floral accents derived from the book cover. Painterly realism, refined antique fairy tale atmosphere, exquisite fabric and tree textures, not cartoon, not modern fashion, not neon. Left third dark indigo negative space for HTML typography. Evoke the fading of an old magical world, calm and mysterious. No text, logos, watermark.
