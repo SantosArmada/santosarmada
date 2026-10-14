@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — La flor de la playa</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="la-flor-de-la-playa.css">
+    <link rel="stylesheet" href="la-flor-de-la-playa.css?v=20261013-sombrero">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>La flor de la playa</h1>
-        <p class="subtitle">Carmen de Burgos</p>
+        <p class="poetry-label">Carmen de Burgos · Novela corta · 1920</p>
+        <h1>La flor<br>de la <em>playa</em></h1>
+        <p class="hero-premise">El viaje también cambia el amor.</p>
+        <p class="hero-description">Una pareja, un verano en Portugal.<br> Lejos de Madrid, la intimidad descubre otra orilla.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="flor-art"><img src="../assets/flor-sombrero-en-el-tren.webp?v=cabello-largo" width="1536" height="1024" fetchpriority="high" alt="Elisa, con el cabello negro largo y liso, se aleja por la puerta de un vagón, dejando su sombrero negro con flores sobre el asiento."><figcaption>Lo que decide dejar atrás</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Novela corta · Carmen de Burgos</span><p>Escuchar lo que cambia entre dos personas.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -60,15 +65,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">La flor de la playa</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -77,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -92,31 +98,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/la-flor-de-la-playa.webp" alt="La flor de la playa">
+        <img loading="lazy" decoding="async" src="../../book_covers/la-flor-de-la-playa.webp" alt="La flor de la playa">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Carmen de Burgos, pionera del periodismo y del feminismo español firmando como "Colombine", ambienta esta novela corta en un pueblo costero donde el romance de temporada se cruza con las restricciones reales que enfrentaban las mujeres de la época. Bajo la superficie ligera de un relato de balneario, Burgos desliza su crítica constante a un mundo que le exigía a la mujer elegir entre el deseo y la respetabilidad.</p>
-
+        <h2>El amor fuera de su costumbre</h2>
+        <p>Elisa y Enrique viajan de Madrid a Portugal para disfrutar juntos de una libertad que su vida cotidiana les niega. Lisboa, Sintra y la playa de las Manzanas ofrecen un escenario de descubrimiento, pero la convivencia empieza a modificar lo que cada uno esperaba del otro.</p>
+        <p class="reading-note">Cambiar de paisaje no detiene el cambio interior.</p>
+        <p>El mar acompaña el paso del entusiasmo a la distancia. La mirada sobre Elisa permite leer el viaje como una experiencia de identidad, además de una historia amorosa: los gestos, la ropa y las pequeñas incomodidades revelan lo que la promesa del verano dejaba fuera.</p>
+        <p class="source-note">Publicada en <em>La Novela Corta</em>, n.º 231 (1920). <a href="https://www.cervantesvirtual.com/obra/la-flor-de-la-playa-novela-inedita-1053209/">Edición y registro en la Biblioteca Virtual Miguel de Cervantes</a>. Ilustración interpretativa del sombrero que Elisa deja en el tren.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Llegada al pueblo costero</p>
-        <p class="chapter" data-time="0">El romance de temporada</p>
-        <p class="chapter" data-time="0">Las restricciones de la época</p>
-        <p class="chapter" data-time="0">Deseo y respetabilidad</p>
-        <p class="chapter" data-time="0">La crítica bajo la superficie</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -130,13 +134,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="luces-de-bohemia.html">← Luces de bohemia</a><a href="ola-4-slug.html">Cuarta Ola</a><a href="el-vampiro.html">El vampiro →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="la-flor-de-la-playa.js"></script>
+<script src="la-flor-de-la-playa.js?v=20261013-sombrero"></script>
 
 </body>
 </html>
