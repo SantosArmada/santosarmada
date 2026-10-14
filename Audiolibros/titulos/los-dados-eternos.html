@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Los dados eternos</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="los-dados-eternos.css">
+    <link rel="stylesheet" href="los-dados-eternos.css?v=20261013-azar">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>Los dados eternos</h1>
-        <p class="subtitle">César Vallejo</p>
+        <p class="poetry-label">César Vallejo · Poema · 1919</p>
+        <h1>Los dados<br><em>eternos</em></h1>
+        <p class="hero-premise">La existencia puesta en juego.</p>
+        <p class="hero-description">Una voz interpela a Dios desde el sufrimiento.<br> La Tierra rueda como un dado gastado.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="dados-art"><img src="../assets/dados-tierra-y-azar.webp" width="1536" height="1024" fetchpriority="high" alt="Un dado de piedra desgastado sobre una mesa oscura, entre luz dorada, velas y sombras azules."><figcaption>La materia del azar</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Poema · César Vallejo</span><p>Escuchar la pregunta dirigida al cielo.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -60,15 +65,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Los dados eternos</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -77,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -92,31 +98,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/los-dados-eternos.webp" alt="Los dados eternos">
+        <img loading="lazy" decoding="async" src="../../book_covers/los-dados-eternos.webp" alt="Los dados eternos">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el poema">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>También de <a href="los-heraldos-negros.html" class="inline-link">Los heraldos negros</a> (1919), este poema de César Vallejo increpa a un Dios jugador de dados con la existencia humana, acusándolo de arriesgar el destino de los hombres sin arriesgar nada propio. Con su blasfemia desesperada y su compasión simultánea por ese Dios imperfecto, es uno de los textos más audaces de la poesía religiosa en español.</p>
-
+        <h2>Un reclamo ante lo divino</h2>
+        <p>Vallejo dirige a Dios una voz herida que cuestiona la distancia entre el creador y el dolor humano. La invocación conserva la cercanía de una plegaria, pero se convierte en reproche: sufrir parece otorgar al hombre un conocimiento que la divinidad no posee.</p>
+        <p class="reading-note">El azar tiene el peso de una vida.</p>
+        <p>La imagen del juego amplía el conflicto hasta abarcar el universo. En el cierre, la Tierra es un dado gastado de tanto rodar. La lectura pasa así de la queja íntima a una visión cósmica, sin abandonar la fragilidad de quien habla.</p>
+        <p class="source-note">Poema de <em>Los heraldos negros</em> (1919), dedicado a Manuel González Prada. Texto de referencia: <a href="https://ciudadseva.com/texto/los-dados-eternos/">«Los dados eternos», de César Vallejo, en Ciudad Seva</a>. Ilustración simbólica inspirada en el dado desgastado del poema.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El Dios jugador de dados</p>
-        <p class="chapter" data-time="0">El destino de los hombres</p>
-        <p class="chapter" data-time="0">La blasfemia desesperada</p>
-        <p class="chapter" data-time="0">La compasión por un Dios imperfecto</p>
-        <p class="chapter" data-time="0">La poesía religiosa audaz</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. El poema se ofrecerá como una lectura continua, sin divisiones añadidas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -130,13 +134,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="los-heraldos-negros.html">← Los heraldos negros</a><a href="ola-4-slug.html">Cuarta Ola</a><a href="dobla-el-dos-de-noviembre.html">Dobla el dos de noviembre →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="los-dados-eternos.js"></script>
+<script src="los-dados-eternos.js?v=20261013-azar"></script>
 
 </body>
 </html>
