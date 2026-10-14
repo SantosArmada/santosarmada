@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — El retorno maléfico</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="el-retorno-malefico.css">
+    <link rel="stylesheet" href="el-retorno-malefico.css?v=20261013-umbral">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>El retorno maléfico</h1>
-        <p class="subtitle">Ramón López Velarde</p>
+        <p class="poetry-label">Ramón López Velarde · Poema · Zozobra</p>
+        <h1>El retorno<br><em>maléfico</em></h1>
+        <p class="hero-premise">Volver ya no es regresar.</p>
+        <p class="hero-description">El pueblo persiste; el refugio se ha perdido.<br> La memoria reconoce un mundo que ya no la recibe.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="retorno-art"><img src="../assets/retorno-umbral-de-ceniza.webp" width="1536" height="1024" fetchpriority="high" alt="Un hombre de traje oscuro contempla una calle de muros agrietados desde un umbral iluminado por una lámpara de petróleo."><figcaption>El umbral de la memoria</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Poema · Ramón López Velarde</span><p>Escuchar un regreso imposible.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -60,15 +65,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">El retorno maléfico</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -77,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -92,31 +98,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/retorno-malefico.webp" alt="El retorno maléfico">
+        <img loading="lazy" decoding="async" src="../../book_covers/retorno-malefico.webp" alt="El retorno maléfico">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el poema">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Ramón López Velarde regresa en este poema de 1919 a su pueblo natal, Jerez de Zacatecas, y lo encuentra transformado por la violencia y el desgaste de la Revolución mexicana: casas destruidas, familiares muertos, un lugar que ya no puede ofrecer el refugio de la memoria. El poema funde el lirismo provinciano característico de López Velarde con la sombra histórica de la guerra civil que atravesó México en esos años.</p>
-
+        <h2>La casa que ya no ampara</h2>
+        <p>La voz imagina un retorno al pueblo herido por la violencia. Las paredes marcadas por los disparos y la luz de una mecha convierten el antiguo hogar en un lugar extraño. La llave, el zaguán y el patio conservan su familiaridad, pero han perdido su promesa de refugio.</p>
+        <p class="reading-note">Reconocer un lugar no significa recuperarlo.</p>
+        <p>Después aparecen los nidos, los noviazgos, el piano y las rutinas que continúan. Esa renovación no consuela al hablante: la vida del pueblo y su pérdida íntima avanzan en direcciones distintas. El cierre reúne el afecto por lo conocido y la tristeza de no poder volver a habitarlo como antes.</p>
+        <p class="source-note">Poema de <em>Zozobra</em>. Texto de referencia: <a href="https://web.seducoahuila.gob.mx/biblioweb/upload/El%20retorno%20malefico.pdf">«El retorno maléfico», de Ramón López Velarde, Biblioteca Digital de Coahuila</a>. Ilustración interpretativa del umbral y la aldea herida.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El regreso al pueblo natal</p>
-        <p class="chapter" data-time="0">Un lugar transformado</p>
-        <p class="chapter" data-time="0">Las casas destruidas</p>
-        <p class="chapter" data-time="0">El refugio perdido de la memoria</p>
-        <p class="chapter" data-time="0">La sombra de la guerra civil</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. El poema se ofrecerá como una lectura continua, sin divisiones añadidas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -130,13 +134,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="dobla-el-dos-de-noviembre.html">← Dobla el dos de noviembre</a><a href="ola-4-slug.html">Cuarta Ola</a><a href="ofrenda.html">Ofrenda →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="el-retorno-malefico.js"></script>
+<script src="el-retorno-malefico.js?v=20261013-umbral"></script>
 
 </body>
 </html>
