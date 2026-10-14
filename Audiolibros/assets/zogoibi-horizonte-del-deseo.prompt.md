@@ -1,0 +1,5 @@
+# Zogoibi — El horizonte del deseo
+
+Create cinematic photorealistic literary website hero landscape 1536x1024. Early twentieth century Argentine pampa at dusk. Right half foreground: enigmatic beautiful adult woman with short black waved hair, elegant burgundy silk dress with modest neckline, nuanced thoughtful distant expression, warm amber light on her face. Midground right-center a young wealthy Argentine landowner in ivory shirt dark trousers and period hat, viewed from behind looking toward a distant estancia and horses on the vast flat grassland. Woman and man separated in composition, emotional distance, longing and foreboding. Teal evening shadows, parchment gold grasses, muted burgundy silk, distant blush sunset, exquisite tactile period detail, shallow cinematic depth, dignified and sophisticated not stock photo. Left third dark deep teal negative space for typography. No words, no text. Interpretative scene for Enrique Larreta Zogoibi.
+
+Interpretive artwork. Plot reference: R. F. Giusti, https://www.criticadelibros.com/sin-clasificar/zogoibi-enrique-larreta/ . Publication record: https://search.worldcat.org/es/title/33874150 (1926).
