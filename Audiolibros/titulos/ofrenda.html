@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Ofrenda</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="ofrenda.css">
+    <link rel="stylesheet" href="ofrenda.css?v=20261013-ofrenda">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>Ofrenda</h1>
-        <p class="subtitle">Juana de Ibarbourou</p>
+        <p class="poetry-label">Juana de Ibarbourou · Poema</p>
+        <h1><em>Ofrenda</em></h1>
+        <p class="hero-premise">La vida ofrecida en un gesto.</p>
+        <p class="hero-description">El cuerpo se vuelve copa, miel y fuego.<br> El amor habla desde la plenitud de estar viva.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar el poema <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="ofrenda-art"><img src="../assets/ofrenda-seda-y-miel.webp" width="1536" height="1024" fetchpriority="high" alt="Una mujer envuelta en un chal multicolor, junto a una copa de vino y un recipiente de miel, bajo una luz dorada."><figcaption>Seda, vino y miel</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Poema · Juana de Ibarbourou</span><p>Escuchar la afirmación de la vida.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -60,15 +65,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Ofrenda</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -77,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -92,31 +98,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/ofrenda.webp" alt="Ofrenda">
+        <img loading="lazy" decoding="async" src="../../book_covers/ofrenda.webp" alt="Ofrenda">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar el poema">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Juana de Ibarbourou entrega en este poema de 1919 su juventud, su belleza y su amor como una ofrenda total y sin reservas al ser amado, con la misma franqueza sensual que definió <a href="las-lenguas-de-diamante.html" class="inline-link">Las lenguas de diamante</a>. "Toma: es todo lo que tengo... pero es todo lo que soy" resume la entrega absoluta que caracteriza la voz erótica de la "Juana de América".</p>
-
+        <h2>El cuerpo como regalo</h2>
+        <p>La voz cuida su cuerpo y lo presenta al amante como una ofrenda elegida. El marfil, el vino y la miel forman un lenguaje de belleza y vitalidad: la entrega amorosa nace de reconocer el valor de lo que se ofrece.</p>
+        <p class="reading-note">La ternura tiene temperatura y materia.</p>
+        <p>Las repeticiones dan al poema una cadencia insistente. El corazón se imagina como una brasa, mientras el chal multicolor enmarca el cuerpo como una pieza preciosa. El cierre reúne sol, panal y bronce en una celebración sensorial del deseo.</p>
+        <p class="source-note">Texto de referencia: <a href="https://maestrosdelsaber.com/wp-content/uploads/ftp-files/Poesia/zzz%20Poetas%20Varios/Poem%20Ibarbourou,%20Juana%20De%20-%20Antologia%20Poetica.PDF#page=92">Juana de Ibarbourou, <em>Antología poética</em>, «Ofrenda», pp. 92–93</a>. Ilustración simbólica inspirada en el chal, el vino y la miel del poema.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La juventud entregada</p>
-        <p class="chapter" data-time="0">La belleza como ofrenda</p>
-        <p class="chapter" data-time="0">El amor sin reservas</p>
-        <p class="chapter" data-time="0">Toma: es todo lo que tengo</p>
-        <p class="chapter" data-time="0">La entrega absoluta</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. El poema se ofrecerá como una lectura continua, sin divisiones añadidas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -130,13 +134,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="el-retorno-malefico.html">← El retorno maléfico</a><a href="ola-4-slug.html">Cuarta Ola</a><a href="la-estatua.html">La estatua →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="ofrenda.js"></script>
+<script src="ofrenda.js?v=20261013-ofrenda"></script>
 
 </body>
 </html>
