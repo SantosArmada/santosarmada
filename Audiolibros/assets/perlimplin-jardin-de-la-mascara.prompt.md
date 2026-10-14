@@ -1,0 +1,5 @@
+# Perlimplín — Jardín de la máscara
+
+Cinematic photorealistic literary website hero 1536x1024 landscape. Symbolic moonlit Andalusian walled garden for Lorca Amor de don Perlimplin con Belisa en su jardin. Right half foreground a weathered ivory marble classical theatrical face sculpture on stone pedestal, one side delicately cracked revealing folded deep crimson velvet within, not flesh or gore. Red roses beside it. Behind, a cloaked figure in crimson stands small and mysterious under a distant garden arch; cypresses, a house with one warmly lit window, full moon, deep petrol blue night. Intimate theatrical composition, desire and disguise and melancholy, premium realistic material texture, luminous ivory stone, restrained gold highlights, navy teal shadows, red velvet, no text. Left third dark teal negative space for typography. No nudity, no violence. High-end literary cinema poster aesthetic.
+
+Symbolic interpretation inspired by the existing cover; not a literal stage direction. Premiere context sourced from Universo Lorca, linked in the page.
