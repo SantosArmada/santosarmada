@@ -5,9 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Pensativa</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="pensativa.css">
+    <link rel="stylesheet" href="pensativa.css?v=20261014-impactos">
 </head>
 <body>
+<div class="bullet-layer" aria-hidden="true">
+    <span class="bullet-flash bullet-flash--1"></span>
+    <span class="bullet-flash bullet-flash--2"></span>
+    <span class="bullet-flash bullet-flash--3"></span>
+    <span class="bullet-flash bullet-flash--4"></span>
+    <span class="bullet-flash bullet-flash--5"></span>
+    <span class="bullet-flash bullet-flash--6"></span>
+    <span class="bullet-flash bullet-flash--7"></span>
+    <span class="bullet-flash bullet-flash--8"></span>
+    <span class="bullet-flash bullet-flash--9"></span>
+    <span class="bullet-flash bullet-flash--10"></span>
+
+    <span class="impact-smoke impact-smoke--1"></span>
+<span class="impact-smoke impact-smoke--2"></span>
+<span class="impact-smoke impact-smoke--3"></span>
+<span class="impact-smoke impact-smoke--4"></span>
+<span class="impact-smoke impact-smoke--5"></span>
+<span class="impact-smoke impact-smoke--6"></span>
+<span class="impact-smoke impact-smoke--7"></span>
+<span class="impact-smoke impact-smoke--8"></span>
+<span class="impact-smoke impact-smoke--9"></span>
+<span class="impact-smoke impact-smoke--10"></span>
+    <svg class="bullet-defs" width="0" height="0" focusable="false">
+        <defs>
+            <symbol id="impact-a" viewBox="0 0 80 80">
+                <g class="fractures">
+                    <path d="M40 40 34 31 29 24 27 12M29 24 19 20M34 31 25 34 16 32 8 35"/>
+                    <path d="M41 39 46 29 51 24 54 10M51 24 61 18"/>
+                    <path d="M42 40 52 37 62 38 74 33M60 38 66 45"/>
+                    <path d="M41 42 48 49 51 58 60 69M51 58 46 69"/>
+                    <path d="M39 42 34 51 34 61 27 73M34 56 24 61"/>
+                </g>
+                <g class="spall">
+                    <path d="m31 35 5-6 2 7z"/><path d="m46 34 5 4-7 2z"/>
+                    <path d="m44 47-2 6-5-5z"/><path d="m29 44-6 2 4-7z"/>
+                </g>
+            </symbol>
+            <symbol id="impact-b" viewBox="0 0 80 80">
+                <g class="fractures">
+                    <path d="M39 39 30 35 22 28 10 25M22 28 17 17"/>
+                    <path d="M40 38 39 29 42 21 39 8M42 21 50 16"/>
+                    <path d="M42 39 50 33 61 31 72 22M60 31 69 37"/>
+                    <path d="M42 42 53 44 61 51 74 54M61 51 65 64"/>
+                    <path d="M40 43 41 53 37 62 40 74M37 62 27 68"/>
+                    <path d="M38 42 29 48 20 48 10 57M20 48 14 42"/>
+                </g>
+                <g class="spall">
+                    <path d="m34 31 4-5 3 8z"/><path d="m49 38 7 3-8 3z"/>
+                    <path d="m37 49-5 7-2-8z"/><path d="m29 39-7-2 6-4z"/>
+                </g>
+            </symbol>
+        </defs>
+    </svg>
+
+    <div class="bullet-hole bullet-hole--1"><svg viewBox="0 0 80 80"><use href="#impact-a"/></svg></div>
+    <div class="bullet-hole bullet-hole--2"><svg viewBox="0 0 80 80"><use href="#impact-b"/></svg></div>
+    <div class="bullet-hole bullet-hole--3"><svg viewBox="0 0 80 80"><use href="#impact-a"/></svg></div>
+    <div class="bullet-hole bullet-hole--4"><svg viewBox="0 0 80 80"><use href="#impact-b"/></svg></div>
+    <div class="bullet-hole bullet-hole--5"><svg viewBox="0 0 80 80"><use href="#impact-a"/></svg></div>
+    <div class="bullet-hole bullet-hole--6"><svg viewBox="0 0 80 80"><use href="#impact-b"/></svg></div>
+    <div class="bullet-hole bullet-hole--7"><svg viewBox="0 0 80 80"><use href="#impact-a"/></svg></div>
+    <div class="bullet-hole bullet-hole--8"><svg viewBox="0 0 80 80"><use href="#impact-b"/></svg></div>
+    <div class="bullet-hole bullet-hole--9"><svg viewBox="0 0 80 80"><use href="#impact-a"/></svg></div>
+    <div class="bullet-hole bullet-hole--10"><svg viewBox="0 0 80 80"><use href="#impact-b"/></svg></div>
+</div>
+
+
+
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +89,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +102,27 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Cuarta Ola</p>
-        <h1>Pensativa</h1>
-        <p class="subtitle">Jesús Goytortúa Santos</p>
+        <p class="poetry-label">Jesús Goytortúa Santos · Novela · 1945</p>
+        <h1><em>Pensativa</em></h1>
+        <p class="hero-premise">Hay silencios que guardan una guerra.</p>
+        <p class="hero-description">Una mujer, una hacienda, un pasado.<br> El amor llega donde la guerra dejó sus huellas.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="pensativa-art"><img src="../assets/pensativa-umbral-de-la-tormenta.webp" width="1536" height="1024" fetchpriority="high" alt="Gabriela, de cabello oscuro y rebozo, en el umbral de una hacienda bajo un cielo de tormenta."><figcaption>El pasado permanece en el umbral</figcaption></figure>
 </header>
+<div class="ambience-controls">
+  <label><input type="checkbox" id="ricochetSound"> Revólver y rebotes</label>
+  <button type="button" id="replayRicochets" disabled>Repetir efecto</button>
+  <audio id="ricochetAudio" controls preload="none" hidden src="../assets/abajo-revolver-tiros-espaciados.wav" aria-label="Revólver y rebotes"></audio>
+  <span id="ricochetStatus" role="status">Sonido desactivado</span>
+</div>
+<div class="listening-heading"><span>Novela · Jesús Goytortúa Santos</span><p>Escuchar lo que sobrevive al silencio.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -60,15 +139,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Pensativa</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -77,7 +157,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -92,31 +172,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/pensativa.webp" alt="Pensativa">
+        <img loading="lazy" decoding="async" src="../../book_covers/pensativa.webp" alt="Pensativa">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Jesús Goytortúa Santos ambienta esta novela de 1945 en el México rural sacudido por la Guerra Cristera de la década de 1920, donde Pensativa, una joven bella y reservada con un pasado que la convirtió en leyenda, se ve arrastrada al conflicto entre la fe, la violencia y el deseo. La novela se hizo célebre poco después gracias a su adaptación al cine mexicano, que consagró tanto la historia como a su enigmática protagonista.</p>
-
+        <h2>Amar después de la guerra</h2>
+        <p>Roberto vuelve a Santa Clara de las Rocas y conoce a Gabriela Infante, llamada Pensativa. La atracción hacia aquella mujer reservada crece junto con las preguntas sobre su pasado. En torno a ella, las heridas de la Guerra Cristera siguen presentes en las personas, los recuerdos y los espacios que habita.</p>
+        <p class="reading-note">Conocer a alguien también exige mirar su historia.</p>
+        <p>La novela enfrenta el deseo de empezar de nuevo con una memoria que no puede borrarse. Gabriela no es sólo el objeto de la curiosidad amorosa del narrador: su participación en el conflicto obliga a reconsiderar la imagen que Roberto se ha formado de ella. El misterio íntimo se convierte así en una pregunta sobre el juicio, la violencia y el lugar de las mujeres en la historia.</p>
+        <p class="source-note">Publicada por Porrúa en 1945; Premio Lanz Duret de 1944. <a href="https://www.elem.mx/autor/datos/475">Enciclopedia de la Literatura en México</a>. <a href="https://www.scielo.org.mx/scielo.php?pid=S0185-39292010000300003&amp;script=sci_arttext">Estudio sobre la representación de la mujer en <em>Pensativa</em></a>. Ilustración interpretativa de Gabriela y la memoria de la guerra.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El México rural de la Cristera</p>
-        <p class="chapter" data-time="0">Una joven bella y reservada</p>
-        <p class="chapter" data-time="0">El pasado que la convirtió en leyenda</p>
-        <p class="chapter" data-time="0">La fe, la violencia y el deseo</p>
-        <p class="chapter" data-time="0">La protagonista enigmática</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -130,13 +208,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="zogoibi.html">← Zogoibi</a><a href="ola-4-slug.html">Cuarta Ola</a><a href="el-hijo.html">El hijo →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="pensativa.js"></script>
+<script src="pensativa.js?v=20261014-impactos"></script>
 
 </body>
 </html>
