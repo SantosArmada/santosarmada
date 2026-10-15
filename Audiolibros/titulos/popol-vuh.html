@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Popol Vuh</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="popol-vuh.css">
+    <link rel="stylesheet" href="popol-vuh.css?v=20261014-segunda-pasada">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,61 +34,47 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Primera Ola</p>
-        <h1>Popol Vuh</h1>
-        <p class="subtitle">Anónimo · Quiché</p>
+        <p class="poetry-label">Tradición maya k’iche’ · Redacción alfabética: siglo XVI</p>
+        <h1>Popol<br><em>Vuh</em></h1>
+        <p class="hero-premise">Antes del primer amanecer.</p>
+        <p class="hero-description">La palabra, el maíz, la memoria.<br> Un mundo que comienza a ser.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
-
-    <!-- Editorial engraving, not a transcription of a historical glyph. The
-         white and yellow ears refer to the K'iche' creation account. -->
-    <figure class="maize-signature">
-        <svg viewBox="0 0 120 106" role="img" aria-label="Dos mazorcas estilizadas, una blanca y una amarilla">
-            <path class="maize-frame" d="M8 91V16L20 7h80l12 9v75M8 91h104"/>
-            <g class="maize-ear maize-ear--white" transform="translate(34 16)">
-                <path class="maize-husk" d="M0 68C-13 52-16 35-12 19M0 68C14 52 17 35 12 19"/>
-                <path class="maize-cob" d="M0 3C-11 9-13 27-10 44C-8 58-4 66 0 69C4 66 8 58 10 44C13 27 11 9 0 3Z"/>
-                <path class="maize-kernels" d="M-5 13L0 18L5 13M-7 23L0 28L7 23M-8 34L0 39L8 34M-7 45L0 50L7 45M-5 55L0 60L5 55"/>
-            </g>
-            <g class="maize-ear maize-ear--yellow" transform="translate(86 16)">
-                <path class="maize-husk" d="M0 68C-13 52-16 35-12 19M0 68C14 52 17 35 12 19"/>
-                <path class="maize-cob" d="M0 3C-11 9-13 27-10 44C-8 58-4 66 0 69C4 66 8 58 10 44C13 27 11 9 0 3Z"/>
-                <path class="maize-kernels" d="M-5 13L0 18L5 13M-7 23L0 28L7 23M-8 34L0 39L8 34M-7 45L0 50L7 45M-5 55L0 60L5 55"/>
-            </g>
-            <path class="maize-base" d="M22 91h76"/>
-        </svg>
-        <figcaption>Maíz blanco · maíz amarillo</figcaption>
-    </figure>
+    <figure class="story-art"><img src="../assets/popol-vuh-el-primer-amanecer.webp" width="1536" height="1024" fetchpriority="high" alt="Maíz blanco y amarillo junto al agua oscura, ante las montañas de Guatemala al amanecer."><figcaption>Maíz blanco · maíz amarillo</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Tradición maya k’iche’</span><p>Escuchar la palabra que perdura.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
         <svg viewBox="0 0 60 60" width="46" height="46">
-            <circle cx="30" cy="30" r="27" fill="var(--surface)" stroke="var(--gold)" stroke-width="3"/>
+            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--accent)" stroke-width="3"/>
             <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
-                  fill="none" stroke="var(--gold)" stroke-width="4" stroke-linecap="round"/>
-            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--gold)" stroke-width="4" stroke-linecap="round"/>
+                  fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
         </svg>
     </button>
     <div class="player">
         <canvas></canvas>
         <div class="song">
             <div class="artist">Popol Vuh</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -97,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -112,31 +98,25 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/popol-vuh.webp" alt="Popol Vuh">
+        <img loading="lazy" decoding="async" src="../../book_covers/popol-vuh.webp" alt="Popol Vuh">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>El texto sagrado de los quiché de Guatemala, transcrito en el siglo XVI a partir de tradición oral y pictórica mucho más antigua. Narra la creación del mundo por los dioses —tras varios intentos fallidos con hombres de barro y de madera— hasta llegar a los hombres de maíz, y las aventuras de los Héroes Gemelos, Hunahpú e Ixbalanqué, que descienden a Xibalbá, el inframundo, para vencer a sus señores.</p>
-
+<h2>La palabra que guarda un mundo</h2><p>El Popol Vuh reúne relatos de creación, las pruebas de los Héroes Gemelos y la memoria de los linajes k’iche’. El mundo toma forma mediante la palabra; los intentos de crear a la humanidad conducen al maíz blanco y amarillo. Narrar los orígenes es también conservar una relación con la tierra y con la comunidad.</p><p class="reading-note">El principio del mundo también es memoria compartida.</p><p>La repetición y el ritmo recuerdan que esta escritura pertenece a una tradición de transmisión oral. Escucharla permite atender a sus voces, a las pruebas de Hunahpú e Ixbalanqué y a la continuidad entre relato sagrado e historia colectiva.</p><p class="source-note">Tradición anterior a la conquista; redacción en caracteres latinos atribuida al siglo XVI. La copia de Francisco Ximénez conservada en Newberry data de 1700–1715: estas fechas corresponden a la transmisión manuscrita, no a una primera publicación moderna. <a href="https://www.newberry.org/collection/research-guide/popol-vuh">Historia del manuscrito · Newberry Library</a>. Ilustración simbólica de los motivos del maíz y el amanecer.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Preámbulo y la creación del mundo</p>
-        <p class="chapter" data-time="0">Los hombres de barro y de madera</p>
-        <p class="chapter" data-time="0">Hunahpú e Ixbalanqué: el nacimiento de los Héroes Gemelos</p>
-        <p class="chapter" data-time="0">El descenso a Xibalbá</p>
-        <p class="chapter" data-time="0">Los hombres de maíz</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -150,13 +130,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="ola-1-slug.html">← La colección</a><a href="ola-1-slug.html">Primera Ola</a><a href="cantar-de-mio-cid.html">Cantar de mio Cid →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="popol-vuh.js"></script>
+<script src="popol-vuh.js?v=20261014-segunda-pasada"></script>
 
 </body>
 </html>
