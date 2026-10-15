@@ -608,6 +608,22 @@
      Without this, the fixed-position panel can grow tall enough on
      mobile to block the whole screen with no way to dismiss it. */
   function closeDetailPanel() {
+    const viewportLeft = window.scrollX;
+    const viewportTop = window.scrollY;
+
+    // A clicked close button retains focus. Remove that focus before the
+    // fixed panel becomes inert so the browser has no reason to scroll in
+    // search of the now-hidden focused control.
+    const focusedEl = document.activeElement;
+    if (focusedEl instanceof HTMLElement && detailPanel.contains(focusedEl)) {
+      focusedEl.blur();
+    }
+
+    // The panel sits above the right-edge hover shortcut. When it vanishes,
+    // a stationary pointer can generate a synthetic-looking pointerenter on
+    // the newly exposed shortcut and start its return-to-top timer. Tell the
+    // shortcut to wait for a deliberate pointer exit and re-entry instead.
+    document.dispatchEvent(new CustomEvent("space-time:detail-closed"));
     detailPanel.classList.remove("is-open");
     butterflyEl.classList.add("is-hidden");
     activeIndex = -1;
@@ -615,6 +631,16 @@
     if (typeof window.clearGlobeRegionBlipDelayed === "function") {
       window.clearGlobeRegionBlipDelayed(10000);
     }
+
+    // Fixed panels do not participate in document layout, but browsers can
+    // still apply focus or scroll-anchor correction as the focused overlay
+    // becomes inert. Restore the captured position on the next paint without
+    // animation; the page should look exactly where the visitor left it.
+    window.requestAnimationFrame(() => {
+      if (window.scrollX !== viewportLeft || window.scrollY !== viewportTop) {
+        window.scrollTo({ left: viewportLeft, top: viewportTop, behavior: "auto" });
+      }
+    });
   }
 
   detailClose.addEventListener("click", closeDetailPanel);

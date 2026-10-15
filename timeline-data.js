@@ -1530,7 +1530,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Fernando VI sucedió a Felipe V el 9 de julio de 1746. Hijo de María Luisa de Saboya, revirtió la política italiana impulsada durante el segundo matrimonio de su padre con Isabel de Farnesio. Tras Aix-la-Chapelle (1748), que aseguró Parma, Plasencia y Guastalla para el infante Felipe, José de Carvajal y el marqués de la Ensenada sostuvieron una neutralidad entre Francia y Gran Bretaña. La paz fortaleció el Estado y la Armada: Ensenada impulsó la construcción naval y los arsenales de Ferrol, Cartagena y La Carraca, preparando poder sin entrar en otra guerra.",
     descriptionHtml:
-      'Fernando VI sucedió a <button type="button" class="timeline-detail-entrylink" data-id="sucesion-espanola-borbones-1700">Felipe V</button> el 9 de julio de 1746. Hijo de María Luisa de <button type="button" class="timeline-detail-geolink" data-region="Saboya" data-country="Italia">Saboya</button>, revirtió la política <button type="button" class="timeline-detail-geolink" data-country="Italia">italiana</button> impulsada durante el segundo matrimonio de su padre con Isabel de Farnesio. Tras <button type="button" class="timeline-detail-geolink" data-region="Aquisgrán" data-country="Alemania">Aix-la-Chapelle</button> (1748), que aseguró <button type="button" class="timeline-detail-geolink" data-region="Parma" data-country="Italia">Parma</button>, <button type="button" class="timeline-detail-geolink" data-region="Piacenza" data-country="Italia">Plasencia</button> y <button type="button" class="timeline-detail-geolink" data-region="Guastalla" data-country="Italia">Guastalla</button> para el infante Felipe, José de Carvajal y el marqués de la Ensenada sostuvieron una neutralidad entre <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button> y <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button>. La paz fortaleció el Estado y la Armada: <button type="button" class="timeline-detail-entrylink" data-id="caida-ensenada-1754">Ensenada</button> impulsó la construcción naval y los arsenales de <button type="button" class="timeline-detail-geolink" data-region="Ferrol" data-country="España">Ferrol</button>, <button type="button" class="timeline-detail-geolink" data-region="Cartagena" data-country="España">Cartagena</button> y <button type="button" class="timeline-detail-geolink" data-region="La Carraca" data-country="España">La Carraca</button>, preparando poder sin entrar en otra guerra.',
+      '<button type="button" class="timeline-detail-entrylink" data-id="muerte-fernando-vi-1759">Fernando VI</button> sucedió a <button type="button" class="timeline-detail-entrylink" data-id="sucesion-espanola-borbones-1700">Felipe V</button> el 9 de julio de 1746. Hijo de María Luisa de <button type="button" class="timeline-detail-geolink" data-region="Saboya" data-country="Italia">Saboya</button>, revirtió la política <button type="button" class="timeline-detail-geolink" data-country="Italia">italiana</button> impulsada durante el segundo matrimonio de su padre con Isabel de Farnesio. Tras <button type="button" class="timeline-detail-geolink" data-region="Aquisgrán" data-country="Alemania">Aix-la-Chapelle</button> (1748), que aseguró <button type="button" class="timeline-detail-geolink" data-region="Parma" data-country="Italia">Parma</button>, <button type="button" class="timeline-detail-geolink" data-region="Piacenza" data-country="Italia">Plasencia</button> y <button type="button" class="timeline-detail-geolink" data-region="Guastalla" data-country="Italia">Guastalla</button> para el infante Felipe, José de Carvajal y el marqués de la Ensenada sostuvieron una neutralidad entre <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button> y <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button>. La paz fortaleció el Estado y la Armada: <button type="button" class="timeline-detail-entrylink" data-id="caida-ensenada-1754">Ensenada</button> impulsó la construcción naval y los arsenales de <button type="button" class="timeline-detail-geolink" data-region="Ferrol" data-country="España">Ferrol</button>, <button type="button" class="timeline-detail-geolink" data-region="Cartagena" data-country="España">Cartagena</button> y <button type="button" class="timeline-detail-geolink" data-region="La Carraca" data-country="España">La Carraca</button>, preparando poder sin entrar en otra guerra.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si Fernando VI hubiera continuado las guerras italianas de Felipe V?",
       answer:
@@ -1562,6 +1562,29 @@ const TIMELINE_ENTRIES = [
   },
 
   {
+    id: "tratado-madrid-portugal-guarani-1750",
+    year: 1750,
+    month: 1,
+    day: 13,
+    title: "13 de enero de 1750: el Tratado de Madrid desplaza a los guaraníes",
+    author: "Fernando VI y João V de Portugal",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 13 de enero de 1750, España y Portugal firmaron en Madrid un tratado distinto del acuerdo británico de octubre. Portugal cedería Colonia del Sacramento; España entregaría los Siete Pueblos de las Misiones, al este del río Uruguay. Sus comunidades guaraníes debían abandonar hogares y tierras. Se negaron. Tropas ibéricas las combatieron en la Guerra Guaranítica (1754–1756). Aunque la Compañía de Jesús no dirigió una rebelión, sus enemigos responsabilizaron a los jesuitas. El Tratado de El Pardo anuló el intercambio en 1761, pero el episodio alimentó el antijesuitismo que precedió su expulsión en 1767.",
+    descriptionHtml:
+      'El 13 de enero de 1750, <button type="button" class="timeline-detail-geolink" data-country="España">España</button> y <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button> firmaron en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> un tratado distinto del <button type="button" class="timeline-detail-entrylink" data-id="tratado-madrid-asiento-1750">acuerdo británico de octubre</button>. Portugal cedería <button type="button" class="timeline-detail-geolink" data-region="Colonia del Sacramento" data-country="Uruguay">Colonia del Sacramento</button>; España entregaría los <button type="button" class="timeline-detail-geolink" data-region="Siete Pueblos de las Misiones" data-country="Brasil">Siete Pueblos de las Misiones</button>, al este del <button type="button" class="timeline-detail-geolink" data-region="Río Uruguay">río Uruguay</button>. Sus comunidades guaraníes debían abandonar hogares y tierras. Se negaron. Tropas ibéricas las combatieron en la Guerra Guaranítica (1754–1756). Aunque la Compañía de Jesús no dirigió una rebelión, sus enemigos responsabilizaron a los jesuitas. El <button type="button" class="timeline-detail-geolink" data-region="El Pardo" data-country="España">Tratado de El Pardo</button> anuló el intercambio en 1761, pero el episodio alimentó el antijesuitismo que precedió su expulsión en 1767.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si las coronas hubieran respetado el derecho de las comunidades guaraníes a permanecer en sus pueblos?",
+      answer:
+        "La demarcación habría requerido otra frontera o una negociación con quienes habitaban el territorio. Evitar el traslado forzoso pudo haber impedido la Guerra Guaranítica y privado a los adversarios de los jesuitas de uno de sus argumentos más útiles, aunque el conflicto europeo contra la Compañía de Jesús tenía causas más amplias."
+    }
+  },
+
+  {
     id: "tratado-madrid-asiento-1750",
     year: 1750,
     month: 10,
@@ -1574,9 +1597,9 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.HISTORY,
     types: [ICON_TYPE.HISTORY, ICON_TYPE.ECHO],
     description:
-      "El 5 de octubre de 1750 España y Gran Bretaña firmaron en Madrid un tratado que canceló dos privilegios británicos obtenidos en Utrecht: el navío de permiso y el asiento de negros. El asiento no era soberanía territorial, sino el monopolio concedido a la South Sea Company para transportar y vender personas africanas esclavizadas en la América española. España pagó £100,000 para extinguir el contrato y resolver reclamaciones pendientes. El acuerdo cerró una fuente constante de contrabando y conflicto imperial; no abolió la esclavitud ni la trata, que continuaron bajo otros comerciantes y sistemas.",
+      "El 5 de octubre de 1750 España y Gran Bretaña firmaron en Madrid otro tratado que canceló dos privilegios británicos obtenidos en Utrecht: el navío de permiso y el asiento de negros. El asiento no era soberanía territorial, sino el monopolio concedido a la South Sea Company para transportar y vender personas africanas esclavizadas en la América española. España pagó £100,000 para extinguir el contrato y resolver reclamaciones pendientes. El acuerdo cerró una fuente constante de contrabando y conflicto imperial; no abolió la esclavitud ni la trata, que continuaron bajo otros comerciantes y sistemas.",
     descriptionHtml:
-      'El 5 de octubre de 1750 <button type="button" class="timeline-detail-geolink" data-country="España">España</button> y <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button> firmaron en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> un <button type="button" class="timeline-detail-entrylink" data-id="fernando-vi-neutralidad-armada-1746">tratado</button> que canceló dos privilegios británicos obtenidos en <button type="button" class="timeline-detail-geolink" data-region="Utrecht" data-country="Países Bajos">Utrecht</button>: el navío de permiso y el asiento de negros. El asiento no era soberanía territorial, sino el monopolio concedido a la South Sea Company para transportar y vender personas <button type="button" class="timeline-detail-geolink" data-region="África">africanas</button> esclavizadas en la <button type="button" class="timeline-detail-geolink" data-region="América española">América española</button>. España pagó £100,000 para extinguir el contrato y resolver reclamaciones pendientes. El acuerdo cerró una fuente constante de contrabando y conflicto imperial; no abolió la esclavitud ni la trata, que continuaron bajo otros comerciantes y sistemas.',
+      'El 5 de octubre de 1750 <button type="button" class="timeline-detail-geolink" data-country="España">España</button> y <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button> firmaron en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> <button type="button" class="timeline-detail-entrylink" data-id="tratado-madrid-portugal-guarani-1750">otro tratado</button> que canceló dos privilegios británicos obtenidos en <button type="button" class="timeline-detail-geolink" data-region="Utrecht" data-country="Países Bajos">Utrecht</button>: el navío de permiso y el asiento de negros. El asiento no era soberanía territorial, sino el monopolio concedido a la South Sea Company para transportar y vender personas <button type="button" class="timeline-detail-geolink" data-region="África">africanas</button> esclavizadas en la <button type="button" class="timeline-detail-geolink" data-region="América española">América española</button>. España pagó £100,000 para extinguir el contrato y resolver reclamaciones pendientes. El acuerdo cerró una fuente constante de contrabando y conflicto imperial; no abolió la esclavitud ni la trata, que continuaron bajo otros comerciantes y sistemas.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si Gran Bretaña hubiera conservado el asiento?",
       answer:
@@ -1630,6 +1653,52 @@ const TIMELINE_ENTRIES = [
   },
 
   {
+    id: "muerte-fernando-vi-1759",
+    year: 1759,
+    month: 8,
+    day: 10,
+    title: "10 de agosto de 1759: termina el reinado de Fernando VI",
+    author: "Fernando VI y Bárbara de Braganza",
+    country: "España",
+    region: "Villaviciosa de Odón",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "El 27 de agosto de 1758 murió Bárbara de Braganza en Aranjuez. Fernando VI, profundamente unido a ella, se retiró al castillo de Villaviciosa de Odón. Durante el llamado “año sin rey” sufrió un deterioro mental y físico rápido; fuentes médicas modernas advierten que el cuadro fue más complejo que una depresión causada únicamente por el duelo. Murió allí el 10 de agosto de 1759, sin descendencia. La Corona pasó a su medio hermano Carlos, rey de Nápoles y Sicilia, hijo de Felipe V e Isabel de Farnesio, quien reinó en España como Carlos III.",
+    descriptionHtml:
+      'El 27 de agosto de 1758 murió Bárbara de Braganza en <button type="button" class="timeline-detail-geolink" data-region="Aranjuez" data-country="España">Aranjuez</button>. <button type="button" class="timeline-detail-entrylink" data-id="fernando-vi-neutralidad-armada-1746">Fernando VI</button>, profundamente unido a ella, se retiró al castillo de <button type="button" class="timeline-detail-geolink" data-region="Villaviciosa de Odón" data-country="España">Villaviciosa de Odón</button>. Durante el llamado “año sin rey” sufrió un deterioro mental y físico rápido; fuentes médicas modernas advierten que el cuadro fue más complejo que una depresión causada únicamente por el duelo. Murió allí el 10 de agosto de 1759, sin descendencia. La Corona pasó a su medio hermano Carlos, rey de <button type="button" class="timeline-detail-geolink" data-region="Nápoles" data-country="Italia">Nápoles</button> y <button type="button" class="timeline-detail-geolink" data-region="Sicilia" data-country="Italia">Sicilia</button>, hijo de <button type="button" class="timeline-detail-entrylink" data-id="sucesion-espanola-borbones-1700">Felipe V</button> e Isabel de Farnesio, quien reinó en <button type="button" class="timeline-detail-geolink" data-country="España">España</button> como <button type="button" class="timeline-detail-entrylink" data-id="carlos-iii-llega-madrid-1759">Carlos III</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Fernando VI y Bárbara de Braganza hubieran tenido un heredero?",
+      answer:
+        "Carlos III probablemente habría permanecido en Nápoles y Sicilia, mientras una nueva rama descendiente de Fernando habría heredado España. El programa reformista del siguiente reinado, sus ministros y su política italiana habrían seguido una trayectoria distinta."
+    }
+  },
+
+  {
+    id: "carlos-iii-llega-madrid-1759",
+    year: 1759,
+    month: 12,
+    day: 9,
+    title: "9 de diciembre de 1759: Carlos III llega a Madrid",
+    author: "Carlos III",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "El 9 de diciembre de 1759 Carlos III llegó a Madrid para gobernar la corona heredada de su hermanastro Fernando VI. Hijo de Felipe V e Isabel de Farnesio, no era un novato: había reinado unos veinticinco años en Nápoles y Sicilia, donde trabajó con ministros reformistas como Bernardo Tanucci. Su gobierno reorganizó instituciones, impulsó obras públicas y patrocinó las excavaciones sistemáticas de Herculano y Pompeya, decisivas para el neoclasicismo europeo. Al trasladarse a España dejó las Dos Sicilias a su hijo Fernando y trajo experiencia administrativa, ministros y una concepción reformadora de la monarquía.",
+    descriptionHtml:
+      'El 9 de diciembre de 1759 <button type="button" class="timeline-detail-entrylink" data-id="muerte-fernando-vi-1759">Carlos III</button> llegó a <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> para gobernar la corona heredada de su hermanastro Fernando VI. Hijo de <button type="button" class="timeline-detail-entrylink" data-id="sucesion-espanola-borbones-1700">Felipe V</button> e Isabel de Farnesio, no era un novato: había reinado unos veinticinco años en <button type="button" class="timeline-detail-geolink" data-region="Nápoles" data-country="Italia">Nápoles</button> y <button type="button" class="timeline-detail-geolink" data-region="Sicilia" data-country="Italia">Sicilia</button>, donde trabajó con ministros reformistas como Bernardo Tanucci. Su gobierno reorganizó instituciones, impulsó obras públicas y patrocinó las excavaciones sistemáticas de <button type="button" class="timeline-detail-geolink" data-region="Herculano" data-country="Italia">Herculano</button> y <button type="button" class="timeline-detail-geolink" data-region="Pompeya" data-country="Italia">Pompeya</button>, decisivas para el neoclasicismo europeo. Al trasladarse a <button type="button" class="timeline-detail-geolink" data-country="España">España</button> dejó las Dos Sicilias a su hijo Fernando y trajo experiencia administrativa, ministros y una concepción reformadora de la monarquía.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Carlos III hubiera llegado a España sin experiencia de gobierno?",
+      answer:
+        "Su programa habría dependido más de las facciones cortesanas heredadas de Fernando VI. Los veinticinco años italianos le dieron ministros, métodos y prioridades propias, aunque trasladar esas prácticas a una monarquía más extensa también produjo resistencias."
+    }
+  },
+
+  {
     id: "portola-expedicion-san-diego-1769",
     year: 1769,
     title: "1769: la expedición Portolá funda la primera misión de Alta California",
@@ -1668,6 +1737,179 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si Felipe de Neve nunca hubiera insistido en fundar pueblos civiles en Alta California?",
       answer:
         "Alta California habría seguido dependiendo casi por completo de las misiones y los presidios, sin la base civil y agrícola que De Neve consideraba indispensable para sostener la frontera a largo plazo. Es posible que un asentamiento civil hubiera surgido de todos modos en algún punto de la cuenca, pero no necesariamente en 1781, ni con ese nombre heredado de una capilla italiana del siglo XIII, ni con la composición racial tan diversa que documentó Mason — una fundación que la memoria oficial tardaría dos siglos en reconocer."
+    }
+  },
+
+  {
+    id: "carlos-iv-godoy-revolucion-francesa-1788",
+    year: 1788,
+    month: 12,
+    day: 14,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. This begins the re-spaced 1788–1807 sequence.
+    trackYear: 1782,
+    title: "14 de diciembre de 1788: comienza el reinado de Carlos IV",
+    author: "Carlos IV y Manuel Godoy",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "Al morir Carlos III el 14 de diciembre de 1788, Carlos IV heredó la Corona española. La Revolución francesa de 1789 convirtió la vecindad con Francia en una crisis: la monarquía temió el contagio revolucionario, guerreó contra la República y, desde 1796, volvió a aliarse con ella frente a Gran Bretaña. Manuel Godoy, guardia de corps favorecido por los reyes, ascendió rápidamente y fue nombrado primer secretario en 1792. Sus cambios de alianza, unidos a la expansión de Napoleón, comprometieron la Armada, el comercio imperial y la estabilidad dinástica, preparando la crisis de 1807–1808.",
+    descriptionHtml:
+      'Al morir <button type="button" class="timeline-detail-entrylink" data-id="carlos-iii-llega-madrid-1759">Carlos III</button> el 14 de diciembre de 1788, Carlos IV heredó la Corona <button type="button" class="timeline-detail-geolink" data-country="España">española</button>. La Revolución <button type="button" class="timeline-detail-geolink" data-country="Francia">francesa</button> de 1789 convirtió la vecindad con Francia en una crisis: la monarquía temió el contagio revolucionario, guerreó contra la República y, desde 1796, volvió a aliarse con ella frente a <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button>. Manuel Godoy, guardia de corps favorecido por los reyes, ascendió rápidamente y fue nombrado primer secretario en 1792. Sus cambios de alianza, unidos a la expansión de Napoleón, comprometieron la Armada, el comercio imperial y la estabilidad dinástica, preparando la <button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">crisis de 1807–1808</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Carlos IV no hubiera elevado a Godoy con tanta rapidez?",
+      answer:
+        "Otro ministro habría tenido que navegar la Revolución francesa y el ascenso de Napoleón, pero las presiones geopolíticas habrían seguido existiendo. Sin Godoy, no habría habido el mismo Tratado de Fontainebleau ni el mismo blanco para la oposición fernandina; la crisis dinástica pudo adoptar otra forma."
+    }
+  },
+
+  {
+    id: "fontainebleau-bayona-crisis-1807",
+    year: 1807,
+    month: 10,
+    day: 27,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Keeps this final Bourbon-crisis point independently clickable.
+    trackYear: 1806.4,
+    title: "27 de octubre de 1807: Fontainebleau abre España a Napoleón",
+    author: "Carlos IV, Fernando VII y Napoleón",
+    country: "España",
+    region: "Fontainebleau",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "El Tratado de Fontainebleau, firmado el 27 de octubre de 1807, permitió que tropas francesas cruzaran España para invadir y repartir Portugal. Napoleón convirtió el tránsito en ocupación. El Motín de Aranjuez derribó a Godoy y Carlos IV abdicó en Fernando VII el 19 de marzo de 1808. En Bayona, Napoleón forzó una cadena de renuncias: Fernando devolvió la Corona a su padre y Carlos cedió sus derechos al emperador, quien nombró rey a José Bonaparte. La resistencia estalló en Madrid. El Estatuto de Bayona, otorgado el 7 de julio, impuso reformas sin soberanía popular.",
+    descriptionHtml:
+      'El Tratado de <button type="button" class="timeline-detail-geolink" data-region="Fontainebleau" data-country="Francia">Fontainebleau</button>, firmado el 27 de octubre de 1807, permitió que tropas francesas cruzaran <button type="button" class="timeline-detail-geolink" data-country="España">España</button> para invadir y repartir <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button>. Napoleón convirtió el tránsito en ocupación. El Motín de <button type="button" class="timeline-detail-geolink" data-region="Aranjuez" data-country="España">Aranjuez</button> derribó a Godoy y <button type="button" class="timeline-detail-entrylink" data-id="carlos-iv-godoy-revolucion-francesa-1788">Carlos IV</button> abdicó en Fernando VII el 19 de marzo de 1808. En <button type="button" class="timeline-detail-geolink" data-region="Bayona, Francia" data-country="Francia">Bayona</button>, Napoleón forzó una cadena de renuncias: Fernando devolvió la Corona a su padre y Carlos cedió sus derechos al emperador, quien nombró rey a José Bonaparte. La <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">resistencia estalló</button> en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>. El Estatuto de <button type="button" class="timeline-detail-geolink" data-region="Bayona, Francia" data-country="Francia">Bayona</button>, otorgado el 7 de julio, impuso reformas sin soberanía popular.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Carlos IV y Godoy hubieran negado el paso a las tropas francesas?",
+      answer:
+        "Napoleón pudo haber invadido igualmente, pero habría encontrado desde el principio a España como enemiga declarada, no como aliada engañada. Sin Fontainebleau, la ocupación habría carecido de su cobertura legal inicial y la crisis entre Carlos IV y Fernando VII quizá no habría entregado la Corona en Bayona."
+    }
+  },
+
+  {
+    id: "guerra-independencia-cadiz-1808",
+    year: 1808,
+    month: 5,
+    day: 2,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Keeps the connected 1807 and 1808 cards separate.
+    trackYear: 1809,
+    title: "2 de mayo de 1808: España resiste y Cádiz redefine la soberanía",
+    author: "Guerra de la Independencia y Cortes de Cádiz",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 2 de mayo de 1808, habitantes de Madrid se alzaron contra las tropas francesas que intentaban trasladar al infante Francisco de Paula. La represión ordenada por Murat y los fusilamientos del día siguiente convirtieron Madrid en símbolo de una resistencia extendida por juntas, guerrillas y ejércitos. La guerra fue internacional —España, Portugal y Gran Bretaña contra Francia—, pero también civil, local y religiosa: españoles combatieron en ambos bandos y el clero movilizó comunidades. En Cádiz, las Cortes promulgaron el 19 de marzo de 1812 una Constitución basada en soberanía nacional y separación de poderes.",
+    descriptionHtml:
+      'El 2 de mayo de 1808, habitantes de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> se alzaron contra las <button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">tropas francesas</button> que intentaban trasladar al infante Francisco de Paula. La <button type="button" class="timeline-detail-entrylink" data-id="goya-1746">represión ordenada por Murat y los fusilamientos del día siguiente</button> convirtieron <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> en símbolo de una resistencia extendida por juntas, guerrillas y ejércitos. La guerra fue internacional —<button type="button" class="timeline-detail-geolink" data-country="España">España</button>, <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button> y <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button> contra <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>—, pero también civil, local y religiosa: españoles combatieron en ambos bandos y el clero movilizó comunidades. En <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button>, las Cortes promulgaron el 19 de marzo de 1812 una <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">Constitución</button> basada en soberanía nacional y separación de poderes.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si las Cortes no hubieran podido reunirse en Cádiz durante la guerra?",
+      answer:
+        "La resistencia habría conservado su dimensión militar, pero carecería de un proyecto político común capaz de afirmar que la soberanía pertenecía a la nación. Sin la Constitución de 1812, el liberalismo español e hispanoamericano habría perdido su texto de referencia más influyente."
+    }
+  },
+
+  {
+    id: "riego-trienio-liberal-1820",
+    year: 1820,
+    month: 1,
+    day: 1,
+    title: "1 de enero de 1820: Riego abre el Trienio Liberal",
+    author: "Rafael del Riego y Fernando VII",
+    country: "España",
+    region: "Las Cabezas de San Juan",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT, ICON_TYPE.ROYAL],
+    description:
+      "Fernando VII volvió a España en 1814 y anuló la Constitución de Cádiz, inaugurando el Sexenio Absolutista. El 1 de enero de 1820, Rafael del Riego se pronunció en Las Cabezas de San Juan con tropas destinadas a sofocar las independencias americanas. Otros levantamientos extendieron la rebelión y el rey aceptó restituir la Constitución en marzo: comenzó el Trienio Liberal, que reabrió las Cortes y reanudó reformas. En 1823, los Cien Mil Hijos de San Luis invadieron desde Francia, restauraron el absolutismo y abrieron la Década Ominosa. Fernando gobernó con represión hasta morir en 1833.",
+    descriptionHtml:
+      '<button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">Fernando VII</button> volvió a <button type="button" class="timeline-detail-geolink" data-country="España">España</button> en 1814 y anuló la <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">Constitución</button> de <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button>, inaugurando el Sexenio Absolutista. El 1 de enero de 1820, Rafael del Riego se pronunció en <button type="button" class="timeline-detail-geolink" data-region="Las Cabezas de San Juan" data-country="España">Las Cabezas de San Juan</button> con tropas destinadas a sofocar las <button type="button" class="timeline-detail-entrylink" data-id="carta-de-jamaica-1815">independencias</button> <button type="button" class="timeline-detail-geolink" data-region="América española">americanas</button>. Otros levantamientos extendieron la rebelión y el rey aceptó restituir la Constitución en marzo: comenzó el Trienio Liberal, que reabrió las Cortes y reanudó reformas. En 1823, los <button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">Cien Mil Hijos de San Luis</button> invadieron desde <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>, restauraron el absolutismo y abrieron la Década Ominosa. Fernando gobernó con represión hasta <button type="button" class="timeline-detail-entrylink" data-id="muerte-fernando-vii-carlismo-1833">morir en 1833</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si el pronunciamiento de Riego no hubiera prendido fuera de Andalucía?",
+      answer:
+        "Fernando VII probablemente habría conservado el absolutismo sin interrupción y el ejército expedicionario habría intentado partir hacia América. La Constitución de 1812 no habría vivido su segundo ensayo, y los liberales españoles habrían perdido tres años decisivos de legislación, prensa y práctica parlamentaria."
+    }
+  },
+
+  {
+    id: "muerte-fernando-vii-carlismo-1833",
+    year: 1833,
+    month: 9,
+    day: 29,
+    title: "29 de septiembre de 1833: la sucesión abre la guerra carlista",
+    author: "María Cristina, Isabel II y Carlos María Isidro",
+    country: "España",
+    region: "La Granja de San Ildefonso",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "Fernando VII murió en La Granja de San Ildefonso el 29 de septiembre de 1833 sin hijo varón. Isabel II, de tres años, heredó la Corona bajo la regencia de su madre, María Cristina de Borbón. Carlos María Isidro, hermano del rey, rechazó la sucesión femenina; sus partidarios lo proclamaron Carlos V. La disputa abrió la Primera Guerra Carlista: defensores de la monarquía tradicional y los fueros combatieron a los isabelinos, cuyo gobierno buscó apoyo liberal. La regencia aceleró reformas, desamortización y constitucionalismo, mientras la guerra arraigaba especialmente en Navarra, País Vasco, Cataluña y Maestrazgo.",
+    descriptionHtml:
+      '<button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">Fernando VII</button> murió en <button type="button" class="timeline-detail-geolink" data-region="La Granja de San Ildefonso" data-country="España">La Granja de San Ildefonso</button> el 29 de septiembre de 1833 sin hijo varón. <button type="button" class="timeline-detail-entrylink" data-id="isabel-ii-gobierno-personal-1843">Isabel II</button>, de tres años, heredó la Corona bajo la regencia de su madre, María Cristina de Borbón. Carlos María Isidro, hermano del rey, rechazó la sucesión femenina; sus partidarios lo proclamaron Carlos V. La disputa abrió la Primera Guerra Carlista: defensores de la monarquía tradicional y los fueros combatieron a los isabelinos, cuyo gobierno buscó <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">apoyo liberal</button>. La regencia aceleró reformas, desamortización y constitucionalismo, mientras la guerra arraigaba especialmente en <button type="button" class="timeline-detail-geolink" data-region="Navarra" data-country="España">Navarra</button>, <button type="button" class="timeline-detail-geolink" data-region="País Vasco" data-country="España">País Vasco</button>, <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">Cataluña</button> y <button type="button" class="timeline-detail-geolink" data-region="Maestrazgo" data-country="España">Maestrazgo</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Fernando VII hubiera dejado un heredero varón?",
+      answer:
+        "Carlos María Isidro habría perdido su principal argumento dinástico y la Primera Guerra Carlista quizá no habría estallado en 1833. Sin embargo, la lucha entre absolutismo, fueros y liberalismo ya existía; probablemente habría reaparecido mediante otro conflicto político o militar."
+    }
+  },
+
+  {
+    id: "isabel-ii-gobierno-personal-1843",
+    year: 1843,
+    month: 11,
+    day: 10,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Prevents clustering with the 1842 Uruguay point.
+    trackYear: 1843.3,
+    title: "10 de noviembre de 1843: Isabel II comienza su gobierno personal",
+    author: "Isabel II",
+    country: "España",
+    region: "Palacio del Senado",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "Las Cortes declararon mayor de edad a Isabel II cuando tenía trece años, adelantando su mayoría para terminar la regencia de Espartero. El 10 de noviembre de 1843 juró la Constitución de 1837 en el Palacio del Senado de Madrid y comenzó su gobierno personal. Su reinado consolidó una monarquía liberal, pero restringida: moderados y progresistas se alternaron mediante pronunciamientos y elecciones manipuladas. La Constitución de 1845 reforzó la Corona y el centralismo; reformas administrativas, ferrocarriles y crecimiento urbano modernizaron España, mientras corrupción, desigualdad y exclusión política alimentaron una oposición que acabaría expulsándola en 1868.",
+    descriptionHtml:
+      'Las Cortes declararon mayor de edad a <button type="button" class="timeline-detail-entrylink" data-id="muerte-fernando-vii-carlismo-1833">Isabel II</button> cuando tenía trece años, adelantando su mayoría para terminar la regencia de Espartero. El 10 de noviembre de 1843 juró la Constitución de 1837 en el <button type="button" class="timeline-detail-geolink" data-region="Palacio del Senado" data-country="España">Palacio del Senado</button> de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> y comenzó su gobierno personal. Su reinado consolidó una monarquía liberal, pero restringida: moderados y progresistas se alternaron mediante <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">pronunciamientos</button> y elecciones manipuladas. La Constitución de 1845 reforzó la Corona y el centralismo; reformas administrativas, ferrocarriles y crecimiento urbano modernizaron <button type="button" class="timeline-detail-geolink" data-country="España">España</button>, mientras corrupción, desigualdad y exclusión política alimentaron una oposición que acabaría <button type="button" class="timeline-detail-entrylink" data-id="revolucion-gloriosa-1868">expulsándola en 1868</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Isabel II hubiera permanecido bajo una regencia hasta la edad constitucional?",
+      answer:
+        "El poder habría seguido disputándose alrededor del regente y las facciones militares durante varios años más. Declararla adulta a los trece resolvió la regencia sobre el papel, pero trasladó esa inestabilidad directamente a una reina adolescente sin experiencia propia de gobierno."
+    }
+  },
+
+  {
+    id: "revolucion-gloriosa-1868",
+    year: 1868,
+    month: 9,
+    day: 18,
+    title: "18 de septiembre de 1868: la Gloriosa destrona a Isabel II",
+    author: "Topete, Prim y Serrano",
+    country: "España",
+    region: "Cádiz",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "El 18 de septiembre de 1868, la Armada se pronunció en Cádiz bajo Juan Bautista Topete; Juan Prim y Francisco Serrano encabezaron una coalición de progresistas, demócratas y unionistas contra Isabel II. Tras la derrota en Alcolea, la reina cruzó desde San Sebastián a Francia el 30 de septiembre. La Gloriosa derribó su régimen, formó juntas y un Gobierno Provisional e inauguró el Sexenio Democrático. La Constitución de 1869 reconoció sufragio universal masculino, derechos y libertad religiosa dentro de una monarquía parlamentaria. La revolución aceleró el liberalismo, pero abrió una búsqueda de rey y régimen.",
+    descriptionHtml:
+      'El 18 de septiembre de 1868, la Armada se pronunció en <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button> bajo Juan Bautista Topete; Juan Prim y Francisco Serrano encabezaron una coalición de progresistas, demócratas y unionistas contra <button type="button" class="timeline-detail-entrylink" data-id="isabel-ii-gobierno-personal-1843">Isabel II</button>. Tras la derrota en <button type="button" class="timeline-detail-geolink" data-region="Alcolea" data-country="España">Alcolea</button>, la reina cruzó desde <button type="button" class="timeline-detail-geolink" data-region="San Sebastián" data-country="España">San Sebastián</button> a <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button> el 30 de septiembre. La Gloriosa derribó su régimen, formó juntas y un Gobierno Provisional e inauguró el Sexenio Democrático. La <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">Constitución de 1869</button> reconoció sufragio universal masculino, derechos y libertad religiosa dentro de una monarquía parlamentaria. La revolución aceleró el liberalismo, pero abrió una búsqueda de rey y régimen.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si las fuerzas de Isabel II hubieran vencido en Alcolea?",
+      answer:
+        "La reina habría conservado el trono temporalmente, pero la coalición contra su régimen y la crisis de legitimidad seguirían abiertas. La Constitución democrática de 1869, el sufragio universal masculino y la búsqueda de una nueva monarquía habrían quedado aplazados o adoptado otra vía."
     }
   },
 
@@ -2898,6 +3140,9 @@ const TIMELINE_ENTRIES = [
   {
     id: "goya-aquelarre-1798",
     year: 1798,
+    // Real date; nudged track position only — see trackYear comment in
+    // timeline.js. Part of the re-spaced 1788–1807 sequence.
+    trackYear: 1797.5,
     title: "1798: Goya pinta El aquelarre",
     author: "Francisco de Goya",
     authorEntryId: "goya-1746",
@@ -3171,7 +3416,7 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Part of the chain described at
     // bois-caiman-revuelta-1791.
-    trackYear: 1793.2,
+    trackYear: 1791.3,
     endYear: 1796,
     title: "1796: derrota garífuna y el horror de Balliceaux",
     author: "Hito histórico",
@@ -3189,7 +3434,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "garifuna-llegada-roatan-1797",
     year: 1797,
-    trackYear: 1798,
+    trackYear: 1794.4,
     title: "12 de abril de 1797: los garífunas llegan a Honduras",
     author: "Hito histórico",
     country: "Honduras",
@@ -3209,10 +3454,9 @@ const TIMELINE_ENTRIES = [
     id: "bois-caiman-revuelta-1791",
     year: 1791,
     // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. Now an 8-point chain — pueblo-de-los-44-1781 was
-    // added to the front in 2026 — spread across the available room
-    // between the untouched 1773 and 1813 entries on either side.
-    trackYear: 1783.7,
+    // timeline.js. Re-spaced with the new Spanish royal-crisis sequence
+    // so every point from 1788 through 1807 remains independently clickable.
+    trackYear: 1785.1,
     title: "1791: la ceremonia de Bois Caïman y el estallido de la revuelta",
     author: "Hito histórico",
     country: "Haití",
@@ -3230,7 +3474,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "sonthonax-convencion-abolicion-1794",
     year: 1794,
-    trackYear: 1788.4,
+    trackYear: 1788.2,
     title: "1794: Francia abole la esclavitud en Saint-Domingue",
     author: "Hito histórico",
     country: "Haití",
@@ -3247,7 +3491,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "expedicion-leclerc-toussaint-1802",
     year: 1802,
-    trackYear: 1802.8,
+    trackYear: 1800.6,
     title: "1802: Napoleón envía a Leclerc a restaurar la esclavitud",
     author: "Hito histórico",
     country: "Haití",
@@ -3266,7 +3510,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "haiti-independencia-1804",
     year: 1804,
-    trackYear: 1807.6,
+    trackYear: 1803.7,
     title: "1804: Haití declara su independencia y abole la esclavitud para siempre",
     author: "Hito histórico",
     country: "Haití",
