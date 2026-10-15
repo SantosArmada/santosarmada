@@ -746,7 +746,8 @@ const COUNTRY_CENTER = {
     'Corea del Sur': { lat: 36.50, lng: 127.90 },
     'Bélgica': { lat: 50.85, lng: 4.35 },
     'Países Bajos': { lat: 52.13, lng: 5.29 },
-    'Austria': { lat: 47.52, lng: 14.55 }
+    'Austria': { lat: 47.52, lng: 14.55 },
+    'Irlanda': { lat: 53.14, lng: -7.69 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -799,6 +800,7 @@ const REGION_CENTER = {
     'Simancas': { lat: 41.59, lng: -4.83 },
     'África': { lat: 5.00, lng: 20.00 },
     'América española': { lat: 8.00, lng: -72.00 },
+    'Caribe': { lat: 18.00, lng: -75.00 },
     'Gibraltar': { lat: 36.14, lng: -5.35 },
     'San Roque': { lat: 36.21, lng: -5.38 },
     'Vélez-Málaga': { lat: 36.78, lng: -4.10 },
