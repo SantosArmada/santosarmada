@@ -1332,7 +1332,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Carlos II murió sin descendencia el 1 de noviembre de 1700, extinguiendo la rama española de los Habsburgo. Su testamento legó indivisa la monarquía a Felipe de Anjou, nieto de Luis XIV, con la condición de impedir su unión con Francia. Felipe entró en Madrid en 1701 como Felipe V. Sus derechos franceses y la ocupación de fortalezas en los Países Bajos españoles alarmaron a Inglaterra, las Provincias Unidas y Austria, que formaron la Gran Alianza en La Haya. La guerra se generalizó en 1702 y concluyó en 1714, consolidando la dinastía borbónica.",
     descriptionHtml:
-      'Carlos II murió sin descendencia el 1 de noviembre de 1700, extinguiendo la rama española de los Habsburgo. Su testamento legó indivisa la monarquía a Felipe de Anjou, nieto de Luis XIV, con la condición de impedir su unión con <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>. Felipe entró en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> en 1701 como Felipe V. Sus derechos franceses y la ocupación de fortalezas en los <button type="button" class="timeline-detail-geolink" data-region="Países Bajos españoles" data-country="Bélgica">Países Bajos españoles</button> alarmaron a <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Inglaterra</button>, las <button type="button" class="timeline-detail-geolink" data-country="Países Bajos">Provincias Unidas</button> y <button type="button" class="timeline-detail-geolink" data-country="Austria">Austria</button>, que formaron la Gran Alianza en <button type="button" class="timeline-detail-geolink" data-region="La Haya" data-country="Países Bajos">La Haya</button>. La guerra se generalizó en 1702 y concluyó en 1714, consolidando la dinastía borbónica.',
+      'Carlos II murió sin descendencia el 1 de noviembre de 1700, extinguiendo la rama española de los Habsburgo. Su testamento legó indivisa la monarquía a Felipe de Anjou, nieto de Luis XIV, con la condición de impedir su unión con <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>. Felipe entró en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> en 1701 como Felipe V. Sus derechos franceses y la ocupación de fortalezas en los <button type="button" class="timeline-detail-geolink" data-region="Países Bajos españoles" data-country="Bélgica">Países Bajos españoles</button> alarmaron a <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Inglaterra</button>, las <button type="button" class="timeline-detail-geolink" data-country="Países Bajos">Provincias Unidas</button> y <button type="button" class="timeline-detail-geolink" data-country="Austria">Austria</button>, que formaron la Gran Alianza en <button type="button" class="timeline-detail-geolink" data-region="La Haya" data-country="Países Bajos">La Haya</button>. La guerra se generalizó en 1702 y concluyó en <button type="button" class="timeline-detail-entrylink" data-id="caida-barcelona-diada-1714">1714</button>, consolidando la dinastía borbónica.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si Carlos II hubiera repartido la monarquía entre los aspirantes europeos?",
       answer:
@@ -1375,9 +1375,9 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.CONFLICT,
     types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
     description:
-      "El 20 de junio de 1705, Antoni de Peguera y Domènec Perera, autorizados por los Vigatans —no por las instituciones catalanas—, firmaron en Génova un pacto con el enviado inglés Mitford Crowe. Inglaterra prometía tropas y protección de las constituciones catalanas; ellos, una rebelión a favor del archiduque Carlos. La flota aliada desembarcó cerca de Barcelona. Tras tomar Montjuïc, donde murió Jorge de Hesse-Darmstadt, Barcelona capituló el 9 de octubre y Carlos entró el día 22. La alianza convirtió Cataluña en centro austracista y alimentó después la memoria del abandono inglés en Utrecht.",
+      "El 20 de junio de 1705, Antoni de Peguera y Domènec Perera, autorizados por los Vigatans —no por las instituciones catalanas—, firmaron en Génova un pacto con el enviado inglés Mitford Crowe. Inglaterra prometía tropas y protección de las constituciones catalanas; ellos, una rebelión a favor del archiduque Carlos. La flota aliada desembarcó cerca de Barcelona. Tras tomar Montjuïc, donde murió Jorge de Hesse-Darmstadt, Barcelona capituló el 9 de octubre y Carlos entró el día 22. La alianza convirtió Cataluña en centro austracista y alimentó la memoria del abandono inglés antes de 1714.",
     descriptionHtml:
-      'El 20 de junio de 1705, Antoni de Peguera y Domènec Perera, autorizados por los <button type="button" class="timeline-detail-geolink" data-region="Vic" data-country="España">Vigatans</button> —no por las instituciones catalanas—, firmaron en <button type="button" class="timeline-detail-geolink" data-region="Génova" data-country="Italia">Génova</button> un pacto con el enviado inglés Mitford Crowe. <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Inglaterra</button> prometía tropas y protección de las constituciones catalanas; ellos, una rebelión a favor del <button type="button" class="timeline-detail-entrylink" data-id="sucesion-espanola-borbones-1700">archiduque Carlos</button>. La flota aliada desembarcó cerca de <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button>. Tras tomar <button type="button" class="timeline-detail-geolink" data-region="Montjuïc" data-country="España">Montjuïc</button>, donde murió Jorge de Hesse-Darmstadt, Barcelona capituló el 9 de octubre y Carlos entró el día 22. La alianza convirtió <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">Cataluña</button> en centro austracista y alimentó después la memoria del abandono inglés en <button type="button" class="timeline-detail-geolink" data-region="Utrecht" data-country="Países Bajos">Utrecht</button>.',
+      'El 20 de junio de 1705, Antoni de Peguera y Domènec Perera, autorizados por los <button type="button" class="timeline-detail-geolink" data-region="Vic" data-country="España">Vigatans</button> —no por las instituciones catalanas—, firmaron en <button type="button" class="timeline-detail-geolink" data-region="Génova" data-country="Italia">Génova</button> un pacto con el enviado inglés Mitford Crowe. <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Inglaterra</button> prometía tropas y protección de las constituciones catalanas; ellos, una rebelión a favor del <button type="button" class="timeline-detail-entrylink" data-id="sucesion-espanola-borbones-1700">archiduque Carlos</button>. La flota aliada desembarcó cerca de <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button>. Tras tomar <button type="button" class="timeline-detail-geolink" data-region="Montjuïc" data-country="España">Montjuïc</button>, donde murió Jorge de Hesse-Darmstadt, Barcelona capituló el 9 de octubre y Carlos entró el día 22. La alianza convirtió <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">Cataluña</button> en centro austracista y alimentó la memoria del abandono inglés antes de <button type="button" class="timeline-detail-entrylink" data-id="caida-barcelona-diada-1714">1714</button>.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si los Vigatans no hubieran firmado el Pacto de Génova?",
       answer:
@@ -1432,6 +1432,28 @@ const TIMELINE_ENTRIES = [
   },
 
   {
+    id: "jose-i-muerte-carlos-vi-1711",
+    year: 1711,
+    month: 4,
+    day: 17,
+    title: "17 de abril de 1711: Carlos hereda el Imperio",
+    author: "José I y Carlos VI",
+    country: "Austria",
+    region: "Viena",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
+    description:
+      "El 17 de abril de 1711 murió el emperador José I. Su hermano, el archiduque Carlos, heredó los dominios austríacos y fue elegido emperador Carlos VI en octubre. Una posible unión de Austria y España alarmó a Gran Bretaña tanto como la unión de Francia y España que había provocado la guerra. Londres redujo su apoyo a Carlos y negoció separadamente con Francia, acelerando el camino hacia la paz de Utrecht.",
+    descriptionHtml:
+      'El 17 de abril de 1711 murió el emperador José I. Su hermano, el <button type="button" class="timeline-detail-entrylink" data-id="segunda-ocupacion-madrid-1710">archiduque Carlos</button>, heredó los dominios <button type="button" class="timeline-detail-geolink" data-country="Austria">austríacos</button> y fue elegido emperador Carlos VI en octubre. Una posible unión de <button type="button" class="timeline-detail-geolink" data-country="Austria">Austria</button> y <button type="button" class="timeline-detail-geolink" data-country="España">España</button> alarmó a <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button> tanto como la unión de <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button> y <button type="button" class="timeline-detail-geolink" data-country="España">España</button> que había provocado la guerra. <button type="button" class="timeline-detail-geolink" data-region="Londres" data-country="Reino Unido">Londres</button> redujo su apoyo a Carlos y negoció separadamente con <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>, acelerando el camino hacia la paz de <button type="button" class="timeline-detail-geolink" data-region="Utrecht" data-country="Países Bajos">Utrecht</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si José I hubiera sobrevivido a 1711?",
+      answer:
+        "Carlos habría continuado aspirando a España sin sumar la herencia austríaca y la corona imperial. Gran Bretaña habría tenido menos motivos para abandonar la alianza, y la guerra o las condiciones de paz podrían haberse prolongado."
+    }
+  },
+
+  {
     id: "junipero-serra-nace-1713",
     year: 1713,
     title: "1713: nace fray Junípero Serra en Mallorca",
@@ -1447,6 +1469,29 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si Serra se hubiera quedado enseñando filosofía en Mallorca en lugar de embarcarse hacia Nueva España en 1749?",
       answer:
         "España probablemente habría enviado a otro misionero franciscano a Alta California de cualquier modo: la amenaza rusa desde el norte, no la vocación personal de Serra, fue lo que finalmente empujó a la Corona a ocupar el territorio en 1769. Pero el carácter específico de esa ocupación —el celo evangelizador, la disciplina de la Sierra Gorda aplicada sin concesiones a los pueblos de California, las nueve misiones fundadas en apenas quince años— lleva la huella de un solo hombre. Sin Serra, California tendría misiones, pero no necesariamente esta California."
+    }
+  },
+
+  {
+    id: "caida-barcelona-diada-1714",
+    year: 1714,
+    month: 9,
+    day: 11,
+    title: "11 de septiembre de 1714: cae Barcelona",
+    author: "Barcelona y la resistencia catalana",
+    country: "España",
+    region: "Barcelona",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "Tras la retirada aliada, la Junta de Brazos de Cataluña decidió en julio de 1713 continuar la guerra sin aliados. Barcelona soportó catorce meses de sitio por fuerzas borbónicas francesas y españolas. El 11 de septiembre de 1714, las tropas del duque de Berwick lanzaron el asalto final; Rafael Casanova cayó herido defendiendo la ciudad, que capituló esa tarde. Al día siguiente fueron suprimidos la Diputación del General y el Consell de Cent; la Nueva Planta abolió después el orden constitucional catalán. La fecha se conmemora hoy como la Diada Nacional de Catalunya.",
+    descriptionHtml:
+      'Tras la <button type="button" class="timeline-detail-entrylink" data-id="jose-i-muerte-carlos-vi-1711">retirada aliada</button>, la Junta de Brazos de <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">Cataluña</button> decidió en julio de 1713 continuar la guerra sin aliados. <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button> soportó catorce meses de sitio por fuerzas borbónicas <button type="button" class="timeline-detail-geolink" data-country="Francia">francesas</button> y <button type="button" class="timeline-detail-geolink" data-country="España">españolas</button>. El 11 de septiembre de 1714, las tropas del duque de Berwick lanzaron el asalto final; Rafael Casanova cayó herido defendiendo la ciudad, que capituló esa tarde. Al día siguiente fueron suprimidos la Diputación del General y el Consell de Cent; la Nueva Planta abolió después el orden constitucional catalán. La fecha se conmemora hoy como la Diada Nacional de Catalunya.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Barcelona hubiera capitulado en 1713?",
+      answer:
+        "La ciudad habría evitado catorce meses de sitio, miles de bajas y parte de su destrucción material, pero la Corona borbónica probablemente habría impuesto igualmente una reorganización centralizadora. Sin la resistencia final, el 11 de septiembre difícilmente habría adquirido su fuerza como símbolo político y día nacional."
     }
   },
 
@@ -1470,6 +1515,98 @@ const TIMELINE_ENTRIES = [
         "La isla probablemente habría permanecido fuera de los mapas europeos hasta la expedición española de Felipe González de Haedo en 1770, conservando casi medio siglo más de aislamiento. Los moai no habrían dejado de existir ni de pertenecer a la memoria rapanui, pero su primera descripción europea habría sido española y la isla quizá habría entrado en la cartografía occidental como San Carlos, no como Isla de Pascua."
     }
   },
+  {
+    id: "fernando-vi-neutralidad-armada-1746",
+    year: 1746,
+    month: 7,
+    day: 9,
+    title: "9 de julio de 1746: Fernando VI elige la neutralidad",
+    author: "Fernando VI, Carvajal y Ensenada",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "Fernando VI sucedió a Felipe V el 9 de julio de 1746. Hijo de María Luisa de Saboya, revirtió la política italiana impulsada durante el segundo matrimonio de su padre con Isabel de Farnesio. Tras Aix-la-Chapelle (1748), que aseguró Parma, Plasencia y Guastalla para el infante Felipe, José de Carvajal y el marqués de la Ensenada sostuvieron una neutralidad entre Francia y Gran Bretaña. La paz fortaleció el Estado y la Armada: Ensenada impulsó la construcción naval y los arsenales de Ferrol, Cartagena y La Carraca, preparando poder sin entrar en otra guerra.",
+    descriptionHtml:
+      'Fernando VI sucedió a <button type="button" class="timeline-detail-entrylink" data-id="sucesion-espanola-borbones-1700">Felipe V</button> el 9 de julio de 1746. Hijo de María Luisa de <button type="button" class="timeline-detail-geolink" data-region="Saboya" data-country="Italia">Saboya</button>, revirtió la política <button type="button" class="timeline-detail-geolink" data-country="Italia">italiana</button> impulsada durante el segundo matrimonio de su padre con Isabel de Farnesio. Tras <button type="button" class="timeline-detail-geolink" data-region="Aquisgrán" data-country="Alemania">Aix-la-Chapelle</button> (1748), que aseguró <button type="button" class="timeline-detail-geolink" data-region="Parma" data-country="Italia">Parma</button>, <button type="button" class="timeline-detail-geolink" data-region="Piacenza" data-country="Italia">Plasencia</button> y <button type="button" class="timeline-detail-geolink" data-region="Guastalla" data-country="Italia">Guastalla</button> para el infante Felipe, José de Carvajal y el marqués de la Ensenada sostuvieron una neutralidad entre <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button> y <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button>. La paz fortaleció el Estado y la Armada: Ensenada impulsó la construcción naval y los arsenales de <button type="button" class="timeline-detail-geolink" data-region="Ferrol" data-country="España">Ferrol</button>, <button type="button" class="timeline-detail-geolink" data-region="Cartagena" data-country="España">Cartagena</button> y <button type="button" class="timeline-detail-geolink" data-region="La Carraca" data-country="España">La Carraca</button>, preparando poder sin entrar en otra guerra.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Fernando VI hubiera continuado las guerras italianas de Felipe V?",
+      answer:
+        "España habría consumido en nuevas campañas los recursos que Ensenada destinó a astilleros, arsenales y administración. La neutralidad no eliminó la rivalidad con Francia y Gran Bretaña, pero dio a la monarquía un intervalo excepcional para reconstruir su capacidad naval."
+    }
+  },
+
+  {
+    id: "catastro-ensenada-1749",
+    year: 1749,
+    month: 10,
+    day: 10,
+    title: "10 de octubre de 1749: comienza el Catastro de Ensenada",
+    author: "Marqués de la Ensenada",
+    country: "España",
+    region: "Castilla",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.VISION],
+    description:
+      "El Real Decreto del 10 de octubre de 1749 puso en marcha el Catastro de Ensenada, una investigación de bienes, rentas, cargas y población en la Corona de Castilla. Sus cuarenta preguntas debían permitir sustituir las rentas provinciales por una Única Contribución proporcional a la riqueza. La oposición de los privilegiados impidió aplicar el impuesto. Sus Respuestas Generales, conservadas en Simancas, son hoy una fuente excepcional sobre la economía y sociedad castellanas del siglo XVIII.",
+    descriptionHtml:
+      'El Real Decreto del 10 de octubre de 1749 puso en marcha el <button type="button" class="timeline-detail-entrylink" data-id="fernando-vi-neutralidad-armada-1746">Catastro de Ensenada</button>, una investigación de bienes, rentas, cargas y población en la <button type="button" class="timeline-detail-geolink" data-region="Castilla" data-country="España">Corona de Castilla</button>. Sus cuarenta preguntas debían permitir sustituir las rentas provinciales por una Única Contribución proporcional a la riqueza. La oposición de los privilegiados impidió aplicar el impuesto. Sus Respuestas Generales, conservadas en <button type="button" class="timeline-detail-geolink" data-region="Simancas" data-country="España">Simancas</button>, son hoy una fuente excepcional sobre la economía y sociedad castellanas del siglo XVIII.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si la Única Contribución se hubiera aplicado?",
+      answer:
+        "La Corona habría sustituido numerosos gravámenes indirectos por un impuesto basado en la riqueza registrada, reduciendo algunos privilegios fiscales y transformando antes la Hacienda castellana. La resistencia que frustró el proyecto demuestra precisamente cuánto poder conservaban los grupos exentos."
+    }
+  },
+
+  {
+    id: "tratado-madrid-asiento-1750",
+    year: 1750,
+    month: 10,
+    day: 5,
+    title: "5 de octubre de 1750: España rescata el asiento británico",
+    author: "Fernando VI y Gran Bretaña",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ECHO],
+    description:
+      "El 5 de octubre de 1750 España y Gran Bretaña firmaron en Madrid un tratado que canceló dos privilegios británicos obtenidos en Utrecht: el navío de permiso y el asiento de negros. El asiento no era soberanía territorial, sino el monopolio concedido a la South Sea Company para transportar y vender personas africanas esclavizadas en la América española. España pagó £100,000 para extinguir el contrato y resolver reclamaciones pendientes. El acuerdo cerró una fuente constante de contrabando y conflicto imperial; no abolió la esclavitud ni la trata, que continuaron bajo otros comerciantes y sistemas.",
+    descriptionHtml:
+      'El 5 de octubre de 1750 <button type="button" class="timeline-detail-geolink" data-country="España">España</button> y <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button> firmaron en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> un <button type="button" class="timeline-detail-entrylink" data-id="fernando-vi-neutralidad-armada-1746">tratado</button> que canceló dos privilegios británicos obtenidos en <button type="button" class="timeline-detail-geolink" data-region="Utrecht" data-country="Países Bajos">Utrecht</button>: el navío de permiso y el asiento de negros. El asiento no era soberanía territorial, sino el monopolio concedido a la South Sea Company para transportar y vender personas <button type="button" class="timeline-detail-geolink" data-region="África">africanas</button> esclavizadas en la <button type="button" class="timeline-detail-geolink" data-region="América española">América española</button>. España pagó £100,000 para extinguir el contrato y resolver reclamaciones pendientes. El acuerdo cerró una fuente constante de contrabando y conflicto imperial; no abolió la esclavitud ni la trata, que continuaron bajo otros comerciantes y sistemas.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Gran Bretaña hubiera conservado el asiento?",
+      answer:
+        "La South Sea Company habría mantenido durante algunos años más una entrada legal al mercado colonial español y una cobertura útil para el contrabando. La continuidad del contrato habría prolongado además la participación oficial británica en ese circuito concreto de tráfico de personas esclavizadas."
+    }
+  },
+
+  {
+    id: "concordato-regalismo-1753",
+    year: 1753,
+    month: 1,
+    day: 11,
+    title: "11 de enero de 1753: el Concordato y el regalismo",
+    author: "Fernando VI y Benedicto XIV",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 11 de enero de 1753 Fernando VI y Benedicto XIV firmaron en Roma un concordato: un tratado entre la Corona y la Santa Sede. Hasta entonces Roma reservaba para sí muchos beneficios eclesiásticos —cargos con renta, desde canonjías hasta parroquias—. El acuerdo permitió al rey presentar candidatos para casi todos; la autoridad eclesiástica aún realizaba la institución canónica y el papa conservó 52 beneficios. Esto fue regalismo: ampliar la intervención del Estado monárquico en la Iglesia sin romper con Roma. Controlar los nombramientos también significaba distribuir influencia, carreras e ingresos.",
+    descriptionHtml:
+      'El 11 de enero de 1753 <button type="button" class="timeline-detail-entrylink" data-id="fernando-vi-neutralidad-armada-1746">Fernando VI</button> y Benedicto XIV firmaron en <button type="button" class="timeline-detail-geolink" data-region="Roma" data-country="Italia">Roma</button> un concordato: un tratado entre la <button type="button" class="timeline-detail-geolink" data-country="España">Corona</button> y la <button type="button" class="timeline-detail-geolink" data-region="Roma" data-country="Italia">Santa Sede</button>. Hasta entonces Roma reservaba para sí muchos beneficios eclesiásticos —cargos con renta, desde canonjías hasta parroquias—. El acuerdo permitió al rey presentar candidatos para casi todos; la autoridad eclesiástica aún realizaba la institución canónica y el papa conservó 52 beneficios. Esto fue regalismo: ampliar la intervención del Estado monárquico en la Iglesia sin romper con Roma. Controlar los nombramientos también significaba distribuir influencia, carreras e ingresos.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Roma hubiera conservado la provisión de esos beneficios?",
+      answer:
+        "La Santa Sede habría mantenido una red mayor de nombramientos e ingresos dentro de España, mientras la Corona habría contado con menos cargos para premiar servicios y orientar la administración eclesiástica. El regalismo borbónico habría encontrado un límite institucional mucho más fuerte."
+    }
+  },
+
   {
     id: "portola-expedicion-san-diego-1769",
     year: 1769,
