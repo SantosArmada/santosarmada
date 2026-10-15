@@ -743,7 +743,10 @@ const COUNTRY_CENTER = {
     'Ucrania': { lat: 48.38, lng: 31.17 },
     'Alemania': { lat: 51.17, lng: 10.45 },
     'Grecia': { lat: 39.07, lng: 21.82 },
-    'Corea del Sur': { lat: 36.50, lng: 127.90 }
+    'Corea del Sur': { lat: 36.50, lng: 127.90 },
+    'Bélgica': { lat: 50.85, lng: 4.35 },
+    'Países Bajos': { lat: 52.13, lng: 5.29 },
+    'Austria': { lat: 47.52, lng: 14.55 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -781,6 +784,18 @@ const REGION_CENTER = {
     'El Villar, Chuquisaca': { lat: -19.62858, lng: -64.31104 },
     'La Laguna, Chuquisaca': { lat: -19.30760, lng: -64.30401 },
     'Madrid': { lat: 40.42, lng: -3.70 },
+    'Países Bajos españoles': { lat: 50.85, lng: 4.35 },
+    'La Haya': { lat: 52.08, lng: 4.31 },
+    'Gibraltar': { lat: 36.14, lng: -5.35 },
+    'San Roque': { lat: 36.21, lng: -5.38 },
+    'Vélez-Málaga': { lat: 36.78, lng: -4.10 },
+    'Almenar': { lat: 41.80, lng: 0.57 },
+    'Brihuega': { lat: 40.76, lng: -2.87 },
+    'Villaviciosa de Tajuña': { lat: 40.82, lng: -2.89 },
+    'Vic': { lat: 41.93, lng: 2.25 },
+    'Génova': { lat: 44.41, lng: 8.93 },
+    'Montjuïc': { lat: 41.36, lng: 2.17 },
+    'Utrecht': { lat: 52.09, lng: 5.12 },
     'Museo Reina Sofía': { lat: 40.41, lng: -3.69 },
     'Museo Lázaro Galdiano': { lat: 40.44, lng: -3.69 },
     'El Capricho': { lat: 40.46, lng: -3.60 },

@@ -1317,6 +1317,121 @@ const TIMELINE_ENTRIES = [
   },
 
   {
+    id: "sucesion-espanola-borbones-1700",
+    year: 1700,
+    month: 11,
+    day: 1,
+    endYear: 1714,
+    title: "1700–1714: de los Habsburgo a los Borbones",
+    author: "Carlos II y Felipe V",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "Carlos II murió sin descendencia el 1 de noviembre de 1700, extinguiendo la rama española de los Habsburgo. Su testamento legó indivisa la monarquía a Felipe de Anjou, nieto de Luis XIV, con la condición de impedir su unión con Francia. Felipe entró en Madrid en 1701 como Felipe V. Sus derechos franceses y la ocupación de fortalezas en los Países Bajos españoles alarmaron a Inglaterra, las Provincias Unidas y Austria, que formaron la Gran Alianza en La Haya. La guerra se generalizó en 1702 y concluyó en 1714, consolidando la dinastía borbónica.",
+    descriptionHtml:
+      'Carlos II murió sin descendencia el 1 de noviembre de 1700, extinguiendo la rama española de los Habsburgo. Su testamento legó indivisa la monarquía a Felipe de Anjou, nieto de Luis XIV, con la condición de impedir su unión con <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>. Felipe entró en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> en 1701 como Felipe V. Sus derechos franceses y la ocupación de fortalezas en los <button type="button" class="timeline-detail-geolink" data-region="Países Bajos españoles" data-country="Bélgica">Países Bajos españoles</button> alarmaron a <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Inglaterra</button>, las <button type="button" class="timeline-detail-geolink" data-country="Países Bajos">Provincias Unidas</button> y <button type="button" class="timeline-detail-geolink" data-country="Austria">Austria</button>, que formaron la Gran Alianza en <button type="button" class="timeline-detail-geolink" data-region="La Haya" data-country="Países Bajos">La Haya</button>. La guerra se generalizó en 1702 y concluyó en 1714, consolidando la dinastía borbónica.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Carlos II hubiera repartido la monarquía entre los aspirantes europeos?",
+      answer:
+        "Un reparto quizá habría contenido temporalmente la disputa sucesoria, pero habría desmembrado la monarquía que la corte española quiso conservar unida. La llegada de Felipe V vinculó España a la casa de Borbón; la guerra, los tratados de Utrecht y Rastatt y la pérdida de territorios europeos redefinieron después el equilibrio continental."
+    }
+  },
+
+  {
+    id: "toma-gibraltar-1704",
+    year: 1704,
+    month: 8,
+    day: 4,
+    title: "4 de agosto de 1704: la toma de Gibraltar",
+    author: "George Rooke y la Gran Alianza",
+    country: "Reino Unido",
+    region: "Gibraltar",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 4 de agosto de 1704 (24 de julio según el calendario inglés), la flota anglo-neerlandesa de George Rooke tomó Gibraltar tras fracasar ante Barcelona. La plaza, defendida por cientos de hombres al mando de Diego de Salinas, capituló después del bombardeo y desembarco dirigido con Jorge de Hesse-Darmstadt. Fue ocupada nominalmente para Carlos III, pero Inglaterra retuvo el control. La mayoría de habitantes partió; muchos se asentaron en San Roque. El combate de Vélez-Málaga frustró la recuperación borbónica. Utrecht cedió formalmente Gibraltar a Gran Bretaña en 1713, sin mencionar el istmo.",
+    descriptionHtml:
+      'El 4 de agosto de 1704 (24 de julio según el calendario inglés), la flota anglo-neerlandesa de George Rooke tomó <button type="button" class="timeline-detail-geolink" data-region="Gibraltar" data-country="Reino Unido">Gibraltar</button> tras fracasar ante <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button>. La plaza, defendida por cientos de hombres al mando de Diego de Salinas, capituló después del bombardeo y desembarco dirigido con <button type="button" class="timeline-detail-entrylink" data-id="pacto-genova-caida-barcelona-1705">Jorge de Hesse-Darmstadt</button>. Fue ocupada nominalmente para <button type="button" class="timeline-detail-entrylink" data-id="sucesion-espanola-borbones-1700">Carlos III</button>, pero <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Inglaterra</button> retuvo el control. La mayoría de habitantes partió; muchos se asentaron en <button type="button" class="timeline-detail-geolink" data-region="San Roque" data-country="España">San Roque</button>. El combate de <button type="button" class="timeline-detail-geolink" data-region="Vélez-Málaga" data-country="España">Vélez-Málaga</button> frustró la recuperación borbónica. <button type="button" class="timeline-detail-geolink" data-region="Utrecht" data-country="Países Bajos">Utrecht</button> cedió formalmente Gibraltar a <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button> en 1713, sin mencionar el istmo.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si la flota de Rooke no hubiera tomado Gibraltar en 1704?",
+      answer:
+        "La Gran Alianza habría regresado de su campaña mediterránea sin una base en la entrada del estrecho, y Gran Bretaña no habría llegado a Utrecht controlando el enclave que España terminó por cederle. El equilibrio naval del Mediterráneo occidental y tres siglos de relaciones anglo-españolas habrían seguido otra trayectoria."
+    }
+  },
+
+  {
+    id: "pacto-genova-caida-barcelona-1705",
+    year: 1705,
+    month: 6,
+    day: 20,
+    title: "20 de junio de 1705: el Pacto de Génova",
+    author: "Vigatans y aliados austracistas",
+    country: "España",
+    region: "Barcelona",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 20 de junio de 1705, Antoni de Peguera y Domènec Perera, autorizados por los Vigatans —no por las instituciones catalanas—, firmaron en Génova un pacto con el enviado inglés Mitford Crowe. Inglaterra prometía tropas y protección de las constituciones catalanas; ellos, una rebelión a favor del archiduque Carlos. La flota aliada desembarcó cerca de Barcelona. Tras tomar Montjuïc, donde murió Jorge de Hesse-Darmstadt, Barcelona capituló el 9 de octubre y Carlos entró el día 22. La alianza convirtió Cataluña en centro austracista y alimentó después la memoria del abandono inglés en Utrecht.",
+    descriptionHtml:
+      'El 20 de junio de 1705, Antoni de Peguera y Domènec Perera, autorizados por los <button type="button" class="timeline-detail-geolink" data-region="Vic" data-country="España">Vigatans</button> —no por las instituciones catalanas—, firmaron en <button type="button" class="timeline-detail-geolink" data-region="Génova" data-country="Italia">Génova</button> un pacto con el enviado inglés Mitford Crowe. <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Inglaterra</button> prometía tropas y protección de las constituciones catalanas; ellos, una rebelión a favor del <button type="button" class="timeline-detail-entrylink" data-id="sucesion-espanola-borbones-1700">archiduque Carlos</button>. La flota aliada desembarcó cerca de <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button>. Tras tomar <button type="button" class="timeline-detail-geolink" data-region="Montjuïc" data-country="España">Montjuïc</button>, donde murió Jorge de Hesse-Darmstadt, Barcelona capituló el 9 de octubre y Carlos entró el día 22. La alianza convirtió <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">Cataluña</button> en centro austracista y alimentó después la memoria del abandono inglés en <button type="button" class="timeline-detail-geolink" data-region="Utrecht" data-country="Países Bajos">Utrecht</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si los Vigatans no hubieran firmado el Pacto de Génova?",
+      answer:
+        "Sin el compromiso inglés de desembarcar tropas y proteger las constituciones, la rebelión austracista habría carecido de su principal respaldo militar y diplomático. Barcelona quizá no habría caído en 1705, Cataluña difícilmente se habría convertido en la base peninsular de Carlos y el desenlace de 1714 habría seguido otro camino."
+    }
+  },
+
+  {
+    id: "ocupacion-aliada-madrid-1706",
+    year: 1706,
+    month: 7,
+    day: 2,
+    title: "2 de julio de 1706: primera ocupación aliada de Madrid",
+    author: "Carlos III y la Gran Alianza",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "Fuerzas anglo-portuguesas del marqués de las Minas y el conde de Galway ocuparon Madrid a finales de junio de 1706, avanzando desde Portugal mientras Carlos llegaba desde Aragón y Valencia. El 2 de julio proclamaron al archiduque como Carlos III, pero encontraron una población castellana fría y fiel a Felipe V. La demora en reunir los ejércitos, el hostigamiento de suministros y la reorganización borbónica hicieron insostenible la capital. Los aliados se retiraron hacia Valencia; Felipe regresó en octubre. La ocupación anticipó el fracaso de 1710: entrar en Madrid no significaba gobernar Castilla.",
+    descriptionHtml:
+      'Fuerzas anglo-portuguesas del marqués de las Minas y el conde de Galway ocuparon <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> a finales de junio de 1706, avanzando desde <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button> mientras Carlos llegaba desde <button type="button" class="timeline-detail-geolink" data-region="Aragón" data-country="España">Aragón</button> y <button type="button" class="timeline-detail-geolink" data-region="Valencia" data-country="España">Valencia</button>. El 2 de julio proclamaron al archiduque como <button type="button" class="timeline-detail-entrylink" data-id="pacto-genova-caida-barcelona-1705">Carlos III</button>, pero encontraron una población castellana fría y fiel a Felipe V. La demora en reunir los ejércitos, el hostigamiento de suministros y la reorganización borbónica hicieron insostenible la capital. Los aliados se retiraron hacia <button type="button" class="timeline-detail-geolink" data-region="Valencia" data-country="España">Valencia</button>; Felipe regresó en octubre. La ocupación anticipó el <button type="button" class="timeline-detail-entrylink" data-id="segunda-ocupacion-madrid-1710">fracaso de 1710</button>: entrar en Madrid no significaba gobernar <button type="button" class="timeline-detail-geolink" data-region="Castilla" data-country="España">Castilla</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Madrid hubiera reconocido a Carlos III en 1706?",
+      answer:
+        "Una adhesión castellana habría dado legitimidad, reclutas y suministros a la ocupación, quizá permitiendo a Carlos conservar la capital. Sin esa base social, una victoria militar momentánea no podía convertirse en gobierno estable; la misma debilidad reapareció con mayor claridad en 1710."
+    }
+  },
+
+  {
+    id: "segunda-ocupacion-madrid-1710",
+    year: 1710,
+    month: 9,
+    day: 28,
+    title: "28 de septiembre de 1710: segunda ocupación aliada de Madrid",
+    author: "Carlos III y la Gran Alianza",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "Tras vencer en Almenar y Zaragoza, Carlos III entró nuevamente en Madrid el 28 de septiembre de 1710; Felipe V se retiró a Valladolid. Las calles vacías confirmaron que Castilla seguía sin abrazar la causa austracista. Lejos de sus bases catalanas y con suministros frágiles, los aliados abandonaron la capital en noviembre. Durante la retirada hacia Aragón, Vendôme cercó y capturó a los británicos de Stanhope en Brihuega; días después combatió contra Starhemberg en Villaviciosa. La campaña destruyó la última posibilidad aliada de conquistar Castilla y fortaleció la posición borbónica antes de Utrecht.",
+    descriptionHtml:
+      'Tras vencer en <button type="button" class="timeline-detail-geolink" data-region="Almenar" data-country="España">Almenar</button> y <button type="button" class="timeline-detail-geolink" data-region="Zaragoza" data-country="España">Zaragoza</button>, Carlos III <button type="button" class="timeline-detail-entrylink" data-id="ocupacion-aliada-madrid-1706">entró nuevamente</button> en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> el 28 de septiembre de 1710; Felipe V se retiró a <button type="button" class="timeline-detail-geolink" data-region="Valladolid" data-country="España">Valladolid</button>. Las calles vacías confirmaron que <button type="button" class="timeline-detail-geolink" data-region="Castilla" data-country="España">Castilla</button> seguía sin abrazar la causa austracista. Lejos de sus bases <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">catalanas</button> y con suministros frágiles, los aliados abandonaron la capital en noviembre. Durante la retirada hacia <button type="button" class="timeline-detail-geolink" data-region="Aragón" data-country="España">Aragón</button>, Vendôme cercó y capturó a los británicos de Stanhope en <button type="button" class="timeline-detail-geolink" data-region="Brihuega" data-country="España">Brihuega</button>; días después combatió contra Starhemberg en <button type="button" class="timeline-detail-geolink" data-region="Villaviciosa de Tajuña" data-country="España">Villaviciosa</button>. La campaña destruyó la última posibilidad aliada de conquistar Castilla y fortaleció la posición borbónica antes de <button type="button" class="timeline-detail-geolink" data-region="Utrecht" data-country="Países Bajos">Utrecht</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si los aliados hubieran consolidado Madrid en 1710?",
+      answer:
+        "Felipe V habría perdido su principal centro político y la negociación internacional podría haber reconocido a Carlos como rey efectivo de una parte mucho mayor de España. Sin embargo, sostener Madrid exigía la adhesión castellana y líneas de suministro seguras; ganar Almenar y Zaragoza no resolvía ninguna de esas dos condiciones."
+    }
+  },
+
+  {
     id: "junipero-serra-nace-1713",
     year: 1713,
     title: "1713: nace fray Junípero Serra en Mallorca",
