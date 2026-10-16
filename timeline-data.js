@@ -1863,10 +1863,9 @@ const TIMELINE_ENTRIES = [
     id: "pueblo-de-los-44-1781",
     year: 1781,
     // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. Part of the pre-existing 1791-1810 "7 obras" chain
-    // (see bois-caiman-revuelta-1791), extended to an 8-point chain in
-    // 2026 to fit this entry in at the front without re-clustering.
-    trackYear: 1778.9,
+    // timeline.js. Part of the expanded 1781–1808 sequence, spaced so
+    // every plot point remains independently clickable.
+    trackYear: 1775.5,
     title: "1781: El Pueblo de los 44",
     author: "Felipe de Neve",
     country: "Estados Unidos",
@@ -1889,8 +1888,8 @@ const TIMELINE_ENTRIES = [
     month: 12,
     day: 14,
     // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. This begins the re-spaced 1788–1807 sequence.
-    trackYear: 1782,
+    // timeline.js. This begins the re-spaced 1788–1808 sequence.
+    trackYear: 1777.9,
     title: "14 de diciembre de 1788: comienza el reinado de Carlos IV",
     author: "Carlos IV y Manuel Godoy",
     country: "España",
@@ -1901,11 +1900,82 @@ const TIMELINE_ENTRIES = [
     description:
       "Al morir Carlos III el 14 de diciembre de 1788, Carlos IV heredó la Corona española. La Revolución francesa de 1789 convirtió la vecindad con Francia en una crisis: la monarquía temió el contagio revolucionario, guerreó contra la República y, desde 1796, volvió a aliarse con ella frente a Gran Bretaña. Manuel Godoy, guardia de corps favorecido por los reyes, ascendió rápidamente y fue nombrado primer secretario en 1792. Sus cambios de alianza, unidos a la expansión de Napoleón, comprometieron la Armada, el comercio imperial y la estabilidad dinástica, preparando la crisis de 1807–1808.",
     descriptionHtml:
-      'Al morir <button type="button" class="timeline-detail-entrylink" data-id="carlos-iii-llega-madrid-1759">Carlos III</button> el 14 de diciembre de 1788, Carlos IV heredó la Corona <button type="button" class="timeline-detail-geolink" data-country="España">española</button>. La Revolución <button type="button" class="timeline-detail-geolink" data-country="Francia">francesa</button> de 1789 convirtió la vecindad con Francia en una crisis: la monarquía temió el contagio revolucionario, guerreó contra la República y, desde 1796, volvió a aliarse con ella frente a <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button>. Manuel Godoy, guardia de corps favorecido por los reyes, ascendió rápidamente y fue nombrado primer secretario en 1792. Sus cambios de alianza, unidos a la expansión de Napoleón, comprometieron la Armada, el comercio imperial y la estabilidad dinástica, preparando la <button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">crisis de 1807–1808</button>.',
+      'Al morir <button type="button" class="timeline-detail-entrylink" data-id="carlos-iii-llega-madrid-1759">Carlos III</button> el 14 de diciembre de 1788, Carlos IV heredó la Corona <button type="button" class="timeline-detail-geolink" data-country="España">española</button>. La Revolución <button type="button" class="timeline-detail-geolink" data-country="Francia">francesa</button> de 1789 convirtió la vecindad con Francia en una crisis: la monarquía temió el contagio revolucionario, <button type="button" class="timeline-detail-entrylink" data-id="ejecuciones-luis-xvi-maria-antonieta-1793">guerreó contra la República</button> y, desde 1796, volvió a aliarse con ella frente a <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button>. Manuel Godoy, guardia de corps favorecido por los reyes, ascendió rápidamente y fue nombrado primer secretario en 1792. Sus cambios de alianza, unidos a la <button type="button" class="timeline-detail-entrylink" data-id="napoleon-golpe-brumario-1799">expansión de Napoleón</button>, comprometieron la Armada, el comercio imperial y la estabilidad dinástica, preparando la <button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">crisis de 1807–1808</button>.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si Carlos IV no hubiera elevado a Godoy con tanta rapidez?",
       answer:
         "Otro ministro habría tenido que navegar la Revolución francesa y el ascenso de Napoleón, pero las presiones geopolíticas habrían seguido existiendo. Sin Godoy, no habría habido el mismo Tratado de Fontainebleau ni el mismo blanco para la oposición fernandina; la crisis dinástica pudo adoptar otra forma."
+    }
+  },
+
+  {
+    id: "ejecuciones-luis-xvi-maria-antonieta-1793",
+    year: 1793,
+    month: 1,
+    day: 21,
+    // Exact calendar date; trackYear only separates the dense late-colonial run.
+    trackYear: 1782.7,
+    title: "21 de enero de 1793: el regicidio rompe el mundo borbónico",
+    author: "Luis XVI, María Antonieta y Carlos IV",
+    country: "Francia",
+    region: "Plaza de la Revolución, París",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "El 21 de enero de 1793, la República francesa guillotinó a Luis XVI en la plaza de la Revolución de París. Carlos IV había intentado salvar a su pariente borbón; el regicidio convirtió la crisis en ruptura dinástica. Francia declaró la guerra a España el 7 de marzo y España respondió el 23, iniciando la Guerra de la Convención en los Pirineos. María Antonieta murió en la misma plaza el 16 de octubre, profundizando la conmoción monárquica. La derrota española condujo a la Paz de Basilea de 1795 y, paradójicamente, a otra alianza con Francia.",
+    descriptionHtml:
+      'El 21 de enero de 1793, la República francesa guillotinó a Luis XVI en la <button type="button" class="timeline-detail-geolink" data-region="Plaza de la Revolución, París" data-country="Francia">plaza de la Revolución de París</button>. <button type="button" class="timeline-detail-entrylink" data-id="carlos-iv-godoy-revolucion-francesa-1788">Carlos IV</button> había intentado salvar a su pariente borbón; el regicidio convirtió la crisis en ruptura dinástica. <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button> declaró la guerra a <button type="button" class="timeline-detail-geolink" data-country="España">España</button> el 7 de marzo y España respondió el 23, iniciando la Guerra de la Convención en los <button type="button" class="timeline-detail-geolink" data-region="Pirineos" data-country="España">Pirineos</button>. María Antonieta murió en la misma plaza el 16 de octubre, profundizando la conmoción monárquica. La derrota española condujo a la Paz de <button type="button" class="timeline-detail-geolink" data-region="Basilea" data-country="Suiza">Basilea</button> de 1795 y, paradójicamente, a <button type="button" class="timeline-detail-entrylink" data-id="napoleon-golpe-brumario-1799">otra alianza con Francia</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Carlos IV hubiera mantenido a España neutral después del regicidio?",
+      answer:
+        "España quizá habría evitado la Guerra de la Convención y su invasión fronteriza, pero la neutralidad habría sido difícil entre una república revolucionaria y las monarquías coaligadas. La crisis dinástica no desaparecería: solo cambiarían el ritmo y las alianzas que condujeron a la dependencia de Francia."
+    }
+  },
+
+  {
+    id: "goya-majas-1795",
+    year: 1795,
+    // Prado dates the pair separately: 1795–1800 and 1800–1807.
+    trackYear: 1789.9,
+    title: "1795–1807: Goya confronta desnudo, mirada y censura en las Majas",
+    author: "Francisco de Goya",
+    authorEntryId: "goya-1746",
+    country: "España",
+    region: "Palacio de Godoy, Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Entre 1795 y 1800, Goya pintó La maja desnuda; entre 1800 y 1807, su compañera vestida. Ambas pertenecieron al gabinete reservado de Manuel Godoy en Madrid: la primera consta allí en noviembre de 1800 y las dos aparecen juntas en el inventario de 1808. La identidad de la modelo y el encargo exacto siguen sin demostrarse, pese a atribuciones populares a la duquesa de Alba o Pepita Tudó. En 1814 la Inquisición reclamó las obras por «obscenas». Hoy, expuestas juntas en el Prado, confrontan desnudo, mirada y censura sin una lectura única ni identidad segura.",
+    descriptionHtml:
+      'Entre 1795 y 1800, <button type="button" class="timeline-detail-entrylink" data-id="goya-1746">Goya</button> pintó <em>La maja desnuda</em>; entre 1800 y 1807, su compañera vestida. Ambas pertenecieron al gabinete reservado de <button type="button" class="timeline-detail-entrylink" data-id="carlos-iv-godoy-revolucion-francesa-1788">Manuel Godoy</button> en <button type="button" class="timeline-detail-geolink" data-region="Palacio de Godoy, Madrid" data-country="España">Madrid</button>: la primera consta allí en noviembre de 1800 y las dos aparecen juntas en el inventario de 1808. La identidad de la modelo y el encargo exacto siguen sin demostrarse, pese a atribuciones populares a la duquesa de Alba o Pepita Tudó. En 1814 la <button type="button" class="timeline-detail-entrylink" data-id="inquisicion-espanola-1478">Inquisición</button> reclamó las obras por «obscenas». Hoy, expuestas juntas en el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Prado</button>, confrontan desnudo, mirada y censura sin una lectura única ni identidad segura.',
+    butterfly: {
+      prompt: "¿Qué se perdería si la Inquisición hubiera destruido las Majas?",
+      answer:
+        "Desaparecería una confrontación excepcional entre el cuerpo que mira al espectador y las instituciones que intentaron controlarlo. También se perdería la pareja visual que obliga a preguntar por deseo, propiedad, identidad y censura sin aceptar la leyenda de una modelo segura."
+    }
+  },
+
+  {
+    id: "napoleon-golpe-brumario-1799",
+    year: 1799,
+    month: 11,
+    day: 9,
+    // The coup continued on 10 November; trackYear preserves its own marker.
+    trackYear: 1797.1,
+    title: "9–10 de noviembre de 1799: el golpe del 18 de brumario",
+    author: "Napoleón Bonaparte",
+    country: "Francia",
+    region: "Saint-Cloud",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El golpe del 18–19 de brumario —9–10 de noviembre de 1799— derribó el Directorio francés. La maniobra comenzó en París y culminó en Saint-Cloud, donde la presión militar dispersó los Consejos e instauró un Consulado. Napoleón Bonaparte, primer cónsul, concentró rápidamente el poder y en 1804 se coronó emperador. Para España, aliada de Francia desde 1796 bajo Carlos IV y Godoy, el cambio volvió más desigual la relación: la política española quedó subordinada crecientemente a los intereses franceses. No causó por sí solo la invasión de 1808, pero abrió el camino que conduciría a Fontainebleau.",
+    descriptionHtml:
+      'El golpe del 18–19 de brumario —9–10 de noviembre de 1799— derribó el Directorio francés. La maniobra comenzó en <button type="button" class="timeline-detail-geolink" data-region="París" data-country="Francia">París</button> y culminó en <button type="button" class="timeline-detail-geolink" data-region="Saint-Cloud" data-country="Francia">Saint-Cloud</button>, donde la presión militar dispersó los Consejos e instauró un Consulado. Napoleón Bonaparte, primer cónsul, concentró rápidamente el poder y en 1804 se coronó emperador. Para <button type="button" class="timeline-detail-geolink" data-country="España">España</button>, aliada de <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button> desde 1796 bajo <button type="button" class="timeline-detail-entrylink" data-id="carlos-iv-godoy-revolucion-francesa-1788">Carlos IV y Godoy</button>, el cambio volvió más desigual la relación: la política española quedó subordinada crecientemente a los intereses franceses. No causó por sí solo la invasión de 1808, pero abrió el camino que conduciría a <button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">Fontainebleau</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si el Directorio hubiera sobrevivido al 18 de brumario?",
+      answer:
+        "La alianza franco-española habría seguido expuesta a la guerra europea, pero sin un primer cónsul capaz de concentrar estrategia, diplomacia y ejército en una sola voluntad. El desequilibrio entre ambos países pudo crecer más lentamente y Fontainebleau adoptar otra forma."
     }
   },
 
@@ -1916,7 +1986,7 @@ const TIMELINE_ENTRIES = [
     day: 27,
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Keeps this final Bourbon-crisis point independently clickable.
-    trackYear: 1806.4,
+    trackYear: 1804.3,
     title: "27 de octubre de 1807: Fontainebleau abre España a Napoleón",
     author: "Carlos IV, Fernando VII y Napoleón",
     country: "España",
@@ -1925,9 +1995,9 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.CONFLICT,
     types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
     description:
-      "El Tratado de Fontainebleau, firmado el 27 de octubre de 1807, permitió que tropas francesas cruzaran España para invadir y repartir Portugal. Napoleón convirtió el tránsito en ocupación. El Motín de Aranjuez derribó a Godoy y Carlos IV abdicó en Fernando VII el 19 de marzo de 1808. En Bayona, Napoleón forzó una cadena de renuncias: Fernando devolvió la Corona a su padre y Carlos cedió sus derechos al emperador, quien nombró rey a José Bonaparte. La resistencia estalló en Madrid. El Estatuto de Bayona, otorgado el 7 de julio, impuso reformas sin soberanía popular.",
+      "El Tratado de Fontainebleau, firmado el 27 de octubre de 1807, permitió que tropas francesas cruzaran España para invadir y repartir Portugal. Napoleón convirtió el tránsito en ocupación. El Motín de Aranjuez derribó a Godoy y Carlos IV abdicó en Fernando VII el 19 de marzo de 1808. En Bayona, Napoleón forzó una cadena de renuncias: Fernando devolvió la Corona a su padre y Carlos cedió sus derechos al emperador, quien nombró rey a José Bonaparte. La resistencia estalló en Madrid. El Estatuto de Bayona, fechado el 6 de julio, impuso reformas sin soberanía popular.",
     descriptionHtml:
-      'El Tratado de <button type="button" class="timeline-detail-geolink" data-region="Fontainebleau" data-country="Francia">Fontainebleau</button>, firmado el 27 de octubre de 1807, permitió que tropas francesas cruzaran <button type="button" class="timeline-detail-geolink" data-country="España">España</button> para invadir y repartir <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button>. Napoleón convirtió el tránsito en ocupación. El Motín de <button type="button" class="timeline-detail-geolink" data-region="Aranjuez" data-country="España">Aranjuez</button> derribó a Godoy y <button type="button" class="timeline-detail-entrylink" data-id="carlos-iv-godoy-revolucion-francesa-1788">Carlos IV</button> abdicó en Fernando VII el 19 de marzo de 1808. En <button type="button" class="timeline-detail-geolink" data-region="Bayona, Francia" data-country="Francia">Bayona</button>, Napoleón forzó una cadena de renuncias: Fernando devolvió la Corona a su padre y Carlos cedió sus derechos al emperador, quien nombró rey a José Bonaparte. La <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">resistencia estalló</button> en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>. El Estatuto de <button type="button" class="timeline-detail-geolink" data-region="Bayona, Francia" data-country="Francia">Bayona</button>, otorgado el 7 de julio, impuso reformas sin soberanía popular.',
+      'El Tratado de <button type="button" class="timeline-detail-geolink" data-region="Fontainebleau" data-country="Francia">Fontainebleau</button>, firmado el 27 de octubre de 1807, permitió que tropas francesas cruzaran <button type="button" class="timeline-detail-geolink" data-country="España">España</button> para invadir y repartir <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button>. <button type="button" class="timeline-detail-entrylink" data-id="napoleon-golpe-brumario-1799">Napoleón</button> convirtió el tránsito en ocupación. El Motín de <button type="button" class="timeline-detail-geolink" data-region="Aranjuez" data-country="España">Aranjuez</button> derribó a Godoy y <button type="button" class="timeline-detail-entrylink" data-id="carlos-iv-godoy-revolucion-francesa-1788">Carlos IV</button> abdicó en Fernando VII el 19 de marzo de 1808. En <button type="button" class="timeline-detail-geolink" data-region="Bayona, Francia" data-country="Francia">Bayona</button>, Napoleón forzó una cadena de renuncias: Fernando devolvió la Corona a su padre y Carlos cedió sus derechos al emperador, quien nombró rey a José Bonaparte. La <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">resistencia estalló</button> en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>. El Estatuto de <button type="button" class="timeline-detail-geolink" data-region="Bayona, Francia" data-country="Francia">Bayona</button>, fechado el 6 de julio, impuso reformas sin soberanía popular.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si Carlos IV y Godoy hubieran negado el paso a las tropas francesas?",
       answer:
@@ -1942,7 +2012,7 @@ const TIMELINE_ENTRIES = [
     day: 2,
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Keeps the connected 1807 and 1808 cards separate.
-    trackYear: 1809,
+    trackYear: 1806.7,
     title: "2 de mayo de 1808: España resiste y Cádiz redefine la soberanía",
     author: "Guerra de la Independencia y Cortes de Cádiz",
     country: "España",
@@ -1953,7 +2023,7 @@ const TIMELINE_ENTRIES = [
     description:
       "El 2 de mayo de 1808, habitantes de Madrid se alzaron contra las tropas francesas que intentaban trasladar al infante Francisco de Paula. La represión ordenada por Murat y los fusilamientos del día siguiente convirtieron Madrid en símbolo de una resistencia extendida por juntas, guerrillas y ejércitos. La guerra fue internacional —España, Portugal y Gran Bretaña contra Francia—, pero también civil, local y religiosa: españoles combatieron en ambos bandos y el clero movilizó comunidades. En Cádiz, las Cortes promulgaron el 19 de marzo de 1812 una Constitución basada en soberanía nacional y separación de poderes.",
     descriptionHtml:
-      'El 2 de mayo de 1808, habitantes de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> se alzaron contra las <button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">tropas francesas</button> que intentaban trasladar al infante Francisco de Paula. La <button type="button" class="timeline-detail-entrylink" data-id="goya-diptico-mayo-1814">represión ordenada por Murat y los fusilamientos del día siguiente</button> convirtieron <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> en símbolo de una resistencia extendida por juntas, guerrillas y ejércitos. La guerra fue internacional —<button type="button" class="timeline-detail-geolink" data-country="España">España</button>, <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button> y <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button> contra <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>—, pero también civil, local y religiosa: españoles combatieron en ambos bandos y el clero movilizó comunidades. En <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button>, las Cortes promulgaron el 19 de marzo de 1812 una <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">Constitución</button> basada en soberanía nacional y separación de poderes.',
+      'El 2 de mayo de 1808, habitantes de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> se alzaron contra las <button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">tropas francesas</button> que intentaban trasladar al infante Francisco de Paula. La <button type="button" class="timeline-detail-entrylink" data-id="goya-diptico-mayo-1814">represión ordenada por Murat y los fusilamientos del día siguiente</button> convirtieron <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> en símbolo de una <button type="button" class="timeline-detail-entrylink" data-id="agustina-aragon-zaragoza-1808">resistencia extendida</button> por juntas, guerrillas y ejércitos. <button type="button" class="timeline-detail-entrylink" data-id="goya-desastres-guerra-1810">La guerra</button> fue internacional —<button type="button" class="timeline-detail-geolink" data-country="España">España</button>, <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button> y <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button> contra <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>—, pero también civil, local y religiosa: españoles combatieron en ambos bandos y el clero movilizó comunidades. En <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button>, las Cortes promulgaron el 19 de marzo de 1812 una <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">Constitución</button> basada en soberanía nacional y separación de poderes.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si las Cortes no hubieran podido reunirse en Cádiz durante la guerra?",
       answer:
@@ -1962,13 +2032,86 @@ const TIMELINE_ENTRIES = [
   },
 
   {
+    id: "agustina-aragon-zaragoza-1808",
+    year: 1808,
+    month: 7,
+    day: 2,
+    // Exact calendar date; final position in the re-spaced colonial sequence.
+    trackYear: 1809,
+    title: "2 de julio de 1808: Agustina dispara en la puerta del Portillo",
+    author: "Agustina Zaragoza Doménech",
+    country: "España",
+    region: "Puerta del Portillo, Zaragoza",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 2 de julio de 1808, durante el primer sitio francés de Zaragoza, un asalto alcanzó la batería de la puerta del Portillo. La tradición documentada identifica a Agustina Zaragoza Doménech, luego llamada Agustina de Aragón, tomando la mecha y disparando un cañón cuando sus defensores habían caído. Su acción elevó la moral y la convirtió en emblema de resistencia. No combatió sola: Casta Álvarez, Manuela Sancho y otras mujeres también participaron en la defensa. El episodio pasó de experiencia bélica a leyenda nacional, pintura, monumento y, bajo el franquismo, cine histórico con finalidad política.",
+    descriptionHtml:
+      'El 2 de julio de 1808, durante el <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">primer sitio francés</button> de <button type="button" class="timeline-detail-geolink" data-region="Zaragoza" data-country="España">Zaragoza</button>, un asalto alcanzó la batería de la <button type="button" class="timeline-detail-geolink" data-region="Puerta del Portillo, Zaragoza" data-country="España">puerta del Portillo</button>. La tradición documentada identifica a Agustina Zaragoza Doménech, luego llamada Agustina de Aragón, tomando la mecha y disparando un cañón cuando sus defensores habían caído. Su acción elevó la moral y la convirtió en emblema de resistencia. No combatió sola: Casta Álvarez, Manuela Sancho y otras mujeres también participaron en la defensa. El episodio pasó de experiencia bélica a leyenda nacional, pintura, monumento y, bajo el franquismo, <button type="button" class="timeline-detail-entrylink" data-id="agustina-aragon-pelicula-1950">cine histórico con finalidad política</button>.',
+    butterfly: {
+      prompt: "¿Qué cambiaría si la memoria del sitio hubiera conservado un coro de mujeres en lugar de una sola heroína?",
+      answer:
+        "Agustina seguiría siendo decisiva, pero Casta Álvarez, Manuela Sancho y muchas colaboradoras anónimas ocuparían también el relato público. La defensa aparecería menos como hazaña individual y más como movilización colectiva, dificultando que ideologías posteriores apropiaran una única figura."
+    }
+  },
+
+  {
+    id: "goya-desastres-guerra-1810",
+    year: 1810,
+    // Nudged beyond the era boundary so it does not overlap the 1808 Portillo point.
+    trackYear: 1811,
+    title: "1810–1820: Goya graba Los desastres de la guerra",
+    author: "Francisco de Goya",
+    authorEntryId: "goya-1746",
+    country: "España",
+    region: "Real Academia de Bellas Artes de San Fernando",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "Entre 1810 y 1820, Goya elaboró las 82 láminas conocidas como Los desastres de la guerra. Las primeras se vinculan a la violencia de la Guerra de la Independencia; otras muestran la hambruna madrileña de 1811–1812 y los llamados Caprichos enfáticos critican la represión y el regreso del absolutismo. No son un reportaje literal ni celebran héroes: construyen una mirada personal sobre víctimas, crueldad y miseria. Goya no publicó la serie en vida. La Real Academia de San Fernando adquirió las planchas en 1862 y editó públicamente 80 por primera vez en Madrid, en 1863.",
+    descriptionHtml:
+      'Entre 1810 y 1820, <button type="button" class="timeline-detail-entrylink" data-id="goya-1746">Goya</button> elaboró las 82 láminas conocidas como <em>Los desastres de la guerra</em>. Las primeras se vinculan a la violencia de la <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">Guerra de la Independencia</button>; otras muestran la hambruna <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">madrileña</button> de 1811–1812 y los llamados <em>Caprichos enfáticos</em> critican la represión y el <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">regreso del absolutismo</button>. No son un reportaje literal ni celebran héroes: construyen una mirada personal sobre víctimas, crueldad y miseria. Goya no publicó la serie en vida. La <button type="button" class="timeline-detail-geolink" data-region="Real Academia de Bellas Artes de San Fernando" data-country="España">Real Academia de San Fernando</button> adquirió las planchas en 1862 y editó públicamente 80 por primera vez en Madrid, en 1863.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Goya hubiera publicado Los desastres durante la guerra?",
+      answer:
+        "La serie habría intervenido en un conflicto todavía abierto y afrontado censura, confiscación o represalias. Publicada medio siglo después, perdió inmediatez política, pero ganó una lectura más amplia: ninguna bandera puede convertir el hambre, la tortura y los cadáveres en victoria."
+    }
+  },
+
+  {
+    id: "tratado-valencay-1813",
+    year: 1813,
+    month: 12,
+    day: 11,
+    // Exact calendar date; trackYear separates both 1813 plot points.
+    trackYear: 1814.3,
+    title: "11 de diciembre de 1813: Valençay promete una paz que no entra en vigor",
+    author: "Napoleón Bonaparte y Fernando VII",
+    country: "Francia",
+    region: "Château de Valençay",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "El 11 de diciembre de 1813, Napoleón y Fernando VII acordaron el Tratado de Valençay, negociado en el castillo francés donde permanecía cautivo el monarca español. Napoleón lo reconocía como rey y proponía paz, retirada de tropas e integridad territorial, todo condicionado a ratificación. La Regencia y las Cortes de Cádiz rechazaron el pacto porque Fernando había negociado sin ellas; por eso nunca entró en vigor ni terminó legalmente la guerra. El tratado abrió el camino al regreso del rey en 1814. Ya en España, Fernando abolió la Constitución de 1812 y restauró el absolutismo.",
+    descriptionHtml:
+      'El 11 de diciembre de 1813, <button type="button" class="timeline-detail-entrylink" data-id="napoleon-golpe-brumario-1799">Napoleón</button> y Fernando VII acordaron el Tratado de <button type="button" class="timeline-detail-geolink" data-region="Château de Valençay" data-country="Francia">Valençay</button>, negociado en el castillo francés donde permanecía cautivo el monarca español. Napoleón lo reconocía como rey y proponía paz, retirada de tropas e integridad territorial, todo condicionado a ratificación. La Regencia y las Cortes de <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button> rechazaron el pacto porque Fernando había negociado sin ellas; por eso nunca entró en vigor ni terminó legalmente la <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">guerra</button>. El tratado abrió el camino al regreso del rey en 1814. Ya en <button type="button" class="timeline-detail-geolink" data-country="España">España</button>, Fernando abolió la <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">Constitución de 1812 y restauró el absolutismo</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si la Regencia y las Cortes hubieran ratificado Valençay?",
+      answer:
+        "La guerra pudo terminar antes mediante el pacto de un rey cautivo, pero las instituciones gaditanas habrían cedido su pretensión de representar a la nación. Fernando habría regresado con una legitimidad diplomática más fuerte frente al orden constitucional que pronto abolió."
+    }
+  },
+
+  {
     id: "goya-diptico-mayo-1814",
     year: 1814,
     month: 2,
     day: 24,
-    // Real date; the slight visual offset keeps each 1813–1816 point
+    // Real date; the slight visual offset keeps each 1810–1820 point
     // independently clickable while preserving the displayed chronology.
-    trackYear: 1814.1,
+    trackYear: 1815.4,
     title: "1814: Goya convierte el 2 y el 3 de mayo en memoria",
     author: "Francisco de Goya",
     authorEntryId: "goya-1746",
@@ -1979,11 +2122,34 @@ const TIMELINE_ENTRIES = [
     description:
       "En 1814, Francisco de Goya pintó como díptico La lucha con los mamelucos y Los fusilamientos del 3 de mayo. La Regencia había aceptado el encargo el 24 de febrero; Fernando VII lo continuó después de regresar y abolir la Constitución de Cádiz. Contrario a una interpretación repetida, no fueron concebidos para decorar las calles: facturas indican que se financiaron para Palacio y que sus marcos quedaron terminados el 29 de noviembre. Una pintura muestra el levantamiento contra las tropas de Murat; la otra, la represalia francesa. Ambas se conservan en el Museo del Prado.",
     descriptionHtml:
-      'En 1814, <button type="button" class="timeline-detail-entrylink" data-id="goya-1746">Francisco de Goya</button> pintó como díptico <em>La lucha con los mamelucos</em> y <em>Los fusilamientos del 3 de mayo</em>. La Regencia había aceptado el encargo el 24 de febrero; <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">Fernando VII</button> lo continuó después de regresar y abolir la <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">Constitución de Cádiz</button>. Contrario a una interpretación repetida, no fueron concebidos para decorar las calles: facturas indican que se financiaron para <button type="button" class="timeline-detail-geolink" data-region="Palacio Real de Madrid" data-country="España">Palacio</button> y que sus marcos quedaron terminados el 29 de noviembre. Una pintura muestra el <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">levantamiento contra las tropas de Murat</button>; la otra, la represalia francesa. Ambas se conservan en el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Museo del Prado</button>.',
+      'En 1814, <button type="button" class="timeline-detail-entrylink" data-id="goya-1746">Francisco de Goya</button> pintó como díptico <em>La lucha con los mamelucos</em> y <em>Los fusilamientos del 3 de mayo</em>. La Regencia había aceptado el encargo el 24 de febrero; <button type="button" class="timeline-detail-entrylink" data-id="tratado-valencay-1813">Fernando VII</button> lo continuó después de regresar y abolir la <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">Constitución de Cádiz</button>. Contrario a una interpretación repetida, no fueron concebidos para decorar las calles: facturas indican que se financiaron para <button type="button" class="timeline-detail-geolink" data-region="Palacio Real de Madrid" data-country="España">Palacio</button> y que sus marcos quedaron terminados el 29 de noviembre. Una pintura muestra el <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">levantamiento contra las tropas de Murat</button>; la otra, <button type="button" class="timeline-detail-entrylink" data-id="goya-desastres-guerra-1810">la represalia francesa</button>. Ambas se conservan en el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Museo del Prado</button>.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si Goya hubiera convertido aquellas jornadas en una celebración triunfal de la Corona?",
       answer:
         "El levantamiento habría quedado representado como propaganda dinástica. Al concentrarse en cuerpos vulnerables, violencia callejera y ejecución, Goya dejó una memoria que rebasa al monarca que financió las obras y enfrenta al espectador con el costo humano de la guerra."
+    }
+  },
+
+  {
+    id: "goya-pinturas-negras-1819",
+    year: 1819,
+    // Anchored to Goya's acquisition of the house; Prado dates Saturno 1820–1823.
+    trackYear: 1818.8,
+    title: "1819–1823: Goya cubre la Quinta del Sordo con sus Pinturas negras",
+    author: "Francisco de Goya",
+    authorEntryId: "goya-1746",
+    country: "España",
+    region: "Quinta del Sordo, Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Tras adquirir en 1819 la Quinta del Sordo, junto al río Manzanares, Goya cubrió dos habitaciones con escenas sombrías, fechadas hoy entre 1820 y 1823. El conjunto conservado reúne catorce Pinturas negras; Saturno ocupaba una pared lateral de la planta baja. Pintado directamente sobre muro seco, muestra una figura devoradora sin los atributos mitológicos habituales. Su sentido permanece abierto: puede evocar tiempo, vejez, violencia o poder, pero ninguna lectura es definitiva. Salvador Martínez Cubells trasladó las pinturas a lienzo desde 1874; el barón d’Erlanger las donó al Estado en 1881. Hoy están en el Prado.",
+    descriptionHtml:
+      'Tras adquirir en 1819 la <button type="button" class="timeline-detail-geolink" data-region="Quinta del Sordo, Madrid" data-country="España">Quinta del Sordo</button>, junto al <button type="button" class="timeline-detail-geolink" data-region="Río Manzanares" data-country="España">río Manzanares</button>, <button type="button" class="timeline-detail-entrylink" data-id="goya-1746">Goya</button> cubrió dos habitaciones con escenas sombrías, fechadas hoy entre 1820 y 1823. El conjunto conservado reúne catorce <button type="button" class="timeline-detail-entrylink" data-id="goya-aquelarre-1798"><em>Pinturas negras</em></button>; <em>Saturno</em> ocupaba una pared lateral de la planta baja. Pintado directamente sobre muro seco, muestra una figura devoradora sin los atributos mitológicos habituales. Su sentido permanece abierto: puede evocar tiempo, vejez, violencia o poder, pero ninguna lectura es definitiva. Salvador Martínez Cubells trasladó las pinturas a lienzo desde 1874; el barón d’Erlanger las donó al Estado en 1881. Hoy están en el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Prado</button>.',
+    butterfly: {
+      prompt: "¿Qué conoceríamos de las Pinturas negras si hubieran permanecido sobre los muros privados de la Quinta?",
+      answer:
+        "Probablemente se habrían perdido con la casa y solo sobrevivirían descripciones parciales. Su traslado alteró la materia original, pero permitió que aquel espacio íntimo de miedo, vejez y violencia entrara en la historia mundial del arte."
     }
   },
 
@@ -2002,7 +2168,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Fernando VII volvió a España en 1814 y anuló la Constitución de Cádiz, inaugurando el Sexenio Absolutista. El 1 de enero de 1820, Rafael del Riego se pronunció en Las Cabezas de San Juan con tropas destinadas a sofocar las independencias americanas. Otros levantamientos extendieron la rebelión y el rey aceptó restituir la Constitución en marzo: comenzó el Trienio Liberal, que reabrió las Cortes y reanudó reformas. En 1823, los Cien Mil Hijos de San Luis invadieron desde Francia, restauraron el absolutismo y abrieron la Década Ominosa. Fernando gobernó con represión hasta morir en 1833.",
     descriptionHtml:
-      '<button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">Fernando VII</button> volvió a <button type="button" class="timeline-detail-geolink" data-country="España">España</button> en 1814 y anuló la <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">Constitución</button> de <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button>, inaugurando el Sexenio Absolutista. El 1 de enero de 1820, Rafael del Riego se pronunció en <button type="button" class="timeline-detail-geolink" data-region="Las Cabezas de San Juan" data-country="España">Las Cabezas de San Juan</button> con tropas destinadas a sofocar las <button type="button" class="timeline-detail-entrylink" data-id="carta-de-jamaica-1815">independencias</button> <button type="button" class="timeline-detail-geolink" data-region="América española">americanas</button>. Otros levantamientos extendieron la rebelión y el rey aceptó restituir la Constitución en marzo: comenzó el Trienio Liberal, que reabrió las Cortes y reanudó reformas. En 1823, los <button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">Cien Mil Hijos de San Luis</button> invadieron desde <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>, restauraron el absolutismo y abrieron la Década Ominosa. Fernando gobernó con represión hasta <button type="button" class="timeline-detail-entrylink" data-id="muerte-fernando-vii-carlismo-1833">morir en 1833</button>.',
+      '<button type="button" class="timeline-detail-entrylink" data-id="tratado-valencay-1813">Fernando VII volvió</button> a <button type="button" class="timeline-detail-geolink" data-country="España">España</button> en 1814 y anuló la <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">Constitución</button> de <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button>, inaugurando el Sexenio Absolutista. El 1 de enero de 1820, Rafael del Riego se pronunció en <button type="button" class="timeline-detail-geolink" data-region="Las Cabezas de San Juan" data-country="España">Las Cabezas de San Juan</button> con tropas destinadas a sofocar las <button type="button" class="timeline-detail-entrylink" data-id="carta-de-jamaica-1815">independencias</button> <button type="button" class="timeline-detail-geolink" data-region="América española">americanas</button>. Otros levantamientos extendieron la rebelión y el rey aceptó restituir la Constitución en marzo: comenzó el Trienio Liberal, que reabrió las Cortes y reanudó reformas. En 1823, los <button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">Cien Mil Hijos de San Luis</button> invadieron desde <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>, restauraron el absolutismo y abrieron la Década Ominosa. <button type="button" class="timeline-detail-entrylink" data-id="goya-pinturas-negras-1819">Fernando gobernó con represión</button> hasta <button type="button" class="timeline-detail-entrylink" data-id="muerte-fernando-vii-carlismo-1833">morir en 1833</button>.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si el pronunciamiento de Riego no hubiera prendido fuera de Andalucía?",
       answer:
@@ -2209,8 +2375,8 @@ const TIMELINE_ENTRIES = [
   {
     id: "carta-de-jamaica-1815",
     year: 1815,
-    // Real year; the slight visual offset separates the dense 1813–1816 run.
-    trackYear: 1815.2,
+    // Real year; the slight visual offset separates the dense 1810–1820 run.
+    trackYear: 1816.5,
     title: "Carta de Jamaica",
     author: "Simón Bolívar",
     country: "Jamaica",
@@ -2232,8 +2398,8 @@ const TIMELINE_ENTRIES = [
     year: 1816,
     month: 3,
     day: 3,
-    // Real date; the slight visual offset separates the dense 1813–1816 run.
-    trackYear: 1816.3,
+    // Real date; the slight visual offset separates the dense 1810–1820 run.
+    trackYear: 1817.6,
     title: "3 de marzo de 1816: Juana Azurduy vence en El Villar",
     author: "Juana Azurduy",
     country: "Bolivia",
@@ -2521,6 +2687,8 @@ const TIMELINE_ENTRIES = [
   {
     id: "el-reino-de-este-mundo",
     year: 1949,
+    // Visual spacing only for the dense 1949–1951 sequence.
+    trackYear: 1948,
     title: "El reino de este mundo",
     author: "Alejo Carpentier",
     country: "Cuba",
@@ -2533,8 +2701,33 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "agustina-aragon-pelicula-1950",
+    year: 1950,
+    month: 10,
+    day: 9,
+    // Exact premiere date; nudged track position separates the 1950 cards.
+    trackYear: 1950.25,
+    title: "9 de octubre de 1950: Agustina de Aragón rehace 1808 para el franquismo",
+    author: "Juan de Orduña y Aurora Bautista",
+    country: "España",
+    region: "Cine Rialto, Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 9 de octubre de 1950 se estrenó en el cine Rialto de Madrid Agustina de Aragón, superproducción de Cifesa dirigida por Juan de Orduña y protagonizada por Aurora Bautista. Rodada en parte en Zaragoza, dentro de la basílica del Pilar, reconstruyó los sitios napoleónicos mediante espectáculo, romance y fervor católico. Su ambientación fue cuidada, pero su relato seleccionó la resistencia y omitió la capitulación de 1809. Conviene leerla como interpretación franquista, no como registro neutral: convirtió a Agustina y Palafox en emblemas de unidad, obediencia, religión y heroísmo nacional para el público de posguerra.",
+    descriptionHtml:
+      'El 9 de octubre de 1950 se estrenó en el <button type="button" class="timeline-detail-geolink" data-region="Cine Rialto, Madrid" data-country="España">cine Rialto de Madrid</button> <em>Agustina de Aragón</em>, superproducción de Cifesa dirigida por Juan de Orduña y protagonizada por Aurora Bautista. Rodada en parte en <button type="button" class="timeline-detail-geolink" data-region="Zaragoza" data-country="España">Zaragoza</button>, dentro de la <button type="button" class="timeline-detail-geolink" data-region="Basílica del Pilar" data-country="España">basílica del Pilar</button>, reconstruyó los <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">sitios napoleónicos</button> mediante espectáculo, romance y fervor católico. Su ambientación fue cuidada, pero su relato seleccionó la resistencia y omitió la capitulación de 1809. Conviene leerla como interpretación franquista, no como registro neutral: convirtió a <button type="button" class="timeline-detail-entrylink" data-id="agustina-aragon-zaragoza-1808">Agustina</button> y Palafox en emblemas de unidad, obediencia, religión y heroísmo nacional para el público de posguerra.',
+    butterfly: {
+      prompt: "¿Qué película habría resultado si Orduña hubiera mostrado también la capitulación de Zaragoza?",
+      answer:
+        "La historia habría sido más compleja y menos útil como mito de obediencia, fe y victoria moral. Mostrar derrota, hambre y participación colectiva habría desplazado el centro desde dos héroes nacionales hacia una población sitiada y políticamente diversa."
+    }
+  },
+  {
     id: "laberinto-de-la-soledad",
     year: 1950,
+    // Visual spacing only for the dense 1949–1951 sequence.
+    trackYear: 1948.75,
     title: "El laberinto de la soledad",
     author: "Octavio Paz",
     country: "México",
@@ -2868,6 +3061,30 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "picasso-guernica-1937",
+    year: 1937,
+    month: 4,
+    day: 26,
+    title: "26 de abril de 1937: Gernika es bombardeada y Picasso responde",
+    author: "Pablo Picasso",
+    authorEntryId: "picasso-1881",
+    country: "España",
+    region: "Guernica",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 26 de abril de 1937, aviones alemanes e italianos bombardearon Gernika, ciudad vasca bajo control republicano, durante la Guerra Civil española. Las noticias de la destrucción masiva llegaron a París. Pablo Picasso, encargado por la República de crear una obra para su pabellón en la Exposición Internacional, comenzó Guernica el 1 de mayo y lo concluyó el 4 de junio. Sus cuerpos fragmentados, animales y luz violenta transformaron el ataque en símbolo universal contra la guerra. Tras décadas en Nueva York, el cuadro llegó a España en 1981; hoy ocupa el Museo Reina Sofía.",
+    descriptionHtml:
+      'El 26 de abril de 1937, aviones alemanes e italianos bombardearon <button type="button" class="timeline-detail-geolink" data-region="Guernica" data-country="España">Gernika</button>, ciudad vasca bajo control republicano, durante la Guerra Civil española. Las noticias de la destrucción masiva llegaron a <button type="button" class="timeline-detail-geolink" data-region="París" data-country="Francia">París</button>. <button type="button" class="timeline-detail-entrylink" data-id="picasso-1881">Pablo Picasso</button>, encargado por la República de crear una obra para su pabellón en la Exposición Internacional, comenzó <em>Guernica</em> el 1 de mayo y lo concluyó el 4 de junio. Sus cuerpos fragmentados, animales y luz violenta transformaron el ataque en símbolo universal contra la guerra. Tras décadas en <button type="button" class="timeline-detail-geolink" data-region="Nueva York" data-country="Estados Unidos">Nueva York</button>, el cuadro llegó a <button type="button" class="timeline-detail-geolink" data-country="España">España</button> en 1981; hoy ocupa el <button type="button" class="timeline-detail-geolink" data-region="Museo Reina Sofía" data-country="España">Museo Reina Sofía</button>.',
+    butterfly: {
+      prompt: "¿Qué habría cambiado si Picasso nunca hubiera pintado Guernica?",
+      answer:
+        "El bombardeo seguiría documentado, pero carecería de la imagen que convirtió una ciudad vasca en lenguaje mundial contra la violencia sobre civiles. El cuadro no reemplaza la historia: le dio una forma capaz de atravesar fronteras, guerras y generaciones."
+    }
+  },
+
+  {
     id: "sofia-grecia-1938",
     year: 1938,
     month: 11,
@@ -2880,7 +3097,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Sofía de Grecia nació el 2 de noviembre de 1938 en Atenas. Estudió puericultura, música y arqueología, y compitió en vela. Adoptó el catolicismo para casarse con Juan Carlos el 14 de mayo de 1962. Reina de España entre 1975 y 2014, fue madre de Elena, Cristina y Felipe y mantuvo un perfil discreto durante la transición democrática y las controversias de su esposo. El Museo Reina Sofía, que alberga el Guernica de Picasso, lleva su nombre. Su fundación impulsa la investigación y atención del alzhéimer. Ambos descendían de la reina Victoria del Reino Unido.",
     descriptionHtml:
-      'Sofía de <button type="button" class="timeline-detail-geolink" data-country="Grecia">Grecia</button> nació el 2 de noviembre de 1938 en <button type="button" class="timeline-detail-geolink" data-region="Atenas" data-country="Grecia">Atenas</button>. Estudió puericultura, música y arqueología, y compitió en vela. Adoptó el catolicismo para casarse con Juan Carlos el 14 de mayo de 1962. Reina de <button type="button" class="timeline-detail-geolink" data-country="España">España</button> entre 1975 y 2014, fue madre de Elena, Cristina y Felipe y mantuvo un perfil discreto durante la transición democrática y las controversias de su esposo. El <button type="button" class="timeline-detail-geolink" data-region="Museo Reina Sofía" data-country="España">Museo Reina Sofía</button>, que alberga el Guernica de <button type="button" class="timeline-detail-entrylink" data-id="picasso-1881">Picasso</button>, lleva su nombre. Su fundación impulsa la investigación y atención del alzhéimer. Ambos descendían de la reina Victoria del <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Reino Unido</button>.',
+      'Sofía de <button type="button" class="timeline-detail-geolink" data-country="Grecia">Grecia</button> nació el 2 de noviembre de 1938 en <button type="button" class="timeline-detail-geolink" data-region="Atenas" data-country="Grecia">Atenas</button>. Estudió puericultura, música y arqueología, y compitió en vela. Adoptó el catolicismo para casarse con Juan Carlos el 14 de mayo de 1962. Reina de <button type="button" class="timeline-detail-geolink" data-country="España">España</button> entre 1975 y 2014, fue madre de Elena, Cristina y Felipe y mantuvo un perfil discreto durante la transición democrática y las controversias de su esposo. El <button type="button" class="timeline-detail-geolink" data-region="Museo Reina Sofía" data-country="España">Museo Reina Sofía</button>, que alberga el <button type="button" class="timeline-detail-entrylink" data-id="picasso-guernica-1937"><em>Guernica</em></button> de <button type="button" class="timeline-detail-entrylink" data-id="picasso-1881">Picasso</button>, lleva su nombre. Su fundación impulsa la investigación y atención del alzhéimer. Ambos descendían de la reina Victoria del <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Reino Unido</button>.',
     lineage: [
       { name: "Viktoria Luise de Prusia", relation: "madre de", entryId: "viktoria-luise-prusia-1892" },
       { name: "Federica de Hannover", relation: "madre de", entryId: "federica-hannover-1917" },
@@ -3390,7 +3607,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Pintor de corte que terminó retratando el horror de la guerra napoleónica en España en Los fusilamientos del 3 de mayo y en Los desastres de la guerra, además de explorar los límites de la razón en sus Pinturas negras. Puente entre el barroco español y la modernidad.",
     descriptionHtml:
-      'Pintor de corte que terminó retratando el horror de la <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">guerra napoleónica en España</button> en <button type="button" class="timeline-detail-entrylink" data-id="goya-diptico-mayo-1814"><em>Los fusilamientos del 3 de mayo</em></button> y en <em>Los desastres de la guerra</em>, además de explorar los límites de la razón en sus <button type="button" class="timeline-detail-entrylink" data-id="goya-aquelarre-1798">Pinturas negras</button>. Puente entre el barroco español y la modernidad.',
+      'Pintor de corte que terminó retratando el horror de la <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">guerra napoleónica en España</button> en <button type="button" class="timeline-detail-entrylink" data-id="goya-diptico-mayo-1814"><em>Los fusilamientos del 3 de mayo</em></button> y en <button type="button" class="timeline-detail-entrylink" data-id="goya-desastres-guerra-1810"><em>Los desastres de la guerra</em></button>, además de explorar los límites de la razón en sus <button type="button" class="timeline-detail-entrylink" data-id="goya-pinturas-negras-1819">Pinturas negras</button>. Puente entre el barroco español y la modernidad.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Goya nunca hubiera presenciado la guerra napoleónica en España?",
       answer:
@@ -3428,7 +3645,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Nacido en Málaga, cofundador del cubismo junto a Braque y una de las figuras más influyentes del arte del siglo XX. Guernica (1937) sigue siendo el retrato más citado del horror de la guerra civil española y del bombardeo a civiles en la era moderna.",
     descriptionHtml:
-      'Nacido en <button type="button" class="timeline-detail-geolink" data-region="Málaga" data-country="España">Málaga</button>, cofundador del cubismo junto a Braque y una de las figuras más influyentes del arte del siglo XX. <button type="button" class="timeline-detail-geolink" data-region="Guernica" data-country="España">Guernica</button> (1937) sigue siendo el retrato más citado del horror de la guerra civil española y del bombardeo a civiles en la era moderna.',
+      'Nacido en <button type="button" class="timeline-detail-geolink" data-region="Málaga" data-country="España">Málaga</button>, cofundador del cubismo junto a Braque y una de las figuras más influyentes del arte del siglo XX. <button type="button" class="timeline-detail-entrylink" data-id="picasso-guernica-1937"><em>Guernica</em> (1937)</button> sigue siendo el retrato más citado del horror de la guerra civil española y del bombardeo a civiles en la era moderna.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Picasso nunca hubiera pintado Guernica?",
       answer:
@@ -3439,8 +3656,8 @@ const TIMELINE_ENTRIES = [
     id: "goya-aquelarre-1798",
     year: 1798,
     // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. Part of the re-spaced 1788–1807 sequence.
-    trackYear: 1797.5,
+    // timeline.js. Part of the re-spaced 1781–1808 sequence.
+    trackYear: 1794.7,
     title: "1798: Goya pinta El aquelarre",
     author: "Francisco de Goya",
     authorEntryId: "goya-1746",
@@ -3451,7 +3668,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Hacia 1798, Francisco de Goya pintó El aquelarre para los duques de Osuna y su finca El Capricho. Bajo una luna creciente, un gran macho cabrío preside una reunión nocturna mientras varias mujeres le ofrecen niños. Parte de una serie de seis escenas de brujería, la obra combina terror y sátira ilustrada: ridiculiza la superstición y el poder que se alimenta del miedo colectivo. Hoy pertenece al Museo Lázaro Galdiano de Madrid. Tiempo de silencio, de Luis Martín-Santos, retomaría el aquelarre goyesco mediante la posterior versión de las Pinturas negras, conservada en el Prado.",
     descriptionHtml:
-      'Hacia 1798, <button type="button" class="timeline-detail-entrylink" data-id="goya-1746">Francisco de Goya</button> pintó <em>El aquelarre</em> para los duques de Osuna y su finca <button type="button" class="timeline-detail-geolink" data-region="El Capricho" data-country="España">El Capricho</button>. Bajo una luna creciente, un gran macho cabrío preside una reunión nocturna mientras varias mujeres le ofrecen niños. Parte de una serie de seis escenas de brujería, la obra combina terror y sátira ilustrada: ridiculiza la superstición y el poder que se alimenta del miedo colectivo. Hoy pertenece al <button type="button" class="timeline-detail-geolink" data-region="Museo Lázaro Galdiano" data-country="España">Museo Lázaro Galdiano</button> de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>. <em>Tiempo de silencio</em>, de Luis Martín-Santos, retomaría el aquelarre goyesco mediante la posterior versión de las Pinturas negras, conservada en el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Prado</button>.',
+      'Hacia 1798, <button type="button" class="timeline-detail-entrylink" data-id="goya-1746">Francisco de Goya</button> pintó <em>El aquelarre</em> para los duques de Osuna y su finca <button type="button" class="timeline-detail-geolink" data-region="El Capricho" data-country="España">El Capricho</button>. Bajo una luna creciente, un gran macho cabrío preside una reunión nocturna mientras varias mujeres le ofrecen niños. Parte de una serie de seis escenas de brujería, la obra combina terror y sátira ilustrada: ridiculiza la superstición y el poder que se alimenta del miedo colectivo. Hoy pertenece al <button type="button" class="timeline-detail-geolink" data-region="Museo Lázaro Galdiano" data-country="España">Museo Lázaro Galdiano</button> de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>. <em>Tiempo de silencio</em>, de Luis Martín-Santos, retomaría el aquelarre goyesco mediante la <button type="button" class="timeline-detail-entrylink" data-id="goya-pinturas-negras-1819">posterior versión de las <em>Pinturas negras</em></button>, conservada en el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Prado</button>.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Goya hubiera tratado el aquelarre como fantasía decorativa y no como sátira?",
       answer:
@@ -3717,7 +3934,7 @@ const TIMELINE_ENTRIES = [
     // Real date; nudged track position only — see trackYear comment in
     // timeline.js. Part of the chain described at
     // bois-caiman-revuelta-1791.
-    trackYear: 1791.3,
+    trackYear: 1787.5,
     endYear: 1796,
     title: "1796: derrota garífuna y el horror de Balliceaux",
     author: "Hito histórico",
@@ -3735,7 +3952,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "garifuna-llegada-roatan-1797",
     year: 1797,
-    trackYear: 1794.4,
+    trackYear: 1792.3,
     title: "12 de abril de 1797: los garífunas llegan a Honduras",
     author: "Hito histórico",
     country: "Honduras",
@@ -3755,9 +3972,9 @@ const TIMELINE_ENTRIES = [
     id: "bois-caiman-revuelta-1791",
     year: 1791,
     // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. Re-spaced with the new Spanish royal-crisis sequence
-    // so every point from 1788 through 1807 remains independently clickable.
-    trackYear: 1785.1,
+    // timeline.js. Re-spaced with the expanded late-colonial sequence
+    // so every point from 1781 through 1808 remains independently clickable.
+    trackYear: 1780.3,
     title: "1791: la ceremonia de Bois Caïman y el estallido de la revuelta",
     author: "Hito histórico",
     country: "Haití",
@@ -3775,7 +3992,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "sonthonax-convencion-abolicion-1794",
     year: 1794,
-    trackYear: 1788.2,
+    trackYear: 1785.1,
     title: "1794: Francia abole la esclavitud en Saint-Domingue",
     author: "Hito histórico",
     country: "Haití",
@@ -3792,7 +4009,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "expedicion-leclerc-toussaint-1802",
     year: 1802,
-    trackYear: 1800.6,
+    trackYear: 1799.5,
     title: "1802: Napoleón envía a Leclerc a restaurar la esclavitud",
     author: "Hito histórico",
     country: "Haití",
@@ -3811,7 +4028,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "haiti-independencia-1804",
     year: 1804,
-    trackYear: 1803.7,
+    trackYear: 1801.9,
     title: "1804: Haití declara su independencia y abole la esclavitud para siempre",
     author: "Hito histórico",
     country: "Haití",
@@ -3882,6 +4099,8 @@ const TIMELINE_ENTRIES = [
   {
     id: "argentina-libertad-vientres-1813",
     year: 1813,
+    // Visual spacing only; the displayed historical year remains unchanged.
+    trackYear: 1813.2,
     title: "1813: la Asamblea del Año XIII declara la libertad de vientres",
     author: "Hito histórico",
     country: "Argentina",
@@ -4155,6 +4374,8 @@ const TIMELINE_ENTRIES = [
   {
     id: "juan-gabriel-1950",
     year: 1950,
+    // Visual spacing only; the displayed historical year remains unchanged.
+    trackYear: 1949.5,
     month: 1,
     endYear: 2016,
     title: "1950–2016: Juan Gabriel",
@@ -4350,7 +4571,7 @@ const TIMELINE_ENTRIES = [
   {
     id: "corrido-origenes-independencia-revolucion",
     year: 1810,
-    trackYear: 1811.1,
+    trackYear: 1812.1,
     endYear: 1920,
     title: "1810–1920: el corrido, el periódico del pueblo",
     author: "Hito histórico",

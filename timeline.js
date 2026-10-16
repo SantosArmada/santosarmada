@@ -370,7 +370,7 @@
 
     activeIndex = idx;
 
-    const NON_LATAM_COUNTRIES = ["Alemania", "China", "Grecia", "San Vicente y las Granadinas", "Portugal", "Italia", "Turquía"];
+    const NON_LATAM_COUNTRIES = ["Alemania", "China", "Francia", "Grecia", "San Vicente y las Granadinas", "Portugal", "Italia", "Turquía"];
     // Countries anchoring an entry in Africa get their own purple badge
     // instead of falling through to the green "Latinoamérica" default.
     const AFRICA_COUNTRIES = [
