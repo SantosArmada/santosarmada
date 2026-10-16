@@ -1953,11 +1953,37 @@ const TIMELINE_ENTRIES = [
     description:
       "El 2 de mayo de 1808, habitantes de Madrid se alzaron contra las tropas francesas que intentaban trasladar al infante Francisco de Paula. La represión ordenada por Murat y los fusilamientos del día siguiente convirtieron Madrid en símbolo de una resistencia extendida por juntas, guerrillas y ejércitos. La guerra fue internacional —España, Portugal y Gran Bretaña contra Francia—, pero también civil, local y religiosa: españoles combatieron en ambos bandos y el clero movilizó comunidades. En Cádiz, las Cortes promulgaron el 19 de marzo de 1812 una Constitución basada en soberanía nacional y separación de poderes.",
     descriptionHtml:
-      'El 2 de mayo de 1808, habitantes de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> se alzaron contra las <button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">tropas francesas</button> que intentaban trasladar al infante Francisco de Paula. La <button type="button" class="timeline-detail-entrylink" data-id="goya-1746">represión ordenada por Murat y los fusilamientos del día siguiente</button> convirtieron <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> en símbolo de una resistencia extendida por juntas, guerrillas y ejércitos. La guerra fue internacional —<button type="button" class="timeline-detail-geolink" data-country="España">España</button>, <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button> y <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button> contra <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>—, pero también civil, local y religiosa: españoles combatieron en ambos bandos y el clero movilizó comunidades. En <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button>, las Cortes promulgaron el 19 de marzo de 1812 una <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">Constitución</button> basada en soberanía nacional y separación de poderes.',
+      'El 2 de mayo de 1808, habitantes de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> se alzaron contra las <button type="button" class="timeline-detail-entrylink" data-id="fontainebleau-bayona-crisis-1807">tropas francesas</button> que intentaban trasladar al infante Francisco de Paula. La <button type="button" class="timeline-detail-entrylink" data-id="goya-diptico-mayo-1814">represión ordenada por Murat y los fusilamientos del día siguiente</button> convirtieron <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> en símbolo de una resistencia extendida por juntas, guerrillas y ejércitos. La guerra fue internacional —<button type="button" class="timeline-detail-geolink" data-country="España">España</button>, <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button> y <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Gran Bretaña</button> contra <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>—, pero también civil, local y religiosa: españoles combatieron en ambos bandos y el clero movilizó comunidades. En <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button>, las Cortes promulgaron el 19 de marzo de 1812 una <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">Constitución</button> basada en soberanía nacional y separación de poderes.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si las Cortes no hubieran podido reunirse en Cádiz durante la guerra?",
       answer:
         "La resistencia habría conservado su dimensión militar, pero carecería de un proyecto político común capaz de afirmar que la soberanía pertenecía a la nación. Sin la Constitución de 1812, el liberalismo español e hispanoamericano habría perdido su texto de referencia más influyente."
+    }
+  },
+
+  {
+    id: "goya-diptico-mayo-1814",
+    year: 1814,
+    month: 2,
+    day: 24,
+    // Real date; the slight visual offset keeps each 1813–1816 point
+    // independently clickable while preserving the displayed chronology.
+    trackYear: 1814.1,
+    title: "1814: Goya convierte el 2 y el 3 de mayo en memoria",
+    author: "Francisco de Goya",
+    authorEntryId: "goya-1746",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "En 1814, Francisco de Goya pintó como díptico La lucha con los mamelucos y Los fusilamientos del 3 de mayo. La Regencia había aceptado el encargo el 24 de febrero; Fernando VII lo continuó después de regresar y abolir la Constitución de Cádiz. Contrario a una interpretación repetida, no fueron concebidos para decorar las calles: facturas indican que se financiaron para Palacio y que sus marcos quedaron terminados el 29 de noviembre. Una pintura muestra el levantamiento contra las tropas de Murat; la otra, la represalia francesa. Ambas se conservan en el Museo del Prado.",
+    descriptionHtml:
+      'En 1814, <button type="button" class="timeline-detail-entrylink" data-id="goya-1746">Francisco de Goya</button> pintó como díptico <em>La lucha con los mamelucos</em> y <em>Los fusilamientos del 3 de mayo</em>. La Regencia había aceptado el encargo el 24 de febrero; <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">Fernando VII</button> lo continuó después de regresar y abolir la <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">Constitución de Cádiz</button>. Contrario a una interpretación repetida, no fueron concebidos para decorar las calles: facturas indican que se financiaron para <button type="button" class="timeline-detail-geolink" data-region="Palacio Real de Madrid" data-country="España">Palacio</button> y que sus marcos quedaron terminados el 29 de noviembre. Una pintura muestra el <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">levantamiento contra las tropas de Murat</button>; la otra, la represalia francesa. Ambas se conservan en el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Museo del Prado</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Goya hubiera convertido aquellas jornadas en una celebración triunfal de la Corona?",
+      answer:
+        "El levantamiento habría quedado representado como propaganda dinástica. Al concentrarse en cuerpos vulnerables, violencia callejera y ejecución, Goya dejó una memoria que rebasa al monarca que financió las obras y enfrenta al espectador con el costo humano de la guerra."
     }
   },
 
@@ -2183,6 +2209,8 @@ const TIMELINE_ENTRIES = [
   {
     id: "carta-de-jamaica-1815",
     year: 1815,
+    // Real year; the slight visual offset separates the dense 1813–1816 run.
+    trackYear: 1815.2,
     title: "Carta de Jamaica",
     author: "Simón Bolívar",
     country: "Jamaica",
@@ -2204,6 +2232,8 @@ const TIMELINE_ENTRIES = [
     year: 1816,
     month: 3,
     day: 3,
+    // Real date; the slight visual offset separates the dense 1813–1816 run.
+    trackYear: 1816.3,
     title: "3 de marzo de 1816: Juana Azurduy vence en El Villar",
     author: "Juana Azurduy",
     country: "Bolivia",
@@ -3359,6 +3389,8 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.HISTORY,
     description:
       "Pintor de corte que terminó retratando el horror de la guerra napoleónica en España en Los fusilamientos del 3 de mayo y en Los desastres de la guerra, además de explorar los límites de la razón en sus Pinturas negras. Puente entre el barroco español y la modernidad.",
+    descriptionHtml:
+      'Pintor de corte que terminó retratando el horror de la <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">guerra napoleónica en España</button> en <button type="button" class="timeline-detail-entrylink" data-id="goya-diptico-mayo-1814"><em>Los fusilamientos del 3 de mayo</em></button> y en <em>Los desastres de la guerra</em>, además de explorar los límites de la razón en sus <button type="button" class="timeline-detail-entrylink" data-id="goya-aquelarre-1798">Pinturas negras</button>. Puente entre el barroco español y la modernidad.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Goya nunca hubiera presenciado la guerra napoleónica en España?",
       answer:

@@ -786,6 +786,7 @@ const REGION_CENTER = {
     'El Villar, Chuquisaca': { lat: -19.62858, lng: -64.31104 },
     'La Laguna, Chuquisaca': { lat: -19.30760, lng: -64.30401 },
     'Madrid': { lat: 40.42, lng: -3.70 },
+    'Palacio Real de Madrid': { lat: 40.4179, lng: -3.7143 },
     'Países Bajos españoles': { lat: 50.85, lng: 4.35 },
     'La Haya': { lat: 52.08, lng: 4.31 },
     'Viena': { lat: 48.21, lng: 16.37 },
