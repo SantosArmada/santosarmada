@@ -129,6 +129,7 @@
 .timeline-filter-types {
   display: flex;
   gap: 6px;
+  flex-wrap: wrap;
 }
 
 .timeline-filter-chip {
@@ -189,6 +190,12 @@
   color: #72d6a1;
   border-color: #4ca678;
   background: rgba(76, 166, 120, 0.09);
+}
+
+.timeline-filter-chip[data-type="ecclesiastical"].is-active {
+  color: var(--gold);
+  border-color: var(--gold);
+  background: rgba(200, 169, 110, 0.1);
 }
 
 .timeline-filter-country {
@@ -501,6 +508,11 @@ button.timeline-detail-lineage-name {
   cursor: pointer;
 }
 
+.timeline-glyph.is-active {
+  color: #faff00;
+  text-shadow: 0 0 14px rgba(250, 255, 0, 0.75);
+}
+
 .timeline-glyph-stem {
   position: absolute;
   top: 58px;
@@ -600,7 +612,9 @@ button.timeline-detail-lineage-name {
    Dims rather than removes — positions stay stable so the minimap and
    track width never need to recompute when a filter changes. */
 .timeline-entry.is-filtered-out,
-.timeline-cluster.is-filtered-out {
+.timeline-cluster.is-filtered-out,
+.timeline-glyph.is-filtered-out,
+.timeline-glyph-stem.is-filtered-out {
   opacity: 0.15;
   pointer-events: none;
 }

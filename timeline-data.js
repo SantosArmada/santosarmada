@@ -12,7 +12,7 @@ const ERA_BANDS = [
   {
     id: "pre-colonial",
     label: "Antes de 1492",
-    startYear: 700,
+    startYear: 500,
     endYear: 1491,
     color: "var(--gold)",
     butterfly: {
@@ -73,12 +73,14 @@ const ERA_BANDS = [
 
 /* ---------------------------------------------------------
    GLYPH MARKERS
-   Reserved for entries tied to religious/ecclesiastical power,
-   per the original spec — own lane above the main track.
+   Reserved for entries where institutional Catholic power is a
+   central historical mechanism — councils, papal authority,
+   religious orders, persecution, missions, education, or patronage.
+   These markers occupy their own lane above the main track.
    --------------------------------------------------------- */
 const GLYPH = {
   PERSONAL_FAITH: "✝",   // pre-100 AD personal faith entries
-  ECCLESIASTICAL: "☩"    // institutional Catholic power, from 711 AD on
+  ECCLESIASTICAL: "☩"    // institutional Catholic power
 };
 
 /* ---------------------------------------------------------
@@ -94,7 +96,8 @@ const ICON_TYPE = {
   VISION: "vision",         // builders/architects/engineers — Essays-page green
   ROYAL: "royal",           // Spanish royal bloodline — rose
   ECHO: "echo",              // cross-time structures of violence — muted crimson
-  ESOTERIC: "esoteric"       // documented esoteric, initiatory, and Masonic networks — emerald
+  ESOTERIC: "esoteric",      // documented esoteric, initiatory, and Masonic networks — emerald
+  ECCLESIASTICAL: "ecclesiastical" // institutional Catholic authority — gold cross lane
 };
 
 /* ---------------------------------------------------------
@@ -110,6 +113,133 @@ const TIMELINE_ENTRIES = [
 
   // ---- PRE-COLONIAL ----
   {
+    id: "vouille-giro-hispania-507",
+    year: 507,
+    title: "507: Vouillé desplaza el reino visigodo hacia Hispania",
+    author: "Alarico II y Clodoveo I",
+    country: "España",
+    region: "Vouillé",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "En 507, los francos de Clodoveo derrotaron a los visigodos cerca de Vouillé y mataron a su rey, Alarico II. La pérdida de Toulouse y de casi todos sus dominios galos —aunque conservaron Septimania— obligó a la monarquía a reconstruir su poder al sur de los Pirineos. No fue el nacimiento instantáneo de España, pero sí el giro que convirtió a Hispania en el centro político duradero del reino visigodo y abrió la secuencia que culminaría con Leovigildo.",
+    descriptionHtml:
+      'En 507, los francos de Clodoveo derrotaron a los visigodos cerca de <button type="button" class="timeline-detail-geolink" data-region="Vouillé" data-country="Francia">Vouillé</button> y mataron a su rey, Alarico II. La pérdida de <button type="button" class="timeline-detail-geolink" data-region="Toulouse" data-country="Francia">Toulouse</button> y de casi todos sus dominios galos —aunque conservaron <button type="button" class="timeline-detail-geolink" data-region="Septimania" data-country="Francia">Septimania</button>— obligó a la monarquía a reconstruir su poder al sur de los <button type="button" class="timeline-detail-geolink" data-region="Pirineos" data-country="España">Pirineos</button>. No fue el nacimiento instantáneo de España, pero sí el giro que convirtió a Hispania en el centro político duradero del reino visigodo y abrió la secuencia que culminaría con <button type="button" class="timeline-detail-entrylink" data-id="leovigildo-conquista-suevos-585">Leovigildo</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Alarico II hubiera vencido en Vouillé?",
+      answer:
+        "El reino de Toulouse habría conservado su centro político al norte de los Pirineos y la expansión franca hacia Aquitania se habría frenado. Hispania quizá habría seguido siendo una periferia del poder visigodo, alterando la formación posterior del reino de Toledo."
+    }
+  },
+  {
+    id: "leovigildo-conquista-suevos-585",
+    year: 585,
+    title: "585: Leovigildo conquista el reino suevo",
+    author: "Leovigildo y Audeca",
+    country: "España",
+    region: "Galicia",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "En 585, Leovigildo invadió Gallaecia, depuso al rey suevo Audeca y absorbió su reino, su tesoro y sus territorios. Braga y Porto quedaron incorporadas a la monarquía de Toledo; una última rebelión de Malarico fue sofocada. La conquista reunió gran parte de la península bajo un solo poder, pero no creó una unidad pacífica ni completa: persistían enclaves bizantinos y resistencias regionales. Décadas de campañas, asedios y castigos destruyeron autonomías locales antes de la conversión católica de Recaredo.",
+    descriptionHtml:
+      'En 585, Leovigildo invadió <button type="button" class="timeline-detail-geolink" data-region="Galicia" data-country="España">Gallaecia</button>, depuso al rey suevo Audeca y absorbió su reino, su tesoro y sus territorios. <button type="button" class="timeline-detail-geolink" data-region="Braga" data-country="Portugal">Braga</button> y <button type="button" class="timeline-detail-geolink" data-region="Porto" data-country="Portugal">Porto</button> quedaron incorporadas a la monarquía de <button type="button" class="timeline-detail-geolink" data-region="Toledo" data-country="España">Toledo</button>; una última rebelión de Malarico fue sofocada. La conquista reunió gran parte de la península bajo un solo poder, pero no creó una unidad pacífica ni completa: persistían enclaves bizantinos y resistencias regionales. Décadas de campañas, asedios y castigos destruyeron autonomías locales antes de la <button type="button" class="timeline-detail-entrylink" data-id="tercer-concilio-toledo-589">conversión católica de Recaredo</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si el reino suevo hubiera sobrevivido?",
+      answer:
+        "Galicia y el norte de Portugal habrían conservado una monarquía propia frente a Toledo. Esa frontera pudo haber producido otra trayectoria política y religiosa en el noroeste, limitando el proyecto territorial de Leovigildo antes de la conversión de Recaredo."
+    }
+  },
+  {
+    id: "tercer-concilio-toledo-589",
+    year: 589,
+    trackYear: 602,
+    title: "mayo de 589: el III Concilio de Toledo",
+    author: "Recaredo I y los obispos del reino",
+    country: "España",
+    region: "Toledo",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.HISTORY,
+    description:
+      "Recaredo había abandonado el cristianismo homoiano o arriano hacia 587. En mayo de 589, el III Concilio de Toledo formalizó públicamente su conversión y la reconciliación de la jerarquía goda con la Iglesia nicena. Antiguos obispos arrianos pudieron conservar rango bajo condiciones, pero su Iglesia dejó de existir como institución separada. La unidad religiosa acercó élites godas e hispanorromanas y convirtió los concilios de Toledo en escenarios de gobierno, abriendo el camino al programa político de 633, sin eliminar conspiraciones, desigualdades ni coerción religiosa.",
+    descriptionHtml:
+      'Recaredo había abandonado el cristianismo homoiano o arriano hacia 587. En mayo de 589, el <button type="button" class="timeline-detail-geolink" data-region="Toledo" data-country="España">III Concilio de Toledo</button> formalizó públicamente su conversión y la reconciliación de la jerarquía goda con la Iglesia nicena. Antiguos obispos arrianos pudieron conservar rango bajo condiciones, pero su Iglesia dejó de existir como institución separada. La unidad religiosa acercó élites godas e hispanorromanas y convirtió los concilios de Toledo en escenarios de gobierno, abriendo el camino al <button type="button" class="timeline-detail-entrylink" data-id="isidoro-cuarto-concilio-toledo-633">programa político de 633</button>, sin eliminar conspiraciones, desigualdades ni coerción religiosa.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Recaredo hubiera mantenido la confesión arriana?",
+      answer:
+        "La separación religiosa entre la corte goda y la mayoría nicena habría continuado. Los obispos católicos quizá no habrían adquirido el mismo papel en el gobierno, y la monarquía habría enfrentado nuevas rebeliones sostenidas por diferencias políticas y confesionales."
+    }
+  },
+  {
+    id: "isidoro-cuarto-concilio-toledo-633",
+    year: 633,
+    month: 12,
+    day: 5,
+    title: "5 de diciembre de 633: Isidoro y el IV Concilio",
+    author: "Isidoro de Sevilla y Sisenando",
+    country: "España",
+    region: "Toledo",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY],
+    description:
+      "El IV Concilio de Toledo, presidido por Isidoro de Sevilla, reguló doctrina, liturgia, disciplina eclesiástica y poder político. Su canon 75 protegía al rey y amenazaba con excomunión a quienes conspiraran contra él, enlazando autoridad religiosa y monárquica. Isidoro también compilaba las Etimologías, una enciclopedia de veinte libros sobre lenguaje, ciencias, derecho y mundo natural, casi terminada al morir en 636. El concilio no creó esa obra, pero ambos proyectos ordenaban conocimiento y sociedad desde la Iglesia visigoda y prepararon el mundo del Liber Iudiciorum.",
+    descriptionHtml:
+      'El <button type="button" class="timeline-detail-geolink" data-region="Toledo" data-country="España">IV Concilio de Toledo</button>, presidido por Isidoro de <button type="button" class="timeline-detail-geolink" data-region="Sevilla" data-country="España">Sevilla</button>, reguló doctrina, liturgia, disciplina eclesiástica y poder político. Su canon 75 protegía al rey y amenazaba con excomunión a quienes conspiraran contra él, enlazando autoridad religiosa y monárquica. Isidoro también compilaba las <em>Etimologías</em>, una enciclopedia de veinte libros sobre lenguaje, ciencias, derecho y mundo natural, casi terminada al morir en 636. El concilio no creó esa obra, pero ambos proyectos ordenaban conocimiento y sociedad desde la Iglesia visigoda y prepararon el mundo del <button type="button" class="timeline-detail-entrylink" data-id="liber-iudiciorum-654"><em>Liber Iudiciorum</em></button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si las Etimologías de Isidoro se hubieran perdido?",
+      answer:
+        "La Europa medieval habría carecido de uno de sus principales puentes hacia el saber antiguo. Gramática, medicina, leyes, astronomía y naturaleza habrían circulado mediante otras compilaciones, pero pocas reunían tal amplitud en una obra tan copiada."
+    }
+  },
+  {
+    id: "liber-iudiciorum-654",
+    year: 654,
+    title: "654: el Liber Iudiciorum organiza el poder mediante la ley",
+    author: "Recesvinto y Braulio de Zaragoza",
+    country: "España",
+    region: "Toledo",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.HISTORY,
+    description:
+      "En 654, Recesvinto promulgó en Toledo el Liber Iudiciorum, una extensa compilación de doce libros que reunió leyes antiguas y nuevas; Braulio de Zaragoza pudo intervenir en su organización. Tradicionalmente se presentó como un código territorial común para godos e hispanorromanos, aunque los historiadores discuten su alcance real, autoría y aplicación cotidiana. Traducido siglos después como Fuero Juzgo, siguió alimentando el derecho medieval peninsular. La obra enlazó legislación, memoria dinástica y autoridad religiosa antes de la revisión persecutoria de Ervigio.",
+    descriptionHtml:
+      'En 654, Recesvinto promulgó en <button type="button" class="timeline-detail-geolink" data-region="Toledo" data-country="España">Toledo</button> el <em>Liber Iudiciorum</em>, una extensa compilación de doce libros que reunió leyes antiguas y nuevas; Braulio de <button type="button" class="timeline-detail-geolink" data-region="Zaragoza" data-country="España">Zaragoza</button> pudo intervenir en su organización. Tradicionalmente se presentó como un código territorial común para godos e hispanorromanos, aunque los historiadores discuten su alcance real, autoría y aplicación cotidiana. Traducido siglos después como <em>Fuero Juzgo</em>, siguió alimentando el derecho medieval peninsular. La obra enlazó legislación, memoria dinástica y autoridad religiosa antes de la <button type="button" class="timeline-detail-entrylink" data-id="ervigio-leyes-antijudias-681">revisión persecutoria de Ervigio</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si el Liber Iudiciorum no hubiera sobrevivido a 711?",
+      answer:
+        "Los reinos cristianos medievales habrían dispuesto de un vínculo jurídico mucho más débil con la Hispania visigoda. El Fuero Juzgo no habría servido como fuente de autoridad, y otros derechos locales o romanos habrían ocupado mayor espacio."
+    }
+  },
+  {
+    id: "ervigio-leyes-antijudias-681",
+    year: 681,
+    month: 1,
+    day: 27,
+    title: "27 de enero de 681: la ley persigue a los judíos",
+    author: "Ervigio y el XII Concilio de Toledo",
+    country: "España",
+    region: "Toledo",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.ECHO,
+    types: [ICON_TYPE.ECHO, ICON_TYPE.HISTORY],
+    description:
+      "Ervigio incorporó veintiocho leyes antijudías a su revisión del Liber Iudiciorum; el XII Concilio de Toledo las confirmó en enero de 681. El 27 de enero fueron comunicadas a dirigentes judíos reunidos en la iglesia de Santa María. Impusieron bautismo, vigilancia religiosa, restricciones económicas, confiscación, exilio y castigos corporales. Su existencia demuestra una política estatal de coerción, aunque no prueba que cada pena se aplicara uniformemente. Este episodio de Ecos brutales enlaza ley, Iglesia y persecución antes del derrumbe político de 711.",
+    descriptionHtml:
+      'Ervigio incorporó veintiocho leyes antijudías a su revisión del <button type="button" class="timeline-detail-entrylink" data-id="liber-iudiciorum-654"><em>Liber Iudiciorum</em></button>; el XII Concilio de <button type="button" class="timeline-detail-geolink" data-region="Toledo" data-country="España">Toledo</button> las confirmó en enero de 681. El 27 de enero fueron comunicadas a dirigentes judíos reunidos en la <button type="button" class="timeline-detail-geolink" data-region="Toledo" data-country="España">iglesia de Santa María</button>. Impusieron bautismo, vigilancia religiosa, restricciones económicas, confiscación, exilio y castigos corporales. Su existencia demuestra una política estatal de coerción, aunque no prueba que cada pena se aplicara uniformemente. Este episodio de <strong>Ecos brutales</strong> enlaza ley, Iglesia y persecución antes del <button type="button" class="timeline-detail-entrylink" data-id="conquista-musulmana-711">derrumbe político de 711</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si el XII Concilio hubiera rechazado las leyes de Ervigio?",
+      answer:
+        "La Iglesia habría impuesto un límite excepcional a la coerción regia y las comunidades judías habrían conservado mayor espacio legal. El rechazo también habría debilitado a un rey que buscaba legitimar su acceso disputado al trono."
+    }
+  },
+  {
     id: "witiza-crisis-sucesoria-710",
     year: 710,
     title: "710: crisis sucesoria visigoda",
@@ -120,6 +250,8 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.HISTORY,
     description:
       "Muere el rey visigodo Witiza, y estalla una disputa sucesoria entre sus partidarios y los de Rodrigo, proclamado rey en su lugar. La fractura interna del reino visigodo — con facciones rivales debilitando la defensa del territorio — crea las condiciones que, un año después, permitirán el rápido avance del ejército musulmán liderado por Tariq ibn Ziyad.",
+    descriptionHtml:
+      'Muere el rey visigodo Witiza y estalla una disputa sucesoria entre sus partidarios y los de Rodrigo, proclamado rey en su lugar. La fractura interna de la monarquía de <button type="button" class="timeline-detail-geolink" data-region="Toledo" data-country="España">Toledo</button> —agravada tras décadas de <button type="button" class="timeline-detail-entrylink" data-id="ervigio-leyes-antijudias-681">coerción y luchas por el trono</button>— crea las condiciones que, un año después, permitirán el rápido avance del ejército dirigido por <button type="button" class="timeline-detail-entrylink" data-id="conquista-musulmana-711">Tariq ibn Ziyad</button>.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Witiza hubiera dejado un heredero indiscutido?",
       answer:
@@ -139,13 +271,13 @@ const TIMELINE_ENTRIES = [
     flag: "spain-not-latam",
     type: ICON_TYPE.CONFLICT,
     description:
-      "Tariq ibn Ziyad cruza el Estrecho de Gibraltar al mando de un ejército mayormente bereber bajo la autoridad del Califato Omeya, aprovechando la crisis sucesoria visigoda desatada tras la muerte del rey Witiza en 710. En julio de 711, en la batalla de Guadalete, las fuerzas del rey Rodrigo son derrotadas y el propio Rodrigo muere en circunstancias inciertas; las crónicas posteriores atribuyen a Julián, gobernador de Ceuta, haber facilitado el cruce musulmán. Córdoba, Toledo y Sevilla caen en rápida sucesión, y hacia 718 la mayor parte de la península está bajo control musulmán, dando origen a Al-Ándalus. La conquista mezcla a las nuevas poblaciones árabes y bereberes musulmanas con la nobleza visigoda, la mayoría hispanorromana y las comunidades judías ya asentadas — sobre un territorio donde, décadas antes (552–624), también había pervivido una franja bizantina en el sur, ya ausente para esta fecha.",
+      "En 711, Tariq ibn Ziyad cruzó el Estrecho de Gibraltar con una fuerza principalmente bereber mientras Rodrigo disputaba el trono visigodo. Su victoria en el sur abrió el camino hacia Córdoba y Toledo; Musa ibn Nusayr llegó con otro ejército en 712. La fecha y ubicación exactas de la batalla, así como los relatos sobre el conde Julián y una traición organizada, proceden de fuentes tardías y discutidas. La conquista destruyó la monarquía de Toledo y comenzó la formación de Al-Ándalus.",
     descriptionHtml:
-      'Tariq ibn Ziyad cruza el <button type="button" class="timeline-detail-geolink" data-region="Estrecho de Gibraltar" data-country="España">Estrecho de Gibraltar</button> al mando de un ejército mayormente bereber bajo la autoridad del Califato Omeya, aprovechando la crisis sucesoria visigoda desatada tras la muerte del rey Witiza en 710. En julio de 711, en la batalla de <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Guadalete</button>, las fuerzas del rey Rodrigo son derrotadas y el propio Rodrigo muere en circunstancias inciertas; las crónicas posteriores atribuyen a Julián, gobernador de <button type="button" class="timeline-detail-geolink" data-region="Ceuta" data-country="España">Ceuta</button>, haber facilitado el cruce musulmán. <button type="button" class="timeline-detail-geolink" data-region="Córdoba" data-country="España">Córdoba</button>, <button type="button" class="timeline-detail-geolink" data-region="Toledo" data-country="España">Toledo</button> y <button type="button" class="timeline-detail-geolink" data-region="Sevilla" data-country="España">Sevilla</button> caen en rápida sucesión, y hacia 718 la mayor parte de la península está bajo control musulmán, dando origen a Al-Ándalus. La conquista mezcla a las nuevas poblaciones árabes y bereberes musulmanas con la nobleza visigoda, la mayoría hispanorromana y las comunidades judías ya asentadas — sobre un territorio donde, décadas antes (552–624), también había pervivido una franja bizantina en el sur, ya ausente para esta fecha.',
+      'En 711, Tariq ibn Ziyad cruzó el <button type="button" class="timeline-detail-geolink" data-region="Estrecho de Gibraltar" data-country="España">Estrecho de Gibraltar</button> con una fuerza principalmente bereber mientras Rodrigo disputaba el <button type="button" class="timeline-detail-entrylink" data-id="witiza-crisis-sucesoria-710">trono visigodo</button>. Su victoria en el sur abrió el camino hacia <button type="button" class="timeline-detail-geolink" data-region="Córdoba" data-country="España">Córdoba</button> y <button type="button" class="timeline-detail-geolink" data-region="Toledo" data-country="España">Toledo</button>; Musa ibn Nusayr llegó con otro ejército en 712. La fecha y ubicación exactas de la batalla, así como los relatos sobre el conde Julián y una traición organizada, proceden de fuentes tardías y discutidas. La conquista destruyó la monarquía de Toledo y comenzó la <button type="button" class="timeline-detail-entrylink" data-id="consolidacion-al-andalus-718">formación de Al-Ándalus</button>.',
     butterfly: {
-      prompt: "¿Qué hubiera pasado si Julián de Ceuta no hubiera facilitado el cruce del Estrecho?",
+      prompt: "¿Qué habría ocurrido si Rodrigo hubiera reunido una monarquía sin rivales?",
       answer:
-        "Tariq ibn Ziyad habría necesitado años, no meses, para reunir la flota y la información necesarias para invadir Hispania. Ese retraso pudo haber dado tiempo al reino visigodo para sanar su fractura interna, y Al-Ándalus —ocho siglos de historia peninsular— quizás nunca habría existido."
+        "Una defensa coordinada habría podido contener aquella expedición o impedir que una victoria inicial destruyera el gobierno central. No sabemos si habría evitado nuevas campañas omeyas, pero la conquista difícilmente habría avanzado con la misma rapidez."
     }
   },
   {
@@ -218,6 +350,7 @@ const TIMELINE_ENTRIES = [
     country: "España",
     region: "Santiago de Compostela",
     flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.HISTORY,
     description:
       "Un ermitaño, Paio (Pelayo), es guiado por una luz en el monte Libredón — de ahí Compostela, campus stellae, 'campo de la estrella' — hasta un antiguo sepulcro. El obispo Teodomiro de Iria Flavia lo identifica como la tumba del apóstol Santiago y avisa al rey Alfonso II de Asturias, quien viaja desde Oviedo para verificarlo y ordena construir una capilla en el lugar. Aquella ruta de Oviedo a Compostela —el Camino Primitivo— se convierte en el origen del Camino de Santiago, uno de los grandes ejes de peregrinación de la cristiandad y una pieza central en la construcción de una identidad cristiana ibérica que, siglos después, alimentaría la ideología de la Reconquista.",
@@ -373,6 +506,7 @@ const TIMELINE_ENTRIES = [
     author: "Francisco de Asís",
     country: "Italia",
     region: "Asís",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.HISTORY,
     description:
       "La Porziuncola (la Porciúncula) —del latín Portiuncula, 'pequeña porción de tierra', nombre que originalmente designaba la parcela benedictina en un claro de bosque a los pies de Assisi (Asís), antes de pasar a nombrar la capilla misma— ya existía, según la tradición local, desde el siglo IV o antes, varios siglos antes del punto donde arranca esta línea de tiempo. Hacia 1205, ya convertido tras abandonar la fortuna de su familia mercantil, Francesco d'Assisi (Francisco de Asís) —todavía un joven desconocido, no el santo que se volvería después— empieza a reparar con sus propias manos varias iglesias en ruinas alrededor de la ciudad; entre 1205 y 1208 restaura la Porciúncula casi por completo, financiando el trabajo con las limosnas que recogía viviendo como un pobre más. En esos años gobiernan, sin saberlo, sobre el escenario en que esto ocurre: el Sacro Imperio Romano Germánico bajo Otón IV, y en Roma, el papa Innocenzo III (Inocencio III), uno de los pontífices más poderosos de la historia, que pronto aprobaría de palabra la nueva forma de vida que Francisco proponía. En 1209, los monjes benedictinos del Monte Subasio, dueños formales de la capilla, la entregan a Francisco para que se convierta en el hogar de la comunidad religiosa que empezaba a crecer a su alrededor — el mismo año en que esa comunidad se formaliza como la Orden Franciscana. Siglos después, entre 1569 y 1679, se construiría alrededor de la pequeña capilla una basílica entera —Santa Maria degli Angeli (Santa María de los Ángeles)— solo para protegerla y recibir a los peregrinos. Pero la huella más lejana de la Porciúncula no se quedó en Italia: los franciscanos que después cruzaron el Atlántico llevaban consigo la memoria de esa capilla como el lugar fundacional de su orden, dedicada a Nuestra Señora de los Ángeles. El 2 de agosto de 1769 —día de la fiesta de Nuestra Señora de los Ángeles de la Porciúncula en el calendario franciscano— la expedición Portolá acampa junto a un río en el sur de la actual California y lo bautiza El Río de Nuestra Señora la Reina de los Ángeles de Porciúncula. Ese nombre, heredado de una capilla que un joven inquieto reparó con sus propias manos quinientos sesenta años antes, terminaría dándole su nombre a la ciudad que creció junto a ese río: Los Ángeles.",
@@ -391,6 +525,7 @@ const TIMELINE_ENTRIES = [
     author: "Francisco de Asís",
     country: "Italia",
     region: "Asís",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.HISTORY,
     description:
       "En 1209, el mercader convertido a fraile Francesco d'Assisi (Francisco de Asís) funda en Assisi (Asís), Italia, la Orden de Hermanos Menores —los franciscanos— tras obtener la aprobación oral del papa Innocenzo III (Inocencio III) para una regla de vida basada en la pobreza absoluta, la predicación itinerante y el servicio a los pobres. Frente a una Iglesia medieval cada vez más rica y jerárquica, Francisco predicaba que los verdaderos seguidores de Cristo debían imitarlo renunciando a toda posesión material. La orden crece con rapidez: en 1219, el propio Francisco cruza a Damieta, Egipto, durante la Quinta Cruzada, y logra una audiencia pacífica con el sultán ayubí al-Malik al-Kamil, buscando el diálogo en vez de la conquista — su episodio más famoso fuera de Europa. Un año después, en 1220, cinco frailes son martirizados en Marrakech, Marruecos —los 'protomártires de Marruecos'—, la primera misión franciscana organizada en África. En 1224 los franciscanos desembarcan en Dover y llegan a Oxford, Inglaterra, que se convierte en uno de los grandes centros intelectuales de la orden, cuna de frailes como Roger Bacon, Duns Escoto y Guillermo de Ockham; casi al mismo tiempo establecen un convento-estudio junto a la Universidad de París, el otro gran polo académico franciscano medieval. La expansión sigue hacia oriente: en 1246, Giovanni da Pian del Carpine llega a Karakórum, Mongolia, por encargo del papa Innocenzo IV (Inocencio IV), la primera embajada europea documentada al imperio mongol, y en 1294 Giovanni da Montecorvino se instala en Khanbaliq —la actual Pekín— y se convierte en el primer arzobispo católico de la ciudad, la misión franciscana más al oriente de toda la Edad Media. Casi tres siglos después de la fundación, en 1524, doce franciscanos encabezados por Martín de Valencia llegan a la Ciudad de México, apenas tres años después de la caída de Tenochtitlan, para iniciar la evangelización de Nueva España — el verdadero punto de entrada franciscano al continente americano, 245 años antes de que fray Junípero Serra y sus hermanos fundaran la cadena de veintiuna misiones de Alta California que da origen a ciudades como San Diego, San Francisco, Santa Bárbara y San José, en la expedición Portolá de 1769. Cinco siglos y medio después de que Francisco renunciara a la riqueza de su padre en las calles de Asís, sus herederos espirituales habían recorrido tres continentes y bautizado medio estado de California.",
@@ -409,6 +544,7 @@ const TIMELINE_ENTRIES = [
     author: "Francisco de Asís",
     country: "Italia",
     region: "Porciúncula",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.HISTORY,
     description:
       "Entre 1211 y 1212, una joven de familia noble de Assisi (Asís), Chiara Offreduccio (Clara Offreduccio) —conocida después como Chiara d'Assisi (Santa Clara de Asís)—, abandona en secreto la vida acomodada de los suyos y acude de noche a la Porziuncola (la Porciúncula), donde Francisco la recibe en la nueva forma de vida religiosa que predicaba. De ese encuentro nace la Orden de las Damas Pobres, las Clarisas, la rama femenina del movimiento franciscano. En 1216, ya con la orden masculina consolidada, Francisco pide al papa Onorio III (Honorio III) un privilegio poco común: una indulgencia plenaria para todo peregrino que visitara arrepentido la pequeña capilla. El papa lo concede, y la gracia pasa a conocerse como el Perdón de Asís o la Indulgencia de la Porciúncula —una celebración que, ochocientos años después, sigue reuniendo a miles de peregrinos cada 1 y 2 de agosto—. Una década más tarde, el 3 de octubre de 1226, gravemente enfermo y sintiendo cercana la muerte, Francisco pide ser trasladado una última vez a la Porciúncula, el lugar que, según sus primeros biógrafos, más amó en vida; muere esa noche, a los cuarenta y cuatro años, en la misma pequeña capilla que había restaurado con sus propias manos dos décadas antes. Su muerte convierte a la pequeña capilla en uno de los grandes santuarios de peregrinación de la Europa medieval —el mismo lugar que, siglos más tarde, los franciscanos llevarían en la memoria hasta la fundación de Los Ángeles, California.",
@@ -529,6 +665,7 @@ const TIMELINE_ENTRIES = [
     author: "Hito histórico",
     country: "Portugal",
     region: "Lagos",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.CONFLICT,
     description:
       "En 1441, el capitán portugués Antão Gonçalves, enviado por el infante Enrique el Navegante en una expedición al mando de Nuno Tristão para explorar la costa occidental de África, decide por iniciativa propia capturar a un grupo de personas en Cabo Branco, en la costa de la actual Mauritania. En el viaje de regreso canjea a algunos de sus cautivos bereberes por diez africanos subsaharianos esclavizados, a quienes transporta hasta Lagos, Portugal — el episodio que la historiografía señala como el arranque de la trata transatlántica de esclavos. Tres años después, en 1444, una expedición al mando de Lançarote de Freitas regresa a Lagos con 235 personas esclavizadas y las vende públicamente en el muelle: la primera venta a gran escala de africanos esclavizados en suelo europeo. El papado da cobertura religiosa al negocio poco después: entre 1452 y 1455, el papa Nicolás V emite las bulas Dum Diversas y Romanus Pontifex, que autorizan a la Corona portuguesa a esclavizar de forma perpetua a los pueblos no cristianos del África subsahariana. Lo que empieza como la decisión improvisada de un solo capitán se convierte, en menos de una generación, en un sistema jurídico y comercial que, durante los siguientes cuatro siglos, trasladaría a la fuerza a unos doce millones y medio de personas africanas a través del Atlántico.",
@@ -744,6 +881,7 @@ const TIMELINE_ENTRIES = [
     country: "España",
     region: "Granada",
     flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.HISTORY,
     description:
       "El 31 de marzo de 1492, los Reyes Católicos Fernando de Aragón e Isabel de Castilla firman en la Alhambra de Granada el Decreto de la Alhambra —también llamado Edicto de Granada—, que ordena la expulsión de todos los judíos que no se convirtieran al cristianismo. El decreto les da hasta el 31 de julio para abandonar sus reinos; los últimos en salir lo hacen el 2 de agosto, coincidiendo con el ayuno judío de Tisha B'Av, que conmemora la destrucción de los dos Templos de Jerusalén. Las cifras varían mucho según la fuente —los cálculos tradicionales hablan de hasta 300.000 personas—, pero la investigación histórica moderna sitúa el número de judíos realmente expulsados, los que no se convirtieron, entre 40.000 y 100.000. Muchos cruzan primero a Portugal, donde apenas cinco años después la corona portuguesa también los expulsaría o forzaría a convertirse; otros se instalan en el norte de África o, sobre todo, en el Imperio otomano, cuyo sultán Bayaceto II habría comentado que Fernando de Aragón 'empobrecía su propio reino para enriquecer el mío'. De esa diáspora nace el mundo sefardí, una comunidad que conservaría durante siglos el ladino —una forma arcaica del español— y la memoria de un país que los expulsó. El decreto permanecería vigente, al menos de forma simbólica, hasta que fue revocado formalmente el 16 de diciembre de 1968. Un día después de que se cerrara el plazo final para salir, el 3 de agosto de 1492, Cristóbal Colón zarpó de Palos de la Frontera rumbo a las Indias —según algunos historiadores, retrasando su partida un día para no navegar durante el ayuno judío—.",
@@ -812,6 +950,7 @@ const TIMELINE_ENTRIES = [
     author: "Hito histórico",
     country: "España",
     region: "Tordesillas",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.HISTORY,
     description:
       "Cuando Cristóbal Colón regresa en 1493 de su primer viaje y reclama nuevas tierras caribeñas para la Corona de Castilla, Portugal se alarma: lleva décadas explorando África y el Atlántico bajo patrocinio real, y considera que bulas papales anteriores ya protegían su propia esfera de influencia. El rey João II argumenta que los nuevos descubrimientos de Colón podrían caer dentro de esa esfera portuguesa — y con España y Portugal como las dos potencias marítimas dominantes de Europa, la disputa amenaza con escalar a una guerra abierta. El papa Alejandro VI (el valenciano Rodrigo Borja), elegido apenas en 1492, media entre ambas coronas: en 1493 emite una serie de bulas, entre ellas Inter Caetera, trazando una línea de demarcación en el Atlántico —las tierras al oeste corresponderían a España, las del este a Portugal—, apoyado en la creencia medieval de que el papado tenía autoridad para arbitrar entre monarcas cristianos sobre territorios no cristianos recién descubiertos. Portugal considera la línea papal demasiado favorable a España, y João II negocia directamente con los Reyes Católicos una revisión. El 7 de junio de 1494, Castilla y Portugal firman en la villa de Tordesillas el tratado que mueve la línea trescientas setenta leguas al oeste de las islas de Cabo Verde: España recibe derechos sobre las tierras al occidente de esa línea, Portugal sobre las del oriente — sin que ninguna de las dos coronas supiera realmente qué había del otro lado del horizonte. La consecuencia más duradera del tratado tardaría solo seis años en manifestarse: en 1500, cuando la expedición portuguesa de Pedro Álvares Cabral toca la costa de lo que hoy es Brasil, esa franja oriental de Sudamérica cae del lado portugués de la línea, y Portugal la reclama — la razón concreta por la que Brasil habla portugués mientras el resto de Hispanoamérica habla español. El propio tratado original todavía existe: la ratificación castellana se conserva en el Archivo General de Indias de Sevilla, y la portuguesa en el Arquivo Nacional da Torre do Tombo de Lisboa; desde 2007, la UNESCO inscribe ambos documentos conjuntamente en su Registro Memoria del Mundo. Ninguna de las dos coronas, por supuesto, consultó jamás a los millones de personas indígenas que ya habitaban esas tierras: los historiadores modernos consideran Tordesillas uno de los primeros y más flagrantes ejemplos de un reparto imperial del mundo trazado a puro pulso de línea recta sobre un mapa.",
@@ -1132,6 +1271,7 @@ const TIMELINE_ENTRIES = [
     author: "Nzinga Mbemba (Afonso I de Kongo)",
     country: "Congo",
     region: "Mbanza Kongo",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.CONFLICT,
     description:
       "Nzinga Mbemba nace hacia 1456 en el Reino de Kongo, un extenso y sofisticado estado centroafricano que hoy correspondería a partes de Angola, la República Democrática del Congo y la República del Congo. En 1483, poco después de que el navegante portugués Diogo Cão llegara a la desembocadura del río Congo, Portugal establece relaciones diplomáticas con la corte de Mbanza Kongo, la capital del reino. En julio de 1491, Nzinga Mbemba se bautiza como cristiano y adopta el nombre de Afonso, en honor al entonces príncipe heredero de Portugal. En 1509, tras derrotar a su medio hermano Mpanzu a Kitima en una batalla decisiva por la sucesión, se convierte en el rey Afonso I. Lejos de imaginar una relación colonial, Afonso concibe una alianza cristiana entre iguales: manda construir iglesias, promueve la educación religiosa y envía a jóvenes nobles del reino a estudiar a Portugal — entre ellos a su propio hijo Henrique, quien en 1518 se convierte en el primer obispo católico del África subsahariana. Pero la alianza se resquebraja a medida que crece la demanda portuguesa de mano de obra esclavizada. A partir de 1526, Afonso escribe una serie de veinticuatro cartas al rey João III de Portugal denunciando que comerciantes portugueses secuestraban súbditos libres, nobles y hasta parientes de la propia corte real, más allá de cualquier trata legítima de cautivos de guerra que él mismo toleraba. 'Cada día los mercaderes se llevan a nuestra gente, hijos de la tierra e hijos de nuestros nobles y vasallos', escribe en una de sus cartas más citadas, advirtiendo que el reino se estaba despoblando. Le pide a João III que prohíba a sus comerciantes traer más mercancías destinadas a comprar personas, pues era su voluntad que en su reino no hubiera trata de esclavos ni salida alguna para ellos. Portugal ignora sus súplicas: el comercio continúa y se expande. Afonso muere en 1542 o 1543, todavía rey, sin haber logrado revertir la dinámica que él mismo había sido de los primeros en documentar y denunciar por escrito — casi un siglo antes de que ese mismo reino, ya desestabilizado, siguiera siendo fuente de cautivos como el propio Benkos Biohó, el rey congolés que décadas después fundaría San Basilio de Palenque.",
@@ -1253,6 +1393,7 @@ const TIMELINE_ENTRIES = [
     title: "Historia de la Monja Alférez",
     author: "Catalina de Erauso",
     country: "Chile",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.LITERATURE,
     description:
       "La autobiografía de Catalina de Erauso, una monja vasca que escapó de su convento a los quince años, se vistió de hombre y cruzó el Atlántico para reinventarse como soldado en las guerras de conquista de Chile y Perú. Mantuvo su identidad oculta durante casi dos décadas, hasta que el Papa mismo le concedió permiso para vivir vestida de hombre el resto de su vida; murió en 1650 cerca de Veracruz, dirigiendo una recua de mulas bajo el nombre de Antonio de Erauso. El manuscrito de sus memorias no se publicó hasta 1829.",
@@ -1460,6 +1601,7 @@ const TIMELINE_ENTRIES = [
     author: "Fray Junípero Serra",
     country: "España",
     region: "Petra, Mallorca",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.HISTORY,
     description:
       "El 24 de noviembre de 1713 nace en Petra, Mallorca, Miquel Josep Serra i Ferrer, hijo de campesinos humildes de la isla. A los dieciséis años ingresa a la Orden Franciscana, fundada por Francesco d'Assisi (Francisco de Asís) cinco siglos antes, y toma el nombre de fray Junípero en honor a uno de los primeros compañeros del santo. Llega a ocupar una cátedra de filosofía en la Universidad Luliana de Palma, pero en 1749, ya cerca de los cuarenta años, renuncia a esa vida académica para embarcarse como misionero hacia Nueva España. Pasa casi dos décadas evangelizando en la Sierra Gorda mexicana y, en 1769, cuando la Corona española decide finalmente ocupar Alta California ante el temor a la expansión rusa, viaja junto al gobernador Gaspar de Portolá para fundar la primera de una cadena de misiones que llegaría a veintiuna. En los quince años que le quedan de vida, Serra funda nueve de ellas —San Diego, San Carlos Borromeo de Carmelo, San Antonio de Padua, San Gabriel, San Luis Obispo, San Francisco de Asís, San Juan Capistrano, Santa Clara y San Buenaventura— y bautiza a miles de indígenas ohlone, chumash, kumeyaay y de otros pueblos, muchos de ellos sometidos a trabajo forzado, castigo corporal y epidemias europeas que diezmarían a la población nativa de California. Muere en 1784 en la misión de Carmel. Dos siglos y medio después, el papa Francisco lo canoniza en 2015 como el primer santo declarado en suelo estadounidense, en una ceremonia tan disputada como su legado: activistas indígenas derriban varias de sus estatuas en los años siguientes, entre ellas la de San Francisco y la del Capitolio de Sacramento, por considerarlo arquitecto de un sistema que casi borró sus culturas.",
@@ -1705,6 +1847,7 @@ const TIMELINE_ENTRIES = [
     author: "Gaspar de Portolá y Junípero Serra",
     country: "Estados Unidos",
     region: "San Diego",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.HISTORY,
     description:
       "El propio Cabrillo había reclamado California para la Corona española en 1542, pero un reclamo sobre el papel es muy distinto a una ocupación real: durante más de 225 años, España no estableció ningún asentamiento permanente en la actual Alta California. Las razones eran prácticas: pocos colonos disponibles frente a los territorios ya poblados y productivos de México, Centroamérica, Sudamérica y el Caribe; el costo de sostener una colonia remota —barcos, soldados, misioneros, suministros—; la enorme distancia terrestre y marítima desde Ciudad de México, capital del virreinato; y la ausencia de oro, plata o imperios indígenas densos que justificaran la inversión, a diferencia de México central o Perú. Eso cambia a mediados del siglo XVIII, cuando la expansión rusa de la caza de pieles desde Alaska y la creciente actividad británica en el Pacífico convencen a la Corona de que necesita una presencia efectiva en el territorio. En 1769, España lanza la expedición Portolá: Gaspar de Portolá, gobernador militar, y el misionero franciscano Junípero Serra fundan la Misión San Diego de Alcalá, el primer asentamiento español permanente en Alta California y la primera de una cadena de misiones y presidios que terminaría por extenderse a lo largo de toda la costa. Doscientos veintisiete años después del reclamo de Cabrillo, España finalmente ocupa lo que llevaba más de dos siglos reclamando solo de nombre. Semanas después de fundar San Diego, el 2 de agosto de 1769 —fiesta de Nuestra Señora de los Ángeles de la Porciúncula en el calendario franciscano— la expedición acampa junto a un río más al norte y lo bautiza El Río de Nuestra Señora la Reina de los Ángeles de Porciúncula, en honor a la capilla que Francesco d'Assisi (Francisco de Asís) había restaurado más de cinco siglos antes; el nombre terminaría heredándolo la futura ciudad de Los Ángeles. Meses después, ya en noviembre de 1769, la expedición sigue tierra adentro hacia el norte y acampa junto a un enorme secuoya costero a orillas del arroyo San Francisquito: los soldados españoles lo bautizan simplemente 'el palo alto'. El árbol sigue en pie hoy, y su nombre terminaría bautizando, más de un siglo después, en 1894, la ciudad de Palo Alto —fundada junto a la naciente Universidad de Stanford— mucho después de que la expedición que le dio nombre hubiera desaparecido de la memoria de casi todos sus vecinos.",
@@ -1905,11 +2048,134 @@ const TIMELINE_ENTRIES = [
     description:
       "El 18 de septiembre de 1868, la Armada se pronunció en Cádiz bajo Juan Bautista Topete; Juan Prim y Francisco Serrano encabezaron una coalición de progresistas, demócratas y unionistas contra Isabel II. Tras la derrota en Alcolea, la reina cruzó desde San Sebastián a Francia el 30 de septiembre. La Gloriosa derribó su régimen, formó juntas y un Gobierno Provisional e inauguró el Sexenio Democrático. La Constitución de 1869 reconoció sufragio universal masculino, derechos y libertad religiosa dentro de una monarquía parlamentaria. La revolución aceleró el liberalismo, pero abrió una búsqueda de rey y régimen.",
     descriptionHtml:
-      'El 18 de septiembre de 1868, la Armada se pronunció en <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button> bajo Juan Bautista Topete; Juan Prim y Francisco Serrano encabezaron una coalición de progresistas, demócratas y unionistas contra <button type="button" class="timeline-detail-entrylink" data-id="isabel-ii-gobierno-personal-1843">Isabel II</button>. Tras la derrota en <button type="button" class="timeline-detail-geolink" data-region="Alcolea" data-country="España">Alcolea</button>, la reina cruzó desde <button type="button" class="timeline-detail-geolink" data-region="San Sebastián" data-country="España">San Sebastián</button> a <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button> el 30 de septiembre. La Gloriosa derribó su régimen, formó juntas y un Gobierno Provisional e inauguró el Sexenio Democrático. La <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">Constitución de 1869</button> reconoció sufragio universal masculino, derechos y libertad religiosa dentro de una monarquía parlamentaria. La revolución aceleró el liberalismo, pero abrió una búsqueda de rey y régimen.',
+      'El 18 de septiembre de 1868, la Armada se pronunció en <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button> bajo Juan Bautista Topete; Juan Prim y Francisco Serrano encabezaron una coalición de progresistas, demócratas y unionistas contra <button type="button" class="timeline-detail-entrylink" data-id="isabel-ii-gobierno-personal-1843">Isabel II</button>. Tras la derrota en <button type="button" class="timeline-detail-geolink" data-region="Alcolea" data-country="España">Alcolea</button>, la reina cruzó desde <button type="button" class="timeline-detail-geolink" data-region="San Sebastián" data-country="España">San Sebastián</button> a <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button> el 30 de septiembre. La Gloriosa derribó su régimen, formó juntas y un Gobierno Provisional e inauguró el Sexenio Democrático. La <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">Constitución de 1869</button> reconoció sufragio universal masculino, derechos y libertad religiosa dentro de una monarquía parlamentaria. La revolución aceleró el liberalismo, pero abrió una <button type="button" class="timeline-detail-entrylink" data-id="amadeo-i-1871">búsqueda de rey y régimen</button>.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si las fuerzas de Isabel II hubieran vencido en Alcolea?",
       answer:
         "La reina habría conservado el trono temporalmente, pero la coalición contra su régimen y la crisis de legitimidad seguirían abiertas. La Constitución democrática de 1869, el sufragio universal masculino y la búsqueda de una nueva monarquía habrían quedado aplazados o adoptado otra vía."
+    }
+  },
+
+  {
+    id: "amadeo-i-1871",
+    year: 1871,
+    month: 1,
+    day: 2,
+    // Real date; nudged track position only to keep the 1868–1875 chain legible.
+    trackYear: 1870,
+    title: "2 de enero de 1871: Amadeo I jura la Constitución",
+    author: "Amadeo I y Juan Prim",
+    country: "España",
+    region: "Palacio de las Cortes",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "Las Cortes eligieron a Amadeo de Saboya, hijo de Víctor Manuel II de Italia, para encarnar la monarquía parlamentaria creada en 1869. Llegó a Cartagena el 30 de diciembre de 1870, cuando su defensor, Juan Prim, acababa de morir tras un atentado en Madrid. El 2 de enero de 1871 juró la Constitución ante las Cortes. Sin Prim, quedó aislado entre republicanos, carlistas, alfonsinos, Iglesia, aristocracia y partidos divididos, mientras continuaban la guerra de Cuba y la Tercera Guerra Carlista. Incapaz de formar mayorías estables, renunció a la Corona el 11 de febrero de 1873.",
+    descriptionHtml:
+      'Las Cortes eligieron a Amadeo de Saboya, hijo de Víctor Manuel II de <button type="button" class="timeline-detail-geolink" data-country="Italia">Italia</button>, para encarnar la <button type="button" class="timeline-detail-entrylink" data-id="revolucion-gloriosa-1868">monarquía parlamentaria creada en 1869</button>. Llegó a <button type="button" class="timeline-detail-geolink" data-region="Cartagena" data-country="España">Cartagena</button> el 30 de diciembre de 1870, cuando su defensor, <button type="button" class="timeline-detail-entrylink" data-id="revolucion-gloriosa-1868">Juan Prim</button>, acababa de morir tras un atentado en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>. El 2 de enero de 1871 juró la Constitución ante las <button type="button" class="timeline-detail-geolink" data-region="Palacio de las Cortes" data-country="España">Cortes</button>. Sin Prim, quedó aislado entre republicanos, carlistas, alfonsinos, Iglesia, aristocracia y partidos divididos, mientras continuaban la guerra de <button type="button" class="timeline-detail-geolink" data-country="Cuba">Cuba</button> y la <button type="button" class="timeline-detail-entrylink" data-id="muerte-fernando-vii-carlismo-1833">Tercera Guerra Carlista</button>. Incapaz de formar mayorías estables, <button type="button" class="timeline-detail-entrylink" data-id="primera-republica-1873">renunció a la Corona el 11 de febrero de 1873</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Juan Prim hubiera sobrevivido al atentado de 1870?",
+      answer:
+        "Prim habría dado a Amadeo su principal apoyo político y militar, quizá articulando una mayoría estable alrededor de la nueva dinastía. La monarquía democrática habría ganado tiempo, aunque las guerras, las divisiones partidistas y la oposición carlista, republicana y alfonsina no habrían desaparecido."
+    }
+  },
+
+  {
+    id: "primera-republica-1873",
+    year: 1873,
+    month: 2,
+    day: 11,
+    // Real date; nudged track position only to separate it from Puerto Rico.
+    trackYear: 1871.2,
+    title: "11 de febrero de 1873: se proclama la Primera República",
+    author: "Figueras, Pi y Margall, Salmerón y Castelar",
+    country: "España",
+    region: "Palacio de las Cortes",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
+    description:
+      "El 11 de febrero de 1873, reunidos Congreso y Senado, la Asamblea Nacional aceptó la renuncia de Amadeo I y proclamó la Primera República. En once meses gobernaron cuatro presidentes —Estanislao Figueras, Pi y Margall, Nicolás Salmerón y Emilio Castelar— mientras el país enfrentaba la Tercera Guerra Carlista, la guerra de Cuba y la rebelión cantonal, que convirtió Cartagena en foco federalista. El proyecto de Constitución federal no llegó a aprobarse. El golpe de Pavía disolvió las Cortes el 3 de enero de 1874; Serrano dirigió una república autoritaria hasta la restauración borbónica de diciembre.",
+    descriptionHtml:
+      'El 11 de febrero de 1873, reunidos <button type="button" class="timeline-detail-geolink" data-region="Palacio de las Cortes" data-country="España">Congreso y Senado</button>, la Asamblea Nacional aceptó la <button type="button" class="timeline-detail-entrylink" data-id="amadeo-i-1871">renuncia de Amadeo I</button> y proclamó la Primera República. En once meses gobernaron cuatro presidentes —Estanislao Figueras, Pi y Margall, Nicolás Salmerón y Emilio Castelar— mientras el país enfrentaba la <button type="button" class="timeline-detail-entrylink" data-id="muerte-fernando-vii-carlismo-1833">Tercera Guerra Carlista</button>, la guerra de <button type="button" class="timeline-detail-geolink" data-country="Cuba">Cuba</button> y la rebelión cantonal, que convirtió <button type="button" class="timeline-detail-geolink" data-region="Cartagena" data-country="España">Cartagena</button> en foco federalista. El proyecto de Constitución federal no llegó a aprobarse. El golpe de Pavía disolvió las Cortes el 3 de enero de 1874; Serrano dirigió una república autoritaria hasta la <button type="button" class="timeline-detail-entrylink" data-id="restauracion-alfonso-xii-1875">restauración borbónica de diciembre</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si la Constitución federal de 1873 hubiera sido aprobada?",
+      answer:
+        "La República habría contado con un marco para distribuir poder entre sus estados y quizá canalizar parte del federalismo cantonal. Aun así, necesitaba sobrevivir a guerras simultáneas, divisiones internas y oposición militar; una constitución por sí sola no garantizaba estabilidad."
+    }
+  },
+
+  {
+    id: "restauracion-alfonso-xii-1875",
+    year: 1875,
+    month: 1,
+    day: 14,
+    // Real date; nudged track position only to keep neighboring cards distinct.
+    trackYear: 1874,
+    title: "14 de enero de 1875: Alfonso XII entra en Madrid",
+    author: "Alfonso XII y Antonio Cánovas del Castillo",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "El pronunciamiento de Martínez Campos en Sagunto, el 29 de diciembre de 1874, restauró a los Borbones en Alfonso XII, hijo de Isabel II. El rey llegó a Barcelona el 9 de enero de 1875 y entró en Madrid el 14, inicio de su reinado. Antonio Cánovas diseñó la Restauración: Constitución de 1876, soberanía compartida entre Corona y Cortes, centralización y alternancia entre conservadores y liberales. El sistema aportó estabilidad tras el Sexenio, pero descansó en caciquismo y fraude electoral. Alfonso murió en 1885; María Cristina gobernó como regente durante la minoría de Alfonso XIII.",
+    descriptionHtml:
+      'El pronunciamiento de Martínez Campos en <button type="button" class="timeline-detail-geolink" data-region="Sagunto" data-country="España">Sagunto</button>, el 29 de diciembre de 1874, restauró a los Borbones en Alfonso XII, hijo de <button type="button" class="timeline-detail-entrylink" data-id="isabel-ii-gobierno-personal-1843">Isabel II</button>. El rey llegó a <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button> el 9 de enero de 1875 y entró en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> el 14, inicio de su reinado. Antonio Cánovas diseñó la Restauración: Constitución de 1876, soberanía compartida entre Corona y Cortes, centralización y alternancia entre conservadores y liberales. El sistema aportó estabilidad tras el <button type="button" class="timeline-detail-entrylink" data-id="revolucion-gloriosa-1868">Sexenio</button>, pero descansó en caciquismo y fraude electoral. Alfonso murió en 1885; María Cristina gobernó como regente durante la minoría de Alfonso XIII.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Martínez Campos no hubiera proclamado a Alfonso XII en Sagunto?",
+      answer:
+        "Cánovas prefería una restauración civil y negociada, por lo que el regreso borbónico quizá habría ocurrido de todos modos, aunque más tarde. El pronunciamiento aceleró el proceso y reveló que el ejército seguía actuando como árbitro del régimen político."
+    }
+  },
+
+  {
+    id: "misericordia-galdos-1897",
+    year: 1897,
+    // Real year; nudged track position only within the dense 1896–1899 sequence.
+    trackYear: 1896.6,
+    title: "1897: Galdós publica Misericordia antes del Desastre",
+    author: "Benito Pérez Galdós",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY],
+    description:
+      "En 1897 Benito Pérez Galdós publicó Misericordia, novela situada en los barrios pobres de Madrid. Benina, criada que mendiga en secreto para sostener a su arruinada señora, Doña Paca, atraviesa iglesias, casas de préstamos, comedores y calles donde caridad, hambre y apariencia social conviven. El ciego Almudena, inmigrante marroquí, amplía ese mapa humano más allá del catolicismo español. Galdós convierte la pobreza producida bajo la Restauración en experiencia cotidiana, sin idealizar a pobres ni benefactores. Publicada un año antes del Desastre de 1898, la obra revela una crisis interior previa a la pérdida del imperio.",
+    descriptionHtml:
+      'En 1897 Benito Pérez Galdós publicó <em>Misericordia</em>, novela situada en los barrios pobres de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>. Benina, criada que mendiga en secreto para sostener a su arruinada señora, Doña Paca, atraviesa iglesias, casas de préstamos, comedores y calles donde caridad, hambre y apariencia social conviven. El ciego Almudena, inmigrante <button type="button" class="timeline-detail-geolink" data-country="Marruecos">marroquí</button>, amplía ese mapa humano más allá del catolicismo <button type="button" class="timeline-detail-geolink" data-country="España">español</button>. Galdós convierte la pobreza producida bajo la <button type="button" class="timeline-detail-entrylink" data-id="restauracion-alfonso-xii-1875">Restauración</button> en experiencia cotidiana, sin idealizar a pobres ni benefactores. Publicada un año antes del <button type="button" class="timeline-detail-entrylink" data-id="desastre-1898-tratado-paris">Desastre de 1898</button>, la obra revela una crisis interior previa a la pérdida del imperio.',
+    butterfly: {
+      prompt: "¿Qué habría cambiado si Misericordia se hubiera publicado después del Desastre de 1898?",
+      answer:
+        "La novela podría leerse como una respuesta directa a la derrota imperial. Al aparecer un año antes, resulta más incómoda y reveladora: muestra que la pobreza, la desigualdad y la crisis moral de la Restauración ya estaban presentes antes de que 1898 les diera un nombre nacional."
+    }
+  },
+
+  {
+    id: "desastre-1898-tratado-paris",
+    year: 1898,
+    month: 12,
+    day: 10,
+    // Real date; nudged track position only within the dense 1896–1899 sequence.
+    trackYear: 1897.8,
+    title: "10 de diciembre de 1898: el Tratado de París y el Desastre",
+    author: "España, Estados Unidos y movimientos independentistas",
+    country: "España",
+    region: "París",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El Tratado de París, firmado el 10 de diciembre de 1898, cerró la guerra hispano-estadounidense. España renunció a su soberanía sobre Cuba y cedió Puerto Rico, Guam y Filipinas a Estados Unidos; por Filipinas recibió veinte millones de dólares. Las derrotas de Manila y Santiago de Cuba exhibieron la debilidad naval española, pero cubanos y filipinos ya luchaban por independizarse antes de la intervención estadounidense. En España, el «Desastre» quebró la imagen de la Restauración y alimentó el regeneracionismo. Para las islas, significó descolonización incompleta: terminó un imperio y comenzó otra dominación sobre pueblos distintos.",
+    descriptionHtml:
+      'El Tratado de <button type="button" class="timeline-detail-geolink" data-region="París" data-country="Francia">París</button>, firmado el 10 de diciembre de 1898, cerró la guerra hispano-estadounidense. <button type="button" class="timeline-detail-geolink" data-country="España">España</button> renunció a su soberanía sobre <button type="button" class="timeline-detail-geolink" data-country="Cuba">Cuba</button> y cedió <button type="button" class="timeline-detail-geolink" data-country="Puerto Rico">Puerto Rico</button>, <button type="button" class="timeline-detail-geolink" data-country="Guam">Guam</button> y <button type="button" class="timeline-detail-geolink" data-country="Filipinas">Filipinas</button> a <button type="button" class="timeline-detail-geolink" data-country="Estados Unidos">Estados Unidos</button>; por Filipinas recibió veinte millones de dólares. Las derrotas de <button type="button" class="timeline-detail-geolink" data-region="Bahía de Manila" data-country="Filipinas">Manila</button> y <button type="button" class="timeline-detail-geolink" data-region="Santiago de Cuba" data-country="Cuba">Santiago de Cuba</button> exhibieron la debilidad naval española, pero cubanos y filipinos ya luchaban por independizarse antes de la intervención estadounidense. En España, el «Desastre» quebró la imagen de la <button type="button" class="timeline-detail-entrylink" data-id="restauracion-alfonso-xii-1875">Restauración</button> y alimentó el regeneracionismo. Para las islas, significó descolonización incompleta: terminó un imperio y comenzó otra dominación sobre pueblos distintos.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Estados Unidos no hubiera intervenido en 1898?",
+      answer:
+        "Las guerras independentistas de Cuba y Filipinas habrían continuado contra España con desenlaces menos previsibles. La derrota imperial española quizá habría llegado después, mientras Puerto Rico y Guam habrían seguido trayectorias distintas; la intervención estadounidense cambió quién controló la salida del imperio."
     }
   },
 
@@ -3281,6 +3547,8 @@ const TIMELINE_ENTRIES = [
   {
     id: "siqueiros-1896",
     year: 1896,
+    // Real year; nudged track position only within the dense 1893–1899 sequence.
+    trackYear: 1895.4,
     endYear: 1974,
     title: "1896–1974: David Alfaro Siqueiros",
     author: "David Alfaro Siqueiros",
@@ -3383,6 +3651,7 @@ const TIMELINE_ENTRIES = [
     country: "España",
     region: "Sevilla",
     flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.HISTORY,
     description:
       "El 1 de noviembre de 1478, el papa Sisto IV (Sixto IV) emite la bula Exigit sinceras devotionis affectus a petición de los Reyes Católicos, Fernando de Aragón e Isabel de Castilla, autorizando el establecimiento de la Inquisición española — un tribunal bajo control directo de la Corona, no de Roma, a diferencia de la Inquisición medieval anterior. El primer tribunal se instala en Sevilla en 1480 y el primer auto de fe se celebra allí en febrero de 1481. Sus principales víctimas fueron los conversos: judíos y musulmanes que llevaban siglos viviendo en los territorios peninsulares, muchos de ellos convertidos al cristianismo bajo sospecha constante de practicar en secreto su fe original. La institución perduraría, con distintos grados de intensidad, hasta su abolición definitiva en 1834.",
@@ -3717,6 +3986,8 @@ const TIMELINE_ENTRIES = [
   {
     id: "puerto-rico-abolicion-esclavitud-1873",
     year: 1873,
+    // Real year; nudged track position only to separate it from the Republic.
+    trackYear: 1872.4,
     title: "1873: España abole la esclavitud en Puerto Rico",
     author: "Hito histórico",
     country: "Puerto Rico",
@@ -3724,6 +3995,8 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.HISTORY,
     description:
       "El 22 de marzo de 1873, la Asamblea Nacional de la Primera República Española decreta la abolición de la esclavitud en Puerto Rico, tras décadas de organización abolicionista liderada por figuras como Ramón Emeterio Betances, Segundo Ruiz Belvis, José Julián Acosta y Julio L. de Vizcarrondo. La ley compensa a los dueños con 35 millones de pesetas y obliga a los recién liberados a seguir trabajando bajo contrato tres años más — una libertad legal todavía condicionada, pero libertad al fin, veinticinco años antes de que la isla cambiara de manos coloniales.",
+    descriptionHtml:
+      'El 22 de marzo de 1873, la Asamblea Nacional de la <button type="button" class="timeline-detail-entrylink" data-id="primera-republica-1873">Primera República Española</button> decreta la abolición de la esclavitud en <button type="button" class="timeline-detail-geolink" data-country="Puerto Rico">Puerto Rico</button>, tras décadas de organización abolicionista liderada por figuras como Ramón Emeterio Betances, Segundo Ruiz Belvis, José Julián Acosta y Julio L. de Vizcarrondo. La ley compensa a los dueños con 35 millones de pesetas y obliga a los recién liberados a seguir trabajando bajo contrato tres años más — una libertad legal todavía condicionada, pero libertad al fin, veinticinco años antes de que la isla cambiara de manos coloniales.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si el movimiento abolicionista puertorriqueño no hubiera organizado durante décadas antes de 1873?",
       answer:
@@ -3743,7 +4016,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Durante tres siglos, El Morro —el castillo de San Felipe que custodia la bahía de San Juan— repele o sobrevive a los mayores poderes navales de Europa. En 1595, Francis Drake ataca la ciudad buscando un cargamento de oro y plata; la artillería española lo rechaza, matando a su compañero John Hawkins, y Drake se retira derrotado. En 1598, el inglés George Clifford, conde de Cumberland, sí logra tomar el castillo y la ciudad con 1,700 hombres —la única vez que El Morro cae en combate—, pero la disentería diezma a sus tropas, y tras 65 días de ocupación los ingleses se retiran, no sin antes saquear e incendiar San Juan. En 1625, el almirante holandés Boudewijn Hendricksz ocupa la ciudad —ya evacuada— y sitia El Morro durante semanas con cañones y trincheras, pero carece de artillería suficiente para romper sus muros; también se retira, quemando buena parte de la ciudad al partir. Pero la fortaleza que ningún ejército pudo quebrar termina cayendo de todos modos: en 1898, tras la derrota naval de España frente a Estados Unidos en la guerra hispanoamericana, el Tratado de París le cede Puerto Rico a Washington sin que un solo cañonazo se dispare contra El Morro. Trescientos años de resistencia militar no bastaron frente a una firma en otro continente.",
     descriptionHtml:
-      'Durante tres siglos, <button type="button" class="timeline-detail-geolink" data-region="Castillo San Felipe del Morro" data-country="Puerto Rico">El Morro</button> —el castillo de San Felipe que custodia la bahía de San Juan— repele o sobrevive a los mayores poderes navales de Europa. En 1595, Francis Drake ataca la ciudad buscando un cargamento de oro y plata; la artillería española lo rechaza, matando a su compañero John Hawkins, y Drake se retira derrotado. En 1598, el inglés George Clifford, conde de Cumberland, sí logra tomar el castillo y la ciudad con 1,700 hombres —la única vez que El Morro cae en combate—, pero la disentería diezma a sus tropas, y tras 65 días de ocupación los ingleses se retiran, no sin antes saquear e incendiar San Juan. En 1625, el almirante holandés Boudewijn Hendricksz ocupa la ciudad —ya evacuada— y sitia El Morro durante semanas con cañones y trincheras, pero carece de artillería suficiente para romper sus muros; también se retira, quemando buena parte de la ciudad al partir. Pero la fortaleza que ningún ejército pudo quebrar termina cayendo de todos modos: en 1898, tras la derrota naval de España frente a Estados Unidos en la guerra hispanoamericana, el Tratado de París le cede Puerto Rico a Washington sin que un solo cañonazo se dispare contra El Morro. Trescientos años de resistencia militar no bastaron frente a una firma en otro continente.',
+      'Durante tres siglos, <button type="button" class="timeline-detail-geolink" data-region="Castillo San Felipe del Morro" data-country="Puerto Rico">El Morro</button> —el castillo de San Felipe que custodia la bahía de San Juan— repele o sobrevive a los mayores poderes navales de Europa. En 1595, Francis Drake ataca la ciudad buscando un cargamento de oro y plata; la artillería española lo rechaza, matando a su compañero John Hawkins, y Drake se retira derrotado. En 1598, el inglés George Clifford, conde de Cumberland, sí logra tomar el castillo y la ciudad con 1,700 hombres —la única vez que El Morro cae en combate—, pero la disentería diezma a sus tropas, y tras 65 días de ocupación los ingleses se retiran, no sin antes saquear e incendiar San Juan. En 1625, el almirante holandés Boudewijn Hendricksz ocupa la ciudad —ya evacuada— y sitia El Morro durante semanas con cañones y trincheras, pero carece de artillería suficiente para romper sus muros; también se retira, quemando buena parte de la ciudad al partir. Pero la fortaleza que ningún ejército pudo quebrar termina cayendo de todos modos: en 1898, tras la derrota naval de España frente a Estados Unidos en la guerra hispanoamericana, el <button type="button" class="timeline-detail-entrylink" data-id="desastre-1898-tratado-paris">Tratado de París</button> le cede Puerto Rico a Washington sin que un solo cañonazo se dispare contra El Morro. Trescientos años de resistencia militar no bastaron frente a una firma en otro continente.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si El Morro hubiera caído ante Drake en 1595, en vez de resistir?",
       answer:
@@ -3993,7 +4266,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Benito Antonio Martínez Ocasio, Bad Bunny, nacido en Vega Baja, Puerto Rico —y que ya en abril de 2019 había agotado las entradas del Madison Square Garden de Nueva York en su gira X100PRE, su primera vez en el recinto—, se convierte el 8 de febrero de 2026 en el primer artista latino en encabezar en solitario el espectáculo de medio tiempo del Super Bowl —y el primero en hacerlo cantando mayormente en español—, en el Levi's Stadium de Santa Clara, California, ante la audiencia televisiva más grande de Estados Unidos. El show, con invitados como Lady Gaga, Ricky Martin y Los Pleneros de la Cresta, convierte el escenario en una puesta en escena de identidad puertorriqueña: campos de caña de azúcar que evocan el pasado colonial de la isla, una 'casita' construida sobre el campo de juego, y la bandera de Puerto Rico llevada literalmente sobre su espalda mientras canta. Lo que para la NFL es un espectáculo de entretiempo, para millones de puertorriqueños es, por primera vez, verse representados enteros —lengua, historia colonial y todo— en el escenario más visto del país que gobierna la isla desde 1898.",
     descriptionHtml:
-      'Benito Antonio Martínez Ocasio, Bad Bunny, nacido en <button type="button" class="timeline-detail-geolink" data-region="Vega Baja" data-country="Puerto Rico">Vega Baja, Puerto Rico</button> —y que ya en abril de 2019 había agotado las entradas del <button type="button" class="timeline-detail-geolink" data-region="Madison Square Garden" data-country="Estados Unidos">Madison Square Garden</button> de Nueva York en su gira X100PRE, su primera vez en el recinto—, se convierte el 8 de febrero de 2026 en el primer artista latino en encabezar en solitario el espectáculo de medio tiempo del Super Bowl —y el primero en hacerlo cantando mayormente en español—, en el <button type="button" class="timeline-detail-geolink" data-region="Levi\'s Stadium" data-country="Estados Unidos">Levi\'s Stadium</button> de <button type="button" class="timeline-detail-geolink" data-region="Santa Clara, California" data-country="Estados Unidos">Santa Clara, California</button>, ante la audiencia televisiva más grande de <button type="button" class="timeline-detail-geolink" data-country="Estados Unidos">Estados Unidos</button>. El show, con invitados como Lady Gaga, Ricky Martin y Los Pleneros de la Cresta, convierte el escenario en una puesta en escena de identidad puertorriqueña: campos de caña de azúcar que evocan el pasado colonial de la isla, una \'casita\' construida sobre el campo de juego, y la bandera de <button type="button" class="timeline-detail-geolink" data-country="Puerto Rico">Puerto Rico</button> llevada literalmente sobre su espalda mientras canta. Lo que para la NFL es un espectáculo de entretiempo, para millones de puertorriqueños es, por primera vez, verse representados enteros —lengua, historia colonial y todo— en el escenario más visto del país que gobierna la isla desde 1898.',
+      'Benito Antonio Martínez Ocasio, Bad Bunny, nacido en <button type="button" class="timeline-detail-geolink" data-region="Vega Baja" data-country="Puerto Rico">Vega Baja, Puerto Rico</button> —y que ya en abril de 2019 había agotado las entradas del <button type="button" class="timeline-detail-geolink" data-region="Madison Square Garden" data-country="Estados Unidos">Madison Square Garden</button> de Nueva York en su gira X100PRE, su primera vez en el recinto—, se convierte el 8 de febrero de 2026 en el primer artista latino en encabezar en solitario el espectáculo de medio tiempo del Super Bowl —y el primero en hacerlo cantando mayormente en español—, en el <button type="button" class="timeline-detail-geolink" data-region="Levi\'s Stadium" data-country="Estados Unidos">Levi\'s Stadium</button> de <button type="button" class="timeline-detail-geolink" data-region="Santa Clara, California" data-country="Estados Unidos">Santa Clara, California</button>, ante la audiencia televisiva más grande de <button type="button" class="timeline-detail-geolink" data-country="Estados Unidos">Estados Unidos</button>. El show, con invitados como Lady Gaga, Ricky Martin y Los Pleneros de la Cresta, convierte el escenario en una puesta en escena de identidad puertorriqueña: campos de caña de azúcar que evocan el pasado colonial de la isla, una \'casita\' construida sobre el campo de juego, y la bandera de <button type="button" class="timeline-detail-geolink" data-country="Puerto Rico">Puerto Rico</button> llevada literalmente sobre su espalda mientras canta. Lo que para la NFL es un espectáculo de entretiempo, para millones de puertorriqueños es, por primera vez, verse representados enteros —lengua, historia colonial y todo— en el escenario más visto del país que gobierna la isla <button type="button" class="timeline-detail-entrylink" data-id="desastre-1898-tratado-paris">desde 1898</button>.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Bad Bunny hubiera aceptado cantar principalmente en inglés para 'ampliar su alcance', como le sugirieron?",
       answer:
@@ -4335,6 +4608,7 @@ const TIMELINE_ENTRIES = [
     author: "Heitor da Silva Costa",
     country: "Brasil",
     region: "Río de Janeiro",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.VISION,
     types: [ICON_TYPE.VISION, ICON_TYPE.HISTORY],
     description:

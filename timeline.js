@@ -82,7 +82,7 @@
 
   /* ---------- Country list (for the filter dropdown) ---------- */
   const distinctCountries = Array.from(
-    new Set(entries.filter((e) => !e.glyph && e.country).map((e) => e.country))
+    new Set(entries.filter((e) => e.country).map((e) => e.country))
   ).sort((a, b) => a.localeCompare(b, "es"));
 
   /* ---------- DOM refs (built fresh into the mount point) ---------- */
@@ -129,6 +129,7 @@
             <button type="button" class="timeline-filter-chip is-active" data-type="royal">Linaje real</button>
             <button type="button" class="timeline-filter-chip is-active" data-type="echo">Ecos brutales</button>
             <button type="button" class="timeline-filter-chip is-active" data-type="esoteric" aria-label="Filtrar corrientes esotéricas, masónicas e iniciáticas documentadas">Esotérico</button>
+            <button type="button" class="timeline-filter-chip is-active" data-type="ecclesiastical" aria-label="Filtrar hechos marcados por la autoridad institucional católica">Iglesia y poder</button>
           </div>
           <select class="timeline-filter-country" id="timelineFilterCountry" aria-label="Filtrar por país">
             <option value="">Todos los países</option>
@@ -289,22 +290,41 @@
     }
   });
 
-  /* ---------- Render glyph entries (own lane, unaffected by clustering) ---------- */
-  entries.forEach((entry, idx) => {
-    if (!entry.glyph) return;
-    const x = yearToX(entry.year);
+  /* ---------- Render glyph entries (own lane, unaffected by clustering) ----------
+     Two compact rows keep tightly dated institutional events — such as
+     1492/1494 and 1750/1753 — individually legible and clickable. */
+  const GLYPH_MIN_GAP_PX = 28;
+  const glyphLaneLastX = [-Infinity, -Infinity];
+  entries
+    .map((entry, idx) => ({ entry, idx, x: yearToX(entry.year) }))
+    .filter(({ entry }) => entry.glyph)
+    .sort((a, b) => a.x - b.x)
+    .forEach(({ entry, idx, x }) => {
+    let lane = glyphLaneLastX.findIndex((lastX) => x - lastX >= GLYPH_MIN_GAP_PX);
+    if (lane === -1) lane = glyphLaneLastX[0] <= glyphLaneLastX[1] ? 0 : 1;
+    glyphLaneLastX[lane] = x;
+    const markerTop = 40 - lane * 24;
+    const stemTop = markerTop + 18;
 
     const stem = document.createElement("div");
     stem.className = "timeline-glyph-stem";
     stem.style.left = x + "px";
+    stem.style.top = stemTop + "px";
+    stem.style.height = 84 - stemTop + "px";
+    stem.dataset.index = idx;
+    stem.setAttribute("aria-hidden", "true");
     track.appendChild(stem);
 
     const el = document.createElement("div");
     el.className = "timeline-glyph";
     el.style.left = x + "px";
+    el.style.top = markerTop + "px";
     el.dataset.index = idx;
+    el.dataset.layer = "ecclesiastical";
     el.setAttribute("tabindex", "0");
-    el.setAttribute("aria-label", `${entry.title}, ${entry.author}, ${entry.year}`);
+    el.setAttribute("role", "button");
+    el.setAttribute("title", "Iglesia y poder");
+    el.setAttribute("aria-label", `Iglesia y poder: ${entry.title}, ${entry.author}, ${entry.year}`);
     el.textContent = entry.glyph;
     el.addEventListener("click", () => selectEntry(idx));
     el.addEventListener("keydown", (e) => {
@@ -321,7 +341,7 @@
 
   function clearActiveMarkers() {
     document
-      .querySelectorAll(".timeline-entry.is-active, .timeline-cluster.is-active")
+      .querySelectorAll(".timeline-entry.is-active, .timeline-cluster.is-active, .timeline-glyph.is-active")
       .forEach((n) => n.classList.remove("is-active"));
   }
 
@@ -781,7 +801,9 @@
   // array for filter purposes; the dot color still comes from `type` alone,
   // so no CSS changes are needed for the dual tag to work.
   function entryFilterTypes(entry) {
-    return entry.types || [entry.type || "literature"];
+    const types = entry.types ? entry.types.slice() : [entry.type || "literature"];
+    if (entry.glyph && !types.includes("ecclesiastical")) types.push("ecclesiastical");
+    return types;
   }
 
   function applyFilters() {
@@ -808,6 +830,17 @@
         );
       });
       el.classList.toggle("is-filtered-out", !anyMatch);
+    });
+
+    track.querySelectorAll(".timeline-glyph").forEach((el) => {
+      const idx = Number(el.dataset.index);
+      const entry = entries[idx];
+      const matches =
+        entryFilterTypes(entry).some((t) => activeTypes.has(t)) &&
+        (!activeCountry || entry.country === activeCountry);
+      el.classList.toggle("is-filtered-out", !matches);
+      const stem = track.querySelector(`.timeline-glyph-stem[data-index="${idx}"]`);
+      if (stem) stem.classList.toggle("is-filtered-out", !matches);
     });
   }
 

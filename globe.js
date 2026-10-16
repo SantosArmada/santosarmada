@@ -747,7 +747,8 @@ const COUNTRY_CENTER = {
     'Bélgica': { lat: 50.85, lng: 4.35 },
     'Países Bajos': { lat: 52.13, lng: 5.29 },
     'Austria': { lat: 47.52, lng: 14.55 },
-    'Irlanda': { lat: 53.14, lng: -7.69 }
+    'Irlanda': { lat: 53.14, lng: -7.69 },
+    'Guam': { lat: 13.44, lng: 144.79 }
 };
 
 /* City/region-level centroids, keyed by timeline-data.js's `region`
@@ -814,6 +815,8 @@ const REGION_CENTER = {
     'País Vasco': { lat: 42.99, lng: -2.62 },
     'Maestrazgo': { lat: 40.55, lng: -0.45 },
     'Palacio del Senado': { lat: 40.42, lng: -3.71 },
+    'Palacio de las Cortes': { lat: 40.4163, lng: -3.6964 },
+    'Sagunto': { lat: 39.68, lng: -0.28 },
     'Alcolea': { lat: 37.94, lng: -4.67 },
     'San Sebastián': { lat: 43.32, lng: -1.98 },
     'Abadía de Westminster': { lat: 51.50, lng: -0.13 },
@@ -1064,10 +1067,19 @@ const REGION_CENTER = {
     'La Molina, Lima': { lat: -12.08, lng: -76.94 },
     'León': { lat: 42.60, lng: -5.57 },
     'París': { lat: 48.86, lng: 2.35 },
+    'Bahía de Manila': { lat: 14.58, lng: 120.97 },
+    'Santiago de Cuba': { lat: 20.02, lng: -75.83 },
     'San Petersburgo': { lat: 59.93, lng: 30.34 },
     'Nueva Delhi': { lat: 28.61, lng: 77.21 },
-    // Siglos VII-X (added together — visigoths/Al-Ándalus/maya cluster,
-    // see timeline-data.js entries 710-950)
+    // Siglos VI-X (added together — visigoths/Al-Ándalus/maya cluster,
+    // see timeline-data.js entries 507-950)
+    'Vouillé': { lat: 46.64, lng: 0.17 },
+    'Toulouse': { lat: 43.60, lng: 1.44 },
+    'Septimania': { lat: 43.18, lng: 2.99 },
+    'Pirineos': { lat: 42.67, lng: 0.95 },
+    'Galicia': { lat: 42.76, lng: -8.13 },
+    'Braga': { lat: 41.55, lng: -8.43 },
+    'Porto': { lat: 41.16, lng: -8.63 },
     'Estrecho de Gibraltar': { lat: 35.95, lng: -5.60 },
     'Ceuta': { lat: 35.888, lng: -5.322 },
     'Mérida': { lat: 38.916, lng: -6.343 },
