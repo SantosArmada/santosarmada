@@ -489,8 +489,11 @@ const TIMELINE_ENTRIES = [
     region: "Valencia",
     flag: "spain-not-latam",
     type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY],
     description:
-      "Rodrigo Díaz de Vivar —El Cid—, un noble castellano exiliado que había servido incluso a señores musulmanes como mercenario, toma Valencia por cuenta propia el 15 de junio de 1094, tras un asedio iniciado el verano anterior, y gobierna la ciudad como príncipe casi independiente hasta su muerte en 1099. Su figura, ambigua entre la leyenda y la historia, queda inmortalizada en el Cantar de mio Cid, poema épico anónimo copiado por Per Abbat en 1207 —el texto épico más antiguo conservado en castellano—, que sigue al Cid desde su destierro hasta la conquista de Valencia y la restitución de su honor, y el de sus hijas, tras la afrenta de los Infantes de Carrión.",
+      "El 15 de junio de 1094, Rodrigo Díaz de Vivar tomó Valencia tras un largo asedio y la gobernó con amplia autonomía hasta su muerte en 1099. El noble castellano exiliado había servido a señores cristianos y musulmanes, una trayectoria fronteriza que desborda relatos simples de “Reconquista”. Hacia 1200, el Cantar de mio Cid transformó esa vida en una epopeya sobre destierro, honra, estrategia y restitución. Su colofón fecha en 1207 un modelo textual perdido; el códice conservado es del siglo XIV. Historia y literatura construyeron juntos al Cid que hoy recordamos.",
+    descriptionHtml:
+      'El 15 de junio de 1094, Rodrigo Díaz de <button type="button" class="timeline-detail-geolink" data-region="Vivar del Cid" data-country="España">Vivar</button> tomó <button type="button" class="timeline-detail-geolink" data-region="Valencia" data-country="España">Valencia</button> tras un largo asedio y la gobernó con amplia autonomía hasta su muerte en 1099. El noble castellano exiliado había servido a señores cristianos y musulmanes, una trayectoria fronteriza que desborda relatos simples de “Reconquista”. Hacia 1200, el <button type="button" class="timeline-detail-entrylink" data-id="cantar-mio-cid-testimonio-1207"><em>Cantar de mio Cid</em></button> transformó esa vida en una epopeya sobre destierro, honra, estrategia y restitución. Su colofón fecha en 1207 un modelo textual perdido; el códice conservado es del siglo XIV. Historia y literatura construyeron juntos al Cid que hoy recordamos.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Rodrigo Díaz de Vivar nunca hubiera sido desterrado?",
       answer:
@@ -795,7 +798,7 @@ const TIMELINE_ENTRIES = [
     description:
       "El 19 de octubre de 1469, Isabel de Castilla y Fernando de Aragón se casan en la Sala Rica del Palacio de los Vivero, en Valladolid, durante una sucesión castellana todavía disputada. La unión no fusionó de inmediato Castilla y Aragón: cada corona conservó sus leyes e instituciones. Sin embargo, creó la alianza dinástica desde la que ambos gobernarían, conquistarían Granada y financiarían el primer viaje de Cristóbal Colón en 1492.",
     descriptionHtml:
-      'El 19 de octubre de 1469, Isabel de Castilla y Fernando de Aragón se casan en la Sala Rica del <button type="button" class="timeline-detail-geolink" data-region="Palacio de los Vivero" data-country="España">Palacio de los Vivero</button>, en <button type="button" class="timeline-detail-geolink" data-region="Valladolid" data-country="España">Valladolid</button>, durante una sucesión castellana todavía disputada. La unión no fusionó de inmediato <button type="button" class="timeline-detail-geolink" data-region="Castilla" data-country="España">Castilla</button> y <button type="button" class="timeline-detail-geolink" data-region="Aragón" data-country="España">Aragón</button>: cada corona conservó sus leyes e instituciones. Sin embargo, creó la alianza dinástica desde la que ambos gobernarían, conquistarían <button type="button" class="timeline-detail-geolink" data-region="Granada" data-country="España">Granada</button> y financiarían el <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">primer viaje de Cristóbal Colón en 1492</button>.',
+      'El 19 de octubre de 1469, Isabel de Castilla y Fernando de Aragón se casan en la Sala Rica del <button type="button" class="timeline-detail-geolink" data-region="Palacio de los Vivero" data-country="España">Palacio de los Vivero</button>, en <button type="button" class="timeline-detail-geolink" data-region="Valladolid" data-country="España">Valladolid</button>, durante una sucesión castellana todavía disputada. La unión no fusionó de inmediato <button type="button" class="timeline-detail-geolink" data-region="Castilla" data-country="España">Castilla</button> y <button type="button" class="timeline-detail-geolink" data-region="Aragón" data-country="España">Aragón</button>: cada corona conservó sus leyes e instituciones. Sin embargo, creó la alianza dinástica desde la que ambos gobernarían, conquistarían <button type="button" class="timeline-detail-entrylink" data-id="rendicion-granada-1492">Granada</button> y financiarían el <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">primer viaje de Cristóbal Colón en 1492</button>.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Isabel y Fernando no se hubieran casado?",
       answer:
@@ -829,6 +832,345 @@ const TIMELINE_ENTRIES = [
     }
   },
 
+  // ---- ESPAÑA MEDIEVAL: REDES, INSTITUCIONES Y RUPTURAS ----
+  {
+    id: "emirato-independiente-cordoba-756",
+    year: 756,
+    month: 5,
+    day: 14,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 812,
+    title: "14 de mayo de 756: un emirato omeya independiente",
+    author: "Abd al-Rahman I",
+    country: "España",
+    region: "Córdoba",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El 14 de mayo de 756, Abd al-Rahman I, superviviente de la dinastía omeya, derrotó a Yusuf al-Fihri cerca de Córdoba y fundó un emirato políticamente independiente de los abasíes de Bagdad. No se proclamó califa: ese título llegaría con Abd al-Rahman III en 929. El nuevo gobierno dio a al-Ándalus una capital estable y una dinastía propia, aunque nunca eliminó rebeliones ni rivalidades regionales. Treinta años después, Abd al-Rahman comenzó la gran mezquita que convertiría esa autonomía política en una imagen arquitectónica duradera.",
+    descriptionHtml:
+      "El 14 de mayo de 756, Abd al-Rahman I, superviviente de la dinastía omeya, derrotó a Yusuf al-Fihri cerca de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Córdoba\" data-country=\"España\">Córdoba</button> y fundó un emirato políticamente independiente de los abasíes de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Bagdad\" data-country=\"Irak\">Bagdad</button>. No se proclamó califa: ese título llegaría con <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"califato-cordoba-929\">Abd al-Rahman III en 929</button>. El nuevo gobierno dio a <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Al-Ándalus\" data-country=\"España\">al-Ándalus</button> una capital estable y una dinastía propia, aunque nunca eliminó rebeliones ni rivalidades regionales. Treinta años después, Abd al-Rahman comenzó la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"mezquita-cordoba-786\">gran mezquita</button> que convertiría esa autonomía política en una imagen arquitectónica duradera.",
+    butterfly: {
+      prompt: "¿Qué separa al emirato de 756 del califato de 929?",
+      answer:
+        "Abd al-Rahman I conquistó independencia política, pero no adoptó el título de califa. Abd al-Rahman III lo haría en 929 para afirmar otra escala de autoridad religiosa y diplomática."
+    }
+  },
+  {
+    id: "mezquita-cordoba-786",
+    year: 786,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 833,
+    endYear: 788,
+    title: "786–788: nace la gran Mezquita de Córdoba",
+    author: "Abd al-Rahman I y maestros andalusíes",
+    country: "España",
+    region: "Mezquita de Córdoba",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.VISION,
+    types: [ICON_TYPE.VISION, ICON_TYPE.HISTORY],
+    description:
+      "Entre 786 y 788, Abd al-Rahman I levantó la mezquita aljama fundacional de Córdoba. Sus once naves reutilizaron columnas y capiteles romanos y visigodos; las arcadas superpuestas multiplicaron altura, ritmo y luz. Soberanos posteriores ampliaron el edificio sin borrar su núcleo omeya. Convertida en catedral tras 1236, la Mezquita-Catedral conserva capas islámicas y cristianas dentro de una misma estructura. El monumento permite leer la historia material de la ciudad: poder dinástico, técnicas heredadas, trabajo andalusí, apropiación religiosa y continuidad arquitectónica más allá de cada régimen.",
+    descriptionHtml:
+      "Entre 786 y 788, Abd al-Rahman I levantó la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Mezquita de Córdoba\" data-country=\"España\">mezquita aljama fundacional de Córdoba</button>. Sus once naves reutilizaron columnas y capiteles romanos y visigodos; las arcadas superpuestas multiplicaron altura, ritmo y luz. Soberanos posteriores ampliaron el edificio sin borrar su núcleo omeya. <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"fernando-iii-cordoba-sevilla-1236\">Convertida en catedral tras 1236</button>, la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Mezquita de Córdoba\" data-country=\"España\">Mezquita-Catedral</button> conserva capas islámicas y cristianas dentro de una misma estructura. El monumento permite leer la historia material de la ciudad: poder dinástico, técnicas heredadas, trabajo andalusí, apropiación religiosa y continuidad arquitectónica más allá de cada régimen.",
+    butterfly: {
+      prompt: "¿Por qué las arcadas superpuestas fueron tan decisivas?",
+      answer:
+        "Permitieron ganar altura con columnas reutilizadas de tamaños distintos y crearon el ritmo visual que convirtió al edificio en una de las arquitecturas más reconocibles de al-Ándalus."
+    }
+  },
+  {
+    id: "taifas-fin-califato-1031",
+    year: 1031,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 989,
+    title: "1031: el califato se fragmenta en taifas",
+    author: "Hisham III y las cortes de taifas",
+    country: "España",
+    region: "Córdoba",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
+    description:
+      "En 1031, tras la guerra civil iniciada en 1009, desapareció formalmente el califato omeya de Córdoba. Al-Ándalus se fragmentó en taifas gobernadas desde ciudades como Sevilla, Zaragoza, Toledo, Badajoz, Valencia y Granada. Su división favoreció alianzas cambiantes y el pago de parias a poderes cristianos, pero no produjo una simple decadencia: varias cortes compitieron por poetas, científicos, artesanos y prestigio monumental. Esa combinación de creatividad y vulnerabilidad definió el siglo XI y preparó el nuevo equilibrio que hizo posible la toma cristiana de Toledo en 1085.",
+    descriptionHtml:
+      "En 1031, tras la guerra civil iniciada en 1009, desapareció formalmente el <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"califato-cordoba-929\">califato omeya</button> de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Córdoba\" data-country=\"España\">Córdoba</button>. <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Al-Ándalus\" data-country=\"España\">Al-Ándalus</button> se fragmentó en taifas gobernadas desde ciudades como <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Sevilla\" data-country=\"España\">Sevilla</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Zaragoza\" data-country=\"España\">Zaragoza</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Toledo\" data-country=\"España\">Toledo</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Badajoz\" data-country=\"España\">Badajoz</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Valencia\" data-country=\"España\">Valencia</button> y <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Granada\" data-country=\"España\">Granada</button>. Su división favoreció alianzas cambiantes y el pago de parias a poderes cristianos, pero no produjo una simple decadencia: varias cortes compitieron por poetas, científicos, artesanos y prestigio monumental. Esa combinación de creatividad y vulnerabilidad definió el siglo XI y preparó el nuevo equilibrio que hizo posible la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"toma-toledo-1085\">toma cristiana</button> de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Toledo\" data-country=\"España\">Toledo</button> en 1085.",
+    butterfly: {
+      prompt: "¿“Taifas” significa solamente decadencia?",
+      answer:
+        "No. La fragmentación redujo la fuerza política común, pero la competencia entre cortes sostuvo una extraordinaria producción literaria, científica, artesanal y arquitectónica."
+    }
+  },
+  {
+    id: "jarchas-romances-antes-1042",
+    year: 1042,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1014,
+    title: "antes de 1042: las jarchas hablan entre lenguas",
+    author: "Poetas andalusíes anónimos",
+    country: "España",
+    region: "Al-Ándalus",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY],
+    description:
+      "Antes de 1042 ya circulaba al menos una jarcha romance al final de una moaxaja hebrea. Estas breves estrofas, también insertadas en composiciones árabes, suelen presentar una voz femenina que lamenta la ausencia del amado. Conservan formas del romance hablado en al-Ándalus, pero no son poemas autónomos ni pueden llamarse sin reservas “los primeros versos españoles”: su lengua y lectura siguen debatiéndose. Precisamente esa mezcla muestra que la literatura peninsular nació entre lenguas, alfabetos y comunidades, dentro de obras donde lo romance, lo árabe y lo hebreo se escuchaban mutuamente.",
+    descriptionHtml:
+      "Antes de 1042 ya circulaba al menos una <em>jarcha</em> romance al final de una <em>moaxaja</em> hebrea. Estas breves estrofas, también insertadas en composiciones árabes, suelen presentar una voz femenina que lamenta la ausencia del amado. Conservan formas del <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"cantar-mio-cid-testimonio-1207\">romance hablado</button> en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Al-Ándalus\" data-country=\"España\">al-Ándalus</button>, pero no son poemas autónomos ni pueden llamarse sin reservas “los primeros versos españoles”: su lengua y lectura siguen debatiéndose. Precisamente esa mezcla muestra que la literatura peninsular nació entre lenguas, alfabetos y comunidades, dentro de obras donde lo romance, lo árabe y lo hebreo se escuchaban mutuamente.",
+    butterfly: {
+      prompt: "¿Dónde sobrevivieron estas voces romances?",
+      answer:
+        "En el cierre de poemas cultos árabes y hebreos. Esa ubicación material impide aislarlas de las tradiciones que las preservaron y muestra un espacio literario profundamente entrelazado."
+    }
+  },
+  {
+    id: "pacto-barbastro-corona-aragon-1137",
+    year: 1137,
+    month: 8,
+    day: 11,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1154,
+    title: "11 de agosto de 1137: la base dinástica de la Corona de Aragón",
+    author: "Petronila de Aragón y Ramón Berenguer IV",
+    country: "España",
+    region: "Barbastro",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.ROYAL,
+    types: [ICON_TYPE.ROYAL, ICON_TYPE.HISTORY],
+    description:
+      "El 11 de agosto de 1137, en Barbastro, Ramiro II acordó el matrimonio de su hija Petronila de Aragón con Ramón Berenguer IV, conde de Barcelona, y le confió el gobierno del reino. La boda se celebró en 1150; Ramón Berenguer gobernó como príncipe, no como rey. Cuando su hijo Alfonso II heredó ambos patrimonios en 1164, se consolidó la unión dinástica llamada Corona de Aragón. No era un Estado uniforme: Aragón y los condados catalanes conservaron leyes e instituciones propias mientras compartían soberano y una creciente proyección mediterránea.",
+    descriptionHtml:
+      "El 11 de agosto de 1137, en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Barbastro\" data-country=\"España\">Barbastro</button>, Ramiro II acordó el matrimonio de su hija Petronila de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Aragón\" data-country=\"España\">Aragón</button> con Ramón Berenguer IV, conde de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Barcelona\" data-country=\"España\">Barcelona</button>, y le confió el gobierno del reino. La boda se celebró en 1150; Ramón Berenguer gobernó como príncipe, no como rey. Cuando su hijo Alfonso II heredó ambos patrimonios en 1164, se consolidó la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"matrimonio-isabel-fernando-1469\">unión dinástica</button> llamada Corona de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Aragón\" data-country=\"España\">Aragón</button>. No era un Estado uniforme: <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Aragón\" data-country=\"España\">Aragón</button> y los <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Cataluña\" data-country=\"España\">condados catalanes</button> conservaron leyes e instituciones propias mientras compartían soberano y una creciente proyección mediterránea.",
+    butterfly: {
+      prompt: "¿Nació en 1137 un reino completamente fusionado?",
+      answer:
+        "No. Nació una unión dinástica; Aragón y los condados catalanes conservaron leyes, instituciones e identidades políticas propias bajo soberanos compartidos."
+    }
+  },
+  {
+    id: "decreta-cortes-leon-1188",
+    year: 1188,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1175,
+    title: "1188: León documenta representación urbana",
+    author: "Alfonso IX y las Cortes de León",
+    country: "España",
+    region: "San Isidoro de León",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "En 1188, Alfonso IX reunió en San Isidoro de León una curia con nobles, clérigos y representantes de ciudades. Los acuerdos llamados Decreta comprometían al rey a consultar decisiones de guerra y paz, respetar procedimientos judiciales y proteger personas y bienes. La UNESCO los reconoce como la manifestación documental más antigua conocida del sistema parlamentario europeo con presencia urbana. No fue una democracia moderna ni otorgó igualdad universal: la sociedad seguía organizada por privilegios. Su novedad fue incorporar formalmente delegados ciudadanos al diálogo político entre corona, Iglesia y aristocracia.",
+    descriptionHtml:
+      "En 1188, Alfonso IX reunió en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"San Isidoro de León\" data-country=\"España\">San Isidoro de León</button> una curia con nobles, clérigos y representantes de ciudades. Los acuerdos llamados Decreta comprometían al rey a consultar decisiones de guerra y paz, respetar <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"alfonso-x-proyecto-saber-1252\">procedimientos judiciales</button> y proteger personas y bienes. La UNESCO los reconoce como la manifestación documental más antigua conocida del sistema parlamentario europeo con presencia urbana. No fue una democracia moderna ni otorgó igualdad universal: la sociedad seguía organizada por privilegios. Su novedad fue incorporar formalmente delegados ciudadanos al diálogo político entre corona, Iglesia y aristocracia.",
+    butterfly: {
+      prompt: "¿Por qué los Decreta son excepcionales?",
+      answer:
+        "Porque documentan la entrada formal de representantes urbanos en una asamblea junto al rey, el clero y la nobleza, con compromisos escritos que también limitaban decisiones regias."
+    }
+  },
+  {
+    id: "cantar-mio-cid-testimonio-1207",
+    year: 1207,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1196,
+    title: "1207: el testimonio textual del Cantar de mio Cid",
+    author: "Anónimo; copiado por Per Abbat",
+    country: "España",
+    region: "Vivar del Cid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY],
+    description:
+      "El colofón atribuido al copista Per Abbat fecha en 1207 el modelo textual perdido del Cantar de mio Cid. El códice conservado en Madrid es una copia del siglo XIV, y la composición y autoría continúan debatidas. El poema transforma a Rodrigo Díaz de Vivar en un héroe literario que pierde su honra, conquista Valencia y la recupera mediante lealtad, estrategia y justicia. Su castellano, fórmulas narrativas y memoria fronteriza unen oralidad y escritura. Leerlo junto al Cid de 1094 permite distinguir personaje histórico, transmisión manuscrita e imaginación épica.",
+    descriptionHtml:
+      "El colofón atribuido al copista Per Abbat fecha en 1207 el modelo textual perdido del <em>Cantar de mio Cid</em>. El códice conservado en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Madrid\" data-country=\"España\">Madrid</button> es una copia del siglo XIV, y la composición y autoría continúan debatidas. El poema transforma a <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Vivar del Cid\" data-country=\"España\">Rodrigo Díaz de Vivar</button> en un héroe literario que pierde su honra, conquista <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Valencia\" data-country=\"España\">Valencia</button> y la recupera mediante lealtad, estrategia y justicia. Su castellano, fórmulas narrativas y memoria fronteriza unen oralidad y escritura. Leerlo junto al <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"el-cid-valencia-1094\">Cid de 1094</button> permite distinguir personaje histórico, transmisión manuscrita e imaginación épica.",
+    butterfly: {
+      prompt: "¿Es 1207 la fecha indiscutible de composición?",
+      answer:
+        "No. Es la fecha transmitida por el colofón de un modelo perdido; la creación del poema y el códice del siglo XIV que hoy conservamos son problemas distintos."
+    }
+  },
+  {
+    id: "navas-tolosa-1212",
+    year: 1212,
+    month: 7,
+    day: 16,
+    title: "16 de julio de 1212: Las Navas de Tolosa",
+    author: "Alfonso VIII, Pedro II, Sancho VII y Muhammad al-Nasir",
+    country: "España",
+    region: "Las Navas de Tolosa",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 16 de julio de 1212, cerca de Santa Elena, las fuerzas de Alfonso VIII de Castilla, Pedro II de Aragón y Sancho VII de Navarra derrotaron al ejército almohade de Muhammad al-Nasir en Las Navas de Tolosa. El papa Inocencio III dio dimensión de cruzada a una campaña cuyas alianzas y motivaciones también fueron políticas. La victoria no terminó al-Ándalus: el reino nazarí sobreviviría hasta 1492. Sí debilitó el poder almohade y abrió el equilibrio peninsular a las grandes conquistas castellanas y aragonesas de las décadas siguientes.",
+    descriptionHtml:
+      "El 16 de julio de 1212, cerca de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Santa Elena\" data-country=\"España\">Santa Elena</button>, las fuerzas de Alfonso VIII de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Castilla\" data-country=\"España\">Castilla</button>, Pedro II de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Aragón\" data-country=\"España\">Aragón</button> y Sancho VII de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Navarra\" data-country=\"España\">Navarra</button> derrotaron al ejército almohade de Muhammad al-Nasir en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Las Navas de Tolosa\" data-country=\"España\">Las Navas de Tolosa</button>. El papa Inocencio III dio dimensión de cruzada a una campaña cuyas alianzas y motivaciones también fueron políticas. La victoria no terminó <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Al-Ándalus\" data-country=\"España\">al-Ándalus</button>: el <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"rendicion-granada-1492\">reino nazarí sobreviviría hasta 1492</button>. Sí debilitó el poder almohade y abrió el equilibrio peninsular a las <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"fernando-iii-cordoba-sevilla-1236\">grandes conquistas castellanas y aragonesas</button> de las décadas siguientes.",
+    butterfly: {
+      prompt: "¿Terminó al-Ándalus en Las Navas?",
+      answer:
+        "No. La derrota debilitó al poder almohade y facilitó conquistas posteriores, pero el reino nazarí de Granada sobrevivió casi tres siglos, hasta 1492."
+    }
+  },
+  {
+    id: "universidad-salamanca-1218",
+    year: 1218,
+    title: "1218–1255: nace la Universidad de Salamanca",
+    author: "Alfonso IX, Alfonso X y Alejandro IV",
+    country: "España",
+    region: "Universidad de Salamanca",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.LITERATURE],
+    description:
+      "Hacia 1218, Alfonso IX de León creó en Salamanca un Estudio General, antecedente directo de la universidad actual. Su desarrollo fue gradual: Fernando III confirmó privilegios en 1243, Alfonso X reguló cátedras y salarios en 1254, y el papa Alejandro IV reconoció en 1255 la validez universal de sus grados. La institución formó clérigos, juristas y administradores, pero se convirtió también en centro de lenguas, derecho, ciencia y debate político. Allí enseñaría Nebrija antes de publicar su Gramática de 1492. Corona e Iglesia construyeron esta infraestructura, luego ampliada por universidades como la de Sevilla.",
+    descriptionHtml:
+      "Hacia 1218, Alfonso IX de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"León\" data-country=\"España\">León</button> creó en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Universidad de Salamanca\" data-country=\"España\">Salamanca</button> un Estudio General, antecedente directo de la universidad actual. Su desarrollo fue gradual: Fernando III confirmó privilegios en 1243, <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"alfonso-x-proyecto-saber-1252\">Alfonso X</button> reguló cátedras y salarios en 1254, y el papa Alejandro IV reconoció en 1255 la validez universal de sus grados. La institución formó clérigos, juristas y administradores, pero se convirtió también en centro de lenguas, derecho, ciencia y debate político. Allí enseñaría <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"gramatica-castellana-nebrija-1492\">Nebrija antes de publicar su Gramática de 1492</button>. Corona e Iglesia construyeron <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"colegio-santa-maria-jesus-universidad-sevilla-1502\">esta infraestructura</button>, luego ampliada por universidades como la de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Sevilla\" data-country=\"España\">Sevilla</button>.",
+    butterfly: {
+      prompt: "¿Nació Salamanca mediante un único acto fundacional?",
+      answer:
+        "No. 1218, 1254 y 1255 representan etapas diferentes: creación del Estudio, organización y financiación regias, y reconocimiento universal de sus grados por el papado."
+    }
+  },
+  {
+    id: "fernando-iii-cordoba-sevilla-1236",
+    year: 1236,
+    month: 6,
+    day: 29,
+    endYear: 1248,
+    title: "1236–1248: Fernando III toma Córdoba y Sevilla",
+    author: "Fernando III de Castilla y León",
+    country: "España",
+    region: "Córdoba",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "Tras el giro militar de 1212, Fernando III tomó Córdoba en 1236 y Sevilla en 1248, desplazando el poder castellano hacia el valle del Guadalquivir. Las mezquitas mayores fueron consagradas como catedrales y los repartimientos distribuyeron casas y tierras entre conquistadores, órdenes e instituciones eclesiásticas. Muchos habitantes musulmanes fueron expulsados o emigraron, aunque persistieron comunidades mudéjares. No fue un simple cambio de bandera: transformó población, propiedad, culto y gobierno; incorporó al dominio cristiano monumentos como la Mezquita de Córdoba y la Giralda, y dejó Granada como último reino islámico peninsular.",
+    descriptionHtml:
+      "Tras el <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"navas-tolosa-1212\">giro militar de 1212</button>, Fernando III tomó <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Córdoba\" data-country=\"España\">Córdoba</button> en 1236 y <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Sevilla\" data-country=\"España\">Sevilla</button> en 1248, desplazando el poder castellano hacia el <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Valle del Guadalquivir\" data-country=\"España\">valle del Guadalquivir</button>. Las mezquitas mayores fueron consagradas como catedrales y los repartimientos distribuyeron casas y tierras entre conquistadores, órdenes e instituciones eclesiásticas. Muchos habitantes musulmanes fueron expulsados o emigraron, aunque persistieron comunidades mudéjares. No fue un simple cambio de bandera: transformó población, propiedad, culto y gobierno; incorporó al dominio cristiano monumentos como la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Mezquita de Córdoba\" data-country=\"España\">Mezquita de Córdoba</button> y la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"La Giralda\" data-country=\"España\">Giralda</button>, y dejó <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Granada\" data-country=\"España\">Granada</button> como <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"rendicion-granada-1492\">último reino islámico peninsular</button>.",
+    butterfly: {
+      prompt: "¿Qué cambió además del soberano?",
+      answer:
+        "Cambió la propiedad, la composición de la población, el uso de mezquitas y barrios, y las instituciones que gobernaban las ciudades. La conquista reorganizó la vida cotidiana."
+    }
+  },
+  {
+    id: "alfonso-x-proyecto-saber-1252",
+    year: 1252,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1271,
+    endYear: 1284,
+    title: "1252–1284: Alfonso X convierte el saber en proyecto real",
+    author: "Alfonso X y sus colaboradores",
+    country: "España",
+    region: "Toledo",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.LITERATURE, ICON_TYPE.ROYAL],
+    description:
+      "Durante el reinado de Alfonso X (1252–1284), la corte convirtió el saber en proyecto político. En Toledo y otros centros, colaboradores cristianos, judíos y musulmanes tradujeron y adaptaron obras árabes sobre astronomía, medicina y filosofía; “Escuela de Traductores” es una etiqueta moderna para redes anteriores y dispersas. Las Siete Partidas buscaron ordenar el derecho; la Estoria de España y la General estoria narraron pasado y mundo en castellano. Las Cantigas de Santa María, en galaicoportugués, unieron devoción, música e imagen. Su legado revela cooperación intelectual dentro de una monarquía jerárquica y conflictiva.",
+    descriptionHtml:
+      "Durante el reinado de Alfonso X (1252–1284), la corte convirtió el saber en proyecto político. En <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Toledo\" data-country=\"España\">Toledo</button> y otros centros, colaboradores cristianos, judíos y musulmanes tradujeron y adaptaron obras árabes sobre astronomía, medicina y filosofía; “Escuela de Traductores” es una etiqueta moderna para redes anteriores y dispersas. Las <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"liber-iudiciorum-654\"><em>Siete Partidas</em></button> buscaron ordenar el derecho; la <em>Estoria de España</em> y la <em>General estoria</em> narraron pasado y mundo en castellano. Las <em>Cantigas de Santa María</em>, en galaicoportugués, unieron devoción, música e imagen. Su legado revela cooperación intelectual dentro de una monarquía jerárquica y conflictiva.",
+    butterfly: {
+      prompt: "¿Existió una “Escuela de Traductores” como institución moderna?",
+      answer:
+        "No exactamente. El nombre reúne redes, talleres y prácticas de traducción desarrolladas en distintos momentos. Alfonso X las coordinó dentro de un proyecto regio más amplio."
+    }
+  },
+  {
+    id: "mesta-trashumancia-1273",
+    year: 1273,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1292,
+    title: "1273: la Mesta organiza el paisaje de la lana",
+    author: "Alfonso X y el Honrado Concejo de la Mesta",
+    country: "España",
+    region: "Castilla",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "En 1273, Alfonso X reconoció el Honrado Concejo de la Mesta, que articuló a propietarios de rebaños trashumantes. La Corona protegió sus rutas, las cañadas, y concedió privilegios para mover ovejas entre pastos estacionales de Castilla, León y Extremadura. La lana merina alimentó mercados urbanos y exportaciones; los impuestos ganaderos reforzaron la hacienda real. Ese éxito creó conflictos duraderos: agricultores, concejos y pastores disputaron tierras, agua y jurisdicción. La Mesta revela una Edad Media hecha también de trabajo, paisaje, animales y fiscalidad, no solo de batallas, reyes y religiones.",
+    descriptionHtml:
+      "En 1273, <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"alfonso-x-proyecto-saber-1252\">Alfonso X</button> reconoció el <em>Honrado Concejo de la Mesta</em>, que articuló a propietarios de rebaños trashumantes. La Corona protegió sus rutas, las cañadas, y concedió privilegios para mover ovejas entre pastos estacionales de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Castilla\" data-country=\"España\">Castilla</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"León\" data-country=\"España\">León</button> y <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Extremadura\" data-country=\"España\">Extremadura</button>. La lana merina alimentó mercados urbanos y exportaciones; los impuestos ganaderos reforzaron la hacienda real. Ese éxito creó conflictos duraderos: agricultores, concejos y pastores disputaron tierras, agua y jurisdicción. La Mesta revela una Edad Media hecha también de trabajo, paisaje, animales y fiscalidad, no solo de batallas, reyes y religiones.",
+    butterfly: {
+      prompt: "¿Qué conectaban las cañadas?",
+      answer:
+        "Unían pastos estacionales, economías regionales y rutas de trashumancia protegidas por la Corona; también atravesaban campos y jurisdicciones que generaron conflictos continuos."
+    }
+  },
+  {
+    id: "conde-lucanor-1335",
+    year: 1335,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1313.59,
+    title: "1335: El conde Lucanor convierte el consejo en relato",
+    author: "Don Juan Manuel",
+    country: "España",
+    region: "Peñafiel",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY],
+    description:
+      "Entre 1330 y 1335, don Juan Manuel, señor de Villena vinculado a Murcia y Peñafiel, compuso El conde Lucanor, colección de relatos ejemplares en castellano. El conde plantea un problema a Patronio; el consejero responde con una historia, aplica la lección y el autor la condensa en versos finales. Los cuentos reelaboran materiales clásicos, cristianos, árabes y orientales que circulaban por la península. Sobrino de Alfonso X y poderoso noble, don Juan Manuel cuidó de manera inusual su autoría y estilo. La obra convirtió saber compartido en una cumbre temprana de la prosa castellana.",
+    descriptionHtml:
+      "Entre 1330 y 1335, don Juan Manuel, señor de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Villena\" data-country=\"España\">Villena</button> vinculado a <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Murcia\" data-country=\"España\">Murcia</button> y <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Peñafiel\" data-country=\"España\">Peñafiel</button>, compuso <em>El conde Lucanor</em>, colección de <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"libro-buen-amor-1330\">relatos ejemplares</button> en castellano. El conde plantea un problema a Patronio; el consejero responde con una historia, aplica la lección y el autor la condensa en versos finales. Los cuentos reelaboran materiales clásicos, cristianos, árabes y orientales que circulaban por la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Península ibérica\" data-country=\"España\">península</button>. Sobrino de <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"alfonso-x-proyecto-saber-1252\">Alfonso X</button> y poderoso noble, don Juan Manuel cuidó de manera inusual su autoría y estilo. La obra convirtió saber compartido en una cumbre temprana de la prosa castellana.",
+    butterfly: {
+      prompt: "¿Cómo construye Patronio cada enseñanza?",
+      answer:
+        "Responde al dilema del conde con un cuento, extrae una aplicación práctica y la obra cierra el ejemplo con una moraleja condensada en versos."
+    }
+  },
+  {
+    id: "ataques-aljamas-1391",
+    year: 1391,
+    title: "junio de 1391: los ataques destruyen las aljamas",
+    author: "Comunidades judías de la península",
+    country: "España",
+    region: "Sevilla",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.ECHO,
+    types: [ICON_TYPE.ECHO, ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
+    description:
+      "En junio de 1391, la violencia antijudía estalló en Sevilla tras años de predicación incendiaria, tensión social y debilitamiento de la autoridad. Los ataques alcanzaron Córdoba, Toledo, Valencia, Barcelona, Palma y otras aljamas. Hubo asesinatos, saqueos, destrucción de sinagogas, huidas y bautismos forzados; las cifras exactas siguen siendo inciertas. Las conversiones masivas ampliaron la población conversa sin terminar la persecución: alimentaron sospechas, la Inquisición de 1478 y las fracturas que desembocaron en la expulsión de 1492. Este Eco brutal fue una ruptura peninsular, no un disturbio local.",
+    descriptionHtml:
+      "En junio de 1391, la violencia antijudía estalló en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Sevilla\" data-country=\"España\">Sevilla</button> tras años de predicación incendiaria, tensión social y debilitamiento de la autoridad. Los ataques alcanzaron <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Córdoba\" data-country=\"España\">Córdoba</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Toledo\" data-country=\"España\">Toledo</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Valencia\" data-country=\"España\">Valencia</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Barcelona\" data-country=\"España\">Barcelona</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Palma\" data-country=\"España\">Palma</button> y otras aljamas. Hubo asesinatos, saqueos, destrucción de sinagogas, huidas y bautismos forzados; las cifras exactas siguen siendo inciertas. Las conversiones masivas ampliaron la población conversa sin terminar la persecución: alimentaron sospechas, la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"inquisicion-espanola-1478\">Inquisición de 1478</button> y las fracturas que desembocaron en la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"expulsion-judios-1492\">expulsión de 1492</button>. Este <strong>Eco brutal</strong> fue una ruptura peninsular, no un disturbio local.",
+    butterfly: {
+      prompt: "¿Por qué 1391 se conecta con 1478 y 1492?",
+      answer:
+        "Los bautismos forzados ampliaron la población conversa sin eliminar el prejuicio. Después surgieron nuevas formas de vigilancia, sospecha institucional y expulsión: el Eco brutal cambió de mecanismo."
+    }
+  },
+  {
+    id: "rendicion-granada-1492",
+    year: 1492,
+    month: 1,
+    day: 2,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1492.1,
+    title: "2 de enero de 1492: la entrega de Granada",
+    author: "Muhammad XII, Isabel I y Fernando II",
+    country: "España",
+    region: "Alhambra",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "El 2 de enero de 1492, Muhammad XII, Boabdil, entregó Granada a Isabel de Castilla y Fernando de Aragón conforme a capitulaciones pactadas el 25 de noviembre anterior. Terminaban la guerra iniciada en 1482 y el último reino islámico independiente de la península. Los acuerdos prometían proteger religión, propiedad, lengua y costumbres musulmanas, pero la política posterior erosionó esas garantías: desde 1499 crecieron la coerción, la rebelión y las conversiones obligatorias. La toma de la Alhambra cerró una dinastía, no una presencia humana; comenzó la historia mudéjar y morisca bajo dominio cristiano.",
+    descriptionHtml:
+      "El 2 de enero de 1492, Muhammad XII, Boabdil, entregó <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Granada\" data-country=\"España\">Granada</button> a Isabel de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Castilla\" data-country=\"España\">Castilla</button> y Fernando de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Aragón\" data-country=\"España\">Aragón</button> conforme a capitulaciones pactadas el 25 de noviembre anterior. Terminaban la guerra iniciada en 1482 y el último reino islámico independiente de la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Península ibérica\" data-country=\"España\">península</button>. Los acuerdos prometían proteger religión, propiedad, lengua y costumbres musulmanas, pero la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"expulsion-judios-1492\">política posterior</button> erosionó esas garantías: desde 1499 crecieron la coerción, la rebelión y las conversiones obligatorias. La toma de la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Alhambra\" data-country=\"España\">Alhambra</button> cerró una dinastía, no una presencia humana; comenzó la historia mudéjar y morisca bajo dominio cristiano.",
+    butterfly: {
+      prompt: "¿Garantizaron las capitulaciones una tolerancia duradera?",
+      answer:
+        "No. Las promesas iniciales fueron erosionadas por medidas coercitivas, rebeliones y conversiones obligatorias. La entrega cerró un reino, pero no borró a su población."
+    }
+  },
+
   // ---- COLONIAL ----
   {
     id: "cuatro-viajes-colon-1492",
@@ -843,7 +1185,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Las cartas, diarios de a bordo y el testamento del propio Cristoforo Colombo (Cristóbal Colón), documentando sus cuatro travesías atlánticas entre 1492 y 1504 y cerrando con las cláusulas de su testamento, firmado en Valladolid en 1506 — conocidos hoy sobre todo a través del resumen que fray Bartolomé de las Casas hizo del manuscrito original de Colón, hoy perdido. El propio diario abre atando el viaje a la Reconquista recién terminada: el 2 de enero de 1492, escribe Colón, 'a dos días del mes de enero por fuerza de armas vi poner las banderas reales de Vuestras Altezas en las torres de la Alhambra, que es la fortaleza de la dicha ciudad' — testigo presencial de la rendición de Granada, apenas meses antes de que esos mismos Reyes Católicos aprobaran su expedición hacia el occidente. Un relato de primera mano —y no poco interesado— del primer contacto europeo con el Caribe y las negociaciones con la Corona que lo hicieron posible.",
     descriptionHtml:
-      'Las cartas, diarios de a bordo y el testamento del propio Cristoforo Colombo (Cristóbal Colón), documentando sus cuatro travesías atlánticas entre 1492 y 1504 y cerrando con las cláusulas de su testamento, firmado en Valladolid en 1506 — conocidos hoy sobre todo a través del resumen que fray Bartolomé de las Casas hizo del manuscrito original de Colón, hoy perdido. El propio diario abre atando el viaje a la Reconquista recién terminada: el 2 de enero de 1492, escribe Colón, \'a dos días del mes de enero por fuerza de armas vi poner las banderas reales de Vuestras Altezas en las torres de la <button type="button" class="timeline-detail-geolink" data-region="Alhambra" data-country="España">Alhambra</button>, que es la fortaleza de la dicha ciudad\' — testigo presencial de la rendición de Granada, apenas meses antes de que esos mismos Reyes Católicos aprobaran su expedición hacia el occidente. Un relato de primera mano —y no poco interesado— del primer contacto europeo con el Caribe y las negociaciones con la Corona que lo hicieron posible.',
+      'Las cartas, diarios de a bordo y el testamento del propio Cristoforo Colombo (Cristóbal Colón), documentando sus cuatro travesías atlánticas entre 1492 y 1504 y cerrando con las cláusulas de su testamento, firmado en Valladolid en 1506 — conocidos hoy sobre todo a través del resumen que fray Bartolomé de las Casas hizo del manuscrito original de Colón, hoy perdido. El propio diario abre atando el viaje a la Reconquista recién terminada: el 2 de enero de 1492, escribe Colón, \'a dos días del mes de enero por fuerza de armas vi poner las banderas reales de Vuestras Altezas en las torres de la <button type="button" class="timeline-detail-geolink" data-region="Alhambra" data-country="España">Alhambra</button>, que es la fortaleza de la dicha ciudad\' — testigo presencial de la <button type="button" class="timeline-detail-entrylink" data-id="rendicion-granada-1492">rendición de Granada</button>, apenas meses antes de que esos mismos Reyes Católicos aprobaran su expedición hacia el occidente. Un relato de primera mano —y no poco interesado— del primer contacto europeo con el Caribe y las negociaciones con la Corona que lo hicieron posible.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si los Reyes Católicos hubieran rechazado la propuesta de Colón, como antes lo hizo Portugal?",
       answer:
@@ -864,7 +1206,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Antonio de Nebrija, humanista nacido en Lebrija y formado en la Universidad de Salamanca, publica en esa misma ciudad la Gramática de la lengua castellana — la primera gramática dedicada al español y la primera de una lengua vernácula moderna en toda Europa, en una época en que estas obras se reservaban casi exclusivamente al latín. Dividida en cinco partes (ortografía, prosodia, etimología y dicción, sintaxis, y una guía para extranjeros), buscaba fijar las reglas de una lengua en plena expansión. Según la tradición, cuando un cortesano le presentó el libro a la reina Isabel I, esta habría preguntado, en un arranque de pragmatismo: '¿Para qué sirve esto?'. 'Majestad', habría respondido el cortesano, 'la lengua siempre fue compañera del imperio' — una idea que cobraría sentido literal ese mismo año, cuando terminó la Reconquista y Colombo (Colón) zarpó hacia América.",
     descriptionHtml:
-      'Antonio de Nebrija, humanista nacido en <button type="button" class="timeline-detail-geolink" data-region="Lebrija" data-country="España">Lebrija</button> y formado en la <button type="button" class="timeline-detail-geolink" data-region="Universidad de Salamanca" data-country="España">Universidad de Salamanca</button>, publica en esa misma ciudad la Gramática de la lengua castellana — la primera gramática dedicada al español y la primera de una lengua vernácula moderna en toda Europa, en una época en que estas obras se reservaban casi exclusivamente al latín. Dividida en cinco partes (ortografía, prosodia, etimología y dicción, sintaxis, y una guía para extranjeros), buscaba fijar las reglas de una lengua en plena expansión. Según la tradición, cuando un cortesano le presentó el libro a la reina Isabel I, esta habría preguntado, en un arranque de pragmatismo: \'¿Para qué sirve esto?\'. \'Majestad\', habría respondido el cortesano, \'la lengua siempre fue compañera del imperio\' — una idea que cobraría sentido literal ese mismo año, cuando terminó la Reconquista y <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">Colombo (Colón)</button> zarpó hacia América.',
+      'Antonio de Nebrija, humanista nacido en <button type="button" class="timeline-detail-geolink" data-region="Lebrija" data-country="España">Lebrija</button> y formado en la <button type="button" class="timeline-detail-entrylink" data-id="universidad-salamanca-1218">Universidad de Salamanca</button>, publica en esa misma ciudad la Gramática de la lengua castellana — la primera gramática dedicada al español y la primera de una lengua vernácula moderna en toda Europa, en una época en que estas obras se reservaban casi exclusivamente al latín. Dividida en cinco partes (ortografía, prosodia, etimología y dicción, sintaxis, y una guía para extranjeros), buscaba fijar las reglas de una lengua en plena expansión. Según la tradición, cuando un cortesano le presentó el libro a la reina Isabel I, esta habría preguntado, en un arranque de pragmatismo: \'¿Para qué sirve esto?\'. \'Majestad\', habría respondido el cortesano, \'la lengua siempre fue compañera del imperio\' — una idea que cobraría sentido literal ese mismo año, cuando <button type="button" class="timeline-detail-entrylink" data-id="rendicion-granada-1492">terminó la Reconquista</button> y <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">Colombo (Colón)</button> zarpó hacia América.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Nebrija nunca hubiera fijado por escrito las reglas del castellano en 1492?",
       answer:
@@ -4802,7 +5144,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Ahmad ibn Baso, arquitecto andalusí activo en el Al-Ándalus almohade, dirige en 1171 la construcción de los palacios de la Buhayra en Sevilla por encargo del califa Abú Yaqub Yusuf. En 1184 el mismo califa le encarga la obra más ambiciosa de su carrera: el alminar de la gran mezquita aljama de Sevilla, la torre que los siglos después conocerían como la Giralda. Ibn Baso la diseña sin escaleras, con rampas interiores lo bastante anchas para que dos jinetes pudieran subir a caballo al mismo tiempo hasta lo alto. Muere hacia 1189, con la torre todavía en obras; el arquitecto Ali al Gomari termina lo que él empezó. Tres siglos y medio después, ya conquistada Sevilla por los cristianos, el arquitecto renacentista Hernán Ruiz II corona el alminar almohade con un cuerpo de campanas — la fusión de ambas épocas es la Giralda que hoy se reconoce como símbolo de la ciudad.",
     descriptionHtml:
-      'Ahmad ibn Baso, arquitecto andalusí activo en el <button type="button" class="timeline-detail-entrylink" data-id="califato-cordoba-929">Al-Ándalus</button> almohade, dirige en 1171 la construcción de los <button type="button" class="timeline-detail-geolink" data-region="Palacio de la Buhayra" data-country="España">palacios de la Buhayra</button> en <button type="button" class="timeline-detail-geolink" data-region="Sevilla" data-country="España">Sevilla</button> por encargo del califa Abú Yaqub Yusuf. En 1184 el mismo califa le encarga la obra más ambiciosa de su carrera: el alminar de la gran mezquita aljama de Sevilla, la torre que los siglos después conocerían como la <button type="button" class="timeline-detail-geolink" data-region="La Giralda" data-country="España">Giralda</button>. Ibn Baso la diseña sin escaleras, con rampas interiores lo bastante anchas para que dos jinetes pudieran subir a caballo al mismo tiempo hasta lo alto. Muere hacia 1189, con la torre todavía en obras; el arquitecto Ali al Gomari termina lo que él empezó. Tres siglos y medio después, ya conquistada Sevilla por los cristianos, el arquitecto renacentista Hernán Ruiz II corona el alminar almohade con un cuerpo de campanas — la fusión de ambas épocas es la Giralda que hoy se reconoce como símbolo de la ciudad.',
+      'Ahmad ibn Baso, arquitecto andalusí activo en el <button type="button" class="timeline-detail-entrylink" data-id="califato-cordoba-929">Al-Ándalus</button> almohade, dirige en 1171 la construcción de los <button type="button" class="timeline-detail-geolink" data-region="Palacio de la Buhayra" data-country="España">palacios de la Buhayra</button> en <button type="button" class="timeline-detail-geolink" data-region="Sevilla" data-country="España">Sevilla</button> por encargo del califa Abú Yaqub Yusuf. En 1184 el mismo califa le encarga la obra más ambiciosa de su carrera: el alminar de la gran mezquita aljama de Sevilla, la torre que los siglos después conocerían como la <button type="button" class="timeline-detail-geolink" data-region="La Giralda" data-country="España">Giralda</button>. Ibn Baso la diseña sin escaleras, con rampas interiores lo bastante anchas para que dos jinetes pudieran subir a caballo al mismo tiempo hasta lo alto. Muere hacia 1189, con la torre todavía en obras; el arquitecto Ali al Gomari termina lo que él empezó. Tres siglos y medio después, <button type="button" class="timeline-detail-entrylink" data-id="fernando-iii-cordoba-sevilla-1236">ya conquistada Sevilla por los cristianos</button>, el arquitecto renacentista Hernán Ruiz II corona el alminar almohade con un cuerpo de campanas — la fusión de ambas épocas es la Giralda que hoy se reconoce como símbolo de la ciudad.',
     anchor: true,
     butterfly: {
       prompt: "¿Qué hubiera pasado si Ahmad ibn Baso hubiera terminado la Giralda antes de morir, sin necesidad de que Ali al Gomari continuara la obra?",
