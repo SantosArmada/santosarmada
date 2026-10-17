@@ -609,7 +609,7 @@ const TIMELINE_ENTRIES = [
     // inquisicion-espanola-1478. Fixed here — libro-buen-amor-1330 and
     // peste-negra-1338 were nudged further left instead to clear it,
     // since this entry's own leftward slack toward 1330 is now used up.
-    trackYear: 1344.76,
+    trackYear: 1361.75,
     endYear: 1472,
     title: "Nezahualcóyotl: vida y obra",
     author: "José Luis Martínez",
@@ -637,7 +637,7 @@ const TIMELINE_ENTRIES = [
     // legado-trata-transatlantica-1442 were inserted into the same gap,
     // and again to give 1441 and 1442 their own standalone points too
     // (see nezahualcoyotl for how room was found).
-    trackYear: 1359.52,
+    trackYear: 1378.04,
     endYear: 1471,
     title: "1438: Pachacútec funda el Imperio Inca",
     author: "Hito histórico",
@@ -689,7 +689,7 @@ const TIMELINE_ENTRIES = [
     // rest of the chain. Given its own standalone point (not clustered
     // with origen-trata-transatlantica-1441) by borrowing extra room
     // from nezahualcoyotl.
-    trackYear: 1389.04,
+    trackYear: 1394.33,
     endYear: 2026,
     title: "1442–hoy: el legado de la trata, de San Basilio de Palenque a LaDainian Tomlinson",
     author: "Hito histórico",
@@ -716,7 +716,7 @@ const TIMELINE_ENTRIES = [
     // as part of the wider 1479-1533 chain (see faras-cruz-del-sur-1500),
     // and again later in 2026 to make room for
     // origen-trata-transatlantica-1441 / legado-trata-transatlantica-1442.
-    trackYear: 1448.08,
+    trackYear: 1443.2,
     endYear: 1485,
     title: "1479: Colón se instala en Porto Santo",
     author: "Hito histórico",
@@ -765,7 +765,7 @@ const TIMELINE_ENTRIES = [
     // for the rest of the chain. Re-spaced across the board (including
     // nezahualcoyotl) to fit this entry between
     // legado-trata-transatlantica-1442 and inquisicion-espanola-1478.
-    trackYear: 1403.8,
+    trackYear: 1410.62,
     title: "1453: cae Constantinopla y se encarece la Ruta de la Seda",
     author: "Hito histórico",
     country: "Turquía",
@@ -788,7 +788,7 @@ const TIMELINE_ENTRIES = [
     day: 19,
     // Real date; the display position is spread across the crowded
     // 1453–1492 chain so this remains a standalone point.
-    trackYear: 1418.56,
+    trackYear: 1426.91,
     title: "19 de octubre de 1469: Isabel y Fernando se casan en Valladolid",
     author: "Isabel I de Castilla y Fernando II de Aragón",
     country: "España",
@@ -814,7 +814,7 @@ const TIMELINE_ENTRIES = [
     // rest of the chain. Re-spaced across the board (including
     // nezahualcoyotl) to fit this entry between colon-porto-santo-1479 and
     // corsali-explorador-1487 without re-breaking any of them.
-    trackYear: 1462.84,
+    trackYear: 1459.49,
     endYear: 1485,
     title: "1484: João II de Portugal rechaza a Colón",
     author: "Hito histórico",
@@ -1125,6 +1125,28 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "sinagoga-samuel-halevi-1361",
+    year: 1361,
+    // Visual spacing only; the card and detail panel retain the real range.
+    trackYear: 1345.46,
+    title: "1356–1362: Samuel ha-Leví levanta una sinagoga en Toledo",
+    author: "Samuel ha-Leví y la comunidad judía de Toledo",
+    country: "España",
+    region: "Sinagoga del Tránsito, Toledo",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.VISION,
+    types: [ICON_TYPE.VISION, ICON_TYPE.HISTORY],
+    description:
+      "Entre 1356 y 1362, Samuel ha-Leví, oidor, diplomático y tesorero de Pedro I de Castilla, mandó levantar una gran sinagoga en la judería de Toledo. Su sala de oración combina arquitectura mudéjar con inscripciones hebreas y árabes: las palabras labradas construyen un mensaje religioso y político. El edificio muestra una cultura visual compartida entre comunidades sin borrar las desigualdades de la época. Sobrevivió a la violencia de 1391; tras la expulsión de 1492, su culto, propiedad y funciones cambiarían radicalmente. Hoy conserva un testimonio excepcional de la historia hispanojudía medieval.",
+    descriptionHtml:
+      "Entre 1356 y 1362, Samuel ha-Leví, oidor, diplomático y tesorero de Pedro I de Castilla, mandó levantar una gran sinagoga en la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Judería de Toledo\" data-country=\"España\">judería de Toledo</button>. Su sala de oración combina arquitectura mudéjar con inscripciones hebreas y árabes: las palabras labradas construyen un mensaje religioso y político. El edificio muestra una cultura visual compartida entre comunidades sin borrar las desigualdades de la época. Sobrevivió a la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"ataques-aljamas-1391\">violencia de 1391</button>; tras la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"expulsion-judios-1492\">expulsión de 1492</button>, su culto, propiedad y funciones <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"sinagoga-transito-priorato-1494\">cambiarían radicalmente</button>. Hoy conserva un testimonio excepcional de la historia hispanojudía medieval.",
+    butterfly: {
+      prompt: "¿Qué cuentan juntas las inscripciones hebreas y árabes?",
+      answer:
+        "Que lenguas, talleres y formas artísticas cruzaban fronteras religiosas, incluso dentro de una sociedad jerárquica donde convivencia y desigualdad coexistían."
+    }
+  },
+  {
     id: "ataques-aljamas-1391",
     year: 1391,
     title: "junio de 1391: los ataques destruyen las aljamas",
@@ -1138,7 +1160,7 @@ const TIMELINE_ENTRIES = [
     description:
       "En junio de 1391, la violencia antijudía estalló en Sevilla tras años de predicación incendiaria, tensión social y debilitamiento de la autoridad. Los ataques alcanzaron Córdoba, Toledo, Valencia, Barcelona, Palma y otras aljamas. Hubo asesinatos, saqueos, destrucción de sinagogas, huidas y bautismos forzados; las cifras exactas siguen siendo inciertas. Las conversiones masivas ampliaron la población conversa sin terminar la persecución: alimentaron sospechas, la Inquisición de 1478 y las fracturas que desembocaron en la expulsión de 1492. Este Eco brutal fue una ruptura peninsular, no un disturbio local.",
     descriptionHtml:
-      "En junio de 1391, la violencia antijudía estalló en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Sevilla\" data-country=\"España\">Sevilla</button> tras años de predicación incendiaria, tensión social y debilitamiento de la autoridad. Los ataques alcanzaron <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Córdoba\" data-country=\"España\">Córdoba</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Toledo\" data-country=\"España\">Toledo</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Valencia\" data-country=\"España\">Valencia</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Barcelona\" data-country=\"España\">Barcelona</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Palma\" data-country=\"España\">Palma</button> y otras aljamas. Hubo asesinatos, saqueos, destrucción de sinagogas, huidas y bautismos forzados; las cifras exactas siguen siendo inciertas. Las conversiones masivas ampliaron la población conversa sin terminar la persecución: alimentaron sospechas, la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"inquisicion-espanola-1478\">Inquisición de 1478</button> y las fracturas que desembocaron en la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"expulsion-judios-1492\">expulsión de 1492</button>. Este <strong>Eco brutal</strong> fue una ruptura peninsular, no un disturbio local.",
+      "En junio de 1391, la violencia antijudía estalló en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Sevilla\" data-country=\"España\">Sevilla</button> tras años de predicación incendiaria, tensión social y debilitamiento de la autoridad. Los ataques alcanzaron <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Córdoba\" data-country=\"España\">Córdoba</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Toledo\" data-country=\"España\">Toledo</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Valencia\" data-country=\"España\">Valencia</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Barcelona\" data-country=\"España\">Barcelona</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Palma\" data-country=\"España\">Palma</button> y otras aljamas. Hubo asesinatos, saqueos, <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"sinagoga-samuel-halevi-1361\">destrucción de sinagogas</button>, huidas y bautismos forzados; las cifras exactas siguen siendo inciertas. Las conversiones masivas ampliaron la población conversa sin terminar la persecución: alimentaron sospechas, la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"inquisicion-espanola-1478\">Inquisición de 1478</button> y las fracturas que desembocaron en la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"expulsion-judios-1492\">expulsión de 1492</button>. Este <strong>Eco brutal</strong> fue una ruptura peninsular, no un disturbio local.",
     butterfly: {
       prompt: "¿Por qué 1391 se conecta con 1478 y 1492?",
       answer:
@@ -1228,11 +1250,32 @@ const TIMELINE_ENTRIES = [
     description:
       "El 31 de marzo de 1492, los Reyes Católicos Fernando de Aragón e Isabel de Castilla firman en la Alhambra de Granada el Decreto de la Alhambra —también llamado Edicto de Granada—, que ordena la expulsión de todos los judíos que no se convirtieran al cristianismo. El decreto les da hasta el 31 de julio para abandonar sus reinos; los últimos en salir lo hacen el 2 de agosto, coincidiendo con el ayuno judío de Tisha B'Av, que conmemora la destrucción de los dos Templos de Jerusalén. Las cifras varían mucho según la fuente —los cálculos tradicionales hablan de hasta 300.000 personas—, pero la investigación histórica moderna sitúa el número de judíos realmente expulsados, los que no se convirtieron, entre 40.000 y 100.000. Muchos cruzan primero a Portugal, donde apenas cinco años después la corona portuguesa también los expulsaría o forzaría a convertirse; otros se instalan en el norte de África o, sobre todo, en el Imperio otomano, cuyo sultán Bayaceto II habría comentado que Fernando de Aragón 'empobrecía su propio reino para enriquecer el mío'. De esa diáspora nace el mundo sefardí, una comunidad que conservaría durante siglos el ladino —una forma arcaica del español— y la memoria de un país que los expulsó. El decreto permanecería vigente, al menos de forma simbólica, hasta que fue revocado formalmente el 16 de diciembre de 1968. Un día después de que se cerrara el plazo final para salir, el 3 de agosto de 1492, Cristóbal Colón zarpó de Palos de la Frontera rumbo a las Indias —según algunos historiadores, retrasando su partida un día para no navegar durante el ayuno judío—.",
     descriptionHtml:
-      'El 31 de marzo de 1492, los Reyes Católicos Fernando de Aragón e Isabel de Castilla firman en la <button type="button" class="timeline-detail-geolink" data-region="Alhambra" data-country="España">Alhambra</button> de Granada el Decreto de la Alhambra —también llamado Edicto de Granada—, que ordena la expulsión de todos los judíos que no se convirtieran al cristianismo. El decreto les da hasta el 31 de julio para abandonar sus reinos; los últimos en salir lo hacen el 2 de agosto, coincidiendo con el ayuno judío de Tisha B\'Av, que conmemora la destrucción de los dos Templos de Jerusalén. Las cifras varían mucho según la fuente —los cálculos tradicionales hablan de hasta 300.000 personas—, pero la investigación histórica moderna sitúa el número de judíos realmente expulsados, los que no se convirtieron, entre 40.000 y 100.000. Muchos cruzan primero a <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button>, donde apenas cinco años después la corona portuguesa también los expulsaría o forzaría a convertirse; otros se instalan en el norte de África o, sobre todo, en el Imperio otomano, cuyo sultán Bayaceto II habría comentado que Fernando de Aragón \'empobrecía su propio reino para enriquecer el mío\'. De esa diáspora nace el mundo sefardí, una comunidad que conservaría durante siglos el ladino —una forma arcaica del español— y la memoria de un país que los expulsó. El decreto permanecería vigente, al menos de forma simbólica, hasta que fue revocado formalmente el 16 de diciembre de 1968. Un día después de que se cerrara el plazo final para salir, el 3 de agosto de 1492, <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">Cristóbal Colón</button> zarpó de Palos de la Frontera rumbo a las Indias —según algunos historiadores, retrasando su partida un día para no navegar durante el ayuno judío—.',
+      'El 31 de marzo de 1492, los Reyes Católicos Fernando de Aragón e Isabel de Castilla firman en la <button type="button" class="timeline-detail-geolink" data-region="Alhambra" data-country="España">Alhambra</button> de Granada el Decreto de la Alhambra —también llamado Edicto de Granada—, que ordena la expulsión de todos los judíos que no se convirtieran al cristianismo. El decreto les da hasta el 31 de julio para abandonar sus reinos; los últimos en salir lo hacen el 2 de agosto, coincidiendo con el ayuno judío de Tisha B\'Av, que conmemora la destrucción de los dos Templos de Jerusalén. Las cifras varían mucho según la fuente —los cálculos tradicionales hablan de hasta 300.000 personas—, pero la investigación histórica moderna sitúa el número de judíos realmente expulsados, los que no se convirtieron, entre 40.000 y 100.000. Muchos cruzan primero a <button type="button" class="timeline-detail-geolink" data-country="Portugal">Portugal</button>, donde apenas cinco años después la corona portuguesa también los expulsaría o forzaría a convertirse; otros se instalan en el norte de África o, sobre todo, en el Imperio otomano, cuyo sultán Bayaceto II habría comentado que Fernando de Aragón \'empobrecía su propio reino para enriquecer el mío\'. De esa diáspora nace el <button type="button" class="timeline-detail-entrylink" data-id="museo-sefardi-toledo-1964">mundo sefardí</button>, una comunidad que conservaría durante siglos el ladino —una forma arcaica del español— y la memoria de un país que los expulsó. El decreto permanecería vigente, al menos de forma simbólica, hasta que fue revocado formalmente el 16 de diciembre de 1968. Un día después de que se cerrara el plazo final para salir, el 3 de agosto de 1492, <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">Cristóbal Colón</button> zarpó de Palos de la Frontera rumbo a las Indias —según algunos historiadores, retrasando su partida un día para no navegar durante el ayuno judío—.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si los Reyes Católicos nunca hubieran firmado el Decreto de la Alhambra?",
       answer:
         "España habría conservado a una de sus comunidades más antiguas e integradas, con siglos de aportes intelectuales, médicos y comerciales. En cambio, la diáspora sefardí llevó consigo a Portugal, el norte de África y el Imperio otomano una memoria de España —y un español arcaico, el ladino— que sobrevivió durante más de cinco siglos a la corona que la expulsó. Y sin ese éxodo, la posible ascendencia sefardí de figuras como João Faras, huido hacia Portugal apenas unos años después, quedaría sin explicación."
+    }
+  },
+  {
+    id: "sinagoga-transito-priorato-1494",
+    year: 1494,
+    title: "1492–1494: de sinagoga al Priorato de San Benito",
+    author: "Reyes Católicos y Orden de Calatrava",
+    country: "España",
+    region: "Sinagoga del Tránsito, Toledo",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.ECHO,
+    types: [ICON_TYPE.ECHO, ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
+    description:
+      "Después de ordenar la expulsión en 1492, los Reyes Católicos cedieron la Sinagoga de Samuel ha-Leví a la Orden de Calatrava. En 1494 el edificio quedó integrado en el Priorato de San Benito: la sala de oración se convirtió en iglesia y lugar de enterramiento; la escuela rabínica y la galería de mujeres pasaron a hospital y asilo de caballeros. El cambio preservó elementos arquitectónicos, pero desplazó culto, comunidad y significado. Este Eco brutal permite seguir la expulsión en un lugar concreto: no solo salieron personas; también sus espacios fueron apropiados, renombrados y reorganizados.",
+    descriptionHtml:
+      "Después de ordenar la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"expulsion-judios-1492\">expulsión en 1492</button>, los Reyes Católicos cedieron la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"sinagoga-samuel-halevi-1361\">Sinagoga de Samuel ha-Leví</button> a la Orden de Calatrava. En 1494 el edificio quedó integrado en el <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Sinagoga del Tránsito, Toledo\" data-country=\"España\">Priorato de San Benito</button>: la sala de oración se convirtió en iglesia y lugar de enterramiento; la escuela rabínica y la galería de mujeres pasaron a hospital y asilo de caballeros. El cambio preservó elementos arquitectónicos, pero desplazó culto, comunidad y significado. Este <strong>Eco brutal</strong> permite seguir la expulsión en un lugar concreto: no solo salieron personas; también sus espacios fueron apropiados, renombrados y reorganizados.",
+    butterfly: {
+      prompt: "¿Qué revela la transformación de la sinagoga en priorato?",
+      answer:
+        "Que la expulsión no desplazó únicamente personas: también transfirió propiedad, reorganizó el culto y reescribió la memoria pública de sus espacios."
     }
   },
   {
@@ -1316,7 +1359,7 @@ const TIMELINE_ENTRIES = [
     // origen-trata-transatlantica-1441 / legado-trata-transatlantica-1442
     // (this marker now sits right at the edge of the 1492 cluster's
     // capture radius — do not nudge it any further right).
-    trackYear: 1477.6,
+    trackYear: 1475.78,
     endYear: 1516,
     title: "1487–1516: Andrea Corsali, el florentino que describió la Cruz del Sur desde la India",
     author: "Andrea Corsali",
@@ -3219,6 +3262,29 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "museo-sefardi-toledo-1964",
+    year: 1964,
+    month: 3,
+    day: 18,
+    endYear: 1971,
+    title: "18 de marzo de 1964: nace el Museo Sefardí",
+    author: "Museo Sefardí de Toledo",
+    country: "España",
+    region: "Museo Sefardí, Toledo",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.VISION],
+    description:
+      "Durante la dictadura franquista, el Decreto 874/1964 creó en Toledo el Museo Sefardí dentro de la Sinagoga de Samuel ha-Leví. El edificio, declarado Monumento Nacional en 1877 y restaurado desde 1910, pasó de lugar de culto expropiado a espacio público de memoria. El museo se independizó de las Fundaciones Vega-Inclán en 1969 y abrió el 13 de junio de 1971. Sus colecciones reúnen arqueología, arte, libros y objetos rituales para narrar la presencia judía peninsular y la diáspora sefardí. Aquí, la sede histórica también es la pieza principal.",
+    descriptionHtml:
+      "Durante la dictadura franquista, el Decreto 874/1964 creó en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Toledo\" data-country=\"España\">Toledo</button> el <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Museo Sefardí, Toledo\" data-country=\"España\">Museo Sefardí</button> dentro de la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"sinagoga-samuel-halevi-1361\">Sinagoga de Samuel ha-Leví</button>. El edificio, declarado Monumento Nacional en 1877 y restaurado desde 1910, pasó de lugar de culto <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"sinagoga-transito-priorato-1494\">expropiado</button> a espacio público de memoria. El museo se independizó de las Fundaciones Vega-Inclán en 1969 y abrió el 13 de junio de 1971. Sus colecciones reúnen arqueología, arte, libros y objetos rituales para narrar la presencia judía peninsular y la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"expulsion-judios-1492\">diáspora sefardí</button>. Aquí, la sede histórica también es la pieza principal.",
+    butterfly: {
+      prompt: "¿Por qué el propio edificio es la pieza principal del museo?",
+      answer:
+        "Porque sus muros registran culto judío, apropiación cristiana, usos militares, restauraciones y arqueología: la sede contiene la historia que el museo interpreta."
+    }
+  },
+  {
     id: "sabina",
     year: 1974,
     title: "Tiene los cabellos rojizos y se llama Sabina",
@@ -4245,7 +4311,7 @@ const TIMELINE_ENTRIES = [
     glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.HISTORY,
     description:
-      "El 1 de noviembre de 1478, el papa Sisto IV (Sixto IV) emite la bula Exigit sinceras devotionis affectus a petición de los Reyes Católicos, Fernando de Aragón e Isabel de Castilla, autorizando el establecimiento de la Inquisición española — un tribunal bajo control directo de la Corona, no de Roma, a diferencia de la Inquisición medieval anterior. El primer tribunal se instala en Sevilla en 1480 y el primer auto de fe se celebra allí en febrero de 1481. Sus principales víctimas fueron los conversos: judíos y musulmanes que llevaban siglos viviendo en los territorios peninsulares, muchos de ellos convertidos al cristianismo bajo sospecha constante de practicar en secreto su fe original. La institución perduraría, con distintos grados de intensidad, hasta su abolición definitiva en 1834.",
+      "El 1 de noviembre de 1478, el papa Sisto IV (Sixto IV) emite la bula Exigit sinceras devotionis affectus a petición de los Reyes Católicos, Fernando de Aragón e Isabel de Castilla, autorizando el establecimiento de la Inquisición española — un tribunal bajo control directo de la Corona, no de Roma, a diferencia de la Inquisición medieval anterior. El primer tribunal se instala en Sevilla en 1480 y el primer auto de fe se celebra allí en febrero de 1481. Sus primeros objetivos principales fueron conversos de origen judío sospechosos de judaizar; después persiguió también a moriscos, protestantes y otros grupos. La institución perduraría, con distintos grados de intensidad, hasta su abolición definitiva en 1834.",
     butterfly: {
       prompt: "¿Qué hubiera pasado si el papa Sixto IV hubiera rechazado la petición de los Reyes Católicos?",
       answer:
