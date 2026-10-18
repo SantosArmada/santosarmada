@@ -1197,17 +1197,19 @@ const TIMELINE_ENTRIES = [
   {
     id: "cuatro-viajes-colon-1492",
     year: 1492,
-    month: 8,
+    month: 10,
+    day: 12,
     trackYear: 1492.1,
     endYear: 1506,
     title: "Los cuatro viajes del almirante y su testamento",
     author: "Cristóbal Colón",
     country: "Bahamas",
+    region: "Guanahaní · Long Bay (sitio tradicional)",
     type: ICON_TYPE.LITERATURE,
     description:
-      "Las cartas, diarios de a bordo y el testamento del propio Cristoforo Colombo (Cristóbal Colón), documentando sus cuatro travesías atlánticas entre 1492 y 1504 y cerrando con las cláusulas de su testamento, firmado en Valladolid en 1506 — conocidos hoy sobre todo a través del resumen que fray Bartolomé de las Casas hizo del manuscrito original de Colón, hoy perdido. El propio diario abre atando el viaje a la Reconquista recién terminada: el 2 de enero de 1492, escribe Colón, 'a dos días del mes de enero por fuerza de armas vi poner las banderas reales de Vuestras Altezas en las torres de la Alhambra, que es la fortaleza de la dicha ciudad' — testigo presencial de la rendición de Granada, apenas meses antes de que esos mismos Reyes Católicos aprobaran su expedición hacia el occidente. Un relato de primera mano —y no poco interesado— del primer contacto europeo con el Caribe y las negociaciones con la Corona que lo hicieron posible.",
+      "Las cartas, diarios de a bordo y el testamento de Cristóbal Colón documentan sus cuatro travesías atlánticas entre 1492 y 1504; el diario original se perdió y se conoce principalmente por el resumen de Bartolomé de las Casas. El relato vincula la empresa a la rendición de Granada y muestra la mirada interesada del almirante. El 12 de octubre de 1492 desembarcó en Guanahaní, isla lucaya tradicionalmente identificada con San Salvador, Bahamas. El punto rojo señala Long Bay, sitio conmemorativo oficial; la identificación de Guanahaní sigue debatida. Sus textos registran encuentro, apropiación y negociación imperial.",
     descriptionHtml:
-      'Las cartas, diarios de a bordo y el testamento del propio Cristoforo Colombo (Cristóbal Colón), documentando sus cuatro travesías atlánticas entre 1492 y 1504 y cerrando con las cláusulas de su testamento, firmado en Valladolid en 1506 — conocidos hoy sobre todo a través del resumen que fray Bartolomé de las Casas hizo del manuscrito original de Colón, hoy perdido. El propio diario abre atando el viaje a la Reconquista recién terminada: el 2 de enero de 1492, escribe Colón, \'a dos días del mes de enero por fuerza de armas vi poner las banderas reales de Vuestras Altezas en las torres de la <button type="button" class="timeline-detail-geolink" data-region="Alhambra" data-country="España">Alhambra</button>, que es la fortaleza de la dicha ciudad\' — testigo presencial de la <button type="button" class="timeline-detail-entrylink" data-id="rendicion-granada-1492">rendición de Granada</button>, apenas meses antes de que esos mismos Reyes Católicos aprobaran su expedición hacia el occidente. Un relato de primera mano —y no poco interesado— del primer contacto europeo con el Caribe y las negociaciones con la Corona que lo hicieron posible.',
+      'Las cartas, diarios de a bordo y el testamento de Cristóbal Colón documentan sus cuatro travesías atlánticas entre 1492 y 1504; el diario original se perdió y se conoce principalmente por el resumen de Bartolomé de las Casas. El relato vincula la empresa a la <button type="button" class="timeline-detail-entrylink" data-id="rendicion-granada-1492">rendición de Granada</button> y muestra la mirada interesada del almirante. El 12 de octubre de 1492 desembarcó en <button type="button" class="timeline-detail-geolink" data-region="Guanahaní · Long Bay (sitio tradicional)" data-country="Bahamas">Guanahaní, isla lucaya tradicionalmente identificada con San Salvador, Bahamas</button>. El punto rojo señala <button type="button" class="timeline-detail-geolink" data-region="Guanahaní · Long Bay (sitio tradicional)" data-country="Bahamas">Long Bay</button>, sitio conmemorativo oficial; la identificación de Guanahaní sigue debatida. Sus textos registran encuentro, apropiación y negociación imperial.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si los Reyes Católicos hubieran rechazado la propuesta de Colón, como antes lo hizo Portugal?",
       answer:

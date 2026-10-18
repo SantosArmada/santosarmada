@@ -590,6 +590,16 @@ Promise.all([
    must therefore be included whenever that temporary blip is reset.
    --------------------------------------------------------- */
 const POLE_POINT = { lat: 90, lng: 0, kind: 'pole' };
+const COLUMBUS_LANDFALL_POINT = {
+    lat: 24.01196,
+    lng: -74.52756,
+    kind: 'island',
+    label: 'Guanahaní · Long Bay · desembarco de 1492',
+    panelLabel: '12 DE OCTUBRE DE 1492 · SITIO TRADICIONAL',
+    color: '#ff304e',
+    haloColor: 'rgba(255,48,78,0.32)',
+    linkedEntryId: 'cuatro-viajes-colon-1492'
+};
 const SMALL_ISLAND_POINTS = [
     {
         lat: 39.614,
@@ -618,6 +628,7 @@ const SMALL_ISLAND_POINTS = [
         haloColor: 'rgba(255,106,0,0.28)',
         linkedEntryId: 'colon-porto-santo-1479'
     },
+    COLUMBUS_LANDFALL_POINT,
     {
         lat: -27.1127,
         lng: -109.3497,
@@ -642,14 +653,14 @@ const PERMANENT_GLOBE_POINTS = [POLE_POINT]
     .concat(SMALL_ISLAND_HALO_POINTS, SMALL_ISLAND_POINTS);
 
 function showSmallIslandPanel(point) {
-    if (!point || (point.kind !== 'island' && point.kind !== 'island-halo')) return;
+    if (!point || !['island', 'island-halo', 'region-landfall'].includes(point.kind)) return;
     infoPanelEl.classList.remove('is-hidden');
 
     const linked = (window.TIMELINE_ENTRIES || []).find(function (entry) {
         return entry.id === point.linkedEntryId;
     });
     infoContentEl.innerHTML =
-        '<p class="globe-info-label">Small Island</p>' +
+        '<p class="globe-info-label">' + escapeHtmlGlobe(point.panelLabel || 'Small Island') + '</p>' +
         '<h3 class="globe-info-title">' + escapeHtmlGlobe(point.label) + '</h3>' +
         (linked
             ? '<ul class="globe-info-worklist">' + renderWorksList([linked]) + '</ul>'
@@ -659,17 +670,20 @@ function showSmallIslandPanel(point) {
 world
     .pointsData(PERMANENT_GLOBE_POINTS)
     .pointColor((d) => {
+        if (d.kind === 'region-landfall') return '#ff304e';
         if (d.kind === 'region') return '#D6FCFF';
         if (d.kind === 'island' || d.kind === 'island-halo') return d.color;
         return '#ffffff';
     })
     .pointRadius((d) => {
+        if (d.kind === 'region-landfall') return 0.55;
         if (d.kind === 'region') return 0.45;
         if (d.kind === 'island-halo') return 0.72;
         if (d.kind === 'island') return 0.4;
         return 0.3;
     })
     .pointAltitude((d) => {
+        if (d.kind === 'region-landfall') return 0.045;
         if (d.kind === 'island-halo') return 0.012;
         if (d.kind === 'island') return 0.032;
         return 0.02;
@@ -1091,6 +1105,7 @@ const REGION_CENTER = {
     'Galápagos': { lat: -0.74, lng: -90.31 },
     'Tenerife': { lat: 28.29, lng: -16.62 },
     'San Salvador': { lat: 13.69, lng: -89.19 },
+    'Guanahaní · Long Bay (sitio tradicional)': { lat: 24.01196, lng: -74.52756 },
     'La Molina, Lima': { lat: -12.08, lng: -76.94 },
     'León': { lat: 42.60, lng: -5.57 },
     'Las Navas de Tolosa': { lat: 38.28, lng: -3.57 },
@@ -1191,9 +1206,11 @@ window.focusGlobeOnRegion = function (regionName, countryName) {
     // it closes (see clearGlobeRegionBlipDelayed, called from
     // timeline.js's closeDetailPanel) -- not cleared on a fixed timer
     // tied to when it first appeared.
-    world.pointsData(PERMANENT_GLOBE_POINTS.concat([
-        { lat: center.lat, lng: center.lng, kind: 'region' }
-    ]));
+    const isColumbusLandfall = regionName === 'Guanahaní · Long Bay (sitio tradicional)';
+    const focusedPoint = isColumbusLandfall
+        ? Object.assign({}, COLUMBUS_LANDFALL_POINT, { kind: 'region-landfall' })
+        : { lat: center.lat, lng: center.lng, kind: 'region' };
+    world.pointsData(PERMANENT_GLOBE_POINTS.concat([focusedPoint]));
 
     // Restart from the top on every call so rapid clicks between
     // different regions don't stack overlapping playback.
