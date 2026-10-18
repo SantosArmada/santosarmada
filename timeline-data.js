@@ -657,29 +657,26 @@ const TIMELINE_ENTRIES = [
   {
     id: "origen-trata-transatlantica-1441",
     year: 1441,
-    // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. Part of the 1438/1441/1442/1478/1479/1487/1492/1492
-    // chain-clustered sequence — see inquisicion-espanola-1478 for the
-    // rest of the chain. Given its own standalone point (not clustered
-    // with legado-trata-transatlantica-1442) by borrowing extra room
-    // from nezahualcoyotl.
+    // Visual spacing only; the card and detail panel retain the real date.
     trackYear: 1374.28,
-    title: "1441: el origen de la trata transatlántica de esclavos",
-    author: "Hito histórico",
+    title: "1441: cautivos africanos llegan a Lagos, precedente de la trata transatlántica",
+    author: "Antão Gonçalves y Lançarote de Freitas",
     country: "Portugal",
     region: "Lagos",
     glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY, ICON_TYPE.ECHO],
     description:
-      "En 1441, el capitán portugués Antão Gonçalves, enviado por el infante Enrique el Navegante en una expedición al mando de Nuno Tristão para explorar la costa occidental de África, decide por iniciativa propia capturar a un grupo de personas en Cabo Branco, en la costa de la actual Mauritania. En el viaje de regreso canjea a algunos de sus cautivos bereberes por diez africanos subsaharianos esclavizados, a quienes transporta hasta Lagos, Portugal — el episodio que la historiografía señala como el arranque de la trata transatlántica de esclavos. Tres años después, en 1444, una expedición al mando de Lançarote de Freitas regresa a Lagos con 235 personas esclavizadas y las vende públicamente en el muelle: la primera venta a gran escala de africanos esclavizados en suelo europeo. El papado da cobertura religiosa al negocio poco después: entre 1452 y 1455, el papa Nicolás V emite las bulas Dum Diversas y Romanus Pontifex, que autorizan a la Corona portuguesa a esclavizar de forma perpetua a los pueblos no cristianos del África subsahariana. Lo que empieza como la decisión improvisada de un solo capitán se convierte, en menos de una generación, en un sistema jurídico y comercial que, durante los siguientes cuatro siglos, trasladaría a la fuerza a unos doce millones y medio de personas africanas a través del Atlántico.",
+      "En 1441, Antão Gonçalves capturó personas cerca de Cabo Branco, en Mauritania, y llevó cautivos africanos a Lagos, Portugal. Tres años después, Lançarote de Freitas desembarcó allí 235 personas para su venta pública. Estos viajes marcaron una expansión decisiva del tráfico portugués de esclavos por el Atlántico oriental, aunque todavía no fueron una ruta transatlántica directa hacia América. Las bulas Dum Diversas y Romanus Pontifex otorgaron después cobertura religiosa a la conquista y esclavización de pueblos no cristianos. El sistema crecería con plantaciones insulares coloniales y, desde 1518, con licencias directas hacia la América española.",
     descriptionHtml:
-      'En 1441, el capitán portugués Antão Gonçalves, enviado por el infante Enrique el Navegante en una expedición al mando de Nuno Tristão para explorar la costa occidental de África, decide por iniciativa propia capturar a un grupo de personas en <button type="button" class="timeline-detail-geolink" data-region="Cabo Branco" data-country="Mauritania">Cabo Branco</button>, en la costa de la actual Mauritania. En el viaje de regreso canjea a algunos de sus cautivos bereberes por diez africanos subsaharianos esclavizados, a quienes transporta hasta <button type="button" class="timeline-detail-geolink" data-region="Lagos" data-country="Portugal">Lagos</button>, Portugal — el episodio que la historiografía señala como el arranque de la trata transatlántica de esclavos. Tres años después, en 1444, una expedición al mando de Lançarote de Freitas regresa a <button type="button" class="timeline-detail-geolink" data-region="Lagos" data-country="Portugal">Lagos</button> con 235 personas esclavizadas y las vende públicamente en el muelle: la primera venta a gran escala de africanos esclavizados en suelo europeo. El papado da cobertura religiosa al negocio poco después: entre 1452 y 1455, el papa Nicolás V emite las bulas Dum Diversas y Romanus Pontifex, que autorizan a la Corona portuguesa a esclavizar de forma perpetua a los pueblos no cristianos del África subsahariana. Lo que empieza como la decisión improvisada de un solo capitán se convierte, en menos de una generación, en un sistema jurídico y comercial que, durante los siguientes cuatro siglos, trasladaría a la fuerza a unos doce millones y medio de personas africanas a través del Atlántico.',
+      "En 1441, Antão Gonçalves capturó personas cerca de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Cabo Branco\" data-country=\"Mauritania\">Cabo Branco</button>, en <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"Mauritania\">Mauritania</button>, y llevó cautivos africanos a <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Lagos\" data-country=\"Portugal\">Lagos</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"Portugal\">Portugal</button>. Tres años después, Lançarote de Freitas desembarcó allí 235 personas para su venta pública. Estos viajes marcaron una expansión decisiva del tráfico portugués de esclavos por el <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Atlántico oriental\">Atlántico oriental</button>, aunque todavía no fueron una ruta transatlántica directa hacia <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"América española\">América</button>. Las bulas <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"legado-trata-transatlantica-1442\">Dum Diversas y Romanus Pontifex</button> otorgaron después cobertura religiosa a la conquista y esclavización de pueblos no cristianos. El sistema crecería con plantaciones insulares coloniales y, <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"licencia-trata-directa-1518\">desde 1518</button>, con licencias directas hacia la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"América española\">América española</button>.",
     butterfly: {
-      prompt: "¿Qué hubiera pasado si Antão Gonçalves hubiera regresado a Portugal en 1441 solo con las pieles de foca que había ido a buscar, sin capturar a nadie?",
+      prompt: "¿Por qué 1441 es un precedente y 1518 un cambio de escala?",
       answer:
-        "El infante Enrique el Navegante habría seguido financiando expediciones por la costa africana en busca de oro y rutas comerciales de cualquier modo, y tarde o temprano otro capitán portugués habría capturado a los primeros cautivos. Pero la decisión personal de Gonçalves —tomada por iniciativa propia, no por orden directa de la Corona— fue el punto de partida contingente de un sistema que, una vez sancionado por el papado en 1452, se volvió casi imposible de detener: en los siguientes cuatro siglos, cerca de doce millones y medio de personas serían embarcadas a través del Atlántico, y solo alrededor de diez millones y medio sobrevivirían la travesía."
+        "En 1441 los cautivos fueron llevados a Portugal dentro del Atlántico oriental. La licencia de 1518 autorizó una gran ruta directa hacia la América española. Leer ambos puntos juntos muestra cómo capturas costeras se convirtieron gradualmente en un sistema transatlántico regulado por coronas, comerciantes y autoridad religiosa."
     }
   },
+
   {
     id: "legado-trata-transatlantica-1442",
     year: 1442,
@@ -1185,7 +1182,7 @@ const TIMELINE_ENTRIES = [
     description:
       "El 2 de enero de 1492, Muhammad XII, Boabdil, entregó Granada a Isabel de Castilla y Fernando de Aragón conforme a capitulaciones pactadas el 25 de noviembre anterior. Terminaban la guerra iniciada en 1482 y el último reino islámico independiente de la península. Los acuerdos prometían proteger religión, propiedad, lengua y costumbres musulmanas, pero la política posterior erosionó esas garantías: desde 1499 crecieron la coerción, la rebelión y las conversiones obligatorias. La toma de la Alhambra cerró una dinastía, no una presencia humana; comenzó la historia mudéjar y morisca bajo dominio cristiano.",
     descriptionHtml:
-      "El 2 de enero de 1492, Muhammad XII, Boabdil, entregó <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Granada\" data-country=\"España\">Granada</button> a Isabel de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Castilla\" data-country=\"España\">Castilla</button> y Fernando de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Aragón\" data-country=\"España\">Aragón</button> conforme a capitulaciones pactadas el 25 de noviembre anterior. Terminaban la guerra iniciada en 1482 y el último reino islámico independiente de la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Península ibérica\" data-country=\"España\">península</button>. Los acuerdos prometían proteger religión, propiedad, lengua y costumbres musulmanas, pero la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"expulsion-judios-1492\">política posterior</button> erosionó esas garantías: desde 1499 crecieron la coerción, la rebelión y las conversiones obligatorias. La toma de la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Alhambra\" data-country=\"España\">Alhambra</button> cerró una dinastía, no una presencia humana; comenzó la historia mudéjar y morisca bajo dominio cristiano.",
+      "El 2 de enero de 1492, Muhammad XII, Boabdil, entregó <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Granada\" data-country=\"España\">Granada</button> a Isabel de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Castilla\" data-country=\"España\">Castilla</button> y Fernando de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Aragón\" data-country=\"España\">Aragón</button> conforme a capitulaciones pactadas el 25 de noviembre anterior. Terminaban la guerra iniciada en 1482 y el último reino islámico independiente de la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Península ibérica\" data-country=\"España\">península</button>. Los acuerdos prometían proteger religión, propiedad, lengua y costumbres musulmanas, pero la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"alpujarras-expulsion-moriscos-1568\">política posterior</button> erosionó esas garantías: desde 1499 crecieron la coerción, la rebelión y las conversiones obligatorias. La toma de la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Alhambra\" data-country=\"España\">Alhambra</button> cerró una dinastía, no una presencia humana; comenzó la historia mudéjar y morisca bajo dominio cristiano.",
     butterfly: {
       prompt: "¿Garantizaron las capitulaciones una tolerancia duradera?",
       answer:
@@ -1227,16 +1224,18 @@ const TIMELINE_ENTRIES = [
     region: "Salamanca",
     flag: "spain-not-latam",
     type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY],
     description:
-      "Antonio de Nebrija, humanista nacido en Lebrija y formado en la Universidad de Salamanca, publica en esa misma ciudad la Gramática de la lengua castellana — la primera gramática dedicada al español y la primera de una lengua vernácula moderna en toda Europa, en una época en que estas obras se reservaban casi exclusivamente al latín. Dividida en cinco partes (ortografía, prosodia, etimología y dicción, sintaxis, y una guía para extranjeros), buscaba fijar las reglas de una lengua en plena expansión. Según la tradición, cuando un cortesano le presentó el libro a la reina Isabel I, esta habría preguntado, en un arranque de pragmatismo: '¿Para qué sirve esto?'. 'Majestad', habría respondido el cortesano, 'la lengua siempre fue compañera del imperio' — una idea que cobraría sentido literal ese mismo año, cuando terminó la Reconquista y Colombo (Colón) zarpó hacia América.",
+      "En agosto de 1492, Antonio de Nebrija publicó en Salamanca la primera gramática impresa de una lengua romance. Organizó el castellano en ortografía, prosodia, etimología, sintaxis y enseñanza para extranjeros: un gesto humanista que trasladaba al habla viva métodos antes reservados al latín. Dedicó la obra a Isabel de Castilla y afirmó que la lengua era “compañera del imperio”. Ese mismo año cayeron Granada, se expulsó a los judíos y Colón cruzó el Atlántico. La frase no predijo América, pero permite observar cómo conocimiento, poder y expansión terminaron enlazados en una misma historia atlántica compartida.",
     descriptionHtml:
-      'Antonio de Nebrija, humanista nacido en <button type="button" class="timeline-detail-geolink" data-region="Lebrija" data-country="España">Lebrija</button> y formado en la <button type="button" class="timeline-detail-entrylink" data-id="universidad-salamanca-1218">Universidad de Salamanca</button>, publica en esa misma ciudad la Gramática de la lengua castellana — la primera gramática dedicada al español y la primera de una lengua vernácula moderna en toda Europa, en una época en que estas obras se reservaban casi exclusivamente al latín. Dividida en cinco partes (ortografía, prosodia, etimología y dicción, sintaxis, y una guía para extranjeros), buscaba fijar las reglas de una lengua en plena expansión. Según la tradición, cuando un cortesano le presentó el libro a la reina Isabel I, esta habría preguntado, en un arranque de pragmatismo: \'¿Para qué sirve esto?\'. \'Majestad\', habría respondido el cortesano, \'la lengua siempre fue compañera del imperio\' — una idea que cobraría sentido literal ese mismo año, cuando <button type="button" class="timeline-detail-entrylink" data-id="rendicion-granada-1492">terminó la Reconquista</button> y <button type="button" class="timeline-detail-entrylink" data-id="cuatro-viajes-colon-1492">Colombo (Colón)</button> zarpó hacia América.',
+      "En agosto de 1492, Antonio de Nebrija publicó en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Salamanca\" data-country=\"España\">Salamanca</button> la primera gramática impresa de una lengua romance. Organizó el castellano en ortografía, prosodia, etimología, sintaxis y enseñanza para extranjeros: un gesto humanista que trasladaba al habla viva métodos antes reservados al latín. Dedicó la obra a <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"matrimonio-isabel-fernando-1469\">Isabel</button> de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Castilla\" data-country=\"España\">Castilla</button> y afirmó que la lengua era “compañera del imperio”. Ese mismo año <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"rendicion-granada-1492\">cayeron</button> <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Granada\" data-country=\"España\">Granada</button>, <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"expulsion-judios-1492\">se expulsó a los judíos</button> y <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"cuatro-viajes-colon-1492\">Colón</button> cruzó el <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Atlántico\">Atlántico</button>. La frase no predijo <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"América española\">América</button>, pero permite observar cómo conocimiento, poder y expansión terminaron enlazados en una misma historia atlántica compartida.",
     butterfly: {
-      prompt: "¿Qué hubiera pasado si Nebrija nunca hubiera fijado por escrito las reglas del castellano en 1492?",
+      prompt: "¿Creó un solo libro la unidad del español?",
       answer:
-        "El español se habría seguido fragmentando en hablas regionales sin una norma de referencia, como le ocurrió al latín tras la caída de Roma. La Corona habría exportado a América un mosaico de dialectos en vez de una lengua con gramática codificada, complicando la administración, la evangelización y la propia noción de una 'lengua del imperio' capaz de unificar los territorios conquistados."
+        "No. La gramática ofreció una herramienta y un símbolo, pero la historia del español también dependió de imprentas, escuelas, administración, evangelización, migraciones y el contacto con muchas lenguas. Su importancia está en haber convertido una lengua viva en objeto sistemático de estudio justo cuando la monarquía comenzaba a expandirse."
     }
   },
+
   {
     id: "expulsion-judios-1492",
     year: 1492,
@@ -1285,21 +1284,22 @@ const TIMELINE_ENTRIES = [
     year: 1492,
     month: 4,
     trackYear: 1492.1,
-    title: "1492: muere Lorenzo de Médici, 'el Magnífico'",
-    author: "Hito histórico",
+    title: "1492: muere Lorenzo de Médici, ‘el Magnífico’",
+    author: "Lorenzo de Médici",
     country: "Italia",
     region: "Florencia",
     type: ICON_TYPE.HISTORY,
     description:
-      "El 9 de abril de 1492 muere en Florencia Lorenzo de Médici, conocido como 'el Magnífico', quien durante más de veintidós años gobernó la ciudad —oficialmente una república— como su señor de facto: mecenas generoso de artistas, poetas y filósofos, y a la vez gobernante tan astuto como implacable a la hora de controlar a sus rivales. De sus dos hijos varones, el mayor, Piero, lo sucede al frente de Florencia, pero en apenas dos años logra desmoronar la oligarquía familiar que su padre y su abuelo habían construido con tanto cuidado: en 1494, tras capitular sin resistencia ante la invasión francesa de Carlos VIII, es expulsado de la ciudad y los Médici pierden el poder. El segundo hijo, Giovanni, corre mejor suerte institucional: en 1513 es elegido papa con el nombre de León X y gobierna la Iglesia hasta su muerte en 1521, pero es precisamente bajo su pontificado que estalla la Reforma protestante —en 1517 Martín Lutero clava sus noventa y cinco tesis en la puerta de la iglesia del castillo de Wittenberg, iniciando el cisma que dividiría para siempre a la cristiandad occidental—. El propio modelo de gobierno que Lorenzo había ejercido sobre Florencia, sumado años después al de César Borgia en su sangrienta campaña por dominar el norte de Italia, inspiraría a otro florentino, Nicolás Maquiavelo, a escribir en 1513 El Príncipe.",
+      "El 9 de abril de 1492 murió en Florencia Lorenzo de Médici, gobernante y mecenas renacentista florentino. Su hijo Piero heredó la dirección familiar, pero la perdió en 1494 tras capitular ante Carlos VIII de Francia. Otro hijo, Giovanni, se convirtió en el papa León X en 1513; durante su pontificado, Martín Lutero hizo públicas en Wittenberg sus noventa y cinco tesis y comenzó la ruptura protestante. La experiencia política florentina, junto con el ascenso y caída de César Borgia, alimentó la reflexión de Nicolás Maquiavelo en El Príncipe sobre cómo conquistar y conservar poder.",
     descriptionHtml:
-      'El 9 de abril de 1492 muere en <button type="button" class="timeline-detail-geolink" data-region="Florencia" data-country="Italia">Florencia</button> Lorenzo de Médici, conocido como \'el Magnífico\', quien durante más de veintidós años gobernó la ciudad —oficialmente una república— como su señor de facto: mecenas generoso de artistas, poetas y filósofos, y a la vez gobernante tan astuto como implacable a la hora de controlar a sus rivales. De sus dos hijos varones, el mayor, Piero, lo sucede al frente de Florencia, pero en apenas dos años logra desmoronar la oligarquía familiar que su padre y su abuelo habían construido con tanto cuidado: en 1494, tras capitular sin resistencia ante la invasión francesa de Carlos VIII, es expulsado de la ciudad y los Médici pierden el poder. El segundo hijo, Giovanni, corre mejor suerte institucional: en 1513 es elegido papa con el nombre de León X y gobierna la Iglesia hasta su muerte en 1521, pero es precisamente bajo su pontificado que estalla la Reforma protestante —en 1517 Martín Lutero clava sus noventa y cinco tesis en la puerta de la iglesia del castillo de <button type="button" class="timeline-detail-geolink" data-region="Wittenberg" data-country="Alemania">Wittenberg</button>, iniciando el cisma que dividiría para siempre a la cristiandad occidental—. El propio modelo de gobierno que Lorenzo había ejercido sobre Florencia, sumado años después al de César Borgia en su sangrienta campaña por dominar el norte de Italia, inspiraría a otro florentino, Nicolás Maquiavelo, a escribir en 1513 <button type="button" class="timeline-detail-entrylink" data-id="maquiavelo-principe-1513">El Príncipe</button>.',
+      "El 9 de abril de 1492 murió en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Florencia\" data-country=\"Italia\">Florencia</button> Lorenzo de Médici, gobernante y mecenas renacentista florentino. Su hijo Piero heredó la dirección familiar, pero la perdió en 1494 tras capitular ante Carlos VIII de <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"Francia\">Francia</button>. Otro hijo, Giovanni, se convirtió en el papa León X en 1513; durante su pontificado, Martín Lutero hizo públicas en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Wittenberg\" data-country=\"Alemania\">Wittenberg</button> sus noventa y cinco tesis y <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"reforma-jesuitas-trento-1517\">comenzó la ruptura protestante</button>. La experiencia política florentina, junto con el ascenso y caída de César Borgia, alimentó la reflexión de Nicolás Maquiavelo en <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"maquiavelo-principe-1513\">El Príncipe</button> sobre cómo conquistar y conservar poder.",
     butterfly: {
-      prompt: "¿Qué hubiera pasado si Lorenzo el Magnífico hubiera vivido veinte años más?",
+      prompt: "¿Por qué la caída política de los Médici importa para El Príncipe?",
       answer:
-        "Piero probablemente nunca habría heredado un poder que no supo conservar, y Florencia habría evitado la humillante capitulación ante Carlos VIII de Francia en 1494 que terminó expulsando a los Médici de la ciudad. Pero esa misma estabilidad habría privado a Nicolás Maquiavelo del ejemplo de fracaso que, junto al ascenso y caída de César Borgia, terminó dándole forma a El Príncipe: un tratado nacido, en buena medida, de observar de cerca cómo se pierde el poder, no solo cómo se conserva."
+        "Maquiavelo observó una ciudad donde alianzas, invasiones y fortunas familiares cambiaban con rapidez. La pérdida del poder por Piero y las campañas de César Borgia le ofrecieron casos concretos para pensar cómo se conquista, conserva y pierde un Estado, más allá de los ideales morales tradicionales."
     }
   },
+
   {
     id: "atentado-fernando-aragon-1492",
     year: 1492,
@@ -1404,24 +1404,25 @@ const TIMELINE_ENTRIES = [
   {
     id: "la-celestina-1499",
     year: 1499,
-    // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. Part of the 1479-1533 chain described at
-    // faras-cruz-del-sur-1500.
+    // Visual spacing only; the card and detail panel retain the real date.
     trackYear: 1501.07,
-    title: "La Celestina",
+    title: "1499: La Celestina",
     author: "Fernando de Rojas",
     country: "España",
     region: "Toledo",
     flag: "spain-not-latam",
     type: ICON_TYPE.LITERATURE,
     description:
-      "Tragicomedia dialogada que sigue la obsesión amorosa de Calisto por Melibea, orquestada por Celestina, la vieja alcahueta que da nombre a la obra. Puente entre el mundo medieval y el renacentista, célebre por su realismo psicológico y su desenlace trágico y moralizante — y germen narrativo de la tradición picaresca que vendría después.",
+      "La Celestina se conserva en una edición burgalesa tradicionalmente fechada en 1499. La obra convirtió la comedia humanística en tragicomedia radical sobre deseo, dinero y poder. Fernando de Rojas, jurista de familia conversa, continuó un primer acto de autor discutido y dio voz a criados, prostitutas, nobles y a la alcahueta Celestina. Su mundo urbano no responde al orden medieval: cada personaje negocia placer, honor y beneficio hasta que la cadena de engaños termina en muerte. Une cultura universitaria, habla callejera y crisis moral; así abre el Renacimiento literario español sin abandonar su sombra medieval.",
+    descriptionHtml:
+      "La Celestina se conserva en una edición <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Burgos\" data-country=\"España\">burgalesa</button> tradicionalmente fechada en 1499. La obra convirtió la comedia humanística en tragicomedia radical sobre deseo, dinero y poder. Fernando de Rojas, jurista de familia conversa, continuó un primer acto de autor discutido y dio voz a criados, prostitutas, nobles y a la alcahueta Celestina. Su mundo urbano no responde al orden medieval: cada personaje negocia placer, honor y beneficio hasta que la cadena de engaños termina en muerte. Une <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"gramatica-castellana-nebrija-1492\">cultura universitaria</button>, habla callejera y crisis moral; así abre el <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"lazarillo\">Renacimiento literario español</button> sin abandonar su sombra medieval.",
     butterfly: {
-      prompt: "¿Qué hubiera pasado si Fernando de Rojas hubiera dejado que Calisto y Melibea vivieran felices?",
+      prompt: "¿Por qué La Celestina parece medieval y moderna al mismo tiempo?",
       answer:
-        "La Celestina no habría inaugurado la tradición trágica y moralizante que después heredaría la novela española. Su realismo psicológico depende precisamente de que el deseo —encarnado en Celestina misma— arrastre a todos hacia la caída."
+        "Conserva una advertencia moral y un desenlace trágico, pero sus personajes hablan desde intereses individuales, deseo, dinero y movilidad social. Esa tensión explica su lugar de bisagra: no inaugura por sí sola la picaresca, aunque abre posibilidades decisivas para la prosa y el teatro posteriores."
     }
   },
+
   {
     id: "faras-cruz-del-sur-1500",
     year: 1500,
@@ -1477,7 +1478,7 @@ const TIMELINE_ENTRIES = [
     // inquisicion-espanola-1478. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509. Re-spaced again to make room for
     // maquiavelo-principe-1513, see that entry's trackYear comment.
-    trackYear: 1527.1,
+    trackYear: 1535.17,
     endYear: 1522,
     title: "1519–1522: Fernando de Magallanes y la primera vuelta al mundo",
     author: "Fernando de Magallanes",
@@ -1503,7 +1504,7 @@ const TIMELINE_ENTRIES = [
     // inquisicion-espanola-1478. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509. Re-spaced again to make room for
     // maquiavelo-principe-1513, see that entry's trackYear comment.
-    trackYear: 1531.13,
+    trackYear: 1539.21,
     endYear: 1536,
     pubYear: 1542,
     title: "Naufragios",
@@ -1525,7 +1526,7 @@ const TIMELINE_ENTRIES = [
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509. Re-spaced again to make room for
     // maquiavelo-principe-1513, see that entry's trackYear comment.
-    trackYear: 1535.17,
+    trackYear: 1543.25,
     title: "1531: la aparición de la Virgen de Guadalupe",
     author: "Hito histórico",
     country: "México",
@@ -1566,7 +1567,7 @@ const TIMELINE_ENTRIES = [
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509. Re-spaced again to make room for
     // maquiavelo-principe-1513, see that entry's trackYear comment.
-    trackYear: 1539.21,
+    trackYear: 1547.29,
     title: "1533: Fortún Ximénez toca Baja California en un motín",
     author: "Fortún Ximénez Bertandoña",
     country: "México",
@@ -1590,7 +1591,7 @@ const TIMELINE_ENTRIES = [
     // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with
     // brevisima-relacion-1542. Re-spaced again to make room for
     // maquiavelo-principe-1513, see that entry's trackYear comment.
-    trackYear: 1551.32,
+    trackYear: 1559.4,
     endYear: 1543,
     title: "1542: Juan Rodríguez Cabrillo llega a la costa de California",
     author: "Juan Rodríguez Cabrillo",
@@ -1615,7 +1616,7 @@ const TIMELINE_ENTRIES = [
     // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with
     // cabrillo-california-1542. Re-spaced again to make room for
     // maquiavelo-principe-1513, see that entry's trackYear comment.
-    trackYear: 1551.32,
+    trackYear: 1559.4,
     title: "Brevísima relación de la destrucción de las Indias",
     author: "Bartolomé de las Casas",
     country: "República Dominicana",
@@ -1734,7 +1735,7 @@ const TIMELINE_ENTRIES = [
     // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with lazarillo.
     // Re-spaced again to make room for maquiavelo-principe-1513, see that
     // entry's trackYear comment.
-    trackYear: 1555.36,
+    trackYear: 1563.44,
     title: "Popol Vuh",
     author: "Anónimo k'iche'",
     country: "Guatemala",
@@ -1755,7 +1756,7 @@ const TIMELINE_ENTRIES = [
     // afonso-i-kongo-nzinga-mbemba-1509 — stays paired with popol-vuh-1554.
     // Re-spaced again to make room for maquiavelo-principe-1513, see that
     // entry's trackYear comment.
-    trackYear: 1555.36,
+    trackYear: 1563.44,
     title: "Lazarillo de Tormes",
     author: "Anónimo",
     country: "España",
@@ -1793,18 +1794,24 @@ const TIMELINE_ENTRIES = [
   {
     id: "comentarios-reales-incas-1609",
     year: 1609,
-    title: "Comentarios Reales de los Incas",
-    author: "El Inca Garcilaso de la Vega",
+    endYear: 1617,
+    title: "1609–1617: las dos partes de los Comentarios reales",
+    author: "Inca Garcilaso de la Vega",
     country: "Perú",
+    region: "Cusco",
     type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY],
     description:
-      "Escrita por el hijo de un conquistador español y una princesa inca, esta crónica de 1609 entreteje la historia oral y la mitología incaicas con el relato de la conquista del Perú. Una de las primeras grandes obras de autoría mestiza, escrita desde ambos mundos a la vez.",
+      "Publicada en Lisboa en 1609, la primera parte de los Comentarios reales reconstruyó historia, religión, leyes y memoria oral del mundo inca desde la doble formación del Inca Garcilaso, nacido en Cusco y radicado en Córdoba. La conquista y las guerras civiles del Perú pertenecen a la segunda parte, editada póstumamente en 1617 como Historia general del Perú. Ese mismo 1609 comenzó la expulsión de los moriscos de España. La coincidencia enlaza dos movimientos del mundo hispánico: mientras la Monarquía perseguía uniformidad religiosa en la península, una voz mestiza preservaba en imprenta la memoria andina.",
+    descriptionHtml:
+      "Publicada en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Lisboa\" data-country=\"Portugal\">Lisboa</button> en 1609, la primera parte de los Comentarios reales reconstruyó historia, religión, leyes y memoria oral del mundo inca desde la doble formación del Inca Garcilaso, nacido en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Cusco\" data-country=\"Perú\">Cusco</button> y radicado en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Córdoba\" data-country=\"España\">Córdoba</button>. La conquista y las guerras civiles del <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"Perú\">Perú</button> pertenecen a la segunda parte, editada póstumamente en 1617 como Historia general del Perú. Ese mismo 1609 <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"alpujarras-expulsion-moriscos-1568\">comenzó la expulsión de los moriscos</button> de <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"España\">España</button>. La coincidencia enlaza dos movimientos del mundo hispánico: mientras la Monarquía perseguía uniformidad religiosa en la <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Península ibérica\" data-country=\"España\">península</button>, una voz mestiza preservaba en imprenta la memoria andina.",
     butterfly: {
-      prompt: "¿Qué hubiera pasado si el Inca Garcilaso hubiera crecido solo en la corte española, sin memoria directa del Perú incaico?",
+      prompt: "¿Qué se pierde al confundir las dos partes de la obra?",
       answer:
-        "Los Comentarios Reales no serían la crónica mestiza que son —escrita desde ambos mundos a la vez—, sino una historia colonial más, contada enteramente desde afuera. Su valor único está en que el autor pudo reclamar como propia tanto la herencia inca como la española."
+        "Se borra su arquitectura histórica. La primera parte organiza memoria, instituciones y tradiciones incas; la segunda narra conquista y guerras civiles. Distinguir 1609 de 1617 permite ver cómo Garcilaso construyó su relato en dos movimientos y cómo la publicación póstuma completó un proyecto mestizo de larga duración."
     }
   },
+
   {
     id: "nzinga-ndongo-matamba-1622",
     year: 1622,
@@ -1832,15 +1839,200 @@ const TIMELINE_ENTRIES = [
     author: "Tirso de Molina",
     country: "España",
     region: "Sevilla",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY],
     description:
-      "El fraile mercedario Gabriel Téllez, bajo el seudónimo de Tirso de Molina, escribe hacia 1616-1625 y publica en 1630 El burlador de Sevilla y convidado de piedra, la primera gran versión literaria del mito de Don Juan. La obra narra las conquistas del noble Don Juan Tenorio, quien engaña y deshonra a mujeres de distintas clases sociales —la duquesa Isabela en Nápoles, la pescadora Tisbea, Doña Ana de Ulloa y la campesina Aminta—, convencido de que siempre tendrá tiempo de arrepentirse: '¡Tan largo me lo fiáis!', repite como lema. Tras matar al Comendador Don Gonzalo de Ulloa, padre de Doña Ana, Don Juan burla también su tumba, invitando a cenar a la estatua de piedra que la corona; la estatua acepta, cobra vida y arrastra a Don Juan al infierno cuando este se niega a arrepentirse, en una escena —el 'convidado de piedra'— que se volvería el núcleo de la leyenda. Escrita en plena Contrarreforma, la obra dramatiza el choque entre el libre albedrío, el honor familiar y la justicia divina que la justicia humana es incapaz de imponer. El personaje de Don Juan, transgresor carismático más que villano simple, inspiraría después a Molière (Dom Juan), Mozart (Don Giovanni), Lord Byron, Alejandro Dumas y José Zorrilla (Don Juan Tenorio), consolidándose junto a Don Quijote, Hamlet y Fausto como una de las grandes figuras de la literatura occidental.",
+      "Publicado en 1630 y atribuido a Tirso de Molina, El burlador de Sevilla fijó la primera gran versión teatral de Don Juan. El noble engaña a Isabela en Nápoles, Tisbea en Tarragona, Ana en Sevilla y Aminta en Dos Hermanas, confiado en que podrá arrepentirse después. Al matar al comendador Gonzalo de Ulloa, desafía también la justicia divina: la estatua del muerto acepta su invitación y lo arrastra al infierno. La trama convierte honor, desigualdad sexual y libre albedrío en espectáculo barroco, dentro de la cultura moral de la Contrarreforma que quiso disciplinar el deseo.",
     descriptionHtml:
-      'El fraile mercedario Gabriel Téllez, bajo el seudónimo de Tirso de Molina, escribe hacia 1616-1625 y publica en 1630 El burlador de <button type="button" class="timeline-detail-geolink" data-region="Sevilla" data-country="España">Sevilla</button> y convidado de piedra, la primera gran versión literaria del mito de Don Juan. La obra narra las conquistas del noble Don Juan Tenorio, quien engaña y deshonra a mujeres de distintas clases sociales —la duquesa Isabela en <button type="button" class="timeline-detail-geolink" data-region="Nápoles" data-country="Italia">Nápoles</button>, la pescadora Tisbea, Doña Ana de Ulloa y la campesina Aminta—, convencido de que siempre tendrá tiempo de arrepentirse: \'¡Tan largo me lo fiáis!\', repite como lema. Tras matar al Comendador Don Gonzalo de Ulloa, padre de Doña Ana, Don Juan burla también su tumba, invitando a cenar a la estatua de piedra que la corona; la estatua acepta, cobra vida y arrastra a Don Juan al infierno cuando este se niega a arrepentirse, en una escena —el \'convidado de piedra\'— que se volvería el núcleo de la leyenda. Escrita en plena Contrarreforma, la obra dramatiza el choque entre el libre albedrío, el honor familiar y la justicia divina que la justicia humana es incapaz de imponer. El personaje de Don Juan, transgresor carismático más que villano simple, inspiraría después a Molière (Dom Juan), Mozart (Don Giovanni), Lord Byron, Alejandro Dumas y José Zorrilla (Don Juan Tenorio), consolidándose junto a Don Quijote, Hamlet y Fausto como una de las grandes figuras de la literatura occidental.',
+      "Publicado en 1630 y atribuido a Tirso de Molina, El burlador de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Sevilla\" data-country=\"España\">Sevilla</button> fijó la primera gran versión teatral de Don Juan. El noble engaña a Isabela en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Nápoles\" data-country=\"Italia\">Nápoles</button>, Tisbea en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Tarragona\" data-country=\"España\">Tarragona</button>, Ana en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Sevilla\" data-country=\"España\">Sevilla</button> y Aminta en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Dos Hermanas\" data-country=\"España\">Dos Hermanas</button>, confiado en que podrá arrepentirse después. Al matar al comendador Gonzalo de Ulloa, desafía también la justicia divina: la estatua del muerto acepta su invitación y lo arrastra al infierno. La trama convierte honor, desigualdad sexual y libre albedrío en espectáculo barroco, dentro de la cultura moral de la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"reforma-jesuitas-trento-1517\">Contrarreforma</button> que quiso disciplinar el deseo.",
     butterfly: {
-      prompt: "¿Qué hubiera pasado si Tirso de Molina nunca hubiera escrito El burlador de Sevilla?",
+      prompt: "¿Por qué Don Juan necesita creer que el arrepentimiento puede esperar?",
       answer:
-        "El mito de Don Juan probablemente habría tardado generaciones en cristalizar, disperso en relatos orales de seductores y castigos divinos sin una forma teatral fija. Sin el modelo de Tirso —el desafío a la estatua, el descenso al infierno, el lema del arrepentimiento aplazado—, Molière no habría tenido un Dom Juan que adaptar en 1665, ni Mozart un libreto que musicalizar en 1787. Uno de los grandes arquetipos de la literatura occidental, a la altura de Fausto o Don Quijote, podría simplemente no existir con el nombre que hoy conocemos."
+        "Su libertad depende de convertir el tiempo en excusa: cada abuso parece provisional mientras imagine una confesión futura. La estatua rompe esa ilusión y hace llegar de golpe la consecuencia aplazada. Esa estructura permitió que el personaje sobreviviera como mito mucho más allá del teatro barroco español."
+    }
+  },
+
+  // ---- RENACIMIENTO Y MONARQUÍA HISPÁNICA ----
+  {
+    id: "carlos-i-comunidades-villalar-1516",
+    year: 1516,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1527.1,
+    endYear: 1522,
+    title: "1516–1522: Carlos I y la resistencia de las Comunidades",
+    author: "Carlos I, Juana I y las Comunidades",
+    country: "España",
+    region: "Villalar de los Comuneros",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.ROYAL,
+    types: [ICON_TYPE.ROYAL, ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
+    description:
+      "En 1516, Carlos de Habsburgo se proclamó rey junto con su madre Juana, reina legal de Castilla; nacido en Gante, llegó desde los Países Bajos en 1517. Elegido emperador en 1519, reunió territorios con leyes propias mientras Castilla financiaba su política imperial europea. Ciudades comuneras cuestionaron impuestos, consejeros extranjeros y el gobierno sin consulta. El 23 de abril de 1521, el ejército real las derrotó en Villalar y ejecutó al día siguiente a Padilla, Bravo y Maldonado. La derrota fortaleció a la Corona y la nobleza; Toledo, con María Pacheco, resistió hasta febrero de 1522.",
+    descriptionHtml:
+      "En 1516, Carlos de Habsburgo se proclamó rey junto con su madre Juana, reina legal de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Castilla\" data-country=\"España\">Castilla</button>; nacido en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Gante\" data-country=\"Bélgica\">Gante</button>, llegó desde los <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Países Bajos borgoñones\" data-country=\"Bélgica\">Países Bajos</button> en 1517. Elegido emperador en 1519, reunió territorios con leyes propias mientras <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Castilla\" data-country=\"España\">Castilla</button> financiaba su política imperial europea. Ciudades comuneras cuestionaron impuestos, consejeros extranjeros y el gobierno sin consulta. El 23 de abril de 1521, el ejército real las derrotó en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Villalar de los Comuneros\" data-country=\"España\">Villalar</button> y ejecutó al día siguiente a Padilla, Bravo y Maldonado. La derrota fortaleció a la Corona y la nobleza; <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Toledo\" data-country=\"España\">Toledo</button>, con María Pacheco, resistió hasta febrero de 1522.",
+    butterfly: {
+      prompt: "¿Qué reclamaban las Comunidades además de rechazar consejeros extranjeros?",
+      answer:
+        "Defendían una participación política mayor de las ciudades, límites fiscales y una relación distinta entre rey, Cortes y reino. Villalar no cerró todo de inmediato: Toledo resistió con María Pacheco hasta 1522. La derrota redujo el margen urbano y dejó a Castilla sosteniendo gran parte del proyecto imperial."
+    }
+  },
+  {
+    id: "reforma-jesuitas-trento-1517",
+    year: 1517,
+    month: 10,
+    day: 31,
+    endYear: 1563,
+    title: "1517–1563: Reforma, jesuitas y Concilio de Trento",
+    author: "Martín Lutero, Ignacio de Loyola y el Concilio de Trento",
+    country: "España",
+    region: "Trento",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.LITERATURE],
+    description:
+      "El 31 de octubre de 1517, Martín Lutero hizo públicas en Wittenberg sus noventa y cinco tesis contra las indulgencias; la imprenta amplificó una disputa que fracturó la cristiandad occidental. En 1540, Pablo III aprobó en Roma la Compañía de Jesús, dirigida por Ignacio de Loyola. El Concilio de Trento sesionó entre 1545 y 1563: reafirmó doctrina católica, reformó disciplina clerical y reguló la enseñanza religiosa. En España, esta Reforma católica atravesó colegios, misiones, censura, pintura y teatro. Permite leer a El Greco y Tirso dentro de una transformación europea profunda, no como fenómenos aislados.",
+    descriptionHtml:
+      "El 31 de octubre de 1517, Martín Lutero hizo públicas en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Wittenberg\" data-country=\"Alemania\">Wittenberg</button> sus noventa y cinco tesis contra las indulgencias; la imprenta amplificó una disputa que fracturó la cristiandad occidental. En 1540, Pablo III aprobó en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Roma\" data-country=\"Italia\">Roma</button> la Compañía de Jesús, dirigida por <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Loyola\" data-country=\"España\">Ignacio de Loyola</button>. El Concilio de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Trento\" data-country=\"Italia\">Trento</button> sesionó entre 1545 y 1563: reafirmó doctrina católica, reformó disciplina clerical y reguló la enseñanza religiosa. En <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"España\">España</button>, esta Reforma católica atravesó colegios, misiones, censura, pintura y teatro. Permite leer a <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"el-greco-1541\">El Greco</button> y <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"el-burlador-de-sevilla-1630\">Tirso</button> dentro de una transformación europea profunda, no como fenómenos aislados.",
+    butterfly: {
+      prompt: "¿Fundó el Concilio de Trento a los jesuitas?",
+      answer:
+        "No. Pablo III aprobó la Compañía de Jesús en 1540, cinco años antes de que comenzara el concilio. Ambos procesos convergieron después en la Reforma católica: Trento definió doctrina y disciplina; los jesuitas extendieron educación, misión y redes intelectuales por varios continentes."
+    }
+  },
+  {
+    id: "licencia-trata-directa-1518",
+    year: 1518,
+    month: 8,
+    day: 18,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1531.13,
+    title: "18 de agosto de 1518: licencia para la trata directa hacia América",
+    author: "Carlos I y Lorenzo de Gorrevod",
+    country: "España",
+    region: "Zaragoza",
+    type: ICON_TYPE.ECHO,
+    types: [ICON_TYPE.ECHO, ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
+    description:
+      "El 18 de agosto de 1518, desde Zaragoza, Carlos I autorizó por decreto al cortesano Lorenzo de Gorrevod a transportar hasta 4.000 africanos esclavizados directamente hacia las Indias castellanas. Gorrevod revendió el privilegio a mercaderes genoveses vinculados con Sevilla. La esclavitud africana ya existía en el Caribe, pero la licencia amplió su escala y abrió una ruta autorizada entre África y América sin desembarcar primero en Europa. La Corona convirtió personas cautivas en cupos fiscales y mercancía imperial. El punto conecta Lagos, La Española y las posteriores denuncias de Las Casas contra la violencia conquistadora.",
+    descriptionHtml:
+      "El 18 de agosto de 1518, desde <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Zaragoza\" data-country=\"España\">Zaragoza</button>, Carlos I autorizó por decreto al cortesano Lorenzo de Gorrevod a transportar hasta 4.000 africanos esclavizados directamente hacia las <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"América española\">Indias castellanas</button>. Gorrevod revendió el privilegio a mercaderes genoveses vinculados con <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Sevilla\" data-country=\"España\">Sevilla</button>. La esclavitud africana ya existía en el <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Caribe\">Caribe</button>, pero la licencia amplió su escala y abrió una ruta autorizada entre <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"África\">África</button> y <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"América española\">América</button> sin desembarcar primero en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Europa\">Europa</button>. La Corona convirtió personas cautivas en cupos fiscales y mercancía imperial. El punto conecta <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Lagos\" data-country=\"Portugal\">Lagos</button>, <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"La Española\" data-country=\"República Dominicana\">La Española</button> y las posteriores denuncias de <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"brevisima-relacion-1542\">Las Casas</button> contra la violencia conquistadora.",
+    butterfly: {
+      prompt: "¿Comenzó la esclavitud africana en América con esta licencia?",
+      answer:
+        "No. Ya había africanos libres y esclavizados en el Caribe. La concesión importa porque autorizó hasta 4.000 traslados directos y amplió la escala comercial bajo control real. Conecta los precedentes portugueses, los intermediarios europeos y las economías coloniales en un sistema cada vez más integrado."
+    }
+  },
+  {
+    id: "finanzas-imperiales-plata-1557",
+    year: 1557,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1567.48,
+    endYear: 1596,
+    title: "1557–1596: plata, crédito y suspensiones de pagos",
+    author: "Felipe II y los financieros de la Monarquía",
+    country: "España",
+    region: "Sevilla",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
+    description:
+      "En 1557, Felipe II suspendió pagos de la Corona a sus acreedores; nuevas reestructuraciones siguieron en 1575 y 1596. No eran quiebras modernas ni significaban una España sin riqueza: mostraban el choque entre ingresos irregulares y guerras costosísimas. La plata americana, especialmente la llegada desde Potosí, sostuvo ejércitos y crédito, pero también amplió la moneda en circulación junto con otros factores de la llamada revolución de los precios. Castilla soportó impuestos crecientes, mientras banqueros genoveses renegociaban la deuda. El imperio más extenso de Europa podía movilizar tesoros globales y, aun así, carecer de liquidez inmediata.",
+    descriptionHtml:
+      "En 1557, Felipe II suspendió pagos de la Corona a sus acreedores; nuevas reestructuraciones siguieron en 1575 y 1596. No eran quiebras modernas ni significaban una <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"España\">España</button> sin riqueza: mostraban el choque entre ingresos irregulares y guerras costosísimas. La plata americana, especialmente la llegada desde <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Potosí\" data-country=\"Bolivia\">Potosí</button>, sostuvo ejércitos y crédito, pero también amplió la moneda en circulación junto con otros factores de la llamada revolución de los precios. <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Castilla\" data-country=\"España\">Castilla</button> soportó impuestos crecientes, mientras <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Génova\" data-country=\"Italia\">banqueros genoveses</button> renegociaban la deuda. El imperio más extenso de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Europa\">Europa</button> podía movilizar tesoros globales y, aun así, carecer de liquidez inmediata.",
+    butterfly: {
+      prompt: "¿Cómo podía una monarquía rica en plata quedarse sin dinero disponible?",
+      answer:
+        "Los metales llegaban en momentos irregulares, mientras ejércitos, flotas e intereses exigían pagos continuos en lugares distantes. La Corona anticipaba ingresos mediante crédito y renegociaba cuando vencían demasiadas obligaciones. Riqueza, solvencia y liquidez no eran lo mismo; la escala imperial podía multiplicar recursos y deudas simultáneamente."
+    }
+  },
+  {
+    id: "madrid-escorial-felipe-ii-1561",
+    year: 1561,
+    endYear: 1584,
+    title: "1561–1584: Madrid y El Escorial organizan el poder",
+    author: "Felipe II y Juan Bautista de Toledo",
+    country: "España",
+    region: "San Lorenzo de El Escorial",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.VISION,
+    types: [ICON_TYPE.VISION, ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "En 1561, Felipe II fijó su corte en Madrid, transformando una villa central en capital política de una monarquía extendida por varios continentes. Dos años después colocó la primera piedra de San Lorenzo de El Escorial; la última llegó en 1584. El complejo reunía palacio, monasterio jerónimo, basílica, panteón, colegio, seminario y biblioteca. Gobierno, dinastía, saber y religión compartían arquitectura. Madrid concentró archivos, funcionarios y decisiones; El Escorial convirtió el programa de los Habsburgo en piedra. Juntos explican cómo el espacio organizó el poder y cómo la Corona quiso representarse ante sus súbditos en Europa.",
+    descriptionHtml:
+      "En 1561, Felipe II fijó su corte en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Madrid\" data-country=\"España\">Madrid</button>, transformando una villa central en capital política de una monarquía extendida por varios continentes. Dos años después colocó la primera piedra de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"San Lorenzo de El Escorial\" data-country=\"España\">San Lorenzo de El Escorial</button>; la última llegó en 1584. El complejo reunía palacio, monasterio jerónimo, basílica, panteón, colegio, seminario y biblioteca. Gobierno, dinastía, saber y religión compartían arquitectura. <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Madrid\" data-country=\"España\">Madrid</button> concentró archivos, funcionarios y decisiones; <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"San Lorenzo de El Escorial\" data-country=\"España\">El Escorial</button> convirtió el <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"carlos-i-comunidades-villalar-1516\">programa de los Habsburgo</button> en piedra. Juntos explican cómo el espacio organizó el poder y cómo la Corona quiso representarse ante sus súbditos en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Europa\">Europa</button>.",
+    butterfly: {
+      prompt: "¿Era El Escorial solamente un palacio real?",
+      answer:
+        "No. Reunía residencia, monasterio, basílica, panteón, biblioteca, colegio y seminario. Esa mezcla materializó una monarquía que quería gobernar, conservar saber, perpetuar una dinastía y defender la fe desde un mismo complejo. Madrid y El Escorial funcionaron como dos espacios complementarios del poder de Felipe II."
+    }
+  },
+  {
+    id: "alpujarras-expulsion-moriscos-1568",
+    year: 1568,
+    endYear: 1614,
+    title: "1568–1614: de las Alpujarras a la expulsión morisca",
+    author: "Felipe II, Felipe III y las comunidades moriscas",
+    country: "España",
+    region: "Béznar",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.ECHO,
+    types: [ICON_TYPE.ECHO, ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "En Nochebuena de 1568, comunidades moriscas se rebelaron en Béznar y las Alpujarras contra una pragmática que perseguía su lengua, vestimenta y costumbres. La guerra, brutal para ambos bandos, terminó en 1571 con muerte, esclavización y dispersión forzada de moriscos granadinos por Castilla. Cuatro décadas después, Felipe III ordenó la expulsión general: comenzó en Valencia en 1609 y continuó por distintos reinos hasta 1614. Unas 300.000 personas fueron obligadas a salir. No fue una partida repentina, sino una política escalonada de homogeneización religiosa, desposesión y desplazamiento que transformó España y el Mediterráneo occidental para siempre.",
+    descriptionHtml:
+      "En Nochebuena de 1568, comunidades moriscas se rebelaron en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Béznar\" data-country=\"España\">Béznar</button> y <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Las Alpujarras\" data-country=\"España\">las Alpujarras</button> contra una pragmática que perseguía su lengua, vestimenta y costumbres. La guerra, brutal para ambos bandos, terminó en 1571 con muerte, esclavización y dispersión forzada de moriscos granadinos por <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Castilla\" data-country=\"España\">Castilla</button>. Cuatro décadas después, Felipe III ordenó la expulsión general: comenzó en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Valencia\" data-country=\"España\">Valencia</button> en <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"comentarios-reales-incas-1609\">1609</button> y continuó por distintos reinos hasta 1614. Unas 300.000 personas fueron obligadas a salir. No fue una partida repentina, sino una política escalonada de homogeneización religiosa, desposesión y desplazamiento que transformó <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"España\">España</button> y el <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Mediterráneo occidental\">Mediterráneo occidental</button> para siempre.",
+    butterfly: {
+      prompt: "¿Fue la expulsión de los moriscos un solo decreto ejecutado de inmediato?",
+      answer:
+        "No. La violencia de las Alpujarras precedió a la expulsión general por cuatro décadas. Desde 1609, los bandos y embarques avanzaron de reino en reino hasta 1614. Leer la secuencia completa muestra una política prolongada de coerción cultural, guerra, dispersión interna y expulsión mediterránea."
+    }
+  },
+  {
+    id: "lepanto-armada-1571",
+    year: 1571,
+    month: 10,
+    day: 7,
+    endYear: 1588,
+    title: "1571–1588: de Lepanto a la Gran Armada",
+    author: "Juan de Austria, Miguel de Cervantes y Felipe II",
+    country: "Grecia",
+    region: "Golfo de Patras",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY, ICON_TYPE.LITERATURE],
+    description:
+      "El 7 de octubre de 1571, la Santa Liga dirigida por Juan de Austria derrotó a la flota otomana en el golfo de Patras, cerca de Lepanto. Miguel de Cervantes combatió allí y perdió el uso de la mano izquierda, no el brazo. La victoria fue enorme, pero los otomanos reconstruyeron pronto su armada. En 1588, Felipe II intentó invadir Inglaterra; temporales, fallos logísticos y ataques ingleses dispersaron la Gran Armada, con la pérdida de decenas de naves. El desastre dañó prestigio y recursos españoles, pero no terminó de inmediato su poder marítimo en Europa.",
+    descriptionHtml:
+      "El 7 de octubre de 1571, la Santa Liga dirigida por Juan de Austria derrotó a la flota otomana en el <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Golfo de Patras\" data-country=\"Grecia\">golfo de Patras</button>, cerca de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Lepanto\" data-country=\"Grecia\">Lepanto</button>. Miguel de Cervantes combatió allí y perdió el uso de la mano izquierda, no el brazo. La victoria fue enorme, pero los otomanos reconstruyeron pronto su armada. En 1588, Felipe II intentó invadir <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"Reino Unido\">Inglaterra</button>; temporales, fallos logísticos y ataques ingleses dispersaron la Gran Armada, con la pérdida de decenas de naves. El desastre dañó prestigio y recursos españoles, pero no terminó de inmediato su <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"el-morro-san-juan-1595\">poder marítimo</button> en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Europa\">Europa</button>.",
+    butterfly: {
+      prompt: "¿Decidieron Lepanto y la Armada por sí solos quién dominaría el mar?",
+      answer:
+        "No. Lepanto fue una gran victoria de coalición, pero la flota otomana se reconstruyó. La expedición de 1588 fracasó, pero España conservó capacidad naval durante décadas. Ambos episodios importan como cambios militares y como relatos simbólicos que cada potencia utilizó para explicar fe, imperio y destino."
+    }
+  },
+  {
+    id: "union-iberica-portugal-1580",
+    year: 1580,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1571.52,
+    endYear: 1668,
+    title: "1580–1668: Unión Ibérica, restauración y reconocimiento",
+    author: "Felipe II, João IV y Carlos II",
+    country: "Portugal",
+    region: "Tomar",
+    type: ICON_TYPE.ROYAL,
+    types: [ICON_TYPE.ROYAL, ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
+    description:
+      "En 1580, tras una crisis sucesoria, el ejército de Felipe II venció en Alcântara y el monarca fue reconocido como Felipe I de Portugal en las Cortes de Tomar de 1581. Portugal no fue anexado: compartió soberano con la Monarquía Hispánica, pero conservó leyes, moneda, lengua e instituciones. La presión fiscal y militar alimentó el golpe restaurador del 1 de diciembre de 1640 en Lisboa, que proclamó a João IV. La guerra continuó hasta el Tratado de Lisboa de 1668, cuando Carlos II reconoció formalmente la independencia portuguesa. La unión dinástica había durado sesenta años.",
+    descriptionHtml:
+      "En 1580, tras una crisis sucesoria, el ejército de Felipe II venció en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Alcântara, Lisboa\" data-country=\"Portugal\">Alcântara</button> y el monarca fue reconocido como Felipe I de <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"Portugal\">Portugal</button> en las Cortes de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Tomar\" data-country=\"Portugal\">Tomar</button> de 1581. <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"Portugal\">Portugal</button> no fue anexado: compartió soberano con la Monarquía Hispánica, pero conservó leyes, moneda, lengua e instituciones. La presión fiscal y militar alimentó el golpe restaurador del 1 de diciembre de 1640 en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Lisboa\" data-country=\"Portugal\">Lisboa</button>, que proclamó a João IV. La guerra continuó hasta el <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Lisboa\" data-country=\"Portugal\">Tratado de Lisboa</button> de 1668, cuando <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"sucesion-espanola-borbones-1700\">Carlos II</button> reconoció formalmente la independencia portuguesa. La unión dinástica había durado sesenta años.",
+    butterfly: {
+      prompt: "¿Quedó Portugal absorbido legalmente por España en 1580?",
+      answer:
+        "No. Compartió monarca con los otros reinos de los Habsburgo, pero conservó su administración, leyes, moneda, lengua e imperio. Esa distinción explica tanto el alcance global de la unión como la posibilidad de restaurar una dinastía portuguesa en 1640, antes del reconocimiento español de 1668."
     }
   },
 
@@ -1860,7 +2052,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Carlos II murió sin descendencia el 1 de noviembre de 1700, extinguiendo la rama española de los Habsburgo. Su testamento legó indivisa la monarquía a Felipe de Anjou, nieto de Luis XIV, con la condición de impedir su unión con Francia. Felipe entró en Madrid en 1701 como Felipe V. Sus derechos franceses y la ocupación de fortalezas en los Países Bajos españoles alarmaron a Inglaterra, las Provincias Unidas y Austria, que formaron la Gran Alianza en La Haya. La guerra se generalizó en 1702 y concluyó en 1714, consolidando la dinastía borbónica.",
     descriptionHtml:
-      'Carlos II murió sin descendencia el 1 de noviembre de 1700, extinguiendo la rama española de los Habsburgo. Su testamento legó indivisa la monarquía a Felipe de Anjou, nieto de Luis XIV, con la condición de impedir su unión con <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>. Felipe entró en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> en 1701 como Felipe V. Sus derechos franceses y la ocupación de fortalezas en los <button type="button" class="timeline-detail-geolink" data-region="Países Bajos españoles" data-country="Bélgica">Países Bajos españoles</button> alarmaron a <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Inglaterra</button>, las <button type="button" class="timeline-detail-geolink" data-country="Países Bajos">Provincias Unidas</button> y <button type="button" class="timeline-detail-geolink" data-country="Austria">Austria</button>, que formaron la Gran Alianza en <button type="button" class="timeline-detail-geolink" data-region="La Haya" data-country="Países Bajos">La Haya</button>. La guerra se generalizó en 1702 y concluyó en <button type="button" class="timeline-detail-entrylink" data-id="caida-barcelona-diada-1714">1714</button>, consolidando la dinastía borbónica.',
+      'Carlos II murió sin descendencia el 1 de noviembre de 1700, <button type="button" class="timeline-detail-entrylink" data-id="carlos-i-comunidades-villalar-1516">extinguiendo la rama española de los Habsburgo</button>. Su testamento legó indivisa la monarquía a Felipe de Anjou, nieto de Luis XIV, con la condición de impedir su unión con <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>. Felipe entró en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> en 1701 como Felipe V. Sus derechos franceses y la ocupación de fortalezas en los <button type="button" class="timeline-detail-geolink" data-region="Países Bajos españoles" data-country="Bélgica">Países Bajos españoles</button> alarmaron a <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">Inglaterra</button>, las <button type="button" class="timeline-detail-geolink" data-country="Países Bajos">Provincias Unidas</button> y <button type="button" class="timeline-detail-geolink" data-country="Austria">Austria</button>, que formaron la Gran Alianza en <button type="button" class="timeline-detail-geolink" data-region="La Haya" data-country="Países Bajos">La Haya</button>. La guerra se generalizó en 1702 y concluyó en <button type="button" class="timeline-detail-entrylink" data-id="caida-barcelona-diada-1714">1714</button>, consolidando la dinastía borbónica.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si Carlos II hubiera repartido la monarquía entre los aspirantes europeos?",
       answer:
@@ -3943,32 +4135,31 @@ const TIMELINE_ENTRIES = [
   {
     id: "el-greco-1541",
     year: 1541,
-    // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. Re-spaced in 2026, see
-    // afonso-i-kongo-nzinga-mbemba-1509. Re-spaced again to make room for
-    // maquiavelo-principe-1513, see that entry's trackYear comment.
-    trackYear: 1547.29,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1555.36,
     endYear: 1614,
     title: "1541–1614: El Greco",
-    author: "El Greco (Domenikos Theotokopoulos)",
+    author: "Domenikos Theotokopoulos",
     country: "España",
     region: "Toledo",
     flag: "spain-not-latam",
     type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.VISION, ICON_TYPE.LITERATURE],
     description:
-      "Pintor de origen cretense que se instala en Toledo hacia 1577 y desarrolla un estilo propio de figuras alargadas, color vibrante y luz espiritual casi alucinada — germen del manierismo español. Obras como El entierro del conde de Orgaz definieron la imaginería religiosa española durante generaciones.",
+      "Domenikos Theotokopoulos nació en 1541 en Candía, Creta veneciana, se formó en tradición bizantina y trabajó después en Venecia y Roma. En 1577 se instaló en Toledo. Su Martirio de san Mauricio, encargado para El Escorial, no satisfizo a Felipe II y quedó fuera del altar previsto; el pintor encontró en Toledo una red distinta de patronos. Figuras alargadas, color veneciano y espacios visionarios convirtieron obras como El entierro del conde de Orgaz en una respuesta singular a la Reforma católica. Su fama decayó después, pero siglos más tarde la modernidad recuperó su lenguaje radical.",
     descriptionHtml:
-      'Pintor de origen cretense que se instala en <button type="button" class="timeline-detail-geolink" data-region="Toledo" data-country="España">Toledo</button> hacia 1577 y desarrolla un estilo propio de figuras alargadas, color vibrante y luz espiritual casi alucinada — germen del manierismo español. Obras como El entierro del conde de Orgaz definieron la imaginería religiosa española durante generaciones.',
+      "Domenikos Theotokopoulos nació en 1541 en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Candía\" data-country=\"Grecia\">Candía, Creta veneciana</button>, se formó en tradición bizantina y trabajó después en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Venecia\" data-country=\"Italia\">Venecia</button> y <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Roma\" data-country=\"Italia\">Roma</button>. En 1577 se instaló en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Toledo\" data-country=\"España\">Toledo</button>. Su Martirio de san Mauricio, encargado para <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"San Lorenzo de El Escorial\" data-country=\"España\">El Escorial</button>, no satisfizo a <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"madrid-escorial-felipe-ii-1561\">Felipe II</button> y quedó fuera del altar previsto; el pintor encontró en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Toledo\" data-country=\"España\">Toledo</button> una red distinta de patronos. Figuras alargadas, color veneciano y espacios visionarios convirtieron obras como El entierro del conde de Orgaz en una respuesta singular a la <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"reforma-jesuitas-trento-1517\">Reforma católica</button>. Su fama decayó después, pero siglos más tarde la modernidad recuperó su lenguaje radical.",
     butterfly: {
-      prompt: "¿Qué hubiera pasado si El Greco se hubiera quedado en Creta o en Italia, sin instalarse en Toledo?",
+      prompt: "¿Qué produjo el rechazo de Felipe II?",
       answer:
-        "El manierismo español —figuras alargadas, luz espiritual casi alucinada— probablemente no existiría en la forma en que lo conocemos. Toledo, con su intensidad religiosa particular, le dio a un pintor cretense de formación italiana el terreno exacto que necesitaba para inventar un estilo sin precedente."
+        "El encargo frustrado cerró una posible carrera cortesana, pero orientó a El Greco hacia patronos toledanos. En esa ciudad desarrolló un lenguaje menos subordinado al gusto real y más ligado a iglesias, intelectuales y devociones locales; el fracaso institucional ayudó, paradójicamente, a liberar su singularidad."
     }
   },
+
   {
     id: "velazquez-1599",
     year: 1599,
-    trackYear: 1603.6,
+    trackYear: 1583.64,
     endYear: 1660,
     title: "1599–1660: Diego Velázquez",
     author: "Diego Velázquez",
@@ -4293,35 +4484,27 @@ const TIMELINE_ENTRIES = [
   {
     id: "inquisicion-espanola-1478",
     year: 1478,
-    // Real date; nudged track position only — see trackYear comment in
-    // timeline.js. 1438/1441/1442/1453/1469/1478/1479/1484/1487/1492 chain-clustered
-    // across the pre-colonial/colonial era boundary — extended in 2026 to
-    // fit corsali-explorador-1487 into the same sequence without
-    // re-merging 1479 or 1487 back into a cluster. Re-solved again later
-    // in 2026 so origen-trata-transatlantica-1441 and
-    // legado-trata-transatlantica-1442 could each get their own
-    // standalone point too (the entries in this chain — Pachacútec,
-    // 1441, 1442, 1453, the 1469 marriage, this one, Porto Santo,
-    // João II and Corsali — are now
-    // individually standalone by borrowing room from nezahualcoyotl).
+    // Visual spacing only; the card and detail panel retain the real date.
     trackYear: 1433.32,
     title: "1478: se establece la Inquisición española",
-    author: "Hito histórico",
+    author: "Sixto IV, Isabel I y Fernando II",
     country: "España",
     region: "Sevilla",
     flag: "spain-not-latam",
     glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
     description:
-      "El 1 de noviembre de 1478, el papa Sisto IV (Sixto IV) emite la bula Exigit sinceras devotionis affectus a petición de los Reyes Católicos, Fernando de Aragón e Isabel de Castilla, autorizando el establecimiento de la Inquisición española — un tribunal bajo control directo de la Corona, no de Roma, a diferencia de la Inquisición medieval anterior. El primer tribunal se instala en Sevilla en 1480 y el primer auto de fe se celebra allí en febrero de 1481. Sus primeros objetivos principales fueron conversos de origen judío sospechosos de judaizar; después persiguió también a moriscos, protestantes y otros grupos. La institución perduraría, con distintos grados de intensidad, hasta su abolición definitiva en 1834.",
+      "El 1 de noviembre de 1478, el papa Sixto IV emitió la bula Exigit sinceras devotionis affectus a petición de Isabel de Castilla y Fernando de Aragón. Autorizó una Inquisición bajo control de la Corona, distinta del tribunal medieval dependiente de Roma. El primer tribunal abrió en Sevilla en 1480 y celebró allí un auto de fe en 1481. Persiguió primero a conversos de origen judío acusados de judaizar; después alcanzó a moriscos, protestantes, libros y otras disidencias. La institución unió religión, justicia y monarquía durante tres largos siglos hasta su abolición definitiva en 1834.",
+    descriptionHtml:
+      "El 1 de noviembre de 1478, el papa Sixto IV emitió la bula Exigit sinceras devotionis affectus a petición de Isabel de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Castilla\" data-country=\"España\">Castilla</button> y Fernando de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Aragón\" data-country=\"España\">Aragón</button>. Autorizó una Inquisición bajo control de la Corona, distinta del tribunal medieval dependiente de <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Roma\" data-country=\"Italia\">Roma</button>. El primer tribunal abrió en <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Sevilla\" data-country=\"España\">Sevilla</button> en 1480 y celebró allí un auto de fe en 1481. Persiguió primero a conversos de origen judío acusados de judaizar; después alcanzó a <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"alpujarras-expulsion-moriscos-1568\">moriscos</button>, <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"reforma-jesuitas-trento-1517\">protestantes</button>, libros y otras disidencias. La institución unió religión, justicia y monarquía durante tres largos siglos hasta su abolición definitiva en 1834.",
     butterfly: {
-      prompt: "¿Qué hubiera pasado si el papa Sixto IV hubiera rechazado la petición de los Reyes Católicos?",
+      prompt: "¿Qué cambió al quedar la Inquisición bajo control de la Corona?",
       answer:
-        "España habría carecido de un tribunal bajo control directo de la Corona, y la persecución religiosa —aunque probablemente habría existido de otra forma— no habría alcanzado la escala institucional que persiguió a conversos judíos y musulmanes durante más de tres siglos. La censura que después asfixió la picaresca y el ensayo crítico americano habría tomado, quizás, otra forma."
+        "La monarquía obtuvo una institución capaz de investigar creencias, censurar textos y castigar disidencias en sus territorios. Su historia no fue uniforme, pero durante siglos convirtió la vigilancia religiosa en una herramienta de gobierno y dejó huellas profundas en familias, comunidades y cultura impresa."
     }
   },
 
-  // ---- ETNOGÉNESIS Y DIÁSPORA GARÍFUNA (1635–1797) ----
   {
     id: "etnogenesis-garifuna-1635",
     year: 1635,
@@ -4667,23 +4850,26 @@ const TIMELINE_ENTRIES = [
   {
     id: "el-morro-san-juan-1595",
     year: 1595,
-    trackYear: 1581.5,
+    // Visual spacing only; the card and detail panel retain the real date.
+    trackYear: 1579.6,
     endYear: 1898,
-    title: "1595–1898: El Morro, la fortaleza que nunca cayó en combate",
-    author: "Hito histórico",
+    title: "1595–1898: El Morro resiste, cae una vez y cambia de bandera",
+    author: "Castillo San Felipe del Morro",
     country: "Puerto Rico",
     region: "San Juan",
     type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
     description:
-      "Durante tres siglos, El Morro —el castillo de San Felipe que custodia la bahía de San Juan— repele o sobrevive a los mayores poderes navales de Europa. En 1595, Francis Drake ataca la ciudad buscando un cargamento de oro y plata; la artillería española lo rechaza, matando a su compañero John Hawkins, y Drake se retira derrotado. En 1598, el inglés George Clifford, conde de Cumberland, sí logra tomar el castillo y la ciudad con 1,700 hombres —la única vez que El Morro cae en combate—, pero la disentería diezma a sus tropas, y tras 65 días de ocupación los ingleses se retiran, no sin antes saquear e incendiar San Juan. En 1625, el almirante holandés Boudewijn Hendricksz ocupa la ciudad —ya evacuada— y sitia El Morro durante semanas con cañones y trincheras, pero carece de artillería suficiente para romper sus muros; también se retira, quemando buena parte de la ciudad al partir. Pero la fortaleza que ningún ejército pudo quebrar termina cayendo de todos modos: en 1898, tras la derrota naval de España frente a Estados Unidos en la guerra hispanoamericana, el Tratado de París le cede Puerto Rico a Washington sin que un solo cañonazo se dispare contra El Morro. Trescientos años de resistencia militar no bastaron frente a una firma en otro continente.",
+      "En 1595, Francis Drake atacó San Juan en busca de un cargamento de plata; John Hawkins había muerto enfermo cerca de Puerto Rico antes del asalto, y las defensas del puerto rechazaron a Drake. En 1598, George Clifford, conde de Cumberland, capturó El Morro y la ciudad: fue la única caída de la fortaleza, pero la disentería obligó a retirarse después de 65 días. Los neerlandeses fracasaron en 1625. En 1898, España cedió Puerto Rico a Estados Unidos mediante el Tratado de París. El castillo cambió de bandera por diplomacia, no por un último combate.",
     descriptionHtml:
-      'Durante tres siglos, <button type="button" class="timeline-detail-geolink" data-region="Castillo San Felipe del Morro" data-country="Puerto Rico">El Morro</button> —el castillo de San Felipe que custodia la bahía de San Juan— repele o sobrevive a los mayores poderes navales de Europa. En 1595, Francis Drake ataca la ciudad buscando un cargamento de oro y plata; la artillería española lo rechaza, matando a su compañero John Hawkins, y Drake se retira derrotado. En 1598, el inglés George Clifford, conde de Cumberland, sí logra tomar el castillo y la ciudad con 1,700 hombres —la única vez que El Morro cae en combate—, pero la disentería diezma a sus tropas, y tras 65 días de ocupación los ingleses se retiran, no sin antes saquear e incendiar San Juan. En 1625, el almirante holandés Boudewijn Hendricksz ocupa la ciudad —ya evacuada— y sitia El Morro durante semanas con cañones y trincheras, pero carece de artillería suficiente para romper sus muros; también se retira, quemando buena parte de la ciudad al partir. Pero la fortaleza que ningún ejército pudo quebrar termina cayendo de todos modos: en 1898, tras la derrota naval de España frente a Estados Unidos en la guerra hispanoamericana, el <button type="button" class="timeline-detail-entrylink" data-id="desastre-1898-tratado-paris">Tratado de París</button> le cede Puerto Rico a Washington sin que un solo cañonazo se dispare contra El Morro. Trescientos años de resistencia militar no bastaron frente a una firma en otro continente.',
+      "En 1595, Francis Drake atacó <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"San Juan\" data-country=\"Puerto Rico\">San Juan</button> en busca de un cargamento de plata; John Hawkins había muerto enfermo cerca de <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"Puerto Rico\">Puerto Rico</button> antes del asalto, y las defensas del puerto rechazaron a Drake. En 1598, George Clifford, conde de Cumberland, capturó <button type=\"button\" class=\"timeline-detail-geolink\" data-region=\"Castillo San Felipe del Morro\" data-country=\"Puerto Rico\">El Morro</button> y la ciudad: fue la única caída de la fortaleza, pero la disentería obligó a retirarse después de 65 días. Los neerlandeses fracasaron en 1625. En 1898, <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"España\">España</button> cedió <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"Puerto Rico\">Puerto Rico</button> a <button type=\"button\" class=\"timeline-detail-geolink\" data-country=\"Estados Unidos\">Estados Unidos</button> mediante el <button type=\"button\" class=\"timeline-detail-entrylink\" data-id=\"desastre-1898-tratado-paris\">Tratado de París</button>. El castillo cambió de bandera por diplomacia, no por un último combate.",
     butterfly: {
-      prompt: "¿Qué hubiera pasado si El Morro hubiera caído ante Drake en 1595, en vez de resistir?",
+      prompt: "¿Qué enseña que El Morro cayera una vez, pero cambiara de soberanía por tratado?",
       answer:
-        "España probablemente habría perdido el control de Puerto Rico varios siglos antes, y la isla habría seguido una trayectoria colonial distinta —quizás inglesa o, más tarde, holandesa— en vez de permanecer española hasta 1898. La ironía final es que ni Drake, ni Cumberland, ni los holandeses lograron con cañones lo que Washington obtuvo con una firma: El Morro nunca fue verdaderamente conquistado, solo entregado."
+        "Las fortalezas podían decidir un asedio sin decidir el destino final de una colonia. Cumberland ocupó San Juan brevemente en 1598; tres siglos después, la guerra y la diplomacia internacional transfirieron Puerto Rico sin un último asalto al castillo. El poder militar y el jurídico actuaron en escalas diferentes."
     }
   },
+
   {
     id: "cuba-abolicion-esclavitud-1886",
     year: 1886,
@@ -5528,7 +5714,7 @@ const TIMELINE_ENTRIES = [
     // timeline.js. Re-spaced in 2026, see
     // afonso-i-kongo-nzinga-mbemba-1509. Re-spaced again to make room for
     // maquiavelo-principe-1513, see that entry's trackYear comment.
-    trackYear: 1543.25,
+    trackYear: 1551.32,
     endYear: 1835,
     title: "1535–1835: Galápagos, de Tomás de Berlanga a Charles Darwin",
     author: "Hito histórico",

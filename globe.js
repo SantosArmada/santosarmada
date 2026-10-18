@@ -140,7 +140,7 @@ const SPECIAL_PANELS = {
     title: 'Connected Works',
     body:
       "\"La flor de la playa\" (Carmen de Burgos, 1920) — Enrique y su amante deciden pasar su escapada de verano precisamente en Portugal: un viaje corto, \"tan corto como ir a un pueblo de España\", pero ya al extranjero, a \"una nación más libre\" donde podían vivir juntos sin la vigilancia de las patronas españolas y ella podía hacerse pasar por su esposa.",
-    linkedEntryId: 'flor-de-la-playa-burgos-1920'
+    linkedEntryIds: ['union-iberica-portugal-1580', 'flor-de-la-playa-burgos-1920']
   },
   'Brazil': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
   'Angola': { title: 'Romance Language', body: ROMANCE_LANGUAGE_BODY },
@@ -232,6 +232,10 @@ const GLOBE_TO_TIMELINE_COUNTRY = {
     'Haiti': 'Haití',
     'Spain': 'España',
     'France': 'Francia',
+    'Germany': 'Alemania',
+    'Greece': 'Grecia',
+    'Belgium': 'Bélgica',
+    'Netherlands': 'Países Bajos',
     'Canada': 'Canadá',
     'Italy': 'Italia',
     'Eq. Guinea': 'Guinea Ecuatorial',
@@ -549,16 +553,17 @@ Promise.all([
                         '<h3 class="globe-info-title">' + special.title + '</h3>' +
                         '<p class="globe-info-body">' + special.body + '</p>';
 
-                    if (special.linkedEntryId) {
+                    const linkedIds = special.linkedEntryIds ||
+                        (special.linkedEntryId ? [special.linkedEntryId] : []);
+                    linkedIds.forEach(function (linkedId) {
                         const linked = (window.TIMELINE_ENTRIES || []).find(
-                            function (e) { return e.id === special.linkedEntryId; }
+                            function (e) { return e.id === linkedId; }
                         );
-                        if (linked) {
-                            html +=
-                                '<p class="globe-info-jumplink" data-id="' + escapeHtmlGlobe(linked.id) + '" tabindex="0" role="button">' +
-                                'Ver “' + escapeHtmlGlobe(linked.title) + '” en la línea de tiempo →</p>';
-                        }
-                    }
+                        if (!linked) return;
+                        html +=
+                            '<p class="globe-info-jumplink" data-id="' + escapeHtmlGlobe(linked.id) + '" tabindex="0" role="button">' +
+                            'Ver “' + escapeHtmlGlobe(linked.title) + '” en la línea de tiempo →</p>';
+                    });
 
                     infoContentEl.innerHTML = html;
                     return;
@@ -865,6 +870,27 @@ const REGION_CENTER = {
     'Torre de Londres': { lat: 51.51, lng: -0.08 },
     'Universidad de Sevilla': { lat: 37.38, lng: -5.99 },
     'Wittenberg': { lat: 51.87, lng: 12.65 },
+    'Gante': { lat: 51.05, lng: 3.72 },
+    'Países Bajos borgoñones': { lat: 50.85, lng: 4.35 },
+    'Villalar de los Comuneros': { lat: 41.55, lng: -5.14 },
+    'Trento': { lat: 46.07, lng: 11.12 },
+    'Loyola': { lat: 43.17, lng: -2.28 },
+    'Potosí': { lat: -19.59, lng: -65.75 },
+    'San Lorenzo de El Escorial': { lat: 40.59, lng: -4.15 },
+    'Candía': { lat: 35.34, lng: 25.13 },
+    'Venecia': { lat: 45.44, lng: 12.32 },
+    'Béznar': { lat: 36.92, lng: -3.54 },
+    'Las Alpujarras': { lat: 36.94, lng: -3.15 },
+    'Mediterráneo occidental': { lat: 38.00, lng: 5.00 },
+    'Golfo de Patras': { lat: 38.18, lng: 21.50 },
+    'Lepanto': { lat: 38.39, lng: 21.83 },
+    'Alcântara, Lisboa': { lat: 38.70, lng: -9.18 },
+    'Tomar': { lat: 39.60, lng: -8.41 },
+    'Tarragona': { lat: 41.12, lng: 1.25 },
+    'Dos Hermanas': { lat: 37.28, lng: -5.92 },
+    'Atlántico': { lat: 23.00, lng: -38.00 },
+    'Atlántico oriental': { lat: 24.00, lng: -21.00 },
+    'Europa': { lat: 50.00, lng: 10.00 },
     'Villaviciosa de Odón': { lat: 40.36, lng: -3.90 },
     'Nápoles': { lat: 40.85, lng: 14.27 },
     'Sicilia': { lat: 37.60, lng: 14.02 },
