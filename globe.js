@@ -812,6 +812,7 @@ const REGION_CENTER = {
     'La Laguna, Chuquisaca': { lat: -19.30760, lng: -64.30401 },
     'Madrid': { lat: 40.42, lng: -3.70 },
     'Murcia': { lat: 37.99, lng: -1.13 },
+    'Real Alcázar de Madrid': { lat: 40.4179, lng: -3.7143 },
     'Palacio Real de Madrid': { lat: 40.4179, lng: -3.7143 },
     'Palacio de Godoy, Madrid': { lat: 40.4192, lng: -3.7129 },
     'Quinta del Sordo, Madrid': { lat: 40.4074, lng: -3.7240 },

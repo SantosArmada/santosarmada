@@ -4168,13 +4168,34 @@ const TIMELINE_ENTRIES = [
     flag: "spain-not-latam",
     type: ICON_TYPE.HISTORY,
     description:
-      "Pintor de cámara de Felipe IV y máxima figura del Siglo de Oro español. Las Meninas (1656) sigue siendo uno de los ejercicios más estudiados de la historia del arte occidental sobre la mirada, el poder y la representación misma, y hoy cuelga en el Museo del Prado de Madrid, donde sigue siendo una de sus obras más visitadas.",
+      "Pintor de cámara de Felipe IV y máxima figura del Siglo de Oro español. Las meninas (1656) sigue siendo uno de los ejercicios más estudiados de la historia del arte occidental sobre la mirada, el poder y la representación misma, y hoy cuelga en el Museo del Prado de Madrid, donde sigue siendo una de sus obras más visitadas.",
     descriptionHtml:
-      'Pintor de cámara de Felipe IV y máxima figura del Siglo de Oro español. Las Meninas (1656) sigue siendo uno de los ejercicios más estudiados de la historia del arte occidental sobre la mirada, el poder y la representación misma, y hoy cuelga en el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Museo del Prado</button> de Madrid, donde sigue siendo una de sus obras más visitadas.',
+      'Pintor de cámara de Felipe IV y máxima figura del Siglo de Oro español. <button type="button" class="timeline-detail-entrylink" data-id="las-meninas-1656"><em>Las meninas</em> (1656)</button> sigue siendo uno de los ejercicios más estudiados de la historia del arte occidental sobre la mirada, el poder y la representación misma, y hoy cuelga en el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Museo del Prado</button> de Madrid, donde sigue siendo una de sus obras más visitadas.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Velázquez nunca hubiera sido pintor de cámara de Felipe IV?",
       answer:
-        "Sin acceso directo a la corte y sus intrigas de poder y representación, es difícil imaginar Las Meninas — un cuadro que es, en el fondo, una meditación sobre quién mira a quién en el propio acto de pintar el poder. Esa posición privilegiada fue la condición misma de la obra."
+        "Sin acceso directo a la corte y sus intrigas de poder y representación, es difícil imaginar Las meninas — un cuadro que es, en el fondo, una meditación sobre quién mira a quién en el propio acto de pintar el poder. Esa posición privilegiada fue la condición misma de la obra."
+    }
+  },
+  {
+    id: "las-meninas-1656",
+    year: 1656,
+    title: "1656: Velázquez pinta Las meninas",
+    author: "Diego Velázquez",
+    authorEntryId: "velazquez-1599",
+    country: "España",
+    region: "Real Alcázar de Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ROYAL],
+    description:
+      "En 1656, Diego Velázquez pintó el retrato colectivo hoy llamado Las meninas en el Cuarto del Príncipe del Real Alcázar de Madrid. La infanta Margarita aparece rodeada por María Agustina Sarmiento, Isabel de Velasco, Mari Bárbola, Nicolasito Pertusato y servidores; el pintor trabaja ante un lienzo. Un espejo refleja a Felipe IV y Mariana de Austria, incorporando a los reyes y al espectador al problema de quién mira a quién. La perspectiva, el aire y la luz convierten la corte en una reflexión sobre representación, autoridad y oficio artístico. Hoy se conserva en el Prado.",
+    descriptionHtml:
+      'En 1656, <button type="button" class="timeline-detail-entrylink" data-id="velazquez-1599">Diego Velázquez</button> pintó el retrato colectivo hoy llamado <em>Las meninas</em> en el <button type="button" class="timeline-detail-geolink" data-region="Real Alcázar de Madrid" data-country="España">Cuarto del Príncipe del Real Alcázar de Madrid</button>. La infanta Margarita aparece rodeada por María Agustina Sarmiento, Isabel de Velasco, Mari Bárbola, Nicolasito Pertusato y servidores; el pintor trabaja ante un lienzo. Un espejo refleja a Felipe IV y Mariana de Austria, incorporando a los reyes y al espectador al problema de quién mira a quién. La perspectiva, el aire y la luz convierten la corte en una reflexión sobre representación, autoridad y oficio artístico. Hoy se conserva en el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Prado</button>.',
+    butterfly: {
+      prompt: "¿Por qué no podemos afirmar que Velázquez tituló la obra Las meninas?",
+      answer:
+        "No conocemos un título impuesto por Velázquez. El inventario del Alcázar de 1666 la describió como Retrato de la señora emperatriz con sus damas y una enana; después fue La familia. Las meninas apareció por primera vez en el catálogo del Prado de 1843. El cambio recuerda que archivos, museos y espectadores también construyen la memoria de una obra."
     }
   },
   {
