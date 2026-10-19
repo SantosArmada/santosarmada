@@ -2237,6 +2237,51 @@ const TIMELINE_ENTRIES = [
     }
   },
   {
+    id: "instituciones-libros-lengua-1712",
+    year: 1712,
+    month: 3,
+    day: 1,
+    title: "1712–1726: libros y lengua se vuelven instituciones públicas",
+    author: "Biblioteca Real y Real Academia Española",
+    country: "España",
+    region: "Real Biblioteca Pública, Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.LITERATURE],
+    description:
+      "El 1 de marzo de 1712 abrió en Madrid la Real Biblioteca Pública, fundada por Felipe V para reunir libros y fomentar el estudio. El depósito legal de 1716 obligó a entregar un ejemplar de cada impresión española. Cerca de allí, la Academia Española celebró su primera junta en 1713 en la casa del marqués de Villena, recibió protección real en 1714 y publicó desde 1726 el Diccionario de autoridades, que documentaba cada definición con usos literarios. Biblioteca y Academia convirtieron libros y lengua en instrumentos públicos del nuevo Estado borbónico.",
+    descriptionHtml:
+      'El 1 de marzo de 1712 abrió en <button type="button" class="timeline-detail-geolink" data-region="Real Biblioteca Pública, Madrid" data-country="España">Madrid la Real Biblioteca Pública</button>, fundada por <button type="button" class="timeline-detail-entrylink" data-id="sucesion-espanola-borbones-1700">Felipe V</button> para reunir libros y fomentar el estudio. El depósito legal de 1716 obligó a entregar un ejemplar de cada impresión española. Cerca de allí, la Academia Española celebró su primera junta en 1713 en la <button type="button" class="timeline-detail-geolink" data-region="Plaza de las Descalzas Reales" data-country="España">casa del marqués de Villena</button>, recibió protección real en 1714 y publicó desde 1726 el <em>Diccionario de autoridades</em>, que documentaba cada definición con usos literarios. Biblioteca y Academia convirtieron libros y lengua en instrumentos públicos del nuevo Estado borbónico.',
+    butterfly: {
+      prompt: "¿Qué cambió al convertir libros y lengua en instituciones del Estado?",
+      answer:
+        "La monarquía creó lugares estables para reunir impresos, conservarlos y fijar usos del castellano. El conocimiento ganó continuidad pública, pero también quedó ligado a prioridades cortesanas: preservar y describir nunca es una operación completamente neutral."
+    }
+  },
+
+  {
+    id: "feijoo-teatro-critico-1726",
+    year: 1726,
+    title: "1726: Feijoo somete los errores comunes a crítica",
+    author: "Benito Jerónimo Feijoo",
+    country: "España",
+    region: "Monasterio de San Vicente, Oviedo",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY, ICON_TYPE.ECCLESIASTICAL],
+    description:
+      "Desde el monasterio benedictino de San Vicente, en Oviedo, Benito Jerónimo Feijoo publicó en 1726 el primer tomo del Teatro crítico universal. Escribió en castellano para llevar observación, experiencia y crítica fuera de las aulas, impugnando supersticiones, falsos milagros y saberes heredados sin prueba. Su discurso «Defensa de las mujeres» sostuvo que la desigualdad intelectual provenía de la educación, no de una inferioridad natural. La obra, editada en Madrid hasta 1740, abrió una Ilustración católica y polémica que enlaza la lengua organizada por la RAE con Jovellanos.",
+    descriptionHtml:
+      'Desde el <button type="button" class="timeline-detail-geolink" data-region="Monasterio de San Vicente, Oviedo" data-country="España">monasterio benedictino de San Vicente, en Oviedo</button>, Benito Jerónimo Feijoo publicó en 1726 el primer tomo del <em>Teatro crítico universal</em>. Escribió en castellano para llevar observación, experiencia y crítica fuera de las aulas, impugnando supersticiones, falsos milagros y saberes heredados sin prueba. Su discurso «Defensa de las mujeres» sostuvo que la desigualdad intelectual provenía de la educación, no de una inferioridad natural. La obra, editada en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> hasta 1740, abrió una Ilustración católica y polémica que enlaza la lengua organizada por la <button type="button" class="timeline-detail-entrylink" data-id="instituciones-libros-lengua-1712">RAE</button> con <button type="button" class="timeline-detail-entrylink" data-id="jovellanos-ley-agraria-1795">Jovellanos</button>.',
+    butterfly: {
+      prompt: "¿Por qué un monje pudo convertirse en voz central de la Ilustración española?",
+      answer:
+        "Feijoo trabajó dentro de instituciones católicas y utilizó su erudición para discutir creencias sin abandonar la fe. Su trayectoria muestra que la Ilustración hispánica también surgió desde espacios religiosos, mediante tensiones internas entre autoridad, experiencia y crítica."
+    }
+  },
+
+  {
     id: "fernando-vi-neutralidad-armada-1746",
     year: 1746,
     month: 7,
@@ -2420,6 +2465,94 @@ const TIMELINE_ENTRIES = [
   },
 
   {
+    id: "cabrera-pinturas-castas-1763",
+    year: 1763,
+    title: "1763: Miguel Cabrera pinta y ordena las castas",
+    author: "Miguel Cabrera",
+    country: "México",
+    region: "Ciudad de México",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.VISION],
+    description:
+      "En 1763, el pintor novohispano Miguel Cabrera firmó en Ciudad de México una serie de dieciséis pinturas de castas. Cada lienzo reúne padre, madre e hijos y los clasifica mediante etiquetas de ascendencia europea, indígena y africana. Vestido, oficio, alimentos y objetos convierten la vida cotidiana en una taxonomía visual: celebran la abundancia novohispana mientras ordenan jerarquías raciales para una probable mirada extranjera. La serie conecta la ciencia clasificatoria de la Ilustración con el mestizaje colonial, la esclavitud atlántica y las imágenes guadalupanas que circularon entre México y Europa.",
+    descriptionHtml:
+      'En 1763, el pintor novohispano Miguel Cabrera firmó en <button type="button" class="timeline-detail-geolink" data-region="Ciudad de México" data-country="México">Ciudad de México</button> una serie de dieciséis pinturas de castas. Cada lienzo reúne padre, madre e hijos y los clasifica mediante etiquetas de ascendencia <button type="button" class="timeline-detail-geolink" data-region="Europa">europea</button>, indígena y <button type="button" class="timeline-detail-geolink" data-region="África">africana</button>. Vestido, oficio, alimentos y objetos convierten la vida cotidiana en una taxonomía visual: celebran la abundancia novohispana mientras ordenan jerarquías raciales para una probable mirada extranjera. La serie conecta la ciencia clasificatoria de la Ilustración con el mestizaje colonial, la <button type="button" class="timeline-detail-entrylink" data-id="licencia-trata-directa-1518">esclavitud atlántica</button> y las <button type="button" class="timeline-detail-entrylink" data-id="nicolas-enriquez-guadalupe-1773">imágenes guadalupanas</button> que circularon entre México y Europa.',
+    butterfly: {
+      prompt: "¿Las pinturas de castas describían la sociedad o ayudaban a fabricarla?",
+      answer:
+        "Hacían ambas cosas. Conservan detalles valiosos de ropa, trabajo y consumo, pero sus rótulos convierten familias reales en casillas jerárquicas. Mirarlas como documentos exige leer también el poder que organiza la escena."
+    }
+  },
+
+  {
+    id: "sociedades-economicas-amigos-pais-1764",
+    year: 1764,
+    title: "1764–1775: los Amigos del País convierten saber en reforma",
+    author: "Peñaflorida y Campomanes",
+    country: "España",
+    region: "Palacio de Intsausti, Azkoitia",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.VISION,
+    types: [ICON_TYPE.VISION, ICON_TYPE.HISTORY],
+    description:
+      "En 1764, las tertulias del palacio de Intsausti, en Azkoitia, dieron origen a la Real Sociedad Bascongada de Amigos del País; Carlos III aprobó sus estatutos en 1766. Sus comisiones estudiaron agricultura, industria, comercio, ciencias y educación útil en las provincias vascas. Pedro Rodríguez de Campomanes convirtió el modelo regional en política de reforma: la Sociedad Matritense abrió en 1775 y la red superó sesenta entidades a comienzos del siglo XIX. Estas asociaciones conectaron saber local, formación técnica y economía, aunque dependían de élites y protección monárquica.",
+    descriptionHtml:
+      'En 1764, las tertulias del <button type="button" class="timeline-detail-geolink" data-region="Palacio de Intsausti, Azkoitia" data-country="España">palacio de Intsausti, en Azkoitia</button>, dieron origen a la Real Sociedad Bascongada de Amigos del País; <button type="button" class="timeline-detail-entrylink" data-id="carlos-iii-llega-madrid-1759">Carlos III</button> aprobó sus estatutos en 1766. Sus comisiones estudiaron agricultura, industria, comercio, ciencias y educación útil en las provincias vascas. Pedro Rodríguez de Campomanes convirtió el modelo regional en política de reforma: la <button type="button" class="timeline-detail-geolink" data-region="Sociedad Económica Matritense, Madrid" data-country="España">Sociedad Matritense</button> abrió en 1775 y la red superó sesenta entidades a comienzos del siglo XIX. Estas asociaciones conectaron saber local, formación técnica y economía, aunque dependían de élites y protección monárquica.',
+    butterfly: {
+      prompt: "¿Por qué una tertulia provincial llegó a influir en toda la monarquía?",
+      answer:
+        "La Bascongada ofrecía un modelo reproducible: reunir élites locales, estudiar problemas concretos y publicar soluciones útiles. Campomanes lo convirtió en una red, capaz de circular proyectos sin crear representación política popular."
+    }
+  },
+
+  {
+    id: "motin-esquilache-1766",
+    year: 1766,
+    month: 3,
+    day: 23,
+    title: "23–26 de marzo de 1766: el Motín de Esquilache",
+    author: "Madrid frente al reformismo de Carlos III",
+    country: "España",
+    region: "Plaza de Antón Martín, Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "Del 23 al 26 de marzo de 1766, Madrid se alzó contra el marqués de Esquilache. El bando sobre capas largas y sombreros fue la chispa; la carestía del pan, malas cosechas, xenofobia contra ministros extranjeros y conflictos de poder alimentaron la protesta. Desde la plaza de Antón Martín, la multitud llegó al Palacio Real gritando «¡Viva el rey, muera Esquilache!». Carlos III partió a Aranjuez, desterró al ministro y aceptó varias demandas. Los motines se extendieron por el reino y revelaron el límite del reformismo impuesto sin participación popular.",
+    descriptionHtml:
+      'Del 23 al 26 de marzo de 1766, <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> se alzó contra el marqués de Esquilache. El bando sobre capas largas y sombreros fue la chispa; la carestía del pan, malas cosechas, xenofobia contra ministros extranjeros y conflictos de poder alimentaron la protesta. Desde la <button type="button" class="timeline-detail-geolink" data-region="Plaza de Antón Martín, Madrid" data-country="España">plaza de Antón Martín</button>, la multitud llegó al <button type="button" class="timeline-detail-geolink" data-region="Palacio Real de Madrid" data-country="España">Palacio Real</button> gritando «¡Viva el rey, muera Esquilache!». <button type="button" class="timeline-detail-entrylink" data-id="carlos-iii-llega-madrid-1759">Carlos III</button> partió a <button type="button" class="timeline-detail-geolink" data-region="Aranjuez" data-country="España">Aranjuez</button>, desterró al ministro y aceptó varias demandas. Los motines se extendieron por el reino y revelaron el límite del reformismo impuesto sin participación popular.',
+    butterfly: {
+      prompt: "¿Fue realmente una revuelta por la ropa?",
+      answer:
+        "La ropa proporcionó un detonante visible. El precio del pan, el hambre, el rechazo a ministros extranjeros y las luchas cortesanas explican por qué una norma de vestimenta pudo movilizar una crisis nacional."
+    }
+  },
+
+  {
+    id: "expulsion-jesuitas-1767",
+    year: 1767,
+    month: 4,
+    day: 2,
+    title: "2 de abril de 1767: la monarquía expulsa a los jesuitas",
+    author: "Carlos III y la Compañía de Jesús",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ECCLESIASTICAL],
+    description:
+      "La Pragmática Sanción del 2 de abril de 1767 expulsó a la Compañía de Jesús de todos los dominios de Carlos III y confiscó sus bienes. La operación, preparada en secreto, cerró colegios desde Madrid hasta Salta y embarcó a miles de religiosos hacia Italia. La Corona los responsabilizó del Motín de Esquilache sin demostrar su dirección; pesaban también el regalismo y décadas de conflicto europeo. La expulsión desarticuló redes educativas y misionales: franciscanos ocuparon antiguas misiones jesuitas y Junípero Serra pasó de Baja a Alta California.",
+    descriptionHtml:
+      'La Pragmática Sanción del 2 de abril de 1767 expulsó a la <button type="button" class="timeline-detail-entrylink" data-id="reforma-jesuitas-trento-1517">Compañía de Jesús</button> de todos los dominios de <button type="button" class="timeline-detail-entrylink" data-id="carlos-iii-llega-madrid-1759">Carlos III</button> y confiscó sus bienes. La operación, preparada en secreto, cerró colegios desde <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> hasta <button type="button" class="timeline-detail-geolink" data-region="Salta" data-country="Argentina">Salta</button> y embarcó a miles de religiosos hacia <button type="button" class="timeline-detail-geolink" data-country="Italia">Italia</button>. La Corona los responsabilizó del <button type="button" class="timeline-detail-entrylink" data-id="motin-esquilache-1766">Motín de Esquilache</button> sin demostrar su dirección; pesaban también el <button type="button" class="timeline-detail-entrylink" data-id="concordato-regalismo-1753">regalismo</button> y décadas de conflicto europeo. La expulsión desarticuló redes educativas y misionales: franciscanos ocuparon antiguas misiones jesuitas y <button type="button" class="timeline-detail-entrylink" data-id="junipero-serra-nace-1713">Junípero Serra</button> pasó de <button type="button" class="timeline-detail-geolink" data-region="Baja California" data-country="México">Baja</button> a <button type="button" class="timeline-detail-entrylink" data-id="portola-expedicion-san-diego-1769">Alta California</button>.',
+    butterfly: {
+      prompt: "¿Qué perdió la monarquía al expulsar una orden que también quería controlar?",
+      answer:
+        "Ganó bienes y autoridad inmediata, pero rompió una red de colegios, misiones y especialistas extendida por varios continentes. Sustituir personas e instituciones fue mucho más difícil que firmar la expulsión."
+    }
+  },
+
+  {
     id: "portola-expedicion-san-diego-1769",
     year: 1769,
     title: "1769: la expedición Portolá funda la primera misión de Alta California",
@@ -2438,6 +2571,28 @@ const TIMELINE_ENTRIES = [
         "Sin esa amenaza percibida desde el norte, España probablemente habría seguido posponiendo la colonización de Alta California indefinidamente, tal como lo hizo durante más de dos siglos. La misión de San Diego —y todo el sistema de misiones que la siguió— nace menos de una ambición expansiva española que de una reacción defensiva ante una potencia rival, la misma lógica que después llevaría a los rusos a fundar Fuerte Ross, a apenas un día de viaje de la futura San Francisco."
     }
   },
+  {
+    id: "reglamento-comercio-libre-1778",
+    year: 1778,
+    month: 10,
+    day: 12,
+    title: "12 de octubre de 1778: el comercio imperial abre sus puertos",
+    author: "Carlos III y José de Gálvez",
+    country: "España",
+    region: "Cádiz",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    description:
+      "El Reglamento de Comercio Libre del 12 de octubre de 1778 autorizó el tráfico directo entre trece puertos peninsulares y veinticuatro americanos, entre ellos Cádiz, La Coruña, Barcelona, La Habana, Cartagena de Indias y Buenos Aires. «Libre» no significaba comercio abierto al mundo: seguía reservado a súbditos, barcos y territorios de la monarquía. La reforma debilitó el antiguo monopolio de Cádiz, amplió intercambios y aduanas y buscó frenar el contrabando británico. También expuso manufacturas americanas a mayor competencia y fortaleció grupos mercantiles criollos.",
+    descriptionHtml:
+      'El Reglamento de Comercio Libre del 12 de octubre de 1778 autorizó el tráfico directo entre trece puertos peninsulares y veinticuatro americanos, entre ellos <button type="button" class="timeline-detail-geolink" data-region="Cádiz" data-country="España">Cádiz</button>, <button type="button" class="timeline-detail-geolink" data-region="La Coruña" data-country="España">La Coruña</button>, <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button>, <button type="button" class="timeline-detail-geolink" data-region="La Habana" data-country="Cuba">La Habana</button>, <button type="button" class="timeline-detail-geolink" data-region="Cartagena de Indias" data-country="Colombia">Cartagena de Indias</button> y <button type="button" class="timeline-detail-geolink" data-region="Buenos Aires" data-country="Argentina">Buenos Aires</button>. «Libre» no significaba comercio abierto al mundo: seguía reservado a súbditos, barcos y territorios de la monarquía. La reforma debilitó el antiguo monopolio de Cádiz, amplió intercambios y aduanas y buscó frenar el contrabando <button type="button" class="timeline-detail-geolink" data-country="Reino Unido">británico</button>. También expuso manufacturas americanas a mayor competencia y fortaleció grupos mercantiles criollos.',
+    butterfly: {
+      prompt: "¿Por qué llamarlo «libre» si el imperio conservó tantas restricciones?",
+      answer:
+        "La libertad era interna y comparativa: más puertos podían comerciar directamente, pero dentro de una red imperial protegida. La palabra anunciaba una apertura real frente al monopolio anterior, no un mercado mundial sin barreras."
+    }
+  },
+
   {
     id: "pueblo-de-los-44-1781",
     year: 1781,
@@ -2458,6 +2613,27 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué hubiera pasado si Felipe de Neve nunca hubiera insistido en fundar pueblos civiles en Alta California?",
       answer:
         "Alta California habría seguido dependiendo casi por completo de las misiones y los presidios, sin la base civil y agrícola que De Neve consideraba indispensable para sostener la frontera a largo plazo. Es posible que un asentamiento civil hubiera surgido de todos modos en algún punto de la cuenca, pero no necesariamente en 1781, ni con ese nombre heredado de una capilla italiana del siglo XIII, ni con la composición racial tan diversa que documentó Mason — una fundación que la memoria oficial tardaría dos siglos en reconocer."
+    }
+  },
+
+  {
+    id: "censo-floridablanca-1787",
+    year: 1787,
+    title: "1787: el Censo de Floridablanca cuenta una sociedad",
+    author: "Conde de Floridablanca",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.VISION],
+    description:
+      "Ordenado por Floridablanca en 1786 y ejecutado en 1787, este censo contó personas, no solo hogares o «vecinos», en toda España. Registró sexo, edad, estado civil y profesión, además de hospitales, conventos, prisiones y hospicios. Autoridades civiles, con apoyo puntual del clero, reunieron datos individuales que no debían publicarse. El resultado —unos 10,27 millones de habitantes— tuvo finalidad demográfica y económica, no fiscal. Después del Catastro de Ensenada, el Estado ilustrado convertía población y territorio en información comparable para gobernar, antecedente de la estadística moderna.",
+    descriptionHtml:
+      'Ordenado por Floridablanca en 1786 y ejecutado en 1787, este censo contó personas, no solo hogares o «vecinos», en toda <button type="button" class="timeline-detail-geolink" data-country="España">España</button>. Registró sexo, edad, estado civil y profesión, además de hospitales, conventos, prisiones y hospicios. Autoridades civiles, con apoyo puntual del clero, reunieron datos individuales que no debían publicarse. El resultado —unos 10,27 millones de habitantes— tuvo finalidad demográfica y económica, no fiscal. Después del <button type="button" class="timeline-detail-entrylink" data-id="catastro-ensenada-1749">Catastro de Ensenada</button>, el Estado ilustrado convertía población y territorio en información comparable para gobernar, antecedente de la estadística moderna.',
+    butterfly: {
+      prompt: "¿Qué ve un Estado cuando aprende a contar individuos?",
+      answer:
+        "Ve edades, trabajos, hogares e instituciones como patrones comparables. Esa mirada puede orientar servicios y reformas, pero también amplía la capacidad del poder para clasificar y administrar a la población."
     }
   },
 
@@ -2512,6 +2688,27 @@ const TIMELINE_ENTRIES = [
   },
 
   {
+    id: "jovellanos-ley-agraria-1795",
+    year: 1795,
+    title: "1795: Jovellanos lleva la reforma al campo",
+    author: "Gaspar Melchor de Jovellanos",
+    country: "España",
+    region: "Sociedad Económica Matritense, Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY, ICON_TYPE.VISION],
+    description:
+      "En 1795, la Sociedad Económica Matritense publicó el Informe en el expediente de Ley Agraria, redactado por Gaspar Melchor de Jovellanos entre Madrid y Gijón. El texto explicó el atraso agrícola mediante obstáculos jurídicos, económicos y educativos: tierras vinculadas, privilegios ganaderos, caminos deficientes y falta de instrucción. Propuso ampliar la propiedad y libertad de cultivo, mejorar comunicaciones y formar agricultores. No abolió el Antiguo Régimen, pero llevó el programa práctico de los Amigos del País hasta sus límites; la reacción posterior contra las Luces alcanzaría al propio Jovellanos.",
+    descriptionHtml:
+      'En 1795, la <button type="button" class="timeline-detail-entrylink" data-id="sociedades-economicas-amigos-pais-1764">Sociedad Económica Matritense</button> publicó el <em>Informe en el expediente de Ley Agraria</em>, redactado por Gaspar Melchor de Jovellanos entre <button type="button" class="timeline-detail-geolink" data-region="Sociedad Económica Matritense, Madrid" data-country="España">Madrid</button> y <button type="button" class="timeline-detail-geolink" data-region="Gijón" data-country="España">Gijón</button>. El texto explicó el atraso agrícola mediante obstáculos jurídicos, económicos y educativos: tierras vinculadas, privilegios ganaderos, caminos deficientes y falta de instrucción. Propuso ampliar la propiedad y libertad de cultivo, mejorar comunicaciones y formar agricultores. No abolió el Antiguo Régimen, pero llevó el programa práctico de los Amigos del País hasta sus límites; la reacción posterior contra las Luces alcanzaría al propio Jovellanos.',
+    butterfly: {
+      prompt: "¿Por qué un informe agrícola fue también una crítica política?",
+      answer:
+        "Porque la tierra estaba atravesada por privilegios jurídicos, instituciones y acceso desigual al conocimiento. Reformar cultivos exigía discutir quién podía poseer, decidir, aprender y circular productos: el campo revelaba la estructura completa del Antiguo Régimen."
+    }
+  },
+
+  {
     id: "goya-majas-1795",
     year: 1795,
     // Prado dates the pair separately: 1795–1800 and 1800–1807.
@@ -2531,6 +2728,28 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué se perdería si la Inquisición hubiera destruido las Majas?",
       answer:
         "Desaparecería una confrontación excepcional entre el cuerpo que mira al espectador y las instituciones que intentaron controlarlo. También se perdería la pareja visual que obliga a preguntar por deseo, propiedad, identidad y censura sin aceptar la leyenda de una modelo segura."
+    }
+  },
+
+  {
+    id: "humboldt-bonpland-america-1799",
+    year: 1799,
+    month: 6,
+    day: 5,
+    title: "5 de junio de 1799: Humboldt y Bonpland parten hacia América",
+    author: "Alexander von Humboldt y Aimé Bonpland",
+    country: "España",
+    region: "Puerto de La Coruña",
+    type: ICON_TYPE.VISION,
+    types: [ICON_TYPE.VISION, ICON_TYPE.HISTORY],
+    description:
+      "Con pasaportes y recomendaciones de Carlos IV, Alexander von Humboldt y Aimé Bonpland zarparon del puerto de La Coruña el 5 de junio de 1799 a bordo del Pizarro. Tras medir el Teide, llegaron a Cumaná y recorrieron durante cinco años territorios de las actuales Venezuela, Cuba, Colombia, Ecuador, Perú, México y Estados Unidos. Relacionaron plantas, clima, altitud, geología, economía y sociedades mediante observación e instrumentos comparables. Su viaje muestra una paradoja ilustrada: la monarquía autorizó una investigación transcontinental que produjo conocimiento científico y, a la vez, nuevas críticas del orden colonial.",
+    descriptionHtml:
+      'Con pasaportes y recomendaciones de <button type="button" class="timeline-detail-entrylink" data-id="carlos-iv-godoy-revolucion-francesa-1788">Carlos IV</button>, Alexander von Humboldt y Aimé Bonpland zarparon del <button type="button" class="timeline-detail-geolink" data-region="Puerto de La Coruña" data-country="España">puerto de La Coruña</button> el 5 de junio de 1799 a bordo del <em>Pizarro</em>. Tras medir el <button type="button" class="timeline-detail-geolink" data-region="Pico del Teide" data-country="España">Teide</button>, llegaron a <button type="button" class="timeline-detail-geolink" data-region="Cumaná" data-country="Venezuela">Cumaná</button> y recorrieron durante cinco años territorios de las actuales <button type="button" class="timeline-detail-geolink" data-country="Venezuela">Venezuela</button>, <button type="button" class="timeline-detail-geolink" data-country="Cuba">Cuba</button>, <button type="button" class="timeline-detail-geolink" data-country="Colombia">Colombia</button>, <button type="button" class="timeline-detail-geolink" data-country="Ecuador">Ecuador</button>, <button type="button" class="timeline-detail-geolink" data-country="Perú">Perú</button>, <button type="button" class="timeline-detail-geolink" data-country="México">México</button> y <button type="button" class="timeline-detail-geolink" data-country="Estados Unidos">Estados Unidos</button>. Relacionaron plantas, clima, altitud, geología, economía y sociedades mediante observación e instrumentos comparables. Su viaje muestra una paradoja ilustrada: la monarquía autorizó una investigación transcontinental que produjo conocimiento científico y, a la vez, nuevas críticas del orden colonial.',
+    butterfly: {
+      prompt: "¿Qué hizo distinto al viaje de Humboldt y Bonpland?",
+      answer:
+        "No reunieron curiosidades aisladas: midieron fenómenos con instrumentos comparables y buscaron relaciones entre clima, altura, plantas y vida humana. Esa mirada conectó lugares distantes y transformó el viaje en un laboratorio a escala continental."
     }
   },
 
