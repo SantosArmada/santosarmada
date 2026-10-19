@@ -3662,6 +3662,139 @@ const TIMELINE_ENTRIES = [
         "Sin ese primer barco, Brasil no tendría hoy la comunidad nikkei más grande fuera de Japón, ni existiría Liberdade tal como se conoce. Esa historia habría cambiado sobre todo a Brasil, no a Perú, pero la migración japonesa hacia las Américas fue un fenómeno regional: sin la ruta que el Kasato Maru abrió simbólicamente entre Japón y Latinoamérica, es más difícil imaginar la ola posterior —más pequeña, pero políticamente decisiva— que un cuarto de siglo después llevaría a los padres de Alberto Fujimori hasta Lima."
     }
   },
+
+  // ---- GUERRA CIVIL ESPAÑOLA (1936–1939) ----
+  {
+    id: "golpe-guerra-civil-1936",
+    year: 1936,
+    month: 7,
+    day: 17,
+    title: "17–18 de julio de 1936: el golpe que se convirtió en guerra",
+    author: "Sublevación militar contra la Segunda República",
+    country: "España",
+    region: "Melilla",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 17 de julio de 1936 comenzó en Melilla la sublevación militar planeada para derribar la Segunda República; el 18 se extendió desde Tetuán y Ceuta a la península. Triunfó en parte del territorio, pero fracasó en Madrid, Barcelona, Bilbao, Valencia y Málaga. Ese fracaso parcial fue decisivo: desarticuló la autoridad estatal sin entregar rápidamente el país a los rebeldes y convirtió un golpe de Estado en una guerra civil. No fue el desenlace inevitable de «dos Españas», sino una ruptura armada del orden democrático.",
+    descriptionHtml:
+      'El 17 de julio de 1936 comenzó en <button type="button" class="timeline-detail-geolink" data-region="Melilla" data-country="España">Melilla</button> la sublevación militar planeada para derribar la Segunda República; el 18 se extendió desde <button type="button" class="timeline-detail-geolink" data-region="Tetuán" data-country="Marruecos">Tetuán</button> y <button type="button" class="timeline-detail-geolink" data-region="Ceuta" data-country="España">Ceuta</button> a la península. Triunfó en parte del territorio, pero fracasó en <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>, <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button>, <button type="button" class="timeline-detail-geolink" data-region="Bilbao" data-country="España">Bilbao</button>, <button type="button" class="timeline-detail-geolink" data-region="Valencia" data-country="España">Valencia</button> y <button type="button" class="timeline-detail-geolink" data-region="Málaga" data-country="España">Málaga</button>. Ese <button type="button" class="timeline-detail-entrylink" data-id="madrid-resiste-1936">fracaso parcial</button> fue decisivo: desarticuló la autoridad estatal sin entregar rápidamente el país a los rebeldes y convirtió un golpe de Estado en una guerra civil. No fue el desenlace inevitable de «dos Españas», sino una ruptura armada del orden democrático.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si la sublevación hubiera triunfado en toda España en pocos días?",
+      answer:
+        "Probablemente habría impuesto una dictadura sin una guerra de casi tres años, pero eso no habría vuelto menos antidemocrático el golpe. Su fracaso parcial abrió frentes, pulverizó la autoridad estatal en amplias zonas y permitió que potencias extranjeras, milicias y proyectos políticos rivales decidieran el futuro del país mediante las armas."
+    }
+  },
+  {
+    id: "puente-aereo-tetuan-sevilla-1936",
+    year: 1936,
+    month: 7,
+    day: 19,
+    title: "Julio–agosto de 1936: el puente aéreo Tetuán–Sevilla",
+    author: "Ejército de África y aviaciones alemana e italiana",
+    country: "España",
+    region: "Tetuán",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "Desde el 19 de julio, aeronaves disponibles para los sublevados comenzaron a trasladar tropas del Ejército de África entre Tetuán y Sevilla. La llegada, a finales de julio y comienzos de agosto, de Junkers alemanes y Savoia italianos convirtió el movimiento inicial en un puente aéreo sostenido, capaz de sortear el bloqueo naval republicano del Estrecho. La operación llevó a la península la fuerza mejor preparada de los rebeldes y mostró, apenas iniciada la guerra, que su desenlace dependería también de Hitler, Mussolini y la intervención extranjera.",
+    descriptionHtml:
+      'Desde el 19 de julio, aeronaves disponibles para los sublevados comenzaron a trasladar tropas del Ejército de África entre <button type="button" class="timeline-detail-geolink" data-region="Tetuán" data-country="Marruecos">Tetuán</button> y <button type="button" class="timeline-detail-geolink" data-region="Sevilla" data-country="España">Sevilla</button>. La llegada, a finales de julio y comienzos de agosto, de Junkers <button type="button" class="timeline-detail-geolink" data-country="Alemania">alemanes</button> y Savoia <button type="button" class="timeline-detail-geolink" data-country="Italia">italianos</button> convirtió el movimiento inicial en un puente aéreo sostenido, capaz de sortear el bloqueo naval republicano del <button type="button" class="timeline-detail-geolink" data-region="Estrecho de Gibraltar" data-country="España">Estrecho</button>. La operación llevó a la península la fuerza mejor preparada de los rebeldes y mostró, apenas iniciada la guerra, que su desenlace dependería también de Hitler, Mussolini y la <button type="button" class="timeline-detail-entrylink" data-id="no-intervencion-londres-1936">intervención extranjera</button>.',
+    butterfly: {
+      prompt: "¿Qué habría cambiado si el Ejército de África no hubiera podido cruzar el Estrecho?",
+      answer:
+        "La sublevación habría perdido durante sus primeras semanas a su fuerza más experimentada. Eso no garantiza una victoria republicana, pero habría frenado el avance desde Andalucía, debilitado la posición de Franco y demostrado que el control naval republicano podía aislar la rebelión colonial de la península."
+    }
+  },
+  {
+    id: "no-intervencion-londres-1936",
+    year: 1936,
+    month: 9,
+    day: 9,
+    title: "9 de septiembre de 1936: la no intervención se organiza en Londres",
+    author: "Comité de No Intervención",
+    country: "Reino Unido",
+    region: "Londres",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
+    description:
+      "El 9 de septiembre de 1936 se reunió en Londres por primera vez el Comité de No Intervención. Veintisiete países prometían impedir el envío de armas y combatientes a España. Sobre el papel buscaban contener la guerra; en la práctica, la República perdió la posibilidad de comprar armamento con normalidad mientras Alemania e Italia continuaron auxiliando a Franco. La Unión Soviética terminaría enviando material y asesores, y miles de voluntarios integrarían las Brigadas Internacionales. Aquella «neutralidad» convirtió a España en ensayo y advertencia de la guerra europea.",
+    descriptionHtml:
+      'El 9 de septiembre de 1936 se reunió en <button type="button" class="timeline-detail-geolink" data-region="Londres" data-country="Reino Unido">Londres</button> por primera vez el Comité de No Intervención. Veintisiete países prometían impedir el envío de armas y combatientes a <button type="button" class="timeline-detail-geolink" data-country="España">España</button>. Sobre el papel buscaban contener la guerra; en la práctica, la República perdió la posibilidad de comprar armamento con normalidad mientras <button type="button" class="timeline-detail-geolink" data-country="Alemania">Alemania</button> e <button type="button" class="timeline-detail-geolink" data-country="Italia">Italia</button> continuaron auxiliando a Franco. La <button type="button" class="timeline-detail-geolink" data-country="Rusia">Unión Soviética</button> terminaría enviando material y asesores, y miles de voluntarios integrarían las Brigadas Internacionales. Aquella «neutralidad» convirtió a España en ensayo y advertencia de la guerra europea.',
+    butterfly: {
+      prompt: "¿Qué habría cambiado si las democracias europeas hubieran permitido a la República comprar armas?",
+      answer:
+        "La República habría afrontado la ayuda alemana e italiana a Franco con menos desventaja material y menor dependencia soviética. No puede asegurarse otro vencedor, pero la política de no intervención dejó de ser neutral cuando sus infracciones beneficiaban de forma sostenida a uno de los bandos."
+    }
+  },
+  {
+    id: "madrid-resiste-1936",
+    year: 1936,
+    month: 11,
+    day: 6,
+    title: "6 de noviembre de 1936: Madrid resiste",
+    author: "Junta de Defensa de Madrid",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 6 de noviembre de 1936, ante el avance rebelde, el Gobierno republicano dejó Madrid por Valencia y encomendó la defensa a una junta presidida por José Miaja. Milicias, fuerzas leales y Brigadas Internacionales frenaron el asalto al grito de «¡No pasarán!». Madrid resistió, pero sufrió bombardeos aéreos sistemáticos contra una gran ciudad europea. La batalla mostró que la capital no caería con rapidez y convirtió calles, refugios y viviendas en frente. Como en 1808, la defensa de Madrid volvió a adquirir valor nacional y simbólico.",
+    descriptionHtml:
+      'El 6 de noviembre de 1936, ante el avance rebelde, el Gobierno republicano dejó <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> por <button type="button" class="timeline-detail-geolink" data-region="Valencia" data-country="España">Valencia</button> y encomendó la defensa a una junta presidida por José Miaja. Milicias, fuerzas leales y Brigadas Internacionales frenaron el asalto al grito de «¡No pasarán!». Madrid resistió, pero sufrió bombardeos aéreos sistemáticos contra una gran ciudad europea. La batalla mostró que la capital no caería con rapidez y convirtió calles, refugios y viviendas en frente. <button type="button" class="timeline-detail-entrylink" data-id="guerra-independencia-cadiz-1808">Como en 1808</button>, la defensa de Madrid volvió a adquirir valor nacional y simbólico.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Madrid hubiera caído en noviembre de 1936?",
+      answer:
+        "Franco habría obtenido la capital, un triunfo simbólico y logístico enorme, antes de que la República reorganizara su ejército. La guerra quizá habría sido más corta; su resistencia, en cambio, demostró que una ciudad movilizada podía detener al Ejército de África y convirtió «¡No pasarán!» en consigna internacional."
+    }
+  },
+  {
+    id: "desbanda-malaga-almeria-1937",
+    year: 1937,
+    month: 2,
+    day: 7,
+    title: "7 de febrero de 1937: la Desbandá",
+    author: "Éxodo civil de Málaga a Almería",
+    country: "España",
+    region: "Carretera Málaga–Almería",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.ECHO,
+    types: [ICON_TYPE.ECHO, ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 7 de febrero de 1937, al aproximarse las tropas sublevadas a Málaga, una multitud de civiles huyó por la única salida abierta: la carretera costera hacia Almería. Familias enteras, con niños, ancianos y enfermos, avanzaron a pie mientras la aviación y buques franquistas atacaban la columna. La persecución, conocida como la Desbandá, convirtió una ruta de escape en espacio de guerra contra población indefensa. Las cifras de víctimas continúan discutidas; el hecho central no: quienes huían de la caída de Málaga fueron bombardeados durante su marcha.",
+    descriptionHtml:
+      'El 7 de febrero de 1937, al aproximarse las tropas sublevadas a <button type="button" class="timeline-detail-geolink" data-region="Málaga" data-country="España">Málaga</button>, una multitud de civiles huyó por la única salida abierta: la <button type="button" class="timeline-detail-geolink" data-region="Carretera Málaga–Almería" data-country="España">carretera costera hacia Almería</button>. Familias enteras, con niños, ancianos y enfermos, avanzaron a pie mientras la aviación y buques franquistas atacaban la columna. La persecución, conocida como la Desbandá, convirtió una ruta de escape en <button type="button" class="timeline-detail-entrylink" data-id="bombardeo-durango-1937">espacio de guerra contra población indefensa</button>. Las cifras de víctimas continúan discutidas; el hecho central no: quienes huían de la caída de Málaga fueron bombardeados durante su marcha.',
+    butterfly: {
+      prompt: "¿Qué habría cambiado si la población de Málaga hubiera contado con una evacuación protegida?",
+      answer:
+        "La carretera no habría quedado convertida en un corredor expuesto donde el desplazamiento civil podía ser atacado desde el aire y el mar. La Desbandá recuerda que una retirada no es solamente movimiento militar: cuando no existe protección humanitaria, huir también puede convertirse en una sentencia."
+    }
+  },
+  {
+    id: "bombardeo-durango-1937",
+    year: 1937,
+    month: 3,
+    day: 31,
+    title: "31 de marzo de 1937: Durango antes de Gernika",
+    author: "Aviación Legionaria italiana",
+    country: "España",
+    region: "Durango, Bizkaia",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.ECHO,
+    types: [ICON_TYPE.ECHO, ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 31 de marzo de 1937, la Aviación Legionaria italiana bombardeó Durango, en Bizkaia, durante la ofensiva franquista sobre el norte. Las bombas alcanzaron el centro urbano y edificios religiosos durante los oficios; el Gobierno Vasco reconoce hoy 213 muertos. Menos de un mes después, Gernika sufrió otro ataque alemán e italiano y Picasso convirtió su nombre en símbolo mundial. Vincular ambas ciudades revela una desigualdad de la memoria: Durango también fue escenario de violencia aérea contra civiles, aunque nunca recibió una imagen con el alcance universal del Guernica.",
+    descriptionHtml:
+      'El 31 de marzo de 1937, la Aviación Legionaria italiana bombardeó <button type="button" class="timeline-detail-geolink" data-region="Durango, Bizkaia" data-country="España">Durango</button>, en <button type="button" class="timeline-detail-geolink" data-region="País Vasco" data-country="España">Bizkaia</button>, durante la ofensiva franquista sobre el norte. Las bombas alcanzaron el centro urbano y edificios religiosos durante los oficios; el Gobierno Vasco reconoce hoy 213 muertos. Menos de un mes después, <button type="button" class="timeline-detail-entrylink" data-id="picasso-guernica-1937">Gernika sufrió otro ataque alemán e italiano</button> y <button type="button" class="timeline-detail-entrylink" data-id="picasso-1881">Picasso</button> convirtió su nombre en símbolo mundial. Vincular ambas ciudades revela una desigualdad de la memoria: Durango también fue escenario de violencia aérea contra civiles, aunque nunca recibió una imagen con el alcance universal del <em>Guernica</em>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido con la memoria de Durango si una obra universal hubiera llevado su nombre?",
+      answer:
+        "La destrucción de Durango quizá ocuparía hoy un lugar internacional semejante al de Gernika. Las atrocidades no ingresan por igual en la memoria pública: necesitan testigos, archivos, imágenes y obras capaces de sobrevivir a quienes prefieren el silencio."
+    }
+  },
   {
     id: "picasso-guernica-1937",
     year: 1937,
@@ -3676,13 +3809,122 @@ const TIMELINE_ENTRIES = [
     type: ICON_TYPE.CONFLICT,
     types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
     description:
-      "El 26 de abril de 1937, aviones alemanes e italianos bombardearon Gernika, ciudad vasca bajo control republicano, durante la Guerra Civil española. Las noticias de la destrucción masiva llegaron a París. Pablo Picasso, encargado por la República de crear una obra para su pabellón en la Exposición Internacional, comenzó Guernica el 1 de mayo y lo concluyó el 4 de junio. Sus cuerpos fragmentados, animales y luz violenta transformaron el ataque en símbolo universal contra la guerra. Tras décadas en Nueva York, el cuadro llegó a España en 1981; hoy ocupa el Museo Reina Sofía.",
+      "Veintiséis días después del bombardeo de Durango, aviones alemanes e italianos atacaron Gernika el 26 de abril de 1937. Las noticias de la destrucción llegaron a París. Pablo Picasso, encargado por la República de crear una obra para su pabellón en la Exposición Internacional, comenzó Guernica el 1 de mayo y lo concluyó el 4 de junio. Sus cuerpos fragmentados, animales y luz violenta transformaron el ataque en símbolo universal contra la guerra. Tras décadas en Nueva York, el cuadro llegó a España en 1981; hoy ocupa el Museo Reina Sofía.",
     descriptionHtml:
-      'El 26 de abril de 1937, aviones alemanes e italianos bombardearon <button type="button" class="timeline-detail-geolink" data-region="Guernica" data-country="España">Gernika</button>, ciudad vasca bajo control republicano, durante la Guerra Civil española. Las noticias de la destrucción masiva llegaron a <button type="button" class="timeline-detail-geolink" data-region="París" data-country="Francia">París</button>. <button type="button" class="timeline-detail-entrylink" data-id="picasso-1881">Pablo Picasso</button>, encargado por la República de crear una obra para su pabellón en la Exposición Internacional, comenzó <em>Guernica</em> el 1 de mayo y lo concluyó el 4 de junio. Sus cuerpos fragmentados, animales y luz violenta transformaron el ataque en símbolo universal contra la guerra. Tras décadas en <button type="button" class="timeline-detail-geolink" data-region="Nueva York" data-country="Estados Unidos">Nueva York</button>, el cuadro llegó a <button type="button" class="timeline-detail-geolink" data-country="España">España</button> en 1981; hoy ocupa el <button type="button" class="timeline-detail-geolink" data-region="Museo Reina Sofía" data-country="España">Museo Reina Sofía</button>.',
+      '<button type="button" class="timeline-detail-entrylink" data-id="bombardeo-durango-1937">Veintiséis días después del bombardeo de Durango</button>, aviones alemanes e italianos atacaron <button type="button" class="timeline-detail-geolink" data-region="Guernica" data-country="España">Gernika</button> el 26 de abril de 1937. Las noticias de la destrucción llegaron a <button type="button" class="timeline-detail-geolink" data-region="París" data-country="Francia">París</button>. <button type="button" class="timeline-detail-entrylink" data-id="picasso-1881">Pablo Picasso</button>, encargado por la República de crear una obra para su pabellón en la Exposición Internacional, comenzó <em>Guernica</em> el 1 de mayo y lo concluyó el 4 de junio. Sus cuerpos fragmentados, animales y luz violenta transformaron el ataque en símbolo universal contra la guerra. Tras décadas en <button type="button" class="timeline-detail-geolink" data-region="Nueva York" data-country="Estados Unidos">Nueva York</button>, el cuadro llegó a <button type="button" class="timeline-detail-geolink" data-country="España">España</button> en 1981; hoy ocupa el <button type="button" class="timeline-detail-geolink" data-region="Museo Reina Sofía" data-country="España">Museo Reina Sofía</button>.',
     butterfly: {
       prompt: "¿Qué habría cambiado si Picasso nunca hubiera pintado Guernica?",
       answer:
         "El bombardeo seguiría documentado, pero carecería de la imagen que convirtió una ciudad vasca en lenguaje mundial contra la violencia sobre civiles. El cuadro no reemplaza la historia: le dio una forma capaz de atravesar fronteras, guerras y generaciones."
+    }
+  },
+  {
+    id: "dias-mayo-barcelona-1937",
+    year: 1937,
+    month: 5,
+    day: 3,
+    title: "3–7 de mayo de 1937: Barcelona lucha por la Telefónica",
+    author: "Los Días de Mayo",
+    country: "España",
+    region: "Telefónica, Plaça de Catalunya",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "Entre el 3 y el 7 de mayo de 1937, el intento gubernamental de controlar la Telefónica de Barcelona desató combates entre fuerzas de la Generalitat y grupos comunistas, por un lado, y militantes de la CNT y el POUM, por otro. Las barricadas revelaron que la zona republicana discutía también qué revolución y qué Estado defendía. La derrota anarquista debilitó a la CNT; el POUM fue ilegalizado en junio y Largo Caballero perdió el gobierno. George Orwell presenció la crisis y después la narró en Homenaje a Cataluña.",
+    descriptionHtml:
+      'Entre el 3 y el 7 de mayo de 1937, el intento gubernamental de controlar la <button type="button" class="timeline-detail-geolink" data-region="Telefónica, Plaça de Catalunya" data-country="España">Telefónica de Barcelona</button> desató combates entre fuerzas de la Generalitat y grupos comunistas, por un lado, y militantes de la CNT y el POUM, por otro. Las barricadas revelaron que la zona republicana discutía también qué revolución y qué Estado defendía. La derrota anarquista debilitó a la CNT; el POUM fue ilegalizado en junio y Largo Caballero perdió el gobierno. George Orwell presenció la crisis y después la narró en <em>Homenaje a Cataluña</em>.',
+    butterfly: {
+      prompt: "¿Qué habría cambiado si las fuerzas republicanas hubieran evitado los Días de Mayo?",
+      answer:
+        "La República habría conservado más cohesión política y energía militar en un momento crítico, aunque no habrían desaparecido sus desacuerdos sobre revolución, propiedad y autoridad estatal. Barcelona mostró que compartir enemigo no equivale a compartir proyecto de país."
+    }
+  },
+  {
+    id: "ninos-morelia-1937",
+    year: 1937,
+    month: 6,
+    day: 7,
+    title: "7 de junio de 1937: los Niños de Morelia llegan a México",
+    author: "Exilio infantil republicano",
+    country: "México",
+    region: "Puerto de Veracruz",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ECHO],
+    description:
+      "El 7 de junio de 1937, el vapor Mexique llegó al puerto de Veracruz con unos 456 niños españoles enviados por el Gobierno republicano para protegerlos de la guerra. Habían partido de Burdeos y fueron alojados en la Escuela Industrial España-México de Morelia; por eso se les conoce como los Niños de Morelia. La estancia debía ser temporal, pero la victoria franquista y la Segunda Guerra Mundial impidieron numerosos regresos. Su historia enlaza evacuación infantil, exilio y solidaridad transatlántica, y convierte a México en parte directa de la memoria de la Guerra Civil española.",
+    descriptionHtml:
+      'El 7 de junio de 1937, el vapor <em>Mexique</em> llegó al <button type="button" class="timeline-detail-geolink" data-region="Puerto de Veracruz" data-country="México">puerto de Veracruz</button> con unos 456 niños <button type="button" class="timeline-detail-geolink" data-country="España">españoles</button> enviados por el Gobierno republicano para protegerlos de la guerra. Habían partido de <button type="button" class="timeline-detail-geolink" data-region="Burdeos" data-country="Francia">Burdeos</button> y fueron alojados en la Escuela Industrial España-México de <button type="button" class="timeline-detail-geolink" data-region="Morelia" data-country="México">Morelia</button>; por eso se les conoce como los Niños de Morelia. La estancia debía ser temporal, pero la victoria franquista y la Segunda Guerra Mundial impidieron numerosos regresos. Su historia enlaza evacuación infantil, <button type="button" class="timeline-detail-entrylink" data-id="retirada-exilio-1939">exilio</button> y solidaridad transatlántica, y convierte a <button type="button" class="timeline-detail-geolink" data-country="México">México</button> en parte directa de la memoria de la Guerra Civil española.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si México no hubiera acogido a estos niños?",
+      answer:
+        "Habrían permanecido expuestos a bombardeos, escasez y desplazamientos dentro de una España en guerra. La acogida no eliminó el trauma ni cumplió para todos la promesa de regreso, pero abrió una de las primeras rutas del exilio republicano que después transformaría la cultura mexicana."
+    }
+  },
+  {
+    id: "batalla-ebro-1938",
+    year: 1938,
+    month: 7,
+    day: 25,
+    title: "25 de julio–16 de noviembre de 1938: la batalla del Ebro",
+    author: "Ejército del Ebro",
+    country: "España",
+    region: "Río Ebro, Terra Alta",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 25 de julio de 1938, el Ejército republicano cruzó el Ebro e inició su última gran ofensiva. Durante 115 días, el frente de Terra Alta y Gandesa consumió hombres y material que la República ya no podía reemplazar. Entre los combatientes estuvieron jóvenes de la llamada Quinta del Biberón, movilizados con apenas diecisiete o dieciocho años. La retirada terminó el 16 de noviembre. La derrota dejó abierto el camino hacia Cataluña y convirtió el Ebro en el preludio militar de la Retirada y del exilio republicano.",
+    descriptionHtml:
+      'El 25 de julio de 1938, el Ejército republicano cruzó el <button type="button" class="timeline-detail-geolink" data-region="Río Ebro, Terra Alta" data-country="España">Ebro</button> e inició su última gran ofensiva. Durante 115 días, el frente de <button type="button" class="timeline-detail-geolink" data-region="Terra Alta" data-country="España">Terra Alta</button> y <button type="button" class="timeline-detail-geolink" data-region="Gandesa" data-country="España">Gandesa</button> consumió hombres y material que la República ya no podía reemplazar. Entre los combatientes estuvieron jóvenes de la llamada Quinta del Biberón, movilizados con apenas diecisiete o dieciocho años. La retirada terminó el 16 de noviembre. La derrota dejó abierto el camino hacia <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">Cataluña</button> y convirtió el Ebro en el preludio militar de la <button type="button" class="timeline-detail-entrylink" data-id="retirada-exilio-1939">Retirada y del exilio republicano</button>.',
+    butterfly: {
+      prompt: "¿Qué habría cambiado si la ofensiva del Ebro hubiera roto el frente franquista?",
+      answer:
+        "La República habría ganado tiempo, protegido temporalmente Valencia y reforzado su argumento de que todavía podía resistir al fascismo europeo. Pero incluso una victoria local habría debido superar la superioridad material franquista y el abandono diplomático que la no intervención había profundizado."
+    }
+  },
+  {
+    id: "retirada-exilio-1939",
+    year: 1939,
+    month: 1,
+    day: 26,
+    title: "Enero–febrero de 1939: la Retirada",
+    author: "Exilio republicano",
+    country: "España",
+    region: "La Jonquera",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.ECHO,
+    types: [ICON_TYPE.ECHO, ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 26 de enero de 1939 cayó Barcelona. Durante las semanas siguientes, cientos de miles de civiles y combatientes republicanos cruzaron los Pirineos por pasos como La Jonquera hacia Francia. Muchos fueron internados en campos improvisados, entre ellos Argelès-sur-Mer, expuestos al frío, hambre y enfermedad. La Retirada no fue solo una derrota militar: dispersó maestros, artistas, trabajadores y familias por Europa y las Américas. Su exilio enlaza directamente con trayectorias como la de Remedios Varo y con la diáspora intelectual que transformó la cultura de México.",
+    descriptionHtml:
+      'El 26 de enero de 1939 cayó <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button>. Durante las semanas siguientes, cientos de miles de civiles y combatientes republicanos cruzaron los <button type="button" class="timeline-detail-geolink" data-region="Pirineos" data-country="España">Pirineos</button> por pasos como <button type="button" class="timeline-detail-geolink" data-region="La Jonquera" data-country="España">La Jonquera</button> hacia <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>. Muchos fueron internados en campos improvisados, entre ellos <button type="button" class="timeline-detail-geolink" data-region="Argelès-sur-Mer" data-country="Francia">Argelès-sur-Mer</button>, expuestos al frío, hambre y enfermedad. La Retirada no fue solo una derrota militar: dispersó maestros, artistas, trabajadores y familias por <button type="button" class="timeline-detail-geolink" data-region="Europa" data-country="España">Europa</button> y las <button type="button" class="timeline-detail-geolink" data-region="América española" data-country="México">Américas</button>. Su exilio enlaza directamente con trayectorias como la de <button type="button" class="timeline-detail-entrylink" data-id="remedios-varo-1908">Remedios Varo</button> y con la diáspora intelectual que transformó la cultura de <button type="button" class="timeline-detail-geolink" data-country="México">México</button>.',
+    butterfly: {
+      prompt: "¿Qué habría perdido México sin el exilio republicano español?",
+      answer:
+        "Habría recibido menos científicos, docentes, artistas, editores y escritores que renovaron universidades, revistas y museos. La Retirada fue una catástrofe para quienes perdieron su país, pero también demuestra que el conocimiento desplazado no desaparece: echa raíces y transforma el lugar que ofrece refugio."
+    }
+  },
+  {
+    id: "fin-guerra-inicio-dictadura-1939",
+    year: 1939,
+    month: 4,
+    day: 1,
+    title: "1 de abril de 1939: termina la guerra, no la violencia",
+    author: "Victoria franquista e inicio de la dictadura",
+    country: "España",
+    region: "Burgos",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.ECHO,
+    types: [ICON_TYPE.ECHO, ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 1 de abril de 1939, Franco firmó en Burgos el último parte de guerra y declaró vencida a la República. Terminaban los frentes, no la violencia: consejos de guerra, ejecuciones, cárceles, depuraciones, trabajo forzado, expropiaciones y exilio consolidaron una dictadura que duraría hasta 1975. La victoria impuso además una memoria oficial de cruzada y unidad nacional. Esa memoria condicionó después la propaganda histórica de Agustina de Aragón y las políticas culturales surgidas durante el régimen, entre ellas la creación del Museo Sefardí.",
+    descriptionHtml:
+      'El 1 de abril de 1939, Franco firmó en <button type="button" class="timeline-detail-geolink" data-region="Burgos" data-country="España">Burgos</button> el último parte de guerra y declaró vencida a la República. Terminaban los frentes, no la violencia: consejos de guerra, ejecuciones, cárceles, depuraciones, trabajo forzado, expropiaciones y exilio consolidaron una dictadura que duraría hasta 1975. La victoria impuso además una memoria oficial de cruzada y unidad nacional. Esa memoria condicionó después la propaganda histórica de <button type="button" class="timeline-detail-entrylink" data-id="agustina-aragon-pelicula-1950"><em>Agustina de Aragón</em></button> y las políticas culturales surgidas durante el régimen, entre ellas la <button type="button" class="timeline-detail-entrylink" data-id="museo-sefardi-toledo-1964">creación del Museo Sefardí</button>.',
+    butterfly: {
+      prompt: "¿Qué cambia cuando el final militar de una guerra se confunde con la llegada de la paz?",
+      answer:
+        "Se vuelve invisible la violencia que continúa en tribunales, prisiones, depuraciones, exilios y silencios familiares. El parte del 1 de abril cerró los frentes, pero inauguró un orden que organizó durante décadas quién podía hablar, enseñar, publicar, recordar y pertenecer."
     }
   },
 
@@ -4425,8 +4667,11 @@ const TIMELINE_ENTRIES = [
     author: "David Alfaro Siqueiros",
     country: "México",
     type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
     description:
       "El más políticamente militante de 'los tres grandes', combatiente en la Guerra Civil española y muralista de técnica experimental —piroxilina, proyección fotográfica, perspectivas forzadas— que buscaba un arte tan revolucionario en su forma como en su contenido.",
+    descriptionHtml:
+      'El más políticamente militante de \'los tres grandes\', combatiente en la <button type="button" class="timeline-detail-entrylink" data-id="golpe-guerra-civil-1936">Guerra Civil española</button> y muralista de técnica experimental —piroxilina, proyección fotográfica, perspectivas forzadas— que buscaba un arte tan revolucionario en su forma como en su contenido.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si David Alfaro Siqueiros nunca hubiera combatido en la Guerra Civil española?",
       answer:
@@ -4461,7 +4706,7 @@ const TIMELINE_ENTRIES = [
     description:
       "Pintora nacida en Cataluña que, tras huir de la Guerra Civil española y la ocupación de Francia, se exilia en México en 1941 y se convierte en una de las figuras centrales del surrealismo mexicano, con un universo propio de alquimistas, viajeras y máquinas imposibles.",
     descriptionHtml:
-      'Pintora nacida en <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">Cataluña</button> que, tras huir de la Guerra Civil española y la ocupación de Francia, se exilia en México en 1941 y se convierte en una de las figuras centrales del surrealismo mexicano, con un universo propio de alquimistas, viajeras y máquinas imposibles.',
+      'Pintora nacida en <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">Cataluña</button> que, tras huir de la <button type="button" class="timeline-detail-entrylink" data-id="retirada-exilio-1939">Guerra Civil española</button> y la ocupación de <button type="button" class="timeline-detail-geolink" data-country="Francia">Francia</button>, se exilia en <button type="button" class="timeline-detail-geolink" data-country="México">México</button> en 1941 y se convierte en una de las figuras centrales del surrealismo mexicano, con un universo propio de alquimistas, viajeras y máquinas imposibles.',
     butterfly: {
       prompt: "¿Qué hubiera pasado si Remedios Varo nunca hubiera huido de la Guerra Civil española ni de la ocupación de Francia?",
       answer:
