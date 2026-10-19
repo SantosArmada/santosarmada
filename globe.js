@@ -696,8 +696,15 @@ world
     .pointLabel((d) => (d.kind === 'island' ? d.label : ''))
     .onPointClick(showSmallIslandPanel);
 
-world.controls().autoRotate = true;
-world.controls().autoRotateSpeed = 0.4;
+// Keep the camera at the site's chosen distance. Disabling OrbitControls'
+// zoom path covers mouse wheels, trackpads, middle-button drags and touch
+// pinches while leaving horizontal and vertical globe rotation intact. The
+// controls return before cancelling a wheel event when zoom is disabled, so
+// scrolling over the globe now moves the page naturally toward the timeline.
+const globeControls = world.controls();
+globeControls.enableZoom = false;
+globeControls.autoRotate = true;
+globeControls.autoRotateSpeed = 0.4;
 
 /* ---------------------------------------------------------
    Timeline -> Globe hook
@@ -1336,26 +1343,6 @@ window.addEventListener('resize', scheduleGlobeResize, { passive: true });
 if ('ResizeObserver' in window) {
     new ResizeObserver(scheduleGlobeResize).observe(globeContainerEl);
 }
-
-const ZOOM_ZONE_WIDTH_FRACTION = 0.5;
-
-function isInZoomZone(clientX) {
-    const zoneHalfWidth = (window.innerWidth * ZOOM_ZONE_WIDTH_FRACTION) / 2;
-    const center = window.innerWidth / 2;
-    return clientX >= center - zoneHalfWidth && clientX <= center + zoneHalfWidth;
-}
-
-const globeEl = document.getElementById('globeViz');
-
-globeEl.addEventListener(
-    'wheel',
-    (e) => {
-        if (!isInZoomZone(e.clientX)) {
-            e.stopImmediatePropagation();
-        }
-    },
-    { capture: true, passive: true }
-);
 
 /* Suspend the WebGL render loop whenever the globe is offscreen or the
    document is hidden. This removes the largest source of background CPU/GPU
