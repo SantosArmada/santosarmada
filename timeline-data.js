@@ -2305,6 +2305,29 @@ const TIMELINE_ENTRIES = [
   },
 
   {
+    id: "josefa-amar-borbon-1749",
+    year: 1749,
+    month: 2,
+    day: 4,
+    title: "4 de febrero de 1749: nace Josefa Amar y Borbón",
+    author: "Josefa Amar y Borbón",
+    country: "España",
+    region: "Zaragoza",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.VISION, ICON_TYPE.HISTORY],
+    description:
+      "Josefa Amar y Borbón nació en Zaragoza el 4 de febrero de 1749, en una familia de médicos vinculada a la corte. Dominó latín, griego, francés, inglés e italiano, formación excepcional que la convirtió en traductora y ensayista. En 1782 fue la primera mujer admitida en la Real Sociedad Económica Aragonesa. Su Discurso en defensa del talento de las mujeres (1786) afirmó la capacidad intelectual femenina y su aptitud para gobernar; en 1790 defendió la educación femenina. Amar prolongó la crítica de Feijoo y escribió durante el reinado de Carlos III entre Zaragoza y Madrid.",
+    descriptionHtml:
+      'Josefa Amar y Borbón nació en <button type="button" class="timeline-detail-geolink" data-region="Zaragoza" data-country="España">Zaragoza</button> el 4 de febrero de 1749, en una familia de médicos vinculada a la corte. Dominó latín, griego, francés, inglés e italiano, formación excepcional que la convirtió en traductora y ensayista. En 1782 fue la primera mujer admitida en la <button type="button" class="timeline-detail-entrylink" data-id="sociedades-economicas-amigos-pais-1764">Real Sociedad Económica Aragonesa</button>. Su <em>Discurso en defensa del talento de las mujeres</em> (1786) afirmó la capacidad intelectual femenina y su aptitud para gobernar; en 1790 defendió la educación femenina. Amar prolongó la crítica de <button type="button" class="timeline-detail-entrylink" data-id="feijoo-teatro-critico-1726">Feijoo</button> y escribió durante el reinado de <button type="button" class="timeline-detail-entrylink" data-id="carlos-iii-llega-madrid-1759">Carlos III</button> entre Zaragoza y <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>.',
+    butterfly: {
+      prompt: "¿Qué habría ocurrido si Josefa Amar hubiera recibido la educación reservada a la mayoría de las mujeres de su tiempo?",
+      answer:
+        "Sin acceso excepcional a lenguas, libros y maestros, quizá no habría podido intervenir en los debates ilustrados con la autoridad que le dieron sus traducciones y ensayos. Su caso demostró precisamente que la supuesta inferioridad intelectual femenina era producida por negar oportunidades de formación."
+    }
+  },
+
+  {
     id: "catastro-ensenada-1749",
     year: 1749,
     month: 10,
