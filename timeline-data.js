@@ -2998,6 +2998,29 @@ const TIMELINE_ENTRIES = [
   },
 
   {
+    id: "torrijos-fusilamiento-malaga-1831",
+    year: 1831,
+    month: 12,
+    day: 11,
+    title: "11 de diciembre de 1831: Torrijos, del fusilamiento a la memoria pública",
+    author: "José María Torrijos y Antonio Gisbert",
+    country: "España",
+    region: "Playa de San Andrés, Málaga",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY],
+    description:
+      "El 11 de diciembre de 1831, José María Torrijos y 48 compañeros fueron fusilados sin juicio en la playa de San Andrés, Málaga, tras caer en una trampa organizada por el gobierno absolutista de Fernando VII. Torrijos, antiguo ministro del Trienio Liberal, había regresado del exilio para promover un levantamiento constitucional. En 1888, Antonio Gisbert convirtió la ejecución en memoria pública: su lienzo, encargado por el gobierno de Sagasta para el Museo del Prado, presenta a los condenados como mártires civiles y denuncia el poder sin garantías.",
+    descriptionHtml:
+      'El 11 de diciembre de 1831, José María Torrijos y 48 compañeros fueron fusilados sin juicio en la <button type="button" class="timeline-detail-geolink" data-region="Playa de San Andrés, Málaga" data-country="España">playa de San Andrés, Málaga</button>, tras caer en una trampa organizada por el gobierno absolutista de <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">Fernando VII</button>. Torrijos, antiguo ministro del Trienio Liberal, había regresado del exilio para promover un levantamiento constitucional. En 1888, Antonio Gisbert convirtió la ejecución en memoria pública: su lienzo, encargado por el gobierno de Sagasta para el <button type="button" class="timeline-detail-geolink" data-region="Museo del Prado" data-country="España">Museo del Prado</button>, presenta a los condenados como mártires civiles y denuncia el poder sin garantías.',
+    butterfly: {
+      prompt: "¿Qué cambia cuando un Estado convierte una ejecución política en pintura nacional?",
+      answer:
+        "El encargo de 1886 no reparó las muertes, pero volvió visible la violencia absolutista dentro del museo nacional. Gisbert transformó a quienes habían sido ejecutados como traidores en antepasados del constitucionalismo, mostrando que la memoria pública también disputa quién merece ser llamado héroe."
+    }
+  },
+
+  {
     id: "muerte-fernando-vii-carlismo-1833",
     year: 1833,
     month: 9,
@@ -3012,11 +3035,57 @@ const TIMELINE_ENTRIES = [
     description:
       "Fernando VII murió en La Granja de San Ildefonso el 29 de septiembre de 1833 sin hijo varón. Isabel II, de tres años, heredó la Corona bajo la regencia de su madre, María Cristina de Borbón. Carlos María Isidro, hermano del rey, rechazó la sucesión femenina; sus partidarios lo proclamaron Carlos V. La disputa abrió la Primera Guerra Carlista: defensores de la monarquía tradicional y los fueros combatieron a los isabelinos, cuyo gobierno buscó apoyo liberal. La regencia aceleró reformas, desamortización y constitucionalismo, mientras la guerra arraigaba especialmente en Navarra, País Vasco, Cataluña y Maestrazgo.",
     descriptionHtml:
-      '<button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">Fernando VII</button> murió en <button type="button" class="timeline-detail-geolink" data-region="La Granja de San Ildefonso" data-country="España">La Granja de San Ildefonso</button> el 29 de septiembre de 1833 sin hijo varón. <button type="button" class="timeline-detail-entrylink" data-id="isabel-ii-gobierno-personal-1843">Isabel II</button>, de tres años, heredó la Corona bajo la regencia de su madre, María Cristina de Borbón. Carlos María Isidro, hermano del rey, rechazó la sucesión femenina; sus partidarios lo proclamaron Carlos V. La disputa abrió la Primera Guerra Carlista: defensores de la monarquía tradicional y los fueros combatieron a los isabelinos, cuyo gobierno buscó <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">apoyo liberal</button>. La regencia aceleró reformas, desamortización y constitucionalismo, mientras la guerra arraigaba especialmente en <button type="button" class="timeline-detail-geolink" data-region="Navarra" data-country="España">Navarra</button>, <button type="button" class="timeline-detail-geolink" data-region="País Vasco" data-country="España">País Vasco</button>, <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">Cataluña</button> y <button type="button" class="timeline-detail-geolink" data-region="Maestrazgo" data-country="España">Maestrazgo</button>.',
+      '<button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">Fernando VII</button> murió en <button type="button" class="timeline-detail-geolink" data-region="La Granja de San Ildefonso" data-country="España">La Granja de San Ildefonso</button> el 29 de septiembre de 1833 sin hijo varón. <button type="button" class="timeline-detail-entrylink" data-id="isabel-ii-gobierno-personal-1843">Isabel II</button>, de tres años, heredó la Corona bajo la regencia de su madre, María Cristina de Borbón. Carlos María Isidro, hermano del rey, rechazó la sucesión femenina; sus partidarios lo proclamaron Carlos V. La disputa abrió la Primera Guerra Carlista: defensores de la monarquía tradicional y los fueros combatieron a los isabelinos, cuyo gobierno buscó <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">apoyo liberal</button>. La regencia aceleró reformas, <button type="button" class="timeline-detail-entrylink" data-id="mendizabal-desamortizacion-1836">desamortización</button> y constitucionalismo, mientras la guerra arraigaba especialmente en <button type="button" class="timeline-detail-geolink" data-region="Navarra" data-country="España">Navarra</button>, <button type="button" class="timeline-detail-geolink" data-region="País Vasco" data-country="España">País Vasco</button>, <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">Cataluña</button> y <button type="button" class="timeline-detail-geolink" data-region="Maestrazgo" data-country="España">Maestrazgo</button>.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si Fernando VII hubiera dejado un heredero varón?",
       answer:
         "Carlos María Isidro habría perdido su principal argumento dinástico y la Primera Guerra Carlista quizá no habría estallado en 1833. Sin embargo, la lucha entre absolutismo, fueros y liberalismo ya existía; probablemente habría reaparecido mediante otro conflicto político o militar."
+    }
+  },
+
+  {
+    id: "mendizabal-desamortizacion-1836",
+    year: 1836,
+    month: 2,
+    day: 19,
+    title: "19 de febrero de 1836: Mendizábal pone en venta los bienes eclesiásticos",
+    author: "Juan Álvarez Mendizábal",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.ECCLESIASTICAL],
+    glyph: GLYPH.ECCLESIASTICAL,
+    description:
+      "El Real Decreto de 19 de febrero de 1836 ordenó vender en subasta bienes nacionalizados, sobre todo propiedades del clero regular suprimido. Juan Álvarez Mendizábal buscaba reducir la deuda, financiar al Estado durante la Primera Guerra Carlista y crear propietarios vinculados al régimen liberal. La medida debilitó el poder económico de las órdenes y transformó conventos, tierras y obras de arte; no repartió tierra ampliamente entre campesinos, pues el sistema de subastas favoreció a compradores con capital. Fue una ruptura duradera entre revolución liberal, propiedad e Iglesia.",
+    descriptionHtml:
+      'El Real Decreto de 19 de febrero de 1836 ordenó vender en subasta bienes nacionalizados, sobre todo propiedades del clero regular suprimido. Juan Álvarez Mendizábal buscaba reducir la deuda, financiar al Estado durante la <button type="button" class="timeline-detail-entrylink" data-id="muerte-fernando-vii-carlismo-1833">Primera Guerra Carlista</button> y crear propietarios vinculados al régimen liberal. La medida debilitó el poder económico de las órdenes y transformó conventos, tierras y obras de arte; no repartió tierra ampliamente entre campesinos, pues el sistema de subastas favoreció a compradores con capital. Fue una ruptura duradera entre revolución liberal, propiedad e Iglesia.',
+    butterfly: {
+      prompt: "¿Qué habría cambiado si las subastas hubieran facilitado la compra campesina?",
+      answer:
+        "Una venta dividida y financiada para pequeños cultivadores podría haber ampliado la propiedad rural y la base social del liberalismo. El procedimiento real alivió deuda y desplazó bienes de la Iglesia, pero la capacidad de pagar concentró muchas adquisiciones entre grupos con capital."
+    }
+  },
+
+  {
+    id: "ferrocarriles-habana-mataro-1837",
+    year: 1837,
+    month: 11,
+    day: 19,
+    title: "19 de noviembre de 1837: el ferrocarril llega primero a la Cuba colonial",
+    author: "La Habana–Güines y Barcelona–Mataró",
+    country: "Cuba",
+    region: "La Habana",
+    type: ICON_TYPE.VISION,
+    types: [ICON_TYPE.VISION, ICON_TYPE.HISTORY],
+    description:
+      "El 19 de noviembre de 1837 abrió el tramo La Habana–Bejucal del ferrocarril proyectado hasta Güines, corazón azucarero de la Cuba colonial; llegó a Güines al año siguiente. Fue el primer ferrocarril bajo soberanía española, construido para mover pasajeros y exportaciones —incluido azúcar de una economía esclavista— hacia el puerto habanero. La península esperó hasta el 28 de octubre de 1848, cuando Barcelona y Mataró quedaron unidas por tren. La comparación revela una modernización transatlántica: tecnología avanzada dentro de un imperio sostenido por desigualdad colonial.",
+    descriptionHtml:
+      'El 19 de noviembre de 1837 abrió el tramo <button type="button" class="timeline-detail-geolink" data-region="La Habana" data-country="Cuba">La Habana</button>–<button type="button" class="timeline-detail-geolink" data-region="Bejucal" data-country="Cuba">Bejucal</button> del ferrocarril proyectado hasta <button type="button" class="timeline-detail-geolink" data-region="Güines" data-country="Cuba">Güines</button>, corazón azucarero de la Cuba colonial; llegó a Güines al año siguiente. Fue el primer ferrocarril bajo soberanía española, construido para mover pasajeros y exportaciones —incluido azúcar de una <button type="button" class="timeline-detail-entrylink" data-id="cuba-abolicion-esclavitud-1886">economía esclavista</button>— hacia el <button type="button" class="timeline-detail-geolink" data-region="Puerto de La Habana" data-country="Cuba">puerto habanero</button>. La <button type="button" class="timeline-detail-geolink" data-country="España">península</button> esperó hasta el 28 de octubre de 1848, cuando <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button> y <button type="button" class="timeline-detail-geolink" data-region="Mataró" data-country="España">Mataró</button> quedaron unidas por tren. La comparación revela una modernización transatlántica: tecnología avanzada dentro de un imperio sostenido por desigualdad colonial.',
+    butterfly: {
+      prompt: "¿Por qué llegó el primer ferrocarril español a Cuba antes que a la península?",
+      answer:
+        "La economía azucarera cubana necesitaba llevar grandes cargas desde el interior hasta La Habana y podía concentrar capital colonial en esa ruta. La innovación técnica no avanzó siguiendo una simple línea metrópoli-colonia: surgió donde comercio, crédito y extracción prometían mayores rendimientos."
     }
   },
 
@@ -3038,11 +3107,34 @@ const TIMELINE_ENTRIES = [
     description:
       "Las Cortes declararon mayor de edad a Isabel II cuando tenía trece años, adelantando su mayoría para terminar la regencia de Espartero. El 10 de noviembre de 1843 juró la Constitución de 1837 en el Palacio del Senado de Madrid y comenzó su gobierno personal. Su reinado consolidó una monarquía liberal, pero restringida: moderados y progresistas se alternaron mediante pronunciamientos y elecciones manipuladas. La Constitución de 1845 reforzó la Corona y el centralismo; reformas administrativas, ferrocarriles y crecimiento urbano modernizaron España, mientras corrupción, desigualdad y exclusión política alimentaron una oposición que acabaría expulsándola en 1868.",
     descriptionHtml:
-      'Las Cortes declararon mayor de edad a <button type="button" class="timeline-detail-entrylink" data-id="muerte-fernando-vii-carlismo-1833">Isabel II</button> cuando tenía trece años, adelantando su mayoría para terminar la regencia de Espartero. El 10 de noviembre de 1843 juró la Constitución de 1837 en el <button type="button" class="timeline-detail-geolink" data-region="Palacio del Senado" data-country="España">Palacio del Senado</button> de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> y comenzó su gobierno personal. Su reinado consolidó una monarquía liberal, pero restringida: moderados y progresistas se alternaron mediante <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">pronunciamientos</button> y elecciones manipuladas. La Constitución de 1845 reforzó la Corona y el centralismo; reformas administrativas, ferrocarriles y crecimiento urbano modernizaron <button type="button" class="timeline-detail-geolink" data-country="España">España</button>, mientras corrupción, desigualdad y exclusión política alimentaron una oposición que acabaría <button type="button" class="timeline-detail-entrylink" data-id="revolucion-gloriosa-1868">expulsándola en 1868</button>.',
+      'Las Cortes declararon mayor de edad a <button type="button" class="timeline-detail-entrylink" data-id="muerte-fernando-vii-carlismo-1833">Isabel II</button> cuando tenía trece años, adelantando su mayoría para terminar la regencia de Espartero. El 10 de noviembre de 1843 juró la Constitución de 1837 en el <button type="button" class="timeline-detail-geolink" data-region="Palacio del Senado" data-country="España">Palacio del Senado</button> de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> y comenzó su gobierno personal. Su reinado consolidó una monarquía liberal, pero restringida: moderados y progresistas se alternaron mediante <button type="button" class="timeline-detail-entrylink" data-id="riego-trienio-liberal-1820">pronunciamientos</button> y elecciones manipuladas. La Constitución de 1845 reforzó la Corona y el centralismo; reformas administrativas, <button type="button" class="timeline-detail-entrylink" data-id="ferrocarriles-habana-mataro-1837">ferrocarriles</button> y crecimiento urbano modernizaron <button type="button" class="timeline-detail-geolink" data-country="España">España</button>, mientras corrupción, desigualdad y exclusión política alimentaron una oposición que acabaría <button type="button" class="timeline-detail-entrylink" data-id="revolucion-gloriosa-1868">expulsándola en 1868</button>.',
     butterfly: {
       prompt: "¿Qué habría ocurrido si Isabel II hubiera permanecido bajo una regencia hasta la edad constitucional?",
       answer:
         "El poder habría seguido disputándose alrededor del regente y las facciones militares durante varios años más. Declararla adulta a los trece resolvió la regencia sobre el papel, pero trasladó esa inestabilidad directamente a una reina adolescente sin experiencia propia de gobierno."
+    }
+  },
+
+  {
+    id: "rosalia-cantares-gallegos-1863",
+    year: 1863,
+    month: 5,
+    day: 17,
+    title: "17 de mayo de 1863: Rosalía devuelve el gallego a la literatura moderna",
+    author: "Rosalía de Castro",
+    country: "España",
+    region: "Vigo",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY],
+    description:
+      "El 17 de mayo de 1863 salió de la imprenta de Juan Compañel, en Vigo, Cantares gallegos de Rosalía de Castro. Al escribir poesía culta en una lengua marginada de la vida oficial, Rosalía convirtió voces, paisajes, emigración y agravios de Galicia en literatura moderna. La obra se volvió piedra fundacional del Rexurdimento, la recuperación cultural del gallego tras siglos de exclusión escrita. En 1963, la Real Academia Galega eligió su fecha de publicación para inaugurar el Día das Letras Galegas. Romanticismo, lengua e identidad regional quedaron unidos.",
+    descriptionHtml:
+      'El 17 de mayo de 1863 salió de la imprenta de Juan Compañel, en <button type="button" class="timeline-detail-geolink" data-region="Vigo" data-country="España">Vigo</button>, <em>Cantares gallegos</em> de Rosalía de Castro. Al escribir poesía culta en una lengua marginada de la vida oficial, Rosalía convirtió voces, paisajes, emigración y agravios de <button type="button" class="timeline-detail-geolink" data-region="Galicia" data-country="España">Galicia</button> en literatura moderna. La obra se volvió piedra fundacional del Rexurdimento, la recuperación cultural del gallego tras siglos de exclusión escrita. En 1963, la Real Academia Galega eligió su fecha de publicación para inaugurar el Día das Letras Galegas. <button type="button" class="timeline-detail-entrylink" data-id="rayo-de-luna-becquer-1862">Romanticismo</button>, lengua e identidad regional quedaron unidos.',
+    butterfly: {
+      prompt: "¿Qué habría perdido Galicia sin Cantares gallegos?",
+      answer:
+        "La lengua habría conservado su vida oral, pero el Rexurdimento habría carecido de su obra fundacional más influyente. Rosalía demostró que el gallego podía sostener literatura moderna, crítica social y una comunidad cultural que ya no aceptaba ser descrita solo desde fuera."
     }
   },
 
@@ -3066,6 +3158,31 @@ const TIMELINE_ENTRIES = [
       prompt: "¿Qué habría ocurrido si las fuerzas de Isabel II hubieran vencido en Alcolea?",
       answer:
         "La reina habría conservado el trono temporalmente, pero la coalición contra su régimen y la crisis de legitimidad seguirían abiertas. La Constitución democrática de 1869, el sufragio universal masculino y la búsqueda de una nueva monarquía habrían quedado aplazados o adoptado otra vía."
+    }
+  },
+
+  {
+    id: "congreso-obrero-barcelona-1870",
+    year: 1870,
+    month: 6,
+    day: 18,
+    // Real date; nudged slightly to remain distinct from Amadeo's track point.
+    trackYear: 1869.2,
+    title: "18 de junio de 1870: el movimiento obrero se organiza en Barcelona",
+    author: "Primer Congreso Obrero Español",
+    country: "España",
+    region: "Barcelona",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.HISTORY,
+    types: [ICON_TYPE.HISTORY, ICON_TYPE.CONFLICT],
+    description:
+      "Entre el 18 y el 25 de junio de 1870, 89 delegados de sociedades obreras se reunieron en el Teatro del Circo de Barcelona. El primer Congreso Obrero Español debatió huelga, cooperación, organización sindical y relación con la política; de allí surgió la Federación Regional Española de la Asociación Internacional de Trabajadores. Su estructura federó oficios y localidades, y la corriente bakuninista ganó influencia. El congreso conectó la industrialización catalana con una red internacional de trabajadores y convirtió la apertura posterior a la Gloriosa de 1868 en organización social desde abajo.",
+    descriptionHtml:
+      'Entre el 18 y el 25 de junio de 1870, 89 delegados de sociedades obreras se reunieron en el <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Teatro del Circo de Barcelona</button>. El primer Congreso Obrero Español debatió huelga, cooperación, organización sindical y relación con la política; de allí surgió la Federación Regional Española de la Asociación Internacional de Trabajadores. Su estructura federó oficios y localidades, y la corriente bakuninista ganó influencia. El congreso conectó la industrialización <button type="button" class="timeline-detail-geolink" data-region="Cataluña" data-country="España">catalana</button> con una red internacional de trabajadores y convirtió la apertura posterior a la <button type="button" class="timeline-detail-entrylink" data-id="revolucion-gloriosa-1868">Gloriosa de 1868</button> en organización social desde abajo.',
+    butterfly: {
+      prompt: "¿Qué hizo posible reunir por primera vez a tantas sociedades obreras?",
+      answer:
+        "La industrialización había concentrado trabajadores y conflictos, mientras la apertura política posterior a 1868 amplió temporalmente el espacio de asociación. El congreso convirtió experiencias locales en una estructura federada y las conectó con la Primera Internacional."
     }
   },
 
@@ -3145,6 +3262,51 @@ const TIMELINE_ENTRIES = [
   },
 
   {
+    id: "sagrada-familia-primera-piedra-1882",
+    year: 1882,
+    month: 3,
+    day: 19,
+    title: "19 de marzo de 1882: comienza la Sagrada Família",
+    author: "Francisco de Paula del Villar y Antoni Gaudí",
+    country: "España",
+    region: "Basílica de la Sagrada Família",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.VISION,
+    types: [ICON_TYPE.VISION, ICON_TYPE.HISTORY, ICON_TYPE.ECCLESIASTICAL],
+    glyph: GLYPH.ECCLESIASTICAL,
+    description:
+      "El 19 de marzo de 1882, el obispo Josep Urquinaona colocó la primera piedra del Templo Expiatorio de la Sagrada Família en Sant Martí de Provençals, entonces entre huertas de Barcelona. Francisco de Paula del Villar trazó el proyecto neogótico; Antoni Gaudí asumió la dirección en 1883 y lo transformó mediante simbolismo cristiano y geometría orgánica. Financiada por donativos, la obra unió devoción católica, modernisme, ingeniería y trabajo colectivo. En la misma Barcelona industrial que organizaba a sus obreros, su construcción prolongada convirtió el edificio en memoria viva de varias generaciones.",
+    descriptionHtml:
+      'El 19 de marzo de 1882, el obispo Josep Urquinaona colocó la primera piedra del <button type="button" class="timeline-detail-geolink" data-region="Basílica de la Sagrada Família" data-country="España">Templo Expiatorio de la Sagrada Família</button> en <button type="button" class="timeline-detail-geolink" data-region="Sant Martí de Provençals" data-country="España">Sant Martí de Provençals</button>, entonces entre huertas de <button type="button" class="timeline-detail-geolink" data-region="Barcelona" data-country="España">Barcelona</button>. Francisco de Paula del Villar trazó el proyecto neogótico; Antoni Gaudí asumió la dirección en 1883 y lo transformó mediante simbolismo cristiano y geometría orgánica. Financiada por donativos, la obra unió devoción católica, modernisme, ingeniería y trabajo colectivo. En la misma Barcelona industrial que <button type="button" class="timeline-detail-entrylink" data-id="congreso-obrero-barcelona-1870">organizaba a sus obreros</button>, su construcción prolongada convirtió el edificio en memoria viva de varias generaciones.',
+    butterfly: {
+      prompt: "¿Qué habría sido del templo si Gaudí no hubiera asumido el proyecto en 1883?",
+      answer:
+        "Probablemente habría seguido el diseño neogótico de Villar y sería una iglesia muy distinta. Gaudí convirtió una fundación devocional local en un laboratorio arquitectónico donde estructura, naturaleza, liturgia y ciudad crecieron juntas durante generaciones."
+    }
+  },
+
+  {
+    id: "fortunata-jacinta-galdos-1887",
+    year: 1887,
+    title: "1886–1887: Fortunata y Jacinta cartografía el Madrid de la Restauración",
+    author: "Benito Pérez Galdós",
+    country: "España",
+    region: "Madrid",
+    flag: "spain-not-latam",
+    type: ICON_TYPE.LITERATURE,
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY],
+    description:
+      "Entre 1886 y 1887, Benito Pérez Galdós publicó en cuatro tomos Fortunata y Jacinta. El Madrid de la Restauración funciona como protagonista: comercios, casas burguesas, corralas y calles conectan dos mujeres atravesadas por clase, matrimonio, deseo y maternidad. Galdós rehúye personajes femeninos simples y convierte sus vidas privadas en diagnóstico de una sociedad sostenida por apariencias y desigualdad. La novela consolida el realismo como archivo social y prepara la mirada que Misericordia dirigirá en 1897 hacia hambre y caridad. Ambas obras hacen legible la historia desde quienes soportan sus estructuras.",
+    descriptionHtml:
+      'Entre 1886 y 1887, Benito Pérez Galdós publicó en cuatro tomos <em>Fortunata y Jacinta</em>. El <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> de la <button type="button" class="timeline-detail-entrylink" data-id="restauracion-alfonso-xii-1875">Restauración</button> funciona como protagonista: comercios, casas burguesas, corralas y calles conectan dos mujeres atravesadas por clase, matrimonio, deseo y maternidad. Galdós rehúye personajes femeninos simples y convierte sus vidas privadas en diagnóstico de una sociedad sostenida por apariencias y desigualdad. La novela consolida el realismo como archivo social y prepara la mirada que <button type="button" class="timeline-detail-entrylink" data-id="misericordia-galdos-1897"><em>Misericordia</em></button> dirigirá en 1897 hacia hambre y caridad. Ambas obras hacen legible la historia desde quienes soportan sus estructuras.',
+    butterfly: {
+      prompt: "¿Qué permite ver una novela que no muestra una constitución o una batalla?",
+      answer:
+        "Permite observar cómo clase, género, crédito, vivienda y reputación organizan la vida diaria. Galdós convierte calles y relaciones íntimas en archivo histórico: la Restauración aparece como una experiencia vivida, no solo como un sistema político."
+    }
+  },
+
+  {
     id: "misericordia-galdos-1897",
     year: 1897,
     // Real year; nudged track position only within the dense 1896–1899 sequence.
@@ -3159,7 +3321,7 @@ const TIMELINE_ENTRIES = [
     description:
       "En 1897 Benito Pérez Galdós publicó Misericordia, novela situada en los barrios pobres de Madrid. Benina, criada que mendiga en secreto para sostener a su arruinada señora, Doña Paca, atraviesa iglesias, casas de préstamos, comedores y calles donde caridad, hambre y apariencia social conviven. El ciego Almudena, inmigrante marroquí, amplía ese mapa humano más allá del catolicismo español. Galdós convierte la pobreza producida bajo la Restauración en experiencia cotidiana, sin idealizar a pobres ni benefactores. Publicada un año antes del Desastre de 1898, la obra revela una crisis interior previa a la pérdida del imperio.",
     descriptionHtml:
-      'En 1897 Benito Pérez Galdós publicó <em>Misericordia</em>, novela situada en los barrios pobres de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>. Benina, criada que mendiga en secreto para sostener a su arruinada señora, Doña Paca, atraviesa iglesias, casas de préstamos, comedores y calles donde caridad, hambre y apariencia social conviven. El ciego Almudena, inmigrante <button type="button" class="timeline-detail-geolink" data-country="Marruecos">marroquí</button>, amplía ese mapa humano más allá del catolicismo <button type="button" class="timeline-detail-geolink" data-country="España">español</button>. Galdós convierte la pobreza producida bajo la <button type="button" class="timeline-detail-entrylink" data-id="restauracion-alfonso-xii-1875">Restauración</button> en experiencia cotidiana, sin idealizar a pobres ni benefactores. Publicada un año antes del <button type="button" class="timeline-detail-entrylink" data-id="desastre-1898-tratado-paris">Desastre de 1898</button>, la obra revela una crisis interior previa a la pérdida del imperio.',
+      'En 1897 Benito Pérez <button type="button" class="timeline-detail-entrylink" data-id="fortunata-jacinta-galdos-1887">Galdós</button> publicó <em>Misericordia</em>, novela situada en los barrios pobres de <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button>. Benina, criada que mendiga en secreto para sostener a su arruinada señora, Doña Paca, atraviesa iglesias, casas de préstamos, comedores y calles donde caridad, hambre y apariencia social conviven. El ciego Almudena, inmigrante <button type="button" class="timeline-detail-geolink" data-country="Marruecos">marroquí</button>, amplía ese mapa humano más allá del catolicismo <button type="button" class="timeline-detail-geolink" data-country="España">español</button>. Galdós convierte la pobreza producida bajo la <button type="button" class="timeline-detail-entrylink" data-id="restauracion-alfonso-xii-1875">Restauración</button> en experiencia cotidiana, sin idealizar a pobres ni benefactores. Publicada un año antes del <button type="button" class="timeline-detail-entrylink" data-id="desastre-1898-tratado-paris">Desastre de 1898</button>, la obra revela una crisis interior previa a la pérdida del imperio.',
     butterfly: {
       prompt: "¿Qué habría cambiado si Misericordia se hubiera publicado después del Desastre de 1898?",
       answer:
