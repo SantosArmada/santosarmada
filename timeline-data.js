@@ -3307,6 +3307,100 @@ const TIMELINE_ENTRIES = [
   },
 
   {
+    id: "san-sebastian-madrid-fundacion-1541",
+    year: 1541,
+    month: 5,
+    day: 1,
+    title: "1 de mayo de 1541: nace la parroquia de San Sebastián",
+    author: "Juan Tavera y la parroquia de San Sebastián",
+    country: "España",
+    region: "Iglesia de San Sebastián, Madrid",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.ECCLESIASTICAL,
+    types: [ICON_TYPE.ECCLESIASTICAL, ICON_TYPE.HISTORY, ICON_TYPE.LITERATURE],
+    description:
+      "El primer libro de bautismos de San Sebastián fecha la creación de la parroquia el 1 de mayo de 1541. El arzobispo Juan Tavera autorizó una pequeña iglesia cerca de Antón Martín para aliviar a Santa Cruz. Al crecer la feligresía, en 1553 se decidió levantar un templo mayor; Antonio Sillero dirigió las obras desde 1554 y abrió al culto en 1578. Sus capillas, cofradías, cementerio y archivo, que registra también a escritores, actores y arquitectos madrileños, enlazaron religión y vida urbana. Siglos después, Galdós convertiría sus dos fachadas en el mapa moral de Misericordia.",
+    descriptionHtml:
+      'El primer libro de bautismos de <button type="button" class="timeline-detail-geolink" data-region="Iglesia de San Sebastián, Madrid" data-country="España">San Sebastián</button> fecha la creación de la parroquia el 1 de mayo de 1541. El arzobispo Juan Tavera autorizó una pequeña iglesia cerca de <button type="button" class="timeline-detail-geolink" data-region="Plaza de Antón Martín, Madrid" data-country="España">Antón Martín</button> para aliviar a Santa Cruz. Al crecer la feligresía, en 1553 se decidió levantar un templo mayor; Antonio Sillero dirigió las obras desde 1554 y abrió al culto en 1578. Sus capillas, cofradías, cementerio y archivo, que registra también a escritores, actores y arquitectos madrileños, enlazaron religión y vida urbana. Siglos después, <button type="button" class="timeline-detail-entrylink" data-id="misericordia-galdos-1897">Galdós convertiría sus dos fachadas en el mapa moral de <em>Misericordia</em></button>.',
+    butterfly: {
+      prompt: "¿Por qué una parroquia puede funcionar como archivo de una ciudad?",
+      answer:
+        "Porque San Sebastián registró nacimientos, matrimonios, funerales, cofradías, oficios y devociones durante siglos. Sus libros vinculan la vida cotidiana con figuras como Lope de Vega, Moratín, Larra, Bécquer y numerosos actores y arquitectos; el templo conservó memoria social además de culto."
+    }
+  },
+
+  {
+    id: "san-sebastian-madrid-destruccion-1936",
+    year: 1936,
+    month: 11,
+    day: 18,
+    title: "18 de noviembre de 1936: las ruinas de San Sebastián",
+    author: "Iglesia de San Sebastián durante la Guerra Civil",
+    country: "España",
+    region: "Iglesia de San Sebastián, Madrid",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.CONFLICT,
+    types: [ICON_TYPE.CONFLICT, ICON_TYPE.HISTORY, ICON_TYPE.ECCLESIASTICAL],
+    description:
+      "Al comenzar la Guerra Civil, San Sebastián fue saqueada e incendiada; su archivo histórico sobrevivió. Durante los bombardeos de Madrid, proyectiles alcanzaron el templo el 18 de noviembre de 1936 y dejaron en pie únicamente partes de la cabecera, la capilla de los Arquitectos, la portada y la torre. El ataque destruyó casi cuatro siglos de arquitectura, arte y memoria material. El mismo edificio bifronte que Galdós había convertido en espejo social de Madrid quedó incorporado a otra historia: violencia anticlerical, guerra aérea y patrimonio atrapado entre ambos bandos en el corazón de la capital.",
+    descriptionHtml:
+      'Al comenzar la <button type="button" class="timeline-detail-entrylink" data-id="golpe-guerra-civil-1936">Guerra Civil</button>, <button type="button" class="timeline-detail-geolink" data-region="Iglesia de San Sebastián, Madrid" data-country="España">San Sebastián</button> fue saqueada e incendiada; su archivo histórico sobrevivió. Durante los <button type="button" class="timeline-detail-entrylink" data-id="madrid-resiste-1936">bombardeos de Madrid</button>, proyectiles alcanzaron el templo el 18 de noviembre de 1936 y dejaron en pie únicamente partes de la cabecera, la capilla de los Arquitectos, la portada y la torre. El ataque destruyó casi <button type="button" class="timeline-detail-entrylink" data-id="san-sebastian-madrid-fundacion-1541">cuatro siglos</button> de arquitectura, arte y memoria material. El mismo edificio bifronte que <button type="button" class="timeline-detail-entrylink" data-id="misericordia-galdos-1897">Galdós había convertido en espejo social de Madrid</button> quedó incorporado a otra historia: violencia anticlerical, guerra aérea y patrimonio atrapado entre ambos bandos en el corazón de la capital.',
+    butterfly: {
+      prompt: "¿Qué se pierde cuando una guerra destruye un edificio histórico?",
+      answer:
+        "No desaparecen únicamente muros y obras de arte. Se rompe la continuidad de recorridos, fachadas y espacios que organizaron la memoria de generaciones. El archivo salvado permitió conservar nombres y vínculos que la arquitectura destruida ya no podía mostrar por sí sola."
+    }
+  },
+
+  {
+    id: "san-sebastian-madrid-reapertura-1959",
+    year: 1959,
+    title: "1959: San Sebastián reabre transformada",
+    author: "Francisco Íñiguez Almech",
+    country: "España",
+    region: "Iglesia de San Sebastián, Madrid",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.VISION,
+    types: [ICON_TYPE.VISION, ICON_TYPE.HISTORY, ICON_TYPE.ECCLESIASTICAL],
+    description:
+      "Francisco Íñiguez Almech inició en 1943 la reconstrucción de San Sebastián. El solar irregular, los restos conservados y el ensanche de la calle obligaron a reorientar por completo el templo: desaparecieron el antiguo cementerio y la torre, mientras se integraron la cabecera y la capilla de los Arquitectos. Reabierta al culto en 1959, la iglesia ya no reproducía exactamente el edificio descrito por Galdós, pero conservaba fragmentos suyos. En 1969 fue declarada monumento histórico-artístico, en gran medida por un archivo que sobrevivió al incendio y bombardeo. Su historia material continuaría con otra restauración en 2026.",
+    descriptionHtml:
+      'Francisco Íñiguez Almech inició en 1943 la reconstrucción de <button type="button" class="timeline-detail-geolink" data-region="Iglesia de San Sebastián, Madrid" data-country="España">San Sebastián</button>. El solar irregular, los restos conservados y el ensanche de la calle obligaron a reorientar por completo el templo: desaparecieron el antiguo cementerio y la torre, mientras se integraron la cabecera y la capilla de los Arquitectos. Reabierta al culto en 1959, la iglesia ya no reproducía exactamente el edificio descrito por <button type="button" class="timeline-detail-entrylink" data-id="misericordia-galdos-1897">Galdós</button>, pero conservaba fragmentos suyos. En 1969 fue declarada monumento histórico-artístico, en gran medida por un archivo que sobrevivió al <button type="button" class="timeline-detail-entrylink" data-id="san-sebastian-madrid-destruccion-1936">incendio y bombardeo</button>. Su historia material continuaría con <button type="button" class="timeline-detail-entrylink" data-id="san-sebastian-madrid-restauracion-2026">otra restauración en 2026</button>.',
+    butterfly: {
+      prompt: "¿Sigue siendo el mismo lugar cuando cambia su orientación y desaparecen partes esenciales?",
+      answer:
+        "La reconstrucción conservó restos, advocación, archivo y función religiosa, pero cambió la experiencia espacial que conocieron Galdós y sus personajes. San Sebastián permite distinguir entre continuidad institucional, supervivencia material y recreación arquitectónica: tres formas diferentes de permanecer."
+    }
+  },
+
+  {
+    id: "san-sebastian-madrid-restauracion-2026",
+    year: 2026,
+    month: 3,
+    day: 28,
+    title: "28 de marzo de 2026: San Sebastián vuelve a restaurarse",
+    author: "Comunidad de Madrid y Arzobispado de Madrid",
+    country: "España",
+    region: "Iglesia de San Sebastián, Madrid",
+    flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
+    type: ICON_TYPE.VISION,
+    types: [ICON_TYPE.VISION, ICON_TYPE.HISTORY, ICON_TYPE.ECCLESIASTICAL],
+    description:
+      "El 28 de marzo de 2026 concluyó una restauración de dos años en San Sebastián, financiada por la Comunidad de Madrid y promovida por el Arzobispado. Las obras renovaron tejado, fachadas, vidrieras, carpinterías, drenaje, campanario, campana y la cruz del pináculo; también limpiaron la imagen exterior del santo y las placas de Atocha. La intervención atendió principalmente las zonas reconstruidas después de la Guerra Civil. Así, el lugar fundado en 1541, narrado por Galdós, destruido en 1936 y reabierto en 1959 continúa acumulando historia sin quedar congelado como ruina y todavía puede ser recorrido hoy.",
+    descriptionHtml:
+      'El 28 de marzo de 2026 concluyó una restauración de dos años en <button type="button" class="timeline-detail-geolink" data-region="Iglesia de San Sebastián, Madrid" data-country="España">San Sebastián</button>, financiada por la <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Comunidad de Madrid</button> y promovida por el Arzobispado. Las obras renovaron tejado, fachadas, vidrieras, carpinterías, drenaje, campanario, campana y la cruz del pináculo; también limpiaron la imagen exterior del santo y las placas de Atocha. La intervención atendió principalmente las zonas reconstruidas después de la <button type="button" class="timeline-detail-entrylink" data-id="san-sebastian-madrid-destruccion-1936">Guerra Civil</button>. Así, el lugar <button type="button" class="timeline-detail-entrylink" data-id="san-sebastian-madrid-fundacion-1541">fundado en 1541</button>, <button type="button" class="timeline-detail-entrylink" data-id="misericordia-galdos-1897">narrado por Galdós</button>, destruido en 1936 y <button type="button" class="timeline-detail-entrylink" data-id="san-sebastian-madrid-reapertura-1959">reabierto en 1959</button> continúa acumulando historia sin quedar congelado como ruina y todavía puede ser recorrido hoy.',
+    butterfly: {
+      prompt: "¿Qué significa conservar un monumento que ya fue reconstruido?",
+      answer:
+        "Significa proteger también las capas posteriores de su historia. La intervención de 2026 cuidó tanto restos antiguos como arquitectura de posguerra: reconoció que la destrucción y la reconstrucción ya forman parte inseparable del edificio que Madrid heredó."
+    }
+  },
+
+  {
     id: "misericordia-galdos-1897",
     year: 1897,
     // Real year; nudged track position only within the dense 1896–1899 sequence.
@@ -3316,12 +3410,13 @@ const TIMELINE_ENTRIES = [
     country: "España",
     region: "Madrid",
     flag: "spain-not-latam",
+    glyph: GLYPH.ECCLESIASTICAL,
     type: ICON_TYPE.LITERATURE,
-    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY],
+    types: [ICON_TYPE.LITERATURE, ICON_TYPE.HISTORY, ICON_TYPE.ECCLESIASTICAL],
     description:
-      "En 1897, Galdós publicó Misericordia tras estudiar barrios pobres madrileños bajo la Restauración. Desde la iglesia de San Sebastián y la estatua de Mendizábal, hoy plaza de Tirso de Molina, hasta Puerta de Toledo y Las Cambroneras, Benina mendiga en secreto para alimentar a Doña Paca. El título nombra virtud y asilo: su misericordia sin jerarquías contrasta con la beneficencia que vigila y encierra. Almudena, ciego marroquí que se declara hebreo, habla castellano aljamiado, cruzado por árabe y hebreo. Antes de 1898, Galdós convierte hambre, deuda, vivienda y exclusión en crisis nacional vivida desde abajo.",
+      "En 1897, Galdós publicó Misericordia tras estudiar el Madrid pobre de la Restauración. Desde la iglesia de San Sebastián —fundada en 1541— y la estatua de Mendizábal, hoy plaza de Tirso de Molina, hasta Puerta de Toledo y Las Cambroneras, Benina mendiga en secreto para alimentar a Doña Paca. El título nombra virtud y asilo: su misericordia sin jerarquías contrasta con la beneficencia que vigila y encierra. Almudena, ciego marroquí que se declara hebreo, habla castellano aljamiado, cruzado por árabe y hebreo. Antes de 1898, Galdós convierte hambre, deuda, vivienda y exclusión en crisis nacional.",
     descriptionHtml:
-      'En 1897, <button type="button" class="timeline-detail-entrylink" data-id="fortunata-jacinta-galdos-1887">Galdós</button> publicó <em>Misericordia</em> tras estudiar barrios pobres <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">madrileños</button> bajo la <button type="button" class="timeline-detail-entrylink" data-id="restauracion-alfonso-xii-1875">Restauración</button>. Desde la <button type="button" class="timeline-detail-geolink" data-region="Iglesia de San Sebastián, Madrid" data-country="España">iglesia de San Sebastián</button> y la estatua de <button type="button" class="timeline-detail-entrylink" data-id="mendizabal-desamortizacion-1836">Mendizábal</button>, hoy <button type="button" class="timeline-detail-geolink" data-region="Plaza de Tirso de Molina, Madrid" data-country="España">plaza de Tirso de Molina</button>, hasta <button type="button" class="timeline-detail-geolink" data-region="Puerta de Toledo, Madrid" data-country="España">Puerta de Toledo</button> y <button type="button" class="timeline-detail-geolink" data-region="Las Cambroneras, Madrid" data-country="España">Las Cambroneras</button>, Benina mendiga en secreto para alimentar a Doña Paca. El título nombra virtud y asilo: su misericordia sin jerarquías contrasta con la beneficencia que vigila y encierra. Almudena, ciego <button type="button" class="timeline-detail-geolink" data-country="Marruecos">marroquí</button> que se declara hebreo, habla castellano aljamiado, cruzado por árabe y hebreo. Antes de <button type="button" class="timeline-detail-entrylink" data-id="desastre-1898-tratado-paris">1898</button>, Galdós convierte hambre, deuda, vivienda y exclusión en crisis nacional vivida desde abajo.',
+      'En 1897, <button type="button" class="timeline-detail-entrylink" data-id="fortunata-jacinta-galdos-1887">Galdós</button> publicó <em>Misericordia</em> tras estudiar el <button type="button" class="timeline-detail-geolink" data-region="Madrid" data-country="España">Madrid</button> pobre de la <button type="button" class="timeline-detail-entrylink" data-id="restauracion-alfonso-xii-1875">Restauración</button>. Desde la <button type="button" class="timeline-detail-geolink" data-region="Iglesia de San Sebastián, Madrid" data-country="España">iglesia de San Sebastián</button> —<button type="button" class="timeline-detail-entrylink" data-id="san-sebastian-madrid-fundacion-1541">fundada en 1541</button>— y la estatua de <button type="button" class="timeline-detail-entrylink" data-id="mendizabal-desamortizacion-1836">Mendizábal</button>, hoy <button type="button" class="timeline-detail-geolink" data-region="Plaza de Tirso de Molina, Madrid" data-country="España">plaza de Tirso de Molina</button>, hasta <button type="button" class="timeline-detail-geolink" data-region="Puerta de Toledo, Madrid" data-country="España">Puerta de Toledo</button> y <button type="button" class="timeline-detail-geolink" data-region="Las Cambroneras, Madrid" data-country="España">Las Cambroneras</button>, Benina mendiga en secreto para alimentar a Doña Paca. El título nombra virtud y asilo: su misericordia sin jerarquías contrasta con la beneficencia que vigila y encierra. Almudena, ciego <button type="button" class="timeline-detail-geolink" data-country="Marruecos">marroquí</button> que se declara hebreo, habla castellano aljamiado, cruzado por árabe y hebreo. Antes de <button type="button" class="timeline-detail-entrylink" data-id="desastre-1898-tratado-paris">1898</button>, Galdós convierte hambre, deuda, vivienda y exclusión en crisis nacional.',
     butterfly: {
       prompt: "¿Qué cambia cuando el don Romualdo inventado por Benina aparece en la realidad?",
       answer:
