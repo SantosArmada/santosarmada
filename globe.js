@@ -825,6 +825,11 @@ const REGION_CENTER = {
     'Plaza de las Descalzas Reales': { lat: 40.4187, lng: -3.7063 },
     'Sociedad Económica Matritense, Madrid': { lat: 40.4149, lng: -3.7106 },
     'Plaza de Antón Martín, Madrid': { lat: 40.4125, lng: -3.6997 },
+    'Iglesia de San Sebastián, Madrid': { lat: 40.4137, lng: -3.7014 },
+    'Plaza de Tirso de Molina, Madrid': { lat: 40.4123, lng: -3.7050 },
+    'Puerta de Toledo, Madrid': { lat: 40.4067, lng: -3.7116 },
+    // Las Cambroneras disappeared; anchor its ripple beside Puente de Toledo.
+    'Las Cambroneras, Madrid': { lat: 40.4020, lng: -3.7130 },
     'Murcia': { lat: 37.99, lng: -1.13 },
     'Real Alcázar de Madrid': { lat: 40.4179, lng: -3.7143 },
     'Palacio Real de Madrid': { lat: 40.4179, lng: -3.7143 },
