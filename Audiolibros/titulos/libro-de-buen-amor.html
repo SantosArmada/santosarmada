@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Libro de buen amor</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="libro-de-buen-amor.css">
+    <link rel="stylesheet" href="libro-de-buen-amor.css?v=20261020-carnal">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
-    <span role="img" aria-label="Santos Armada" class="site-nav-logo-img"></span>
+    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
   </a>
   <ul class="site-nav-links">
     <li><a href="../../essays.html">Ensayos</a></li>
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,83 +34,47 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Primera Ola</p>
-        <h1>Libro de buen amor</h1>
-        <p class="subtitle">Juan Ruiz, Arcipreste de Hita</p>
+        <p class="poetry-label">Juan Ruiz, Arcipreste de Hita · 1330 / 1343</p>
+        <h1>Libro de<br><em>buen amor</em></h1>
+        <p class="hero-premise">El apetito entra en batalla.</p>
+        <p class="hero-description">Don Carnal defiende su banquete.<br> Doña Cuaresma viene a disputárselo.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
-
-    <div class="lute-signature" aria-hidden="true">
-        <svg viewBox="0 0 170 110">
-            <g class="lute-instrument">
-                <path class="lute-body-print" d="M83 43 C96 52 98 67 91 82 C84 98 67 106 50 101 C34 96 26 82 30 68 C33 56 42 49 53 47 C64 45 73 47 83 43 Z"></path>
-                <path class="lute-body" d="M82 41 C96 50 99 65 92 81 C85 98 68 106 51 102 C34 98 25 84 29 69 C32 56 42 48 54 46 C64 44 73 46 82 41 Z"></path>
-
-                <path class="lute-neck" d="M76 48 L126 13 L135 22 L87 57 Z"></path>
-                <path class="lute-neck-edge" d="M82 48 L131 17"></path>
-                <path class="lute-pegbox" d="M125 13 L139 5 L151 11 L143 25 L135 22 Z"></path>
-                <path class="lute-peg-detail" d="M137 8 L145 14 M132 13 L143 19"></path>
-
-                <g class="lute-pegs">
-                    <path d="M132 9 l-5 -5 M140 8 l2 -6 M146 13 l6 -2 M142 20 l5 4"></path>
-                    <circle cx="126" cy="3.5" r="2"></circle>
-                    <circle cx="142" cy="2" r="2"></circle>
-                    <circle cx="153" cy="10.5" r="2"></circle>
-                    <circle cx="148" cy="25" r="2"></circle>
-                </g>
-
-                <g class="lute-frets">
-                    <path d="M116 20 l9 9 M108 26 l9 9 M100 32 l9 9 M92 38 l9 9"></path>
-                </g>
-
-                <g class="lute-strings">
-                    <path d="M138 12 L75 94"></path>
-                    <path d="M141 14 L80 93"></path>
-                    <path d="M144 16 L85 91"></path>
-                    <path d="M147 18 L89 88"></path>
-                </g>
-
-                <g class="lute-rosette">
-                    <circle cx="59" cy="76" r="13"></circle>
-                    <circle cx="59" cy="76" r="9"></circle>
-                    <path d="M59 63 L59 89 M46 76 L72 76 M50 67 L68 85 M68 67 L50 85"></path>
-                    <circle class="lute-rosette-center" cx="59" cy="76" r="3"></circle>
-                </g>
-                <path class="lute-bridge" d="M67 94 C74 94 81 92 87 88"></path>
-
-            </g>
-        </svg>
-    </div>
+    <figure class="story-art"><img src="../assets/buen-amor-carnal-y-cuaresma.webp" width="1536" height="1024" fetchpriority="high" alt="Don Carnal y Doña Cuaresma se enfrentan junto a un banquete, entre huestes alegóricas de carnes, peces y un puerro."><figcaption>Don Carnal y Doña Cuaresma</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Juan Ruiz · Deseo, ingenio y ambigüedad</span><p>Escuchar entre líneas.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
         <svg viewBox="0 0 60 60" width="46" height="46">
-            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--teal)" stroke-width="3"/>
+            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--accent)" stroke-width="3"/>
             <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
-                  fill="none" stroke="var(--teal)" stroke-width="4" stroke-linecap="round"/>
-            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--teal)" stroke-width="4" stroke-linecap="round"/>
+                  fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
         </svg>
     </button>
     <div class="player">
         <canvas></canvas>
         <div class="song">
             <div class="artist">Libro de buen amor</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
             <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
-            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -119,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -134,32 +98,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/buen-amor.webp" alt="Libro de buen amor">
+        <img loading="lazy" decoding="async" src="../../book_covers/buen-amor.webp" alt="Libro de buen amor">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Compuesto en el siglo XIV y transmitido en versiones asociadas a 1330 y 1343, el <em>Libro de buen amor</em> reúne relato seudoautobiográfico, fábulas, sermón paródico, debate, plegaria y canción. Su voz narrativa ensaya sin resolver la tensión entre el “buen amor” y el deseo mundano, invitando al lector a interpretar un texto deliberadamente ambiguo. La mediadora Trotaconventos, mezcla de astucia, oficio urbano y comicidad, anticipa sobre todo la figura de Celestina.</p>
-        <p class="source-note">Tradición manuscrita: <a href="https://cvc.cervantes.es/literatura/arcipreste_hita/05/hidalgo.htm">Centro Virtual Cervantes</a>; edición digital del <a href="https://www.cervantesvirtual.com/portales/doxa/obra/el-libro-de-buen-amor--0/">Códice de Salamanca</a>.</p>
-
+<h2>Un banquete convertido en campo de batalla</h2>
+<p>Don Carnal reúne sus fuerzas, pero la abundancia lo deja poco preparado para el ataque. Doña Cuaresma llega con su ejército de alimentos de vigilia: el puerro abre la ofensiva y los peces entran en combate. Juan Ruiz convierte la rivalidad entre el festín y el ayuno en una parodia de la guerra heroica.</p>
+<p class="reading-note">Hasta el calendario tiene hambre de aventuras.</p>
+<p>La escena muestra la libertad del <em>Libro de buen amor</em> para mezclar lo cotidiano y lo extraordinario. La cocina adquiere rango militar y el calendario religioso se vuelve acción teatral. Junto a las aventuras amorosas, fábulas y plegarias, esta batalla recuerda que el humor también organiza la mirada del libro sobre el deseo, los límites y el cuerpo.</p>
+<p class="source-note">Siglo XIV. La tradición textual transmite las fechas 1330 y 1343; no son dos fechas de impresión. <a href="https://cvc.cervantes.es/literatura/arcipreste_hita/03/heusch.htm">Fechas y tradición textual · Centro Virtual Cervantes</a>. <a href="https://www.cervantesvirtual.com/obra-visor/el-libro-de-buen-amor--0/html/ff0ec418-82b1-11df-acc7-002185ce6064_32.html">La pelea de don Carnal con la Cuaresma · texto</a>. La ilustración transforma la alegoría alimentaria en una escena cinematográfica.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">El yo poético y las primeras aventuras</p>
-        <p class="chapter" data-time="0">Las fábulas y los exempla morales</p>
-        <p class="chapter" data-time="0">Trotaconventos, la alcahueta</p>
-        <p class="chapter" data-time="0">Entre el loco amor y el buen amor</p>
-        <p class="chapter" data-time="0">El elogio del amor y las cánticas</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -173,13 +134,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="el-senor-de-bembibre.html">← El señor de Bembibre</a><a href="ola-1-slug.html">Primera Ola</a><a href="conde-lucanor.html">El conde Lucanor →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="libro-de-buen-amor.js"></script>
+<script src="libro-de-buen-amor.js?v=20261020-carnal"></script>
 
 </body>
 </html>
