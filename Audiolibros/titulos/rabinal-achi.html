@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Rabinal Achí</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="rabinal-achi.css">
+    <link rel="stylesheet" href="rabinal-achi.css?v=20261021-escena">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Primera Ola</p>
-        <h1>Rabinal Achí</h1>
-        <p class="subtitle">Drama maya achí</p>
+        <p class="poetry-label">Drama maya achí · Tradición del siglo XV</p>
+        <h1>Rabinal<br><em>Achí</em></h1>
+        <p class="hero-premise">La palabra también es territorio.</p>
+        <p class="hero-description">Dos adversarios frente a frente.<br> Una comunidad conserva su memoria.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="story-art"><img src="../assets/rabinal-la-palabra-del-cautivo.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación del enfrentamiento entre K’iche’ Achí y Rabinal Achí en un patio ceremonial de las tierras altas mayas."><figcaption>La palabra del cautivo · Interpretación del drama</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Drama maya achí · Territorio y memoria</span><p>Escuchar una tradición viva.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -60,15 +65,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Rabinal Achí</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
             <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
-            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -77,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -92,32 +98,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/rabinal-achi.webp" alt="Rabinal Achí">
+        <img loading="lazy" decoding="async" src="../../book_covers/rabinal-achi.webp" alt="Rabinal Achí">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p><em>Rabinal Achí</em> es un drama dinástico maya desarrollado en el siglo XV y sostenido hasta el presente por la comunidad achí de Rabinal. Sus cuatro actos articulan palabra, música, danza y máscaras alrededor del conflicto entre dos entidades políticas: Rabinaleb’ y K’iche’. El príncipe K’iche’ Achí es capturado y juzgado por intentar llevarse a los hijos de Rabinaleb’, una transgresión de la ley maya. La representación no es solamente memoria de una guerra: durante la fiesta de San Pablo, cada 25 de enero, las cofradías activan una relación entre territorio, autoridad, vivos y <em>rajawales</em> ancestrales. Proclamada por la UNESCO en 2005 e inscrita en 2008, la tradición continúa viva y también expuesta a la folclorización que amenaza su transmisión.</p>
-        <p class="source-note">Historia, personajes y práctica comunitaria: <a href="https://ich.unesco.org/es/RL/rabinal-achi-dance-drama-tradition-00144">UNESCO, La tradición del teatro bailado Rabinal Achí</a>.</p>
-
+<h2>La memoria se sostiene en la voz</h2>
+<p>El encuentro entre Rabinal Achí y K’iche’ Achí enfrenta dos poderes y dos maneras de reclamar el territorio. La palabra del cautivo conserva su fuerza: el conflicto se desarrolla mediante declaraciones, respuestas y gestos que hacen del cuerpo una parte inseparable del drama.</p>
+<p class="reading-note">Aquí la memoria no sólo se cuenta: se representa.</p>
+<p>Esta tradición maya achí reúne teatro, danza, música y máscaras. Sus cuatro actos articulan el conflicto entre Rabinaleb’ y K’iche’, mientras la comunidad de Rabinal mantiene viva su representación. Acercarse a la obra exige escuchar tanto a sus personajes como a quienes transmiten ese conocimiento entre generaciones.</p>
+<p class="source-note">Tradición desarrollada en el siglo XV; no corresponde a un único año de publicación. <a href="https://ich.unesco.org/en/RL/rabinal-achi-dance-drama-tradition-00144?RL=00144">Historia y práctica comunitaria · UNESCO</a>. La ilustración interpreta a los personajes del drama; no reproduce el vestuario de la representación contemporánea.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Rabinal Achí y K’iche’ Achí</p>
-        <p class="chapter" data-time="0">La fortaleza de Kajyub’</p>
-        <p class="chapter" data-time="0">El juicio ante Job’Toj</p>
-        <p class="chapter" data-time="0">Trece águilas y trece jaguares</p>
-        <p class="chapter" data-time="0">Máscaras, danza y memoria ancestral</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -131,13 +134,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="fin-de-loores-de-santos.html">← Fin de loores de santos</a><a href="ola-1-slug.html">Primera Ola</a><a href="fuente-ovejuna.html">Fuente Ovejuna →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="rabinal-achi.js"></script>
+<script src="rabinal-achi.js?v=20261021-escena"></script>
 
 </body>
 </html>
