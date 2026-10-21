@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Audiolibros — El Conde Lucanor</title>
+    <title>Audiolibros — El conde Lucanor</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="conde-lucanor.css">
+    <link rel="stylesheet" href="conde-lucanor.css?v=20261021-illan">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Primera Ola</p>
-        <h1>El Conde Lucanor</h1>
-        <p class="subtitle">Don Juan Manuel</p>
+        <p class="poetry-label">Don Juan Manuel · Composición concluida: 1335</p>
+        <h1>El conde<br><em>Lucanor</em></h1>
+        <p class="hero-premise">Bajar para descubrir quién eres.</p>
+        <p class="hero-description">Don Illán abre el camino.<br> La ambición hará el resto.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="story-art"><img src="../assets/lucanor-la-escalera-de-illan.webp" width="1536" height="1024" fetchpriority="high" alt="Don Illán y el deán de Santiago en una escalera de piedra, con un estudio iluminado por lámparas al fondo."><figcaption>La escalera de don Illán</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Don Juan Manuel · El consejo y la prueba</span><p>Escuchar antes de decidir.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -59,16 +64,17 @@
     <div class="player">
         <canvas></canvas>
         <div class="song">
-            <div class="artist">El Conde Lucanor</div>
-            <div class="name">Capítulo 1</div>
+            <div class="artist">El conde Lucanor</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
             <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
-            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -77,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -92,32 +98,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/conde-lucanor.webp" alt="El Conde Lucanor">
+        <img loading="lazy" decoding="async" src="../../book_covers/conde-lucanor.webp" alt="El conde Lucanor">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Concluido en 1335, <em>El Conde Lucanor</em> organiza su enseñanza en cinco partes. La primera —la más célebre— reúne cincuenta y un <em>exempla</em>: el conde plantea un problema de gobierno, honra o conducta; Patronio responde con un relato; y don Juan Manuel condensa el consejo en versos finales. Las partes posteriores sustituyen progresivamente el cuento por sentencias y reflexión doctrinal. Al advertir sobre los errores introducidos por los copistas, el autor afirma además un control poco común sobre la transmisión y autoridad de su propia obra.</p>
-        <p class="source-note">Texto y manuscrito: <a href="https://www.cervantesvirtual.com/obra/el-conde-lucanor-manuscrito--0/">Biblioteca Virtual Miguel de Cervantes y Biblioteca Nacional de España</a>.</p>
-
+<h2>El poder pone a prueba la memoria</h2>
+<p>El deán de Santiago busca a don Illán en Toledo para aprender su arte. Juntos descienden por una escalera de piedra hasta un estudio apartado. Ese paso hacia lo profundo abre una experiencia en la que la ambición y la gratitud dejarán de ser promesas abstractas.</p>
+<p class="reading-note">No basta prometer agradecimiento cuando aún se necesita ayuda.</p>
+<p>El ejemplo XI convierte una enseñanza moral en una inquietante prueba del carácter. Es también una muestra del método de Patronio: responder a un problema del conde con una historia que permite verlo desde otra distancia. La colección une el placer del relato con preguntas sobre la honra, la prudencia y el uso del poder.</p>
+<p class="source-note">Composición concluida en 1335; fecha medieval de la obra, no de impresión. <a href="https://www.cervantesvirtual.com/obra/el-conde-lucanor-manuscrito--0/">Tradición manuscrita · Biblioteca Virtual Miguel de Cervantes</a>. <a href="https://www.cervantesvirtual.com/obra-visor/el-conde-lucanor--0/html/00052e2a-82b2-11df-acc7-002185ce6064_1.html">Ejemplo XI: don Illán y el deán de Santiago · texto</a>. La ilustración recrea la escalera y el estudio de don Illán.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Patronio y los dilemas del Conde</p>
-        <p class="chapter" data-time="0">Don Illán y el deán de Santiago</p>
-        <p class="chapter" data-time="0">El mozo que se casó con una mujer brava</p>
-        <p class="chapter" data-time="0">Los engaños y las apariencias</p>
-        <p class="chapter" data-time="0">Sentencias, doctrina y autoridad del texto</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -131,13 +134,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="libro-de-buen-amor.html">← Libro de buen amor</a><a href="ola-1-slug.html">Primera Ola</a><a href="cuentos-de-decameron.html">Cuentos del Decamerón →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="conde-lucanor.js"></script>
+<script src="conde-lucanor.js?v=20261021-illan"></script>
 
 </body>
 </html>
