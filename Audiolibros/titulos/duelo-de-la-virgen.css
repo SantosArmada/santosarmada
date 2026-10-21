@@ -1,17 +1,17 @@
 
 :root {
-    --water: #c9e4e1;
-    --blue: #16305c;
-    --blue-dark: #0d1f3d;
-    --blue-bright: #35548f;
-    --gold: #cda54a;
-    --gold-bright: #e6c06a;
-    --maroon: #8a1f24;
-    --maroon-bright: #b52c31;
-    --fg: #ece0c0;
-    --fg-dim: #4f5f74;
-    --card-fg-dim: #4f5f74;
-    --shadow: rgba(0, 0, 0, 0.28);
+    --cream: #ecdfc0;
+    --ink: #1e1811;
+    --ink-dim: #564a3c;
+    --charcoal: #232023;
+    --accent: #c9a233;
+    --accent-bright: #e0ba55;
+    --card-dark: #16120c;
+    --coral: #8f2820;
+    --coral-bright: #ab3c30;
+    --card-fg: #e8dcc0;
+    --card-fg-dim: #a89b86;
+    --shadow: rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -21,8 +21,8 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    color: var(--blue-dark);
-    background-color: var(--water);
+    color: var(--ink);
+    background-color: var(--charcoal);
     padding-top: 72px;
 }
 
@@ -38,25 +38,12 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 2rem;
-  background: rgba(22, 48, 92, 0.92);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(205, 165, 74, 0.25);
+  border-bottom: 1px solid rgba(35, 32, 35, 0.2);
 }
 .site-nav-logo { display: flex; align-items: center; }
-.site-nav-logo-img {
-    height: 38px;
-    width: 38px;
-    display: block;
-    background-color: #ffffff;
-    -webkit-mask-image: url(../../Images/logo.PNG);
-    mask-image: url(../../Images/logo.PNG);
-    -webkit-mask-size: contain;
-    mask-size: contain;
-    -webkit-mask-repeat: no-repeat;
-    mask-repeat: no-repeat;
-    -webkit-mask-position: center;
-    mask-position: center;
-}
+.site-nav-logo-img { height: 38px; width: auto; display: block; }
 .site-nav-links { display: flex; gap: 1.75rem; list-style: none; align-items: center; }
 .site-nav-links a {
   font-family: "Inter", sans-serif;
@@ -64,7 +51,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--fg);
+  color: var(--ink);
   text-decoration: none;
   position: relative;
   transition: color 0.2s;
@@ -76,18 +63,18 @@ body {
   left: 0;
   right: 0;
   height: 1px;
-  background: var(--gold);
+  background: var(--charcoal);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s ease;
 }
 .site-nav-links a:hover,
-.site-nav-links a.active { color: var(--gold); }
+.site-nav-links a.active { color: var(--charcoal); }
 .site-nav-links a:hover::after,
 .site-nav-links a.active::after { transform: scaleX(1); }
 
 .site-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-.site-hamburger span { display: block; width: 22px; height: 2px; background: var(--fg); transition: all 0.3s ease; }
+.site-hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); transition: all 0.3s ease; }
 .site-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .site-hamburger.open span:nth-child(2) { opacity: 0; }
 .site-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -96,7 +83,7 @@ body {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: var(--blue);
+  background: #ffffff;
   z-index: 99;
   flex-direction: column;
   align-items: center;
@@ -110,17 +97,17 @@ body {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--fg);
+  color: var(--ink);
   text-decoration: none;
 }
-.site-mobile-menu a:hover { color: var(--gold); }
+.site-mobile-menu a:hover { color: var(--charcoal); }
 
 @media (max-width: 900px) {
   .site-nav-links { display: none; }
   .site-hamburger { display: flex; }
 }
 
-/* ---------- HEADER (gold trim, icon-frame border) ---------- */
+/* ---------- HEADER ---------- */
 
 .book-header {
     display: flex;
@@ -128,8 +115,8 @@ body {
     justify-content: space-between;
     gap: 2rem;
     padding: 2.75rem 3.5rem;
-    background-color: var(--water);
-    border-bottom: 4px solid var(--maroon);
+    background-color: var(--charcoal);
+    border-bottom: 4px solid var(--accent);
     flex-wrap: wrap;
 }
 
@@ -138,7 +125,7 @@ body {
     letter-spacing: 3px;
     text-transform: uppercase;
     font-size: 0.75rem;
-    color: var(--blue);
+    color: var(--accent);
     font-weight: 600;
 }
 
@@ -147,74 +134,14 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 2.75rem;
     font-weight: 700;
-    color: var(--blue-dark);
+    color: var(--card-fg);
 }
 
 .book-header-text .subtitle {
     margin: 0;
     font-size: 0.95rem;
-    color: var(--fg-dim);
+    color: var(--card-fg-dim);
     font-style: italic;
-}
-
-/* ---------- MANUSCRIPT MARGINALIA — drawn from the cover's rubric and rosette ---------- */
-
-.manuscript-signature {
-    width: 190px;
-    height: 112px;
-    flex-shrink: 0;
-    position: relative;
-    color: var(--maroon);
-}
-.manuscript-rule {
-    position: absolute;
-    top: 42px;
-    left: 0;
-    width: 112px;
-    border-top: 2px solid currentColor;
-}
-.manuscript-medallion {
-    position: absolute;
-    top: 5px;
-    right: 8px;
-    width: 78px;
-    height: 78px;
-    display: grid;
-    place-items: center;
-    border: 2px solid currentColor;
-    outline: 1px solid currentColor;
-    outline-offset: 5px;
-}
-.manuscript-medallion::before {
-    content: "";
-    position: absolute;
-    inset: 10px;
-    border: 2px solid var(--blue);
-    border-radius: 50%;
-    background: var(--maroon);
-}
-.manuscript-rosette {
-    position: relative;
-    z-index: 1;
-    color: var(--gold-bright);
-    font-family: Georgia, serif;
-    font-size: 2.35rem;
-    line-height: 1;
-}
-.manuscript-drop {
-    position: absolute;
-    right: 37px;
-    bottom: 1px;
-    color: var(--blue);
-    font-size: 1.1rem;
-}
-.manuscript-drop::before {
-    content: "";
-    position: absolute;
-    height: 24px;
-    border-left: 2px solid var(--maroon);
-    left: 50%;
-    bottom: 20px;
 }
 
 /* ---------- PLAYER ---------- */
@@ -237,13 +164,6 @@ body {
     left: 50%;
     top: 50%;
 }
-.player canvas { touch-action: none; }
-.player [role="button"]:focus-visible,
-.site-hamburger:focus-visible,
-.power-btn:focus-visible {
-    outline: 3px solid var(--gold-bright);
-    outline-offset: 4px;
-}
 
 .player .playarea {
     position: absolute;
@@ -257,21 +177,21 @@ body {
 .player .playarea div { display: inline-block; }
 .player .playarea .play {
     cursor: pointer; opacity: 0.9; vertical-align: middle; margin: 0 26px;
-    border: 3px solid var(--blue); border-radius: 120px; width: 120px; height: 120px;
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNDVweCIgaGVpZ2h0PSI1NXB4IiB2aWV3Qm94PSIwIDAgNDUgNTUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPnBsYXktPC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPiAgICAgICAgPGZpbHRlciB4PSItNTAlIiB5PSItNTAlIiB3aWR0aD0iMjAwJSIgaGVpZ2h0PSIyMDAlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJmaWx0ZXItMSI+ICAgICAgICAgICAgPGZlT2Zmc2V0IGR4PSIwIiBkeT0iMCIgaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9InNoYWRvd09mZnNldE91dGVyMSI+PC9mZU9mZnNldD4gICAgICAgICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxLjUiIGluPSJzaGFkb3dPZmZzZXRPdXRlcjEiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSI+PC9mZUdhdXNzaWFuQmx1cj4gICAgICAgICAgICA8ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMC45NDI0NzI1NjIgICAwIDAgMCAwIDAuOTYxNzk0NTYyICAgMCAwIDAgMCAwLjk4MjE5NjAwMyAgMCAwIDAgMC4zNSAwIiBpbj0ic2hhZG93Qmx1ck91dGVyMSIgdHlwZT0ibWF0cml4IiByZXN1bHQ9InNoYWRvd01hdHJpeE91dGVyMSI+PC9mZUNvbG9yTWF0cml4PiAgICAgICAgICAgIDxmZU1lcmdlPiAgICAgICAgICAgICAgICA8ZmVNZXJnZU5vZGUgaW49InNoYWRvd01hdHJpeE91dGVyMSI+PC9mZU1lcmdlTm9kZT4gICAgICAgICAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIj48L2ZlTWVyZ2VOb2RlPiAgICAgICAgICAgIDwvZmVNZXJnZT4gICAgICAgIDwvZmlsdGVyPiAgICA8L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPiAgICAgICAgPGcgaWQ9IlBsYXllci12ZXJzaW9uLTEiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00ODIuMDAwMDAwLCAtMjk2LjAwMDAwMCkiIGZpbHRlcj0idXJsKCNmaWx0ZXItMSkiIGZpbGw9IiMxNjMwNUMiPiAgICAgICAgICAgIDxwYXRoIGQ9Ik00ODUsMzE0LjM1MDE1NCBMNDg1LDM0OCBMNTI1LDMyNC4wMzI2MDkgTDQ4NSwyOTkgTDQ4NSwzMTQuMzUwMTU0IFoiIGlkPSJwbGF5LSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+) 42px 34px no-repeat;
+    border: 3px solid var(--accent); border-radius: 120px; width: 120px; height: 120px;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNDVweCIgaGVpZ2h0PSI1NXB4IiB2aWV3Qm94PSIwIDAgNDUgNTUiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPnBsYXktPC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPiAgICAgICAgPGZpbHRlciB4PSItNTAlIiB5PSItNTAlIiB3aWR0aD0iMjAwJSIgaGVpZ2h0PSIyMDAlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJmaWx0ZXItMSI+ICAgICAgICAgICAgPGZlT2Zmc2V0IGR4PSIwIiBkeT0iMCIgaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9InNoYWRvd09mZnNldE91dGVyMSI+PC9mZU9mZnNldD4gICAgICAgICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxLjUiIGluPSJzaGFkb3dPZmZzZXRPdXRlcjEiIHJlc3VsdD0ic2hhZG93Qmx1ck91dGVyMSI+PC9mZUdhdXNzaWFuQmx1cj4gICAgICAgICAgICA8ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMC4zNzI1NDkwMiAgIDAgMCAwIDAgMC40MzUyOTQxMTggICAwIDAgMCAwIDAuMzIxNTY4NjI3ICAwIDAgMCAwLjM1IDAiIGluPSJzaGFkb3dCbHVyT3V0ZXIxIiB0eXBlPSJtYXRyaXgiIHJlc3VsdD0ic2hhZG93TWF0cml4T3V0ZXIxIj48L2ZlQ29sb3JNYXRyaXg+ICAgICAgICAgICAgPGZlTWVyZ2U+ICAgICAgICAgICAgICAgIDxmZU1lcmdlTm9kZSBpbj0ic2hhZG93TWF0cml4T3V0ZXIxIj48L2ZlTWVyZ2VOb2RlPiAgICAgICAgICAgICAgICA8ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiPjwvZmVNZXJnZU5vZGU+ICAgICAgICAgICAgPC9mZU1lcmdlPiAgICAgICAgPC9maWx0ZXI+ICAgIDwvZGVmcz4gICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCIgc2tldGNoOnR5cGU9Ik1TUGFnZSI+ICAgICAgICA8ZyBpZD0iUGxheWVyLXZlcnNpb24tMSIgc2tldGNoOnR5cGU9Ik1TQXJ0Ym9hcmRHcm91cCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTQ4Mi4wMDAwMDAsIC0yOTYuMDAwMDAwKSIgZmlsdGVyPSJ1cmwoI2ZpbHRlci0xKSIgZmlsbD0iI2U1YmM2NSI+ICAgICAgICAgICAgPHBhdGggZD0iTTQ4NSwzMTQuMzUwMTU0IEw0ODUsMzQ4IEw1MjUsMzI0LjAzMjYwOSBMNDg1LDI5OSBMNDg1LDMxNC4zNTAxNTQgWiIgaWQ9InBsYXktIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIj48L3BhdGg+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=) 42px 34px no-repeat;
     background-size: 45px 55px;
 }
 .player .playarea .pause {
     display: none; cursor: pointer; opacity: 0.9; vertical-align: middle; margin: 0 26px;
-    border: 3px solid var(--blue); border-radius: 120px; width: 120px; height: 120px;
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMzRweCIgaGVpZ2h0PSI1MXB4IiB2aWV3Qm94PSIwIDAgMzQgNTEiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPkxpbmU8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+PC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4gICAgICAgIDxnIGlkPSJQbGF5ZXItdmVyc2lvbi0xIiBza2V0Y2g6dHlwZT0iTVNBcnRib2FyZEdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDgyLjAwMDAwMCwgLTI5OC4wMDAwMDApIiBzdHJva2U9IiMxNjMwNUMiIHN0cm9rZS1vcGFjaXR5PSIwLjg1IiBmaWxsPSIjMTYzMDVDIiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiBmaWxsLW9wYWNpdHk9IjAuODUiPiAgICAgICAgICAgIDxwYXRoIGQ9Ik00ODMsMzAxLjI2ODUxOSBMNDgzLDM0NS43MzE0ODEgTDQ4MywzNDggTDQ4OC4wNzI0NjQsMzQ4IEw0ODguMDcyNDY0LDM0NS43MzE0ODEgTDQ4OC4wNzI0NjQsMzAxLjI2ODUxOSBMNDg4LjA3MjQ2NCwyOTkgTDQ4MywyOTkgTDQ4MywzMDEuMjY4NTE5IFogTTUwOS45Mjc1MzYsMzAxLjI2ODUxOSBMNTA5LjkyNzUzNiwzNDUuNzMxNDgxIEw1MDkuOTI3NTM2LDM0OCBMNTE1LDM0OCBMNTE1LDM0NS43MzE0ODEgTDUxNSwzMDEuMjY4NTE5IEw1MTUsMjk5IEw1MDkuOTI3NTM2LDI5OSBMNTA5LjkyNzUzNiwzMDEuMjY4NTE5IFoiIGlkPSJMaW5lIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIj48L3BhdGg+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=) 43px 35px no-repeat;
+    border: 3px solid var(--accent); border-radius: 120px; width: 120px; height: 120px;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMzRweCIgaGVpZ2h0PSI1MXB4IiB2aWV3Qm94PSIwIDAgMzQgNTEiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPkxpbmU8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+PC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4gICAgICAgIDxnIGlkPSJQbGF5ZXItdmVyc2lvbi0xIiBza2V0Y2g6dHlwZT0iTVNBcnRib2FyZEdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDgyLjAwMDAwMCwgLTI5OC4wMDAwMDApIiBzdHJva2U9IiNDOUEyMzMiIHN0cm9rZS1vcGFjaXR5PSIwLjg1IiBmaWxsPSIjZTViYzY1IiBzdHJva2UtbGluZWNhcD0ic3F1YXJlIiBmaWxsLW9wYWNpdHk9IjAuODUiPiAgICAgICAgICAgIDxwYXRoIGQ9Ik00ODMsMzAxLjI2ODUxOSBMNDgzLDM0NS43MzE0ODEgTDQ4MywzNDggTDQ4OC4wNzI0NjQsMzQ4IEw0ODguMDcyNDY0LDM0NS43MzE0ODEgTDQ4OC4wNzI0NjQsMzAxLjI2ODUxOSBMNDg4LjA3MjQ2NCwyOTkgTDQ4MywyOTkgTDQ4MywzMDEuMjY4NTE5IFogTTUwOS45Mjc1MzYsMzAxLjI2ODUxOSBMNTA5LjkyNzUzNiwzNDUuNzMxNDgxIEw1MDkuOTI3NTM2LDM0OCBMNTE1LDM0OCBMNTE1LDM0NS43MzE0ODEgTDUxNSwzMDEuMjY4NTE5IEw1MTUsMjk5IEw1MDkuOTI3NTM2LDI5OSBMNTA5LjkyNzUzNiwzMDEuMjY4NTE5IFoiIGlkPSJMaW5lIiBza2V0Y2g6dHlwZT0iTVNTaGFwZUdyb3VwIj48L3BhdGg+ICAgICAgICA8L2c+ICAgIDwvZz48L3N2Zz4=) 43px 35px no-repeat;
     background-size: 35px 51px;
 }
 .player .playarea .prevSong {
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNjZweCIgaGVpZ2h0PSI0M3B4IiB2aWV3Qm94PSIwIDAgNjYgNDMiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPnJld2luZDwvdGl0bGU+ICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPiAgICA8ZGVmcz4gICAgICAgIDxmaWx0ZXIgeD0iLTUwJSIgeT0iLTUwJSIgd2lkdGg9IjIwMCUiIGhlaWdodD0iMjAwJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iZmlsdGVyLTEiPiAgICAgICAgICAgIDxmZU9mZnNldCBkeD0iMCIgZHk9IjAiIGluPSJTb3VyY2VBbHBoYSIgcmVzdWx0PSJzaGFkb3dPZmZzZXRPdXRlcjEiPjwvZmVPZmZzZXQ+ICAgICAgICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMS41IiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiPjwvZmVHYXVzc2lhbkJsdXI+ICAgICAgICAgICAgPGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAuOTQxMTc2NDcxICAgMCAwIDAgMCAwLjk2MDc4NDMxNCAgIDAgMCAwIDAgMC45ODAzOTIxNTcgIDAgMCAwIDAuMzUgMCIgaW49InNoYWRvd0JsdXJPdXRlcjEiIHR5cGU9Im1hdHJpeCIgcmVzdWx0PSJzaGFkb3dNYXRyaXhPdXRlcjEiPjwvZmVDb2xvck1hdHJpeD4gICAgICAgICAgICA8ZmVNZXJnZT4gICAgICAgICAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJzaGFkb3dNYXRyaXhPdXRlcjEiPjwvZmVNZXJnZU5vZGU+ICAgICAgICAgICAgICAgIDxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyI+PC9mZU1lcmdlTm9kZT4gICAgICAgICAgICA8L2ZlTWVyZ2U+ICAgICAgICA8L2ZpbHRlcj4gICAgPC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4gICAgICAgIDxnIGlkPSJQbGF5ZXItdmVyc2lvbi0xIiBza2V0Y2g6dHlwZT0iTVNBcnRib2FyZEdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzQyLjAwMDAwMCwgLTMwMi4wMDAwMDApIiBmaWx0ZXI9InVybCgjZmlsdGVyLTEpIiBmaWxsPSIjMTYzMDVDIiBmaWxsLW9wYWNpdHk9IjAuODUiPiAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNDUsMzA1IEwzNDUsMzQyIEwzNzUsMzIzLjkwMjE3NCBMMzQ1LDMwNSBMMzQ1LDMwNSBaIE0zNzUsMzA1IEwzNzUsMzQyIEw0MDUsMzIzLjc3NjEyIEwzNzUsMzA1IEwzNzUsMzA1IFoiIGlkPSJyZXdpbmQiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM3NS4wMDAwMDAsIDMyMy41MDAwMDApIHNjYWxlKC0xLCAxKSB0cmFuc2xhdGUoLTM3NS4wMDAwMDAsIC0zMjMuNTAwMDAwKSAiPjwvcGF0aD4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==) 0 0 no-repeat;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNjZweCIgaGVpZ2h0PSI0M3B4IiB2aWV3Qm94PSIwIDAgNjYgNDMiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPnJld2luZDwvdGl0bGU+ICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPiAgICA8ZGVmcz4gICAgICAgIDxmaWx0ZXIgeD0iLTUwJSIgeT0iLTUwJSIgd2lkdGg9IjIwMCUiIGhlaWdodD0iMjAwJSIgZmlsdGVyVW5pdHM9Im9iamVjdEJvdW5kaW5nQm94IiBpZD0iZmlsdGVyLTEiPiAgICAgICAgICAgIDxmZU9mZnNldCBkeD0iMCIgZHk9IjAiIGluPSJTb3VyY2VBbHBoYSIgcmVzdWx0PSJzaGFkb3dPZmZzZXRPdXRlcjEiPjwvZmVPZmZzZXQ+ICAgICAgICAgICAgPGZlR2F1c3NpYW5CbHVyIHN0ZERldmlhdGlvbj0iMS41IiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiPjwvZmVHYXVzc2lhbkJsdXI+ICAgICAgICAgICAgPGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAuOTQxMTc2NDcxICAgMCAwIDAgMCAwLjk2MDc4NDMxNCAgIDAgMCAwIDAgMC45ODAzOTIxNTcgIDAgMCAwIDAuMzUgMCIgaW49InNoYWRvd0JsdXJPdXRlcjEiIHR5cGU9Im1hdHJpeCIgcmVzdWx0PSJzaGFkb3dNYXRyaXhPdXRlcjEiPjwvZmVDb2xvck1hdHJpeD4gICAgICAgICAgICA8ZmVNZXJnZT4gICAgICAgICAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJzaGFkb3dNYXRyaXhPdXRlcjEiPjwvZmVNZXJnZU5vZGU+ICAgICAgICAgICAgICAgIDxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyI+PC9mZU1lcmdlTm9kZT4gICAgICAgICAgICA8L2ZlTWVyZ2U+ICAgICAgICA8L2ZpbHRlcj4gICAgPC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4gICAgICAgIDxnIGlkPSJQbGF5ZXItdmVyc2lvbi0xIiBza2V0Y2g6dHlwZT0iTVNBcnRib2FyZEdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMzQyLjAwMDAwMCwgLTMwMi4wMDAwMDApIiBmaWx0ZXI9InVybCgjZmlsdGVyLTEpIiBmaWxsPSIjZTViYzY1IiBmaWxsLW9wYWNpdHk9IjAuODUiPiAgICAgICAgICAgIDxwYXRoIGQ9Ik0zNDUsMzA1IEwzNDUsMzQyIEwzNzUsMzIzLjkwMjE3NCBMMzQ1LDMwNSBMMzQ1LDMwNSBaIE0zNzUsMzA1IEwzNzUsMzQyIEw0MDUsMzIzLjc3NjEyIEwzNzUsMzA1IEwzNzUsMzA1IFoiIGlkPSJyZXdpbmQiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDM3NS4wMDAwMDAsIDMyMy41MDAwMDApIHNjYWxlKC0xLCAxKSB0cmFuc2xhdGUoLTM3NS4wMDAwMDAsIC0zMjMuNTAwMDAwKSAiPjwvcGF0aD4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==) 0 0 no-repeat;
 }
 .player .playarea .nextSong {
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNjZweCIgaGVpZ2h0PSI0M3B4IiB2aWV3Qm94PSIwIDAgNjYgNDMiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPmZvcndhcmQ8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+ICAgICAgICA8ZmlsdGVyIHg9Ii01MCUiIHk9Ii01MCUiIHdpZHRoPSIyMDAlIiBoZWlnaHQ9IjIwMCUiIGZpbHRlclVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgaWQ9ImZpbHRlci0xIj4gICAgICAgICAgICA8ZmVPZmZzZXQgZHg9IjAiIGR5PSIwIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIj48L2ZlT2Zmc2V0PiAgICAgICAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgaW49InNoYWRvd09mZnNldE91dGVyMSIgcmVzdWx0PSJzaGFkb3dCbHVyT3V0ZXIxIj48L2ZlR2F1c3NpYW5CbHVyPiAgICAgICAgICAgIDxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAwLjk0MTE3NjQ3MSAgIDAgMCAwIDAgMC45NjA3ODQzMTQgICAwIDAgMCAwIDAuOTgwMzkyMTU3ICAwIDAgMCAwLjM1IDAiIGluPSJzaGFkb3dCbHVyT3V0ZXIxIiB0eXBlPSJtYXRyaXgiIHJlc3VsdD0ic2hhZG93TWF0cml4T3V0ZXIxIj48L2ZlQ29sb3JNYXRyaXg+ICAgICAgICAgICAgPGZlTWVyZ2U+ICAgICAgICAgICAgICAgIDxmZU1lcmdlTm9kZSBpbj0ic2hhZG93TWF0cml4T3V0ZXIxIj48L2ZlTWVyZ2VOb2RlPiAgICAgICAgICAgICAgICA8ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiPjwvZmVNZXJnZU5vZGU+ICAgICAgICAgIDwvZmVNZXJnZT4gICAgICAgIDwvZmlsdGVyPiAgICA8L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPiAgICAgICAgPGcgaWQ9IlBsYXllci12ZXJzaW9uLTEiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC01OTIuMDAwMDAwLCAtMzAyLjAwMDAwMCkiIGZpbGwtb3BhY2l0eT0iMC44NSIgZmlsdGVyPSJ1cmwoI2ZpbHRlci0xKSIgZmlsbD0iIzE2MzA1QyI+ICAgICAgICAgICAgPHBhdGggZD0iTTU5NSwzMDUgTDU5NSwzNDIgTDYyNSwzMjMuOTAyMTc0IEw1OTUsMzA1IEw1OTUsMzA1IFogTTYyNSwzMDUgTDYyNSwzNDIgTDY1NSwzMjMuNzc2MTIgTDYyNSwzMDUgTDYyNSwzMDUgWiIgaWQ9ImZvcndhcmQiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==) 0 0 no-repeat;
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iNjZweCIgaGVpZ2h0PSI0M3B4IiB2aWV3Qm94PSIwIDAgNjYgNDMiIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPmZvcndhcmQ8L3RpdGxlPiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4gICAgPGRlZnM+ICAgICAgICA8ZmlsdGVyIHg9Ii01MCUiIHk9Ii01MCUiIHdpZHRoPSIyMDAlIiBoZWlnaHQ9IjIwMCUiIGZpbHRlclVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgaWQ9ImZpbHRlci0xIj4gICAgICAgICAgICA8ZmVPZmZzZXQgZHg9IjAiIGR5PSIwIiBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0ic2hhZG93T2Zmc2V0T3V0ZXIxIj48L2ZlT2Zmc2V0PiAgICAgICAgICAgIDxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEuNSIgaW49InNoYWRvd09mZnNldE91dGVyMSIgcmVzdWx0PSJzaGFkb3dCbHVyT3V0ZXIxIj48L2ZlR2F1c3NpYW5CbHVyPiAgICAgICAgICAgIDxmZUNvbG9yTWF0cml4IHZhbHVlcz0iMCAwIDAgMCAwLjk0MTE3NjQ3MSAgIDAgMCAwIDAgMC45NjA3ODQzMTQgICAwIDAgMCAwIDAuOTgwMzkyMTU3ICAwIDAgMCAwLjM1IDAiIGluPSJzaGFkb3dCbHVyT3V0ZXIxIiB0eXBlPSJtYXRyaXgiIHJlc3VsdD0ic2hhZG93TWF0cml4T3V0ZXIxIj48L2ZlQ29sb3JNYXRyaXg+ICAgICAgICAgICAgPGZlTWVyZ2U+ICAgICAgICAgICAgICAgIDxmZU1lcmdlTm9kZSBpbj0ic2hhZG93TWF0cml4T3V0ZXIxIj48L2ZlTWVyZ2VOb2RlPiAgICAgICAgICAgICAgICA8ZmVNZXJnZU5vZGUgaW49IlNvdXJjZUdyYXBoaWMiPjwvZmVNZXJnZU5vZGU+ICAgICAgICAgIDwvZmVNZXJnZT4gICAgICAgIDwvZmlsdGVyPiAgICA8L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPiAgICAgICAgPGcgaWQ9IlBsYXllci12ZXJzaW9uLTEiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC01OTIuMDAwMDAwLCAtMzAyLjAwMDAwMCkiIGZpbGwtb3BhY2l0eT0iMC44NSIgZmlsdGVyPSJ1cmwoI2ZpbHRlci0xKSIgZmlsbD0iI2U1YmM2NSI+ICAgICAgICAgICAgPHBhdGggZD0iTTU5NSwzMDUgTDU5NSwzNDIgTDYyNSwzMjMuOTAyMTc0IEw1OTUsMzA1IEw1OTUsMzA1IFogTTYyNSwzMDUgTDYyNSwzNDIgTDY1NSwzMjMuNzc2MTIgTDYyNSwzMDUgTDYyNSwzMDUgWiIgaWQ9ImZvcndhcmQiIHNrZXRjaDp0eXBlPSJNU1NoYXBlR3JvdXAiPjwvcGF0aD4gICAgICAgIDwvZz4gICAgPC9nPjwvc3ZnPg==) 0 0 no-repeat;
 }
 .player .playarea .prevSong, .player .playarea .nextSong {
     vertical-align: middle; background-size: 66px 43px; width: 66px; height: 43px; cursor: pointer;
@@ -283,7 +203,7 @@ body {
 .player .soundControl:hover { opacity: 0.7; }
 
 .player .song {
-    font-family: Roboto, sans-serif; color: var(--blue);
+    font-family: Roboto, sans-serif; color: var(--accent);
     position: absolute; top: 225px; left: 0; width: 100%; text-align: center;
 }
 .player .song .artist { font-size: 22px; margin-bottom: 5px; }
@@ -292,21 +212,21 @@ body {
 .player .soundControl {
     cursor: pointer; width: 31px; height: 27px; position: absolute;
     bottom: 240px; left: 50%; margin-left: -16px;
-    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMzFweCIgaGVpZ2h0PSIyN3B4IiB2aWV3Qm94PSIwIDAgMzEgMjciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPmhpZ2gtdm9sdW1lPC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPiAgICAgICAgPGZpbHRlciB4PSItNTAlIiB5PSItNTAlIiB3aWR0aD0iMjAwJSIgaGVpZ2h0PSIyMDAlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJmaWx0ZXItMSI+ICAgICAgICAgICAgPGZlT2Zmc2V0IGR4PSIwIiBkeT0iMCIgaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9InNoYWRvd09mZnNldE91dGVyMSI+PC9mZU9mZnNldD4gICAgICAgICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxIiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiPjwvZmVHYXVzc2lhbkJsdXI+ICAgICAgICAgICAgPGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAuOTQxMTc2NDcxICAgMCAwIDAgMCAwLjk2MDc4NDMxNCAgIDAgMCAwIDAgMC45ODAzOTIxNTcgIDAgMCAwIDAuMzUgMCIgaW49InNoYWRvd0JsdXJPdXRlcjEiIHR5cGU9Im1hdHJpeCIgcmVzdWx0PSJzaGFkb3dNYXRyaXhPdXRlcjEiPjwvZmVDb2xvck1hdHJpeD4gICAgICAgICAgICA8ZmVNZXJnZT4gICAgICAgICAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJzaGFkb3dNYXRyaXhPdXRlcjEiPjwvZmVNZXJnZU5vZGU+ICAgICAgICAgICAgICAgIDxmZU1lcmdlTm9kZSBpbj0iU291cmNlR3JhcGhpYyI+PC9mZU1lcmdlTm9kZT4gICAgICAgICAgICA8L2ZlTWVyZ2U+ICAgICAgICA8L2ZpbHRlcj4gICAgPC9kZWZzPiAgICA8ZyBpZD0iUGFnZS0xIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIiBza2V0Y2g6dHlwZT0iTVNQYWdlIj4gICAgICAgIDxnIGlkPSJQbGF5ZXItdmVyc2lvbi0xIiBza2V0Y2g6dHlwZT0iTVNBcnRib2FyZEdyb3VwIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNDgzLjAwMDAwMCwgLTQyNS4wMDAwMDApIiBmaWxsLW9wYWNpdHk9IjAuOCIgZmlsdGVyPSJ1cmwoI2ZpbHRlci0xKSIgZmlsbD0iIzE2MzA1QyI+ICAgICAgICAgICAgPHBhdGggZD0iTTUwOC4wMDY2MzQsNDI3IEM1MTAuNTE0ODQ4LDQzMC4xNzU0ODQgNTEyLDQzNC4xODQ0NjMgNTEyLDQzOC41NDI0NyBDNTEyLDQ0Mi44NjE3MSA1MTAuNTQxMTUzLDQ0Ni44MzgxMDQgNTA4LjA3MzMyNiw0NTAgTDUwNi45NDMyNjksNDQ5LjE1MzQwNSBDNTA5LjI1OTIwNiw0NDYuMTgwMjQ0IDUxMC42NDk5OTksNDQyLjUxMTY5MSA1MTAuNjQ5OTk5LDQzOC41NDI0NyBDNTEwLjY0OTk5OSw0MzQuNTI5NDcyIDUwOS4yMjgzNTgsNDMwLjgyMzgwOSA1MDYuODY2MzAyLDQyNy44MzM0MTQgTDUwOC4wMDY2MzQsNDI3IEw1MDguMDA2NjM0LDQyNyBaIE01MDMuNjcwMjEyLDQ0Ni43MDEzNTggQzUwNS40OTczMjgsNDQ0LjQzNjg2IDUwNi41OTk5OTksNDQxLjYwOTMzMSA1MDYuNTk5OTk5LDQzOC41NDI0NjkgQzUwNi41OTk5OTksNDM1LjQxNDc0IDUwNS40NTMxMjQsNDMyLjUzNTkzNyA1MDMuNTYwNTcsNDMwLjI0OTQxOSBMNTAyLjU4MjY1OCw0MzAuOTY0MTI5IEM1MDQuMjQ4MDEsNDMzLjA4NDYzOCA1MDUuMjUwMDAxLDQzNS43MDU2MyA1MDUuMjUwMDAxLDQzOC41NDI0NjkgQzUwNS4yNTAwMDEsNDQxLjMxMzU1NCA1MDQuMjkzOTIyLDQ0My44Nzg2ODEgNTAyLjY5NzM4Nyw0NDUuOTcyNTU1IEw1MDMuNjcwMjEyLDQ0Ni43MDEzNTggTDUwMy42NzAyMTIsNDQ2LjcwMTM1OCBaIE00OTkuNjk0ODIsNDQzLjcyMzE0OSBDNTAxLjEwNTE0MSw0NDIuMjkzMTQ3IDUwMS45NzMwNzcsNDQwLjM0NDU3NSA1MDEuOTczMDc3LDQzOC4xOTcwMDcgQzUwMS45NzMwNzcsNDM2LjE2NjYzMiA1MDEuMTk3MjgyLDQzNC4zMTQxMjYgNDk5LjkyMDgwNSw0MzIuOTA5NTUxIEw0OTguOTQyMDkxLDQzMy42MjQ4NDcgQzQ5OS45NzUwOTUsNDM0Ljg3MjYxNSA1MDAuNTk0MjMxLDQzNi40NjM4MzUgNTAwLjU5NDIzMSw0MzguMTk3MDA3IEM1MDAuNTk0MjMxLDQ0MC4wNDE3OTQgNDk5Ljg5Mjc4NCw0NDEuNzI1NzU2IDQ5OC43Mzc0MjUsNDQzLjAwNTkwNSBMNDk5LjY5NDgyLDQ0My43MjMxNDkgTDQ5OS42OTQ4Miw0NDMuNzIzMTQ5IFoiIGlkPSJoaWdoLXZvbHVtZSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+);
+    background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB3aWR0aD0iMzFweCIgaGVpZ2h0PSIyN3B4IiB2aWV3Qm94PSIwIDAgMzEgMjciIHZlcnNpb249IjEuMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeG1sbnM6c2tldGNoPSJodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2gvbnMiPiAgICAgICAgPHRpdGxlPmhpZ2gtdm9sdW1lPC90aXRsZT4gICAgPGRlc2M+Q3JlYXRlZCB3aXRoIFNrZXRjaC48L2Rlc2M+ICAgIDxkZWZzPiAgICAgICAgPGZpbHRlciB4PSItNTAlIiB5PSItNTAlIiB3aWR0aD0iMjAwJSIgaGVpZ2h0PSIyMDAlIiBmaWx0ZXJVbml0cz0ib2JqZWN0Qm91bmRpbmdCb3giIGlkPSJmaWx0ZXItMSI+ICAgICAgICAgICAgPGZlT2Zmc2V0IGR4PSIwIiBkeT0iMCIgaW49IlNvdXJjZUFscGhhIiByZXN1bHQ9InNoYWRvd09mZnNldE91dGVyMSI+PC9mZU9mZnNldD4gICAgICAgICAgICA8ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSIxIiBpbj0ic2hhZG93T2Zmc2V0T3V0ZXIxIiByZXN1bHQ9InNoYWRvd0JsdXJPdXRlcjEiPjwvZmVHYXVzc2lhbkJsdXI+ICAgICAgICAgICAgPGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAuMzcyNTQ5MDIgICAwIDAgMCAwIDAuNDM1Mjk0MTE4ICAgMCAwIDAgMCAwLjMyMTU2ODYyNyAgMCAwIDAgMC4zNSAwIiBpbj0ic2hhZG93Qmx1ck91dGVyMSIgdHlwZT0ibWF0cml4IiByZXN1bHQ9InNoYWRvd01hdHJpeE91dGVyMSI+PC9mZUNvbG9yTWF0cml4PiAgICAgICAgICAgIDxmZU1lcmdlPiAgICAgICAgICAgICAgICA8ZmVNZXJnZU5vZGUgaW49InNoYWRvd01hdHJpeE91dGVyMSI+PC9mZU1lcmdlTm9kZT4gICAgICAgICAgICAgICAgPGZlTWVyZ2VOb2RlIGluPSJTb3VyY2VHcmFwaGljIj48L2ZlTWVyZ2VOb2RlPiAgICAgICAgICAgIDwvZmVNZXJnZT4gICAgICAgIDwvZmlsdGVyPiAgICA8L2RlZnM+ICAgIDxnIGlkPSJQYWdlLTEiIHN0cm9rZT0ibm9uZSIgc3Ryb2tlLXdpZHRoPSIxIiBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIHNrZXRjaDp0eXBlPSJNU1BhZ2UiPiAgICAgICAgPGcgaWQ9IlBsYXllci12ZXJzaW9uLTEiIHNrZXRjaDp0eXBlPSJNU0FydGJvYXJkR3JvdXAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC00ODMuMDAwMDAwLCAtNDI1LjAwMDAwMCkiIGZpbGwtb3BhY2l0eT0iMC44IiBmaWx0ZXI9InVybCgjZmlsdGVyLTEpIiBmaWxsPSIjZTViYzY1Ij4gICAgICAgICAgICA8cGF0aCBkPSJNNTA4LjAwNjYzNCw0MjcgQzUxMC41MTQ4NDgsNDMwLjE3NTQ4NCA1MTIsNDM0LjE4NDQ2MyA1MTIsNDM4LjU0MjQ3IEM1MTIsNDQyLjg2MTcxIDUxMC41NDExNTMsNDQ2LjgzODEwNCA1MDguMDczMzI2LDQ1MCBMNTA2Ljk0MzI2OSw0NDkuMTUzNDA1IEM1MDkuMjU5MjA2LDQ0Ni4xODAyNDQgNTEwLjY0OTk5OSw0NDIuNTExNjkxIDUxMC42NDk5OTksNDM4LjU0MjQ3IEM1MTAuNjQ5OTk5LDQzNC41Mjk0NzIgNTA5LjIyODM1OCw0MzAuODIzODA5IDUwNi44NjYzMDIsNDI3LjgzMzQxNCBMNTA4LjAwNjYzNCw0MjcgTDUwOC4wMDY2MzQsNDI3IFogTTUwMy42NzAyMTIsNDQ2LjcwMTM1OCBDNTA1LjQ5NzMyOCw0NDQuNDM2ODYgNTA2LjU5OTk5OSw0NDEuNjA5MzMxIDUwNi41OTk5OTksNDM4LjU0MjQ2OSBDNTA2LjU5OTk5OSw0MzUuNDE0NzQgNTA1LjQ1MzEyNCw0MzIuNTM1OTM3IDUwMy41NjA1Nyw0MzAuMjQ5NDE5IEw1MDIuNTgyNjU4LDQzMC45NjQxMjkgQzUwNC4yNDgwMSw0MzMuMDg0NjM4IDUwNS4yNTAwMDEsNDM1LjcwNTYzIDUwNS4yNTAwMDEsNDM4LjU0MjQ2OSBDNTA1LjI1MDAwMSw0NDEuMzEzNTU0IDUwNC4yOTM5MjIsNDQzLjg3ODY4MSA1MDIuNjk3Mzg3LDQ0NS45NzI1NTUgTDUwMy42NzAyMTIsNDQ2LjcwMTM1OCBMNTAzLjY3MDIxMiw0NDYuNzAxMzU4IFoiIGlkPSJoaWdoLXZvbHVtZSIgc2tldGNoOnR5cGU9Ik1TU2hhcGVHcm91cCI+PC9wYXRoPiAgICAgICAgPC9nPiAgICA8L2c+PC9zdmc+);
     background-size: 31px 27px; text-align: center;
 }
 .player .soundControl.disable { opacity: 0.4; }
 
 .player .time {
-    text-align: center; font-family: Roboto, sans-serif; color: var(--blue);
+    text-align: center; font-family: Roboto, sans-serif; color: var(--accent);
     position: absolute; left: 50%; margin-left: -22px; font-size: 20px; bottom: 190px;
 }
 
-/* ---------- BOOK PANEL (deep blue card, gold + maroon accents) ---------- */
+/* ---------- BOOK PANEL ---------- */
 
 .card {
-    background-color: var(--water);
-    color: var(--blue-dark);
+    background-color: var(--charcoal);
+    color: var(--card-fg);
     box-shadow: 0 12px 50px var(--shadow);
     width: 88%;
     max-width: 1100px;
@@ -340,8 +260,8 @@ body {
 
 .controls .box {
     margin-top: 10px;
-    background-color: var(--maroon);
-    color: var(--fg);
+    background-color: var(--coral);
+    color: var(--card-fg);
     text-align: center;
     padding: 0.6rem 0;
     border-radius: 4px;
@@ -352,12 +272,12 @@ body {
     font-weight: 600;
     transition: background 0.2s;
 }
-.controls .box:hover { background-color: var(--maroon-bright); }
+.controls .box:hover { background-color: var(--coral-bright); }
 
 .panel {
     flex: 1 1 320px;
     position: relative;
-    color: var(--blue-dark);
+    color: var(--card-fg);
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     line-height: 1.6;
@@ -369,21 +289,13 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 1rem;
     letter-spacing: 2px;
-    color: var(--maroon);
+    color: var(--coral-bright);
     margin: 0 0 0.75rem;
 }
 .panel p { color: var(--card-fg-dim); margin: 0 0 0.5rem; }
-.panel .source-note {
-    margin-top: 0.9rem;
-    padding-top: 0.7rem;
-    border-top: 1px solid rgba(205, 165, 74, 0.45);
-    font-size: 0.78rem;
-}
-.source-note a { color: var(--blue); text-underline-offset: 0.18em; }
-.source-note a:focus-visible { outline: 2px solid var(--maroon); outline-offset: 3px; }
 
 .break {
-    background: var(--maroon-bright) no-repeat scroll center;
+    background: var(--coral-bright) no-repeat scroll center;
     width: 5em;
     height: .3em;
     margin: 1.75rem 0 1rem;
@@ -397,8 +309,8 @@ body {
     color: var(--card-fg-dim);
     transition: color 0.15s;
 }
-.chapter:hover { color: var(--blue-dark); }
-.chapter.active { color: var(--maroon-bright); font-weight: 600; }
+.chapter:hover { color: var(--card-fg); }
+.chapter.active { color: var(--coral-bright); font-weight: 600; }
 
 .feather-icon {
     height: 34px;
@@ -442,7 +354,7 @@ body {
 .site-footer {
     text-align: center;
     padding: 2.5rem 1rem 3rem;
-    background-color: var(--water);
+    background-color: var(--charcoal);
 }
 .site-footer img { height: 46px; width: auto; opacity: 0.9; transition: opacity 0.2s; }
 .site-footer a:hover img { opacity: 1; }
@@ -455,7 +367,7 @@ body {
     top: 90px;
     bottom: 20px;
     width: 6px;
-    background: rgba(22, 48, 92, 0.12);
+    background: rgba(35, 32, 35, 0.15);
     border-radius: 3px;
     z-index: 200;
     overflow: visible;
@@ -464,7 +376,7 @@ body {
     position: absolute;
     top: 0; left: 0; width: 100%;
     height: 0%;
-    background: var(--blue);
+    background: var(--accent);
     border-radius: 3px 3px 0 0;
 }
 .progress-fill::after {
@@ -474,7 +386,7 @@ body {
     left: 50%;
     transform: translateX(-50%) rotate(45deg);
     width: 11px; height: 11px;
-    background: var(--blue);
+    background: var(--accent);
     border-radius: 0 50% 50% 50%;
 }
 
@@ -487,7 +399,7 @@ body {
 }
 
 .volume-dial {
-    --dot-color: var(--blue);
+    --dot-color: var(--accent);
     text-align: center;
     font-size: 16px;
 }
@@ -513,7 +425,7 @@ body {
     width: 100%;
     aspect-ratio: 1;
     border-radius: 50%;
-    background-color: rgba(22, 48, 92, 0.14);
+    background-color: rgba(22, 18, 12, 0.18);
     transition: background-color 0.15s;
 }
 .volume-dial__dot--filled::before {
@@ -528,18 +440,18 @@ body {
     overflow: hidden;
     isolation: isolate;
     border-radius: 50%;
-    background-color: #102650;
+    background-color: #4a1510;
     background-image:
-        radial-gradient(circle at 34% 27%, rgba(93, 126, 181, 0.52) 0 5%, rgba(57, 87, 143, 0.24) 14%, transparent 31%),
-        radial-gradient(circle at 50% 56%, #183364 0 42%, #112851 61%, #091a38 81%, #030813 100%);
-    border: 1px solid rgba(230, 192, 106, 0.72);
+        radial-gradient(circle at 34% 27%, rgba(200, 90, 70, 0.58) 0 5%, rgba(140, 55, 40, 0.28) 14%, transparent 31%),
+        radial-gradient(circle at 50% 56%, #6b2118 0 40%, #4a1510 60%, #2e0b08 80%, #0d0302 100%);
+    border: 1px solid rgba(224, 184, 74, 0.8);
     box-shadow:
-        inset 0 1px 0 rgba(116, 149, 204, 0.48),
-        inset 0 -5px 9px rgba(0, 4, 13, 0.52),
-        inset 2px 0 5px rgba(74, 107, 164, 0.2),
-        0 1px 0 rgba(234, 198, 113, 0.34),
-        0 0.55em 1em rgba(0, 0, 0, 0.5),
-        0 0 0 3px rgba(205, 165, 74, 0.13);
+        inset 0 1px 0 rgba(210, 130, 110, 0.5),
+        inset 0 -5px 9px rgba(0, 5, 12, 0.58),
+        inset 2px 0 5px rgba(120, 60, 45, 0.22),
+        0 1px 0 rgba(224, 184, 74, 0.4),
+        0 0.55em 1em rgba(0, 0, 0, 0.52),
+        0 0 0 3px rgba(201, 150, 46, 0.13);
 }
 .volume-dial__wrap::before {
     content: "";
@@ -548,10 +460,10 @@ body {
     z-index: 1;
     pointer-events: none;
     border-radius: 50%;
-    border: 1px solid rgba(230, 192, 106, 0.2);
+    border: 1px solid rgba(224, 184, 74, 0.24);
     box-shadow:
-        inset 0 1px 2px rgba(91, 124, 181, 0.24),
-        0 1px 1px rgba(0, 0, 0, 0.36);
+        inset 0 1px 2px rgba(200, 90, 70, 0.22),
+        0 1px 1px rgba(0, 0, 0, 0.52);
 }
 
 .volume-dial__knob {
@@ -580,12 +492,12 @@ body {
     height: 10%;
     border-radius: 50%;
     background:
-        radial-gradient(circle at 36% 30%, #fff0a8 0 17%, var(--gold-bright) 39%, var(--gold) 67%, #75531c 100%);
-    border: 1px solid rgba(255, 237, 174, 0.58);
+        radial-gradient(circle at 36% 30%, #f0d783 0 17%, var(--coral-bright) 40%, var(--coral) 68%, #5e4513 100%);
+    border: 1px solid rgba(239, 205, 110, 0.64);
     box-shadow:
-        0 0 5px rgba(230, 192, 106, 0.28),
-        0 1px 2px rgba(0, 0, 0, 0.58),
-        inset 0 1px 1px rgba(255, 247, 202, 0.38);
+        0 0 5px rgba(201, 150, 46, 0.3),
+        0 1px 2px rgba(0, 0, 0, 0.66),
+        inset 0 1px 1px rgba(255, 240, 210, 0.22);
 }
 .volume-dial__knob-label {
     position: absolute;
@@ -598,8 +510,8 @@ body {
     font-size: 0.7rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--fg-dim);
-    opacity: 0.8;
+    color: var(--ink);
+    opacity: 0.6;
 }
 
 .volume-dial.powered-off {
@@ -624,10 +536,10 @@ body {
     line-height: 0;
 }
 .power-btn svg circle { transition: stroke 0.2s; }
-.power-btn:hover svg circle { stroke: var(--gold-bright); }
-.power-btn[aria-pressed="false"] svg circle { stroke: #666; }
+.power-btn:hover svg circle { stroke: var(--accent-bright); }
+.power-btn[aria-pressed="false"] svg circle { stroke: #999; }
 .power-btn[aria-pressed="false"] svg path,
-.power-btn[aria-pressed="false"] svg line { stroke: #666; }
+.power-btn[aria-pressed="false"] svg line { stroke: #999; }
 
 .player.powered-off {
     opacity: 0.3;
@@ -638,32 +550,286 @@ body {
 .player { transition: opacity 0.3s, filter 0.3s; }
 
 @media (max-width: 900px) {
-    .player-section { height: 459px; margin: 1.5rem auto; }
-    .player {
-        top: 0;
-        margin-top: 0;
-        transform: scale(0.62);
-        transform-origin: top center;
-    }
+    .player-section { transform: scale(0.62); transform-origin: top center; height: 460px; }
     .book-header { padding: 2rem; }
-    .manuscript-signature {
-        width: 160px;
-        height: 102px;
-        flex-basis: 100%;
-        margin: 0.5rem auto 0;
-    }
 }
 
-@media (max-width: 540px) {
+/* Cover-derived ochre, brick red, parchment and olive-brown. */
+
+:root {
+    --cream: #f2e5c6; --ink: #30291a; --charcoal: #101f1b;
+    --accent: #d0af64; --accent-bright: #f5db98;
+    --coral: #d4b287; --coral-bright: #f2e5c6;
+    --card-fg: #f2e5c6; --card-fg-dim: #d2c4a5;
+}
+html { scroll-behavior: smooth; }
+body { background: radial-gradient(ellipse at 50% 40%, #304c3e, #101f1b 72%); color: var(--cream); }
+.site-nav-logo-img { filter: brightness(0) invert(.9) sepia(.2); }
+.site-nav { background: #101f1bf5; border-color: #77613b; }
+.site-nav-links a, .site-nav-links a:hover, .site-nav-links a.active,
+.site-mobile-menu a, .site-mobile-menu a:hover { color: var(--cream); }
+.site-nav-links a::after, .site-hamburger span { background: var(--accent); }
+.site-mobile-menu, .site-footer { background: #101f1b; }
+.book-header { position: relative; display: grid; grid-template-columns: 42% 58%; gap: 0; padding: 0; min-height: 670px; overflow: hidden; background: #15383e; border-bottom: 1px solid #77613b; }
+.book-header-text { position: relative; z-index: 2; padding: 4.5rem 0 4.5rem clamp(1.5rem, 5vw, 5rem); }
+.book-header-text .kicker { color: #d0af64; font-size: .66rem; letter-spacing: .22em; }
+.poetry-label { font-size: .66rem; letter-spacing: .13em; color: #ddd0b3; margin: 2.6rem 0 1rem; }
+.book-header-text h1 { font-size: clamp(4.5rem, 7.6vw, 8rem); line-height: .97; font-weight: 500; letter-spacing: -.04em; color: var(--cream); }
+.book-header-text h1 em { color: #e0b766; font-weight: 400; }
+.hero-premise { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2vw, 1.6rem); margin: 2rem 0 .8rem; }
+.hero-description { font-size: .8rem; line-height: 1.9; color: #ddd0b3; }
+.hero-listen { display: inline-flex; gap: 2rem; align-items: center; margin-top: 1.7rem; padding: .9rem 0; border-bottom: 1px solid #d0af64; text-transform: uppercase; font-size: .65rem; letter-spacing: .18em; text-decoration: none; color: var(--cream); }
+.story-art { position: absolute; inset: 0 0 0 24%; margin: 0; }
+.story-art img { width: 100%; height: 100%; object-fit: cover; object-position: 65% center; }
+.story-art::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg,#15383e 0%,#15383ebb 20%,transparent 58%),linear-gradient(0deg,#15383e88,transparent 35%); }
+.story-art figcaption { position: absolute; z-index: 1; right: 2rem; bottom: 1.5rem; font-family: 'Playfair Display',serif; color: var(--cream); font-style: italic; font-size: .8rem; }
+.listening-heading { text-align: center; padding: 3.5rem 1.25rem 0; }
+.listening-heading span { font-size: .65rem; letter-spacing: .26em; text-transform: uppercase; color: var(--accent); }
+.listening-heading p { font-family: 'Playfair Display',serif; font-size: clamp(1.3rem, 3vw, 1.8rem); margin: .75rem 0 0; }
+.player-section { margin: -2rem auto -2rem; scroll-margin-top: 90px; }
+.player canvas { touch-action: none; }
+.player .song { color: var(--cream); }
+.player .song .artist { font-family: 'Playfair Display',serif; font-size: 26px; }
+.player .song .name { color: #d2c4a5; font-size: 16px; }
+.player .audio-status { margin: .5rem 0 0; font-size: 16px; color: #d2c4a5; }
+.player .playarea .play, .player .playarea .pause, .player .playarea .prevSong,
+.player .playarea .nextSong, .player .soundControl { filter: brightness(1.55) saturate(.65); }
+.power-btn { top: 85px; right: 65px; }
+.extra-controls { margin: 0 auto 3rem; }
+.volume-dial__caption { color: #d2c4a5; opacity: 1; }
+.volume-dial__dot::before { background: #716044; }
+.volume-dial__dot--filled::before { background: #d0af64; }
+.volume-dial__knob { filter: hue-rotate(135deg) saturate(.55); }
+.card { max-width: 1160px; width: calc(100% - 4rem); padding: clamp(1.5rem,4vw,3.5rem); gap: 3rem; border: 1px solid #826a43; border-radius: 0; background: linear-gradient(120deg,#433821,#292319); }
+.book { flex: 0 0 260px; }
+.book img, .controls .box { border-radius: 0; }
+.controls .box { background: #d0af64; color: #30291a; padding: .9rem .3rem; }
+.panel { min-width: 0; font-size: 16px; line-height: 1.85; }
+.panel h2 { font-family: 'Playfair Display',serif; font-size: 1.7rem; font-weight: 500; line-height: 1.2; color: var(--cream); margin: 0 0 1rem; }
+.panel p { color: #e0d3b6; margin-bottom: 1rem; }
+.panel .reading-note { font-family: 'Playfair Display',serif; font-size: 1.25rem; color: #edcd84; border-left: 2px solid #d0af64; padding-left: 1rem; margin: 1.5rem 0; }
+.panel .source-note, .panel .reading-guide { font-size: .8rem; color: #d2c4a5; }
+.panel .source-note { border-top: 1px solid #826a43; padding-top: 1rem; margin-top: 1.5rem; }
+.source-note a, .collection-links a { color: #edcd84; text-underline-offset: 4px; }
+.break { height: 1px; width: 3rem; background: #d0af64; margin: 2rem 0 1.5rem; }
+.chapter { padding: .9rem .5rem; border-bottom: 1px solid #826a43; }
+.chapter:hover, .chapter.active { background: #59422a; color: #f5db98; }
+.collection-links { max-width: 1160px; margin: 2rem auto 3.5rem; padding: 0 1.5rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1.2rem; font-size: .8rem; }
+.site-footer { border-top: 1px solid #826a43; }
+.progress-scroll { width: 3px; right: 5px; z-index: 90; }
+.skip-link { position: fixed; top: -100px; left: 1rem; z-index: 200; padding: 1rem; background: var(--cream); color: var(--ink); }
+.skip-link:focus { top: 1rem; }
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible { outline: 2px solid #f5db98; outline-offset: 5px; }
+@media(max-width:900px) {
+    .book-header { padding: 0; min-height: 620px; }
+    .book-header-text { padding-left: 2rem; }
+    .book-header-text h1 { font-size: clamp(4rem,9vw,6rem); }
+    .hero-description br { display: none; }
+    .player-section { transform: none; height: 459px; margin: 0 auto; }
+    .player { top: 0; margin-top: 0; transform: scale(.62); transform-origin: top center; }
+    .power-btn { top: 20px; right: max(1rem,calc(50% - 225px)); }
+    .card { width: calc(100% - 2.5rem); gap: 2rem; }
+}
+@media(max-width:600px) {
+    html, body { overflow-x: hidden; }
+    .site-nav { padding-inline: 1rem; }
+    .site-nav-logo-img { height: 32px; }
+    .book-header { display: flex; flex-direction: column; min-height: 0; align-items: stretch; }
+    .book-header-text { padding: 2.5rem 1.5rem 1.75rem; }
+    .poetry-label { margin-top: 1.75rem; font-size: .6rem; }
+    .book-header-text h1 { font-size: clamp(4.5rem,18vw,6rem); }
+    .hero-premise { margin-top: 1.5rem; }
+    .hero-description { max-width: 24rem; }
+    .hero-listen { margin-top: .75rem; }
+    .story-art { position: relative; inset: auto; height: 320px; width: 100%; }
+    .story-art img { object-position: 75% center; }
+    .story-art::after { background: linear-gradient(0deg,#15383e88,transparent 35%,transparent 80%,#15383e); }
+    .story-art figcaption { right: 1rem; bottom: 1rem; font-size: .75rem; }
+    .listening-heading { padding-top: 2.5rem; }
     .player-section { height: 370px; }
-    .player { transform: scale(0.5); }
-    .book-header { padding: 1.75rem 1.25rem; }
-    .book-header-text h1 { font-size: clamp(2rem, 8vw, 2.75rem); }
-    .card { width: calc(100% - 2rem); padding: 1.5rem; gap: 1.75rem; }
-    .book { flex-basis: min(100%, 260px); }
+    .player { transform: scale(.5); }
+    .power-btn { top: 12px; right: 1rem; }
+    .power-btn svg { width: 38px; height: 38px; }
+    .extra-controls { margin: .25rem auto 2.5rem; }
+    .card { width: calc(100% - 1.5rem); padding: 1.25rem; }
+    .book { flex-basis: min(260px,100%); margin: 0 auto; }
+    .panel { flex-basis: 100%; font-size: .95rem; line-height: 1.8; }
+    .panel h2 { font-size: 1.5rem; }
+}
+@media(max-width:360px) {
+    .player-section { height: 322px; }
+    .player { transform: scale(.43); }
+    .card { width: calc(100% - 1rem); padding: 1rem; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+.power-btn[aria-pressed="true"] svg path,
+.power-btn[aria-pressed="true"] svg line { stroke: #30291a; }
+.volume-dial__wrap {
+    background: radial-gradient(circle at 34% 27%,#be9161 0%,transparent 35%),radial-gradient(circle at 50% 56%,#75422e 0 40%,#4f2b20 65%,#25190f 100%);
+    border-color: #d0af64;
+    box-shadow: inset 0 1px 2px #e9bc8080,inset 0 -5px 9px #180c05bb,0 .55em 1em #0008,0 0 0 3px #d0af6422;
+}
+.volume-dial__wrap::before { border-color: #d0af6455; box-shadow: inset 0 1px 2px #d0af6433; }
+.volume-dial__knob { filter: none; }
+.volume-dial__knob::before { background: #f2e5c6; border-color: #f5db98; box-shadow: 0 0 5px #d0af6466; }
+
+/* Rural evening: ochre typography and a brick-red reading panel. */
+.book-header { min-height: 730px; grid-template-columns: 47% 53%; }
+.book-header-text h1 { font-size: clamp(3rem,5.6vw,6.2rem); line-height: 1.03; }
+.book-header-text h1 em { color: #e0b766; }
+.poetry-label { max-width: 24rem; line-height: 1.8; margin-top: 2rem; }
+.story-art { left: 18%; }
+.story-art img { object-position: right center; }
+.player .song .artist { font-size: 23px; max-width: 410px; margin-inline: auto; }
+.card { background: linear-gradient(115deg,#e5ddc3,#bdc5bd); border-color: #a2804a; }
+.panel .reading-note { border-color: #ba5038; }
+.break { background: #bc7451; }
+@media(max-width:900px) {
+    .book-header { min-height: 690px; }
+    .book-header-text h1 { font-size: clamp(3rem,6.7vw,4.5rem); }
+}
+@media(max-width:600px) {
+    .book-header { min-height: 0; }
+    .book-header-text h1 { font-size: clamp(3.2rem,13.2vw,4.8rem); }
+    .story-art { left: auto; height: 340px; }
+    .story-art img { object-position: right center; }
 }
 
-@media (max-width: 360px) {
-    .player-section { height: 311px; }
-    .player { transform: scale(0.42); }
-}
+
+/* Ochre, petrol blue and vermilion from Nuestro primer cigarro. */
+:root { --accent: #d0af64; --cream: #e5e9d7; }
+.book-header-text h1 { font-size: clamp(3.1rem,5.8vw,6.3rem); line-height: 1.04; }
+.book-header-text h1 em { color: #d39b83; }
+.book-header-text .kicker { color: #d8ba92; }
+.hero-premise { max-width: 24rem; }
+.hero-listen { border-color: #b9573d; }
+.volume-dial__wrap { background: radial-gradient(circle at 34% 27%,#54818a,transparent 35%),radial-gradient(circle at 50% 56%,#244c55 0 40%,#163740 65%,#0b2229 100%); }
+@media(max-width:900px) { .book-header-text h1 { font-size: clamp(3rem,6.4vw,4.8rem); } }
+@media(max-width:600px) { .book-header-text h1 { font-size: clamp(2.9rem,12vw,4.4rem); } }
+
+
+/* Faded blue, parchment and brick red from the illustrated cover. */
+body { background: #15383e; color: #e5e9d7; }
+.site-nav, .site-mobile-menu { background: #09272f; }
+.book-header-text h1 { font-size: clamp(2.7rem,5.1vw,5.5rem); }
+.book-header-text h1 em { color: #c4b893; }
+.story-art { left: 22%; }
+.card { border-top: 3px solid #c27335; }
+.panel p, .panel h2 { color: #322b26; }
+.panel .reading-note { color: #80503a; border-color: #c27335; }
+.panel .source-note, .panel .reading-guide { color: #514335; }
+.panel .source-note a { color: #80503a; }
+.chapter { color: #322b26; }
+.chapter:hover, .chapter.active { color: #f5e7cc; background: #704536; }
+@media(max-width:600px) { .book-header-text h1 { font-size: clamp(2.4rem,10.5vw,4rem); } .story-art { left: auto; } }
+
+/* Emerald, ivory and scarlet drawn from the collage cover. */
+.site-footer { background: #09272f; }
+.story-art img { object-position: right top; }
+.kicker, .listening-heading span { color: #ddc38d; }
+.volume-dial__wrap { background: radial-gradient(circle at 34% 27%,#8e9c7b,transparent 35%),radial-gradient(circle at 50% 56%,#4c624d 0 40%,#2c3d31 65%,#09272f 100%); }
+
+/* Burnished amber, black lace and ivory from the cover. */
+.book-header-text h1 { font-size:clamp(2.7rem,5vw,5.3rem); }
+.story-art img { object-position:right top; }
+@media(max-width:600px) { .book-header-text h1 { font-size:clamp(2.4rem,11vw,4rem); } }
+
+/* Ink, dusty rose and muted violet from the etched cover. */
+.kicker, .listening-heading span { color:#cfa85a; }
+.book-header-text h1 em { color:#c4b893; }
+.story-art img { object-position:right top; }
+
+/* Gold, cobalt and ink black from the original cover. */
+.story-art img { object-position:right top; }
+.panel .reading-note { color:#574778; }
+
+/* Cobalt mourning cloth and candle gold, with vermilion detail. */
+.hero-listen { border-bottom-color:#b6462d; }
+.panel .reading-note { color:#87442d; }
+.book-header-text h1 { font-size:clamp(3.1rem,5.8vw,5.6rem); }
+@media(max-width:600px) { .book-header-text h1 { font-size:clamp(2.3rem,10vw,3.7rem); } }
+
+/* Ochre plaster, charcoal shadows, oxblood and weathered green. */
+.hero-listen { border-bottom-color:#9f4935; }
+.panel .reading-note { color:#7e3428; }
+
+/* Burgundy silk, honey gold and petrol teal from the cover. */
+.hero-listen { border-bottom-color:#b76374; }
+.panel .reading-note { color:#80503a; }
+
+/* Antique gold and dusty rose from the statue cover. */
+.panel .reading-note { color:#80503a; }
+
+/* Gaslight yellow, vermilion and ink from the cover. */
+.hero-listen { border-bottom-color:#b74d35; }
+.panel .reading-note { color:#80503a; }
+
+/* Parchment sand, black millinery, terracotta flowers and sage surf. */
+.hero-listen { border-bottom-color:#b97450; }
+.panel .reading-note { color:#80503a; }
+
+/* Silver projection light, ink shadows and red velvet. */
+.book-header-text .kicker, .kicker, .listening-heading span { color:#b8cbd2; }
+.book-header-text h1 em { color:#c4b893; }
+.hero-listen { border-bottom-color:#be443f; }
+.card { border-color:#648693; border-top-color:#a43232; }
+.panel p, .panel h2, .chapter { color:#30291f; }
+.panel .reading-note, .panel .source-note a { color:#723130; }
+.panel .reading-note { border-color:#a43232; }
+.panel .source-note, .panel .reading-guide { color:#514334; }
+.source-note a, .collection-links a { color:#d6e4e7; }
+.chapter:hover, .chapter.active { background:#5d3740; color:#e5e9d7; }
+.volume-dial__wrap { background:radial-gradient(circle at 34% 27%,#a84a48,transparent 35%),radial-gradient(circle at 50% 56%,#602b30 0 40%,#391c25 65%,#09272f 100%); }
+
+
+/* Vermilion, ivory, cactus green and obsidian from the cover. */
+.story-art img { object-position:right top; }
+.hero-listen { border-bottom-color:#d73c2d; }
+.book-header-text h1 em { color:#c4b893; }
+.volume-dial__wrap { background:radial-gradient(circle at 34% 27%,#7f9869,transparent 35%),radial-gradient(circle at 50% 56%,#35472d 0 40%,#20301c 65%,#09272f 100%); }
+.card { border-top-color:#b72c24; }
+.panel .reading-note, .panel .source-note a { color:#72342a; }
+
+/* Parchment, teal and burgundy from Zogoibi's cover. */
+.hero-listen { border-bottom-color:#ac3f60; }
+.card { border-top-color:#ac3f60; }
+.panel .reading-note, .panel .source-note a { color:#71394a; }
+.volume-dial__wrap { background:radial-gradient(circle at 34% 27%,#ad6279,transparent 35%),radial-gradient(circle at 50% 56%,#653649 0 40%,#3a2231 65%,#09272f 100%); }
+.book-header-text h1 { font-size:clamp(3rem,6.5vw,7rem); }
+@media(max-width:600px) { .book-header-text h1 { font-size:clamp(3rem,14vw,4.7rem); } }
+
+/* Moon ivory, ink blue and gold from the cover. */
+.hero-listen { border-bottom-color:#c5a35f; }
+.card { border-top-color:#6b96ac; }
+.panel .reading-note, .panel .source-note a { color:#355c75; }
+.volume-dial__wrap { background:radial-gradient(circle at 34% 27%,#80a4b9,transparent 35%),radial-gradient(circle at 50% 56%,#34566f 0 40%,#20384d 65%,#09272f 100%); }
+.book-header-text h1 { font-size:clamp(3rem,5.4vw,5.9rem); }
+@media(max-width:600px) { .book-header-text h1 { font-size:clamp(2.7rem,11.5vw,4rem); } }
+
+/* Navy chalkboard, warm paper and the cover's red ink. */
+.hero-listen { border-bottom-color:#aa4b43; }
+.card { border-top-color:#a74840; }
+.panel .reading-note,.panel .source-note a { color:#854239; }
+.book-header-text h1 em { color:#c4b893; }
+
+.card { background:linear-gradient(115deg,#e5e9d7,#c3bba6); }
+.volume-dial__wrap { background:radial-gradient(circle at 32% 24%,#d0af64,transparent 35%),radial-gradient(circle,#15383e,#09272f); }
+
+/* Rose and laurel soften the blue and parchment palette. */
+.hero-listen { border-bottom-color:#ae6b61; }
+.book-header-text h1 em { color:#e3c57b; }
+.panel .reading-note { color:#6e4d4c; }
+
+/* Saffron light and forest shadows from the cover. */
+.hero-listen { border-bottom-color:#b78e43; }
+.panel .reading-note { color:#3c5279; }
+.card { border-top-color:#b78e43; }
+
+/* Lapis mantle, oxidized turquoise and antique gold from this cover. */
+.book-header-text h1 { font-size:clamp(3rem,5.4vw,5.7rem); }
+.book-header-text .kicker, .listening-heading span { color:#b9d6ce; }
+.hero-listen { border-bottom-color:#c0a262; }
+.card { background:linear-gradient(115deg,#e2eee4,#bfd6ce); border-top-color:#244e8c; }
+.panel .reading-note,.panel .source-note a { color:#214977; }
+.volume-dial__wrap { background:radial-gradient(circle at 32% 24%,#a6c9c4,transparent 35%),radial-gradient(circle,#244e8c,#09272f); }
+@media(max-width:600px) { .book-header-text h1 { font-size:clamp(2.7rem,11.5vw,4rem); } }
