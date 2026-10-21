@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Peribáñez y el comendador de Ocaña</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="peribanez-y-el-comendador-de-ocana.css">
+    <link rel="stylesheet" href="peribanez-y-el-comendador-de-ocana.css?v=20261021-escena">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Primera Ola</p>
-        <h1>Peribáñez y el comendador de Ocaña</h1>
-        <p class="subtitle">Lope de Vega</p>
+        <p class="poetry-label">Lope de Vega · Primera publicación: 1614</p>
+        <h1>Peribáñez<br><em>y el comendador<br>de Ocaña</em></h1>
+        <p class="hero-premise">La dignidad no se compra.</p>
+        <p class="hero-description">Él ofrece joyas.<br> Casilda le cierra el paso.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="story-art"><img src="../assets/peribanez-casilda-en-la-ventana.webp" width="1536" height="1024" fetchpriority="high" alt="Casilda rechaza desde su ventana al comendador disfrazado de segador, que le ofrece perlas antes del amanecer."><figcaption>Casilda en la ventana · Acto II</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Lope de Vega · El límite del poder</span><p>Una voz que no se doblega.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -59,16 +64,17 @@
     <div class="player">
         <canvas></canvas>
         <div class="song">
-            <div class="artist">Peribáñez y el comendador de Ocaña</div>
-            <div class="name">Capítulo 1</div>
+            <div class="artist">Peribáñez<br>y el comendador de Ocaña</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
             <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
-            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -77,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -92,32 +98,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/peribañez.webp" alt="Peribáñez y el comendador de Ocaña">
+        <img loading="lazy" decoding="async" src="../../book_covers/peribañez.webp" alt="Peribáñez y el comendador de Ocaña">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Publicada en Madrid en 1614, dentro de la <em>Cuarta parte</em> de las comedias de Lope de Vega, la obra sitúa su acción bajo Enrique III. El comendador de Ocaña intenta convertir su autoridad señorial en acceso sexual a Casilda, esposa del labrador acomodado Peribáñez. La resistencia del matrimonio transforma el honor: deja de ser privilegio exclusivo de linaje y se afirma como dignidad moral campesina. El desenlace ante el rey confronta violencia privada y justicia pública, pero conserva la monarquía como instancia final que legitima la defensa de Peribáñez.</p>
-        <p class="source-note">Texto y publicación: <a href="https://www.cervantesvirtual.com/portales/lope_de_vega/parte_4_comedias/">Biblioteca Virtual Miguel de Cervantes, <em>Parte IV</em> de las comedias (1614)</a>.</p>
-
+<h2>Una ventana frente al poder</h2>
+<p>El comendador se acerca disfrazado de segador, pero Casilda no acepta su cortejo. Desde la ventana lo rechaza; cuando él revela su identidad y promete joyas, ella llama a los trabajadores de la casa. La escena convierte un umbral doméstico en el límite que un hombre poderoso se niega a respetar.</p>
+<p class="reading-note">El rango no concede derecho sobre la voluntad ajena.</p>
+<p>Lope sitúa a Casilda y Peribáñez, un matrimonio de labradores, frente a una autoridad que confunde deseo con privilegio. La obra entrelaza intimidad, honra y violencia hasta llevar el conflicto ante el rey. La dignidad campesina ocupa el centro del drama, aunque su reconocimiento final todavía depende de la justicia monárquica.</p>
+<p class="source-note">Primera publicación: Madrid, 1614, en la <em>Cuarta parte</em> de las comedias de Lope. <a href="https://www.cervantesvirtual.com/portales/lope_de_vega/parte_4_comedias/">Edición y fecha · Biblioteca Virtual Miguel de Cervantes</a>. <a href="https://www.cervantesvirtual.com/obra-visor/peribanez-y-el-comendador-de-ocana--0/html/ff82a608-82b1-11df-acc7-002185ce6064_3.html">La ventana y el falso segador · Acto II</a>. La imagen interpreta el rechazo de Casilda y el ofrecimiento de las perlas.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Las bodas de Peribáñez y Casilda</p>
-        <p class="chapter" data-time="0">El comendador se enamora de Casilda</p>
-        <p class="chapter" data-time="0">Los engaños para alejar a Peribáñez</p>
-        <p class="chapter" data-time="0">El asalto nocturno a la casa</p>
-        <p class="chapter" data-time="0">La justicia del rey Enrique III</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -131,13 +134,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="cantar-a-la-virgen-maria.html">← Cantar a la Virgen María</a><a href="ola-1-slug.html">Primera Ola</a><a href="el-trovador.html">El trovador →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="peribanez-y-el-comendador-de-ocana.js"></script>
+<script src="peribanez-y-el-comendador-de-ocana.js?v=20261021-escena"></script>
 
 </body>
 </html>
