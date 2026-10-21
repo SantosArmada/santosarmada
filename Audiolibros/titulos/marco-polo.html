@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — El libro de Marco Polo</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="marco-polo.css">
+    <link rel="stylesheet" href="marco-polo.css?v=20261020-lop">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Primera Ola</p>
-        <h1>El libro de Marco Polo</h1>
-        <p class="subtitle">Marco Polo · traducción de Rodrigo Fernández de Santaella</p>
+        <p class="poetry-label">Marco Polo · Edición castellana: 1503</p>
+        <h1>El libro de<br><em>Marco Polo</em></h1>
+        <p class="hero-premise">El desierto conoce tu nombre.</p>
+        <p class="hero-description">La caravana sigue adelante.<br> Una voz te llama desde la arena.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
+    <figure class="story-art"><img src="../assets/marco-las-voces-de-lop.webp" width="1536" height="1024" fetchpriority="high" alt="Un viajero vuelve la mirada junto a un camello mientras una caravana se pierde entre las dunas del desierto al anochecer."><figcaption>Las voces de Lop</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Marco Polo · Traducción de Rodrigo Fernández de Santaella</span><p>Escuchar un mundo por recorrer.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -60,15 +65,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">El libro de Marco Polo</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
             <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
-            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -77,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -92,32 +98,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/marco-polo.webp" alt="El libro de Marco Polo">
+        <img loading="lazy" decoding="async" src="../../book_covers/marco-polo.webp" alt="El libro de Marco Polo">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Esta primera versión castellana del relato de Marco Polo, traducida por Rodrigo Fernández de Santaella, se imprimió en Sevilla el 28 de mayo de 1503. Reúne descripciones de Armenia, Persia, Arabia, India y la Tartaria bajo el dominio del gran kan, combinando itinerarios, administración, comercio y noticias de tierras presentadas al lector europeo como maravillosas. La edición añadió una introducción cosmográfica de Santaella y convirtió un texto medieval de circulación manuscrita en un impreso ligado a la nueva geografía sevillana del siglo XVI.</p>
-        <p class="source-note">Edición de 1503: <a href="https://www.cervantesvirtual.com/obra/el-libro-del-famoso-marco-paulo-veneciano-de-las-cosas-marauillosas-que-vido-en-las-partes-orientales-conuiene-saber-en-las-indias-armenia-arabia-persia-tartaria-e-del-poderio-929912/">Biblioteca Virtual Miguel de Cervantes, ejemplar de la Universidad de Salamanca</a>.</p>
-
+<h2>No abandonar la caravana</h2>
+<p>En el desierto de Lop, el libro cuenta que se oyen voces capaces de imitar a los compañeros de viaje y llamar a los viajeros por su nombre. Quien se aparta puede perder el camino. La escena reúne dos fuerzas que atraviesan el relato: la necesidad práctica de orientarse y el asombro ante lo que no se comprende.</p>
+<p class="reading-note">El mundo se ensancha; la certeza, no siempre.</p>
+<p>Las rutas, los intercambios y el poder del gran kan conviven con noticias maravillosas. Leer a Marco Polo exige atender a esa mezcla de observación y relato transmitido, sin convertir cada prodigio en un hecho comprobado. En castellano, la traducción de Rodrigo Fernández de Santaella llevó este horizonte a la imprenta sevillana.</p>
+<p class="source-note">Edición castellana: Sevilla, 28 de mayo de 1503; no es la fecha del viaje medieval. <a href="https://www.cervantesvirtual.com/obra/el-libro-del-famoso-marco-paulo-veneciano-de-las-cosas-marauillosas-que-vido-en-las-partes-orientales-conuiene-saber-en-las-indias-armenia-arabia-persia-tartaria-e-del-poderio-929912/">Registro del ejemplar · Universidad de Salamanca / Biblioteca Virtual Miguel de Cervantes</a>. <a href="https://fr.wikisource.org/wiki/Voyage_de_Marco_Polo/Livre_1/Chapitre_44">Episodio de Lop · edición francesa de 1888</a>. La imagen es una interpretación del peligro de separarse de la caravana.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">La partida de Venecia</p>
-        <p class="chapter" data-time="0">El cruce de Persia y Asia Central</p>
-        <p class="chapter" data-time="0">La corte del gran kan Kublai Kan</p>
-        <p class="chapter" data-time="0">Las maravillas de Catay</p>
-        <p class="chapter" data-time="0">El regreso y las tierras de la India</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -131,13 +134,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="ejemplo-del-hombre-de-su-esposa-infiel-y-del-papagayo.html">← El hombre y el papagayo</a><a href="ola-1-slug.html">Primera Ola</a><a href="el-senor-de-bembibre.html">El señor de Bembibre →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="marco-polo.js"></script>
+<script src="marco-polo.js?v=20261020-lop"></script>
 
 </body>
 </html>
