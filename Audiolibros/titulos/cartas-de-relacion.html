@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Audiolibros — Cartas de Relación</title>
+    <title>Audiolibros — Cartas de relación</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="cartas-de-relacion.css">
+    <link rel="stylesheet" href="cartas-de-relacion.css?v=20261021-escena">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,7 +21,6 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
   <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -34,16 +34,20 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Cartas de Relación</h1>
-        <p class="subtitle">Hernán Cortés</p>
+        <p class="poetry-label">Hernán Cortés · Segunda carta impresa: 1522</p>
+        <h1>Cartas<br><em>de relación</em></h1>
+        <p class="hero-premise">Veinte mujeres. Un destino impuesto.</p>
+        <p class="hero-description">Tabasco, 1519. Entre ellas está Marina.<br> Su voz cambiará el curso de la conquista.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
-
+    <figure class="story-art"><img src="../assets/cartas-marina-en-tabasco-v3.webp" width="1536" height="1024" fetchpriority="high" alt="Interpretación de Cortés recibiendo a las mujeres entregadas en Tabasco en 1519, con Marina en primer plano."><figcaption>Tabasco, 1519 · Marina entre las veinte mujeres</figcaption></figure>
+</header>
     <div class="spool-signature" aria-hidden="true">
         <svg viewBox="0 0 84 90">
             <rect class="pyramid-tier" x="10" y="64" width="64" height="10"></rect>
@@ -54,7 +58,7 @@
             <circle class="sun-disk" cx="57" cy="24" r="4.5"></circle>
         </svg>
     </div>
-</header>
+<div class="listening-heading"><span>Hernán Cortés · Relato y autoridad</span><p>Escuchar lo que el poder quiere contar.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -70,16 +74,17 @@
     <div class="player">
         <canvas></canvas>
         <div class="song">
-            <div class="artist">Cartas de Relación</div>
-            <div class="name">Capítulo 1</div>
+            <div class="artist">Cartas de relación</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong" role="button" tabindex="0" aria-label="Relación anterior"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
             <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
-            <div class="nextSong" role="button" tabindex="0" aria-label="Relación siguiente"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar el sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -88,7 +93,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -103,33 +108,28 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24" role="button" tabindex="0" aria-label="Ocultar o mostrar la ficha del libro">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/conquista-de-mexico.webp" alt="Cartas de Relación">
+        <img loading="lazy" decoding="async" src="../../book_covers/conquista-de-mexico.webp" alt="Cartas de relación">
         <div class="controls">
-            <div class="box" role="button" tabindex="0">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Escritas para Carlos V entre 1519 y 1526, estas relaciones no son una crónica neutral: Hernán Cortés narra la invasión, sus alianzas indígenas, el sitio de Mexico-Tenochtitlan y la formación del orden colonial mientras justifica ante la Corona su ruptura con Diego Velázquez y reclama autoridad sobre lo conquistado. La primera relación cortesiana se perdió; la carta del cabildo de la Villa Rica de la Vera Cruz, enviada en 1519, ocupa tradicionalmente su lugar.</p>
-
+<h2>Las voces detrás de la relación</h2>
+<p>Escritas para Carlos V entre 1519 y 1526, estas relaciones no son una crónica neutral: Hernán Cortés narra la invasión, sus alianzas indígenas, el sitio de Mexico-Tenochtitlan y la formación del orden colonial mientras justifica ante la Corona su ruptura con Diego Velázquez y reclama autoridad sobre lo conquistado. La primera relación cortesiana se perdió; la carta del cabildo de la Villa Rica de la Vera Cruz, enviada en 1519, ocupa tradicionalmente su lugar.</p>
+<p class="reading-note">La carta conserva la voz de quien manda; la imagen invita a mirar a quienes no pudieron elegir.</p>
+<p>La imagen evoca un episodio de 1519 en Tabasco: la entrega a los españoles de veinte mujeres esclavizadas, entre ellas la que sería conocida como Marina o Malintzin. Su posterior labor como intérprete resultó decisiva para la conquista. El contexto de esta escena se apoya en otras crónicas y en estudios históricos; no reproduce un pasaje literal de las cartas de Cortés. La composición pone a las mujeres en primer plano sin convertir una entrega forzada en una celebración.</p><p class="source-note">Redacción del conjunto: 1519–1526. La segunda carta, fechada en 1520, se imprimió en Sevilla en 1522; las otras relaciones tienen fechas de publicación distintas. <a href="https://www.bne.es/es/colecciones/hispanoamerica/carta-relacio-ebiada-su-s-majestad">Historia editorial · Biblioteca Nacional de España</a>. <a href="https://www.noticonquista.unam.mx/amoxtli/1321/1318">Contexto de las cartas · UNAM</a>. <a href="https://www.noticonquista.unam.mx/amoxtli/371/363">Las mujeres entregadas en Tabasco · UNAM</a>. La imagen es una interpretación artística, no una reconstrucción exacta.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0" role="button" tabindex="0">Carta del cabildo de Veracruz, 1519 · suplencia de la relación perdida</p>
-        <p class="chapter" data-time="0" role="button" tabindex="0">Segunda relación, 1520 · alianzas, Moctezuma y retirada de Tenochtitlan</p>
-        <p class="chapter" data-time="0" role="button" tabindex="0">Tercera relación, 1522 · sitio y caída de Mexico-Tenochtitlan</p>
-        <p class="chapter" data-time="0" role="button" tabindex="0">Cuarta relación, 1524 · gobierno, expansión y recursos</p>
-        <p class="chapter" data-time="0" role="button" tabindex="0">Quinta relación, 1526 · expedición a las Hibueras</p>
-
-        <p class="source-note"><span>Nota histórica.</span> La identificación de la carta de Veracruz como sustituta de la primera relación perdida, así como la historia editorial de las cinco relaciones, sigue la ficha de la <a href="https://www.bne.es/es/colecciones/hispanoamerica/carta-relacio-ebiada-su-s-majestad" target="_blank" rel="noopener noreferrer">Biblioteca Nacional de España</a>.</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -143,13 +143,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="sumario-de-la-natural-historia-de-las-indias.html">← Sumario</a><a href="ola-2-slug.html">Segunda Ola</a><a href="historia-antigua-de-mexico.html">Historia antigua de México →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="cartas-de-relacion.js"></script>
+<script src="cartas-de-relacion.js?v=20261021-escena"></script>
 
 </body>
 </html>
