@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Brevísima relación de la destrucción de las Indias</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="brevisima-relacion-de-la-destruccion-de-las-indias.css?v=cover-hand-only">
+    <link rel="stylesheet" href="brevisima-relacion-de-la-destruccion-de-las-indias.css?v=20261021-escena">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,17 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Brevísima relación de la destrucción de las Indias</h1>
-        <p class="subtitle">Bartolomé de las Casas · Sevilla, 1552</p>
+        <p class="poetry-label">Bartolomé de las Casas · Publicación: 1552</p>
+        <h1>Brevísima<br><em>relación</em><small>de la destrucción de las Indias</small></h1>
+        <p class="hero-premise">Que el silencio no sea cómplice.</p>
+        <p class="hero-description">La violencia exige una respuesta.<br> El testimonio rompe el silencio.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
-
-    <div class="bloody-hand-signature" aria-hidden="true">
+    <figure class="story-art"><img src="../assets/brevisima-antes-del-golpe-v2.webp" width="1536" height="1024" fetchpriority="high" alt="Un conquistador sostiene por el tobillo a un cautivo adulto de complexión delgada, con pintura corporal y adornos en las orejas, ante una roca; la escena se detiene antes del impacto."><figcaption>Antes del golpe · Interpretación visual</figcaption></figure>
+</header>
+<div class="memorial-field">    <div class="bloody-hand-signature" aria-hidden="true">
         <svg viewBox="0 0 620 800" preserveAspectRatio="xMidYMid meet">
             <defs>
                 <clipPath id="coverHandOnly" clipPathUnits="userSpaceOnUse">
@@ -65,14 +69,14 @@
                 clip-path="url(#coverHandOnly)" filter="url(#extractCoverHand)"/>
         </svg>
     </div>
-</header>
-
 <div class="blood-page-drips" aria-hidden="true">
     <i class="blood-bead blood-bead--one"></i><i class="blood-bead blood-bead--two"></i>
     <i class="blood-bead blood-bead--three"></i><i class="blood-bead blood-bead--four"></i>
     <i class="blood-bead blood-bead--five"></i><i class="blood-bead blood-bead--six"></i>
     <i class="blood-bead blood-bead--seven"></i><i class="blood-bead blood-bead--eight"></i>
 </div>
+
+</div><div class="listening-heading"><span>Bartolomé de las Casas · Denuncia y memoria</span><p>Escuchar es negarse a apartar la mirada.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -89,15 +93,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Brevísima relación de la destrucción de las Indias</div>
-            <div class="name">Capítulo 1</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
             <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
-            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -106,7 +111,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -121,32 +126,30 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" role="button" tabindex="0" aria-label="Ocultar información" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/brevisima.webp" alt="Brevísima relación de la destrucción de las Indias">
+        <img loading="lazy" decoding="async" src="../../book_covers/brevisima.webp" alt="Brevísima relación de la destrucción de las Indias">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Compuesta a partir de materiales presentados en 1542 y publicada en Sevilla en 1552, la <em>Brevísima relación</em> dirige su prólogo al príncipe Felipe para exigir que la Corona detenga la violencia de la conquista. Las Casas organiza el alegato geográficamente: de La Española, Cuba y Jamaica a Nueva España, Guatemala, Venezuela, Perú y el Nuevo Reino de Granada. Su prosa acumula escenas de matanza, esclavización, despojo y despoblación para demostrar que quienes se proclamaban cristianos destruían tanto a los pueblos indígenas como la legitimidad moral y jurídica del imperio. No es una crónica desapasionada ni pretende serlo: es una intervención polémica, construida para mover la conciencia del poder. Su posterior apropiación en disputas europeas sobre España forma parte de la historia de su recepción, pero no sustituye su propósito inmediato ni el régimen colonial que denuncia.</p>
-        <p class="source-note">Nota textual: edición de 1552, destinatario y organización cotejados con la <a href="https://www.cervantesvirtual.com/obra-visor/brevsima-relacin-de-la-destruccin-de-las-indias-0/html/?indice=1" target="_blank" rel="noopener noreferrer">Biblioteca Virtual Miguel de Cervantes</a> y la edición crítica de la <a href="https://www.rae.es/sites/default/files/hojear_brevisima_relacion_de_la_destruicion_de_las_indias.pdf" target="_blank" rel="noopener noreferrer">Real Academia Española</a>.</p>
-
+<h2>Una denuncia dirigida al poder</h2>
+<p>Publicada en Sevilla en 1552, la <em>Brevísima relación</em> lleva ante el príncipe Felipe una exigencia: detener la violencia de las conquistas. Las Casas escribe para provocar una respuesta. La acumulación de daños busca hacer imposible la indiferencia de quien tiene autoridad para intervenir.</p>
+<p class="reading-note">Tras los nombres de los territorios hay vidas que la conquista no tiene derecho a borrar.</p>
+<p>El libro recorre regiones y reúne denuncias de matanzas, esclavización y despojo. Su lenguaje enfrenta la conducta de los conquistadores con las obligaciones morales que invocan. Es un alegato deliberado: la fuerza de su prosa forma parte de su propósito político y religioso.</p>
+<p>La ilustración se detiene ante una violencia inminente. Emplea personajes adultos en una interpretación del terror denunciado por Las Casas; no reproduce literalmente un episodio concreto del libro.</p>
+<p class="source-note">Primera publicación: Sevilla, 1552; versión primitiva: 1542. <a href="https://cervantesvirtual.com/obra/brevsima-relacin-de-la-destruccin-de-las-indias-0/">Edición crítica de José Miguel Martínez Torrejón · Biblioteca Virtual Miguel de Cervantes</a>. <a href="https://cervantesvirtual.com/portales/bartolome_de_las_casas/obra-visor/brevsima-relacin-de-la-destruccin-de-las-indias-0/html/847e3bed-827e-4ca7-bb80-fdcde7ac955e_18.html">Prólogo al príncipe Felipe y notas editoriales</a>.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Argumento y prólogo al príncipe Felipe</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">La Española, San Juan, Jamaica y Cuba</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Tierra Firme, Nicaragua y Nueva España</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Guatemala, Yucatán, Venezuela y Florida</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Perú, Nuevo Reino de Granada y epílogo</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -160,13 +163,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="la-celestina.html">← La Celestina</a><a href="ola-2-slug.html">Segunda Ola</a><a href="sumario-de-la-natural-historia-de-las-indias.html">Sumario de la natural historia →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="brevisima-relacion-de-la-destruccion-de-las-indias.js"></script>
+<script src="brevisima-relacion-de-la-destruccion-de-las-indias.js?v=20261021-escena"></script>
 
 </body>
 </html>
