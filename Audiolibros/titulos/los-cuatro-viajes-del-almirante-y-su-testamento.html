@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Audiolibros — Los cuatro viajes del almirante y su testamento</title>
+    <title>Audiolibros — Los cuatro viajes del Almirante y su testamento</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="los-cuatro-viajes-del-almirante-y-su-testamento.css?v=voyage-medallion">
+    <link rel="stylesheet" href="los-cuatro-viajes-del-almirante-y-su-testamento.css?v=20261021-escena">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" aria-controls="siteMobileMenu" aria-expanded="false" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,16 +34,20 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Los cuatro viajes del almirante y su testamento</h1>
-        <p class="subtitle">Cristóbal Colón · Archivo de viajes, 1492–1506</p>
+        <p class="poetry-label">Cristóbal Colón · Documentos: 1492–1506</p>
+        <h1>Los cuatro viajes<br><em>del Almirante</em><small>y su testamento</small></h1>
+        <p class="hero-premise">El mar no firma promesas.</p>
+        <p class="hero-description">Cuatro travesías. Un horizonte incierto.<br> Y la voluntad de dejarlo todo por escrito.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
-
+    <figure class="story-art"><img src="../assets/cuatro-viajes-el-mar-no-promete.webp" width="1536" height="1024" fetchpriority="high" alt="Una carabela afronta enormes olas bajo un cielo de tormenta abierto por un rayo de luz."><figcaption>La travesía · Interpretación del archivo</figcaption></figure>
+</header>
     <div class="voyage-medallion" aria-hidden="true">
         <svg viewBox="0 0 200 200">
             <defs>
@@ -76,32 +80,34 @@
             <path class="voyage-wave voyage-wave--two" d="M48 190 Q61 185 74 190 T100 190 T126 190 T152 190"/>
         </svg>
     </div>
-</header>
+
+<div class="listening-heading"><span>Cristóbal Colón · Navegación y memoria</span><p>Escuchar el viaje y sus contradicciones.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
 <section class="player-section" id="playerSection">
     <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
         <svg viewBox="0 0 60 60" width="46" height="46">
-            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--teal)" stroke-width="3"/>
+            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--accent)" stroke-width="3"/>
             <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
-                  fill="none" stroke="var(--teal)" stroke-width="4" stroke-linecap="round"/>
-            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--teal)" stroke-width="4" stroke-linecap="round"/>
+                  fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
         </svg>
     </button>
     <div class="player">
         <canvas></canvas>
         <div class="song">
-            <div class="artist">Los cuatro viajes del almirante</div>
-            <div class="name">Capítulo 1</div>
+            <div class="artist">Los cuatro viajes del Almirante y su testamento</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
             <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
-            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -110,7 +116,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -125,32 +131,29 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" role="button" tabindex="0" aria-label="Ocultar información" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/los-cuatro-viajes.webp" alt="Los cuatro viajes del almirante y su testamento">
+        <img loading="lazy" decoding="async" src="../../book_covers/los-cuatro-viajes.webp" alt="Los cuatro viajes del Almirante y su testamento">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Este volumen no conserva cuatro diarios intactos. Los originales se perdieron y cada viaje llega por una vía documental distinta: el primero mediante una relación compendiada asociada a fray Bartolomé de las Casas; el segundo, por un memorial transmitido a la Corona; el tercero y el cuarto, por cartas del almirante. Junto al testamento y su ratificación de 1506, el conjunto permite seguir no sólo una ruta atlántica, sino la transformación de un proyecto de navegación en empresa de colonización, gobierno y herencia. Sus páginas registran observación náutica y geográfica, pero también apropiación territorial, búsqueda de riqueza, violencia contra comunidades indígenas y la insistente defensa de títulos y privilegios. Leerlas como archivo compuesto —mediado, incompleto e interesado— permite distinguir el acontecimiento histórico de la voz con que Colón procuró fijar su significado.</p>
-        <p class="source-note">Nota documental: transmisión y pérdida de los diarios originales contrastadas con la <a href="https://bne.es/es/colecciones/hispanoamerica/viajes-cristobal-colon" target="_blank" rel="noopener noreferrer">Biblioteca Nacional de España</a>; organización de los textos cotejada con la <a href="https://www.cervantesvirtual.com/obra-visor/los-cuatro-viajes-del-almirante-y-su-testamento--0/html/" target="_blank" rel="noopener noreferrer">Biblioteca Virtual Miguel de Cervantes</a>.</p>
-
+<h2>Cuatro viajes, muchas voces del archivo</h2>
+<p>El océano ocupa el horizonte; la escritura intenta fijarlo. Este volumen reúne documentos de los viajes colombinos y su testamento. No se trata de cuatro diarios íntegros y equivalentes: el primer viaje se presenta en una relación compendiada por fray Bartolomé de las Casas; el segundo, en un memorial; el tercero y el cuarto, en cartas.</p>
+<p class="reading-note">La misma página puede registrar una costa y reclamar el derecho a gobernarla.</p>
+<p>La observación náutica convive con la búsqueda de riqueza, la apropiación territorial y la defensa de privilegios. Leer el conjunto como un archivo permite reconocer esas diferencias de voz y propósito. El testamento lleva la mirada del horizonte a la herencia: qué se conserva, qué se reclama y cómo se quiere ser recordado.</p>
+<p class="source-note">Cronología documental: 1492–1506; no equivale a una fecha única de publicación del volumen. La <a href="https://www.cervantesvirtual.com/obra/los-cuatro-viajes-del-almirante-y-su-testamento--0/">edición digital de la Biblioteca Virtual Miguel de Cervantes (2002)</a> reproduce la décima edición de Espasa-Calpe (1991), con edición y prólogo de Ignacio B. Anzoátegui. <a href="https://www.cervantesvirtual.com/obra-visor/los-cuatro-viajes-del-almirante-y-su-testamento--0/html/">Índice y documentos</a>. La imagen representa el peligro de la navegación, sin atribuirlo a un día concreto.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Primer viaje, 1492–1493 · Relación compendiada</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Segundo viaje, 1493–1496 · Memorial a la Corona</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Tercer viaje, 1498–1500 · Carta a los monarcas</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Cuarto viaje, 1502–1504 · Carta desde Jamaica</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Testamento y ratificación, 1498–1506</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -164,13 +167,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="carta-a-luis-de-santangel.html">← Carta a Luis de Santángel</a><a href="ola-2-slug.html">Segunda Ola</a><a href="a-colon.html">A Colón →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="los-cuatro-viajes-del-almirante-y-su-testamento.js"></script>
+<script src="los-cuatro-viajes-del-almirante-y-su-testamento.js?v=20261021-escena"></script>
 
 </body>
 </html>

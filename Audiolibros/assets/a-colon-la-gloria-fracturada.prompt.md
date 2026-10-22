@@ -1,0 +1,5 @@
+# Literary hero artwork
+
+Built-in image generation, 2026-10-21. Interpretive artwork, not a documented event.
+
+Cinematic symbolic literary scene, photorealistic 1536x1024 website hero for Ruben Dario's angry 1892 poem A Colon. An enormous weathered stone bust of Christopher Columbus with Renaissance cap, cracked cheek and downcast eyes, lies half fallen amid a ruined nineteenth century civic plaza at right. At its foot a broken bronze laurel wreath, wet cobblestones, smoke and scattered dark red flower petals. No bodies or gore. Behind the monument, austere Spanish American arcades recede into cobalt blue mist; one piercing shaft of warm golden light catches the face, emphasizing sorrow rather than triumph. Main dramatic sculpture at right two thirds, left third deep dark blue quiet negative space for text. Extraordinary realistic stone pores, rain, bronze oxidation, cinema lens atmospheric depth. Palette cobalt blue, antique gold and tiny vermilion accents based on vintage book cover. Not an actual documented event, an explicit visual allegory of a shattered celebration. No lettering, no logos, no modern objects, no fantasy characters.
