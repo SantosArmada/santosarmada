@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Audiolibros — Comentarios Reales de los Incas</title>
+    <title>Audiolibros — Comentarios reales de los incas</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="comentarios-reales-de-los-incas.css">
+    <link rel="stylesheet" href="comentarios-reales-de-los-incas.css?v=20261022-origen">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,7 +21,6 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
   <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -34,26 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Comentarios Reales de los Incas</h1>
-        <p class="subtitle">Inca Garcilaso de la Vega · Primera parte, Lisboa, 1609</p>
+        <p class="poetry-label">Inca Garcilaso de la Vega · Primera parte: 1609</p>
+        <h1>Comentarios reales<br><em>de los incas</em></h1>
+        <p class="hero-premise">Donde la tierra recibe el oro.</p>
+        <p class="hero-description">Una señal funda una ciudad.<br> La memoria vuelve a darle voz.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
-    <svg class="andes-emblem" viewBox="0 0 200 170" aria-hidden="true">
-        <defs><linearGradient id="andes-copper"><stop stop-color="#d79560"/><stop offset=".5" stop-color="#6e362a"/><stop offset="1" stop-color="#ca7750"/></linearGradient></defs>
-        <g fill="none" stroke="url(#andes-copper)" stroke-linejoin="miter">
-            <path d="M21 151L43 19L159 10L184 151Z" stroke-width="8"/>
-            <path d="M44 147L60 43L144 37L162 147Z" stroke-width="6"/>
-            <path d="M65 143L77 66L129 63L142 143Z" stroke-width="4"/>
-            <path d="M85 140L91 91L116 89L122 140Z" stroke-width="3"/>
-        </g>
-        <path d="M21 157H184M44 164H161" stroke="#a8c9b6" stroke-width="1" opacity=".45"/>
-    </svg>
+    <figure class="story-art"><img src="../assets/incas-machu-picchu.webp" width="1536" height="1024" fetchpriority="high" alt="Composición simbólica de Manco Cápac y Mama Ocllo con la barra de oro y Machu Picchu al fondo."><figcaption>Machu Picchu · Memoria del mundo inca</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Inca Garcilaso de la Vega · Lengua y memoria</span><p>Escuchar la memoria de un mundo.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -69,16 +64,17 @@
     <div class="player">
         <canvas></canvas>
         <div class="song">
-            <div class="artist">Comentarios Reales de los Incas</div>
-            <div class="name">Capítulo 1</div>
+            <div class="artist">Comentarios reales de los incas</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong" role="button" tabindex="0" aria-label="Capítulo anterior"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
             <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
-            <div class="nextSong" role="button" tabindex="0" aria-label="Capítulo siguiente"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -87,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -102,33 +98,31 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/comentarios.webp" alt="Comentarios Reales de los Incas">
+        <img loading="lazy" decoding="async" src="../../book_covers/comentarios.webp" alt="Comentarios reales de los incas">
         <div class="controls">
-            <div class="box" role="button" tabindex="0" aria-label="Escucha ahora">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Publicada en Lisboa en 1609, la primera parte de los <em>Comentarios Reales</em> reconstruye los orígenes, el gobierno, las creencias y las prácticas del mundo inca. Garcilaso convierte la memoria familiar y su conocimiento del quechua en argumentos de autoridad: explicar una palabra, discutir una traducción o corregir a otro cronista son también maneras de disputar quién puede contar esa historia.</p>
+<h2>El origen contado desde la memoria</h2>
+<p>Publicada en Lisboa en 1609, la primera parte de los <em>Comentarios Reales</em> reconstruye los orígenes, el gobierno, las creencias y las prácticas del mundo inca. Garcilaso convierte la memoria familiar y su conocimiento del quechua en argumentos de autoridad: explicar una palabra, discutir una traducción o corregir a otro cronista son también maneras de disputar quién puede contar esa historia.</p>
         <p>Su escritura articula herencia inca, formación cristiana y cultura letrada europea. Es una reconstrucción situada del pasado, cuya defensa de los incas exige atender tanto a las memorias que conserva como a las jerarquías que reproduce. La narración de la conquista y las guerras civiles corresponde a la continuación póstuma, publicada en 1617 como <em>Historia general del Perú</em>.</p>
-        <p class="source-note">Referencia bibliográfica: <a href="https://libroselectronicos.cervantes.es/resources/60468e2d345b650001be1e7d?l=es" target="_blank" rel="noopener noreferrer">Instituto Cervantes: primera parte, Lisboa, 1609</a>.</p>
-
+<p class="reading-note">Traducir una palabra también puede ser una forma de defender un mundo.</p>
+<p>La escena interpreta el relato fundacional del libro primero, capítulo XVI: en Huanacauri, la barra de oro se hunde en la tierra y señala el lugar desde el que Manco Cápac y Mama Ocllo convocarán a las gentes. La imagen reúne simbólicamente a los fundadores con Machu Picchu: el paisaje no corresponde al lugar del episodio narrado. Es una composición artística inspirada en el mito transmitido por Garcilaso; los rostros son imaginados y las vestiduras se inspiran en piezas incas conservadas en museos, posteriores al tiempo mítico de los fundadores.</p>
+<p class="source-note">Primera parte: Lisboa, 1609. <a href="https://libroselectronicos.cervantes.es/resources/60468e2d345b650001be1e7d?l=es">Referencia bibliográfica · Instituto Cervantes</a>. <a href="https://es.wikisource.org/wiki/Historia_general_del_Per%C3%BA,_o_Comentarios_reales_de_los_incas_(Tomo_I)/Cap%C3%ADtulo_XVI">Libro I, capítulo XVI · Fundación del Cozco</a>.</p>
+<p class="source-note">Referencias visuales: <a href="https://museum.doaks.org/objects-1/info/23071">Túnica de t’oqapu · Dumbarton Oaks</a>; <a href="https://www.metmuseum.org/art/collection/search/315492">Figura masculina y orejeras · The Met</a>; <a href="https://www.metmuseum.org/art/collection/search/312558">Vestiduras femeninas · The Met</a>; <a href="https://www.metmuseum.org/art/collection/search/315668">Tupu · The Met</a>.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" role="button" tabindex="0" data-time="0">El origen mítico de los incas</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">La organización del imperio</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Costumbres y religión incaica</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Lengua, memoria y autoridad del narrador</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Agricultura, conocimientos y vida cotidiana</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Lectura completa</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -142,13 +136,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="naufragios.html">← Naufragios</a><a href="ola-2-slug.html">Segunda Ola</a><a href="lazarillo-de-tormes.html">Lazarillo de Tormes →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="comentarios-reales-de-los-incas.js"></script>
+<script src="comentarios-reales-de-los-incas.js?v=20261022-origen"></script>
 
 </body>
 </html>
