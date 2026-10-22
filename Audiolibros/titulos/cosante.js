@@ -8,7 +8,7 @@ var Framer = {
     loadingAngle: 0,
 
     init: function (scene) {
-        this.canvas = document.querySelector('canvas');
+        this.canvas = document.querySelector('.player canvas');
         this.scene = scene;
         this.context = scene.context;
         this.configure();
@@ -43,9 +43,9 @@ var Framer = {
         var dy2 = parseInt(this.scene.cy + y2);
 
         var gradient = this.context.createLinearGradient(dx1, dy1, dx2, dy2);
-        gradient.addColorStop(0, '#2F7FB3');
-        gradient.addColorStop(0.6, '#2F7FB3');
-        gradient.addColorStop(1, '#ECDFC0');
+        gradient.addColorStop(0, '#55A8CE');
+        gradient.addColorStop(0.6, '#55A8CE');
+        gradient.addColorStop(1, '#F1E5CE');
         this.context.beginPath();
         this.context.strokeStyle = gradient;
         this.context.lineWidth = 2;
@@ -61,7 +61,7 @@ var Framer = {
     drawEdging: function () {
         this.context.save();
         this.context.beginPath();
-        this.context.strokeStyle = 'rgba(47, 127, 179, 0.5)';
+        this.context.strokeStyle = 'rgba(85, 168, 206, 0.5)';
         this.context.lineWidth = 1;
 
         var offset = Tracker.lineWidth / 2;
@@ -216,7 +216,7 @@ var Tracker = {
         this.context.lineWidth = this.lineWidth;
 
         this.r = this.scene.radius - (this.innerDelta + this.lineWidth / 2);
-        this.context.strokeStyle = 'rgba(47, 127, 179, 0.2)';
+        this.context.strokeStyle = 'rgba(85, 168, 206, 0.3)';
         this.context.arc(
             this.scene.radius + this.scene.padding,
             this.scene.radius + this.scene.padding,
@@ -224,7 +224,7 @@ var Tracker = {
         );
         this.context.stroke();
         this.context.beginPath();
-        this.context.strokeStyle = 'rgba(47, 127, 179, 0.8)';
+        this.context.strokeStyle = 'rgba(85, 168, 206, 0.8)';
         this.context.arc(
             this.scene.radius + this.scene.padding,
             this.scene.radius + this.scene.padding,
@@ -291,9 +291,9 @@ var Scene = {
     },
 
     canvasConfigure: function () {
-        this.canvas = document.querySelector('canvas');
+        this.canvas = document.querySelector('.player canvas');
         this.context = this.canvas.getContext('2d');
-        this.context.strokeStyle = '#2F7FB3';
+        this.context.strokeStyle = '#55A8CE';
         this.calculateSize();
     },
 
@@ -315,7 +315,7 @@ var Scene = {
         window.onresize = function () {
             that.canvasConfigure();
             Framer.configure();
-            that.render();
+            if (!that.inProcess()) { that.render(); }
         };
     },
 
@@ -442,7 +442,7 @@ var Controls = {
     drawPic: function () {
         this.context.save();
         this.context.beginPath();
-        this.context.fillStyle = 'rgba(47, 127, 179, 0.9)';
+        this.context.fillStyle = 'rgba(85, 168, 206, 0.9)';
         this.context.lineWidth = 1;
         var x = Tracker.r / Math.sqrt(Math.pow(Math.tan(Tracker.angle), 2) + 1);
         var y = Math.sqrt(Tracker.r * Tracker.r - x * x);
@@ -474,6 +474,14 @@ var Player = {
 
     init: function () {
         this.audio = document.getElementById('chapterAudio');
+        this.audio.addEventListener('ended', function () {
+            Controls.playing = false;
+            document.querySelector('.play').style.display = 'inline-block';
+            document.querySelector('.pause').style.display = 'none';
+        });
+        this.audio.addEventListener('loadedmetadata', function () {
+            document.getElementById('audioStatus').textContent = '';
+        });
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
         try {
@@ -505,8 +513,26 @@ var Player = {
     },
 
     play: function () {
-        this.context && this.context.resume && this.context.resume();
-        this.audio.play();
+        function resetTransport() {
+            Controls.playing = false;
+            document.querySelector('.play').style.display = 'inline-block';
+            document.querySelector('.pause').style.display = 'none';
+        }
+        if (!PlayerPower.on || !(this.audio.currentSrc || this.audio.getAttribute('src') || this.audio.querySelector('source[src]'))) {
+            document.getElementById('audioStatus').textContent = PlayerPower.on ? 'Grabación próximamente' : 'Reproductor apagado';
+            Promise.resolve().then(resetTransport);
+            return;
+        }
+        if (this.context && this.context.resume) {
+            this.context.resume().catch(function () {});
+        }
+        var playback = this.audio.play();
+        if (playback && playback.catch) {
+            playback.catch(function () {
+                resetTransport();
+                document.getElementById('audioStatus').textContent = 'No se pudo reproducir. Inténtalo de nuevo.';
+            });
+        }
     },
 
     pause: function () {
@@ -527,9 +553,13 @@ var Player = {
     setVolume: function (v) {
         v = Math.max(0, Math.min(1, v));
         if (this.gainNode) { this.gainNode.gain.value = v; }
+        else { this.audio.volume = v; }
         this.audio.muted = (v <= 0);
         var soundBtn = document.querySelector('.soundControl');
-        if (soundBtn) { soundBtn.classList.toggle('disable', v <= 0); }
+        if (soundBtn) {
+            soundBtn.classList.toggle('disable', v <= 0);
+            soundBtn.setAttribute('aria-label', v <= 0 ? 'Activar sonido' : 'Silenciar sonido');
+        }
     },
 
     seek: function (seconds) {
@@ -590,6 +620,8 @@ var VolumeDial = {
     render: function () {
         var angle = this.angleFromVol(this.vol);
         this.knob.style.transform = 'rotate(' + angle + 'deg)';
+        this.knob.setAttribute('aria-valuenow', Math.round(this.vol * 100));
+        this.knob.setAttribute('aria-valuetext', Math.round(this.vol * 100) + ' %');
         var tick = this.vol * this.ticks;
         this.dots.forEach(function (d, i) {
             d.classList.toggle('volume-dial__dot--filled', i < tick - 0.5);
@@ -656,10 +688,16 @@ var PlayerPower = {
         this.btn.setAttribute('aria-pressed', on ? 'true' : 'false');
 
         var playerEl = document.querySelector('.player');
-        if (playerEl) { playerEl.classList.toggle('powered-off', !on); }
+        if (playerEl) {
+            playerEl.classList.toggle('powered-off', !on);
+            playerEl.inert = !on;
+        }
 
         var dial = document.getElementById('volumeDial');
-        if (dial) { dial.classList.toggle('powered-off', !on); }
+        if (dial) {
+            dial.classList.toggle('powered-off', !on);
+            dial.inert = !on;
+        }
 
         if (!on) {
             Player.pause();
@@ -703,10 +741,16 @@ var Chapters = {
         var el = this.list[this.index];
         var time = parseFloat(el.getAttribute('data-time') || '0');
         Player.seek(time);
-        Player.play();
-        document.querySelector('.play').style.display = 'none';
-        document.querySelector('.pause').style.display = 'inline-block';
-        Controls.playing = true;
+        if (PlayerPower.on && Player.audio && (Player.audio.currentSrc || Player.audio.getAttribute('src') || Player.audio.querySelector('source[src]'))) {
+            Controls.playing = true;
+            document.querySelector('.play').style.display = 'none';
+            document.querySelector('.pause').style.display = 'inline-block';
+            Player.play();
+        } else {
+            Controls.playing = false;
+            document.querySelector('.play').style.display = 'inline-block';
+            document.querySelector('.pause').style.display = 'none';
+        }
         document.querySelector('.song .name').textContent = el.textContent;
         this.highlight(this.index);
     },
@@ -732,14 +776,12 @@ function initPanelToggle() {
     if (!closeBtn || !panel) { return; }
     function togglePanel() {
         panel.classList.toggle('collapsed');
+        closeBtn.setAttribute('aria-expanded', String(!panel.classList.contains('collapsed')));
         closeBtn.setAttribute('aria-label', panel.classList.contains('collapsed') ? 'Mostrar la ficha del libro' : 'Ocultar la ficha del libro');
     }
     closeBtn.addEventListener('click', togglePanel);
     closeBtn.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            togglePanel();
-        }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePanel(); }
     });
 }
 
@@ -753,10 +795,7 @@ function initListenNowRibbon() {
     }
     box.addEventListener('click', focusPlayer);
     box.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            focusPlayer();
-        }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); focusPlayer(); }
     });
 }
 
@@ -807,15 +846,6 @@ function initMobileNav() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    var garden = document.querySelector('.cosante-garden');
-    var petalToggle = document.querySelector('.petal-toggle');
-    if (garden && petalToggle) {
-        petalToggle.addEventListener('click', function () {
-            var paused = garden.classList.toggle('motion-paused');
-            petalToggle.setAttribute('aria-pressed', paused ? 'true' : 'false');
-            petalToggle.textContent = paused ? 'Reanudar pétalos' : 'Pausar pétalos';
-        });
-    }
     Player.init();
     VolumeDial.init();
     PlayerPower.init();
@@ -825,3 +855,69 @@ document.addEventListener('DOMContentLoaded', function () {
     initProgressScroll();
     initMobileNav();
 });
+
+/* A rooted branching skeleton: wind propagates from limbs to their attached leaves. */
+(function autumnTree() {
+    const canvas = document.createElement('canvas');
+    canvas.className = 'cosante-tree';
+    canvas.setAttribute('aria-hidden', 'true');
+    document.querySelector('.player').appendChild(canvas);
+    const ctx = canvas.getContext('2d');
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = 540 * dpr; canvas.height = 420 * dpr;
+    const motion = matchMedia('(prefers-reduced-motion: reduce)');
+    let seed = 2197;
+    const random = () => ((seed = (seed * 1664525 + 1013904223) >>> 0) / 4294967296);
+    const branches = [], leaves = [];
+    function grow(parent, length, angle, width, depth) {
+        const id = branches.length;
+        branches.push({parent, length, angle, width, depth, phase:random()*6.28, x:0,y:0,a:0});
+        if(depth > 0) {
+            grow(id,length*(.68+random()*.1),-.35-random()*.28,width*.66,depth-1);
+            grow(id,length*(.66+random()*.13),.30+random()*.36,width*.63,depth-1);
+            if(depth===3) grow(id,length*.68,(random()-.5)*.3,width*.55,depth-1);
+        }
+        if(depth<3) for(let i=0;i<9;i++) leaves.push({branch:id,u:.3+random()*.7,dx:(random()-.5)*29,dy:(random()-.5)*24,size:3+random()*4,angle:random()*6.28,phase:random()*6.28,drop:10+random()*20,hue:random()*20,fall:4+random()*3});
+    }
+    grow(-1,88,-Math.PI/2,23,6);
+    let time=0,last=0,frame=0,visible=false;
+    function leaf(x,y,size,angle,hue,alpha,flip) {
+        ctx.save(); ctx.translate(x,y); ctx.rotate(angle); ctx.scale(Math.max(.15,Math.abs(flip)),1);ctx.globalAlpha=alpha;
+        ctx.beginPath();ctx.moveTo(-size,0);ctx.bezierCurveTo(-size*.3,-size*.8,size*.7,-size*.7,size,0);ctx.bezierCurveTo(size*.4,size*.65,-size*.4,size*.65,-size,0);
+        ctx.fillStyle=`hsl(${hue} 65% 55%)`;ctx.fill();ctx.strokeStyle='rgba(255,232,172,.45)';ctx.lineWidth=.45;ctx.beginPath();ctx.moveTo(-size,0);ctx.lineTo(size,0);ctx.stroke();ctx.restore();
+    }
+    function draw() {
+        ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,540,420);
+        const season=motion.matches?5:time%39;
+        const wind=Math.sin(time*.63)*.017+Math.sin(time*1.17)*.009;
+        const halo=ctx.createRadialGradient(270,200,15,270,210,215);halo.addColorStop(0,'rgba(100,160,148,.12)');halo.addColorStop(1,'rgba(100,160,148,0)');ctx.fillStyle=halo;ctx.fillRect(0,0,540,420);
+        ctx.lineCap='round';
+        for(const b of branches) {
+            const p=branches[b.parent];const x=p?p.x:270,y=p?p.y:371;
+            b.a=(p?p.a:0)+b.angle+wind*(7-b.depth)*.6+Math.sin(time*1.3+b.phase)*.007*(6-b.depth);
+            b.x=x+Math.cos(b.a)*b.length;b.y=y+Math.sin(b.a)*b.length;
+            ctx.beginPath();ctx.moveTo(x,y);ctx.quadraticCurveTo(x+Math.cos(b.a-.09)*b.length*.5,y+Math.sin(b.a-.09)*b.length*.5,b.x,b.y);
+            ctx.strokeStyle=b.depth>3?'#635345':'#887458';ctx.lineWidth=b.width;ctx.stroke();
+            if(b.width>3){ctx.strokeStyle='rgba(219,184,125,.38)';ctx.lineWidth=b.width*.22;ctx.stroke();
+                ctx.beginPath();ctx.moveTo(x-b.width*.18,y);ctx.quadraticCurveTo(x+(b.x-x)*.5-b.width*.12,y+(b.y-y)*.5,b.x-b.width*.1,b.y);ctx.strokeStyle='rgba(40,29,21,.42)';ctx.lineWidth=Math.max(.6,b.width*.06);ctx.stroke();}
+        }
+        for(const l of leaves) {
+            const b=branches[l.branch],p=branches[b.parent];
+            let x=p.x+(b.x-p.x)*l.u+l.dx,y=p.y+(b.y-p.y)*l.u+l.dy;
+            const age=season-l.drop;
+            let alpha=1, angle=l.angle+Math.sin(time*1.9+l.phase)*.22;
+            if(age>0){const q=age/l.fall;if(q>1)continue;x+=age*10+Math.sin(age*2+l.phase)*age*5;y+=age*22+age*age*4;angle+=age*1.5;alpha=Math.min(1,(1-q)*5);}
+            else if(season<3)alpha=season/3;
+            const hue=Math.max(22,102-season*3-l.hue);
+            leaf(x,y,l.size,angle,hue,alpha,Math.cos(time*1.5+l.phase));
+        }
+        // A soft pool of fallen leaves grounds the seasonal canopy.
+        for(let i=0;i<34;i++){const a=Math.min(.7,Math.max(0,(season-16)/18));leaf(210+i*3.6,375+Math.sin(i*4)*5,3+i%3,i*2,28+i%20,a,1);}
+    }
+    function tick(now){frame=0;if(!visible||document.hidden||document.querySelector('.player').classList.contains('powered-off')){last=0;return;} if(last)time+=Math.min((now-last)/1000,.05);last=now;draw();if(!motion.matches)frame=requestAnimationFrame(tick);}
+    function start(){if(frame)cancelAnimationFrame(frame);frame=0;last=0;if(visible&&!document.hidden)frame=requestAnimationFrame(tick);}
+    new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;start();},{rootMargin:'100px'}).observe(canvas);
+    document.addEventListener('visibilitychange',start);motion.addEventListener('change',start);
+    document.getElementById('powerBtn').addEventListener('click',start);
+    draw();
+})();
