@@ -8,7 +8,7 @@ var Framer = {
     loadingAngle: 0,
 
     init: function (scene) {
-        this.canvas = document.querySelector('canvas');
+        this.canvas = document.querySelector('.player canvas');
         this.scene = scene;
         this.context = scene.context;
         this.configure();
@@ -43,9 +43,9 @@ var Framer = {
         var dy2 = parseInt(this.scene.cy + y2);
 
         var gradient = this.context.createLinearGradient(dx1, dy1, dx2, dy2);
-        gradient.addColorStop(0, '#A4362B');
-        gradient.addColorStop(0.6, '#A4362B');
-        gradient.addColorStop(1, '#ECDFC0');
+        gradient.addColorStop(0, '#BF8063');
+        gradient.addColorStop(0.6, '#BF8063');
+        gradient.addColorStop(1, '#F1E5CE');
         this.context.beginPath();
         this.context.strokeStyle = gradient;
         this.context.lineWidth = 2;
@@ -61,7 +61,7 @@ var Framer = {
     drawEdging: function () {
         this.context.save();
         this.context.beginPath();
-        this.context.strokeStyle = 'rgba(164, 54, 43, 0.5)';
+        this.context.strokeStyle = 'rgba(191, 128, 99, 0.5)';
         this.context.lineWidth = 1;
 
         var offset = Tracker.lineWidth / 2;
@@ -216,7 +216,7 @@ var Tracker = {
         this.context.lineWidth = this.lineWidth;
 
         this.r = this.scene.radius - (this.innerDelta + this.lineWidth / 2);
-        this.context.strokeStyle = 'rgba(164, 54, 43, 0.2)';
+        this.context.strokeStyle = 'rgba(191, 128, 99, 0.3)';
         this.context.arc(
             this.scene.radius + this.scene.padding,
             this.scene.radius + this.scene.padding,
@@ -224,7 +224,7 @@ var Tracker = {
         );
         this.context.stroke();
         this.context.beginPath();
-        this.context.strokeStyle = 'rgba(164, 54, 43, 0.8)';
+        this.context.strokeStyle = 'rgba(191, 128, 99, 0.8)';
         this.context.arc(
             this.scene.radius + this.scene.padding,
             this.scene.radius + this.scene.padding,
@@ -291,9 +291,9 @@ var Scene = {
     },
 
     canvasConfigure: function () {
-        this.canvas = document.querySelector('canvas');
+        this.canvas = document.querySelector('.player canvas');
         this.context = this.canvas.getContext('2d');
-        this.context.strokeStyle = '#A4362B';
+        this.context.strokeStyle = '#BF8063';
         this.calculateSize();
     },
 
@@ -315,7 +315,7 @@ var Scene = {
         window.onresize = function () {
             that.canvasConfigure();
             Framer.configure();
-            that.render();
+            if (!that.inProcess()) { that.render(); }
         };
     },
 
@@ -442,7 +442,7 @@ var Controls = {
     drawPic: function () {
         this.context.save();
         this.context.beginPath();
-        this.context.fillStyle = 'rgba(164, 54, 43, 0.9)';
+        this.context.fillStyle = 'rgba(191, 128, 99, 0.9)';
         this.context.lineWidth = 1;
         var x = Tracker.r / Math.sqrt(Math.pow(Math.tan(Tracker.angle), 2) + 1);
         var y = Math.sqrt(Tracker.r * Tracker.r - x * x);
@@ -474,6 +474,14 @@ var Player = {
 
     init: function () {
         this.audio = document.getElementById('chapterAudio');
+        this.audio.addEventListener('ended', function () {
+            Controls.playing = false;
+            document.querySelector('.play').style.display = 'inline-block';
+            document.querySelector('.pause').style.display = 'none';
+        });
+        this.audio.addEventListener('loadedmetadata', function () {
+            document.getElementById('audioStatus').textContent = '';
+        });
         window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
         try {
@@ -505,8 +513,26 @@ var Player = {
     },
 
     play: function () {
-        this.context && this.context.resume && this.context.resume();
-        this.audio.play();
+        function resetTransport() {
+            Controls.playing = false;
+            document.querySelector('.play').style.display = 'inline-block';
+            document.querySelector('.pause').style.display = 'none';
+        }
+        if (!PlayerPower.on || !(this.audio.currentSrc || this.audio.getAttribute('src') || this.audio.querySelector('source[src]'))) {
+            document.getElementById('audioStatus').textContent = PlayerPower.on ? 'Grabación próximamente' : 'Reproductor apagado';
+            Promise.resolve().then(resetTransport);
+            return;
+        }
+        if (this.context && this.context.resume) {
+            this.context.resume().catch(function () {});
+        }
+        var playback = this.audio.play();
+        if (playback && playback.catch) {
+            playback.catch(function () {
+                resetTransport();
+                document.getElementById('audioStatus').textContent = 'No se pudo reproducir. Inténtalo de nuevo.';
+            });
+        }
     },
 
     pause: function () {
@@ -527,9 +553,13 @@ var Player = {
     setVolume: function (v) {
         v = Math.max(0, Math.min(1, v));
         if (this.gainNode) { this.gainNode.gain.value = v; }
+        else { this.audio.volume = v; }
         this.audio.muted = (v <= 0);
         var soundBtn = document.querySelector('.soundControl');
-        if (soundBtn) { soundBtn.classList.toggle('disable', v <= 0); }
+        if (soundBtn) {
+            soundBtn.classList.toggle('disable', v <= 0);
+            soundBtn.setAttribute('aria-label', v <= 0 ? 'Activar sonido' : 'Silenciar sonido');
+        }
     },
 
     seek: function (seconds) {
@@ -590,6 +620,8 @@ var VolumeDial = {
     render: function () {
         var angle = this.angleFromVol(this.vol);
         this.knob.style.transform = 'rotate(' + angle + 'deg)';
+        this.knob.setAttribute('aria-valuenow', Math.round(this.vol * 100));
+        this.knob.setAttribute('aria-valuetext', Math.round(this.vol * 100) + ' %');
         var tick = this.vol * this.ticks;
         this.dots.forEach(function (d, i) {
             d.classList.toggle('volume-dial__dot--filled', i < tick - 0.5);
@@ -656,10 +688,16 @@ var PlayerPower = {
         this.btn.setAttribute('aria-pressed', on ? 'true' : 'false');
 
         var playerEl = document.querySelector('.player');
-        if (playerEl) { playerEl.classList.toggle('powered-off', !on); }
+        if (playerEl) {
+            playerEl.classList.toggle('powered-off', !on);
+            playerEl.inert = !on;
+        }
 
         var dial = document.getElementById('volumeDial');
-        if (dial) { dial.classList.toggle('powered-off', !on); }
+        if (dial) {
+            dial.classList.toggle('powered-off', !on);
+            dial.inert = !on;
+        }
 
         if (!on) {
             Player.pause();
@@ -703,10 +741,16 @@ var Chapters = {
         var el = this.list[this.index];
         var time = parseFloat(el.getAttribute('data-time') || '0');
         Player.seek(time);
-        Player.play();
-        document.querySelector('.play').style.display = 'none';
-        document.querySelector('.pause').style.display = 'inline-block';
-        Controls.playing = true;
+        if (PlayerPower.on && Player.audio && (Player.audio.currentSrc || Player.audio.getAttribute('src') || Player.audio.querySelector('source[src]'))) {
+            Controls.playing = true;
+            document.querySelector('.play').style.display = 'none';
+            document.querySelector('.pause').style.display = 'inline-block';
+            Player.play();
+        } else {
+            Controls.playing = false;
+            document.querySelector('.play').style.display = 'inline-block';
+            document.querySelector('.pause').style.display = 'none';
+        }
         document.querySelector('.song .name').textContent = el.textContent;
         this.highlight(this.index);
     },
@@ -732,14 +776,12 @@ function initPanelToggle() {
     if (!closeBtn || !panel) { return; }
     function togglePanel() {
         panel.classList.toggle('collapsed');
+        closeBtn.setAttribute('aria-expanded', String(!panel.classList.contains('collapsed')));
         closeBtn.setAttribute('aria-label', panel.classList.contains('collapsed') ? 'Mostrar la ficha del libro' : 'Ocultar la ficha del libro');
     }
     closeBtn.addEventListener('click', togglePanel);
     closeBtn.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            togglePanel();
-        }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); togglePanel(); }
     });
 }
 
@@ -753,10 +795,7 @@ function initListenNowRibbon() {
     }
     box.addEventListener('click', focusPlayer);
     box.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            focusPlayer();
-        }
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); focusPlayer(); }
     });
 }
 
