@@ -3,15 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Audiolibros — Romances</title>
+    <title>Audiolibros — Romances de Góngora</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="romances-de-gongora.css">
+    <link rel="stylesheet" href="romances-de-gongora.css?v=20261023-escena">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
-    <span role="img" aria-label="Santos Armada" class="site-nav-logo-img"></span>
+    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
   </a>
   <ul class="site-nav-links">
     <li><a href="../../essays.html">Ensayos</a></li>
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,49 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Romances</h1>
-        <p class="subtitle">Luis de Góngora</p>
+        <p class="poetry-label">Luis de Góngora · Siglos XVI–XVII · Romance de la escena: 1585</p>
+        <h1>Romances<br><em>de Góngora</em></h1>
+        <p class="hero-premise">El enemigo también tiene una herida invisible.</p>
+        <p class="hero-description">Dos hombres. Un caballo.<br> La batalla termina donde empieza la escucha.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
-    <!-- Decorative interpretation, not a facsimile of a historical manuscript. -->
-    <svg class="gongora-manuscript" viewBox="0 0 300 245" aria-hidden="true">
-      <defs>
-        <linearGradient id="gongora-paper"><stop stop-color="#b08a4c"/><stop offset=".18" stop-color="#e8d09a"/><stop offset=".7" stop-color="#d9bd80"/><stop offset="1" stop-color="#a77d42"/></linearGradient>
-        <linearGradient id="gongora-feather"><stop stop-color="#9d713d"/><stop offset=".48" stop-color="#f0d19a"/><stop offset="1" stop-color="#ba9050"/></linearGradient>
-        <pattern id="gongora-fibers" width="17" height="19" patternUnits="userSpaceOnUse"><path d="m2 4 4 1m7 8 3-1m-9 4 2-2" stroke="#67452d" stroke-opacity=".2" stroke-width=".5"/></pattern>
-        <clipPath id="gongora-writing"><rect class="gongora-ink-reveal" x="72" y="89" width="158" height="24"/><rect class="gongora-ink-reveal gongora-ink-second" x="72" y="113" width="158" height="24"/></clipPath>
-      </defs>
-      <ellipse cx="147" cy="224" rx="103" ry="8" fill="#000" opacity=".4"/>
-      <path d="M49 41q86-17 193 0l-10 174q-77-9-190 3Z" fill="#772c23" stroke="#af6b40" stroke-width="1.5"/>
-      <path d="M44 32q92-10 194 3l-8 174q-91-8-189 2Z" fill="url(#gongora-paper)" stroke="#8e6c3d"/>
-      <path d="M44 32q92-10 194 3l-8 174q-91-8-189 2Z" fill="url(#gongora-fibers)"/>
-      <path d="M55 44h169l-6 153H53Z" fill="none" stroke="#8b3328" stroke-width="1.2"/>
-      <path d="M59 48h160l-5 145H58Z" fill="none" stroke="#9c7842" stroke-width=".7"/>
-      <g fill="none" stroke="#834d2b" stroke-width=".8"><path d="M67 179q15-21 0-46t0-48m138 94q-15-21 0-46t0-48"/><path d="M80 63q54 12 112 0m-108 120q52-9 109 0"/></g>
-      <g class="gongora-leaves" fill="#8b362c" stroke="#a16d3e" stroke-width=".6"><path d="M67 153q-16-1-10-13 12 0 10 13Zm0-22q16-3 10-14-12 1-10 14Zm0-28q-14-3-9-12 10 0 9 12Zm138 50q16-1 10-13-12 0-10 13Zm0-22q-16-3-10-14 12 1 10 14Zm0-28q14-3 9-12-10 0-9 12Z"/></g>
-      <g fill="#704a2c"><circle cx="76" cy="69" r="2"/><circle cx="198" cy="69" r="2"/><path d="m131 58 6-5 6 5-6 5Zm0 126 6-5 6 5-6 5Z"/></g>
-      <g clip-path="url(#gongora-writing)" fill="#4b2d23" font-family="Georgia, serif" font-style="italic" font-size="11">
-        <text x="76" y="108">Amarrado al duro banco</text>
-        <text x="76" y="128">de una galera turquesca</text>
-      </g>
-      <g class="gongora-pen-travel">
-        <g transform="translate(76 110)">
-          <path d="M3-4q2-41 48-75 3 39-19 56Q15-7 3-4Z" fill="url(#gongora-feather)" stroke="#8e693e" stroke-width=".6"/>
-          <path d="M0 0q23-43 49-76" fill="none" stroke="#704e30" stroke-width="1"/>
-          <g fill="none" stroke="#a27d46" stroke-width=".5"><path d="m8-15 19-9m-14-1 22-9m-16-1 23-10m-16-1 20-9m-14-1 16-10m-32 34-2-15m9 3-1-15m8 3v-15"/></g>
-          <path d="m0 0 3-8 1 5Z" fill="#32221a"/>
-        </g>
-      </g>
-      <path d="M229 195q13-6 25 0l2 23q-16 6-30 0Z" fill="#29211c" stroke="#a6844e"/>
-      <ellipse cx="241" cy="195" rx="13" ry="4" fill="#a6874e"/><ellipse cx="241" cy="195" rx="9" ry="2" fill="#171512"/>
-      <path d="m231 201-1 11" stroke="#dbb777" stroke-width="1" opacity=".5"/>
-    </svg>
+    <figure class="story-art"><img src="../assets/gongora-dos-hombres-un-caballo.webp" width="1536" height="1024" fetchpriority="high" alt="Un soldado español se vuelve para escuchar a un capitán norteafricano cautivo que cabalga detrás de él sobre el mismo caballo al caer la tarde."><figcaption>Entre los sueltos caballos · Recreación del romance de 1585</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Luis de Góngora · Voces del romancero</span><p>Una voz cambia la distancia entre dos enemigos.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -92,16 +64,17 @@
     <div class="player">
         <canvas></canvas>
         <div class="song">
-            <div class="artist">Romances</div>
-            <div class="name">Capítulo 1</div>
+            <div class="artist">Romances de Góngora</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong"></div>
-            <div class="play"></div>
-            <div class="pause"></div>
-            <div class="nextSong"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -110,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -125,31 +98,31 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/romances-de-gongora.webp" alt="Romances">
+        <img loading="lazy" decoding="async" src="../../book_covers/romances-de-gongora.webp" alt="Romances de Góngora">
         <div class="controls">
-            <div class="box">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Esta primera edición reunida de los romances de Luis de Góngora recoge la faceta más popular y versátil de un poeta mejor conocido por la dificultad culterana de sus Soledades. Romances moriscos y pastoriles conviven con baladas burlescas y de amor, mostrando la misma inventiva verbal del "Príncipe de los poetas" puesta al servicio de una forma tradicional y cantable. Publicados y difundidos en gran parte tras su muerte, consolidaron su fama incluso entre quienes nunca leyeron sus obras mayores.</p>
-
+<h2>La guerra cede la palabra</h2>
+<p>El romancero de Góngora recorre registros muy distintos: la narración morisca, el mundo pastoril, el deseo, la burla y la sátira. El ritmo del romance sostiene voces que pueden conmover o desmontar, con ironía, las convenciones que parecían más firmes.</p>
+<p class="reading-note">Quien parecía solamente un adversario empieza a contar su vida.</p><p>En «Entre los sueltos caballos», un español de Orán lleva consigo a un capitán cautivo y le pregunta por sus lágrimas. La respuesta desplaza el relato hacia el amor y la pérdida. La imagen recrea ese momento de escucha: los rostros, el vestuario y la luz son interpretaciones artísticas, no una reconstrucción documental.</p><p class="source-note">Los romances pertenecen a distintas fechas; 1585 corresponde al poema elegido para la escena, no a una publicación conjunta. <a href="https://www.uv.es/ivorra/Gongora/Romances/Entrelossueltos.htm">Texto del romance · Universitat de València</a>. <a href="https://www.uco.es/catedragongora/?page_id=3184">Romances y letrillas · Cátedra Góngora, Universidad de Córdoba</a>.</p>
         <div class="break"></div>
-        <h1>CAPÍTULOS</h1>
-        <p class="chapter" data-time="0">Romances moriscos</p>
-        <p class="chapter" data-time="0">Romances pastoriles</p>
-        <p class="chapter" data-time="0">Romances de amor</p>
-        <p class="chapter" data-time="0">Romances burlescos</p>
-        <p class="chapter" data-time="0">Romances de circunstancias y sátira</p>
-
+        <h2>La lectura</h2>
+        <p class="chapter" data-time="0" role="button" tabindex="0">Romances moriscos</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">Romances pastoriles</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">Romances de amor</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">Romances burlescos</p>
+<p class="chapter" data-time="0" role="button" tabindex="0">Romances de circunstancias y sátira</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -163,13 +136,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="el-perro-del-hortelano.html">← El perro del hortelano</a><a href="ola-2-slug.html">Segunda Ola</a><a href="don-quijote.html">Don Quijote →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="romances-de-gongora.js"></script>
+<script src="romances-de-gongora.js?v=20261023-escena"></script>
 
 </body>
 </html>

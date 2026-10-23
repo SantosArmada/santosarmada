@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Tres cosas me tienen preso</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="tres-cosas-me-tienen-preso.css">
+    <link rel="stylesheet" href="tres-cosas-me-tienen-preso.css?v=20261023-escena">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
-    <span role="img" aria-label="Santos Armada" class="site-nav-logo-img"></span>
+    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
   </a>
   <ul class="site-nav-links">
     <li><a href="../../essays.html">Ensayos</a></li>
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,43 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Tres cosas me tienen preso</h1>
-        <p class="subtitle">Baltasar del Alcázar · Poesía del Siglo de Oro</p>
+        <p class="poetry-label">Baltasar del Alcázar · Siglo de Oro · Fecha exacta no documentada</p>
+        <h1>Tres cosas<br>me tienen <em>preso</em></h1>
+        <p class="hero-premise">El corazón también tiene apetito.</p>
+        <p class="hero-description">Inés. El jamón. Las berenjenas con queso.<br> Tres amores; ninguna intención de elegir.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
-    <svg class="alcazar-still-life" viewBox="0 0 260 220" aria-hidden="true">
-      <defs>
-        <linearGradient id="alcazar-pot"><stop stop-color="#ae8f60"/><stop offset=".35" stop-color="#f1dfb3"/><stop offset=".7" stop-color="#d8bd89"/><stop offset="1" stop-color="#8e7049"/></linearGradient>
-        <linearGradient id="alcazar-aubergine"><stop stop-color="#201e30"/><stop offset=".45" stop-color="#664454"/><stop offset=".7" stop-color="#33273c"/><stop offset="1" stop-color="#1c2630"/></linearGradient>
-        <radialGradient id="alcazar-plate"><stop stop-color="#ecdbac"/><stop offset=".8" stop-color="#b59864"/><stop offset="1" stop-color="#e3c994"/></radialGradient>
-      </defs>
-      <ellipse cx="136" cy="192" rx="106" ry="11" fill="#182d28" opacity=".25"/>
-      <path d="M157 90q47-14 48 21t-39 27" fill="none" stroke="#ac8f60" stroke-width="12"/>
-      <path d="M158 90q41-9 42 20t-33 23" fill="none" stroke="#e1c99b" stroke-width="5"/>
-      <path d="M115 66q16 6 43 0l-4 22q-1 10 9 28 20 39-4 55-27 17-55-2-19-18 1-54 9-16 9-29l-16-18Z" fill="url(#alcazar-pot)" stroke="#89764e" stroke-width="1.2"/>
-      <ellipse cx="134" cy="67" rx="24" ry="7" fill="#685a3d" stroke="#e4cfa0" stroke-width="3"/>
-      <path d="M114 78q19 7 40 0M102 147q30 15 65 0M108 159q24 10 52 0" fill="none" stroke="#526c70" stroke-width="2"/>
-      <g fill="none" stroke="#526c70" stroke-width="1.3"><path d="M134 145v-43m0 28q-21-2-17-15 12 1 17 15m0-9q18-3 15-14-12 1-15 14m0 19q19 1 21-10-14-3-21 10"/><path d="m134 106-5-7 5-5 5 5Z"/></g>
-      <ellipse cx="99" cy="179" rx="70" ry="18" fill="url(#alcazar-plate)" stroke="#dec592" stroke-width="2"/>
-      <ellipse cx="99" cy="176" rx="61" ry="12" fill="none" stroke="#526c70" stroke-width="1.5"/>
-      <path d="M49 170q-5-18 18-26 17-6 32 1 24 10 14 24-10 14-40 12-18-2-24-11Z" fill="url(#alcazar-aubergine)" stroke="#242b2c"/>
-      <path d="m97 145 10-5 6 3 9-4-3 6 8 4-12 3-4 7-5-9-9 1Z" fill="#5c7042" stroke="#3e5230"/>
-      <path d="m114 145 7-10" stroke="#71854b" stroke-width="3"/>
-      <path d="M58 159q16-12 33-7" fill="none" stroke="#aa8494" stroke-width="2" opacity=".5"/>
-      <path d="m128 168 33-17 21 17-38 7Z" fill="#f0dca0" stroke="#a7864d"/>
-      <path d="m144 175 38-7v14l-38 8Z" fill="#cda963" stroke="#a7864d"/>
-      <path d="m128 168 16 7v15l-16-9Z" fill="#e3c483"/>
-      <g fill="#ad8e52" opacity=".7"><ellipse cx="151" cy="167" rx="3" ry="1.6"/><ellipse cx="165" cy="164" rx="2" ry="1.3"/><circle cx="155" cy="180" r="2"/><circle cx="174" cy="177" r="1.5"/></g>
-      <g class="alcazar-steam" fill="none" stroke="#eee0bb" stroke-width="1.4" stroke-linecap="round"><path d="M78 132q-9-9 0-17t0-18"/><path d="M92 128q-7-8 0-15t0-16"/></g>
-      <path d="M22 44q36-18 70-14" fill="none" stroke="#81915e" stroke-width="2"/>
-      <g fill="#71824d" stroke="#9ca670" stroke-width=".6"><path d="M36 39q-15-18-22-9 3 14 22 9Zm13-5q2-22 15-19 3 12-15 19Zm14-3q-5 21 11 20 10-12-11-20Zm16-1q5-17 18-12-1 11-18 12Z"/></g>
-    </svg>
+    <figure class="story-art"><img src="../assets/tres-cosas-el-banquete-de-ines.webp" width="1536" height="1024" fetchpriority="high" alt="Inés ofrece berenjenas con queso a un poeta sonriente, junto a un plato de jamón, en un patio iluminado por el sol."><figcaption>Inés y sus rivales · Interpretación del poema</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Baltasar del Alcázar · Ingenio y apetito</span><p>Hasta el amor necesita un contrapeso.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -87,7 +65,8 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Tres cosas me tienen preso</div>
-            <div class="name">Poema completo</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
             <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
@@ -95,7 +74,7 @@
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
             <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -104,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -119,28 +98,27 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/tres-cosas-me-tienen-preso.webp" alt="Tres cosas me tienen preso">
+        <img loading="lazy" decoding="async" src="../../book_covers/tres-cosas-me-tienen-preso.webp" alt="Tres cosas me tienen preso">
         <div class="controls">
-            <div class="box" role="button" tabindex="0">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Epigrama del poeta sevillano Baltasar del Alcázar, maestro del ingenio ligero y epicúreo del Siglo de Oro, que confiesa sentirse cautivo de tres placeres: Inés, el jamón y las berenjenas con queso. Con el humor desenfadado y el gusto gastronómico característicos de su poesía, Alcázar convierte una lista de apetitos cotidianos en uno de los poemas más recordados y citados del costumbrismo humorístico español.</p>
-
+<h2>Una deliciosa falta de solemnidad</h2>
+<p>El hablante confiesa que Inés lo tuvo enamorado hasta que una merienda puso otros dos placeres a competir por su corazón: el jamón y las berenjenas con queso. La repetición de esos tres amores convierte la declaración sentimental en una disputa cómica donde el apetito pesa tanto como la belleza.</p>
+<p class="reading-note">El deseo baja del pedestal y se sienta a la mesa.</p><p>La escena reúne a Inés y los alimentos del poema en una sobremesa imaginada. El patio, los rostros y los vestidos son una interpretación artística. El humor nace de esa equivalencia imposible: el lenguaje del enamorado se transforma en una negociación muy terrenal.</p><p class="source-note"><a href="https://milan.cervantes.es/imagenes/selecci%C3%B3n%20poes%C3%ADa%20gastron%C3%B3mica.pdf">Texto del poema · Instituto Cervantes de Milán</a>. No se atribuye aquí un año exacto de composición o primera publicación.</p>
         <div class="break"></div>
-        <p class="source-note">El poema reúne a Inés, el jamón y las berenjenas con queso. <a href="https://milan.cervantes.es/imagenes/selecci%C3%B3n%20poes%C3%ADa%20gastron%C3%B3mica.pdf" target="_blank" rel="noopener noreferrer">Selección de poesía gastronómica · Instituto Cervantes</a>.</p>
-        <h1>LECTURA</h1>
+        <h2>La lectura</h2>
         <p class="chapter" role="button" tabindex="0" data-time="0">Tres cosas me tienen preso · Poema completo</p>
-
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -154,13 +132,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="la-gloria-de-don-ramiro.html">← La gloria de don Ramiro</a><a href="ola-2-slug.html">Segunda Ola</a><a href="novelas-ejemplares.html">Novelas ejemplares →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="tres-cosas-me-tienen-preso.js"></script>
+<script src="tres-cosas-me-tienen-preso.js?v=20261023-escena"></script>
 
 </body>
 </html>

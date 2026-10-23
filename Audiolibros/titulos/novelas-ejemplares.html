@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — Novelas ejemplares</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="novelas-ejemplares.css">
+    <link rel="stylesheet" href="novelas-ejemplares.css?v=20261023-escena">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,40 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Novelas ejemplares</h1>
-        <p class="subtitle">Miguel de Cervantes · 1613</p>
+        <p class="poetry-label">Miguel de Cervantes · Primera publicación: 1613</p>
+        <h1>Novelas<br><em>ejemplares</em></h1>
+        <p class="hero-premise">Esta noche, los perros tienen la palabra.</p>
+        <p class="hero-description">La ciudad duerme.<br> Quienes la han visto desde abajo empiezan a contar.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
-    <svg class="cervantes-mask" viewBox="0 0 260 235" aria-hidden="true">
-      <defs>
-        <radialGradient id="mask-ivory" cx=".35" cy=".3" r=".8"><stop stop-color="#f1e2b9"/><stop offset=".55" stop-color="#c8b58b"/><stop offset="1" stop-color="#66583e"/></radialGradient>
-        <linearGradient id="mask-fold"><stop stop-color="#0f1619"/><stop offset=".4" stop-color="#303534"/><stop offset=".6" stop-color="#151d20"/><stop offset="1" stop-color="#47473b"/></linearGradient>
-        <radialGradient id="mask-light"><stop stop-color="#ecd59a" stop-opacity=".22"/><stop offset="1" stop-color="#ecd59a" stop-opacity="0"/></radialGradient>
-      </defs>
-      <ellipse class="mask-light" cx="126" cy="118" rx="104" ry="104" fill="url(#mask-light)"/>
-      <path d="M159 17q-21 53-9 93t-10 72q17 20 64 29l24-11q-39-41-31-99t-2-78Z" fill="url(#mask-fold)"/>
-      <g fill="none" stroke="#9d8554" stroke-width=".7" opacity=".55"><path d="M183 26q-18 55-7 96t24 72M168 25q-17 64-5 101t18 69"/><path d="m179 44 5-7 3 9-6 7Zm-6 27 5-7 3 9-6 7Zm0 29 5-7 3 9-6 7Zm5 28 5-7 3 9-6 7Zm8 27 5-7 3 9-6 7Zm11 24 5-7 3 9-6 7Z"/></g>
-      <path d="M64 118q-38 6-29 37t-8 27q35 0 25-30t20-25M166 122q41 7 34 39t22 23q-38 12-35-26t-27-26" fill="#171d20" stroke="#645e4c" stroke-width="1"/>
-      <g transform="rotate(-12 118 123)">
-        <path d="M62 98q-5-55 55-60 61 2 64 55l-7 52q-7 38-51 60-45-19-56-54Z" fill="url(#mask-ivory)" stroke="#6d6047" stroke-width="1.5"/>
-        <path d="M76 89q18-18 35-1M135 87q21-16 34 0" fill="none" stroke="#9e8966" stroke-width="5"/>
-        <path d="M73 101q20-23 38 0-13 17-38 0ZM134 99q20-22 36 0-18 16-36 0Z" fill="#171c1c" stroke="#8b7859" stroke-width="3"/>
-        <path d="M121 92q-1 23-13 44 9 11 24-1l-8-37" fill="#b5a17c" stroke="#978260"/>
-        <path d="m119 98-8 35 9 3" fill="none" stroke="#eadbb6" stroke-width="2"/>
-        <path d="M107 165q16-8 31-2-12 13-31 2Z" fill="#695645"/>
-        <path d="M108 164q15-5 29-1M116 177q8 3 15-1" fill="none" stroke="#dfcba1" stroke-width="1"/>
-        <g fill="none" stroke="#796b51" stroke-width=".7" opacity=".8"><path d="m89 47 7 14-5 10 10 10m-5-20 13 4 4-8m31-9-4 19 7 6-5 10m-5-15-10-2m44 45-13 7 2 14-12 5 4 14m-81-19 13 4 6 14-4 12 11 8m-7-19 12-5m40 47-6-12 5-8m-33 31 7-9-3-9"/></g>
-        <path d="M72 76q8-24 36-29M70 130q4 32 24 45" fill="none" stroke="#f1e0b9" stroke-width="1.5" opacity=".65"/>
-      </g>
-      <g class="mask-dust" fill="#e4cea0" opacity=".45"><circle cx="55" cy="58" r=".9"/><circle cx="192" cy="77" r=".7"/><circle cx="43" cy="118" r=".7"/><circle cx="208" cy="131" r="1"/></g>
-      <ellipse cx="132" cy="214" rx="81" ry="6" fill="#101618" opacity=".4"/>
-    </svg>
+    <figure class="story-art"><img src="../assets/novelas-la-noche-de-los-perros.webp" width="1536" height="1024" fetchpriority="high" alt="Dos perros se miran junto a un farol en la entrada de un hospital nocturno, mientras una figura escucha desde la sombra."><figcaption>Cipión y Berganza · El coloquio de los perros</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Miguel de Cervantes · Doce relatos, muchas vidas</span><p>Escuchar al margen cambia el centro.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -84,15 +65,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">Novelas ejemplares</div>
-            <div class="name">La gitanilla</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong" role="button" tabindex="0" aria-label="Novela anterior"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
             <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
-            <div class="nextSong" role="button" tabindex="0" aria-label="Novela siguiente"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -101,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -116,39 +98,38 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/novelas-ejemplares.webp" alt="Novelas ejemplares">
+        <img loading="lazy" decoding="async" src="../../book_covers/novelas-ejemplares.webp" alt="Novelas ejemplares">
         <div class="controls">
-            <div class="box" role="button" tabindex="0">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Miguel de Cervantes reunió en 1613 doce relatos breves de la España contemporánea a su pluma, desde pícaros y gitanas hasta caballeros y damas de alta alcurnia, escritos, según su propio prólogo, para "entretener el ánimo" sin dejar "tropezón que tropiece" en la moral del lector. Títulos como "Rinconete y Cortadillo," "La gitanilla" o "El licenciado Vidriera" muestran a un Cervantes maestro de la narrativa corta, tan influyente para el género en español como el propio Quijote lo fue para la novela.</p>
-
+<h2>Doce formas de mirar una vida</h2>
+<p>Publicadas en 1613, las doce <em>Novelas ejemplares</em> reúnen aventuras, engaños, deseos y vidas que cruzan límites sociales. Cervantes hace de cada relato un espacio de prueba: las apariencias pueden desorientar y el juicio del lector rara vez encuentra un camino sencillo.</p>
+<p class="reading-note">Cuando hablan los perros, los humanos quedan al descubierto.</p><p>La imagen elige el encuentro nocturno de Cipión y Berganza, los perros del Hospital de la Resurrección de Valladolid. Su conversación transforma la experiencia de servir a distintos amos en una mirada sobre la conducta humana. La arquitectura, el aspecto de los animales y la iluminación son recreaciones artísticas.</p><p class="source-note">Primera publicación: 1613. <a href="https://www.cervantesvirtual.com/obra/novelas-ejemplares--0/">Colección completa · Biblioteca Virtual Miguel de Cervantes</a>. <a href="https://www.cervantesvirtual.com/obra-visor/el-coloquio-de-los-perros--0/html/ff31b1bc-82b1-11df-acc7-002185ce6064_32.html">Escena de referencia · El coloquio de los perros</a>.</p>
         <div class="break"></div>
-        <p class="source-note">Colección publicada en 1613. <a href="https://www.cervantesvirtual.com/obra/novelas-ejemplares--0/" target="_blank" rel="noopener noreferrer">Edición de Florencio Sevilla Arroyo · Biblioteca Virtual Miguel de Cervantes</a>. Los puntos de audio se incorporarán con las grabaciones.</p>
-        <h1>LAS DOCE NOVELAS</h1>
+        <h2>La lectura</h2>
         <p class="chapter" role="button" tabindex="0" data-time="0">La gitanilla</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">El amante liberal</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Rinconete y Cortadillo</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">La española inglesa</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">El licenciado Vidriera</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">La fuerza de la sangre</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">El celoso extremeño</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">La ilustre fregona</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Las dos doncellas</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">La señora Cornelia</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">El casamiento engañoso</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">El coloquio de los perros</p>
-
+<p class="chapter" role="button" tabindex="0" data-time="0">El amante liberal</p>
+<p class="chapter" role="button" tabindex="0" data-time="0">Rinconete y Cortadillo</p>
+<p class="chapter" role="button" tabindex="0" data-time="0">La española inglesa</p>
+<p class="chapter" role="button" tabindex="0" data-time="0">El licenciado Vidriera</p>
+<p class="chapter" role="button" tabindex="0" data-time="0">La fuerza de la sangre</p>
+<p class="chapter" role="button" tabindex="0" data-time="0">El celoso extremeño</p>
+<p class="chapter" role="button" tabindex="0" data-time="0">La ilustre fregona</p>
+<p class="chapter" role="button" tabindex="0" data-time="0">Las dos doncellas</p>
+<p class="chapter" role="button" tabindex="0" data-time="0">La señora Cornelia</p>
+<p class="chapter" role="button" tabindex="0" data-time="0">El casamiento engañoso</p>
+<p class="chapter" role="button" tabindex="0" data-time="0">El coloquio de los perros</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -162,13 +143,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="tres-cosas-me-tienen-preso.html">← Tres cosas me tienen preso</a><a href="ola-2-slug.html">Segunda Ola</a><a href="el-perro-del-hortelano.html">El perro del hortelano →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="novelas-ejemplares.js"></script>
+<script src="novelas-ejemplares.js?v=20261023-escena"></script>
 
 </body>
 </html>

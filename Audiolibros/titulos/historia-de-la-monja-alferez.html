@@ -3,11 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Audiolibros — Historia de la Monja Alférez</title>
+    <title>Audiolibros — Historia de la monja alférez</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="historia-de-la-monja-alferez.css">
+    <link rel="stylesheet" href="historia-de-la-monja-alferez.css?v=20261023-final">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,41 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>Historia de la Monja Alférez</h1>
-        <p class="subtitle">Atribuida a Catalina de Erauso · Primera edición completa: 1829</p>
+        <p class="poetry-label">Atribuida a Catalina de Erauso · Primera edición completa: 1829</p>
+        <h1>Historia de la<br><em>monja alférez</em></h1>
+        <p class="hero-premise">El horizonte todavía exige otro paso.</p>
+        <p class="hero-description">Sin refugio. Sin compañía.<br> Una vida que insiste en seguir adelante.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
-    <svg class="erauso-vignette" viewBox="0 0 300 245" aria-hidden="true">
-      <defs>
-        <linearGradient id="erauso-steel" x2="1"><stop stop-color="#272b2a"/><stop offset=".42" stop-color="#eee3c9"/><stop offset=".52" stop-color="#817d70"/><stop offset="1" stop-color="#202423"/></linearGradient>
-        <linearGradient id="erauso-coat"><stop stop-color="#101718"/><stop offset=".48" stop-color="#2c3331"/><stop offset="1" stop-color="#0a0f10"/></linearGradient>
-        <linearGradient id="erauso-paper"><stop stop-color="#eee2c7"/><stop offset="1" stop-color="#b8a681"/></linearGradient>
-        <radialGradient id="erauso-brass"><stop stop-color="#e0ba63"/><stop offset=".6" stop-color="#a57a28"/><stop offset="1" stop-color="#624817"/></radialGradient>
-        <linearGradient id="erauso-face" x2=".85" y2="1"><stop stop-color="#e7d7bc"/><stop offset=".58" stop-color="#b59e7e"/><stop offset="1" stop-color="#66594a"/></linearGradient>
-        <linearGradient id="erauso-sash" x2="1"><stop stop-color="#684123"/><stop offset=".5" stop-color="#bc8b3c"/><stop offset="1" stop-color="#604019"/></linearGradient>
-        <pattern id="erauso-map" width="18" height="16" patternUnits="userSpaceOnUse"><path d="m1 7 6-4 6 2 4-4m-14 14 5-5 7 2" fill="none" stroke="#8d7b59" stroke-width=".5" opacity=".45"/></pattern>
-      </defs>
-      <ellipse cx="154" cy="220" rx="111" ry="9" fill="#080d0d" opacity=".35"/>
-      <path d="M23 103q60-28 117-4t133-11l4 119q-68 13-129 1T27 219Z" fill="url(#erauso-paper)" stroke="#8d7954"/>
-      <path d="M23 103q60-28 117-4t133-11l4 119q-68 13-129 1T27 219Z" fill="url(#erauso-map)"/>
-      <g fill="none" stroke="#77684d" stroke-width=".55" opacity=".55"><path d="M32 121q24-14 45-4t37-2m69-8q22 9 43-4t42 1M34 154q32-14 59-2m103-16q29-14 68-2M31 204q29-11 58-2m108-3q31-13 70-2"/><path d="M59 112q-4 29 7 54t-2 49m159-118q-6 31 5 59t-4 48"/></g>
-      <g fill="#75664a" font-family="Georgia,serif" font-size="5.5" font-style="italic" opacity=".62"><text x="47" y="119">Mar Océano</text><text x="221" y="111">Mar del Sur</text><text x="202" y="159">Lima</text><text x="219" y="195">Concepción</text></g>
-      <path d="M44 181q40-55 77-49t58-4q41-16 76-5" fill="none" stroke="#936f29" stroke-width="1.3" stroke-dasharray="3 4"/>
-      <g fill="#8f7137" font-family="Georgia,serif" font-size="7" font-style="italic" opacity=".85"><text x="37" y="196">España</text><text x="218" y="143">Perú</text><text x="212" y="181">Chile</text></g>
-      <g class="erauso-route"><circle cx="44" cy="181" r="3" fill="#b58d39"/><circle cx="244" cy="176" r="3" fill="#b58d39"/><path d="m238 171 12 5-11 6" fill="none" stroke="#b58d39" stroke-width="1.5"/></g>
-      <!-- Imagined portrait, generated for this page; not an authenticated likeness. -->
-      <g class="erauso-painted-medallion">
-        <image href="../assets/erauso-renaissance-portrait.png" x="70" y="16" width="157" height="194" preserveAspectRatio="xMidYMid meet"/>
-        <ellipse class="erauso-candlelight" cx="121" cy="77" rx="48" ry="65" fill="#e4b866" opacity=".08"/>
-      </g>
-      <g fill="none" stroke="#cab16f" opacity=".35"><circle cx="126" cy="132" r="85"/><path d="M27 217q94-10 248-8"/></g>
-    </svg>
+    <figure class="story-art"><img src="../assets/erauso-la-cordillera-y-el-silencio.webp" width="1536" height="1024" fetchpriority="high" alt="Erauso, con vestimenta militar del siglo XVII y un arcabuz al hombro, descansa contra una roca en una inmensa cordillera bajo nubes abiertas por la luz."><figcaption>La travesía de la cordillera · Recreación del capítulo VII</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Catalina de Erauso · Un relato de vida y de fuga</span><p>Cruzar un territorio. Contar una vida.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -84,8 +64,9 @@
     <div class="player">
         <canvas></canvas>
         <div class="song">
-            <div class="artist">Historia de la Monja Alférez</div>
-            <div class="name">Relación completa</div>
+            <div class="artist">Historia de la monja alférez</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
             <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
@@ -93,7 +74,7 @@
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
             <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -102,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -117,28 +98,27 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/monja-alferez.webp" alt="Historia de la Monja Alférez">
+        <img loading="lazy" decoding="async" src="../../book_covers/monja-alferez.webp" alt="Historia de la monja alférez">
         <div class="controls">
-            <div class="box" role="button" tabindex="0">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Relato autobiográfico atribuido a Catalina de Erauso, figura vasca que huyó del convento siendo joven, adoptó identidades masculinas y atravesó el Atlántico. El texto narra servicios militares, desplazamientos, duelos y procesos judiciales entre España y América. Su transmisión manuscrita, sus discordancias cronológicas y su publicación completa en el siglo XIX exigen leerlo como testimonio histórico y construcción narrativa a la vez.</p>
-
+<h2>Una voz que no cabe en un solo nombre</h2>
+<p>La relación autobiográfica atribuida a Catalina de Erauso narra la salida del convento, el uso de nombres y vestimenta masculinos, la travesía atlántica y una vida de servicios militares, duelos, huidas y procesos judiciales. Su voz construye una identidad a través de la acción y del modo de contarla. La transmisión manuscrita y las discordancias del relato invitan a leerlo como testimonio y elaboración narrativa a la vez.</p>
+<p class="reading-note">La inmensidad no ofrece respuestas; obliga a continuar.</p><p>El capítulo VII describe una travesía extrema por la cordillera: hambre, frío y la pérdida de los compañeros dejan a Erauso a solas, todavía cargando el arcabuz. La imagen interpreta esa resistencia, sin fijar un lugar exacto para una ruta cuya narración plantea dificultades geográficas. El paisaje y el rostro son recreaciones. La dureza de la vida narrada incluye también la violencia ejercida por su protagonista.</p><p class="source-note">Primera edición completa: París, 1829. <a href="https://www.memoriachilena.gob.cl/602/w3-article-3329.html">Edición y contexto · Biblioteca Nacional de Chile</a>. <a href="https://www.cervantesvirtual.com/obra-visor/historia-de-la-monja-alferez/html/ff38d5be-82b1-11df-acc7-002185ce6064_10.html">Relación completa · Capítulo VII, Biblioteca Virtual Miguel de Cervantes</a>.</p>
         <div class="break"></div>
-        <p class="source-note">La historia circuló en manuscritos y apareció completa en París en 1829. <a href="https://www.cervantesvirtual.com/obra/historia-de-la-monja-alferez/" target="_blank" rel="noopener noreferrer">Texto y registro · Biblioteca Virtual Miguel de Cervantes</a>. Los puntos de audio se incorporarán con la grabación.</p>
-        <h1>LECTURA</h1>
+        <h2>La lectura</h2>
         <p class="chapter" role="button" tabindex="0" data-time="0">Historia de la Monja Alférez · Relación completa</p>
-
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -152,13 +132,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="don-quijote.html">← Don Quijote</a><a href="ola-2-slug.html">Segunda Ola</a><a href="el-burlador-de-sevilla.html">El burlador de Sevilla →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="historia-de-la-monja-alferez.js"></script>
+<script src="historia-de-la-monja-alferez.js?v=20261023-final"></script>
 
 </body>
 </html>
