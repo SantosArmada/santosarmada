@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Audiolibros — La gloria de don Ramiro</title>
     <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
-    <link rel="stylesheet" href="la-gloria-de-don-ramiro.css">
+    <link rel="stylesheet" href="la-gloria-de-don-ramiro.css?v=20261022-escena">
 </head>
 <body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
 
 <nav class="site-nav">
   <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
@@ -20,9 +21,8 @@
     <li><a href="../../globe.html">Space and Time</a></li>
     <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
     <li><a href="../../about.html">Sobre Mí</a></li>
-    <li><a href="../../cv.html">CV</a></li>
   </ul>
-  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger">
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
@@ -34,40 +34,21 @@
   <a href="../../globe.html">Space and Time</a>
   <a href="../../interpreter-z.html">Interpreter Z</a>
   <a href="../../about.html">Sobre Mí</a>
-  <a href="../../cv.html">CV</a>
 </div>
 
+<main id="main">
 <header class="book-header">
     <div class="book-header-text">
         <p class="kicker">Audiolibros · Segunda Ola</p>
-        <h1>La gloria de don Ramiro</h1>
-        <p class="subtitle">Enrique Larreta · 1908</p>
+        <p class="poetry-label">Enrique Larreta · Primera publicación: 1908</p>
+        <h1>La gloria de<br><em>don Ramiro</em></h1>
+        <p class="hero-premise">El horizonte promete otro nombre.</p>
+        <p class="hero-description">Cádiz queda atrás.<br> La memoria también sube a bordo.</p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
     </div>
-    <svg class="ramiro-emblem" viewBox="0 0 250 230" aria-hidden="true">
-      <defs>
-        <linearGradient id="ramiro-steel"><stop stop-color="#44484b"/><stop offset=".46" stop-color="#e7e3cb"/><stop offset=".5" stop-color="#8d9391"/><stop offset="1" stop-color="#30383c"/></linearGradient>
-        <linearGradient id="ramiro-gold"><stop stop-color="#6e481f"/><stop offset=".5" stop-color="#d3b564"/><stop offset="1" stop-color="#765025"/></linearGradient>
-        <linearGradient id="ramiro-cloth"><stop stop-color="#551d24"/><stop offset=".5" stop-color="#a23932"/><stop offset="1" stop-color="#461b24"/></linearGradient>
-      </defs>
-      <g fill="none" stroke="#8c7647" opacity=".3"><circle cx="127" cy="112" r="88"/><circle cx="127" cy="112" r="83"/><path d="M24 112h24m158 0h24M127 11v22m0 162v23"/></g>
-      <path class="ramiro-drape" d="M97 66q29-13 52 1l28 116-23-6-11 18-19-12-17 9-14-13-18 4Z" fill="url(#ramiro-cloth)" stroke="#67312b"/>
-      <g fill="none" stroke="#d4915b" stroke-width=".7" opacity=".55"><path d="m101 75-13 99 10-5 11 13m35-107 20 94-12-3-9 18M110 79l-3 86m34-84 7 78"/></g>
-      <path d="M121 81h12l-2 112-4 21-5-21Z" fill="url(#ramiro-steel)" stroke="#44433d" stroke-width=".7"/>
-      <path d="M127 89v114" stroke="#f4eacb" stroke-width=".8"/>
-      <g fill="url(#ramiro-gold)" stroke="#624d2a" stroke-width=".8">
-        <path d="M95 77q32 10 64 0l6 5-3 5q-35-7-70 0l-3-5Z"/>
-        <path d="M121 43h12v33h-12Z"/>
-        <path d="M119 32q8-10 16 0l-2 10h-12Z"/>
-        <ellipse cx="127" cy="82" rx="8" ry="6"/>
-      </g>
-      <g stroke="#3d3024" stroke-width="1.7"><path d="m122 46 10 4m-10 2 10 4m-10 2 10 4m-10 2 10 4m-10 2 10 4"/></g>
-      <g fill="none" stroke="#e6cd8a" stroke-width=".6"><path d="M95 81q14-3 23 0m18 0q13-3 23 0m-37-48 5-4 5 4-5 4Z"/><circle cx="127" cy="82" r="3"/></g>
-      <path d="M153 72q29 0 30 27t-23 42" fill="none" stroke="#b09253" stroke-width="1" stroke-dasharray="1.5 2"/>
-      <g fill="#6c452a" stroke="#bd9c5c" stroke-width=".6"><circle cx="179" cy="114" r="2"/><circle cx="175" cy="124" r="2"/><circle cx="168" cy="134" r="2"/><path d="M157 140h5v6h5v4h-5v10h-5v-10h-5v-4h5Z"/></g>
-      <path class="ramiro-glint" d="m127 115 1.5 7 5 1-5 1-1.5 7-1.5-7-5-1 5-1Z" fill="#fff5cc"/>
-      <path d="M71 216q56 8 113 0" fill="none" stroke="#8c7647" opacity=".3"/>
-    </svg>
+    <figure class="story-art"><img src="../assets/ramiro-los-galeones-del-olvido.webp" width="1536" height="1024" fetchpriority="high" alt="Ramiro contempla el horizonte desde la borda de un galeón mientras otras naves avanzan bajo velas iluminadas por el crepúsculo."><figcaption>Rumbo a las Indias · El final de la tercera parte</figcaption></figure>
 </header>
+<div class="listening-heading"><span>Enrique Larreta · Una vida en tiempos de Felipe II</span><p>Buscar la gloria. Huir de uno mismo.</p></div>
 
 <div class="progress-scroll"><div class="progress-fill"></div></div>
 
@@ -84,15 +65,16 @@
         <canvas></canvas>
         <div class="song">
             <div class="artist">La gloria de don Ramiro</div>
-            <div class="name">Primera parte</div>
+            <div class="name">Lectura completa</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
         </div>
         <div class="playarea">
-            <div class="prevSong" role="button" tabindex="0" aria-label="Parte anterior"></div>
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
             <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
             <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
-            <div class="nextSong" role="button" tabindex="0" aria-label="Parte siguiente"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
         </div>
-        <div class="soundControl" role="button" tabindex="0" aria-label="Silenciar o activar sonido"></div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
         <div class="time">00:00</div>
     </div>
 </section>
@@ -101,7 +83,7 @@
     <div class="volume-dial" id="volumeDial">
         <div class="volume-dial__control">
             <div class="volume-dial__wrap">
-                <button type="button" class="volume-dial__knob" aria-label="Control de volumen">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
                     <span class="volume-dial__knob-label">Volumen</span>
                 </button>
             </div>
@@ -116,31 +98,32 @@
 <div class="all">
   <div class="card">
     <div class="book">
-        <svg class="x" role="button" tabindex="0" aria-label="Ocultar o mostrar información" style="width:24px;height:24px" viewBox="0 0 24 24">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
         </svg>
-        <img fetchpriority="high" decoding="async" src="../../book_covers/la-gloria-de-don-ramiro.webp" alt="La gloria de don Ramiro">
+        <img loading="lazy" decoding="async" src="../../book_covers/la-gloria-de-don-ramiro.webp" alt="La gloria de don Ramiro">
         <div class="controls">
-            <div class="box" role="button" tabindex="0">Escucha ahora</div>
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
         </div>
     </div>
 
-    <div class="panel">
+    <div class="panel" id="bookPanel">
       <div class="panel-body">
         <div class="break"></div>
-        <h1>SINOPSIS</h1>
-        <p>Publicada en 1908, esta novela histórica de Enrique Larreta recrea la España de Felipe II desde la sensibilidad del modernismo hispanoamericano. En Ávila, Ramiro crece entre las exigencias del linaje, la devoción religiosa y el deseo de gloria. Su búsqueda enfrenta la ambición, el amor y la conciencia en una prosa de intensa elaboración visual y sonora.</p>
+<h2>La promesa del horizonte</h2>
+<p>Publicada en 1908, esta novela histórica de Enrique Larreta recrea la España de Felipe II desde la sensibilidad del modernismo hispanoamericano. En Ávila, Ramiro crece entre las exigencias del linaje, la devoción religiosa y el deseo de gloria. Su búsqueda enfrenta la ambición, el amor y la conciencia en una prosa de intensa elaboración visual y sonora.</p>
 
         <div class="break"></div>
-        <p class="source-note">Texto de consulta: <a href="https://www.gutenberg.org/files/29920/29920-h/29920-h.htm" target="_blank" rel="noopener noreferrer">edición de 1911, corregida por el autor</a>. Primera publicación: 1908. Los puntos de audio se incorporarán con la grabación.</p>
-        <h1>LECTURA POR PARTES</h1>
+<p class="reading-note">El océano abre un camino; no borra una vida.</p><p>Al final de la tercera parte, Ramiro zarpa de Cádiz en uno de los tres galeones que parten hacia el Perú. La imagen recrea su mirada desde la borda y el resplandor del crepúsculo sobre las velas. El rostro, la disposición de las naves y los detalles del barco son interpretaciones artísticas. La partida abre otra etapa de su búsqueda.</p><p class="source-note">Primera publicación: 1908. <a href="https://www.gutenberg.org/files/29920/29920-h/29920-h.htm">Texto completo · edición de 1911 corregida por el autor, Project Gutenberg</a>. Escena de referencia: final de la tercera parte.</p>
+        <div class="break"></div>
+        <h2>La lectura</h2>
         <p class="chapter" role="button" tabindex="0" data-time="0">Primera parte</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Segunda parte</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Tercera parte</p>
-        <p class="chapter" role="button" tabindex="0" data-time="0">Epílogo</p>
-
+<p class="chapter" role="button" tabindex="0" data-time="0">Segunda parte</p>
+<p class="chapter" role="button" tabindex="0" data-time="0">Tercera parte</p>
+<p class="chapter" role="button" tabindex="0" data-time="0">Epílogo</p>
+        <p class="reading-guide">Grabación próximamente. La lectura de la obra estará disponible aquí. Las grabaciones se incorporarán cuando estén preparadas.</p>
         <div class="break"></div>
-        <h1>RESEÑAS</h1>
+        <h2>Valoración</h2>
         <div>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
             <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span>
@@ -154,13 +137,15 @@
   </div>
 </div>
 
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="amar-despues-de-la-muerte.html">← Amar después de la muerte</a><a href="ola-2-slug.html">Segunda Ola</a><a href="tres-cosas-me-tienen-preso.html">Tres cosas me tienen preso →</a></nav>
+</main>
 <footer class="site-footer">
     <a href="../../index.html" aria-label="Santos Armada — inicio">
         <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
     </a>
 </footer>
 
-<script src="la-gloria-de-don-ramiro.js"></script>
+<script src="la-gloria-de-don-ramiro.js?v=20261022-escena"></script>
 
 </body>
 </html>
