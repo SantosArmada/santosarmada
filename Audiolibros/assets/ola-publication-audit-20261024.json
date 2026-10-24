@@ -1,0 +1,1556 @@
+{
+  "audited_on": "2026-10-24",
+  "scope": "All detail pages linked by the OLA 1–4 listen buttons",
+  "total": 129,
+  "changed": 42,
+  "counts_by_ola": {
+    "1": 20,
+    "2": 39,
+    "3": 21,
+    "4": 49
+  },
+  "method": "Presence and placement audit of every header; missing or ambiguous dates researched. Reference-edition years are explicitly distinguished from first publication; retained dates use the existing page bibliography. This is not a claim that every first appearance has been established.",
+  "browser_checks": {
+    "mobile": {
+      "pages": 129,
+      "viewport_width": 390,
+      "date_label_failures": 0
+    },
+    "desktop": {
+      "pages": 129,
+      "viewport_width": 1440,
+      "date_label_failures": 0
+    },
+    "narrow": {
+      "pages": 42,
+      "viewport_width": 320,
+      "date_label_failures": 0
+    }
+  },
+  "pages": [
+    {
+      "ola": 1,
+      "slug": "popol-vuh",
+      "title": "Popol Vuh",
+      "date_label": "Tradición maya k’iche’ · Redacción: siglo XVI Primera publicación en español: 1857",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.newberry.org/collection/research-guide/popol-vuh",
+        "https://www.loc.gov/item/05009887/"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "cantar-de-mio-cid",
+      "title": "Cantar de mio Cid",
+      "date_label": "Anónimo · Composición: finales del XII–inicios del XIII Primera edición impresa: 1779",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.bne.es/es/colecciones/manuscritos/manuscritos-literarios/poema-cid",
+        "https://www.rae.es/sites/default/files/Archivos_de_la_BCRAE_Primera_edicion_del_Cantar_1779_Tomas_Antonio_Sanchez.pdf"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "cosas-del-cid",
+      "title": "Cosas del Cid",
+      "date_label": "Rubén Darío · Poesía · 1900",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://materialdelectura.unam.mx/poesia-moderna/16-poesia-moderna-cat/303-154-ruben-dario?showall=1",
+        "https://ciudadseva.com/texto/cosas-del-cid/"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "los-motivos-del-lobo",
+      "title": "Los motivos del lobo",
+      "date_label": "Rubén Darío · Poesía · 1913",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://editorial.uaa.mx/docs/poesia_chicos_grandes.pdf",
+        "https://www.gob.mx/semarnat/articulos/poema-ambiental-los-motivos-del-lobo?idiom=es"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "el-ladron-devoto",
+      "title": "El ladrón devoto",
+      "date_label": "Gonzalo de Berceo · Milagro VI · Composición: siglo XIII Primera edición impresa: 1780",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/portales/gonzalo_de_berceo/obra/milagros-de-nuestra-senora--1/",
+        "https://es.wikisource.org/wiki/Milagro_VI_-_El_ladr%C3%B3n_devoto",
+        "https://www.castalia.es/view/pdf/224"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "duelo-de-la-virgen",
+      "title": "Duelo de la Virgen",
+      "date_label": "Gonzalo de Berceo · Composición: siglo XIII Primera edición impresa: 1780",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://cervantesvirtual.com/obra/el-duelo-que-fizo-la-virgen-maria-el-dia-de-la-pasion-de-su-fijo-jesucristo--0/",
+        "https://www.castalia.es/view/pdf/224"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "ejemplo-del-hombre-de-su-esposa-infiel-y-del-papagayo",
+      "title": "Ejemplo del hombre, de su esposa infiel y del papagayo",
+      "date_label": "Anónimo · Sendebar · Versión castellana: 1253 Edición impresa de Comparetti: 1869",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://scholarsbank.uoregon.edu/items/7194f1e6-ee74-46c8-9568-c2bfefd7d224",
+        "https://descargas.intef.es/cedec/lenguayliteratura/contenidos/u3/LyL3_U3_contenidos/lecturaelcondelucanor.pdf",
+        "https://monografias.sociedadmenendezpelayo.es/pub/catalog/download/25/20/44?inline=1"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "marco-polo",
+      "title": "El libro de Marco Polo",
+      "date_label": "Marco Polo · Edición castellana: 1503",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra/el-libro-del-famoso-marco-paulo-veneciano-de-las-cosas-marauillosas-que-vido-en-las-partes-orientales-conuiene-saber-en-las-indias-armenia-arabia-persia-tartaria-e-del-poderio-929912/",
+        "https://fr.wikisource.org/wiki/Voyage_de_Marco_Polo/Livre_1/Chapitre_44"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "el-senor-de-bembibre",
+      "title": "El señor de Bembibre",
+      "date_label": "Enrique Gil y Carrasco · Publicación: 1844",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://cervantesvirtual.com/portales/duque_de_rivas/obra/el-senor-de-bembibre--0/",
+        "https://www.cervantesvirtual.com/obra-visor/el-senor-de-bembibre--0/html/feddfe0a-82b1-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "libro-de-buen-amor",
+      "title": "Libro de buen amor",
+      "date_label": "Juan Ruiz, Arcipreste de Hita · Redacciones: 1330 / 1343 Primera edición impresa: 1790",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://cvc.cervantes.es/literatura/arcipreste_hita/03/heusch.htm",
+        "https://www.cervantesvirtual.com/obra-visor/el-libro-de-buen-amor--0/html/ff0ec418-82b1-11df-acc7-002185ce6064_32.html",
+        "https://cvc.cervantes.es/literatura/arcipreste_hita/06/toro.htm"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "conde-lucanor",
+      "title": "El conde Lucanor",
+      "date_label": "Don Juan Manuel · Composición concluida: 1335 Primera edición impresa: 1575",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra/el-conde-lucanor-manuscrito--0/",
+        "https://www.cervantesvirtual.com/obra-visor/el-conde-lucanor--0/html/00052e2a-82b2-11df-acc7-002185ce6064_1.html",
+        "https://bvpb.mcu.es/es/consulta/registro.cmd?id=469071"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "cuentos-de-decameron",
+      "title": "Cuentos del Decamerón",
+      "date_label": "Giovanni Boccaccio · Composición: c. 1349–1353 Primera edición impresa: c. 1470",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.treccani.it/enciclopedia/decameron/",
+        "https://webhelper.brown.edu/decameron/texts/DecShowText.php?lang=eng&amp;myID=nov0509",
+        "https://www.folger.edu/explore/the-stuart-and-mimi-rose-collection/giovanni-boccaccio/"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "cantar-a-la-virgen-maria",
+      "title": "Cantar a la Virgen María",
+      "date_label": "Pedro López de Ayala · Composición: siglos XIV–XV Edición del Rimado de Palacio: 1864",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/vida-de-la-santisima-virgen-maria-madre-de-dios-con-la-descripcion-de-los-lugares-que-habito-en-palestina-y-egipto--1/html/fefd7db6-82b1-11df-acc7-002185ce6064_16.html",
+        "https://www.rae.es/sites/default/files/hojear_rimado_de_palacio.pdf",
+        "https://www.sociedadmenendezpelayo.es/wp-content/uploads/BBMP%202014.pdf"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "peribanez-y-el-comendador-de-ocana",
+      "title": "Peribáñez y el comendador de Ocaña",
+      "date_label": "Lope de Vega · Primera publicación: 1614",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/portales/lope_de_vega/parte_4_comedias/",
+        "https://www.cervantesvirtual.com/obra-visor/peribanez-y-el-comendador-de-ocana--0/html/ff82a608-82b1-11df-acc7-002185ce6064_3.html"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "el-trovador",
+      "title": "El trovador",
+      "date_label": "Antonio García Gutiérrez · Publicación y estreno: 1836",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.teatro.es/efemerides/antonio-garcia-gutierrez-el-primero-en-ser-aclamado",
+        "https://www.gutenberg.org/cache/epub/29677/pg29677-images.html"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "nezahualcoyotl",
+      "title": "Nezahualcóyotl",
+      "date_label": "Poesía atribuida a Nezahualcóyotl · Siglo XV Antología de referencia: 1967",
+      "changed": true,
+      "reference_edition": true,
+      "sources": [
+        "https://historicas.unam.mx/publicaciones/catalogo/ficha?id=550t1",
+        "https://bibliotecadigital.ilce.edu.mx/sites/fondo2000/vol1/mesoamerica-i/html/4.html",
+        "https://historicas.unam.mx/publicaciones/catalogo/ficha?id=111b"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "fin-de-loores-de-santos",
+      "title": "Fin de loores de santos",
+      "date_label": "Fernán Pérez de Guzmán · Composición: siglo XV Edición impresa de referencia: 1915",
+      "changed": true,
+      "reference_edition": true,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/cancionero-de-onate-castaneda-hh1/html/",
+        "https://www.equiponaya.com.ar/religion/XJornadas/pdf/1/1-Salinas.PDF",
+        "https://cvc.cervantes.es/literatura/aih/pdf/10/aih_10_1_030.pdf"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "rabinal-achi",
+      "title": "Rabinal Achí",
+      "date_label": "Drama maya achí · Tradición prehispánica Primera edición impresa: 1862",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://ich.unesco.org/en/RL/rabinal-achi-dance-drama-tradition-00144?RL=00144",
+        "https://revistas-filologicas.unam.mx/literatura-mexicana/index.php/lm/article/view/394"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "fuente-ovejuna",
+      "title": "Fuente Ovejuna",
+      "date_label": "Lope de Vega · Primera publicación: 1619",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/fuenteovejuna-comedia-famosa/html/914619dd-b2c9-4a3a-96cf-0a21e0162fbf_63.html",
+        "https://artelope.uv.es/basededatos/browserecord.php?-action=browse&amp;-recid=149"
+      ]
+    },
+    {
+      "ola": 1,
+      "slug": "coplas-por-la-muerte-de-su-padre",
+      "title": "Coplas por la muerte de su padre",
+      "date_label": "Jorge Manrique · Composición: c. 1476–1479 Primera edición impresa: c. 1482",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/obra-completa--0/html/ff6c9480-82b1-11df-acc7-002185ce6064_3.html",
+        "https://www.ahlm.es/IndicesActas/ActasPdf/Actas4.3/08.pdf"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "carta-a-luis-de-santangel",
+      "title": "Carta a Luis de Santángel",
+      "date_label": "Cristóbal Colón · Publicación: 1493",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://pares.cultura.gob.es/ParesBusquedas20/catalogo/description/4536674/imprimir",
+        "https://press.rebus.community/aalh/chapter/carta-a-luis-de-santangel/"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "los-cuatro-viajes-del-almirante-y-su-testamento",
+      "title": "Los cuatro viajes del Almirante y su testamento",
+      "date_label": "Cristóbal Colón · Documentos: 1492–1506 Publicación de la edición de referencia: 1991",
+      "changed": true,
+      "reference_edition": true,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra/los-cuatro-viajes-del-almirante-y-su-testamento--0/",
+        "https://www.cervantesvirtual.com/obra-visor/los-cuatro-viajes-del-almirante-y-su-testamento--0/html/"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "a-colon",
+      "title": "A Colón",
+      "date_label": "Rubén Darío · Poema: 1892",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://web.seducoahuila.gob.mx/biblioweb/upload/A%20COLON.pdf",
+        "https://www.cervantesvirtual.com/obra/poema-de-ruben-dario-1/"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "la-celestina",
+      "title": "La Celestina",
+      "date_label": "Fernando de Rojas · Comedia: 1499",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://cervantesvirtual.com/obra/comedia-de-calisto-y-melibea--0/",
+        "https://www.cervantesvirtual.com/obra-visor/la-celestina--1/html/fedc933a-82b1-11df-acc7-002185ce6064_114.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "brevisima-relacion-de-la-destruccion-de-las-indias",
+      "title": "Brevísima relación de la destrucción de las Indias",
+      "date_label": "Bartolomé de las Casas · Publicación: 1552",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://cervantesvirtual.com/obra/brevsima-relacin-de-la-destruccin-de-las-indias-0/",
+        "https://cervantesvirtual.com/portales/bartolome_de_las_casas/obra-visor/brevsima-relacin-de-la-destruccin-de-las-indias-0/html/847e3bed-827e-4ca7-bb80-fdcde7ac955e_18.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "sumario-de-la-natural-historia-de-las-indias",
+      "title": "Sumario de la natural historia de las Indias",
+      "date_label": "Gonzalo Fernández de Oviedo · Publicación: 1526",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://es.wikisource.org/wiki/Sumario_de_la_natural_y_general_historia_de_las_Indias",
+        "https://www.biblioteca-antologica.org/es/wp-content/uploads/2018/03/FERNANDEZ-DE-OVIEDO-Sumario-de-la-Natural-Historia-de-las-Indias.pdf"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "cartas-de-relacion",
+      "title": "Cartas de relación",
+      "date_label": "Hernán Cortés · Segunda carta impresa: 1522",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.bne.es/es/colecciones/hispanoamerica/carta-relacio-ebiada-su-s-majestad",
+        "https://www.noticonquista.unam.mx/amoxtli/1321/1318",
+        "https://www.noticonquista.unam.mx/amoxtli/371/363"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "historia-verdadera-de-la-conquista",
+      "title": "Historia verdadera de la conquista de la Nueva España",
+      "date_label": "Bernal Díaz del Castillo · 1632 Crónica · Primera edición póstuma",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://cvc.cervantes.es/artes/ciudades_patrimonio/antigua/personalidades/bernal.htm"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "historia-antigua-de-mexico",
+      "title": "Historia antigua de México",
+      "date_label": "Francisco Javier Clavijero · Publicación: 1780–1781",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://estudiosamericanos.revistas.csic.es/index.php/estudiosamericanos/article/download/116/120/120",
+        "https://www.memoriapoliticademexico.org/Textos/1Independencia/1780HAM.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "naufragios",
+      "title": "Naufragios",
+      "date_label": "Álvar Núñez Cabeza de Vaca · Publicación: 1542",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra/naufragios--0/",
+        "https://www.cervantesvirtual.com/obra-visor/naufragios--0/html/feddcf8e-82b1-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "comentarios-reales-de-los-incas",
+      "title": "Comentarios reales de los incas",
+      "date_label": "Inca Garcilaso de la Vega · Primera parte: 1609",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://libroselectronicos.cervantes.es/resources/60468e2d345b650001be1e7d?l=es",
+        "https://es.wikisource.org/wiki/Historia_general_del_Per%C3%BA,_o_Comentarios_reales_de_los_incas_(Tomo_I)/Cap%C3%ADtulo_XVI",
+        "https://museum.doaks.org/objects-1/info/23071",
+        "https://www.metmuseum.org/art/collection/search/315492",
+        "https://www.metmuseum.org/art/collection/search/312558",
+        "https://www.metmuseum.org/art/collection/search/315668"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "lazarillo-de-tormes",
+      "title": "Lazarillo de Tormes",
+      "date_label": "Anónimo · Ediciones conservadas: 1554",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.bne.es/es/blog/blog-bne/post-22",
+        "https://www.cervantesvirtual.com/obra-visor/la-vida-de-lazarillo-de-tormes-y-de-sus-fortunas-y-adversidades--0/html/fedb2f54-82b1-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "cosante",
+      "title": "Cosante",
+      "date_label": "Diego Hurtado de Mendoza · Composición: siglo XIV Edición en antología de referencia: 1972",
+      "changed": true,
+      "reference_edition": true,
+      "sources": [
+        "https://www.dim.uchile.cl/~anmoreir/escritos/siglo_oro/trova.html",
+        "https://www.cervantesvirtual.com/research/poetica-y-realidad-en-el-cancionero-peninsular-de-la-edad-media/e5bdb764-a030-11e1-b1fb-00163ebf5e63.pdf",
+        "https://books.google.com/books?id=E7YrAAAAYAAJ"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "cantar-de-los-cantares",
+      "title": "Cantar de los cantares",
+      "date_label": "Versión de Fray Luis de León · c. 1561 · Publicación: 1798",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://phte.upf.edu/leon-1561/",
+        "https://www.cervantesvirtual.com/portales/fray_luis_de_leon/obras_cantar/"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "vivo-sin-vivir-en-mi",
+      "title": "Vivo sin vivir en mí",
+      "date_label": "Teresa de Jesús · Composición: hacia 1571–1573 Edición impresa de referencia: 1861",
+      "changed": true,
+      "reference_edition": true,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/vivo-sin-vivir-en-mi-a-la-luz-de-inexplorados-testimonios-manuscritos--0/html/96b8e4c5-745f-4d93-b09e-a13ca87b2d41_2.html",
+        "https://www.cervantesvirtual.com/obra-visor/antologia-0/html/ae56337a-b7fe-4f04-90c7-9d005c5f21a7_3.html",
+        "https://www.cervantesvirtual.com/obra/escritos-de-santa-teresa-tomo-primero--0/"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "cuento-x",
+      "title": "Cuento X",
+      "date_label": "Juan de Timoneda · El Patrañuelo · Publicación: 1567",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/el-patranuelo--0/html/fedbc64e-82b1-11df-acc7-002185ce6064_1.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "amar-despues-de-la-muerte",
+      "title": "Amar después de la muerte",
+      "date_label": "Pedro Calderón de la Barca · Primera publicación: 1677",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://doi.org/10.3989/rfe.2006.v86.i2.11",
+        "https://www.cervantesvirtual.com/obra-visor/amar-despues-de-la-muerte-o-el-tuzani-de-las-alpujarras--0/html/fee651f4-82b1-11df-acc7-002185ce6064_6.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "la-gloria-de-don-ramiro",
+      "title": "La gloria de don Ramiro",
+      "date_label": "Enrique Larreta · Primera publicación: 1908",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.gutenberg.org/files/29920/29920-h/29920-h.htm"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "tres-cosas-me-tienen-preso",
+      "title": "Tres cosas me tienen preso",
+      "date_label": "Baltasar del Alcázar · Siglos XVI–XVII Edición impresa de referencia: 1910",
+      "changed": true,
+      "reference_edition": true,
+      "sources": [
+        "https://milan.cervantes.es/imagenes/selecci%C3%B3n%20poes%C3%ADa%20gastron%C3%B3mica.pdf",
+        "https://comunicacion.buap.mx/sites/default/files/bicicleta11.pdf"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "novelas-ejemplares",
+      "title": "Novelas ejemplares",
+      "date_label": "Miguel de Cervantes · Primera publicación: 1613",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra/novelas-ejemplares--0/",
+        "https://www.cervantesvirtual.com/obra-visor/el-coloquio-de-los-perros--0/html/ff31b1bc-82b1-11df-acc7-002185ce6064_32.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "el-perro-del-hortelano",
+      "title": "El perro del hortelano",
+      "date_label": "Lope de Vega · Primera publicación: 1618",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra/el-perro-del-hortelano-comedia-famosa/",
+        "https://www.cervantesvirtual.com/obra-visor/el-perro-del-hortelano--0/html/ff981632-82b1-11df-acc7-002185ce6064_3.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "romances-de-gongora",
+      "title": "Romances de Góngora",
+      "date_label": "Luis de Góngora · Composición: siglos XVI–XVII Recopilación impresa de referencia: 1627",
+      "changed": true,
+      "reference_edition": true,
+      "sources": [
+        "https://www.uv.es/ivorra/Gongora/Romances/Entrelossueltos.htm",
+        "https://www.uco.es/catedragongora/?page_id=3184",
+        "https://www.bne.es/es/Micrositios/Exposiciones/Gongora/Exposicion/Seccion2/sub2/"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "don-quijote",
+      "title": "Don Quijote",
+      "date_label": "Miguel de Cervantes · Primera parte: 1605 · Segunda parte: 1615",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://cvc.cervantes.es/literatura/clasicos/quijote/indice.htm",
+        "https://cvc.cervantes.es/literatura/clasicos/quijote/Edicion/parte2/cap17/cap17_03.htm"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "historia-de-la-monja-alferez",
+      "title": "Historia de la monja alférez",
+      "date_label": "Atribuida a Catalina de Erauso · Primera edición completa: 1829",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.memoriachilena.gob.cl/602/w3-article-3329.html",
+        "https://www.cervantesvirtual.com/obra-visor/historia-de-la-monja-alferez/html/ff38d5be-82b1-11df-acc7-002185ce6064_10.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "el-burlador-de-sevilla",
+      "title": "El burlador de Sevilla",
+      "date_label": "Atribuido a Tirso de Molina  ·  1630",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/el-burlador-de-sevilla-0/html/"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "la-ultima-ilusion-de-don-juan",
+      "title": "La última ilusión de Don Juan",
+      "date_label": "Emilia Pardo Bazán · 1893",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://cervantesvirtual.com/obra/cuentos-de-amor--0/"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "cantinela-a-lesbia",
+      "title": "Cantinela a Lesbia",
+      "date_label": "Esteban Manuel de Villegas ·  Eróticas o amatorias  Publicación del poemario: 1617–1618",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://datos.bne.es/resource/bima0000112485",
+        "https://www.cervantesvirtual.com/obra-visor/villegas--revision-de-su-poesia/html/d0f2a08f-fc42-4e70-8277-404b1dbfc55e_2.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "a-un-jilguero",
+      "title": "A un jilguero",
+      "date_label": "Juan Pérez de Montalbán · Soneto Publicación en  Sucesos y prodigios de amor : 1624",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.biblioteca-antologica.org/es/wp-content/uploads/2019/07/P%C3%89REZ-DE-MONTALB%C3%81N-Al-cabo-de-los-mil-a%C3%B1os.pdf",
+        "https://www.cervantesvirtual.com/obra-visor/la-mayor-confusion/html/6dc3e080-16b5-11e1-a679-00163ebf5e63_4.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "segadores-afuera-afuera",
+      "title": "Segadores, afuera, afuera",
+      "date_label": "Tirso de Molina ·  La mejor espigadera  Publicación de la comedia: 1634",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.biblioteca-antologica.org/es/wp-content/uploads/2019/08/TIRSO-Poes%C3%ADa-tipo-tradicional.pdf",
+        "https://clemit.uv.es/gestion/ficheros/Parte_Tercera_de_Tirso.pdf"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "al-que-leyere",
+      "title": "Al que leyere",
+      "date_label": "María de Zayas y Sotomayor · 1637",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://cervantesvirtual.com/portales/maria_de_zayas_y_sotomayor/"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "por-beber-una-copa-de-oro",
+      "title": "Por beber una copa de oro",
+      "date_label": "Ricardo Palma · Tradiciones peruanas Edición impresa de referencia: 1894",
+      "changed": true,
+      "reference_edition": true,
+      "sources": [
+        "https://www.gutenberg.org/cache/epub/21282/pg21282-images.html",
+        "https://es.wikisource.org/wiki/Por_beber_en_copa_de_oro"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "redondillas",
+      "title": "Redondillas",
+      "date_label": "Sor Juana Inés de la Cruz · Redondillas Publicación en  Inundación castálida : 1689",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://bucarest.cervantes.es/imagenes/file/biblioteca/sor%20juana_01_hombres%20necios.pdf",
+        "https://revistas-filologicas.unam.mx/anuario-letras/index.php/al/article/download/1168/1165/1393"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "a-la-esperanza",
+      "title": "A la esperanza",
+      "date_label": "Sor Juana Inés de la Cruz · Soneto del siglo XVII Edición impresa de referencia: 1873",
+      "changed": true,
+      "reference_edition": true,
+      "sources": [
+        "https://college.holycross.edu/faculty/cstone/span312/sorjuanapoemas.html",
+        "https://www.gutenberg.org/files/74087/74087-h/74087-h.htm"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "en-perseguirme-mundo-que-interesas",
+      "title": "¿En perseguirme, Mundo, qué interesas?",
+      "date_label": "Sor Juana Inés de la Cruz · Soneto Publicación en  Inundación castálida : 1689",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://cervantesvirtual.com/obra-visor/obras-escogidas--0/html/c7822235-3f49-4a31-9ea3-485840a7c278_2.html",
+        "https://revistas-filologicas.unam.mx/anuario-letras/index.php/al/article/download/1168/1165/1393"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "primer-sueno",
+      "title": "Primer sueño",
+      "date_label": "Sor Juana Inés de la Cruz · Primera publicación: 1692",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://repositorio.unam.mx/contenidos/ficha/primero-sueno-5059605",
+        "https://www.cervantesvirtual.com/obra-visor/soledad-de-gngora-y-sueo-de-sor-juana-0/html/010ffb42-82b2-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "carta-atenagorica",
+      "title": "Carta atenagórica",
+      "date_label": "Sor Juana Inés de la Cruz · Publicada en 1690",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/las-razones-de-sor-juana-ins-de-la-cruz-0/html/d16b750e-571e-482d-9486-477816dfc441_5.html",
+        "https://www.cervantesvirtual.com/obra-visor/poner-riquezas-en-mi-entendimiento-sor-juana-ines-de-la-cruz-y-sor-teresa-de-cartagena-888801/html/fd0c4963-e6bd-4daa-bec0-b37aeb4ee3a8_2.html"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "respuesta-a-sor-filotea",
+      "title": "Respuesta a Sor Filotea",
+      "date_label": "Sor Juana Inés de la Cruz · Carta escrita en 1691 Primera publicación: 1700",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://historicas.unam.mx/publicaciones/publicadigital/libros/775/sorjuana_ante.html",
+        "https://cervantesvirtual.com/obra-visor/obras-escogidas--0/html/",
+        "https://www.cervantesvirtual.com/descargaPdf/numero-3-otono-1997/"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "defensa-de-las-mujeres",
+      "title": "Defensa de las mujeres",
+      "date_label": "Benito Jerónimo Feijoo · 1726 Ensayo · Teatro crítico universal, I, XVI",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.filosofia.org/bjf/bjft116.htm"
+      ]
+    },
+    {
+      "ola": 2,
+      "slug": "amor-de-la-patria",
+      "title": "Amor de la patria, y pasión nacional",
+      "date_label": "Benito Jerónimo Feijoo · 1729 Ensayo · Teatro crítico universal, III, X",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.filosofia.org/bjf/bjft310.htm"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "el-si-de-las-ninas",
+      "title": "El sí de las niñas",
+      "date_label": "Leandro Fernández de Moratín · Publicación y estreno: 1806",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/el-si-de-las-ninas--0/html/ff188e30-82b1-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "cartas-de-jamaica",
+      "title": "Cartas de Jamaica",
+      "date_label": "Simón Bolívar · Escritura: 1815 Publicación: 1818 (inglés) · 1833 (español)",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://bibliotecadigital.ilce.edu.mx/sites/fondo2000/vol2/36/htm/sec_4.html",
+        "https://www.anhvenezuela.org.ve/wp-content/uploads/2020/04/banh_392.pdf"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "en-el-teocalli-de-cholula",
+      "title": "En el Teocalli de Cholula",
+      "date_label": "José María Heredia · Composición: 1820 Publicación: 1825 · Versión ampliada: 1832",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://es.wikisource.org/wiki/En_el_Teocalli_de_Cholula",
+        "https://bibliografia200y500.iib.unam.mx/images/proyecto/conquista/55_conq_jose_maria_heredia.pdf",
+        "https://www.sinoele.org/images/Revista/17/monograficos/AAH_2005/AAH_2005.pdf"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "la-fontana-de-oro",
+      "title": "La Fontana de Oro",
+      "date_label": "Benito Pérez Galdós · Novela · Publicación: 1870",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/la-fontana-de-oro--0/html/ff4141b8-82b1-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "mariana-pineda",
+      "title": "Mariana Pineda",
+      "date_label": "Federico García Lorca · Estreno: 1927 Primera publicación: 1928",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.universolorca.com/en/obra-literaria/mariana-pineda/",
+        "https://www.rinconcastellano.com/biblio/sigloxx_27/lorca_mpineda_i.html",
+        "https://www.alianzaeditorial.es/primer_capitulo/yerma.pdf"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "articulos",
+      "title": "Artículos",
+      "date_label": "Mariano José de Larra · 1828–1836 Selección · Prensa, costumbres y crítica",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/la-vida-de-madrid--0/html/ff79a030-82b1-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "cancion-del-pirata",
+      "title": "Canción del pirata",
+      "date_label": "José de Espronceda · Poesía · 1835",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/cancion-del-pirata-1220118/html/2551680d-ec63-42cb-91a5-1008fe6261b7_2.html"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "el-mendigo",
+      "title": "El mendigo",
+      "date_label": "José de Espronceda · Publicado en 1835",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.fuesp.com/wp-content/uploads/cilh-12-165-173.pdf",
+        "https://es.wikisource.org/wiki/El_mendigo_(Espronceda)"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "facundo-o-civilizacion-y-barbarie",
+      "title": "Facundo",
+      "date_label": "Domingo Faustino Sarmiento · 1845",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://digitales.bcn.gob.ar/files/textos/Facundo-o-Civilizacion-y-Barbarie.pdf"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "el-rayo-de-luna",
+      "title": "El rayo de luna",
+      "date_label": "Gustavo Adolfo Bécquer · Publicado en 1862",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://es.wikisource.org/wiki/El_rayo_de_luna"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "martin-fierro",
+      "title": "Martín Fierro",
+      "date_label": "José Hernández · Primera parte: 1872 · La vuelta: 1879",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.argentina.gob.ar/noticias/150-anos-de-la-publicacion-de-el-gaucho-martin-fierro",
+        "https://www.cervantesvirtual.com/obra-visor/el-gaucho-martin-fierro--1/html/ff29ee5a-82b1-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "pepita-jimenez",
+      "title": "Pepita Jiménez",
+      "date_label": "Juan Valera · Publicada en 1874",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://cervantesvirtual.com/obra-visor/pepita-jimenez--0/html/fede05bc-82b1-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "dona-perfecta",
+      "title": "Doña Perfecta",
+      "date_label": "Benito Pérez Galdós · Publicada en 1876",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://cervantesvirtual.com/obra/dona-perfecta-novela-original--0/",
+        "https://www.cervantesvirtual.com/obra-visor/dona-perfecta-novela-original--0/html/"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "del-rumor-cadencioso-de-la-onda",
+      "title": "Del rumor cadencioso de la onda",
+      "date_label": "Rosalía de Castro · En las orillas del Sar · 1884",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://cervantesvirtual.com/obra/en-las-orillas-del-sar--0/",
+        "https://ciudadseva.com/texto/del-rumor-cadencioso-de-la-onda/"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "a-la-sombra-te-sientas-de-las-desnudas-rocas",
+      "title": "A la sombra te sientas de las desnudas rocas",
+      "date_label": "Rosalía de Castro · En las orillas del Sar · 1884",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://cervantesvirtual.com/obra/en-las-orillas-del-sar--0/",
+        "https://ciudadseva.com/texto/a-la-sombra-te-sientas-de-las-desnudas-rocas/"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "la-regenta",
+      "title": "La Regenta",
+      "date_label": "Leopoldo Alas «Clarín» · 1884–1885 Novela · Publicada en dos tomos",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra/la-regenta--1/"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "lucia-jerez",
+      "title": "Lucía Jerez",
+      "date_label": "José Martí · Publicada como Amistad funesta · 1885",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.gutenberg.org/files/18166/18166-h/18166-h.htm"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "si-ves-un-monte-de-espumas",
+      "title": "Si ves un monte de espumas",
+      "date_label": "José Martí · Versos sencillos, V · 1891",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://guides.loc.gov/world-of-1898/jose-marti",
+        "https://ciudadseva.com/texto/si-ves-un-monte-de-espumas/"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "un-jornalero",
+      "title": "Un jornalero",
+      "date_label": "Leopoldo Alas «Clarín» · 1893 Cuento · El Señor y lo demás, son cuentos",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://revpubli.unileon.es/index.php/LectSigno/article/download/9416/7797/44971"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "la-conversion-de-chiripa",
+      "title": "La conversión de Chiripa",
+      "date_label": "Leopoldo Alas «Clarín» · 1894 Cuento · Recogido en Cuentos morales (1896)",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/portales/leopoldo_alas_clarin/obra/la-conversion-de-chiripa--0/"
+      ]
+    },
+    {
+      "ola": 3,
+      "slug": "misericordia",
+      "title": "Misericordia",
+      "date_label": "Benito Pérez Galdós · Publicada en 1897",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra/misericordia--0/",
+        "https://www.cervantesvirtual.com/obra-visor/misericordia--0/html/?indice=1"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "ejemplo",
+      "title": "Ejemplo",
+      "date_label": "Salvador Díaz Mirón · En Lascas, 1901",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra/lascas-poesias-971646/",
+        "https://es.wikisource.org/wiki/Ejemplo"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "a-roosevelt",
+      "title": "A Roosevelt",
+      "date_label": "Rubén Darío · 1904 · En libro, 1905",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://press.rebus.community/aalh/chapter/introduccion/",
+        "https://www.cervantesvirtual.com/obra-visor/cantos-de-vida-y-esperanza/html/fee156ea-82b1-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "caracol",
+      "title": "Caracol",
+      "date_label": "Rubén Darío · Cantos de vida y esperanza · 1905",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/cantos-de-vida-y-esperanza/html/fee156ea-82b1-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "lo-fatal",
+      "title": "Lo fatal",
+      "date_label": "Rubén Darío · Cantos de vida y esperanza · 1905",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/cantos-de-vida-y-esperanza/html/fee156ea-82b1-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "thanatos",
+      "title": "Thánatos",
+      "date_label": "Rubén Darío · Cantos de vida y esperanza · 1905",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra-visor/cantos-de-vida-y-esperanza/html/fee156ea-82b1-11df-acc7-002185ce6064_2.html"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "la-vuelta-de-los-campos",
+      "title": "La vuelta de los campos",
+      "date_label": "Julio Herrera y Reissig · Publicación documentada: 1905",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://catalogoarchivoliterario.bibna.gub.uy/index.php/informationobject/browse?collection=520&amp;creators=651&amp;languages=es&amp;media=print&amp;page=6&amp;sf_culture=es&amp;sort=referenceCode&amp;sortDir=asc&amp;topLod=0&amp;view=table",
+        "https://oei.int/wp-content/uploads/2019/03/iberoamerica-lee-poesia-iberlectura-oei-cuadernillo-para-web.pdf"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "mira-el-paisaje-inmensidad-abajo",
+      "title": "Mira el paisaje, inmensidad abajo",
+      "date_label": "Manuel José Othón · Idilio salvaje, soneto II Publicación en Revista Moderna de México: 1907",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://modernismohispanico.unam.mx/obra.xhtml?a=27&amp;c=1&amp;o=61"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "los-buques-suicidantes",
+      "title": "Los buques suicidantes",
+      "date_label": "Horacio Quiroga · Publicación: 1906 En Cuentos de amor de locura y de muerte · 1917",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://lecturia.org/cuentos-y-relatos/horacio-quiroga-los-buques-suicidantes/1005/",
+        "https://ciudadseva.com/texto/los-buques-suicidantes/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "soledades-galerias-y-otros-poemas",
+      "title": "Soledades, galerías y otros poemas",
+      "date_label": "Antonio Machado · Publicación: 1907 Madrid · Librería Pueyo",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.bne.es/es/autores/machado-antonio",
+        "https://cervantesvirtual.com/portales/antonio_machado/obra/soledades-galerias-otros-poemas-1145502/",
+        "https://www.cervantesvirtual.com/obra-visor/soledades-galerias-y-otros-poemas-983792/html/9ac6dccd-fde1-4797-83bb-b7f160ff3e2b_2.html"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "el-almohadon-de-plumas",
+      "title": "El almohadón de plumas",
+      "date_label": "Horacio Quiroga · Publicación: 1907 En Cuentos de amor de locura y de muerte · 1917",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://exposiciones.bibna.gub.uy/omeka/exhibits/show/horacio-quiroga/item/1239",
+        "https://ciudadseva.com/texto/el-almohadon-de-plumas/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "mi-religion",
+      "title": "Mi religión",
+      "date_label": "Miguel de Unamuno / Ensayo / 1907",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.textos.info/miguel-de-unamuno/mi-religion/ebook"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "junto-a-la-laguna-de-cristo",
+      "title": "Junto a la laguna de Cristo",
+      "date_label": "Miguel de Unamuno · Soneto Publicación en  Rosario de sonetos líricos : 1911",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.andrew.cmu.edu/user/ngal/z-unamuno.htm",
+        "https://catalogo.sanchoelsabio.eus/Record/39055"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "el-teatro-de-los-humildes",
+      "title": "El teatro de los humildes",
+      "date_label": "Julio Herrera y Reissig ·  Poesías  Publicación de la edición de referencia: 1913",
+      "changed": true,
+      "reference_edition": true,
+      "sources": [
+        "https://www.cervantesvirtual.com/portales/julio_herrera_y_reissig/obra/el-teatro-de-los-humildes-poesias--0/",
+        "https://es.wikisource.org/wiki/El_teatro_de_los_humildes"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "a-la-deriva",
+      "title": "A la deriva",
+      "date_label": "Horacio Quiroga · Primera publicación: 1912 En  Cuentos de amor de locura y de muerte : 1917",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://ciudadseva.com/texto/a-la-deriva/",
+        "https://www.bn.gob.ar/micrositios/admin_assets/issues/files/3bd0a56947832bde09c7068a9eb46f1c.pdf"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "nuestro-primer-cigarro",
+      "title": "Nuestro primer cigarro",
+      "date_label": "Horacio Quiroga · Cuento Publicación en  Cuentos de amor de locura y de muerte : 1917",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://ciudadseva.com/texto/nuestro-primer-cigarro/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "la-gran-cosmopolis",
+      "title": "La gran cosmópolis",
+      "date_label": "Rubén Darío · Composición: 1914 Publicación en  Lira póstuma : 1919",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.gutenberg.org/cache/epub/53867/pg53867-images.html",
+        "https://archivoiiac.untref.edu.ar/obras-completas-volumen-xxi-lira-p-stuma"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "niebla",
+      "title": "Niebla",
+      "date_label": "Miguel de Unamuno · Nivola · 1914",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.gutenberg.org/files/49836/49836-h/49836-h.htm"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "los-de-abajo",
+      "title": "Los de abajo",
+      "date_label": "Mariano Azuela · Novela · 1915",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cch.unam.mx/sites/default/files/Los_de_abajo.pdf"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "hortus-conclusus",
+      "title": "Hortus conclusus",
+      "date_label": "Enrique González Martínez · Poema · 1915",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.uam.mx/difusion/casadeltiempo/16_may_2015/casa_del_tiempo_eV_num_16_10_13.pdf",
+        "https://dokumen.pub/critical-survey-of-poetry-latin-american-poets-9781587659157-1587659158.html"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "la-ultima-fada",
+      "title": "La última fada",
+      "date_label": "Emilia Pardo Bazán · Novela corta · 1916",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.textos.info/emilia-pardo-bazan/la-ultima-fada/ebook",
+        "https://es.wikisource.org/wiki/La_%C3%BAltima_fada"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "la-gallina-degollada",
+      "title": "La gallina degollada",
+      "date_label": "Horacio Quiroga · Primera publicación: 1909 En  Cuentos de amor de locura y de muerte : 1917",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://ciudadseva.com/texto/la-gallina-degollada/",
+        "https://www.bn.gob.ar/micrositios/admin_assets/issues/files/3bd0a56947832bde09c7068a9eb46f1c.pdf"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "el-permisionario",
+      "title": "El permisionario",
+      "date_label": "Carmen de Burgos · Novela corta · 1917",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra/el-permisionario-novela-1055150/",
+        "https://pdfs.semanticscholar.org/b64c/27b32b09e5bf60ed3f0bdf231cc0f51955ec.pdf"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "el-perseguidor",
+      "title": "El perseguidor",
+      "date_label": "Carmen de Burgos · Novela corta · 1917",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.textos.info/carmen-de-burgos/el-perseguidor/ebook"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "las-lenguas-de-diamante",
+      "title": "Las lenguas de diamante",
+      "date_label": "Juana de Ibarbourou · Poesía · 1919",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.poesi.as/ji19001.htm",
+        "https://ilh.institutos.filo.uba.ar/sites/ilh.institutos.filo.uba.ar/files/Lespada%2C%20Gustavo_4.pdf"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "el-ultimo-contrabandista",
+      "title": "El último contrabandista",
+      "date_label": "Carmen de Burgos · Novela · 1918",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.dipalme.org/Servicios/Informacion/Informacion.nsf/2CD523BD219A68ACC125853F004115D5/%24file/CARMEN%20DE%20BURGOS%20VOL%202.pdf"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "las-cuatro-alas-de-abeja",
+      "title": "Las cuatro alas de abeja",
+      "date_label": "Juana de Ibarbourou · Poema · 1919",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://letras-uruguay.espaciolatino.com/ibarbourou/las_cuatro_alas_de_abeja.htm"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "la-espera",
+      "title": "La espera",
+      "date_label": "Juana de Ibarbourou · Poema · 1919",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://letras-uruguay.espaciolatino.com/ibarbourou/la_espera.htm"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "lo-que-soy-para-ti",
+      "title": "Lo que soy para ti",
+      "date_label": "Juana de Ibarbourou · Poema · 1919",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.poeticous.com/juana-de-ibarbourou/lo-que-soy-para-ti?locale=es"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "el-fuerte-lazo",
+      "title": "El fuerte lazo",
+      "date_label": "Juana de Ibarbourou · Poema · 1919",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.poeticous.com/juana-de-ibarbourou/el-fuerte-lazo?locale=es"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "los-heraldos-negros",
+      "title": "Los heraldos negros",
+      "date_label": "César Vallejo · Poema · 1919",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://ciudadseva.com/texto/los-heraldos-negros/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "los-dados-eternos",
+      "title": "Los dados eternos",
+      "date_label": "César Vallejo · Poema · 1919",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://ciudadseva.com/texto/los-dados-eternos/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "dobla-el-dos-de-noviembre",
+      "title": "Dobla el dos de noviembre",
+      "date_label": "César Vallejo · Trilce LXVI · 1922",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.letrasabiertas.gba.gob.ar/media/static/files/Vallejo_Cesar._Poesia.pdf#page=51"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "el-retorno-malefico",
+      "title": "El retorno maléfico",
+      "date_label": "Ramón López Velarde · Poema Publicación en  Zozobra : 1919",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://web.seducoahuila.gob.mx/biblioweb/upload/El%20retorno%20malefico.pdf"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "ofrenda",
+      "title": "Ofrenda",
+      "date_label": "Juana de Ibarbourou · Poema · 1919",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://maestrosdelsaber.com/wp-content/uploads/ftp-files/Poesia/zzz%20Poetas%20Varios/Poem%20Ibarbourou,%20Juana%20De%20-%20Antologia%20Poetica.PDF#page=92"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "la-estatua",
+      "title": "La estatua",
+      "date_label": "Juana de Ibarbourou · Poema · 1919",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.youtube.com/watch?v=1Tf87oxrw9w"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "luces-de-bohemia",
+      "title": "Luces de bohemia",
+      "date_label": "Ramón del Valle-Inclán · Teatro · 1920 / 1924",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.teatroespanol.es/espectaculo/luces-de-bohemia"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "la-flor-de-la-playa",
+      "title": "La flor de la playa",
+      "date_label": "Carmen de Burgos · Novela corta · 1920",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra/la-flor-de-la-playa-novela-inedita-1053209/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "el-vampiro",
+      "title": "El vampiro",
+      "date_label": "Horacio Quiroga · Cuento · 1927",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://lecturia.org/cuentos-y-relatos/horacio-quiroga-el-vampiro-segunda-version/14320/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "cara-y-cruz-del-cacto",
+      "title": "Cara y cruz del cacto",
+      "date_label": "Alfonso Reyes · Composición: 1939 Publicación en  Constancia poética : 1959",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://cvc.cervantes.es/literatura/escritores/a_reyes/entorno/castanon_02.htm",
+        "https://fondodeculturaeconomica.com/Ficha/9786071650245/F"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "zogoibi",
+      "title": "Zogoibi",
+      "date_label": "Enrique Larreta · Novela · 1926",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://search.worldcat.org/es/title/33874150",
+        "https://www.criticadelibros.com/sin-clasificar/zogoibi-enrique-larreta/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "pensativa",
+      "title": "Pensativa",
+      "date_label": "Jesús Goytortúa Santos · Novela · 1945",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.elem.mx/autor/datos/475",
+        "https://www.scielo.org.mx/scielo.php?pid=S0185-39292010000300003&amp;script=sci_arttext"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "el-hijo",
+      "title": "El hijo",
+      "date_label": "Horacio Quiroga · Cuento · 1928",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://lecturia.org/cuentos-y-relatos/horacio-quiroga-el-hijo/3704/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "romancero-gitano",
+      "title": "Romancero gitano",
+      "date_label": "Federico García Lorca · Poesía · 1928",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.universolorca.com/obra-literaria/primer-romancero-gitano-1924-1927-en-cubierta-romancero-gitano/",
+        "https://cervantesvirtual.com/obra/romancero-gitano-923790/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "amor-de-don-perlimplin-con-belisa-en-su-jardin",
+      "title": "Amor de don Perlimplín con Belisa en su jardín",
+      "date_label": "Federico García Lorca · Estreno: 1933 Primera publicación: 1938",
+      "changed": true,
+      "reference_edition": false,
+      "sources": [
+        "https://www.universolorca.com/obra-literaria/amor-de-don-perlimplin-con-belisa-en-su-jardin-aleluya-erotica-en-cuatro-cuadros-version-de-camara/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "juan-de-mairena",
+      "title": "Juan de Mairena",
+      "date_label": "Antonio Machado · Prosa · 1936",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://www.cervantesvirtual.com/obra/juan-de-mairena-sentencias-donaires-apuntes-y-recuerdos-de-un-profesor-apocrifo-984410/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "el-puritano",
+      "title": "El puritano",
+      "date_label": "Horacio Quiroga · Cuento · 1926",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://revistas.ucm.es/index.php/ALHI/article/download/ALHI0303110027A/22019",
+        "https://www.textos.info/horacio-quiroga/el-puritano/ebook"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "mas-alla",
+      "title": "Más allá",
+      "date_label": "Horacio Quiroga · Cuento · 1925",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://lecturia.org/cuentos-y-relatos/horacio-quiroga-mas-alla/4644/",
+        "https://ciudadseva.com/texto/mas-alla/"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "el-ocaso",
+      "title": "El ocaso",
+      "date_label": "Horacio Quiroga · Cuento · 1928",
+      "changed": false,
+      "reference_edition": false,
+      "sources": [
+        "https://lecturia.org/cuentos-y-relatos/horacio-quiroga-el-ocaso/28875/",
+        "https://www.textos.info/horacio-quiroga/el-ocaso/ebook"
+      ]
+    },
+    {
+      "ola": 4,
+      "slug": "juan-de-mairena-dos",
+      "title": "Juan de Mairena II",
+      "date_label": "Antonio Machado · Publicación de los textos: 1936–1938 Edición de referencia de Cátedra: 2004",
+      "changed": true,
+      "reference_edition": true,
+      "sources": [
+        "https://www.catedra.com/libro/letras-hispanicas/juan-de-mairena-ii-antonio-machado-9788437605869/",
+        "https://www.cervantesvirtual.com/obra/juan-de-mairena-sentencias-donaires-apuntes-y-recuerdos-de-un-profesor-apocrifo-1160052/"
+      ]
+    }
+  ],
+  "release_note": "45 page headers staged for publication: the 42 audit changes plus date metadata already present in three pending local redesigns. Five pages retain their previously published layout; only their date text is staged. Browser checks describe the audited working-tree layouts."
+}
