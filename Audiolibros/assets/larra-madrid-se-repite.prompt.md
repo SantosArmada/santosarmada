@@ -1,0 +1,5 @@
+# larra-madrid-se-repite
+
+Generated with the built-in image generation tool. Cinematic interpretive illustration.
+
+Generate a premium photorealistic literary website hero artwork, landscape 1536x1024 composition, cinematic still with sophisticated practical lighting, lifelike anatomy, detailed material textures, no lettering or watermark. Main action on RIGHT TWO THIRDS, atmospheric negative space on LEFT THIRD. Madrid in the 1830s, a cinematic literary scene inspired by Larra's La vida de Madrid. RIGHT a sharp-featured young Spanish journalist with sideburns and untidy dark hair in a tailored deep blue frock coat pauses reading a folded newspaper outside a cafe, weary perceptive gaze toward passing well-dressed pedestrians who seem absorbed in habitual social performance. Period street and shop windows, no modern elements. Individual expressive faces; detailed stone and rain reflections. Petrol blue, warm parchment, muted red and gold highlights echoing a vintage print, late afternoon low sunlight. LEFT THIRD darker cafe window and shadow for title.

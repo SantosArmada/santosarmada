@@ -1,0 +1,5 @@
+# feijoo-el-mapa-y-la-conciencia
+
+Generated with the built-in image generation tool. Cinematic interpretive illustration.
+
+Generate a premium photorealistic literary website hero artwork, landscape 1536x1024 composition, cinematic still with sophisticated practical lighting, lifelike anatomy, detailed material textures, no lettering or watermark. Main action on RIGHT TWO THIRDS, atmospheric negative space on LEFT THIRD. A cinematic symbolic still life for Feijoo's Amor de la patria, y pasión nacional: early eighteenth-century scholar's table, RIGHT a folded antique map of the Iberian peninsula, brass compass, quill, an extinguished candle and glowing low fire beyond; an anonymous hand gently sets down a dark red silk ribbon beside the map, with blade of a sheathed period sword partially visible, intellectual restraint against partisan fury. Black and warm ivory dominant, one deep red accent, dramatic chiaroscuro, restrained and thought provoking, exquisite worn paper and brass. No readable text, no modern flags, no invented quotation. LEFT THIRD dark negative space for title.

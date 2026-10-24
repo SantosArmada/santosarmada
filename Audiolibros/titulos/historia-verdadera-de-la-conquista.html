@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audiolibros — Historia verdadera de la conquista de la Nueva España</title>
+    <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
+    <link rel="stylesheet" href="ola-literary-detail.css?v=20261024">
+    <link rel="stylesheet" href="historia-verdadera-de-la-conquista.css?v=20261024">
+    <meta name="description" content="Bernal Díaz del Castillo reconstruye la conquista de México desde la memoria de un soldado. El asombro, la violencia y la reivindicación de los compañeros de armas atraviesan una crónica que disputa el relato de los vencedores.">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<nav class="site-nav">
+  <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
+    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
+  </a>
+  <ul class="site-nav-links">
+    <li><a href="../../essays.html">Ensayos</a></li>
+    <li><a href="../../authors.html">Authors</a></li>
+    <li><a href="../audiolibros-categories.html" class="active">Audiolibros</a></li>
+    <li><a href="../../globe.html">Space and Time</a></li>
+    <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
+    <li><a href="../../about.html">Sobre Mí</a></li>
+  </ul>
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="site-mobile-menu" id="siteMobileMenu">
+  <a href="../../essays.html">Ensayos</a>
+  <a href="../../authors.html">Authors</a>
+  <a href="../audiolibros-categories.html">Audiolibros</a>
+  <a href="../../globe.html">Space and Time</a>
+  <a href="../../interpreter-z.html">Interpreter Z</a>
+  <a href="../../about.html">Sobre Mí</a>
+</div>
+
+<main id="main">
+<header class="book-header">
+    <div class="book-header-text">
+        <p class="kicker">Audiolibros · Segunda Ola</p>
+        <p class="poetry-label">Bernal Díaz del Castillo · 1632<br>Crónica · Primera edición póstuma</p>
+        <h1>Historia verdadera de la conquista de la Nueva España</h1>
+        <p class="hero-premise">También los soldados cuentan la historia.</p>
+        <p class="hero-description">El asombro ante una ciudad. La disputa por quién puede narrar su conquista.</p><p class="publication-note"><strong>Publicación: 1632</strong></p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
+    </div>
+    <figure class="story-art"><img src="../assets/bernal-la-ciudad-del-agua.webp" width="1536" height="1024" fetchpriority="high" alt="Un soldado y aliados indígenas contemplan Tenochtitlan desde la calzada, entre canales y reflejos del atardecer."><figcaption>La ciudad del agua</figcaption></figure>
+</header>
+<div class="listening-heading"><span>Bernal Díaz del Castillo · 1632</span><p>También los soldados cuentan la historia.</p></div>
+
+<div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<section class="player-section" id="playerSection">
+    <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
+        <svg viewBox="0 0 60 60" width="46" height="46">
+            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--accent)" stroke-width="3"/>
+            <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
+                  fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="player">
+        <canvas></canvas>
+        <div class="song">
+            <div class="artist">Historia verdadera de la conquista de la Nueva España</div>
+            <div class="name">Lectura de la obra</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
+        </div>
+        <div class="playarea">
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
+        </div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
+        <div class="time">00:00</div>
+    </div>
+</section>
+
+<div class="extra-controls">
+    <div class="volume-dial" id="volumeDial">
+        <div class="volume-dial__control">
+            <div class="volume-dial__wrap">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+                    <span class="volume-dial__knob-label">Volumen</span>
+                </button>
+            </div>
+        </div>
+        <p class="volume-dial__caption">Volumen</p>
+    </div>
+</div>
+
+<audio id="chapterAudio" preload="none" crossorigin="anonymous"></audio>
+<!-- ^ no src yet — add each recorded chapter file as you upload them. -->
+
+<div class="all">
+  <div class="card">
+    <div class="book">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+        <img loading="lazy" decoding="async" src="../../book_covers/historia-verdadera-de-la-conquista.webp" alt="Historia verdadera de la conquista de la Nueva España">
+        <div class="controls">
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
+        </div>
+    </div>
+
+    <div class="panel" id="bookPanel">
+<div class="panel-body"><div class="break"></div>
+<h2>Una memoria que reclama su lugar</h2><p>Bernal escribe desde la experiencia de un participante y desde la distancia de los años. Frente a las versiones que concentran el mérito en Cortés, reclama un lugar para los soldados. Su relato combina itinerarios, encuentros, combates y recuerdos concretos: la conquista aparece como una empresa colectiva, aunque contada desde los intereses de uno de sus protagonistas.</p><p class="reading-note">La palabra «verdadera» es también una toma de posición.</p><p>La llegada a Tenochtitlan condensa la fuerza de esa memoria: el mundo conocido resulta insuficiente ante la ciudad construida sobre el agua. Leer el asombro junto a la violencia permite escuchar la tensión del cronista sin convertir su testimonio en una mirada neutral. La imagen recrea esa llegada; no reproduce una fuente visual del siglo XVI.</p>
+<p class="source-note">Primera publicación póstuma: Madrid, 1632. La escritura y los acontecimientos narrados pertenecen al siglo XVI. <a href="https://cvc.cervantes.es/artes/ciudades_patrimonio/antigua/personalidades/bernal.htm">Instituto Cervantes · Bernal Díaz del Castillo</a>.</p>
+<div class="break"></div><h2>La lectura</h2><p class="chapter" data-time="0" role="button" tabindex="0">Lectura de la obra</p>
+<p class="reading-guide">Grabación próximamente. Aquí podrás escuchar la obra cuando esté disponible.</p>
+<div class="break"></div><h2>Valoración</h2><p class="book-rating"><strong>5.0/5</strong> <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="cartas-de-relacion.html">← Obra anterior</a><a href="ola-2-slug.html">Segunda Ola</a><a href="historia-antigua-de-mexico.html">Obra siguiente →</a></nav>
+</main>
+<footer class="site-footer">
+    <a href="../../index.html" aria-label="Santos Armada — inicio">
+        <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
+    </a>
+</footer>
+
+<script src="ola-literary-player.js?v=20261024"></script>
+
+</body>
+</html>

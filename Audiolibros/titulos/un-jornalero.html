@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audiolibros — Un jornalero</title>
+    <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
+    <link rel="stylesheet" href="ola-literary-detail.css?v=20261024">
+    <link rel="stylesheet" href="un-jornalero.css?v=20261024">
+    <meta name="description" content="Fernando Vidal se considera un trabajador intelectual, pero unos obreros lo identifican como un burgués. Clarín enfrenta dos maneras de entender el trabajo y la dificultad de reconocerse a través de la división social.">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<nav class="site-nav">
+  <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
+    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
+  </a>
+  <ul class="site-nav-links">
+    <li><a href="../../essays.html">Ensayos</a></li>
+    <li><a href="../../authors.html">Authors</a></li>
+    <li><a href="../audiolibros-categories.html" class="active">Audiolibros</a></li>
+    <li><a href="../../globe.html">Space and Time</a></li>
+    <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
+    <li><a href="../../about.html">Sobre Mí</a></li>
+  </ul>
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="site-mobile-menu" id="siteMobileMenu">
+  <a href="../../essays.html">Ensayos</a>
+  <a href="../../authors.html">Authors</a>
+  <a href="../audiolibros-categories.html">Audiolibros</a>
+  <a href="../../globe.html">Space and Time</a>
+  <a href="../../interpreter-z.html">Interpreter Z</a>
+  <a href="../../about.html">Sobre Mí</a>
+</div>
+
+<main id="main">
+<header class="book-header">
+    <div class="book-header-text">
+        <p class="kicker">Audiolibros · Tercera Ola</p>
+        <p class="poetry-label">Leopoldo Alas «Clarín» · 1893<br>Cuento · El Señor y lo demás, son cuentos</p>
+        <h1>un jornalero</h1>
+        <p class="hero-premise">También él vive de su trabajo.</p>
+        <p class="hero-description">Un intelectual ante los obreros. Una palabra compartida y una distancia que persiste.</p><p class="publication-note"><strong>Publicación: 1893</strong></p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
+    </div>
+    <figure class="story-art"><img src="../assets/jornalero-la-luz-y-la-calle.webp" width="1536" height="1024" fetchpriority="high" alt="Fernando Vidal intenta dialogar con varios obreros en el umbral de su estudio iluminado por un quinqué."><figcaption>La luz y la calle</figcaption></figure>
+</header>
+<div class="listening-heading"><span>Leopoldo Alas «Clarín» · 1893</span><p>También él vive de su trabajo.</p></div>
+
+<div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<section class="player-section" id="playerSection">
+    <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
+        <svg viewBox="0 0 60 60" width="46" height="46">
+            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--accent)" stroke-width="3"/>
+            <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
+                  fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="player">
+        <canvas></canvas>
+        <div class="song">
+            <div class="artist">Un jornalero</div>
+            <div class="name">Lectura de la obra</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
+        </div>
+        <div class="playarea">
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
+        </div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
+        <div class="time">00:00</div>
+    </div>
+</section>
+
+<div class="extra-controls">
+    <div class="volume-dial" id="volumeDial">
+        <div class="volume-dial__control">
+            <div class="volume-dial__wrap">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+                    <span class="volume-dial__knob-label">Volumen</span>
+                </button>
+            </div>
+        </div>
+        <p class="volume-dial__caption">Volumen</p>
+    </div>
+</div>
+
+<audio id="chapterAudio" preload="none" crossorigin="anonymous"></audio>
+<!-- ^ no src yet — add each recorded chapter file as you upload them. -->
+
+<div class="all">
+  <div class="card">
+    <div class="book">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+        <img loading="lazy" decoding="async" src="../../book_covers/un-jornalero.webp" alt="Un jornalero">
+        <div class="controls">
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
+        </div>
+    </div>
+
+    <div class="panel" id="bookPanel">
+<div class="panel-body"><div class="break"></div>
+<h2>¿Quién reconoce el trabajo del otro?</h2><p>Fernando Vidal vive entregado al estudio. Cuando se encuentra con los obreros, su idea de pertenecer al mundo del trabajo choca con la imagen que ellos tienen de él. La palabra «jornalero» abre así un conflicto de reconocimiento: trabajar no garantiza que los demás reconozcan ese esfuerzo como semejante al suyo.</p><p class="reading-note">El título en minúsculas propone cercanía; la escena pregunta si esa cercanía puede alcanzarse.</p><p>La luz del quinqué y la oscuridad exterior organizan una tensión entre el refugio del estudio y la violencia de la calle. La lectura puede interrogar ambas perspectivas, sin reducir a los obreros a una masa sin pensamiento ni convertir al intelectual en una conciencia infalible. La ilustración concentra ese desencuentro en un umbral.</p>
+<p class="source-note">Recogido en El Señor y lo demás, son cuentos, publicado en 1893. <a href="https://revpubli.unileon.es/index.php/LectSigno/article/download/9416/7797/44971">Estudio de Un jornalero · Lectura y Signo</a>.</p>
+<div class="break"></div><h2>La lectura</h2><p class="chapter" data-time="0" role="button" tabindex="0">Lectura de la obra</p>
+<p class="reading-guide">Grabación próximamente. Aquí podrás escuchar la obra cuando esté disponible.</p>
+<div class="break"></div><h2>Valoración</h2><p class="book-rating"><strong>3.5/5</strong> <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="si-ves-un-monte-de-espumas.html">← Obra anterior</a><a href="ola-3-slug.html">Tercera Ola</a><a href="la-conversion-de-chiripa.html">Obra siguiente →</a></nav>
+</main>
+<footer class="site-footer">
+    <a href="../../index.html" aria-label="Santos Armada — inicio">
+        <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
+    </a>
+</footer>
+
+<script src="ola-literary-player.js?v=20261024"></script>
+
+</body>
+</html>

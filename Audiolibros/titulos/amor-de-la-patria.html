@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audiolibros — Amor de la patria, y pasión nacional</title>
+    <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
+    <link rel="stylesheet" href="ola-literary-detail.css?v=20261024">
+    <link rel="stylesheet" href="amor-de-la-patria.css?v=20261024">
+    <meta name="description" content="Feijoo distingue el amor a la patria de una pasión nacional que deforma el juicio. El ensayo interroga la preferencia automática por lo propio y los intereses que se ocultan tras el lenguaje del bien común.">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<nav class="site-nav">
+  <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
+    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
+  </a>
+  <ul class="site-nav-links">
+    <li><a href="../../essays.html">Ensayos</a></li>
+    <li><a href="../../authors.html">Authors</a></li>
+    <li><a href="../audiolibros-categories.html" class="active">Audiolibros</a></li>
+    <li><a href="../../globe.html">Space and Time</a></li>
+    <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
+    <li><a href="../../about.html">Sobre Mí</a></li>
+  </ul>
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="site-mobile-menu" id="siteMobileMenu">
+  <a href="../../essays.html">Ensayos</a>
+  <a href="../../authors.html">Authors</a>
+  <a href="../audiolibros-categories.html">Audiolibros</a>
+  <a href="../../globe.html">Space and Time</a>
+  <a href="../../interpreter-z.html">Interpreter Z</a>
+  <a href="../../about.html">Sobre Mí</a>
+</div>
+
+<main id="main">
+<header class="book-header">
+    <div class="book-header-text">
+        <p class="kicker">Audiolibros · Segunda Ola</p>
+        <p class="poetry-label">Benito Jerónimo Feijoo · 1729<br>Ensayo · Teatro crítico universal, III, X</p>
+        <h1>Amor de la patria, y pasión nacional</h1>
+        <p class="hero-premise">El afecto también debe responder a la razón.</p>
+        <p class="hero-description">Entre el bien común y la ceguera de creer superior todo lo propio.</p><p class="publication-note"><strong>Publicación: 1729</strong></p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
+    </div>
+    <figure class="story-art"><img src="../assets/feijoo-el-mapa-y-la-conciencia.webp" width="1536" height="1024" fetchpriority="high" alt="Un mapa antiguo, una brújula y una cinta roja sobre una mesa, junto a la mano de un lector."><figcaption>Afecto y juicio</figcaption></figure>
+</header>
+<div class="listening-heading"><span>Benito Jerónimo Feijoo · 1729</span><p>El afecto también debe responder a la razón.</p></div>
+
+<div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<section class="player-section" id="playerSection">
+    <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
+        <svg viewBox="0 0 60 60" width="46" height="46">
+            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--accent)" stroke-width="3"/>
+            <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
+                  fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="player">
+        <canvas></canvas>
+        <div class="song">
+            <div class="artist">Amor de la patria, y pasión nacional</div>
+            <div class="name">Lectura de la obra</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
+        </div>
+        <div class="playarea">
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
+        </div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
+        <div class="time">00:00</div>
+    </div>
+</section>
+
+<div class="extra-controls">
+    <div class="volume-dial" id="volumeDial">
+        <div class="volume-dial__control">
+            <div class="volume-dial__wrap">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+                    <span class="volume-dial__knob-label">Volumen</span>
+                </button>
+            </div>
+        </div>
+        <p class="volume-dial__caption">Volumen</p>
+    </div>
+</div>
+
+<audio id="chapterAudio" preload="none" crossorigin="anonymous"></audio>
+<!-- ^ no src yet — add each recorded chapter file as you upload them. -->
+
+<div class="all">
+  <div class="card">
+    <div class="book">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+        <img loading="lazy" decoding="async" src="../../book_covers/amor-de-la-patria.webp" alt="Amor de la patria, y pasión nacional">
+        <div class="controls">
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
+        </div>
+    </div>
+
+    <div class="panel" id="bookPanel">
+<div class="panel-body"><div class="break"></div>
+<h2>Querer sin dejar de juzgar</h2><p>Amar la patria no equivale a declarar mejores a todos los compatriotas ni a justificar cualquier acción en su nombre. Feijoo somete a examen esa parcialidad: el afecto puede convertirse en una costumbre de juzgar por procedencia antes que por mérito.</p><p class="reading-note">Una pertenencia que impide pensar termina confundiendo el orgullo con la virtud.</p><p>El discurso también pregunta cuánto hay de ambición personal en los gestos celebrados como servicio público. El mapa, la cinta y la espada enfundada proponen una lectura visual de esa tensión entre adhesión y examen; no representan una escena literal del texto.</p>
+<p class="source-note">Publicado en 1729 como discurso X del tomo III del Teatro crítico universal. <a href="https://www.filosofia.org/bjf/bjft310.htm">Texto · Proyecto Filosofía en español</a>.</p>
+<div class="break"></div><h2>La lectura</h2><p class="chapter" data-time="0" role="button" tabindex="0">Lectura de la obra</p>
+<p class="reading-guide">Grabación próximamente. Aquí podrás escuchar la obra cuando esté disponible.</p>
+<div class="break"></div><h2>Valoración</h2><p class="book-rating"><strong>4.0/5</strong> <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="defensa-de-las-mujeres.html">← Obra anterior</a><a href="ola-2-slug.html">Segunda Ola</a></nav>
+</main>
+<footer class="site-footer">
+    <a href="../../index.html" aria-label="Santos Armada — inicio">
+        <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
+    </a>
+</footer>
+
+<script src="ola-literary-player.js?v=20261024"></script>
+
+</body>
+</html>

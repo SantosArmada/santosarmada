@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audiolibros — Defensa de las mujeres</title>
+    <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
+    <link rel="stylesheet" href="ola-literary-detail.css?v=20261024">
+    <link rel="stylesheet" href="defensa-de-las-mujeres.css?v=20261024">
+    <meta name="description" content="En el discurso XVI del primer tomo del Teatro crítico universal, Feijoo examina los argumentos que sostienen la supuesta inferioridad de las mujeres y defiende su capacidad intelectual.">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<nav class="site-nav">
+  <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
+    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
+  </a>
+  <ul class="site-nav-links">
+    <li><a href="../../essays.html">Ensayos</a></li>
+    <li><a href="../../authors.html">Authors</a></li>
+    <li><a href="../audiolibros-categories.html" class="active">Audiolibros</a></li>
+    <li><a href="../../globe.html">Space and Time</a></li>
+    <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
+    <li><a href="../../about.html">Sobre Mí</a></li>
+  </ul>
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="site-mobile-menu" id="siteMobileMenu">
+  <a href="../../essays.html">Ensayos</a>
+  <a href="../../authors.html">Authors</a>
+  <a href="../audiolibros-categories.html">Audiolibros</a>
+  <a href="../../globe.html">Space and Time</a>
+  <a href="../../interpreter-z.html">Interpreter Z</a>
+  <a href="../../about.html">Sobre Mí</a>
+</div>
+
+<main id="main">
+<header class="book-header">
+    <div class="book-header-text">
+        <p class="kicker">Audiolibros · Segunda Ola</p>
+        <p class="poetry-label">Benito Jerónimo Feijoo · 1726<br>Ensayo · Teatro crítico universal, I, XVI</p>
+        <h1>Defensa de las mujeres</h1>
+        <p class="hero-premise">La inteligencia no tiene dueño.</p>
+        <p class="hero-description">Una defensa del entendimiento femenino frente a la autoridad de la costumbre.</p><p class="publication-note"><strong>Publicación: 1726</strong></p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
+    </div>
+    <figure class="story-art"><img src="../assets/feijoo-la-mesa-del-saber.webp" width="1536" height="1024" fetchpriority="high" alt="Dos mujeres estudian y escriben juntas en una biblioteca del siglo XVIII, iluminadas por una ventana."><figcaption>El derecho a saber</figcaption></figure>
+</header>
+<div class="listening-heading"><span>Benito Jerónimo Feijoo · 1726</span><p>La inteligencia no tiene dueño.</p></div>
+
+<div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<section class="player-section" id="playerSection">
+    <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
+        <svg viewBox="0 0 60 60" width="46" height="46">
+            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--accent)" stroke-width="3"/>
+            <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
+                  fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="player">
+        <canvas></canvas>
+        <div class="song">
+            <div class="artist">Defensa de las mujeres</div>
+            <div class="name">Lectura de la obra</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
+        </div>
+        <div class="playarea">
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
+        </div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
+        <div class="time">00:00</div>
+    </div>
+</section>
+
+<div class="extra-controls">
+    <div class="volume-dial" id="volumeDial">
+        <div class="volume-dial__control">
+            <div class="volume-dial__wrap">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+                    <span class="volume-dial__knob-label">Volumen</span>
+                </button>
+            </div>
+        </div>
+        <p class="volume-dial__caption">Volumen</p>
+    </div>
+</div>
+
+<audio id="chapterAudio" preload="none" crossorigin="anonymous"></audio>
+<!-- ^ no src yet — add each recorded chapter file as you upload them. -->
+
+<div class="all">
+  <div class="card">
+    <div class="book">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+        <img loading="lazy" decoding="async" src="../../book_covers/defensa-de-las-mujeres.webp" alt="Defensa de las mujeres">
+        <div class="controls">
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
+        </div>
+    </div>
+
+    <div class="panel" id="bookPanel">
+<div class="panel-body"><div class="break"></div>
+<h2>El prejuicio ante la razón</h2><p>Feijoo reúne ejemplos, objeciones y respuestas para examinar una convicción que muchos daban por natural: la inferioridad intelectual de las mujeres. El ensayo obliga a distinguir la fuerza de una prueba de la repetición de una opinión. La autoridad de una tradición no basta para convertir el prejuicio en verdad.</p><p class="reading-note">Defender la capacidad de aprender cambia la pregunta: ¿quién ha tenido oportunidad de hacerlo?</p><p>Su argumentación pertenece al horizonte religioso e intelectual del siglo XVIII. Esa distancia histórica permite apreciar tanto la energía de su defensa como sus límites. La escena de mujeres compartiendo saber es una interpretación visual del ensayo, no un episodio narrativo atribuido a Feijoo.</p>
+<p class="source-note">Publicado en 1726 como discurso XVI del tomo I del Teatro crítico universal. <a href="https://www.filosofia.org/bjf/bjft116.htm">Texto · Proyecto Filosofía en español</a>.</p>
+<div class="break"></div><h2>La lectura</h2><p class="chapter" data-time="0" role="button" tabindex="0">Lectura de la obra</p>
+<p class="reading-guide">Grabación próximamente. Aquí podrás escuchar la obra cuando esté disponible.</p>
+<div class="break"></div><h2>Valoración</h2><p class="book-rating"><strong>3.6/5</strong> <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="respuesta-a-sor-filotea.html">← Obra anterior</a><a href="ola-2-slug.html">Segunda Ola</a><a href="amor-de-la-patria.html">Obra siguiente →</a></nav>
+</main>
+<footer class="site-footer">
+    <a href="../../index.html" aria-label="Santos Armada — inicio">
+        <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
+    </a>
+</footer>
+
+<script src="ola-literary-player.js?v=20261024"></script>
+
+</body>
+</html>

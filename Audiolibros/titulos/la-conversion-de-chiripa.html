@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Audiolibros — La conversión de Chiripa</title>
+    <link rel="stylesheet" href="../../vendor/fonts/la-gallina-fonts.css">
+    <link rel="stylesheet" href="ola-literary-detail.css?v=20261024">
+    <link rel="stylesheet" href="la-conversion-de-chiripa.css?v=20261024">
+    <meta name="description" content="Chiripa busca refugio de una tormenta y encuentra rechazo en distintos espacios. En una iglesia descubre una acogida que transforma su relación con la religión y plantea qué significa practicar la igualdad.">
+</head>
+<body>
+<a class="skip-link" href="#main">Saltar al contenido</a>
+
+<nav class="site-nav">
+  <a href="../audiolibros-categories.html" class="site-nav-logo" aria-label="Audiolibros — inicio">
+    <img src="../../Images/logo.PNG" alt="Santos Armada" class="site-nav-logo-img">
+  </a>
+  <ul class="site-nav-links">
+    <li><a href="../../essays.html">Ensayos</a></li>
+    <li><a href="../../authors.html">Authors</a></li>
+    <li><a href="../audiolibros-categories.html" class="active">Audiolibros</a></li>
+    <li><a href="../../globe.html">Space and Time</a></li>
+    <li><a href="../../interpreter-z.html">Interpreter Z</a></li>
+    <li><a href="../../about.html">Sobre Mí</a></li>
+  </ul>
+  <button class="site-hamburger" aria-label="Abrir menú" id="siteHamburger" aria-controls="siteMobileMenu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="site-mobile-menu" id="siteMobileMenu">
+  <a href="../../essays.html">Ensayos</a>
+  <a href="../../authors.html">Authors</a>
+  <a href="../audiolibros-categories.html">Audiolibros</a>
+  <a href="../../globe.html">Space and Time</a>
+  <a href="../../interpreter-z.html">Interpreter Z</a>
+  <a href="../../about.html">Sobre Mí</a>
+</div>
+
+<main id="main">
+<header class="book-header">
+    <div class="book-header-text">
+        <p class="kicker">Audiolibros · Tercera Ola</p>
+        <p class="poetry-label">Leopoldo Alas «Clarín» · 1894<br>Cuento · Recogido en Cuentos morales (1896)</p>
+        <h1>la conversión de chiripa</h1>
+        <p class="hero-premise">Una puerta que no lo expulsa.</p>
+        <p class="hero-description">Después de la intemperie, el descubrimiento de un trato humano.</p><p class="publication-note"><strong>Publicación: 1894</strong></p>
+        <a class="hero-listen" href="#playerSection">Escuchar la obra <span aria-hidden="true">↓</span></a>
+    </div>
+    <figure class="story-art"><img src="../assets/chiripa-el-umbral.webp" width="1536" height="1024" fetchpriority="high" alt="Chiripa entra empapado en una iglesia y un hombre le hace sitio en el banco, bajo una luz cálida."><figcaption>Un sitio para Chiripa</figcaption></figure>
+</header>
+<div class="listening-heading"><span>Leopoldo Alas «Clarín» · 1894</span><p>Una puerta que no lo expulsa.</p></div>
+
+<div class="progress-scroll"><div class="progress-fill"></div></div>
+
+<section class="player-section" id="playerSection">
+    <button class="power-btn" id="powerBtn" type="button" aria-pressed="true" aria-label="Encender o apagar el reproductor">
+        <svg viewBox="0 0 60 60" width="46" height="46">
+            <circle cx="30" cy="30" r="27" fill="var(--cream)" stroke="var(--accent)" stroke-width="3"/>
+            <path d="M21,21 C15,26 15,36 21,41 C27,46 33,46 39,41 C45,36 45,26 39,21"
+                  fill="none" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+            <line x1="30" y1="14" x2="30" y2="31" stroke="var(--accent)" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+    </button>
+    <div class="player">
+        <canvas></canvas>
+        <div class="song">
+            <div class="artist">La conversión de Chiripa</div>
+            <div class="name">Lectura de la obra</div>
+            <p class="audio-status" id="audioStatus" role="status">Grabación próximamente</p>
+        </div>
+        <div class="playarea">
+            <div class="prevSong" role="button" tabindex="0" aria-label="Lectura anterior"></div>
+            <div class="play" role="button" tabindex="0" aria-label="Reproducir"></div>
+            <div class="pause" role="button" tabindex="0" aria-label="Pausar"></div>
+            <div class="nextSong" role="button" tabindex="0" aria-label="Lectura siguiente"></div>
+        </div>
+        <div class="soundControl" role="button" tabindex="0" aria-label="Activar o silenciar sonido"></div>
+        <div class="time">00:00</div>
+    </div>
+</section>
+
+<div class="extra-controls">
+    <div class="volume-dial" id="volumeDial">
+        <div class="volume-dial__control">
+            <div class="volume-dial__wrap">
+                <button type="button" class="volume-dial__knob" role="slider" aria-label="Control de volumen" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100">
+                    <span class="volume-dial__knob-label">Volumen</span>
+                </button>
+            </div>
+        </div>
+        <p class="volume-dial__caption">Volumen</p>
+    </div>
+</div>
+
+<audio id="chapterAudio" preload="none" crossorigin="anonymous"></audio>
+<!-- ^ no src yet — add each recorded chapter file as you upload them. -->
+
+<div class="all">
+  <div class="card">
+    <div class="book">
+        <svg class="x" role="button" tabindex="0" aria-label="Ocultar la ficha del libro" aria-expanded="true" aria-controls="bookPanel" style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="white" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+        </svg>
+        <img loading="lazy" decoding="async" src="../../book_covers/la-conversion-de-chiripa.webp" alt="La conversión de Chiripa">
+        <div class="controls">
+            <div class="box" role="button" tabindex="0" aria-label="Escuchar la obra">Escucha ahora</div>
+        </div>
+    </div>
+
+    <div class="panel" id="bookPanel">
+<div class="panel-body"><div class="break"></div>
+<h2>La igualdad empieza por hacer sitio</h2><p>La tormenta vuelve urgente una necesidad elemental: encontrar un lugar donde estar. Pero la ropa y la condición de Chiripa pesan más que esa necesidad en los espacios que lo rechazan. La exclusión se hace concreta en una puerta, un banco y un cuerpo mojado.</p><p class="reading-note">Proclamar la igualdad no equivale a dejar que el otro se siente a nuestro lado.</p><p>La acogida en la iglesia produce una emoción que Chiripa apenas sabe nombrar. Su idea de «alternancia» sitúa el relato en el terreno del trato recibido, no solo de las doctrinas. La conversión invita a preguntar por qué una experiencia mínima de consideración resulta tan extraordinaria para él.</p>
+<p class="source-note">Primera aparición: Los Lunes de El Imparcial, 17 de diciembre de 1894. Recogido en Cuentos morales en 1896. <a href="https://www.cervantesvirtual.com/portales/leopoldo_alas_clarin/obra/la-conversion-de-chiripa--0/">Texto · Biblioteca Virtual Miguel de Cervantes</a>.</p>
+<div class="break"></div><h2>La lectura</h2><p class="chapter" data-time="0" role="button" tabindex="0">Lectura de la obra</p>
+<p class="reading-guide">Grabación próximamente. Aquí podrás escuchar la obra cuando esté disponible.</p>
+<div class="break"></div><h2>Valoración</h2><p class="book-rating"><strong>4.0/5</strong> <span class="feather-tip"><img class="feather-icon" src="../../Images/quetzal-feather.svg" alt="Pluma de quetzal"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="collection-links" aria-label="Continuar en la biblioteca"><a href="un-jornalero.html">← Obra anterior</a><a href="ola-3-slug.html">Tercera Ola</a><a href="misericordia.html">Obra siguiente →</a></nav>
+</main>
+<footer class="site-footer">
+    <a href="../../index.html" aria-label="Santos Armada — inicio">
+        <img src="../../Images/logo-footer-red.png" alt="Santos Armada">
+    </a>
+</footer>
+
+<script src="ola-literary-player.js?v=20261024"></script>
+
+</body>
+</html>

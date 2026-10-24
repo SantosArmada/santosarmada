@@ -1,0 +1,5 @@
+# bernal-la-ciudad-del-agua
+
+Generated with the built-in image generation tool. Cinematic interpretive illustration.
+
+Generate a premium photorealistic literary website hero artwork, landscape 1536x1024 composition, cinematic still with sophisticated practical lighting, lifelike anatomy, detailed material textures, no lettering or watermark. Main action on RIGHT TWO THIRDS, atmospheric negative space on LEFT THIRD. A ground-level arrival on the causeway to Mexico-Tenochtitlan in 1519: foreground RIGHT a weathered Spanish infantryman in padded cotton armor and a simple steel cap, seen from behind in three-quarter profile, stunned by the vast lake city; alongside him distinct Tlaxcalan allies wearing woven cotton and carrying shields, no generic feather warbonnets. In the distance historically researched Mexica twin-temple precinct, white lime-plastered buildings, canals and many canoes, volcanic horizon. Awe with impending tragedy, not triumphalism. Obsidian black, muted ivory, copper-red sunset reflections. LEFT THIRD dark water and atmospheric sky left uncluttered for webpage text.
