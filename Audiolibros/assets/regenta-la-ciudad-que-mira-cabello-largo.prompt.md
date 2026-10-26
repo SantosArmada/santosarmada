@@ -1,0 +1,5 @@
+# La Regenta — revised portrait
+
+Edited with the built-in image generation tool from `regenta-la-ciudad-que-mira.webp`.
+
+Edit the existing cinematic artwork. Preserve the landscape composition, cathedral cloister, architecture, townspeople, wet stone, blue twilight and warm lamps, woman's position, hand on column, luxurious midnight-blue nineteenth-century dress, jewelry, and photorealistic film-still quality. Change only the adult woman's facial identity, complexion and hairstyle. Give her a visibly different individual face with sculpted cheekbones, a slightly broader nose, full natural lips, dark almond-shaped eyes, and an introspective dignified expression. Give her a noticeably darker warm medium-brown complexion with lifelike skin texture under the same scene lighting. Replace the updo with long, sleek, straight nearly black hair, naturally center-parted, falling over her shoulders and down her back to her waist. No curls or updo. Maintain realistic anatomy and coherent light. No text or watermarks.
